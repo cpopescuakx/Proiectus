@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit75c17c67916d3c133d47695c91475e72
+class ComposerStaticInitf636d2dccc4e0ee678e271b71a3f07af
 {
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
@@ -410,15 +410,64 @@ class ComposerStaticInit75c17c67916d3c133d47695c91475e72
     );
 
     public static $classMap = array (
+        'App\\Article' => __DIR__ . '/../..' . '/app/Article.php',
+        'App\\Blog' => __DIR__ . '/../..' . '/app/Blog.php',
+        'App\\Chat' => __DIR__ . '/../..' . '/app/Chat.php',
+        'App\\Chat_member' => __DIR__ . '/../..' . '/app/Chat_member.php',
+        'App\\City' => __DIR__ . '/../..' . '/app/City.php',
+        'App\\Comment' => __DIR__ . '/../..' . '/app/Comment.php',
+        'App\\Company' => __DIR__ . '/../..' . '/app/Company.php',
+        'App\\Company_for_validation' => __DIR__ . '/../..' . '/app/Company_for_validation.php',
+        'App\\Company_users' => __DIR__ . '/../..' . '/app/Company_users.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
+        'App\\DM_container_folder' => __DIR__ . '/../..' . '/app/DM_container_folder.php',
+        'App\\Dm_file' => __DIR__ . '/../..' . '/app/Dm_file.php',
+        'App\\Dm_folder' => __DIR__ . '/../..' . '/app/Dm_folder.php',
+        'App\\Document_manager' => __DIR__ . '/../..' . '/app/Document_manager.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
+        'App\\History' => __DIR__ . '/../..' . '/app/History.php',
+        'App\\Http\\Controllers\\ArticleController' => __DIR__ . '/../..' . '/app/Http/Controllers/ArticleController.php',
         'App\\Http\\Controllers\\Auth\\ConfirmPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ConfirmPasswordController.php',
         'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
         'App\\Http\\Controllers\\Auth\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/LoginController.php',
         'App\\Http\\Controllers\\Auth\\RegisterController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/RegisterController.php',
         'App\\Http\\Controllers\\Auth\\ResetPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ResetPasswordController.php',
         'App\\Http\\Controllers\\Auth\\VerificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/VerificationController.php',
+        'App\\Http\\Controllers\\BlogController' => __DIR__ . '/../..' . '/app/Http/Controllers/BlogController.php',
+        'App\\Http\\Controllers\\ChatController' => __DIR__ . '/../..' . '/app/Http/Controllers/ChatController.php',
+        'App\\Http\\Controllers\\Chat_memberController' => __DIR__ . '/../..' . '/app/Http/Controllers/Chat_memberController.php',
+        'App\\Http\\Controllers\\CityController' => __DIR__ . '/../..' . '/app/Http/Controllers/CityController.php',
+        'App\\Http\\Controllers\\CommentController' => __DIR__ . '/../..' . '/app/Http/Controllers/CommentController.php',
+        'App\\Http\\Controllers\\CompanyController' => __DIR__ . '/../..' . '/app/Http/Controllers/CompanyController.php',
+        'App\\Http\\Controllers\\Company_for_validationsController' => __DIR__ . '/../..' . '/app/Http/Controllers/Company_for_validationsController.php',
+        'App\\Http\\Controllers\\Company_userController' => __DIR__ . '/../..' . '/app/Http/Controllers/Company_userController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
+        'App\\Http\\Controllers\\DM_container_folderController' => __DIR__ . '/../..' . '/app/Http/Controllers/DM_container_folderController.php',
+        'App\\Http\\Controllers\\Dm_fileController' => __DIR__ . '/../..' . '/app/Http/Controllers/Dm_fileController.php',
+        'App\\Http\\Controllers\\Dm_folderController' => __DIR__ . '/../..' . '/app/Http/Controllers/Dm_folderController.php',
+        'App\\Http\\Controllers\\Document_managerController' => __DIR__ . '/../..' . '/app/Http/Controllers/Document_managerController.php',
+        'App\\Http\\Controllers\\HistoryController' => __DIR__ . '/../..' . '/app/Http/Controllers/HistoryController.php',
+        'App\\Http\\Controllers\\Mail_messageController' => __DIR__ . '/../..' . '/app/Http/Controllers/Mail_messageController.php',
+        'App\\Http\\Controllers\\MessageController' => __DIR__ . '/../..' . '/app/Http/Controllers/MessageController.php',
+        'App\\Http\\Controllers\\PostController' => __DIR__ . '/../..' . '/app/Http/Controllers/PostController.php',
+        'App\\Http\\Controllers\\ProjectController' => __DIR__ . '/../..' . '/app/Http/Controllers/ProjectController.php',
+        'App\\Http\\Controllers\\Project_company_memberController' => __DIR__ . '/../..' . '/app/Http/Controllers/Project_company_memberController.php',
+        'App\\Http\\Controllers\\Project_school_memberController' => __DIR__ . '/../..' . '/app/Http/Controllers/Project_school_memberController.php',
+        'App\\Http\\Controllers\\ProposalController' => __DIR__ . '/../..' . '/app/Http/Controllers/ProposalController.php',
+        'App\\Http\\Controllers\\Proposal_tagController' => __DIR__ . '/../..' . '/app/Http/Controllers/Proposal_tagController.php',
+        'App\\Http\\Controllers\\Resource_centerController' => __DIR__ . '/../..' . '/app/Http/Controllers/Resource_centerController.php',
+        'App\\Http\\Controllers\\RoleController' => __DIR__ . '/../..' . '/app/Http/Controllers/RoleController.php',
+        'App\\Http\\Controllers\\SchoolController' => __DIR__ . '/../..' . '/app/Http/Controllers/SchoolController.php',
+        'App\\Http\\Controllers\\School_for_validationController' => __DIR__ . '/../..' . '/app/Http/Controllers/School_for_validationController.php',
+        'App\\Http\\Controllers\\School_proposalsController' => __DIR__ . '/../..' . '/app/Http/Controllers/School_proposalsController.php',
+        'App\\Http\\Controllers\\School_usersController' => __DIR__ . '/../..' . '/app/Http/Controllers/School_usersController.php',
+        'App\\Http\\Controllers\\TagController' => __DIR__ . '/../..' . '/app/Http/Controllers/TagController.php',
+        'App\\Http\\Controllers\\TicketController' => __DIR__ . '/../..' . '/app/Http/Controllers/TicketController.php',
+        'App\\Http\\Controllers\\UserController' => __DIR__ . '/../..' . '/app/Http/Controllers/UserController.php',
+        'App\\Http\\Controllers\\User_projectController' => __DIR__ . '/../..' . '/app/Http/Controllers/User_projectController.php',
+        'App\\Http\\Controllers\\User_proposalController' => __DIR__ . '/../..' . '/app/Http/Controllers/User_proposalController.php',
+        'App\\Http\\Controllers\\VoteController' => __DIR__ . '/../..' . '/app/Http/Controllers/VoteController.php',
+        'App\\Http\\Controllers\\WikiController' => __DIR__ . '/../..' . '/app/Http/Controllers/WikiController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
         'App\\Http\\Middleware\\CheckForMaintenanceMode' => __DIR__ . '/../..' . '/app/Http/Middleware/CheckForMaintenanceMode.php',
@@ -427,12 +476,32 @@ class ComposerStaticInit75c17c67916d3c133d47695c91475e72
         'App\\Http\\Middleware\\TrimStrings' => __DIR__ . '/../..' . '/app/Http/Middleware/TrimStrings.php',
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
+        'App\\Mail_message' => __DIR__ . '/../..' . '/app/Mail_message.php',
+        'App\\Message' => __DIR__ . '/../..' . '/app/Message.php',
+        'App\\Post' => __DIR__ . '/../..' . '/app/Post.php',
+        'App\\Project' => __DIR__ . '/../..' . '/app/Project.php',
+        'App\\Project_company_member' => __DIR__ . '/../..' . '/app/Project_company_member.php',
+        'App\\Project_school_member' => __DIR__ . '/../..' . '/app/Project_school_member.php',
+        'App\\Proposal' => __DIR__ . '/../..' . '/app/Proposal.php',
+        'App\\Proposal_tag' => __DIR__ . '/../..' . '/app/Proposal_tag.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
         'App\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
+        'App\\Resource_center' => __DIR__ . '/../..' . '/app/Resource_center.php',
+        'App\\Role' => __DIR__ . '/../..' . '/app/Role.php',
+        'App\\School' => __DIR__ . '/../..' . '/app/School.php',
+        'App\\School_for_validation' => __DIR__ . '/../..' . '/app/School_for_validation.php',
+        'App\\School_proposals' => __DIR__ . '/../..' . '/app/School_proposals.php',
+        'App\\School_users' => __DIR__ . '/../..' . '/app/School_users.php',
+        'App\\Tag' => __DIR__ . '/../..' . '/app/Tag.php',
+        'App\\Ticket' => __DIR__ . '/../..' . '/app/Ticket.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
+        'App\\User_project' => __DIR__ . '/../..' . '/app/User_project.php',
+        'App\\User_proposals' => __DIR__ . '/../..' . '/app/User_proposals.php',
+        'App\\Vote' => __DIR__ . '/../..' . '/app/Vote.php',
+        'App\\Wiki' => __DIR__ . '/../..' . '/app/Wiki.php',
         'Carbon\\Carbon' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Carbon.php',
         'Carbon\\CarbonImmutable' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/CarbonImmutable.php',
         'Carbon\\CarbonInterface' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/CarbonInterface.php',
@@ -497,7 +566,6 @@ class ComposerStaticInit75c17c67916d3c133d47695c91475e72
         'DeepCopy\\TypeFilter\\Date\\DateIntervalFilter' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/TypeFilter/Date/DateIntervalFilter.php',
         'DeepCopy\\TypeFilter\\ReplaceFilter' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/TypeFilter/ReplaceFilter.php',
         'DeepCopy\\TypeFilter\\ShallowCopyFilter' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/TypeFilter/ShallowCopyFilter.php',
-        'DeepCopy\\TypeFilter\\Spl\\ArrayObjectFilter' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/TypeFilter/Spl/ArrayObjectFilter.php',
         'DeepCopy\\TypeFilter\\Spl\\SplDoublyLinkedList' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/TypeFilter/Spl/SplDoublyLinkedList.php',
         'DeepCopy\\TypeFilter\\Spl\\SplDoublyLinkedListFilter' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/TypeFilter/Spl/SplDoublyLinkedListFilter.php',
         'DeepCopy\\TypeFilter\\TypeFilter' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/TypeFilter/TypeFilter.php',
@@ -4425,10 +4493,10 @@ class ComposerStaticInit75c17c67916d3c133d47695c91475e72
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit75c17c67916d3c133d47695c91475e72::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit75c17c67916d3c133d47695c91475e72::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit75c17c67916d3c133d47695c91475e72::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInit75c17c67916d3c133d47695c91475e72::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInitf636d2dccc4e0ee678e271b71a3f07af::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitf636d2dccc4e0ee678e271b71a3f07af::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInitf636d2dccc4e0ee678e271b71a3f07af::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInitf636d2dccc4e0ee678e271b71a3f07af::$classMap;
 
         }, null, ClassLoader::class);
     }
