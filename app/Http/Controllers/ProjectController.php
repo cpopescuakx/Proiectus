@@ -18,6 +18,7 @@ class ProjectController extends Controller
         $projects = Project::all();
         return view('projects.index', compact('projects'))
             ->with('i', (request()->input('page', 1) -1));
+        // return view('projects.index');
 
     }
 
@@ -79,7 +80,7 @@ class ProjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Project $project)
     {
         //
         return view('projects.edit', compact('project'));
@@ -110,8 +111,11 @@ class ProjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Project $project)
     {
         //
+        $project->delete();
+        return redirect()->route('projects.index')
+            ->with('success', 'Projecte esborrat correctament');
     }
 }
