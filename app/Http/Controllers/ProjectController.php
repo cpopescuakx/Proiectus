@@ -49,7 +49,9 @@ class ProjectController extends Controller
             ->withInput();
         }
         else{
-            // Guardar Projecte
+            $project = Project::create($request->except('csrf'));
+            // Mostra les dades amb JSON
+            return $post->toJson();
         }
     }
 
