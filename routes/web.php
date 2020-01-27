@@ -13,6 +13,7 @@
 
 Route::get('/', function () {
     return view('welcome');
+<<<<<<< HEAD
 })->name('home');
  
 /* Tickets */
@@ -46,3 +47,6 @@ Route::get('/school/{id}/edit', 'SchoolController@edit')->name('school.edit');
 Route::get('/school/{id}/delete', 'SchoolController@destroy')->name('school.destroy');
 Route::post('/school/create', 'SchoolController@store')->name('school.store');
 Route::post('/school/update', 'SchoolController@update')->name('school.update');
+=======
+});
+>>>>>>> e179a6c66a3bb40055a8d531aa80d4a5c731f966
