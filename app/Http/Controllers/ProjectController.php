@@ -34,7 +34,23 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Validar que els camps estiguin correctes.
+        $validator = Validator::make($request->all(),
+        ['name' => 'required|unique:projects|max:50',
+        'budget' => 'required|numeric',
+        'description' => 'required',
+        'professional_family' => 'required|max:50',
+        ]);
+
+        // Si no ho estan, redirigir al formulari de creació i mostrar els errors
+        if ($validator->fails()) {
+            return redirect('project/create')
+            ->withErrors($validator)
+            ->withInput();
+        }
+        else{
+            // Guardar Projecte
+        }
     }
 
     /**
