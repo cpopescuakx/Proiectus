@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Project;
 use Illuminate\Http\Request;
 
 class ProjectController extends Controller
@@ -14,6 +15,10 @@ class ProjectController extends Controller
     public function index()
     {
         //
+        $projects = Project::all();
+        return view('projects.index', compact('projects'));
+            ->with('i', (request()->input('page', 1) -1));
+
     }
 
     /**
@@ -24,6 +29,7 @@ class ProjectController extends Controller
     public function create()
     {
         //
+        return view('projects.create');
     }
 
     /**
@@ -49,7 +55,9 @@ class ProjectController extends Controller
             ->withInput();
         }
         else{
-            // Guardar Projecte
+            $project = Project::create($request->except('csrf'));
+            // Mostra les dades amb JSON
+            return $post->toJson();
         }
     }
 
@@ -59,9 +67,10 @@ class ProjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Project $project)
     {
         //
+        return view('projects.show',compact('project'));
     }
 
     /**
@@ -73,6 +82,7 @@ class ProjectController extends Controller
     public function edit($id)
     {
         //
+        return view('projects.edit', compact('project'));
     }
 
     /**
@@ -82,9 +92,16 @@ class ProjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Project $project)
     {
         //
+        self::store($request);
+        $project->update($request->all());
+
+        return redirect()->route('projects.index')
+            ->with('succes','Projecte actualitzat correctament');
+
+
     }
 
     /**
