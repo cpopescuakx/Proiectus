@@ -19,8 +19,6 @@ use Symfony\Component\Translation\DataCollectorTranslator;
 
 /**
  * @author Abdellatif Ait boudad <a.aitboudad@gmail.com>
- *
- * @final since Symfony 4.4
  */
 class TranslationDataCollector extends DataCollector implements LateDataCollectorInterface
 {
@@ -46,10 +44,8 @@ class TranslationDataCollector extends DataCollector implements LateDataCollecto
 
     /**
      * {@inheritdoc}
-     *
-     * @param \Throwable|null $exception
      */
-    public function collect(Request $request, Response $response/*, \Throwable $exception = null*/)
+    public function collect(Request $request, Response $response, \Exception $exception = null)
     {
         $this->data['locale'] = $this->translator->getLocale();
         $this->data['fallback_locales'] = $this->translator->getFallbackLocales();
@@ -116,7 +112,7 @@ class TranslationDataCollector extends DataCollector implements LateDataCollecto
         return 'translation';
     }
 
-    private function sanitizeCollectedMessages(array $messages)
+    private function sanitizeCollectedMessages($messages)
     {
         $result = [];
         foreach ($messages as $key => $message) {
@@ -141,7 +137,7 @@ class TranslationDataCollector extends DataCollector implements LateDataCollecto
         return $result;
     }
 
-    private function computeCount(array $messages)
+    private function computeCount($messages)
     {
         $count = [
             DataCollectorTranslator::MESSAGE_DEFINED => 0,
@@ -156,7 +152,7 @@ class TranslationDataCollector extends DataCollector implements LateDataCollecto
         return $count;
     }
 
-    private function sanitizeString(string $string, int $length = 80)
+    private function sanitizeString($string, $length = 80)
     {
         $string = trim(preg_replace('/\s+/', ' ', $string));
 
