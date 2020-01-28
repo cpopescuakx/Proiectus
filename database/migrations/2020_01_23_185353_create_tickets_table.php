@@ -19,7 +19,7 @@ class CreateTicketsTable extends Migration
             $table->string('type', 50);
             $table->enum('priority', ['low', 'medium', 'high']);
             $table->datetime('creation_date')->useCurrent();
-            $table->datetime('solved_date');
+            $table->datetime('solved_date')->nullable();
             $table->integer('id_assigned_user');
             $table->integer('id_author');
             $table->enum('status', ['pending', 'in progress', 'resolved'])->default('pending');

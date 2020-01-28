@@ -48,13 +48,9 @@ abstract class HighlightResult
     /** @var bool */
     public $illegal;
 
-    /** @var Mode|null */
+    /** @var Language|null */
     public $top;
 
     /** @var \Exception|null */
     public $errorRaised;
-
-    // @TODO In v10.x, remove \stdClass from this type
-    /** @var \stdClass|HighlightResult|null */
-    public $secondBest;
 }

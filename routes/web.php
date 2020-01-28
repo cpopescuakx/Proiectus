@@ -14,7 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 })->name('home');
- 
+
 /* Tickets */
 Route::get('/ticket', 'TicketController@index')->name('ticket.index');
 Route::get('/ticket/create', 'TicketController@create')->name('ticket.create');

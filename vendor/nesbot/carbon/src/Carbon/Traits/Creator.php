@@ -32,8 +32,6 @@ use InvalidArgumentException;
  */
 trait Creator
 {
-    use ObjectInitialisation;
-
     /**
      * The errors that can occur.
      *
@@ -76,21 +74,11 @@ trait Creator
 
         parent::__construct($time ?: 'now', static::safeCreateDateTimeZone($tz));
 
-        $this->constructedObjectId = spl_object_hash($this);
-
         if (isset($locale)) {
             setlocale(LC_NUMERIC, $locale);
         }
 
         static::setLastErrors(parent::getLastErrors());
-    }
-
-    /**
-     * Update constructedObjectId on cloned.
-     */
-    public function __clone()
-    {
-        $this->constructedObjectId = spl_object_hash($this);
     }
 
     /**
@@ -111,13 +99,7 @@ trait Creator
         $instance = new static($date->format('Y-m-d H:i:s.u'), $date->getTimezone());
 
         if ($date instanceof CarbonInterface || $date instanceof Options) {
-            $settings = $date->getSettings();
-
-            if (!$date->hasLocalTranslator()) {
-                unset($settings['locale']);
-            }
-
-            $instance->settings($settings);
+            $instance->settings($date->getSettings());
         }
 
         return $instance;
