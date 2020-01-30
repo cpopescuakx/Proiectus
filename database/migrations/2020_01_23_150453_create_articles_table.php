@@ -14,7 +14,7 @@ class CreateArticlesTable extends Migration
     public function up()
     {
         Schema::create('articles', function (Blueprint $table) {
-            
+
             $table->integer('id_article')->autoIncrement();
             $table->integer('id_project');
             $table->integer('version');
@@ -24,7 +24,7 @@ class CreateArticlesTable extends Migration
             $table->longText('reference');
             $table->integer('id_user');
             $table->enum('status', ['active', 'inactive'])->default('active');
-
+            
 
 
 
