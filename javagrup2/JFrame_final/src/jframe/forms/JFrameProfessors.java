@@ -15,16 +15,8 @@ import jframe.classes.LlistaGrups;
 import jframe.classes.LlistaMatricules;
 import jframe.classes.LlistaProfessor;
 import jframe.classes.Professor;
-import jframe.principal.Main;
-
-import java.io.IOException;
-import java.util.logging.FileHandler;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class JFrameProfessors extends javax.swing.JFrame {
-
-
 
     public static LlistaMatricules ll_m;
     public static LlistaAlumnes ll_a;
@@ -281,36 +273,33 @@ public class JFrameProfessors extends javax.swing.JFrame {
     }//GEN-LAST:event_TaulaMouseClicked
 
 //Event per a modificar un professor
-        private void botoModificarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botoModificarMouseClicked
-            if (selectedItem != -1) {
-                //Missatge de confirmació per a modificar el professor seleccionat
-                int conf = JOptionPane.showConfirmDialog(this,
-                        "Esteu segurs de modificar les dades d'aquest professor?",
-                        "Confirmar",
-                        JOptionPane.YES_NO_OPTION);
+    private void botoModificarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botoModificarMouseClicked
+        if (selectedItem != -1) {
+            //Missatge de confirmació per a modificar el professor seleccionat
+            int conf = JOptionPane.showConfirmDialog(this,
+                    "Esteu segurs de modificar les dades d'aquest professor?",
+                    "Confirmar",
+                    JOptionPane.YES_NO_OPTION);
 
-                //Codi que s'executa quan l'opció és afirmativa
-                if (conf == JOptionPane.YES_OPTION) {
-                    JFrameModificarProfessors m = new JFrameModificarProfessors(ll_m, ll_a, ll_g, ll_p, selectedItem);
-                    m.setVisible(true);
-                    this.setVisible(false);
-                    selectedItem = -1;
-                }
-
-            } else {
-                //Missatge que es mostra quan no hi ha cap professor seleccionat
-                JOptionPane.showMessageDialog(this, "Per a realitzar aquesta acció, heu d'escollir un professor de la taula!", "Error", JOptionPane.WARNING_MESSAGE);
+            //Codi que s'executa quan l'opció és afirmativa
+            if (conf == JOptionPane.YES_OPTION) {
+                JFrameModificarProfessors m = new JFrameModificarProfessors(ll_m, ll_a, ll_g, ll_p, selectedItem);
+                m.setVisible(true);
+                this.setVisible(false);
+                selectedItem = -1;
             }
 
-        }//GEN-LAST:event_botoModificarMouseClicked
+        } else {
+            //Missatge que es mostra quan no hi ha cap professor seleccionat
+            JOptionPane.showMessageDialog(this, "Per a realitzar aquesta acció, heu d'escollir un professor de la taula!", "Error", JOptionPane.WARNING_MESSAGE);
+        }
 
-
+    }//GEN-LAST:event_botoModificarMouseClicked
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-
 
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {

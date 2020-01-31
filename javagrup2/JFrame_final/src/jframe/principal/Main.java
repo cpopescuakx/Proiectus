@@ -7,20 +7,14 @@ package jframe.principal;
 
 import jframe.classes.*;
 import jframe.forms.JFrameMenuPrincipal;
-import java.util.logging.FileHandler;
-import java.util.logging.Logger;
-import java.util.logging.Level;
-import java.io.IOException;
+
 /**
  *
  * @author josep
  */
 public class Main {
 
-
-    public static void main(String[] args)  throws IOException {
-
-
+    public static void main(String[] args) {
         LlistaMatricules ll_m = new LlistaMatricules();
         LlistaAlumnes ll_a = new LlistaAlumnes();
         LlistaGrups ll_g = new LlistaGrups();
@@ -32,4 +26,3 @@ public class Main {
         m.setVisible(true);//Mostrem la pantalla principal
     }
 }
-
