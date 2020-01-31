@@ -14,6 +14,6 @@ class Project extends Model
      * 
      * @var string
      */
-    private $table = 'projects';
-    private $primaryKey = 'id_project';
+    protected $table = 'projects';
+    protected $primaryKey = 'id_project';
 }
