@@ -80,6 +80,8 @@ public class JFrameGrups extends javax.swing.JFrame {
         modificarGrup = new javax.swing.JButton();
         borrarGrup = new javax.swing.JButton();
         back = new javax.swing.JButton();
+        botoImportar = new javax.swing.JButton();
+        botoExportar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -177,6 +179,20 @@ public class JFrameGrups extends javax.swing.JFrame {
             }
         });
 
+        botoImportar.setText("Importar");
+        botoImportar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botoImportarActionPerformed(evt);
+            }
+        });
+
+        botoExportar.setText("Exportar");
+        botoExportar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botoExportarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -196,7 +212,10 @@ public class JFrameGrups extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(9, 9, 9)
                                 .addComponent(grupsTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(botoImportar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(botoExportar))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(modificarGrup, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -211,7 +230,11 @@ public class JFrameGrups extends javax.swing.JFrame {
                     .addComponent(back)
                     .addComponent(searchGroups, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(grupsTitle)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(grupsTitle)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(botoExportar)
+                        .addComponent(botoImportar)))
                 .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(afegirGrup)
@@ -315,6 +338,17 @@ public class JFrameGrups extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_modificarGrupActionPerformed
 
+    private void botoImportarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botoImportarActionPerformed
+        JFrameCSVImport csv = new JFrameCSVImport(ll_m,ll_a, ll_g, ll_p, 1);
+        csv.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_botoImportarActionPerformed
+
+    private void botoExportarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botoExportarActionPerformed
+        JFrameCSVExport csv = new JFrameCSVExport(ll_m,ll_a, ll_g, ll_p, 1);
+        csv.setVisible(true);
+        dispose();    }//GEN-LAST:event_botoExportarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -357,6 +391,8 @@ public class JFrameGrups extends javax.swing.JFrame {
     private javax.swing.JButton afegirGrup;
     private javax.swing.JButton back;
     private javax.swing.JButton borrarGrup;
+    private javax.swing.JButton botoExportar;
+    private javax.swing.JButton botoImportar;
     private javax.swing.JLabel grupsTitle;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton modificarGrup;
