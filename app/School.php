@@ -7,4 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 class School extends Model
 {
     //
+    public $timestamps = false;
+    protected $fillable = [
+     'email',
+     'name',
+     'code',
+     'type',
+
+    ];
 }

@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\School;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class SchoolController extends Controller
 {
@@ -14,6 +16,8 @@ class SchoolController extends Controller
     public function index()
     {
         //
+        $data['schools'] = School::orderBy('id_school','desc')->paginate(10);
+        return view('school.list', $data);
     }
 
     /**
@@ -24,6 +28,7 @@ class SchoolController extends Controller
     public function create()
     {
         //
+        return view('school.create');
     }
 
     /**
@@ -35,6 +40,18 @@ class SchoolController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'email' => 'required',
+            'name' => 'required',
+            'code' => 'required',
+            'type' => 'required',
+        ]);
+
+        School::create($request->all());
+
+        return Redirect::to('school')
+       ->with('Éxit! L institut s ha creat correctament!');
+
     }
 
     /**
