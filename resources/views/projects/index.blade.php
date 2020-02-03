@@ -15,6 +15,10 @@
     </tr>
 </thead>
 
+<a href="{{ route('projects.create') }}" class="btn btn-primary">Crear</a>
+
+
+
 @if ($message = Session::get('success'))
     <div class="alert alert-success">
         <p>{{$message}}</p>
