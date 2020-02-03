@@ -11,8 +11,6 @@
 |
 */
 
-use Illuminate\Routing\Route;
-
 Route::get('/', function () {
     return view('welcome');
 })->name('home');
@@ -26,12 +24,14 @@ Route::post('/ticket/create', 'TicketController@store')->name('ticket.store');
 Route::post('/ticket/update', 'TicketController@update')->name('ticket.update');
 
 /* Companies */
-Route::get('/company', 'CompanyController@index')->name('company.index');
-Route::get('/company/create', 'CompanyController@create')->name('company.create');
-Route::get('/company/{id}/edit', 'CompanyController@edit')->name('company.edit');
-Route::get('/company/{id}/delete', 'CompanyController@destroy')->name('company.destroy');
-Route::post('/company/create', 'CompanyController@store')->name('company.store');
-Route::post('/company/update', 'CompanyController@update')->name('company.update');
+Route::resource('companies', 'CompanyController');
+
+Route::get('/companies', 'CompanyController@index')->name('company.index');
+Route::get('/companies/create', 'CompanyController@create')->name('company.create');
+Route::get('/companies/{id}/edit', 'CompanyController@edit')->name('company.edit');
+Route::get('/companies/{id}/delete', 'CompanyController@destroy')->name('company.destroy');
+Route::post('/companies/create', 'CompanyController@store')->name('company.store');
+Route::post('/companies/update', 'CompanyController@update')->name('company.update');
 
 /* Users */
 Route::get('/gestor', 'UserController@index')->name('user.index');
