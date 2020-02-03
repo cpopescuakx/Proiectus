@@ -106,6 +106,8 @@ public class JFrameAlumnes extends javax.swing.JFrame {
         eliminar = new javax.swing.JButton();
         buscador = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        botoExportar = new javax.swing.JButton();
+        botoImportar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -185,6 +187,20 @@ public class JFrameAlumnes extends javax.swing.JFrame {
         }
     });
 
+    botoExportar.setText("Exportar");
+    botoExportar.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            botoExportarActionPerformed(evt);
+        }
+    });
+
+    botoImportar.setText("Importar");
+    botoImportar.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            botoImportarActionPerformed(evt);
+        }
+    });
+
     javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
     getContentPane().setLayout(layout);
     layout.setHorizontalGroup(
@@ -203,7 +219,12 @@ public class JFrameAlumnes extends javax.swing.JFrame {
                     .addGap(55, 55, 55)
                     .addComponent(jButton1)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(buscador, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(buscador, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addComponent(botoImportar)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(botoExportar)))))
             .addGap(58, 58, 58))
         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
             .addGap(0, 0, Short.MAX_VALUE)
@@ -215,14 +236,18 @@ public class JFrameAlumnes extends javax.swing.JFrame {
         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(buscador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(layout.createSequentialGroup()
                     .addGap(29, 29, 29)
-                    .addComponent(jButton1)))
-            .addGap(25, 25, 25)
-            .addComponent(jLabel1)
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
+                    .addComponent(jButton1)
+                    .addGap(26, 26, 26)
+                    .addComponent(jLabel1))
+                .addGroup(layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(buscador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(botoExportar)
+                        .addComponent(botoImportar))))
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(afegir, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addComponent(modificar, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -321,6 +346,18 @@ public class JFrameAlumnes extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void botoImportarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botoImportarActionPerformed
+        JFrameCSVImport csv = new JFrameCSVImport(ll_m,ll_a, ll_g, ll_p, 3);
+        csv.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_botoImportarActionPerformed
+
+    private void botoExportarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botoExportarActionPerformed
+        JFrameCSVExport csv = new JFrameCSVExport(ll_m,ll_a, ll_g, ll_p, 3);
+        csv.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_botoExportarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -364,6 +401,8 @@ public class JFrameAlumnes extends javax.swing.JFrame {
     private DefaultTableModel model;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton afegir;
+    private javax.swing.JButton botoExportar;
+    private javax.swing.JButton botoImportar;
     private javax.swing.JTextField buscador;
     private javax.swing.JButton eliminar;
     private javax.swing.JButton jButton1;

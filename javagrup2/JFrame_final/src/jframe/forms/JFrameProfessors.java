@@ -74,6 +74,8 @@ public class JFrameProfessors extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         Taula = new javax.swing.JTable();
         AfegirProfessor = new javax.swing.JButton();
+        botoImportar = new javax.swing.JButton();
+        botoExportar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -148,6 +150,20 @@ public class JFrameProfessors extends javax.swing.JFrame {
             }
         });
 
+        botoImportar.setText("Importar");
+        botoImportar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botoImportarActionPerformed(evt);
+            }
+        });
+
+        botoExportar.setText("Exportar");
+        botoExportar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botoExportarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -157,8 +173,15 @@ public class JFrameProfessors extends javax.swing.JFrame {
                 .addComponent(botoSortir, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(306, 306, 306)
-                .addComponent(SearchProfessors, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(306, 306, 306)
+                        .addComponent(SearchProfessors, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(botoImportar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(botoExportar)))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(86, Short.MAX_VALUE)
@@ -178,7 +201,11 @@ public class JFrameProfessors extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(SearchProfessors, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(SearchProfessors, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(botoExportar)
+                            .addComponent(botoImportar)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(25, 25, 25)
                         .addComponent(botoSortir))
@@ -296,6 +323,18 @@ public class JFrameProfessors extends javax.swing.JFrame {
 
     }//GEN-LAST:event_botoModificarMouseClicked
 
+    private void botoImportarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botoImportarActionPerformed
+        JFrameCSVImport csv = new JFrameCSVImport(ll_m,ll_a, ll_g, ll_p, 0);
+        csv.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_botoImportarActionPerformed
+
+    private void botoExportarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botoExportarActionPerformed
+        JFrameCSVExport csv = new JFrameCSVExport(ll_m,ll_a, ll_g, ll_p, 0);
+        csv.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_botoExportarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -333,6 +372,8 @@ public class JFrameProfessors extends javax.swing.JFrame {
     private javax.swing.JTextField SearchProfessors;
     private static javax.swing.JTable Taula;
     private javax.swing.JButton botoBaixa;
+    private javax.swing.JButton botoExportar;
+    private javax.swing.JButton botoImportar;
     private javax.swing.JButton botoModificar;
     private javax.swing.JButton botoSortir;
     private javax.swing.JLabel jLabel1;
