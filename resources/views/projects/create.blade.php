@@ -16,7 +16,7 @@
         </tr>
         <br>
         <tr><td>Pressupost:</td><br>
-          <td><input type="text" name="pro_family"></td>
+          <td><input type="text" name="budget"></td>
         </tr>
         <br>
         <tr><td>Descripció :</td><br>
@@ -24,7 +24,7 @@
         </tr>
         <br>
         <tr><td>Familia Professional:</td><br>
-          <td><input type="text" name="budget"></td>
+          <td><input type="text" name="pro_family"></td>
         </tr>
         <br>
         <input name='crear' value='Crear' type='submit'/>
