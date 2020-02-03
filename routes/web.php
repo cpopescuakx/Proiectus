@@ -27,5 +27,5 @@ Route::get('projects/create', function(){
 Route::post('projects', 'ProjectController@store')
 ->name('projects.store');
 
-Route::post('projects', 'ProjectController@destroy')
-->name('projects.destroy');
+/* Route::post('projects', 'ProjectController@destroy')
+->name('projects.destroy'); */
