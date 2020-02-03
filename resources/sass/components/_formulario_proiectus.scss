@@ -1,0 +1,42 @@
+
+.content.formulari{
+    background:linear-gradient(180deg, $primary 0%, $quaternary 35%, $light 100%);;
+    //background-color: $light;
+    z-index: 1;
+    overflow-x: hidden;
+}
+
+form{
+    .contact-image{
+        z-index: 2;
+        top: 10vh;
+        border-radius: 8%;
+        margin-right: auto;
+        object-fit: cover;
+    }
+
+    .contact-form {
+        border-radius: 20px;
+        background:white;
+        margin-top: 5%;
+        margin-bottom: 5%;
+        padding-top: 5%;
+        padding-bottom: 5%;
+        width: fit-content;
+    }
+    .pagination {
+        justify-content: center;
+    }
+    .margleft-410px {
+      margin-left: 410px;
+      justify-content: space-around;
+    }
+    .form-img {
+      background-color: white;
+      border-radius: 20px;
+    }
+}
+
+
+
+//formulario_proiectus
