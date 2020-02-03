@@ -85,7 +85,7 @@ class CompanyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,Company $empresa)
     {
         $request->validate([
             'email' => 'required',
@@ -94,12 +94,12 @@ class CompanyController extends Controller
             'sector' => 'required',
         ]);
 
-        $update = ['email' => $request->email, 'name' => $request->name,
-        'nif' => $request->nif, 'sector' => $request->sector];
-        Company::where('id_company',$id)->update($update);
+         $empresa->update($request->all());
 
-        return Redirect::to('companies')
-       ->with('Éxit','L empresa s ha modificat correctament!');
+         return redirect()->route('company.index')
+                          ->with('Éxit','L empresa s ha modificat correctament!');
+
+
     }
 
     /**

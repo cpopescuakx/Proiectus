@@ -13,10 +13,10 @@
                  <th>EMAIL</th>
                  <th>NOM</th>
                  <th>NIF</th>
-                 <th>ADREÇA</th>
-                 <th>TELÉFON</th>
+                 <!--<th>ADREÇA</th>-->
+                 <!--<th>TELÉFON</th>-->
                  <th>SECTOR</th>
-                 <th>ID CIUTAT</th>
+                 <!--<th>ID CIUTAT</th>-->
                  <th>ESTAT</th>
                  <td colspan="2">ACTION</td>
               </tr>
@@ -28,10 +28,10 @@
                  <td>{{ $company->email }}</td>
                  <td>{{ $company->name }}</td>
                  <td>{{ $company->nif }}</td>
-                 <td>{{ $company->address }}</td>
-                 <td>{{ $company->phone_number }}</td>
+                 <!--<td>{{ $company->address }}</td>-->
+                 <!--<td>{{ $company->phone_number }}</td>-->
                  <td>{{ $company->sector }}</td>
-                 <td>{{ $company->id_city }}</td>
+                 <!--<td>{{ $company->id_city }}</td>-->
                  <td>{{ $company->status }}</td>
                  <!--<td>{{ date('Y-m-d', strtotime($company->created_at)) }}</td>-->
                  <td><a href="{{ route('companies.edit',$company->id_company)}}" class="btn btn-primary">EDITA</a></td>

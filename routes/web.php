@@ -25,6 +25,8 @@ Route::post('/ticket/update', 'TicketController@update')->name('ticket.update');
 
 /* Companies */
 Route::resource('companies', 'CompanyController');
+Route::get('companies', 'CompanyController@show')->name('company');
+
 
 Route::get('/companies', 'CompanyController@index')->name('company.index');
 Route::get('/companies/create', 'CompanyController@create')->name('company.create');
