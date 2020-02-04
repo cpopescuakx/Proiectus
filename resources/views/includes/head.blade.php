@@ -3,7 +3,7 @@
 <meta name="Saquib" content="Blade">
 <title>Checkout our layout</title>
 <!-- Bootstrap core CSS -->
-<link rel="stylesheet" type="text/css" href="../../resources/sass/main.css">
+<link rel="stylesheet" type="text/css" href="../sass/main.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUIyJ" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
