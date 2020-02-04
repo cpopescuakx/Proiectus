@@ -23,6 +23,10 @@ public class LlistaMatricules {
     static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
     static String actualData = date.format(formatter);
 
+    public int getComptadorMatricules() {
+        return this.contador;
+    }
+
     //Metode per a inserir matricules en l'array de matricules
     public void inserirMatricula(String institut, Alumne alumne, Grup grup){
 

@@ -31,7 +31,7 @@ public class LlistaAlumnes {
 
     /* Afegeix un alumne a la llista */
     public void afegirAlumne(String nom, String cognom, String email, String dni, String centre, String data) {
-        this.llistaAlumnes[comptadorAlumnes] = new Alumne(comptadorAlumnes, nom, cognom, email, dni, data, centre, 0.0, "Actiu");
+        this.llistaAlumnes[comptadorAlumnes] = new Alumne(comptadorAlumnes, nom, cognom, email, dni, data, centre, "Actiu");
         this.comptadorAlumnes++;
     }
 
