@@ -1,7 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f73f4ab9-1b2d-4d29-9289-15bfcc0c73d2" name="Default Changelist" comment="" />
+    <list default="true" id="f73f4ab9-1b2d-4d29-9289-15bfcc0c73d2" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/info.log" beforeDir="false" afterPath="$PROJECT_DIR$/dist/info.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JFrame_final/jframe/classes/Alumne.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JFrame_final/jframe/classes/Alumne.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JFrame_final/jframe/classes/Grup.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JFrame_final/jframe/classes/Grup.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JFrame_final/jframe/classes/LlistaAlumnes.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JFrame_final/jframe/classes/LlistaAlumnes.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JFrame_final/jframe/classes/LlistaMatricules.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JFrame_final/jframe/classes/LlistaMatricules.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JFrame_final/jframe/classes/Matricula.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JFrame_final/jframe/classes/Matricula.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JFrame_final/jframe/classes/Professor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JFrame_final/jframe/classes/Professor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JFrame_final/jframe/forms/JFrameMatricula$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JFrame_final/jframe/forms/JFrameMatricula$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JFrame_final/jframe/forms/JFrameMatricula$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JFrame_final/jframe/forms/JFrameMatricula$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JFrame_final/jframe/forms/JFrameMatricula$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JFrame_final/jframe/forms/JFrameMatricula$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JFrame_final/jframe/forms/JFrameMatricula$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JFrame_final/jframe/forms/JFrameMatricula$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JFrame_final/jframe/forms/JFrameMatricula$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JFrame_final/jframe/forms/JFrameMatricula$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JFrame_final/jframe/forms/JFrameMatricula$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JFrame_final/jframe/forms/JFrameMatricula$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JFrame_final/jframe/forms/JFrameMatricula$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JFrame_final/jframe/forms/JFrameMatricula$7.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JFrame_final/jframe/forms/JFrameMatricula$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JFrame_final/jframe/forms/JFrameMatricula$8.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JFrame_final/jframe/forms/JFrameMatricula$9.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JFrame_final/jframe/forms/JFrameMatricula.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JFrame_final/jframe/forms/JFrameMatricula.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -16,8 +35,10 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+    <option name="UPDATE_TYPE" value="MERGE" />
   </component>
   <component name="ProjectId" id="1WqPuEEeTdOWoxDcsBshIN0r0UH" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -83,26 +104,30 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="449" y="177" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1580219425989" />
-    <state width="1323" height="179" key="GridCell.Tab.0.bottom" timestamp="1580487821327">
+    <state width="1323" height="179" key="GridCell.Tab.0.bottom" timestamp="1580827170516">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1580487821327" />
-    <state width="1323" height="179" key="GridCell.Tab.0.center" timestamp="1580487821327">
+    <state width="1323" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1580827170516" />
+    <state width="1323" height="179" key="GridCell.Tab.0.center" timestamp="1580827170516">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="179" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1580487821327" />
-    <state width="1323" height="179" key="GridCell.Tab.0.left" timestamp="1580487821327">
+    <state width="1323" height="179" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1580827170516" />
+    <state width="1323" height="179" key="GridCell.Tab.0.left" timestamp="1580827170516">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="179" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1580487821327" />
-    <state width="1323" height="179" key="GridCell.Tab.0.right" timestamp="1580487821327">
+    <state width="1323" height="179" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1580827170516" />
+    <state width="1323" height="179" key="GridCell.Tab.0.right" timestamp="1580827170516">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1580487821327" />
+    <state width="1323" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1580827170516" />
     <state x="384" y="189" key="com.intellij.ide.util.TipDialog" timestamp="1580481409441">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="384" y="189" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1580481409441" />
+    <state x="492" y="282" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1580827166678">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="492" y="282" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1580827166678" />
     <state x="389" y="0" key="refactoring.ChangeSignatureDialog" timestamp="1580486967138">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -122,12 +147,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/jframe/classes/LlistaMatricules.java</url>
-          <line>74</line>
+          <line>78</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/jframe/classes/LlistaMatricules.java</url>
-          <line>73</line>
+          <line>77</line>
           <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
@@ -148,7 +173,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/jframe/classes/LlistaMatricules.java</url>
-          <line>44</line>
+          <line>48</line>
           <properties class="jframe.classes.LlistaMatricules" method="consulta">
             <option name="EMULATED" value="true" />
           </properties>
