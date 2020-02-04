@@ -57,4 +57,8 @@ public class Grup {
     public String toString() {
         return nomGrup + " " + nomCurtGrup + " " + familiaProfessional;
     }
+    
+    public String toStringComes() {
+        return nomGrup + "," + nomCurtGrup + "," + familiaProfessional;
+    }
 }

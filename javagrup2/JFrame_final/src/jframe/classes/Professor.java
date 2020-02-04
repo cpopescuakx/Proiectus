@@ -150,5 +150,9 @@ public class Professor{
     public String toString(){
         return ID + " " + nom + " " + cognom + " " + email + " " + DNI + " " + data_naixement + " " + data_alta + " " + escola + " " + departament + " " + salari + " " + data_baixa + " " + estat;
     }
+    
+    public String toStringComes(){
+        return ID + "," + nom + "," + cognom + "," + email + "," + DNI + "," + data_naixement + "," + data_alta + "," + escola + "," + departament + "," + salari + "," + data_baixa + "," + estat;
+    }
 
 }

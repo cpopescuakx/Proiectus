@@ -93,5 +93,17 @@ public class Matricula {
     public String toString() {
         return this.getID() + " " + this.getInstitut() + this.getGrup() + " " + this.getUsuari() + " " + this.getData_alta() + " " + this.getData_baixa() + " " + this.getEstat();
     }
+    
+    public String getUsuariString(){
+        return alumne.getNom();
+    }
+    
+    public String getGrupString(){
+        return grup.getNomGrup();
+    }
+    
+    public String toStringComes() {
+        return this.getID() + "," + this.getInstitut() + "," + this.getUsuariString()+ "," + this.getGrupString()+ "," + this.getData_alta() + "," + this.getData_baixa() + "," + this.getEstat();
+    }
 
 }

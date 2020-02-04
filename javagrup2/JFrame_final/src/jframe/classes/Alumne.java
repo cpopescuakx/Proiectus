@@ -13,23 +13,23 @@ public class Alumne {
     private String email;
     private String dni;
     private String data_naixement;
-    private String data_alta;
+    //private String data_alta;
     private String escola;
-    private double mitjana;
+    //private double mitjana;
     private String estat;
 
     /* Constructors */
     
-    public Alumne(int id, String nom, String cognom, String email, String dni, String data_naixement, String escola, double mitjana, String estat) {
+    public Alumne(int id, String nom, String cognom, String email, String dni, String data_naixement, String escola, String estat) {
         this.id = id;
         this.nom = nom;
         this.cognom = cognom;
         this.email = email;
         this.dni = dni;
         this.data_naixement = data_naixement;
-        this.data_alta = agafarDataActual();;
+        //this.data_alta = agafarDataActual();;
         this.escola = escola;
-        this.mitjana = mitjana;
+        //this.mitjana = mitjana;
         this.estat = estat;
     }
     
@@ -39,9 +39,9 @@ public class Alumne {
         this.email = email;
         this.dni = dni;
         this.data_naixement = data_naixement;
-        this.data_alta = agafarDataActual();;
+        //this.data_alta = agafarDataActual();;
         this.escola = escola;
-        this.mitjana = mitjana;
+        //this.mitjana = mitjana;
         this.estat = estat;
     }
     
@@ -103,13 +103,13 @@ public class Alumne {
         this.data_naixement = data_naixement;
     }
 
-    public String getData_alta() {
+    /*public String getData_alta() {
         return data_alta;
     }
 
     public void setData_alta(String data_alta) {
         this.data_alta = data_alta;
-    }
+    }*/
 
     public String getEscola() {
         return escola;
@@ -119,12 +119,12 @@ public class Alumne {
         this.escola = escola;
     }
     
-    public double getMitjana() {
+    /*public double getMitjana() {
         return this.mitjana;
     }
     public void setMitjana(double mitjana) {
         this.mitjana = mitjana;
-    }
+    }*/
     
     public String getEstat () {
         return estat;
@@ -137,7 +137,11 @@ public class Alumne {
     /* Retorna una String amb els atributs de l'objecte */
     
     public String toString() {
-        return getNom() + " " + getCognom() + " " + getEmail() + " " + getDni() + " " + getData_alta() + " " + getEscola() + " " + getEstat();
+        return getNom() + " " + getCognom() + " " + getEmail() + " " + getDni() + " " + getData_naixement() + " " + getEscola() + " " + getEstat();
+    }
+    
+    public String toStringComes() {
+        return getNom() + "," + getCognom() + "," + getEmail() + "," + getDni() + "," + getEscola() + ","  + getData_naixement()+ "," + getEstat();
     }
 
     public void imprimir() {
