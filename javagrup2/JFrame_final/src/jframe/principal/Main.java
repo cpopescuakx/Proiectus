@@ -20,8 +20,6 @@ public class Main {
         LlistaGrups ll_g = new LlistaGrups();
         LlistaProfessor ll_p = new LlistaProfessor();
 
-        ll_a.afegirAlumne("pp", "hh", "hih", "jo", "e2d2", "der");
-        ll_g.alta("r", "vv", "fwr");
         JFrameMenuPrincipal m = new JFrameMenuPrincipal(ll_m, ll_a, ll_g, ll_p);
         m.setVisible(true);//Mostrem la pantalla principal
     }

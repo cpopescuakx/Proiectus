@@ -78,7 +78,6 @@ public final class JFrameMatricula extends javax.swing.JFrame {
         BotoSortir = new javax.swing.JButton();
         botoBaixa = new javax.swing.JButton();
         botoModificar = new javax.swing.JButton();
-        botoImportar = new javax.swing.JButton();
         botoExportar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -147,13 +146,6 @@ public final class JFrameMatricula extends javax.swing.JFrame {
             }
         });
 
-        botoImportar.setText("Importar");
-        botoImportar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botoImportarActionPerformed(evt);
-            }
-        });
-
         botoExportar.setText("Exportar");
         botoExportar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -194,11 +186,9 @@ public final class JFrameMatricula extends javax.swing.JFrame {
                         .addGap(551, 551, 551)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(12, 12, 12)
-                                .addComponent(botoImportar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGap(91, 91, 91)
                                 .addComponent(botoExportar)
-                                .addGap(0, 0, Short.MAX_VALUE))
+                                .addGap(0, 2, Short.MAX_VALUE))
                             .addComponent(searchMatricules))))
                 .addContainerGap())
         );
@@ -212,9 +202,7 @@ public final class JFrameMatricula extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(botoExportar)
-                        .addComponent(botoImportar)))
+                    .addComponent(botoExportar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton4)
@@ -287,12 +275,6 @@ public final class JFrameMatricula extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_searchMatriculesActionPerformed
 
-    private void botoImportarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botoImportarActionPerformed
-        JFrameCSVImport csv = new JFrameCSVImport(ll_m,ll_a, ll_g, ll_p, 2);
-        csv.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_botoImportarActionPerformed
-
     private void botoExportarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botoExportarActionPerformed
         JFrameCSVExport csv = new JFrameCSVExport(ll_m,ll_a, ll_g, ll_p, 2);
         csv.setVisible(true);
@@ -336,7 +318,6 @@ public final class JFrameMatricula extends javax.swing.JFrame {
     private javax.swing.JButton BotoSortir;
     private javax.swing.JButton botoBaixa;
     private javax.swing.JButton botoExportar;
-    private javax.swing.JButton botoImportar;
     private javax.swing.JButton botoModificar;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
