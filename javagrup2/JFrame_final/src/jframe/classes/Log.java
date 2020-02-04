@@ -13,7 +13,7 @@ public class Log {
     /* Definim la variable fh, la qual utilitzarem per a la creació del fitxer */
     FileHandler fh;
 
-    /* Definim el metode que generara fitxers logs d'informació, on hi passem l'ubicació del fitxer i el missatge a introduir */
+    /* Definim el metode que generara fitxers logs d'informació, on  passem la ruta del fitxer i el missatge a introduir */
     public void generarInfoLog(String ruta, String missatge) {
 
         /* Establim un try catch per a tractar possibles errors */
