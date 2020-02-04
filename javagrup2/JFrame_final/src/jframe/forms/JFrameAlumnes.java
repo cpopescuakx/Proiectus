@@ -28,49 +28,18 @@ public class JFrameAlumnes extends javax.swing.JFrame {
     private int row = -1;
 
     //Metode per a emplenar la taula
-    public void emplenarTaula(String s) {
-        String buscar = s;
-        String[][] array = new String[ll_a.comptadorAlumnes][8];
-        if (buscar.equals("")) {
-            for (int i = 0; i < ll_a.comptadorAlumnes; i++) {
-                String id = Integer.toString(ll_a.llistaAlumnes[i].getId());
-                array[i][0] = id;
-                array[i][1] = ll_a.llistaAlumnes[i].getNom();
-                array[i][2] = ll_a.llistaAlumnes[i].getCognom();
-                array[i][3] = ll_a.llistaAlumnes[i].getEmail();
-                array[i][4] = ll_a.llistaAlumnes[i].getDni();
-                array[i][5] = ll_a.llistaAlumnes[i].getData_naixement();
-                array[i][6] = ll_a.llistaAlumnes[i].getEscola();
-                array[i][7] = ll_a.llistaAlumnes[i].getEstat();
-            }
-            jTable1.setModel(new javax.swing.table.DefaultTableModel(
-                    array,
-                    new String[]{"ID", "Nom", "Cognom", "Email", "DNI", "Data naixement", "Centre", "Estat"}
-            ));
-            jScrollPane2.setViewportView(jTable1);
-        } else {
-            int comptador = 0;
-            for (int i = 0; i < ll_a.comptadorAlumnes; i++) {
-                if ((ll_a.llistaAlumnes[i].toString().toUpperCase()).contains(buscar.toUpperCase())) {
-                    String id = Integer.toString(ll_a.llistaAlumnes[i].getId());
-                    array[comptador][0] = id;
-                    array[comptador][1] = ll_a.llistaAlumnes[i].getNom();
-                    array[comptador][2] = ll_a.llistaAlumnes[i].getCognom();
-                    array[comptador][3] = ll_a.llistaAlumnes[i].getEmail();
-                    array[comptador][4] = ll_a.llistaAlumnes[i].getDni();
-                    array[comptador][5] = ll_a.llistaAlumnes[i].getData_naixement();
-                    array[comptador][6] = ll_a.llistaAlumnes[i].getEscola();
-                    array[comptador][7] = ll_a.llistaAlumnes[i].getEstat();
-                    comptador++;
-                }
-            }
+   public void emplenar_taula(String s) {
+        Object columnNames[] = {"#", "Nom", "Cognom", "Email", "DNI", "Data naixement", "Centre", "Estat"}; // Array amb el nom de les columnes
+        DefaultTableModel model = new DefaultTableModel(columnNames, 0); // Creem un nou model de taula amb l'array que tenim de nom de columnes
 
-            jTable1.setModel(new javax.swing.table.DefaultTableModel(
-                    array,
-                    new String[]{"ID", "Nom", "Cognom", "Email", "DNI", "Data naixement", "Centre", "Estat"}
-            ));
-            jScrollPane2.setViewportView(jTable1);
+        LlistaAlumnes consulta = ll_a.consulta(s); // Aqui assignem la variable consulta que sigue el que retorne ll_g.consulta, que agafa una string per a filtrar
+        // quan s'escriu algo al input de buscar s'actualitza amb el valor que te.
+        for (int i = 0; i < consulta.getComptadorAlumnes(); i++) { // Recorrem l'array en el numero de grups que te la consulta
+            Alumne g = consulta.returnList(i); // Assignem que g serà el grup que està a la posició "i"
+            Object rowData[] = {g.getId(), g.getNom(), g.getCognom(), g.getEmail(), g.getDni(), g.getData_naixement(), g.getEscola(), g.getEstat()}; // Fem una array que serà la fila en tota l'informació del grup que tenim que mostrar
+            model.addRow(rowData); // Afegim la fila al model de taula
         }
+        taulaAlumnes.setModel(model); // Una vegada s'ha completat el bucle, assignem el model que tenim a la taula
     }
 
     /**
@@ -78,6 +47,7 @@ public class JFrameAlumnes extends javax.swing.JFrame {
      */
     public JFrameAlumnes() {
         initComponents();
+        
     }
 
     public JFrameAlumnes(LlistaMatricules llista_m, LlistaAlumnes llista_a, LlistaGrups llista_g, LlistaProfessor llista_p) {
@@ -87,6 +57,7 @@ public class JFrameAlumnes extends javax.swing.JFrame {
         this.ll_p = llista_p;
 
         initComponents();
+        emplenar_taula("");
     }
 
     /**
@@ -99,8 +70,6 @@ public class JFrameAlumnes extends javax.swing.JFrame {
     private void initComponents() {
 
         afegir = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         modificar = new javax.swing.JButton();
         eliminar = new javax.swing.JButton();
@@ -108,6 +77,8 @@ public class JFrameAlumnes extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         botoExportar = new javax.swing.JButton();
         botoImportar = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        taulaAlumnes = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -123,140 +94,136 @@ public class JFrameAlumnes extends javax.swing.JFrame {
             }
         });
 
-        //LlistaAlumnes.iniciarAlumnes();
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 30)); // NOI18N
+        jLabel1.setText("Gestió d'alumnes");
 
-        String [][] array = new String [ll_a.comptadorAlumnes][8];
-
-        for (int i = 0; i < ll_a.comptadorAlumnes; i++) {
-            String id = Integer.toString(ll_a.llistaAlumnes[i].getId());
-            array [i][0] = id;
-            array [i][1] = ll_a.llistaAlumnes[i].getNom();
-            array [i][2] = ll_a.llistaAlumnes[i].getCognom();
-            array [i][3] = ll_a.llistaAlumnes[i].getEmail();
-            array [i][4] = ll_a.llistaAlumnes[i].getDni();
-            array [i][5] = ll_a.llistaAlumnes[i].getData_naixement();
-            array [i][6] = ll_a.llistaAlumnes[i].getEscola();
-            array [i][7] = ll_a.llistaAlumnes[i].getEstat();
-        }
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            array,
-            new String [] {
-                "ID","Nom", "Cognom", "Email", "DNI", "Data naixement", "Centre", "Estat"
+        modificar.setText("Modificar");
+        modificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                modificarActionPerformed(evt);
             }
-        )
-    );
-    jScrollPane2.setViewportView(jTable1);
+        });
 
-    jLabel1.setFont(new java.awt.Font("Tahoma", 0, 30)); // NOI18N
-    jLabel1.setText("Gestió d'alumnes");
+        eliminar.setText("Baixa");
+        eliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                eliminarActionPerformed(evt);
+            }
+        });
 
-    modificar.setText("Modificar");
-    modificar.addActionListener(new java.awt.event.ActionListener() {
-        public void actionPerformed(java.awt.event.ActionEvent evt) {
-            modificarActionPerformed(evt);
-        }
-    });
+        buscador.setToolTipText("");
+        buscador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buscadorActionPerformed(evt);
+            }
+        });
+        buscador.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                buscadorKeyTyped(evt);
+            }
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                buscadorKeyPressed(evt);
+            }
+        });
 
-    eliminar.setText("Baixa");
-    eliminar.addActionListener(new java.awt.event.ActionListener() {
-        public void actionPerformed(java.awt.event.ActionEvent evt) {
-            eliminarActionPerformed(evt);
-        }
-    });
+        jButton1.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
+        jButton1.setText("Menu Principal");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
-    buscador.setToolTipText("");
-    buscador.addActionListener(new java.awt.event.ActionListener() {
-        public void actionPerformed(java.awt.event.ActionEvent evt) {
-            buscadorActionPerformed(evt);
-        }
-    });
-    buscador.addKeyListener(new java.awt.event.KeyAdapter() {
-        public void keyTyped(java.awt.event.KeyEvent evt) {
-            buscadorKeyTyped(evt);
-        }
-        public void keyPressed(java.awt.event.KeyEvent evt) {
-            buscadorKeyPressed(evt);
-        }
-    });
+        botoExportar.setText("Exportar");
+        botoExportar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botoExportarActionPerformed(evt);
+            }
+        });
 
-    jButton1.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
-    jButton1.setText("Menu Principal");
-    jButton1.addActionListener(new java.awt.event.ActionListener() {
-        public void actionPerformed(java.awt.event.ActionEvent evt) {
-            jButton1ActionPerformed(evt);
-        }
-    });
+        botoImportar.setText("Importar");
+        botoImportar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botoImportarActionPerformed(evt);
+            }
+        });
 
-    botoExportar.setText("Exportar");
-    botoExportar.addActionListener(new java.awt.event.ActionListener() {
-        public void actionPerformed(java.awt.event.ActionEvent evt) {
-            botoExportarActionPerformed(evt);
-        }
-    });
+        taulaAlumnes.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
 
-    botoImportar.setText("Importar");
-    botoImportar.addActionListener(new java.awt.event.ActionListener() {
-        public void actionPerformed(java.awt.event.ActionEvent evt) {
-            botoImportarActionPerformed(evt);
-        }
-    });
+            },
+            new String [] {
 
-    javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-    getContentPane().setLayout(layout);
-    layout.setHorizontalGroup(
-        layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING)
-        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                    .addGap(68, 68, 68)
-                    .addComponent(afegir, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(87, 87, 87)
-                    .addComponent(modificar, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 90, Short.MAX_VALUE)
-                    .addComponent(eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(55, 55, 55)
-                    .addComponent(jButton1)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(buscador, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addComponent(botoImportar)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(botoExportar)))))
-            .addGap(58, 58, 58))
-        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-            .addGap(0, 0, Short.MAX_VALUE)
-            .addComponent(jLabel1)
-            .addGap(316, 316, 316))
-    );
-    layout.setVerticalGroup(
-        layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(29, 29, 29)
-                    .addComponent(jButton1)
-                    .addGap(26, 26, 26)
-                    .addComponent(jLabel1))
-                .addGroup(layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(buscador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(botoExportar)
-                        .addComponent(botoImportar))))
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(afegir, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(modificar, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGap(37, 37, 37)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-    );
+            }
+        ));
+        taulaAlumnes.getTableHeader().setReorderingAllowed(false);
+        taulaAlumnes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                taulaAlumnesMouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(taulaAlumnes);
 
-    pack();
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGap(68, 68, 68)
+                        .addComponent(afegir, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(87, 87, 87)
+                        .addComponent(modificar, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 90, Short.MAX_VALUE)
+                        .addComponent(eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(55, 55, 55)
+                        .addComponent(jButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(buscador, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(botoImportar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(botoExportar)))))
+                .addGap(58, 58, 58))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(316, 316, 316))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 873, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addComponent(jButton1)
+                        .addGap(26, 26, 26)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(buscador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(botoExportar)
+                            .addComponent(botoImportar))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(afegir, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(modificar, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(33, 33, 33)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 394, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        pack();
     }// </editor-fold>//GEN-END:initComponents
 
     /* Redirigeix a la finestra per a crear un alumne */
@@ -278,19 +245,19 @@ public class JFrameAlumnes extends javax.swing.JFrame {
     Si no s'ha seleccionat cap alumne, mostrarà un error */
 
     private void modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarActionPerformed
-        row = jTable1.getSelectedRow();
+        row = taulaAlumnes.getSelectedRow();
         if (row == -1) {
             JOptionPane.showMessageDialog(null, "Has de seleccionar un alumne.");
         } else {
-            String idString = jTable1.getModel().getValueAt(row, 0).toString();
+            String idString = taulaAlumnes.getModel().getValueAt(row, 0).toString();
             int id = Integer.parseInt(idString);
-            String nom = jTable1.getModel().getValueAt(row, 1).toString();
-            String cognom = jTable1.getModel().getValueAt(row, 2).toString();
-            String email = jTable1.getModel().getValueAt(row, 3).toString();
-            String dni = jTable1.getModel().getValueAt(row, 4).toString();
-            String data = jTable1.getModel().getValueAt(row, 5).toString();
-            String centre = jTable1.getModel().getValueAt(row, 6).toString();
-            String estat = jTable1.getModel().getValueAt(row, 7).toString();
+            String nom = taulaAlumnes.getModel().getValueAt(row, 1).toString();
+            String cognom = taulaAlumnes.getModel().getValueAt(row, 2).toString();
+            String email = taulaAlumnes.getModel().getValueAt(row, 3).toString();
+            String dni = taulaAlumnes.getModel().getValueAt(row, 4).toString();
+            String data = taulaAlumnes.getModel().getValueAt(row, 5).toString();
+            String centre = taulaAlumnes.getModel().getValueAt(row, 6).toString();
+            String estat = taulaAlumnes.getModel().getValueAt(row, 7).toString();
 
             JFrameModificarAlumnes fm = new JFrameModificarAlumnes(ll_m, ll_a, ll_g, ll_p, id, nom, cognom, email, dni, data, centre, estat);
             fm.carregarDades();
@@ -307,14 +274,14 @@ public class JFrameAlumnes extends javax.swing.JFrame {
     Si no s'ha seleccionat cap alumne, mostrarà un error */
 
     private void eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarActionPerformed
-        row = jTable1.getSelectedRow();
+        row = taulaAlumnes.getSelectedRow();
 
         if (row != -1) {//Comprovem que s'hagi seleccionat una matricula
             //Mostrem missatge de confirmació
             int confirm = JOptionPane.showConfirmDialog(this, "Esteu segurs de donar de baixa aquest alumne?");
             if (confirm == JOptionPane.YES_OPTION) {
                 ll_a.eliminarAlumne(row);
-                emplenarTaula("");
+                emplenar_taula("");
                 row = -1;
 
             }
@@ -332,7 +299,7 @@ public class JFrameAlumnes extends javax.swing.JFrame {
     /* Agafa el text que hi ha al buscador i mostra els resultats que coincideixen */
 
     private void buscadorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscadorKeyTyped
-        emplenarTaula(buscador.getText());
+        emplenar_taula(buscador.getText());
     }//GEN-LAST:event_buscadorKeyTyped
 
     private void buscadorKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscadorKeyPressed
@@ -357,6 +324,11 @@ public class JFrameAlumnes extends javax.swing.JFrame {
         csv.setVisible(true);
         dispose();
     }//GEN-LAST:event_botoExportarActionPerformed
+
+    private void taulaAlumnesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_taulaAlumnesMouseClicked
+        row = (int) taulaAlumnes.getValueAt(taulaAlumnes.getSelectedRow(), 0); // Cada vegada que fem click a algun element de la taula
+        //fem que l'atribut selectedItem s'actualitzi per a que sigui l'id de l'element
+    }//GEN-LAST:event_taulaAlumnesMouseClicked
 
     /**
      * @param args the command line arguments
@@ -408,7 +380,7 @@ public class JFrameAlumnes extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
     private javax.swing.JButton modificar;
+    private javax.swing.JTable taulaAlumnes;
     // End of variables declaration//GEN-END:variables
 }

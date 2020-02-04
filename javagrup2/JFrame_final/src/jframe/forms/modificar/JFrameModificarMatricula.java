@@ -40,7 +40,7 @@ public class JFrameModificarMatricula extends javax.swing.JFrame {
         initComponents();
         this.selectedItem = selectedItem;
         //Mostrar valors als camps del formulari
-        element = ll_m.returnList()[selectedItem];
+        element = ll_m.returnList(selectedItem);
         
         nomAlumne.setText(element.getUsuari().getNom());
         nomGrup.setText(element.getGrup().getNomGrup());

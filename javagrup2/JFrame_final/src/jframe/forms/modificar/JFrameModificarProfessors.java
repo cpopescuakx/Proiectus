@@ -36,7 +36,7 @@ public class JFrameModificarProfessors extends javax.swing.JFrame {
         initComponents();
         this.selectedItem = selectedItem;
 
-        Professor element = ll_p.returnList()[selectedItem];
+        Professor element = ll_p.returnList(selectedItem);
         nomProfessor.setText(element.getNom());
         cognomProfessor.setText(element.getCognom());
         emailProfessor.setText(element.getEmail());

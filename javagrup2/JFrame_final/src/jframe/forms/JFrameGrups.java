@@ -56,7 +56,7 @@ public class JFrameGrups extends javax.swing.JFrame {
         LlistaGrups consulta = ll_g.consulta(s); // Aqui assignem la variable consulta que sigue el que retorne ll_g.consulta, que agafa una string per a filtrar
         // quan s'escriu algo al input de buscar s'actualitza amb el valor que te.
         for (int i = 0; i < consulta.getNumGrupsActuals(); i++) { // Recorrem l'array en el numero de grups que te la consulta
-            Grup g = consulta.returnList()[i]; // Assignem que g serà el grup que està a la posició "i"
+            Grup g = consulta.returnList(i); // Assignem que g serà el grup que està a la posició "i"
             Object rowData[] = {g.getId(), g.getNomCurtGrup(), g.getNomGrup(), g.getFamiliaProfessional()}; // Fem una array que serà la fila en tota l'informació del grup que tenim que mostrar
             model.addRow(rowData); // Afegim la fila al model de taula
         }

@@ -176,7 +176,7 @@ public class JFrameCSVExport extends javax.swing.JFrame {
                             
                             // Agafar contingut de tota la llista de Professors, passar-ho a String i afegir-ho al writer.
                             for (int i = 0; i < ll_p.getNumProfessorsActuals(); i++) {
-                                Professor p = ll_p.returnList()[i];
+                                Professor p = ll_p.returnList(i);
                                 x = p.toStringComes();
                                 writer.append(x);
                                 writer.append("\n");
@@ -203,7 +203,7 @@ public class JFrameCSVExport extends javax.swing.JFrame {
                             
                             // Agafar contingut de tota la llista de Professors, passar-ho a String i afegir-ho al writer.
                             for (int i = 0; i < ll_g.getNumGrupsActuals(); i++) {
-                                Grup g = ll_g.returnList()[i];
+                                Grup g = ll_g.returnList(i);
                                 x = g.toStringComes();
                                 writer.append(Integer.toString(g.getId()) + ",");
                                 writer.append(x);
@@ -231,7 +231,7 @@ public class JFrameCSVExport extends javax.swing.JFrame {
                             
                             // Agafar contingut de tota la llista de Matricules, passar-ho a String i afegir-ho al writer.
                             for (int i = 0; i < ll_m.getComptadorMatricules(); i++) {
-                                Matricula m = ll_m.returnList()[i];
+                                Matricula m = ll_m.returnList(i);
                                 x = m.toStringComes();
                                 writer.append(x);
                                 writer.append("\n");
@@ -258,7 +258,7 @@ public class JFrameCSVExport extends javax.swing.JFrame {
                             
                             // Agafar contingut de tota la llista de Alumnes, passar-ho a String i afegir-ho al writer.
                             for (int i = 0; i < ll_a.getComptadorAlumnes(); i++) {
-                                Alumne a = ll_a.returnList()[i];
+                                Alumne a = ll_a.returnList(i);
                                 x = a.toStringComes();
                                 writer.append(Integer.toString(a.getId()) + ",");
                                 writer.append(x);

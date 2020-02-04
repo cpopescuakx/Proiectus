@@ -41,7 +41,7 @@ public class JFrameModificarGrups extends javax.swing.JFrame {
         this.selectedItem = selectedItem;
         initComponents();
 
-        Grup element = ll_g.returnList()[selectedItem];
+        Grup element = ll_g.returnList(selectedItem);
         NomGrup.setText(element.getNomGrup());
         NomCurtGrup.setText(element.getNomCurtGrup());
         FamiProfGrup.setText(element.getFamiliaProfessional());
