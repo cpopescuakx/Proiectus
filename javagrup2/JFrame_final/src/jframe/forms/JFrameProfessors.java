@@ -48,7 +48,7 @@ public class JFrameProfessors extends javax.swing.JFrame {
         LlistaProfessor consulta = ll_p.consulta(s);
 
         for (int i = 0; i < consulta.getNumProfessorsActuals(); i++) {
-            Professor p = consulta.returnList()[i];
+            Professor p = consulta.returnList(i);
             Object rowData[] = {p.getID(), p.getNom(), p.getCognom(), p.getEmail(), p.getDni(), p.getData_naixement(), p.getData_alta(), p.getEscola(), p.getDepartament(), p.getSalari(), p.getData_baixa(), p.getEstat()};
             model.addRow(rowData);
         }

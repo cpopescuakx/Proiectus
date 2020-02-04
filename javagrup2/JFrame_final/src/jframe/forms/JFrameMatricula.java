@@ -54,7 +54,7 @@ public final class JFrameMatricula extends javax.swing.JFrame {
         LlistaMatricules consulta = ll_m.consulta(s);
         //Establim el for per a passarli tantes columnes i les seves dades com hi hagin
         for (int i = 0; i < consulta.contador; i++) {
-            Matricula m = consulta.returnList()[i];
+            Matricula m = consulta.returnList(i);
             Object rowData[] = {m.getID(), m.getInstitut(), m.getUsuari().getNom(), m.getGrup().getNomGrup(), m.getData_alta(), m.getData_baixa(), m.getEstat()};
             model.addRow(rowData);//Passem l'informació de la fila
         }

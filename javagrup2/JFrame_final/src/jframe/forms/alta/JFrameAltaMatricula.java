@@ -68,14 +68,14 @@ public class JFrameAltaMatricula extends javax.swing.JFrame {
 
         if (selectedItemAlumne != -1) {
             //Agafar el valor de l'alumne d'una taula
-            Alumne alumne = ll_a.returnList()[selectedItemAlumne];
+            Alumne alumne = ll_a.returnList(selectedItemAlumne);
             nomAlumne.setText(alumne.getNom());
             a = alumne.getNom();
         }
 
         if (selectedItemGrup != -1) {
             //Agafar el valor del grup d'una taula
-            Grup grup = ll_g.returnList()[selectedItemGrup];
+            Grup grup = ll_g.returnList(selectedItemGrup);
             nomGrup.setText(grup.getNomGrup());
             g = grup.getNomGrup();
         }
