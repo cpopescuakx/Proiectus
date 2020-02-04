@@ -74,6 +74,10 @@ class SchoolController extends Controller
     public function edit($id)
     {
         //
+        $where = array('id_school' => $id);
+        $data['school'] = School::where($where)->first();
+
+        return view('school.edit', $data);
     }
 
     /**
@@ -83,9 +87,20 @@ class SchoolController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, School $insti)
     {
         //
+        $request->validate([
+            'email' => 'required',
+            'name' => 'required',
+            'code' => 'required',
+            'type' => 'required',
+        ]);
+
+        School::find($request->id)->update($request->all());
+        return redirect()->route('school.index')
+                         ->with('Éxit','L institut s ha modificat correctament!');
+
     }
 
     /**
@@ -97,5 +112,8 @@ class SchoolController extends Controller
     public function destroy($id)
     {
         //
+        School::destroy($id);
+        return redirect()->route('school.index')
+                         ->with('Exit', 'L institut s ha borrat correctament!');
     }
 }

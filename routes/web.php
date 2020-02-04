@@ -47,6 +47,6 @@ Route::post('/gestor/update', 'UserController@update')->name('user.update');
 Route::get('/school', 'SchoolController@index')->name('school.index');
 Route::get('/school/create', 'SchoolController@create')->name('school.create');
 Route::get('/school/{id}/edit', 'SchoolController@edit')->name('school.edit');
-Route::get('/school/{id}/delete', 'SchoolController@destroy')->name('school.destroy');
+Route::delete('/school/{id}/delete', 'SchoolController@destroy')->name('school.destroy');
 Route::post('/school/create', 'SchoolController@store')->name('school.store');
-Route::post('/school/update', 'SchoolController@update')->name('school.update');
+Route::post('/school/{id}/update', 'SchoolController@update')->name('school.update');
