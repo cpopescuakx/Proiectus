@@ -33,7 +33,7 @@ Route::get('/companies/create', 'CompanyController@create')->name('company.creat
 Route::get('/companies/{id}/edit', 'CompanyController@edit')->name('company.edit');
 Route::get('/companies/{id}/delete', 'CompanyController@destroy')->name('company.destroy');
 Route::post('/companies/create', 'CompanyController@store')->name('company.store');
-Route::post('/companies/update', 'CompanyController@update')->name('company.update');
+Route::post('/companies/{id}/update', 'CompanyController@update')->name('company.update');
 
 /* Users */
 Route::get('/gestor', 'UserController@index')->name('user.index');
@@ -47,6 +47,6 @@ Route::post('/gestor/update', 'UserController@update')->name('user.update');
 Route::get('/school', 'SchoolController@index')->name('school.index');
 Route::get('/school/create', 'SchoolController@create')->name('school.create');
 Route::get('/school/{id}/edit', 'SchoolController@edit')->name('school.edit');
-Route::delete('/school/{id}/delete', 'SchoolController@destroy')->name('school.destroy');
+Route::get('/school/{id}/delete', 'SchoolController@destroy')->name('school.destroy');
 Route::post('/school/create', 'SchoolController@store')->name('school.store');
-Route::post('/school/{id}/update', 'SchoolController@update')->name('school.update');
+Route::post('/school/update', 'SchoolController@update')->name('school.update');

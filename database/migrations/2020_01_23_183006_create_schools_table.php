@@ -23,6 +23,8 @@ class CreateSchoolsTable extends Migration
             $table->string('type', 100)->nullable();
             $table->string('code', 50);
             $table->enum('status', ['active', 'inactive'])->default('active');
+
+
         });
     }
 
