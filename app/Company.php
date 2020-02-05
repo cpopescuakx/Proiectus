@@ -13,6 +13,7 @@ class Company extends Model
      'name',
      'nif',
      'sector',
+     'status'
 
     ];
 }

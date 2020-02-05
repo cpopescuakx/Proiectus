@@ -41,6 +41,20 @@
         </div>
     </div>
 
+    <div class="col-md-12">
+        <div class="form-group">
+            <strong>ESTAT</strong>
+            <select class="form-control" value="{{$company_info->status}}" name="status">
+              <option value="active">active</option>
+              <option value="inactive">inactive</option>
+            </select>
+            <span class="text-danger">{{ $errors->first('status') }}</span>
+        </div>
+    </div>
+
+
+
+
 
     <div class="col-md-12">
         <button type="submit" class="btn btn-primary">ENVIA</button>

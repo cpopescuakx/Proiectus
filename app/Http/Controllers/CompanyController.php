@@ -45,6 +45,7 @@ class CompanyController extends Controller
             'name' => 'required',
             'nif' => 'required',
             'sector' => 'required',
+            'status' => 'active',
         ]);
 
         Company::create($request->all());
@@ -92,6 +93,7 @@ class CompanyController extends Controller
             'name' => 'required',
             'nif' => 'required',
             'sector' => 'required',
+            'status' => 'required',
         ]);
 
 
