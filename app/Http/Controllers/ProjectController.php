@@ -47,7 +47,7 @@ class ProjectController extends Controller
         $idProp = Proposal::max('id_proposal');
 
         if($idProj < $idProp){
-        /*// Instanciar
+        // Instanciar
         $projecte = new Project;
 
         // Assignar al
@@ -60,7 +60,6 @@ class ProjectController extends Controller
         $projecte -> save();
 
         // Tornar a la llista de projectes
-*/
         $projects = Project::all();
         return redirect()->route('projects.index',compact('projects'))
         ->with('i', (request()->input('page', 1) -1));
@@ -68,8 +67,7 @@ class ProjectController extends Controller
     }
     
     else{return redirect()->route('projects.x');
-    echo $idProj;
-    echo $idProp;
+
     }
         // **** PREGUNTAR A TONI SI FALTA CONSIDERAR CREAR UNA PROPOSTA ****    //
         // **** SI EL PROJECTE NO POT ESTAR RELACIONAT A NINGUNA PROPOSTA ****  //
