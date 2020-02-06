@@ -825,7 +825,7 @@ trait EnumeratesValues
      * Get an operator checker callback.
      *
      * @param  string  $key
-     * @param  string|null  $operator
+     * @param  string  $operator
      * @param  mixed  $value
      * @return \Closure
      */

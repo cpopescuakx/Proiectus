@@ -15,6 +15,7 @@ class UserController extends Controller
     {
         $data['users'] = Users::orderBy('id', 'desc')->paginate(10);
         return view('user.index', $data);
+        //
     }
 
     /**
@@ -24,7 +25,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('user.create');
+        //
     }
 
     /**
@@ -48,6 +49,7 @@ class UserController extends Controller
 
         return redirect()->route('user.index')
                          ->with('funciona');
+        //
     }
 
     /**
@@ -68,8 +70,9 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
-       
+ 
+{
+        //
     }
 
     /**
@@ -81,7 +84,8 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
+
+        //
     }
 
     /**
@@ -92,6 +96,6 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-      
+
     }
 }
