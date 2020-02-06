@@ -30,6 +30,10 @@ Route::get('Project/create', function(){
 Route::post('Project/create/success', 'ProjectController@store')
 ->name('projects.store');
 
+Route::get('Project/{id}/edit', function ($id) {
+    Project::edit($id);
+})->name('projects.edit');
+
 /** Rutes per a l'apartat de gestió d'alumnes */
 
 Route::get('Students', 'UserController@indexStudent')
