@@ -1,23 +1,18 @@
-@extends('layouts.default')
+@extends('projects.layout')
 
 @section('content')
-<table class="table table-hover">
+<table class="table table-striped">
+    <a href="">Crear</a>
 <thead>
     <tr>
-        <td>ID</td>
         <td>Nom</td>
-        <td>Data d'inici</td>
-        <td>Data de finalització</td>
-        <td>Pressupost</td>
-        <td>Familia professional</td>
+        <td>Cognom</td>
+        <td>Usuari</td>
+        <td>Email</td>
         <td>Estat</td>
         <td colspan="2">Accions</td>
     </tr>
 </thead>
-
-<a href="{{ route('projects.create') }}" class="btn btn-primary">Crear</a>
-
-
 
 @if ($message = Session::get('success'))
     <div class="alert alert-success">
@@ -25,20 +20,14 @@
     </div>
 @endif
 
-
-
 <tbody>
-    @foreach($projects as $project)
+    @foreach($students as $student)
     <tr>
-        <td>{{ ++$i }}</td>
-
-        {{--<td>{{$project->id_project}}</td>--}}
-        <td>{{$project->name}}</td>
-        <td>{{$project->initial_date}}</td>
-        <td>{{$project->ending_date}}</td>
-        <td>{{$project->budget}}</td>
-        <td>{{$project->professional_family}}</td>
-        <td>{{$project->status}}</td>
+        <td>{{$student->firstname}}</td>
+        <td>{{$student->lastname}}</td>
+        <td>{{$student->name}}</td>
+        <td>{{$student->email}}</td>
+        <td>{{$student->status}}</td>
         {{-- <td><a href="{{ route('projects.edit', $project->id)}}" class="btn btn-primary">Editar</a></td> --}}
         {{-- <td>
             <form action="{{ route('projects.destroy', $project->id)}}" method="post">
@@ -51,4 +40,4 @@
     @endforeach
 </tbody>
 </table>
-@stop
+@endsection
