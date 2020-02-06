@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-01-28T13:54:40.355031600Z</date>
+  <millis>1580219680355</millis>
+  <nanos>31600</nanos>
+  <sequence>0</sequence>
+  <logger>jframe.principal.Main</logger>
+  <level>INFO</level>
+  <class>jframe.principal.Main</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Missatge d'informació</message>
+</record>
+<record>
+  <date>2020-01-28T13:54:40.406892700Z</date>
+  <millis>1580219680406</millis>
+  <nanos>892700</nanos>
+  <sequence>1</sequence>
+  <logger>jframe.principal.Main</logger>
+  <level>WARNING</level>
+  <class>jframe.principal.Main</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Missatge d'avis</message>
+</record>
+<record>
+  <date>2020-01-28T13:54:40.416866Z</date>
+  <millis>1580219680416</millis>
+  <nanos>866000</nanos>
+  <sequence>2</sequence>
+  <logger>jframe.principal.Main</logger>
+  <level>WARNING</level>
+  <class>jframe.principal.Main</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Missatge d'avis URGENT !!!!!!!!!!!!!!!!!!</message>
+</record>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-01-28T13:56:34.297327400Z</date>
+  <millis>1580219794297</millis>
+  <nanos>327400</nanos>
+  <sequence>0</sequence>
+  <logger>jframe.principal.Main</logger>
+  <level>INFO</level>
+  <class>jframe.principal.Main</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Missatge d'informació</message>
+</record>
+<record>
+  <date>2020-01-28T13:56:34.342206800Z</date>
+  <millis>1580219794342</millis>
+  <nanos>206800</nanos>
+  <sequence>1</sequence>
+  <logger>jframe.principal.Main</logger>
+  <level>WARNING</level>
+  <class>jframe.principal.Main</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Missatge d'avis</message>
+</record>
+<record>
+  <date>2020-01-28T13:56:34.343204800Z</date>
+  <millis>1580219794343</millis>
+  <nanos>204800</nanos>
+  <sequence>2</sequence>
+  <logger>jframe.principal.Main</logger>
+  <level>WARNING</level>
+  <class>jframe.principal.Main</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Missatge d'avis URGENT !!!!!!!!!!!!!!!!!!</message>
+</record>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-01-28T13:58:49.564309800Z</date>
+  <millis>1580219929564</millis>
+  <nanos>309800</nanos>
+  <sequence>0</sequence>
+  <logger>jframe.principal.Main</logger>
+  <level>INFO</level>
+  <class>jframe.principal.Main</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Missatge d'informació</message>
+</record>
+<record>
+  <date>2020-01-28T13:58:49.622155900Z</date>
+  <millis>1580219929622</millis>
+  <nanos>155900</nanos>
+  <sequence>1</sequence>
+  <logger>jframe.principal.Main</logger>
+  <level>WARNING</level>
+  <class>jframe.principal.Main</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Missatge d'avis</message>
+</record>
+<record>
+  <date>2020-01-28T13:58:49.623153500Z</date>
+  <millis>1580219929623</millis>
+  <nanos>153500</nanos>
+  <sequence>2</sequence>
+  <logger>jframe.principal.Main</logger>
+  <level>WARNING</level>
+  <class>jframe.principal.Main</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Missatge d'avis URGENT !!!!!!!!!!!!!!!!!!</message>
+</record>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-01-31T14:52:19.832370400Z</date>
+  <millis>1580482339832</millis>
+  <nanos>370400</nanos>
+  <sequence>0</sequence>
+  <logger>jframe.principal.Main</logger>
+  <level>INFO</level>
+  <class>jframe.principal.Main</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Missatge d'informació</message>
+</record>
+<record>
+  <date>2020-01-31T14:52:19.910477100Z</date>
+  <millis>1580482339910</millis>
+  <nanos>477100</nanos>
+  <sequence>1</sequence>
+  <logger>jframe.principal.Main</logger>
+  <level>WARNING</level>
+  <class>jframe.principal.Main</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Missatge d'avis</message>
+</record>
+<record>
+  <date>2020-01-31T14:52:19.910477100Z</date>
+  <millis>1580482339910</millis>
+  <nanos>477100</nanos>
+  <sequence>2</sequence>
+  <logger>jframe.principal.Main</logger>
+  <level>WARNING</level>
+  <class>jframe.principal.Main</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Missatge d'avis URGENT !!!!!!!!!!!!!!!!!!</message>
+</record>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-01-31T14:59:31.708224900Z</date>
+  <millis>1580482771708</millis>
+  <nanos>224900</nanos>
+  <sequence>0</sequence>
+  <logger>jframe.principal.Main</logger>
+  <level>INFO</level>
+  <class>jframe.principal.Main</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Missatge d'informació</message>
+</record>
+<record>
+  <date>2020-01-31T14:59:31.755088300Z</date>
+  <millis>1580482771755</millis>
+  <nanos>88300</nanos>
+  <sequence>1</sequence>
+  <logger>jframe.principal.Main</logger>
+  <level>WARNING</level>
+  <class>jframe.principal.Main</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Missatge d'avis</message>
+</record>
+<record>
+  <date>2020-01-31T14:59:31.755088300Z</date>
+  <millis>1580482771755</millis>
+  <nanos>88300</nanos>
+  <sequence>2</sequence>
+  <logger>jframe.principal.Main</logger>
+  <level>WARNING</level>
+  <class>jframe.principal.Main</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Missatge d'avis URGENT !!!!!!!!!!!!!!!!!!</message>
+</record>
+<record>
+  <date>2020-01-31T14:59:56.407343900Z</date>
+  <millis>1580482796407</millis>
+  <nanos>343900</nanos>
+  <sequence>3</sequence>
+  <logger>jframe.principal.Main</logger>
+  <level>INFO</level>
+  <class>jframe.classes.LlistaProfessor</class>
+  <method>baixaProfessor</method>
+  <thread>19</thread>
+  <message>S'ha donat de baixa al professor1 asd asd asd@asd a0314131a 121212 31/01/2020 asd asd 123123.0  Actiu</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-01-31T15:00:41.081501600Z</date>
+  <millis>1580482841081</millis>
+  <nanos>501600</nanos>
+  <sequence>0</sequence>
+  <logger>jframe.principal.Main</logger>
+  <level>INFO</level>
+  <class>jframe.principal.Main</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Missatge d'informació</message>
+</record>
+<record>
+  <date>2020-01-31T15:00:41.143987900Z</date>
+  <millis>1580482841143</millis>
+  <nanos>987900</nanos>
+  <sequence>1</sequence>
+  <logger>jframe.principal.Main</logger>
+  <level>WARNING</level>
+  <class>jframe.principal.Main</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Missatge d'avis</message>
+</record>
+<record>
+  <date>2020-01-31T15:00:41.143987900Z</date>
+  <millis>1580482841143</millis>
+  <nanos>987900</nanos>
+  <sequence>2</sequence>
+  <logger>jframe.principal.Main</logger>
+  <level>WARNING</level>
+  <class>jframe.principal.Main</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Missatge d'avis URGENT !!!!!!!!!!!!!!!!!!</message>
+</record>
+<record>
+  <date>2020-01-31T15:01:04.463670400Z</date>
+  <millis>1580482864463</millis>
+  <nanos>670400</nanos>
+  <sequence>3</sequence>
+  <logger>jframe.principal.Main</logger>
+  <level>INFO</level>
+  <class>jframe.classes.LlistaProfessor</class>
+  <method>baixaProfessor</method>
+  <thread>19</thread>
+  <message>S'ha donat de baixa al professor1 qwe qwe qwe@qwe i0314131b 121212 31/01/2020 qweqwe qwer 123123.0  Actiu</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-01-31T15:03:11.044011100Z</date>
+  <millis>1580482991044</millis>
+  <nanos>11100</nanos>
+  <sequence>0</sequence>
+  <logger>jframe.principal.Main</logger>
+  <level>INFO</level>
+  <class>jframe.principal.Main</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Missatge d'informació</message>
+</record>
+<record>
+  <date>2020-01-31T15:03:11.090877800Z</date>
+  <millis>1580482991090</millis>
+  <nanos>877800</nanos>
+  <sequence>1</sequence>
+  <logger>jframe.principal.Main</logger>
+  <level>WARNING</level>
+  <class>jframe.principal.Main</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Missatge d'avis</message>
+</record>
+<record>
+  <date>2020-01-31T15:03:11.106496800Z</date>
+  <millis>1580482991106</millis>
+  <nanos>496800</nanos>
+  <sequence>2</sequence>
+  <logger>jframe.principal.Main</logger>
+  <level>WARNING</level>
+  <class>jframe.principal.Main</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Missatge d'avis URGENT !!!!!!!!!!!!!!!!!!</message>
+</record>
+<record>
+  <date>2020-01-31T15:03:39.370414600Z</date>
+  <millis>1580483019370</millis>
+  <nanos>414600</nanos>
+  <sequence>3</sequence>
+  <logger>jframe.principal.Main</logger>
+  <level>INFO</level>
+  <class>jframe.classes.LlistaProfessor</class>
+  <method>baixaProfessor</method>
+  <thread>19</thread>
+  <message>S'ha donat de baixa al professor1 zxc zxc zxc@zxc z0314131z 123344 31/01/2020 zxczxc zxc 321321.0  Actiu</message>
+</record>
+<record>
+  <date>2020-01-31T15:03:39.371409600Z</date>
+  <millis>1580483019371</millis>
+  <nanos>409600</nanos>
+  <sequence>4</sequence>
+  <logger>jframe.principal.Main</logger>
+  <level>INFO</level>
+  <class>jframe.classes.LlistaProfessor</class>
+  <method>baixaProfessor</method>
+  <thread>19</thread>
+  <message>ERROR!!1 zxc zxc zxc@zxc z0314131z 123344 31/01/2020 zxczxc zxc 321321.0  Actiu</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-01-31T15:04:13.128302100Z</date>
+  <millis>1580483053128</millis>
+  <nanos>302100</nanos>
+  <sequence>0</sequence>
+  <logger>jframe.principal.Main</logger>
+  <level>INFO</level>
+  <class>jframe.principal.Main</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Missatge d'informació</message>
+</record>
+<record>
+  <date>2020-01-31T15:04:13.175163200Z</date>
+  <millis>1580483053175</millis>
+  <nanos>163200</nanos>
+  <sequence>1</sequence>
+  <logger>jframe.principal.Main</logger>
+  <level>WARNING</level>
+  <class>jframe.principal.Main</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Missatge d'avis</message>
+</record>
+<record>
+  <date>2020-01-31T15:04:13.175163200Z</date>
+  <millis>1580483053175</millis>
+  <nanos>163200</nanos>
+  <sequence>2</sequence>
+  <logger>jframe.principal.Main</logger>
+  <level>WARNING</level>
+  <class>jframe.principal.Main</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Missatge d'avis URGENT !!!!!!!!!!!!!!!!!!</message>
+</record>
+<record>
+  <date>2020-01-31T15:04:36.193130900Z</date>
+  <millis>1580483076193</millis>
+  <nanos>130900</nanos>
+  <sequence>3</sequence>
+  <logger>jframe.principal.Main</logger>
+  <level>INFO</level>
+  <class>jframe.classes.LlistaProfessor</class>
+  <method>baixaProfessor</method>
+  <thread>19</thread>
+  <message>S'ha donat de baixa al professor1 qwe ghj ghj@ghj g0314131h 123456 31/01/2020 ghj ghjghj 321321.0  Actiu</message>
+</record>
+<record>
+  <date>2020-01-31T15:04:36.195665300Z</date>
+  <millis>1580483076195</millis>
+  <nanos>665300</nanos>
+  <sequence>4</sequence>
+  <logger>jframe.principal.Main</logger>
+  <level>WARNING</level>
+  <class>jframe.classes.LlistaProfessor</class>
+  <method>baixaProfessor</method>
+  <thread>19</thread>
+  <message>ERROR!!1 qwe ghj ghj@ghj g0314131h 123456 31/01/2020 ghj ghjghj 321321.0  Actiu</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-01-31T15:11:59.487661600Z</date>
+  <millis>1580483519487</millis>
+  <nanos>661600</nanos>
+  <sequence>0</sequence>
+  <logger>jframe.principal.Main</logger>
+  <level>INFO</level>
+  <class>jframe.principal.Main</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Missatge d'informació</message>
+</record>
+<record>
+  <date>2020-01-31T15:11:59.534525500Z</date>
+  <millis>1580483519534</millis>
+  <nanos>525500</nanos>
+  <sequence>1</sequence>
+  <logger>jframe.principal.Main</logger>
+  <level>WARNING</level>
+  <class>jframe.principal.Main</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Missatge d'avis</message>
+</record>
+<record>
+  <date>2020-01-31T15:11:59.534525500Z</date>
+  <millis>1580483519534</millis>
+  <nanos>525500</nanos>
+  <sequence>2</sequence>
+  <logger>jframe.principal.Main</logger>
+  <level>WARNING</level>
+  <class>jframe.principal.Main</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Missatge d'avis URGENT !!!!!!!!!!!!!!!!!!</message>
+</record>
+</log>

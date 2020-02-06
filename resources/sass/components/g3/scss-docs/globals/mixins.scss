@@ -1,0 +1,20 @@
+@mixin centrar {
+    text-align: center;
+}
+
+@mixin boto {
+    margin-left: 5px;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    background-color: $color5;
+    color: $color1;
+    border-radius: 50%;
+    border: 1px solid black;
+}
+
+@mixin cap {
+    border: none;
+    background-color: $color1;
+    color: white;
+}

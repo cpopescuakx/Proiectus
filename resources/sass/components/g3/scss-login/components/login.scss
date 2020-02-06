@@ -1,0 +1,43 @@
+body {
+    background-color: $color4;
+}
+.box {
+    text-align: center;
+    margin: auto;
+    width: 70%;
+}
+
+h1 {
+    font-family: $titol;
+}
+form .entrada {
+    width: 100%;
+    padding: 15px 20px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 10px;
+    background-color: $color5;
+}
+form input[type=submit] {
+    width: 100%;
+    padding: 15px 20px;
+    margin: 10px 20px;
+    border: none;
+    font-size: 20px;
+    background-color: $color2;
+    color: $color5;
+    border-radius: 10px;
+    cursor: pointer;
+}
+#error {
+    margin: auto;
+    width: 70%;
+    padding: 1px 0px;
+    background-color: rgb(226, 98, 98);
+    color: $color1;
+    border-radius: 25px;
+}
+p {
+    font-family: $text;
+    font-size: 18px; 
+}
