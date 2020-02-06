@@ -24,8 +24,8 @@ Route::get('Project/create', function(){
     return view ('projects.create');
 })->name('projects.create');
 
-Route::post('Project', 'ProjectController@store')
-->name('projects.store');
+// Route::post('Project', 'ProjectController@store')
+// ->name('projects.store');
 
 /* Route::post('projects', 'ProjectController@destroy')
 ->name('projects.destroy'); */

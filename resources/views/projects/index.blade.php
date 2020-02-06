@@ -1,7 +1,7 @@
-@extends('projects.layout')
+@extends('layouts.default')
 
 @section('content')
-<table class="table table-striped">
+<table class="table table-hover">
 <thead>
     <tr>
         <td>ID</td>
@@ -49,4 +49,4 @@
     @endforeach
 </tbody>
 </table>
-@endsection
+@stop

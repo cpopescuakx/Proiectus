@@ -41,7 +41,7 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        /*// Instanciar
+        // Instanciar
         $projecte = new Project;
 
         // Assignar al 
@@ -52,7 +52,7 @@ class ProjectController extends Controller
 
         // Guardar projecte a la BBDD
         $projecte -> save();
-        */
+        
         // Tornar a la llista de projectes
         return view('projects.index');
         
