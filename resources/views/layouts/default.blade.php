@@ -3,17 +3,19 @@
 	   @include('includes.head')
 	</head>
 	<body>
-	<div class="container">
-	   <header class="row">
-	       @include('includes.header')
-	   </header>
-	   <div id="main" class="row">
+		<header class="row">
+				@include('includes.header')
+		</header>
+	<div class="content closed">
+
+	   <div id="main" >
 	           @yield('content')
 	   </div>
-	   <footer class="row">
-	       @include('includes.footer')
-	   </footer>
+
 	</div>
+	<footer class="row">
+			@include('includes.footer')
+	</footer>
 	</body>
 	@include('includes.footer-scripts')
 </html>

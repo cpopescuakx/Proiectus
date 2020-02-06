@@ -1,6 +1,11 @@
 @extends('layouts.default')
 
 @section('content')
+<div class="col">
+  <div class="row">
+    <a href="{{ route('projects.create') }}" class="btn btn-primary">Crear</a>
+  </div>  
+</div>
 <table class="table table-hover mt-5 mr-5">
 <thead>
     <tr>
@@ -15,6 +20,7 @@
 
     </tr>
 </thead>
+
 
 
 
@@ -48,8 +54,7 @@
                 <button class="btn btn-danger" type="submit">Esborrar</button>
             </form>
         </td> --}}
-        <td><a href="{{ route('projects.create') }}" class="btn btn-primary">Crear</a></td>
-        
+
     </tr>
     @endforeach
 </tbody>

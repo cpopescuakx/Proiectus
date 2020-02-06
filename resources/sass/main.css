@@ -358,7 +358,7 @@ a:hover {
     background-color: transparent;
   }
   #menu.closed #top-menu {
-    left: 80px !important;
+    left: 65px !important;
   }
   #menu.closed #sidenav {
     width: 80px;
@@ -502,6 +502,10 @@ form .form-img {
 #projecte {
   margin-left: 25%;
   margin-right: auto;
+}
+
+.content {
+  padding: 0px;
 }
 
 @media (min-width: 992px) {

@@ -4,16 +4,16 @@
 ::-webkit-scrollbar {
     width: 10px;
 }
-  
+
 ::-webkit-scrollbar-track {
-    background: #f1f1f1; 
+    background: #f1f1f1;
 }
 
 ::-webkit-scrollbar-thumb {
     background: #888;
 
     &:hover {
-        background: #555; 
+        background: #555;
     }
 }
 
@@ -191,13 +191,13 @@ a:hover {
 @media screen and (min-width: $large-screen) {
     .content:not(.closed) .navbar-header {
         width: auto;
-        background-color: transparent;    
+        background-color: transparent;
     }
 
     #menu {
         &.closed {
             #top-menu {
-                left: 80px !important;
+                left: 65px !important;
             }
 
             #sidenav {
