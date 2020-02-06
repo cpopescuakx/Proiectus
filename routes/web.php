@@ -16,7 +16,7 @@ use App\Project;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})-> name('projects.x');
 
 /** Rutes per a l'apartat de gestió de projectes */
 
