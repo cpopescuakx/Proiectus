@@ -30,7 +30,7 @@
     <tr>
         <td>{{ ++$i }}</td>
 
-        <td>{{$project->id_project}}</td>
+        {{--<td>{{$project->id_project}}</td>--}}
         <td>{{$project->name}}</td>
         <td>{{$project->initial_date}}</td>
         <td>{{$project->ending_date}}</td>

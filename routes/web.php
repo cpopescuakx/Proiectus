@@ -20,11 +20,11 @@ Route::get('/', function () {
 
 Route::resource('Project','ProjectController');
 
-Route::get('projects/create', function(){
+Route::get('Project/create', function(){
     return view ('projects.create');
 })->name('projects.create');
 
-Route::post('projects', 'ProjectController@store')
+Route::post('Project', 'ProjectController@store')
 ->name('projects.store');
 
 /* Route::post('projects', 'ProjectController@destroy')
