@@ -17,7 +17,7 @@ class CreateUserProposalsTable extends Migration
             $table->integer('id_user_prop')->autoIncrement();
             $table->integer('id_user');
             $table->integer('id_proposal');
-            $table->datetime('publication_date');
+            $table->timestamps();
         });
     }
 

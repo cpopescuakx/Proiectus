@@ -17,6 +17,7 @@ class CreateUserProjectsTable extends Migration
             $table->integer('id_user_projects')->autoIncrement();
             $table->integer('id_user');
             $table->integer('id_project');
+            $table->timestamps();
         });
     }
 

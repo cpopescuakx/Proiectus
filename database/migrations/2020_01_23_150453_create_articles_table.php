@@ -20,11 +20,11 @@ class CreateArticlesTable extends Migration
             $table->integer('version');
             $table->string('title', 50);
             $table->longText('content');
-            $table->datetime('creation_date')->useCurrent();
             $table->longText('reference');
             $table->integer('id_user');
             $table->enum('status', ['active', 'inactive'])->default('active');
-            
+            $table->timestamps();
+
 
 
 

@@ -8,7 +8,6 @@ class School extends Model
 {
     //
     protected $primaryKey = 'id_school';
-    public $timestamps = false;
     protected $fillable = [
      'email',
      'name',

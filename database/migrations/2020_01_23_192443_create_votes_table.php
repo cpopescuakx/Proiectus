@@ -19,6 +19,7 @@ class CreateVotesTable extends Migration
             $table->integer('id_user');
             $table->enum('value_vote', ['1', '-1']);
             $table->primary(['id_post', 'id_project', 'id_user']);
+            $table->timestamps();
         });
     }
 

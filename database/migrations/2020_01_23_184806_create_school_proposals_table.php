@@ -17,6 +17,7 @@ class CreateSchoolProposalsTable extends Migration
             $table->integer('id_school_prop')->autoIncrement();
             $table->integer('id_school');
             $table->integer('id_proposal');
+            $table->timestamps();
         });
     }
 

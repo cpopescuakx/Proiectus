@@ -18,6 +18,7 @@ class CreateChatsTable extends Migration
           $table->integer('owner');
           $table->string('chat_name', 30);
           $table->longText('description');
+          $table->timestamps();
         });
     }
 
