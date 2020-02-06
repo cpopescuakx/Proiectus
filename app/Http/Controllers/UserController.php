@@ -25,7 +25,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('user.create');
     }
 
     /**
@@ -58,9 +58,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(User $user)
     {
-        //
+        return view('user.show',compact('user'));
     }
 
     /**
@@ -69,10 +69,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
- 
-{
-        //
+    public function edit(User $user)
+    {
+        return view('user.edit',compact('user'));
     }
 
     /**
@@ -82,10 +81,21 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, User $user)
     {
+        $request->validate([
+            'firstname' => 'required',
+            'lastname' => 'required',
+            'name' => 'required',
+            'email' => 'required',
+            'dni' => 'required',
+            'password' => 'required',
+        ]);
 
-        //
+        $user->update($request->all());
+
+        return redirect()->route('user.index')
+                         ->with('success');
     }
 
     /**
@@ -94,8 +104,11 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(User $user)
     {
+        $user->delete();
 
+        return redirect()->route('user.index')
+                         ->with('success');
     }
 }
