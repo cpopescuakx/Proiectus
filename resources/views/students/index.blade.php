@@ -1,8 +1,8 @@
-@extends('projects.layout')
+@extends('layouts.default')
 
 @section('content')
 <table class="table table-striped">
-    <a href="">Crear</a>
+<a href="{{route('students.create')}}">Crear</a>
 <thead>
     <tr>
         <td>Nom</td>

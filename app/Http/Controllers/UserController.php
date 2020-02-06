@@ -28,13 +28,47 @@ class UserController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Retorna la vista amb el formulari de creació d'alumnes.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function createStudent()
     {
-        //
+        return view('students.create');
+    }
+
+    /** Crea el nou alumne a partir de les dades donades al formulari.
+     *  @param $request
+     */
+
+    public function storeStudent(Request $request)
+    {
+        // Instanciar
+        $student = new User;
+
+        // Assignació de valors a les propietats
+        $student -> firstname = $request->input('firstname');
+        $student -> lastname = $request->input('lastname');
+        $student -> name = $request->input('name');
+        $student -> dni = $request->input('dni');
+        $student -> email = $request->input('email');
+        $student -> birthdate = $request->input('birthdate');
+        $student -> password = $request->input('password');
+        $student -> id_city = 1;
+        $student -> profile_pic = "Res";
+        $student -> bio = "Res";
+        $student -> id_role = 3;
+        $student -> status = "active";
+
+        // Guardar alumne a la BBDD
+        $student -> save();
+
+        // Tornar a la llista d'alumnes
+
+        $students = DB::table('users')->where('id_role', 3)->get();
+
+        return redirect()->route('students.index',compact('students'))
+        ->with('i', (request()->input('page', 1) -1));
     }
 
     /**
