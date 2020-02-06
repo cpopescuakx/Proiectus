@@ -40,7 +40,7 @@
 
         {{--<td>{{$project->id_project}}</td>--}}
         <td>{{$project->name}}</td>
-        <td>{{$project->initial_date}}</td>
+        <td>{{$project->created_at}}</td>
         <td>{{$project->ending_date}}</td>
         <td>{{$project->budget}}</td>
         <td>{{$project->professional_family}}</td>

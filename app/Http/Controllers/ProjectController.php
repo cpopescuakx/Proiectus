@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Project;
 use Illuminate\Http\Request;
+use App\Proposal;
 
 class ProjectController extends Controller
 {
@@ -41,29 +42,68 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        // Instanciar
-        $projecte = new Project;
 
-        // Assignar al
-        $projecte -> name = $request->input('name');
-        $projecte -> budget = $request->input('budget');
-        $projecte -> description = $request->input('desc');
-        $projecte -> professional_family = $request->input('pro_family');
+        $idProj = Project::max('id_project');
+        $idProp = Proposal::max('id_proposal');
 
-        // Guardar projecte a la BBDD
-        $projecte -> save();
+        if($idProj < $idProp){
+            // Instanciar
+            $projecte = new Project;
 
-        // Tornar a la llista de projectes
+            // Assignar valors
+            $projecte -> name = $request->input('name');
+            $projecte -> budget = $request->input('budget');
+            $projecte -> description = $request->input('desc');
+            $projecte -> professional_family = $request->input('pro_family');
+            $projecte -> ending_date = $request->input('end_date');
 
-        $projects = Project::all();
+            // Guardar projecte a la BBDD
+            $projecte -> save();
 
-        return redirect()->route('projects.index',compact('projects'))
-        ->with('i', (request()->input('page', 1) -1));
+            // Tornar a la llista de projectes
+            $projects = Project::all();
+            return redirect()->route('projects.index',compact('projects'))
+            ->with('i', (request()->input('page', 1) -1));
 
+        }
+        // Si el nº de projectes no és major que el de propostes haurem de crear una proposta primer i després crear
+        // el projecte associat.
+        else{
+            // ------------------------------  PROPOSTA  ------------------------------  //
 
+            // Instanciar
+            $proposta = new Proposal;
 
-        // **** PREGUNTAR A TONI SI FALTA CONSIDERAR CREAR UNA PROPOSTA ****    //
-        // **** SI EL PROJECTE NO POT ESTAR RELACIONAT A NINGUNA PROPOSTA ****  //
+            // Assignar valors
+            $proposta -> name = $request->input('name');
+            $proposta -> description = $request->input('desc');
+            $proposta -> professional_family = $request->input('pro_family');
+            $proposta -> limit_date = $request->input('end_date');
+            $proposta -> id_author = 1;
+            $proposta -> category = 'company';
+
+            // Guardar proposta a la BBDD
+            $proposta -> save();
+
+            // ------------------------------  PROJECTE  ------------------------------  //
+            // Instanciar
+            $projecte = new Project;
+
+            // Assignar valors
+            $projecte -> name = $request->input('name');
+            $projecte -> budget = $request->input('budget');
+            $projecte -> description = $request->input('desc');
+            $projecte -> professional_family = $request->input('pro_family');
+            $projecte -> ending_date = $request->input('end_date');
+
+            // Guardar projecte a la BBDD
+            $projecte -> save();
+
+            // Tornar a la llista de projectes
+            $projects = Project::all();
+            return redirect()->route('projects.index',compact('projects'))
+            ->with('i', (request()->input('page', 1) -1));
+        }
     }
 
     /**
@@ -117,7 +157,7 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
-        //
+        
         $project->delete();
         return redirect()->route('projects.index')
             ->with('success', 'Projecte esborrat correctament');

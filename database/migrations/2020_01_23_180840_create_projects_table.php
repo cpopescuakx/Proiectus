@@ -17,7 +17,7 @@ class CreateProjectsTable extends Migration
             $table->integer('id_project')->autoIncrement();
             $table->string('name', 50);
             $table->datetime('initial_date')->useCurrent();
-            $table->datetime('ending_date');
+            $table->datetime('ending_date')->nullable();;
             $table->integer('budget');
             $table->longText('description');
             $table->string('professional_family', 50);
