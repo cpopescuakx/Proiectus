@@ -1,7 +1,7 @@
 @extends('layouts.default')
 
 @section('content')
-<table class="table table-hover">
+<table class="table table-hover mt-5 mr-5">
 <thead>
     <tr>
         <td>ID</td>
@@ -12,10 +12,10 @@
         <td>Familia professional</td>
         <td>Estat</td>
         <td colspan="2">Accions</td>
+
     </tr>
 </thead>
 
-<a href="{{ route('projects.create') }}" class="btn btn-primary">Crear</a>
 
 
 
@@ -39,6 +39,7 @@
         <td>{{$project->budget}}</td>
         <td>{{$project->professional_family}}</td>
         <td>{{$project->status}}</td>
+
         {{-- <td><a href="{{ route('projects.edit', $project->id)}}" class="btn btn-primary">Editar</a></td> --}}
         {{-- <td>
             <form action="{{ route('projects.destroy', $project->id)}}" method="post">
@@ -47,6 +48,8 @@
                 <button class="btn btn-danger" type="submit">Esborrar</button>
             </form>
         </td> --}}
+        <td><a href="{{ route('projects.create') }}" class="btn btn-primary">Crear</a></td>
+        
     </tr>
     @endforeach
 </tbody>
