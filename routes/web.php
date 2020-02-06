@@ -31,5 +31,12 @@ Route::post('Project/create/success', 'ProjectController@store')
 Route::get('Students', 'UserController@indexStudent')
 ->name('students.index');
 
+Route::get('Students/create', function () {
+    return view('students.create');
+})->name('students.create');
+
+Route::post('Students/create/success', 'UserController@storeStudent')
+->name('students.store');
+
 /* Route::post('projects', 'ProjectController@destroy')
 ->name('projects.destroy'); */
