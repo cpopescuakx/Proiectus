@@ -13,7 +13,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        $data['users'] = Users::orderBy('id', 'desc')->paginate(10);
+        return view('user.list', $data);
     }
 
     /**
@@ -23,7 +24,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('user.create');
     }
 
     /**
@@ -34,7 +35,18 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'firstname' => 'required',
+            'email' => 'required',
+            'dni' => 'required',
+            'password' => 'required'
+        ]);
+
+        User::create($request->all());
+
+        return Redirect::to('users')
+        ->with('Éxit! L usuari s ha creat correctament!');
     }
 
     /**
@@ -56,7 +68,10 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $where = array('id' => $id);
+        $data['user_info'] = User::where($where)->first();
+
+        return view('user.edit', $data);
     }
 
     /**
@@ -68,7 +83,24 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'firstname' => 'required',
+            'email' => 'required',
+            'dni' => 'required',
+            'password' => 'required'
+        ]);
+
+        $update = ['name' => $request->name, 
+        'firstname' =>$request->firstname,
+        'email' => $request->email,
+        'dni' => $request->dni,
+        'password' => $request->password
+        ];
+        User::where('id', $id)->update($update);
+
+        return Redirect::to('users')
+        ->with('Éxit! L usuari s ha modificat correctament!');
     }
 
     /**
@@ -79,6 +111,9 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        User::where('id', $id)->delete();
+
+        return Redirect::to('users')
+        ->with('Éxit! L usuari s ha eliminar correctament!');
     }
 }
