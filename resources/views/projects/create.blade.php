@@ -4,7 +4,8 @@
 <body>
     <h1>Crear un nou projecte</h1>
 
-<form action='{{ route('projects.store') }}' method='POST'>
+<form action='{{ route('projects.store') }}' method='POST'> 
+  
     @csrf
         <tr><td>Nom del Projecte:</td><br>
           <td><input type="text" name="name"></td>
