@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\User;
+use DB;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -14,6 +15,16 @@ class UserController extends Controller
     public function index()
     {
         //
+    }
+
+    /** Extreu els usuaris que tenen ID de rol 3 (Alumne), després retorna la vista per a llistar-los. */
+
+    public function indexStudent()
+    {
+        //
+        $students = DB::table('users')->where('id_role', 3)->get();
+
+        return view ('students.index', compact('students'));
     }
 
     /**

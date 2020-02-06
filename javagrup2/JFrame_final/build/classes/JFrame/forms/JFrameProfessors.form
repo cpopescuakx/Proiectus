@@ -43,8 +43,18 @@
                   <Component id="botoSortir" min="-2" pref="149" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
                   <Component id="jLabel1" min="-2" pref="190" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="306" max="-2" attributes="0"/>
-                  <Component id="SearchProfessors" min="-2" pref="247" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="306" max="-2" attributes="0"/>
+                          <Component id="SearchProfessors" min="-2" pref="247" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="botoImportar" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="botoExportar" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
               <Group type="102" alignment="1" attributes="0">
@@ -70,6 +80,11 @@
                       <Group type="102" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="SearchProfessors" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="botoExportar" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="botoImportar" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
@@ -175,6 +190,22 @@
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="AfegirProfessorMouseClicked"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="botoImportar">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Importar"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botoImportarActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="botoExportar">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Exportar"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botoExportarActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

@@ -3,8 +3,8 @@
 <meta name="Saquib" content="Blade">
 <title>Checkout our layout</title>
 <!-- Bootstrap core CSS -->
-<link rel="stylesheet" type="text/css" href="../sass/main.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUIyJ" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="http://localhost/Proiectus/resources/sass/main.css">
+<link rel="stylesheet" href="http://localhost/Proiectus/public/css/bootstrap.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
