@@ -23,7 +23,6 @@ class CreateCompanyForValidationsTable extends Migration
             $table->string('sector', 50);
             $table->integer('id_city')->nullable();
             $table->string('hash', 100);
-            $table->timestamps();
         });
     }
 

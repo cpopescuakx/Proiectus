@@ -17,7 +17,6 @@ class CreateSchoolUsersTable extends Migration
             $table->integer('id_shcool_user')->autoIncrement();
             $table->integer('id_user');
             $table->integer('id_school');
-            $table->timestamps();
         });
     }
 

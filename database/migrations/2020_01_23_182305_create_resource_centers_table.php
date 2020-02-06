@@ -20,7 +20,6 @@ class CreateResourceCentersTable extends Migration
             $table->string('f_route', 500);
             $table->integer('f_weight');
             $table->integer('id_project');
-            $table->timestamps();
 
 
         });

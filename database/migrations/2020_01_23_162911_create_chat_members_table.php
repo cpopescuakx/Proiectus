@@ -17,7 +17,6 @@ class CreateChatMembersTable extends Migration
           $table->integer('id_chat');
           $table->integer('id_user');
           $table->primary(['id_chat', 'id_user']);
-          $table->timestamps();
 
         });
     }

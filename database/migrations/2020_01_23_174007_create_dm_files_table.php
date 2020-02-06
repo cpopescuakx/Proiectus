@@ -16,10 +16,10 @@ class CreateDmFilesTable extends Migration
         Schema::create('dm_files', function (Blueprint $table) {
             $table->integer('id_file')->autoIncrement();
             $table->string('name', 100);
+            $table->datetime('last_modification')->useCurrent();
             $table->integer('size');
             $table->string('file_type', 20);
             $table->integer('id_folder');
-            $table->timestamps();
 
         });
     }

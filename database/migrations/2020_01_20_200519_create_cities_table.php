@@ -17,9 +17,8 @@ class CreateCitiesTable extends Migration
 
             $table->integer('id_city')->autoIncrement();
             $table->string('name');
-            $table->string('regionstate');
+            $table->string('regiondate');
             $table->integer('postalcode');
-            $table->timestamps();
 
         });
     }

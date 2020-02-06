@@ -19,10 +19,10 @@ class CreateMailMessagesTable extends Migration
             $table->integer('receiver');
             $table->string('subject', 200);
             $table->longText('content');
+            $table->datetime('datetime')->useCurrent();
             $table->enum('status_sender', ['visible', 'trash', 'removed'])->default('visible');
             $table->enum('status_receiver', ['read', 'unread', 'tresh', 'removed'])->default('unread');
             $table->enum('favorite', ['no', 'yes'])->default('no');
-            $table->timestamps();
         });
     }
 

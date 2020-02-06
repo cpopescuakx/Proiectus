@@ -17,7 +17,6 @@ class CreateWikisTable extends Migration
             $table->integer('id_project');
             $table->string('title', 100);
             $table->primary('id_project');
-            $table->timestamps();
         });
     }
 

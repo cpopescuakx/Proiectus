@@ -17,7 +17,6 @@ class CreateDMContainerFoldersTable extends Migration
             $table->integer('id_container_folder')->autoIncrement();
             $table->integer('id_folder');
             $table->integer('id_parent_folder')->nullable();
-            $table->timestamps();
 
         });
     }

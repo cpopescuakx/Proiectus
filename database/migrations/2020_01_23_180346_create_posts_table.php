@@ -14,14 +14,14 @@ class CreatePostsTable extends Migration
     public function up()
     {
         Schema::create('posts', function (Blueprint $table) {
-
+      
             $table->integer('id_post')->autoIncrement();
             $table->integer('id_project');
             $table->string('title', 50);
             $table->longText('content');
+            $table->datetime('creation_date')->useCurrent();
             $table->integer('id_user');
             $table->enum('status', ['active', 'inactive'])->default('active');
-            $table->timestamps();
 
 
         });

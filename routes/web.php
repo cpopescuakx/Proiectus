@@ -26,12 +26,14 @@ Route::post('/ticket/update', 'TicketController@update')->name('ticket.update');
 /* Companies */
 Route::resource('companies', 'CompanyController');
 Route::get('companies', 'CompanyController@show')->name('company');
+
+
 Route::get('/companies', 'CompanyController@index')->name('company.index');
 Route::get('/companies/create', 'CompanyController@create')->name('company.create');
 Route::get('/companies/{id}/edit', 'CompanyController@edit')->name('company.edit');
 Route::get('/companies/{id}/delete', 'CompanyController@destroy')->name('company.destroy');
 Route::post('/companies/create', 'CompanyController@store')->name('company.store');
-Route::post('/companies/{id}/update', 'CompanyController@update')->name('company.update');
+Route::post('/companies/update', 'CompanyController@update')->name('company.update');
 
 /* Users */
 Route::get('/gestor', 'UserController@index')->name('user.index');
@@ -39,7 +41,7 @@ Route::get('/gestor/create', 'UserController@create')->name('user.create');
 Route::get('/gestor/{id}/edit', 'UserController@edit')->name('user.edit');
 Route::get('/gestor/{id}/delete', 'UserController@destroy')->name('user.destroy');
 Route::post('/gestor/create', 'UserController@store')->name('user.store');
-Route::post('/gestor/{id}/update', 'UserController@update')->name('user.update');
+Route::post('/gestor/update', 'UserController@update')->name('user.update');
 
 /* School */
 Route::get('/school', 'SchoolController@index')->name('school.index');

@@ -17,7 +17,6 @@ class CreateProjectSchoolMembersTable extends Migration
             $table->integer('id')->autoIncrement();
             $table->integer('id_project');
             $table->integer('id_school');
-            $table->timestamps();
 
         });
     }

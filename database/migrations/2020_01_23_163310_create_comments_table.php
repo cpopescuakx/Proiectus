@@ -19,7 +19,6 @@ class CreateCommentsTable extends Migration
             $table->integer('id_user');
             $table->integer('id_post');
             $table->integer('id_project');
-            $table->timestamps();
         });
     }
 
