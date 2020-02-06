@@ -1,7 +1,7 @@
-@extends('company.layout')
+@extends('user.layout')
 
 @section('content')
-  <a href="{{ route('company.create') }}" class="btn btn-success mb-2">AFEGEIX EMPRESA</a>
+  <a href="{{ route('user.create') }}" class="btn btn-success mb-2">AFEGEIX USUARI</a>
   <br>
    <div class="row">
         <div class="col-12">
@@ -10,33 +10,26 @@
            <thead>
               <tr>
                  <th>ID</th>
+                 <th>FIRSTNAME</th>
+                 <th>LASTNAME</th>
+                 <th>NAME</th>
                  <th>EMAIL</th>
-                 <th>NOM</th>
-                 <th>NIF</th>
-                 <!--<th>ADREÇA</th>-->
-                 <!--<th>TELÉFON</th>-->
-                 <th>SECTOR</th>
-                 <!--<th>ID CIUTAT</th>-->
-                 <th>ESTAT</th>
+                 <th>DNI</th>
                  <td colspan="2">ACTION</td>
               </tr>
            </thead>
            <tbody>
-              @foreach($companies as $company)
+              @foreach($users as $user)
               <tr>
-                 <td>{{ $company->id_company }}</td>
-                 <td>{{ $company->email }}</td>
-                 <td>{{ $company->name }}</td>
-                 <td>{{ $company->nif }}</td>
-                 <!--<td>{{ $company->address }}</td>-->
-                 <!--<td>{{ $company->phone_number }}</td>-->
-                 <td>{{ $company->sector }}</td>
-                 <!--<td>{{ $company->id_city }}</td>-->
-                 <td>{{ $company->status }}</td>
-                 <!--<td>{{ date('Y-m-d', strtotime($company->created_at)) }}</td>-->
-                 <td><a href="{{ route('companies.edit',$company->id_company)}}" class="btn btn-primary">EDITA</a></td>
+                 <td>{{ $user->id }}</td>
+                 <td>{{ $user->firstname }}</td>
+                 <td>{{ $user->lastname }}</td>
+                 <td>{{ $user->name }}</td>
+                 <td>{{ $user->email }}</td>
+                 <td>{{ $user->nif }}</td>
+                 <td><a href="{{ route('users.edit',$user-id)}}" class="btn btn-primary">EDITA</a></td>
                  <td>
-                 <form action="{{ route('companies.destroy', $company->id_company)}}" method="post">
+                 <form action="{{ route('user.destroy', $user->id)}}" method="post">
                   {{ csrf_field() }}
                   @method('DELETE')
                   <button class="btn btn-danger" type="submit">ELIMINA</button>
@@ -46,7 +39,7 @@
               @endforeach
            </tbody>
           </table>
-          {!! $companies->links() !!}
+          {!! $users->links() !!}
        </div>
    </div>
  @endsection

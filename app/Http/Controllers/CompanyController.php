@@ -4,11 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 //USE AFEGITS!!!!!
-use App\Company;
+use App\user;
 use Redirect;
 use PDF;
 
-class CompanyController extends Controller
+class userController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +17,8 @@ class CompanyController extends Controller
      */
     public function index()
     {
-      $data['companies'] = Company::orderBy('id_company','desc')->paginate(10);
-      return view('company.list',$data);
+      $data['companies'] = user::orderBy('id_user','desc')->paginate(10);
+      return view('user.list',$data);
     }
 
     /**
@@ -28,7 +28,7 @@ class CompanyController extends Controller
      */
     public function create()
     {
-        return view('company.create');
+        return view('user.create');
     }
 
     /**
@@ -48,7 +48,7 @@ class CompanyController extends Controller
             'status' => 'active',
         ]);
 
-        Company::create($request->all());
+        user::create($request->all());
 
         return Redirect::to('companies')
        ->with('Éxit! L empresa s ha creat correctament!');
@@ -73,10 +73,10 @@ class CompanyController extends Controller
      */
     public function edit($id)
     {
-        $where = array('id_company' => $id);
-        $data['company_info'] = Company::where($where)->first();
+        $where = array('id_user' => $id);
+        $data['user_info'] = user::where($where)->first();
 
-        return view('company.edit', $data);
+        return view('user.edit', $data);
     }
 
     /**
@@ -86,7 +86,7 @@ class CompanyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,Company $id)
+    public function update(Request $request,user $id)
     {
         $request->validate([
             'email' => 'required',
@@ -97,9 +97,9 @@ class CompanyController extends Controller
         ]);
 
 
-         Company::findOrFail($id)->first()->fill($request->all())->save();
-         //Company::find($request->id)->update($request->all());
-         return redirect()->route('company.index')
+         user::findOrFail($id)->first()->fill($request->all())->save();
+         //user::find($request->id)->update($request->all());
+         return redirect()->route('user.index')
                           ->with('Éxit','L empresa s ha modificat correctament!');
 
 
@@ -113,7 +113,7 @@ class CompanyController extends Controller
      */
     public function destroy($id)
     {
-        Company::where('id_company',$id)->delete();
+        user::where('id_user',$id)->delete();
 
         return Redirect::to('companies')->with('Éxit','L empresa s ha eliminat correctament!');
     }

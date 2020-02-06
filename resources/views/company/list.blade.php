@@ -1,7 +1,7 @@
-@extends('company.layout')
+@extends('user.layout')
 
 @section('content')
-  <a href="{{ route('company.create') }}" class="btn btn-success mb-2">AFEGEIX EMPRESA</a>
+  <a href="{{ route('user.create') }}" class="btn btn-success mb-2">AFEGEIX EMPRESA</a>
   <br>
    <div class="row">
         <div class="col-12">
@@ -22,21 +22,21 @@
               </tr>
            </thead>
            <tbody>
-              @foreach($companies as $company)
+              @foreach($companies as $user)
               <tr>
-                 <td>{{ $company->id_company }}</td>
-                 <td>{{ $company->email }}</td>
-                 <td>{{ $company->name }}</td>
-                 <td>{{ $company->nif }}</td>
-                 <!--<td>{{ $company->address }}</td>-->
-                 <!--<td>{{ $company->phone_number }}</td>-->
-                 <td>{{ $company->sector }}</td>
-                 <!--<td>{{ $company->id_city }}</td>-->
-                 <td>{{ $company->status }}</td>
-                 <!--<td>{{ date('Y-m-d', strtotime($company->created_at)) }}</td>-->
-                 <td><a href="{{ route('companies.edit',$company->id_company)}}" class="btn btn-primary">EDITA</a></td>
+                 <td>{{ $user->id_user }}</td>
+                 <td>{{ $user->email }}</td>
+                 <td>{{ $user->name }}</td>
+                 <td>{{ $user->nif }}</td>
+                 <!--<td>{{ $user->address }}</td>-->
+                 <!--<td>{{ $user->phone_number }}</td>-->
+                 <td>{{ $user->sector }}</td>
+                 <!--<td>{{ $user->id_city }}</td>-->
+                 <td>{{ $user->status }}</td>
+                 <!--<td>{{ date('Y-m-d', strtotime($user->created_at)) }}</td>-->
+                 <td><a href="{{ route('companies.edit',$user->id_user)}}" class="btn btn-primary">EDITA</a></td>
                  <td>
-                 <form action="{{ route('companies.destroy', $company->id_company)}}" method="post">
+                 <form action="{{ route('companies.destroy', $user->id_user)}}" method="post">
                   {{ csrf_field() }}
                   @method('DELETE')
                   <button class="btn btn-danger" type="submit">ELIMINA</button>

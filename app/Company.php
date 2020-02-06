@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Company extends Model
+class user extends Model
 {
-    protected $primaryKey = 'id_company';
+    protected $primaryKey = 'id_user';
     protected $fillable = [
      'email',
      'name',

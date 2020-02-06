@@ -1,4 +1,4 @@
-@extends('company.layout')
+@extends('user.layout')
 
 @section('content')
 <h2 style="margin-top: 12px;" class="text-center">AFEGIR EMPRESA</a></h2>

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCompanyForValidationsTable extends Migration
+class CreateuserForValidationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class CreateCompanyForValidationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('company_for_validations', function (Blueprint $table) {
-            $table->integer('id_company')->autoIncrement();
+        Schema::create('user_for_validations', function (Blueprint $table) {
+            $table->integer('id_user')->autoIncrement();
             $table->string('email', 100);
             $table->string('name', 50);
             $table->string('nif', 10);
@@ -34,6 +34,6 @@ class CreateCompanyForValidationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('company_for_validations');
+        Schema::dropIfExists('user_for_validations');
     }
 }

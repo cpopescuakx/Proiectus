@@ -41,14 +41,14 @@ class ForeignKeysUsers extends Migration
 
         });
 
-        Schema::table('company_for_validations', function(Blueprint $table){
+        Schema::table('user_for_validations', function(Blueprint $table){
           $table->foreign('id_city')->references('id_city')->on('cities');
 
         });
 
-        Schema::table('company_users', function(Blueprint $table){
+        Schema::table('user_users', function(Blueprint $table){
           $table->foreign('id_user')->references('id')->on('users');
-          $table->foreign('id_company')->references('id_company')->on('companies');
+          $table->foreign('id_user')->references('id_user')->on('companies');
 
         });
 
@@ -189,15 +189,15 @@ class ForeignKeysUsers extends Migration
           $table->dropForeign(['id_city']);
       });
 
-      Schema::table('company_for_validations', function(Blueprint $table){
+      Schema::table('user_for_validations', function(Blueprint $table){
 
           $table->dropForeign(['id_city']);
       });
 
-      Schema::table('company_users', function(Blueprint $table){
+      Schema::table('user_users', function(Blueprint $table){
 
           $table->dropForeign(['id_user']);
-          $table->dropForeign(['id_company']);
+          $table->dropForeign(['id_user']);
 
       });
 

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class Company_for_validationsController extends Controller
+class user_for_validationsController extends Controller
 {
     /**
      * Display a listing of the resource.
