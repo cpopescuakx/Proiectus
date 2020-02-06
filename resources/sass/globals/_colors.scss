@@ -12,10 +12,16 @@ $dark:          #2C3531 !default;
 }
 
 .btn-primary {
-    background-color: $primary !important;
-    border-color: $primary !important;
+    background-color: $primary;
+    border-color: $primary;
     &:focus {
         border-color: $primary;
+    }
+
+    &:hover {
+        border-color: $light;
+        background-color: $light;
+        color: $primary;
     }
 }
 
@@ -63,11 +69,26 @@ $dark:          #2C3531 !default;
 .btn-outline-primary {
     color: $primary;
     border-color: $primary;
+    &:hover {
+        background-color: $primary;
+        border-color: $primary;
+
+    }
+    &:focus {
+        border-color: $primary;
+    }
 }
 
 .btn-outline-secondary {
     color: $secondary;
     border-color: $secondary;
+    &:hover {
+        background-color: $secondary;
+
+    }
+    &:focus {
+        border-color: $secondary;
+    }
 }
 
 .btn-outline-ternari {

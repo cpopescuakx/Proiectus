@@ -4,7 +4,7 @@
 }
 #projecte {
   margin-left: 25%;
-  margin-right: auto;  
+  margin-right: auto;
 }
 .btn-primary {
   background-color: #116466 !important;
@@ -568,5 +568,24 @@ form .margleft-410px {
 form .form-img {
   background-color: white;
   border-radius: 20px;
+}
+#projecte {
+  margin-left: 25%;
+  margin-right: auto;
+
+}
+
+.slide-width {
+  vertical-align: middle;
+  border-style: none;
+  display: block;
+  height: auto;
+  line-height: 1;
+}
+@media (min-width: 971px) {
+  .slide-width {
+    max-width: 100%;
+    width: 100%;
+  }
 }
 /*# sourceMappingURL=main.css.map */

@@ -5,7 +5,7 @@
             <!-- Logo -->
             <li class="nav-item">
                 <a class="navbar-brand" href="">
-                    <img src="/img/icono_light.png" width="30" height="30" class="d-inline-block align-top" alt="" href="index.php">
+                    <img src="http://localhost/Proiectus/resources/img/icono_light.png" width="30" height="30" class="d-inline-block align-top" alt="" href="index.php">
                     <span class="text-light text-uppercase">Proiectus</span>
                 </a>
             </li>
