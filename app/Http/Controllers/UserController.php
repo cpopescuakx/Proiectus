@@ -28,7 +28,7 @@ class UserController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Retorna la vista amb el formulari de creació d'alumnes.
      *
      * @return \Illuminate\Http\Response
      */
@@ -36,6 +36,10 @@ class UserController extends Controller
     {
         return view('students.create');
     }
+
+    /** Crea el nou alumne a partir de les dades donades al formulari.
+     *  @param $request
+     */
 
     public function storeStudent(Request $request)
     {

@@ -18,6 +18,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+/** Rutes per a l'apartat de gestió de projectes */
+
 Route::get('Project','ProjectController@index')
 -> name('projects.index');
 
@@ -27,6 +29,8 @@ Route::get('Project/create', function(){
 
 Route::post('Project/create/success', 'ProjectController@store')
 ->name('projects.store');
+
+/** Rutes per a l'apartat de gestió d'alumnes */
 
 Route::get('Students', 'UserController@indexStudent')
 ->name('students.index');
