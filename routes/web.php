@@ -18,13 +18,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('Project','ProjectController');
+Route::get('Project','ProjectController@index')
+-> name('projects.index');
 
 Route::get('Project/create', function(){
     return view ('projects.create');
 })->name('projects.create');
 
-Route::post('Project', 'ProjectController@store')
+Route::post('Project/create/success', 'ProjectController@store')
 ->name('projects.store');
 
 /* Route::post('projects', 'ProjectController@destroy')

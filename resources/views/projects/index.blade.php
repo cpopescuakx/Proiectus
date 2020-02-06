@@ -25,6 +25,8 @@
     </div>
 @endif
 
+
+
 <tbody>
     @foreach($projects as $project)
     <tr>

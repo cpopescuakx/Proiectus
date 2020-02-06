@@ -34,14 +34,14 @@ class ProjectController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Guardar un projecte nou a la base dades.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        /*// Instanciar
+    { 
+        // Instanciar
         $projecte = new Project;
 
         // Assignar al 
@@ -52,9 +52,14 @@ class ProjectController extends Controller
 
         // Guardar projecte a la BBDD
         $projecte -> save();
-        */
+        
         // Tornar a la llista de projectes
-        return view('projects.index');
+
+        $projects = Project::all();
+
+        return redirect()->route('projects.index',compact('projects'))
+        ->with('i', (request()->input('page', 1) -1));
+        
         
 
         // **** PREGUNTAR A TONI SI FALTA CONSIDERAR CREAR UNA PROPOSTA ****    //
