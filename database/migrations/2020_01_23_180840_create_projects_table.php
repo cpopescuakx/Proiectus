@@ -22,7 +22,7 @@ class CreateProjectsTable extends Migration
             $table->longText('description');
             $table->string('professional_family', 50);
             $table->enum('status', ['active', 'inactive'])->default('active');
-
+            $table->timestamps();
 
 
 

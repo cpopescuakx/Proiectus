@@ -34,32 +34,36 @@ class ProjectController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Guardar un projecte nou a la base dades.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        // Validar que els camps estiguin correctes.
-        $validator = Validator::make($request->all(),
-        ['name' => 'required|unique:projects|max:50',
-        'budget' => 'required|numeric',
-        'description' => 'required',
-        'professional_family' => 'required|max:50',
-        ]);
+        // Instanciar
+        $projecte = new Project;
 
-        // Si no ho estan, redirigir al formulari de creació i mostrar els errors
-        if ($validator->fails()) {
-            return redirect('project/create')
-            ->withErrors($validator)
-            ->withInput();
-        }
-        else{
-            $project = Project::create($request->except('csrf'));
-            // Mostra les dades amb JSON
-            return $post->toJson();
-        }
+        // Assignar al
+        $projecte -> name = $request->input('name');
+        $projecte -> budget = $request->input('budget');
+        $projecte -> description = $request->input('desc');
+        $projecte -> professional_family = $request->input('pro_family');
+
+        // Guardar projecte a la BBDD
+        $projecte -> save();
+
+        // Tornar a la llista de projectes
+
+        $projects = Project::all();
+
+        return redirect()->route('projects.index',compact('projects'))
+        ->with('i', (request()->input('page', 1) -1));
+
+
+
+        // **** PREGUNTAR A TONI SI FALTA CONSIDERAR CREAR UNA PROPOSTA ****    //
+        // **** SI EL PROJECTE NO POT ESTAR RELACIONAT A NINGUNA PROPOSTA ****  //
     }
 
     /**
