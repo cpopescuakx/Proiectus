@@ -378,12 +378,12 @@ a:hover {
     left: 260px;
   }
   .content {
-    left: 260px;
-    width: calc(100% - 260px);
+    left: 122px;
+    width: calc(100% - 122px);
   }
   .content.closed {
-    left: 80px;
-    width: calc(100% - 80px);
+    left: 30px;
+    width: calc(100% - 30px);
   }
 }
 
@@ -482,7 +482,7 @@ form .contact-form {
   margin-bottom: 5%;
   padding-top: 5%;
   padding-bottom: 5%;
-  width: fit-content;
+  width: auto;
 }
 
 form .pagination {

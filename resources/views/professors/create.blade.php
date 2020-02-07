@@ -8,7 +8,7 @@
                 <div class="col-11 col-sm-11 col-md-10 col-lg-10 col-xl-10">
                     <div class="container">
                         <div class="contact-image text-center mt-3">
-                            <img class="form-img" src="./img/icono_negro.png" />
+                            <img class="form-img" src="{{ asset('img/icono_negro.png') }}" />
                         </div>
                     </div>
                     <div class="container contact-form">
@@ -89,14 +89,15 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="row justify-content-center">
-                            <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
-                                <button type="submit" name = "sbumit" class="btn btn-primary">Modificar</button>
+                        <div class="form-group">
+                            <div class="row justify-content-center">
+                                <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
+                                    <button type="submit" name = "sbumit" class="btn btn-primary">Crear</button>
+                                </div>
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
