@@ -374,8 +374,8 @@ a:hover {
     left: 260px;
   }
   .content {
-    left: 260px;
-    width: calc(100% - 260px);
+    left: 245px;
+    width: calc(100% - 245px);
   }
   .closed {
     left: 65px;
