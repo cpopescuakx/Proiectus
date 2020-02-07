@@ -81,4 +81,13 @@ class CityController extends Controller
     {
         //
     }
+
+    public function list () {
+        $city = City::all();
+    }
+
+    public function agafarID ($name) {
+        $id = DB::table('cities')->where("name", $name)->get();
+        return $id;
+    }
 }

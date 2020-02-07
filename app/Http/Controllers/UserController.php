@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\User;
 use DB;
+use App\City;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -34,7 +35,8 @@ class UserController extends Controller
      */
     public function createStudent()
     {
-        return view('students.create');
+        $cities = DB::table('cities')->distinct()->select("name")->get();
+        return view('students.create',compact('cities'));
     }
 
     /** Crea el nou alumne a partir de les dades donades al formulari.
@@ -54,7 +56,7 @@ class UserController extends Controller
         $student -> email = $request->input('email');
         $student -> birthdate = $request->input('birthdate');
         $student -> password = $request->input('password');
-        $student -> id_city = 1;
+        $student -> id_city = City::agafarID($request->input('city'));
         $student -> profile_pic = "Res";
         $student -> bio = "Res";
         $student -> id_role = 3;
@@ -70,6 +72,8 @@ class UserController extends Controller
         return redirect()->route('students.index',compact('students'))
         ->with('i', (request()->input('page', 1) -1));
     }
+
+
 
         /** Extreu els usuaris que tenen ID de rol 3 (Alumne), després retorna la vista per a llistar-los. */
 

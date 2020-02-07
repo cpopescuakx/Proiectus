@@ -37,16 +37,14 @@ Route::post('Project/{id}/edit/success', 'ProjectController@update')
 ->name('projects.update');
 
 Route::get('Project/{id}', 'ProjectController@destroy')
-->name('projects.destroy'); 
+->name('projects.destroy');
 
 /** Rutes per a l'apartat de gestió d'alumnes */
 
 Route::get('Students', 'UserController@indexStudent')
 ->name('students.index');
 
-Route::get('Students/create', function () {
-    return view('students.create');
-})->name('students.create');
+Route::get('Students/create', 'UserController@createStudent')->name('students.create');
 
 Route::post('Students/create/success', 'UserController@storeStudent')
 ->name('students.store');
