@@ -19,7 +19,7 @@ class CreateProposalsTable extends Migration
             $table->datetime('publicacion_date')->useCurrent();
             $table->string('professional_family', 100);
             $table->longText('description');
-            $table->datetime('limit_date');
+            $table->datetime('limit_date')->nullable();
             $table->integer('id_author');
             $table->enum('category', ['company', 'school']);
             $table->enum('status', ['active', 'inactive', 'deleted'])->default('active');

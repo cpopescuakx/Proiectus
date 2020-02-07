@@ -2,32 +2,32 @@
 
 @section('content');
 <body>
-    {{-- <h1>Crear un nou projecte</h1>
+      {{-- <h1>Crear un nou projecte</h1>
 
-<form action='{{ route('projects.store') }}' method='POST'> 
-  
-    @csrf
-        <tr><td>Nom del Projecte:</td><br>
-          <td><input type="text" name="name"></td>
-        </tr>
-        <br>
-        <div class="row">
-            <div></div>
-        </div>
-        <tr><td>Pressupost:</td><br>
-          <td><input type="text" name="budget"></td>
-        </tr>
-        <br>
-        <tr><td>Descripció :</td><br>
-          <td><input type="text" name="desc"></td>
-        </tr>
-        <br>
-        <tr><td>Familia Professional:</td><br>
-          <td><input type="text" name="pro_family"></td>
-        </tr>
-        <br>
-        <input name='crear' value='Crear' type='submit'/>
-    </form> --}}
+  <form action='{{ route('projects.store') }}' method='POST'> 
+    
+      @csrf
+          <tr><td>Nom del Projecte:</td><br>
+            <td><input type="text" name="name"></td>
+          </tr>
+          <br>
+          <div class="row">
+              <div></div>
+          </div>
+          <tr><td>Pressupost:</td><br>
+            <td><input type="text" name="budget"></td>
+          </tr>
+          <br>
+          <tr><td>Descripció :</td><br>
+            <td><input type="text" name="desc"></td>
+          </tr>
+          <br>
+          <tr><td>Familia Professional:</td><br>
+            <td><input type="text" name="pro_family"></td>
+          </tr>
+          <br>
+          <input name='crear' value='Crear' type='submit'/>
+      </form> --}}
 
     <div class="content formulari closed">
 
@@ -63,7 +63,7 @@
                           <div class="row justify-content-center">
                               <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
                                   <label for="exampleFormControlInput1">Nom del Projecte</label>
-                                  <input type="name" class="form-control" id="exampleFormControlInput1" placeholder="Proiectus" required>
+                                  <input type="name" class="form-control" id="exampleFormControlInput1" placeholder="Proiectus" name="name" required>
 
                               </div>
                           </div>
@@ -75,7 +75,7 @@
                         <div class="row justify-content-center">
                             <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
                                 <label for="exampleFormControlInput1">Pressupost</label>
-                                <input type="name" class="form-control" id="exampleFormControlInput1" placeholder="200" required>
+                                <input type="name" class="form-control" id="exampleFormControlInput1" placeholder="200" name="budget" required>
 
                             </div>
                         </div>
@@ -87,7 +87,7 @@
                       <div class="row justify-content-center">
                           <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
                               <label for="exampleFormControlInput1">Descripció</label>
-                              <input type="name" class="form-control" id="exampleFormControlInput1" placeholder="Projecte centrat a la programació" required>
+                              <input type="name" class="form-control" id="exampleFormControlInput1" placeholder="Projecte centrat a la programació" name="desc" required>
 
                           </div>
                       </div>
@@ -99,12 +99,24 @@
                     <div class="row justify-content-center">
                         <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
                             <label for="exampleFormControlInput1">Familia Professional</label>
-                            <input type="name" class="form-control" id="exampleFormControlInput1" placeholder="Informàtica" required>
+                            <input type="name" class="form-control" id="exampleFormControlInput1" placeholder="Informàtica" name="pro_family" required>
 
                         </div>
                     </div>
                 </div>
                 <!-- fin input básico -->
+
+                <!-- Input básico -->
+                <div class="form-group mt-4">
+                  <div class="row justify-content-center">
+                      <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
+                          <label for="exampleFormControlInput1">Data de finalització (yyy-mm-dd)</label>
+                          <input type="name" class="form-control" id="exampleFormControlInput1" name="end_date">
+
+                      </div>
+                  </div>
+              </div>
+              <!-- fin input básico -->
 
                 <!-- Botó confirmar -->
                 <div class="form-group">
