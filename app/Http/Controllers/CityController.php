@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CityController extends Controller
 {
@@ -82,12 +83,15 @@ class CityController extends Controller
         //
     }
 
-    public function list () {
+    public function list ()
+    {
         $city = City::all();
     }
 
-    public function agafarID ($name) {
-        $id = DB::table('cities')->where("name", $name)->get();
+    public static function agafarID ($name)
+    {
+        $city = DB::table('cities')->select("*")->where("name", $name)->get()->first();
+        $id = $city->id_city;
         return $id;
     }
 }

@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 use App\User;
-use DB;
-use App\City;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\CityController;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -56,7 +56,8 @@ class UserController extends Controller
         $student -> email = $request->input('email');
         $student -> birthdate = $request->input('birthdate');
         $student -> password = $request->input('password');
-        $student -> id_city = City::agafarID($request->input('city'));
+        $nom = $request->input('city');
+        $student -> id_city = CityController::agafarID($nom);
         $student -> profile_pic = "Res";
         $student -> bio = "Res";
         $student -> id_role = 3;
