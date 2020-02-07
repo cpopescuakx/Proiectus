@@ -18,7 +18,13 @@ class UserController extends Controller
         //
     }
 
-    /** Extreu els usuaris que tenen ID de rol 3 (Alumne), després retorna la vista per a llistar-los. */
+    /** LLISTAR ALUMNES
+     *
+     *  Extreu els usuaris que tenen ID de rol 3 (Alumne), després retorna la vista per a llistar-los.
+     *
+     *  @param void
+     *  @return void
+     * */
 
     public function indexStudent()
     {
@@ -28,10 +34,13 @@ class UserController extends Controller
         return view ('students.index', compact('students'));
     }
 
-    /**
-     * Retorna la vista amb el formulari de creació d'alumnes.
+    /** CREAR ALUMNE
      *
-     * @return \Illuminate\Http\Response
+     *  Retorna la vista amb el formulari de creació d'alumnes. Passant els noms de les ciutats
+     *  que tenim a la base de dades, per a poder fer el datalist.
+     *
+     *  @param void
+     *  @return \Illuminate\Http\Response
      */
     public function createStudent()
     {
@@ -39,8 +48,12 @@ class UserController extends Controller
         return view('students.create',compact('cities'));
     }
 
-    /** Crea el nou alumne a partir de les dades donades al formulari.
-     *  @param $request
+    /** GUARDAR ALUMNE
+     *
+     *  Guarda el nou alumne a la base de dades a partir de les dades donades al formulari.
+     *
+     *  @param Request $request
+     *  @return void
      */
 
     public function storeStudent(Request $request)
