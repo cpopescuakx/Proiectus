@@ -71,6 +71,60 @@ class UserController extends Controller
         ->with('i', (request()->input('page', 1) -1));
     }
 
+        /** Extreu els usuaris que tenen ID de rol 3 (Alumne), després retorna la vista per a llistar-los. */
+
+    public function indexProfessor()
+    {
+        //
+        $professors = DB::table('users')->where('id_role', 4)->get();
+
+        return view ('professors.index', compact('professors'));
+    }
+
+    /**
+     * Retorna la vista amb el formulari de creació d'alumnes.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function createProfessor()
+    {
+        return view('professors.create');
+    }
+
+    /** Crea el nou alumne a partir de les dades donades al formulari.
+     *  @param $request
+     */
+
+    public function storeProfessor(Request $request)
+    {
+        // Instanciar
+        $professor = new User;
+
+        // Assignació de valors a les propietats
+        $professor -> firstname = $request->input('firstname');
+        $professor -> lastname = $request->input('lastname');
+        $professor -> name = $request->input('name');
+        $professor -> dni = $request->input('dni');
+        $professor -> email = $request->input('email');
+        $professor -> birthdate = $request->input('birthdate');
+        $professor -> password = $request->input('password');
+        $professor -> id_city = 1;
+        $professor -> profile_pic = "Res";
+        $professor -> bio = "Res";
+        $professor -> id_role = 4;
+        $professor -> status = "active";
+
+        // Guardar alumne a la BBDD
+        $professor -> save();
+
+        // Tornar a la llista d'alumnes
+
+        $professors = DB::table('users')->where('id_role', 4)->get();
+
+        return redirect()->route('professors.index',compact('professors'))
+        ->with('i', (request()->input('page', 1) -1));
+    }
+
     /**
      * Store a newly created resource in storage.
      *
