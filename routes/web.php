@@ -42,5 +42,17 @@ Route::get('Students/create', function () {
 Route::post('Students/create/success', 'UserController@storeStudent')
 ->name('students.store');
 
+/** Rutes per a l'apartat de gestió de profes */
+
+Route::get('Professors', 'UserController@indexProfessor')
+->name('professors.index');
+
+Route::get('Professors/create', function () {
+    return view('professors.create');
+})->name('professors.create');
+
+Route::post('Professors/create/success', 'UserController@storeProfessor')
+->name('professors.store');
+
 /* Route::post('projects', 'ProjectController@destroy')
 ->name('projects.destroy'); */
