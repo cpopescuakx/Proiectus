@@ -159,11 +159,12 @@ class ProjectController extends Controller
     {
 
         $projecte = Project::find($id);
-        $projecte->status = 'inactive';
+        echo $projecte;
+        /* $projecte->status = 'inactive';
         
         $projects = Project::all();
             return redirect()->route('projects.index',compact('projects'))
-            ->with('i', (request()->input('page', 1) -1));
+            ->with('i', (request()->input('page', 1) -1)); */
 
         /* $project->delete();
         return redirect()->route('projects.index')
