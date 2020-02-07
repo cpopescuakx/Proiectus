@@ -1,6 +1,4 @@
-/* Estilo header */
 
-/* Estilo scroll */
 ::-webkit-scrollbar {
     width: 10px;
 }
@@ -146,9 +144,7 @@ a:hover {
     }
 }
 
-.content.closed {
-    left: 0;
-}
+
 
 .navbar-expand-lg .navbar-nav .nav-link {
     padding: 0 .5rem;
@@ -223,12 +219,12 @@ a:hover {
         }
     }
     .content {
-        left: 260px;
-        width: calc(100% - 260px);
+        left: 122px;
+        width: calc(100% - 122px);
 
         &.closed {
-            left: 80px;
-            width: calc(100% - 80px);
+            left: 30px;
+            width: calc(100% - 30px);
         }
     }
 

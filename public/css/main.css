@@ -313,10 +313,6 @@ a:hover {
   width: 100%;
 }
 
-.content.closed {
-  left: 0;
-}
-
 .navbar-expand-lg .navbar-nav .nav-link {
   padding: 0 .5rem;
 }
@@ -378,12 +374,12 @@ a:hover {
     left: 260px;
   }
   .content {
-    left: 260px;
-    width: calc(100% - 260px);
+    left: 245px;
+    width: calc(100% - 245px);
   }
-  .content.closed {
-    left: 80px;
-    width: calc(100% - 80px);
+  .closed {
+    left: 65px;
+    width: calc(100% - 65px);
   }
 }
 
@@ -461,7 +457,7 @@ a:hover {
   border: 1px solid #a52a1b;
 }
 
-.content.formulari {
+.formulari {
   background: linear-gradient(180deg, #116466 0%, #73c1ba 35%, #F7F2E5 100%);
   z-index: 1;
   overflow-x: hidden;
@@ -482,7 +478,7 @@ form .contact-form {
   margin-bottom: 5%;
   padding-top: 5%;
   padding-bottom: 5%;
-  width: fit-content;
+  width: auto;
 }
 
 form .pagination {

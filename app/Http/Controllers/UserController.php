@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 use App\User;
-use DB;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\CityController;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -17,7 +18,13 @@ class UserController extends Controller
         //
     }
 
-    /** Extreu els usuaris que tenen ID de rol 3 (Alumne), després retorna la vista per a llistar-los. */
+    /** LLISTAR ALUMNES
+     *
+     *  Extreu els usuaris que tenen ID de rol 3 (Alumne), després retorna la vista per a llistar-los.
+     *
+     *  @param void
+     *  @return void
+     * */
 
     public function indexStudent()
     {
@@ -27,18 +34,26 @@ class UserController extends Controller
         return view ('students.index', compact('students'));
     }
 
-    /**
-     * Retorna la vista amb el formulari de creació d'alumnes.
+    /** CREAR ALUMNE
      *
-     * @return \Illuminate\Http\Response
+     *  Retorna la vista amb el formulari de creació d'alumnes. Passant els noms de les ciutats
+     *  que tenim a la base de dades, per a poder fer el datalist.
+     *
+     *  @param void
+     *  @return \Illuminate\Http\Response
      */
     public function createStudent()
     {
-        return view('students.create');
+        $cities = DB::table('cities')->distinct()->select("name")->get();
+        return view('students.create',compact('cities'));
     }
 
-    /** Crea el nou alumne a partir de les dades donades al formulari.
-     *  @param $request
+    /** GUARDAR ALUMNE
+     *
+     *  Guarda el nou alumne a la base de dades a partir de les dades donades al formulari.
+     *
+     *  @param Request $request
+     *  @return void
      */
 
     public function storeStudent(Request $request)
@@ -54,7 +69,8 @@ class UserController extends Controller
         $student -> email = $request->input('email');
         $student -> birthdate = $request->input('birthdate');
         $student -> password = $request->input('password');
-        $student -> id_city = 1;
+        $nom = $request->input('city');
+        $student -> id_city = CityController::agafarID($nom);
         $student -> profile_pic = "Res";
         $student -> bio = "Res";
         $student -> id_role = 3;
@@ -68,6 +84,62 @@ class UserController extends Controller
         $students = DB::table('users')->where('id_role', 3)->get();
 
         return redirect()->route('students.index',compact('students'))
+        ->with('i', (request()->input('page', 1) -1));
+    }
+
+
+
+        /** Extreu els usuaris que tenen ID de rol 3 (Alumne), després retorna la vista per a llistar-los. */
+
+    public function indexProfessor()
+    {
+        //
+        $professors = DB::table('users')->where('id_role', 4)->get();
+
+        return view ('professors.index', compact('professors'));
+    }
+
+    /**
+     * Retorna la vista amb el formulari de creació d'alumnes.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function createProfessor()
+    {
+        return view('professors.create');
+    }
+
+    /** Crea el nou alumne a partir de les dades donades al formulari.
+     *  @param $request
+     */
+
+    public function storeProfessor(Request $request)
+    {
+        // Instanciar
+        $professor = new User;
+
+        // Assignació de valors a les propietats
+        $professor -> firstname = $request->input('firstname');
+        $professor -> lastname = $request->input('lastname');
+        $professor -> name = $request->input('name');
+        $professor -> dni = $request->input('dni');
+        $professor -> email = $request->input('email');
+        $professor -> birthdate = $request->input('birthdate');
+        $professor -> password = $request->input('password');
+        $professor -> id_city = 1;
+        $professor -> profile_pic = "Res";
+        $professor -> bio = "Res";
+        $professor -> id_role = 4;
+        $professor -> status = "active";
+
+        // Guardar alumne a la BBDD
+        $professor -> save();
+
+        // Tornar a la llista d'alumnes
+
+        $professors = DB::table('users')->where('id_role', 4)->get();
+
+        return redirect()->route('professors.index',compact('professors'))
         ->with('i', (request()->input('page', 1) -1));
     }
 

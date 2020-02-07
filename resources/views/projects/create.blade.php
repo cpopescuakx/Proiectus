@@ -110,12 +110,11 @@
                 <div class="form-group mt-4">
                   <div class="row justify-content-center">
                       <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
-                          <label for="exampleFormControlInput1">Data de finalització (yyy-mm-dd)</label>
+                          <label for="exampleFormControlInput1">Data de finalització <br> (yyy-mm-dd)</label>
                           <input type="name" class="form-control" id="exampleFormControlInput1" name="end_date">
-
                       </div>
                   </div>
-              </div>
+                </div>
               <!-- fin input básico -->
 
                 <!-- Botó confirmar -->

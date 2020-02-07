@@ -1,4 +1,7 @@
 <?php
+/**
+ * Controlador de Projectes
+ */
 
 namespace App\Http\Controllers;
 
@@ -8,41 +11,58 @@ use App\Proposal;
 
 class ProjectController extends Controller
 {
+    
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * Llistar tots els projectes
+     * 
+     * Retorna la vista projects.index i li injecta la variable $projects 
+     * que conté una llista de tots els projectes.
+     *  
+     * @return void
+     * 
      */
     public function index()
     {
-        //
         $projects = Project::all();
         return view('projects.index', compact('projects'))
             ->with('i', (request()->input('page', 1) -1));
-        // return view('projects.index');
-
     }
 
+    
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
+     * Formulari de creació de projectes
+     * 
+     * Retorna la vista projects.create la qual és un formulari per a 
+     * crear projectes nous
+     * 
+     * @return void
+     * 
      */
     public function create()
     {
-        //
         return view('projects.create');
     }
 
+    
     /**
-     * Guardar un projecte nou a la base dades.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * Crear un projecte nou
+     * 
+     * Comprova si és possible crear un projecte nou (hi han suficients propostes).
+     * 
+     * Si és aixi, utilitzara el parametre $request per a conseguir les dades del
+     * formulari i crearà un projecte nou.
+     * 
+     * Sinó crearà primer una proposta amb els mateixos valors + l'usuari autor i
+     * el tipus de proposta (centre o empresa) segons l'usuari que l'hagi creat
+     * i després crearà el projecte.
+     * 
+     * @param Request $request
+     * 
+     * @return void
+     * 
      */
     public function store(Request $request)
     {
-
         $idProj = Project::max('id_project');
         $idProp = Proposal::max('id_proposal');
 
@@ -106,60 +126,93 @@ class ProjectController extends Controller
         }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    
     public function show(Project $project)
     {
-        //
-        return view('projects.show',compact('project'));
+        //return view('projects.show',compact('project'));
     }
 
+    
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * Formulari editar
+     * 
+     * Retorna la vista projects.edit i li injecta la variable $project que conté
+     * el projecte que correspon a la id del parametre ($id)
+     * 
+     * @param mixed $id
+     * 
+     * @return void
+     * 
      */
-    public function edit(Project $project)
+    public function edit($id)
     {
-        //
+        $project = Project::find($id);
         return view('projects.edit', compact('project'));
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Project $project)
-    {
-        //
-        self::store($request);
-        $project->update($request->all());
-
-        return redirect()->route('projects.index')
-            ->with('succes','Projecte actualitzat correctament');
-
-
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Project $project)
-    {
         
-        $project->delete();
-        return redirect()->route('projects.index')
-            ->with('success', 'Projecte esborrat correctament');
+    }
+
+    
+    /**
+     * Editar un projecte existent
+     * 
+     * Busca el projecte en qüestió (utilitzant la ID de la ruta),
+     * li assigna els valors obtinguts del formulari utilitzant la variable 
+     * $request i guarda els canvis.
+     * 
+     * Després redirecciona a la llista de projectes.
+     * 
+     * @param Request $request
+     * 
+     * @return void
+     * 
+     */
+    public function update(Request $request)
+    {
+        // Agafar la id de la ruta (parametre)
+        $id = $request->route('id');
+
+        // Cercar el projecte amb la mateixa ID de la BBDD
+        $projecte = Project::find($id);
+
+        // Assignar els valors del formulari
+        $projecte-> name = $request->input('name');
+        $projecte -> budget = $request->input('budget');
+        $projecte -> description = $request->input('description');
+        $projecte -> professional_family = $request->input('professional_family');
+        $projecte -> ending_date = $request->input('end_date');
+        
+        // Guardar els canvis
+        $projecte ->save();
+
+        // Redireccionar a la llista de projectes
+        $projects = Project::all();
+        return redirect()->route('projects.index',compact('projects'))
+        ->with('i', (request()->input('page', 1) -1));
+
+    }
+
+    
+    /**
+     * Donar de baixa un projecte
+     * 
+     * Busca el projecte en qüestió (utilitzant el parametre $id),
+     * modifica el camp status (inactive) i guarda els canvis.
+     * 
+     * Després redirecciona a la llista de projectes.
+     * 
+     * @param mixed $id
+     * 
+     * @return void
+     * 
+     */
+    public function destroy($id)
+    {
+        $projecte = Project::find($id);
+        $projecte -> status = 'inactive';
+        $projecte ->save();
+        
+        $projects = Project::all();
+            return redirect()->route('projects.index',compact('projects'))
+            ->with('i', (request()->input('page', 1) -1));
     }
 }
