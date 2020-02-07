@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="content formulari closed">
-        <form class="was-validated" action="{{route('students.store')}}" method="POST">
+        <form class="was-validated" action="{{route('Professors.store')}}" method="POST">
             @csrf
             <div class="row justify-content-center">
                 <div class="col-11 col-sm-11 col-md-10 col-lg-10 col-xl-10">
@@ -15,7 +15,7 @@
                         <div class="container">
                             <div class="row no-gutters justify-content-center mt-5">
                                 <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
-                                    <h1>Modificar Projecte</h1>
+                                    <h1>Crear Professor</h1>
                                 </div>
                             </div>
                         </div>
@@ -24,7 +24,7 @@
                             <div class="row justify-content-center">
                                 <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
                                     <label for="nom">Nom</label>
-                                    <input type="text" name = "name" class="form-control" id="name" value="{{$project->name}}" required>
+                                    <input type="text" name = "firstname" class="form-control" id="firstname" required>
                                     <div class="invalid-feedback">Camp necessari</div>
                                 </div>
                             </div>
@@ -33,8 +33,8 @@
                         <div class="form-group mt-4">
                             <div class="row justify-content-center">
                                 <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
-                                    <label for="cognom">Descripció</label>
-                                    <input type="text" name = "description" class="form-control" id="description" value="{{$project->description}}" required>
+                                    <label for="cognom">Cognom</label>
+                                    <input type="text" name = "lastname" class="form-control" id="lastname" required>
                                     <div class="invalid-feedback">Camp necessari</div>
                                 </div>
                             </div>
@@ -43,8 +43,8 @@
                         <div class="form-group mt-4">
                             <div class="row justify-content-center">
                                 <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
-                                    <label for="usuari">Pressupost</label>
-                                <input type="text" name = "budget" class="form-control" id="budget" value="{{$project->budget}}" required>
+                                    <label for="usuari">Usuari</label>
+                                    <input type="text" name = "name" class="form-control" id="name" required>
                                     <div class="invalid-feedback">Camp necessari</div>
                                 </div>
                             </div>
@@ -53,18 +53,47 @@
                         <div class="form-group mt-4">
                             <div class="row justify-content-center">
                                 <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
-                                    <label for="dni">Família professional</label>
-                                <input type="text" name = "professional_family" class="form-control" id="professional_family" value="{{$project->professional_family}}" required>
+                                    <label for="dni">DNI</label>
+                                    <input type="text" name = "dni" class="form-control" id="dni" required>
                                     <div class="invalid-feedback">Camp necessari</div>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="form-group">
+                        <div class="form-group mt-4">
                             <div class="row justify-content-center">
                                 <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
-                                    <button type="submit" name = "sbumit" class="btn btn-primary float-right">Crear</button>
+                                    <label for="data-naixement">Data naixement</label>
+                                    <input type="text" name = "birthdate" class="form-control" id="birthdate" required>
+                                    <div class="invalid-feedback">Camp necessari</div>
                                 </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group mt-4">
+                            <div class="row justify-content-center">
+                                <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
+                                    <label for="email">Email</label>
+                                    <input type="text" name = "email" class="form-control" id="email" required>
+                                    <div class="invalid-feedback">Camp necessari</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group mt-4">
+                            <div class="row justify-content-center">
+                                <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
+                                    <label for="contrassenya">Contrassenya</label>
+                                    <input type="text" name = "password" class="form-control" id="password" required>
+                                    <div class="invalid-feedback">Camp necessari</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row justify-content-center">
+                            <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
+                                <button type="submit" name = "sbumit" class="btn btn-primary">Modificar</button>
                             </div>
                         </div>
                     </div>

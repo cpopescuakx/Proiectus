@@ -4,6 +4,7 @@
 <div class="col">
   <div class="row">
     <a href="{{ route('projects.create') }}" class="btn btn-primary">Crear</a>
+    <a href="{{ route('projects.destroy', ['12']) }}" class="btn btn-primary">Prova baixa</a>
   </div>  
 </div>
 <table class="table table-hover mt-5 mr-5">
