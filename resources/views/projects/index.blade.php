@@ -4,7 +4,6 @@
 <div class="col">
   <div class="row">
     <a href="{{ route('projects.create') }}" class="btn btn-primary">Crear</a>
-    <a href="{{ route('projects.destroy', ['12']) }}" class="btn btn-primary">Prova baixa</a>
   </div>  
 </div>
 <table class="table table-hover mt-5 mr-5">
@@ -46,6 +45,10 @@
         <td>{{$project->budget}}</td>
         <td>{{$project->professional_family}}</td>
         <td>{{$project->status}}</td>
+        <td>
+            <a href="{{ route('projects.edit', [$project->id_project]) }}"><img src="/resources/img/edit.svg" width="20" height="20" class="mr-2"></a>
+            <a href="{{ route('projects.destroy', [$project->id_project]) }}"><img src="/resources/img/delete.svg" width="20" height="20"></a>
+        </td>
 
         {{-- <td><a href="{{ route('projects.edit', $project->id)}}" class="btn btn-primary">Editar</a></td> --}}
         {{-- <td>

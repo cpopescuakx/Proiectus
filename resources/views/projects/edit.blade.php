@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="content formulari closed">
-        <form class="was-validated" action="{{route('students.store')}}" method="POST">
+        <form class="was-validated" action="{{route('projects.update', [$project->id_project])}}" method="POST">
             @csrf
             <div class="row justify-content-center">
                 <div class="col-11 col-sm-11 col-md-10 col-lg-10 col-xl-10">
@@ -59,6 +59,15 @@
                                 </div>
                             </div>
                         </div>
+
+                        <div class="form-group mt-4">
+                            <div class="row justify-content-center">
+                                <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
+                                    <label for="exampleFormControlInput1">Data de finalització <br> (yyy-mm-dd)</label>
+                                    <input type="name" class="form-control" id="exampleFormControlInput1" name="end_date" value="{{$project->ending_date}}">
+                                </div>
+                            </div>
+                          </div>
 
                         <div class="form-group">
                             <div class="row justify-content-center">

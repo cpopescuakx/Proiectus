@@ -124,10 +124,11 @@ class ProjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Project $project)
+    public function edit($id)
     {
-        //
+        $project = Project::find($id);
         return view('projects.edit', compact('project'));
+        
     }
 
     /**
@@ -137,15 +138,28 @@ class ProjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Project $project)
+    public function update(Request $request)
     {
-        //
-        self::store($request);
-        $project->update($request->all());
+        // Agafar la id de la ruta (parametre)
+        $id = $request->route('id');
 
-        return redirect()->route('projects.index')
-            ->with('succes','Projecte actualitzat correctament');
+        // Cercar el projecte amb la mateixa ID de la BBDD
+        $projecte = Project::find($id);
 
+        // Assignar els valors del formulari
+        $projecte-> name = $request->input('name');
+        $projecte -> budget = $request->input('budget');
+        $projecte -> description = $request->input('description');
+        $projecte -> professional_family = $request->input('professional_family');
+        $projecte -> ending_date = $request->input('end_date');
+        
+        // Guardar els canvis
+        $projecte ->save();
+
+        // Redireccionar a la llista de projectes
+        $projects = Project::all();
+        return redirect()->route('projects.index',compact('projects'))
+        ->with('i', (request()->input('page', 1) -1));
 
     }
 
@@ -157,17 +171,12 @@ class ProjectController extends Controller
      */
     public function destroy($id)
     {
-
         $projecte = Project::find($id);
-        echo $projecte;
-        /* $projecte->status = 'inactive';
+        $projecte -> status = 'inactive';
+        $projecte ->save();
         
         $projects = Project::all();
             return redirect()->route('projects.index',compact('projects'))
-            ->with('i', (request()->input('page', 1) -1)); */
-
-        /* $project->delete();
-        return redirect()->route('projects.index')
-            ->with('success', 'Projecte esborrat correctament'); */
+            ->with('i', (request()->input('page', 1) -1));
     }
 }

@@ -30,9 +30,11 @@ Route::get('Project/create', function(){
 Route::post('Project/create/success', 'ProjectController@store')
 ->name('projects.store');
 
-/* Route::get('Project/{id}/edit', function ($id) {
-    Project::edit($id);
-})->name('projects.edit'); */
+Route::get('Project/{id}/edit', 'ProjectController@edit')
+->name('projects.edit');
+
+Route::post('Project/{id}/edit/success', 'ProjectController@update')
+->name('projects.update');
 
 Route::get('Project/{id}', 'ProjectController@destroy')
 ->name('projects.destroy'); 
