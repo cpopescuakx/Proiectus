@@ -155,11 +155,19 @@ class ProjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Project $project)
+    public function destroy($id)
     {
+
+        $projecte = Project::find($id);
+        echo $projecte;
+        /* $projecte->status = 'inactive';
         
-        $project->delete();
+        $projects = Project::all();
+            return redirect()->route('projects.index',compact('projects'))
+            ->with('i', (request()->input('page', 1) -1)); */
+
+        /* $project->delete();
         return redirect()->route('projects.index')
-            ->with('success', 'Projecte esborrat correctament');
+            ->with('success', 'Projecte esborrat correctament'); */
     }
 }

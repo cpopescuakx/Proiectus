@@ -30,9 +30,12 @@ Route::get('Project/create', function(){
 Route::post('Project/create/success', 'ProjectController@store')
 ->name('projects.store');
 
-Route::get('Project/{id}/edit', function ($id) {
+/* Route::get('Project/{id}/edit', function ($id) {
     Project::edit($id);
-})->name('projects.edit');
+})->name('projects.edit'); */
+
+Route::get('Project/{id}', 'ProjectController@destroy')
+->name('projects.destroy'); 
 
 /** Rutes per a l'apartat de gestió d'alumnes */
 
@@ -58,5 +61,3 @@ Route::get('Professors/create', function () {
 Route::post('Professors/create/success', 'UserController@storeProfessor')
 ->name('professors.store');
 
-/* Route::post('projects', 'ProjectController@destroy')
-->name('projects.destroy'); */
