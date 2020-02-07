@@ -49,6 +49,14 @@ Route::get('Students/create', 'UserController@createStudent')->name('students.cr
 Route::post('Students/create/success', 'UserController@storeStudent')
 ->name('students.store');
 
+Route::get('Students/{id}/edit', 'UserController@editStudent')
+->name('students.edit');
+
+Route::post('Students/{id}/edit/success', 'UserController@updateStudent')
+->name('students.update');
+
+
+
 /** Rutes per a l'apartat de gestió de profes */
 
 Route::get('Professors', 'UserController@indexProfessor')

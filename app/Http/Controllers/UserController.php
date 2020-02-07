@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\User;
+use App\City;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\CityController;
 use Illuminate\Http\Request;
@@ -88,6 +89,56 @@ class UserController extends Controller
     }
 
 
+    /** EDITAR ALUMNE
+     *
+     *  Retorna el formulari de modificació d'alumnes. Passant l'alumne a partir de l'ID.
+     *
+     *  @param int $id
+     *  @return void
+     */
+    public function editStudent ($id) {
+        $student = User::find($id);
+        $cities = DB::table('cities')->distinct()->select("name")->get();
+        $actualCity = DB::table('cities')->select("name")->where("id_city", $student->id_city)->get();
+        $nom = $actualCity[0]->name;
+
+        return view('students.edit', compact('student', 'cities', 'nom'));
+    }
+
+    public function updateStudent (Request $request) {
+        // Agafar la id de la ruta (parametre)
+        $id = $request->route('id');
+
+        // Cercar el projecte amb la mateixa ID de la BBDD
+        $student = User::find($id);
+
+        // Assignar els valors del formulari
+        $student -> firstname = $request->input('firstname');
+        $student -> lastname = $request->input('lastname');
+        $student -> name = $request->input('name');
+        $student -> dni = $request->input('dni');
+        $student -> email = $request->input('email');
+        $student -> birthdate = $request->input('birthdate');
+        $student -> password = $request->input('password');
+        $nom = $request->input('city');
+        $student -> id_city = CityController::agafarID($nom);
+        $student -> profile_pic = "Res";
+        $student -> bio = "Res";
+        $student -> id_role = 3;
+        $student -> status = "active";
+
+        // Guardar alumne a la BBDD
+        $student -> save();
+
+        // Tornar a la llista d'alumnes
+
+        $students = DB::table('users')->where('id_role', 3)->get();
+
+        return redirect()->route('students.index',compact('students'))
+        ->with('i', (request()->input('page', 1) -1));
+
+
+    }
 
         /** Extreu els usuaris que tenen ID de rol 3 (Alumne), després retorna la vista per a llistar-los. */
 
