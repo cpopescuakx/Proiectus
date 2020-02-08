@@ -99,17 +99,16 @@ class UserController extends Controller
     public function editStudent ($id) {
         $student = User::find($id);
         $cities = DB::table('cities')->distinct()->select("name")->get();
-        $actualCity = DB::table('cities')->select("name")->where("id_city", $student->id_city)->get();
-        $nom = $actualCity[0]->name;
+        $nomCiutat = CityController::agafarNom($student->id_city);
 
-        return view('students.edit', compact('student', 'cities', 'nom'));
+        return view('students.edit', compact('student', 'cities', 'nomCiutat'));
     }
 
     public function updateStudent (Request $request) {
         // Agafar la id de la ruta (parametre)
         $id = $request->route('id');
 
-        // Cercar el projecte amb la mateixa ID de la BBDD
+        // Cercar l'alumne amb la mateixa ID de la BBDD
         $student = User::find($id);
 
         // Assignar els valors del formulari
@@ -125,9 +124,9 @@ class UserController extends Controller
         $student -> profile_pic = "Res";
         $student -> bio = "Res";
         $student -> id_role = 3;
-        $student -> status = "active";
+        $student -> status = $request->input('status');
 
-        // Guardar alumne a la BBDD
+        // Guardar l'alumne a la BBDD amb les noves dades
         $student -> save();
 
         // Tornar a la llista d'alumnes
@@ -138,6 +137,17 @@ class UserController extends Controller
         ->with('i', (request()->input('page', 1) -1));
 
 
+    }
+
+    public function destroyStudent ($id) {
+        $student = User::find($id);
+        $student -> status = 'inactive';
+        $student -> save();
+
+        $students = DB::table('users')->where('id_role', 3)->get();
+
+        return redirect()->route('students.index',compact('students'))
+        ->with('i', (request()->input('page', 1) -1));
     }
 
         /** Extreu els usuaris que tenen ID de rol 3 (Alumne), després retorna la vista per a llistar-los. */

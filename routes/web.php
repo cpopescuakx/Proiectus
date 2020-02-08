@@ -55,6 +55,8 @@ Route::get('Students/{id}/edit', 'UserController@editStudent')
 Route::post('Students/{id}/edit/success', 'UserController@updateStudent')
 ->name('students.update');
 
+Route::get('Students/{id}', 'UserController@destroyStudent')
+->name('students.destroy');
 
 
 /** Rutes per a l'apartat de gestió de profes */

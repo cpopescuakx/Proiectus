@@ -69,7 +69,7 @@
                                                 <option value="{{$city->name}}">
                                             @endforeach
                                         </datalist>
-                                        <input type="text" name = "city" class="form-control" value = "{{ $nom }}" list="cities" required>
+                                        <input type="text" name = "city" class="form-control" value = "{{ $nomCiutat }}" list="cities" required>
                                     <div class="invalid-feedback">Camp necessari</div>
                                 </div>
                             </div>
@@ -104,6 +104,26 @@
                                 </div>
                             </div>
                         </div>
+
+                        <div class="form-group mt-4">
+                            <div class="row justify-content-center">
+                                <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
+                                    <label for="contrassenya">Estat</label>
+                                    <select class="form-control" name = "status" id="status">
+                                        {{-- Mostrar l'estat actual de l'alumne --}}
+                                        @if($student->status == "active")
+                                            <option selected value="active">Actiu</option>
+                                            <option value="inactive">Innactiu</option>
+                                        @else
+                                            <option value="active">Actiu</option>
+                                            <option selected value="inactive">Innactiu</option>
+                                        @endif
+                                    </select>
+                                    <div class="invalid-feedback">Camp necessari</div>
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="form-group">
                             <div class="row justify-content-center">
                                 <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
