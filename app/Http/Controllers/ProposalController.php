@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Proposal;
 use Illuminate\Http\Request;
+use Symfony\Component\Process\Process;
 
 class ProposalController extends Controller
 {
@@ -33,7 +34,7 @@ class ProposalController extends Controller
      * @return void
      * 
      */
-    public function create()
+    public function createProposals()
     {
         return view('proposal.create');
     }
@@ -49,8 +50,7 @@ class ProposalController extends Controller
      * @return void
      * 
      */
-    public function store(Request $request){
-        $idProp = Proposal::max('id_proposal');
+    public function storeProposals(Request $request){
 
             // Instanciar
             $proposal = new Proposal;
@@ -74,26 +74,31 @@ class ProposalController extends Controller
         
     
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+    public function showProposals(Proposal $proposal)
     {
-        //
+        //return view('projects.show',compact('project'));
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * Formulari editar
+     * 
+     * Retorna la vista projects.edit i li injecta la variable $project que conté
+     * el projecte que correspon a la id del parametre ($id)
+     * 
+     * @param mixed $id
+     * 
+     * @return void
+     * 
      */
-    public function edit($id)
+    public function editProposals($id)
     {
-        //
+        // ******************* PREGUNTAR A TONI ******************* //
+        // Fa falta considerar a excloure id invalides?
+        // (si un usuari canvia manualment la URL i fica una ID que no existeix)
+        
+        $proposal = Proposal::find($id);
+        return view('proposals.edit', compact('proposal'));
+        
     }
 
   /**
@@ -110,7 +115,7 @@ class ProposalController extends Controller
      * @return void
      * 
      */
-    public function update(Request $request)
+    public function updateProposals(Request $request)
     {
         // Agafar la id de la ruta (parametre)
         $id = $request->route('id');
@@ -147,7 +152,7 @@ class ProposalController extends Controller
      * @return void
      * 
      */
-    public function destroy($id)
+    public function destroyProposals($id)
     {
         $proposal = Proposal::find($id);
         $proposal -> status = 'inactive';
