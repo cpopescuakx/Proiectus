@@ -167,7 +167,7 @@ public class JFrameCSVExport extends javax.swing.JFrame {
                         try {
                             
                             // Instanciar writer
-                            FileWriter writer = new FileWriter("/home/alumne/" + nomFitxerFinal + ".csv");
+                            FileWriter writer = new FileWriter("/var/www/html/GitHub/Proiectus/javagrup2/JFrame_final/export/" + nomFitxerFinal + ".csv");
                             
                             // Encapçalament de la taula i afegir-ho al writer.
                             String x = "ID,Nom,Cognom,Email,DNI,Data naixement,Data d'alta,Escola,Departament,Salari,Data de baixa,Estat";
@@ -194,7 +194,7 @@ public class JFrameCSVExport extends javax.swing.JFrame {
                         try {
                             
                             // Instanciar writer
-                            FileWriter writer = new FileWriter("/home/alumne/" + nomFitxerFinal + ".csv");
+                            FileWriter writer = new FileWriter("/var/www/html/GitHub/Proiectus/javagrup2/JFrame_final/export/" + nomFitxerFinal + ".csv");
                             
                             // Encapçalament de la taula i afegir-ho al writer.
                             String x = "#,Nom curt,Nom,Familia professional";
@@ -222,7 +222,7 @@ public class JFrameCSVExport extends javax.swing.JFrame {
                         try {
                             
                             // Instanciar writer
-                            FileWriter writer = new FileWriter("/home/alumne/" + nomFitxerFinal + ".csv");
+                            FileWriter writer = new FileWriter("/var/www/html/GitHub/Proiectus/javagrup2/JFrame_final/export/" + nomFitxerFinal + ".csv");
                             
                             // Encapçalament de la taula i afegir-ho al writer.
                             String x = "ID,Institut,Usuari,Grup,Data Alta,Data Baixa,Estat";
@@ -249,7 +249,7 @@ public class JFrameCSVExport extends javax.swing.JFrame {
                         try {
                             
                             // Instanciar writer
-                            FileWriter writer = new FileWriter("/home/alumne/" + nomFitxerFinal + ".csv");
+                            FileWriter writer = new FileWriter("/var/www/html/GitHub/Proiectus/javagrup2/JFrame_final/export/" + nomFitxerFinal + ".csv");
                             
                             // Encapçalament de la taula i afegir-ho al writer.
                             String x = "ID,Nom,Cognom,DNI,Email,Data naixement,Centre,Estat";
