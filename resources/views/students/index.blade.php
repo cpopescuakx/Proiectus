@@ -3,7 +3,11 @@
 
 @section('content')
 
-<a clas="btn btn-primary" href="{{route('students.create')}}">Crear</a>
+<div class="col">
+    <div class="row d-flex justify-content-end p-4">
+      <a href="{{ route('students.create') }}"><img src={{ asset('img/add.svg') }} width="45" height="45" ></a>
+    </div>
+</div>
 
 <table class="table table-striped">
     <thead>
