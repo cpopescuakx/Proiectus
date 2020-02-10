@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 
-use App\Project;
+use App\Proposal;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,58 +16,44 @@ use App\Project;
 
 Route::get('/', function () {
     return view('welcome');
-})-> name('projects.x');
+})-> name('proposal.x');
 
-/** Rutes per a l'apartat de gestió de projectes */
+/** Rutes per a l'apartat de gestió de propostes */
 
-Route::get('Project','ProjectController@index')
--> name('projects.index');
+Route::get('Proposal','ProposalController@index')
+-> name('proposal.index');
 
-Route::get('Project/create', function(){
+Route::get('Proposal/create', function(){
     return view ('projects.create');
-})->name('projects.create');
+})->name('proposal.create');
 
-Route::post('Project/create/success', 'ProjectController@store')
-->name('projects.store');
+Route::post('Proposal/create/success', 'ProposalController@store')
+->name('proposal.store');
 
-Route::get('Project/{id}/edit', 'ProjectController@edit')
-->name('projects.edit');
+Route::get('Proposal/{id}/edit', 'ProposalController@edit')
+->name('proposal.edit');
 
-Route::post('Project/{id}/edit/success', 'ProjectController@update')
-->name('projects.update');
+Route::post('Proposal/{id}/edit/success', 'ProposalController@update')
+->name('proposal.update');
 
-Route::get('Project/{id}', 'ProjectController@destroy')
-->name('projects.destroy');
+Route::get('Proposal/{id}', 'ProposalController@destroy')
+->name('proposal.destroy');
 
-/** Rutes per a l'apartat de gestió d'alumnes */
+/** Rutes per a l'apartat de gestió d'empleats */
 
-Route::get('Students', 'UserController@indexStudent')
-->name('students.index');
+Route::get('Employee', 'UserController@indexEmployee')
+->name('employee.index');
 
-Route::get('Students/create', 'UserController@createStudent')->name('students.create');
+Route::get('Employee/create', 'UserController@createEmployee')->name('employee.create');
 
-Route::post('Students/create/success', 'UserController@storeStudent')
-->name('students.store');
+Route::post('Employee/create/success', 'UserController@storeEmployee')
+->name('employee.store');
 
-Route::get('Students/{id}/edit', 'UserController@editStudent')
-->name('students.edit');
+Route::get('Employee/{id}/edit', 'UserController@editEmployee')
+->name('employee.edit');
 
-Route::post('Students/{id}/edit/success', 'UserController@updateStudent')
-->name('students.update');
+Route::post('Employee/{id}/edit/success', 'UserController@updateEmployee')
+->name('employee.update');
 
-Route::get('Students/{id}', 'UserController@destroyStudent')
-->name('students.destroy');
-
-
-/** Rutes per a l'apartat de gestió de profes */
-
-Route::get('Professors', 'UserController@indexProfessor')
-->name('professors.index');
-
-Route::get('Professors/create', function () {
-    return view('professors.create');
-})->name('professors.create');
-
-Route::post('Professors/create/success', 'UserController@storeProfessor')
-->name('professors.store');
-
+Route::get('Employee/{id}', 'UserController@destroyEmployee')
+->name('employee.destroy');
