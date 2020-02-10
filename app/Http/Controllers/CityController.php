@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class CityController extends Controller
 {
@@ -81,34 +80,5 @@ class CityController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-    /** AGAFAR ID
-     *
-     *  Agafa l'ID de la ciutat a partir del seu nom, com que hi ha duplicats a la base de dades
-     *  agafa el primer resultat que troba.
-     *
-     *  @param String $name
-     *  @return void
-     */
-    public static function agafarID ($name)
-    {
-        $city = DB::table('cities')->select("*")->where("name", $name)->get()->first();
-        $id = $city->id_city;
-        return $id;
-    }
-
-    /** AGAFAR NOM
-     *
-     *  Mostra el nom de la ciutat a partir de l'ID donada com a paràmetre.
-     *
-     *  @param int $id
-     *  @return String $nomCiutat
-     */
-
-    public static function agafarNom ($id) {
-        $city = DB::table('cities')->select("*")->where("id_city", $id)->get();
-        $nomCiutat = $city[0]->name;
-        return $nomCiutat;
     }
 }

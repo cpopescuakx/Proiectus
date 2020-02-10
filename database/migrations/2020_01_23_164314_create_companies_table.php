@@ -23,6 +23,7 @@ class CreateCompaniesTable extends Migration
             $table->string('sector', 50);
             $table->integer('id_city')->nullable();
             $table->enum('status', ['active', 'inactive'])->default('active');
+            $table->timestamps();
 
 
         });

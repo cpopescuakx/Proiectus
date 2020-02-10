@@ -17,6 +17,7 @@ class CreateProjectCompanyMembersTable extends Migration
             $table->integer('id')->autoIncrement();
             $table->integer('id_project');
             $table->integer('id_company');
+            $table->timestamps();
 
 
         });
