@@ -23,6 +23,7 @@ class CreateSchoolForValidationsTable extends Migration
             $table->string('type', 100)->nullable();
             $table->string('hash', 100);
             $table->string('code', 50);
+            $table->timestamps();
         });
     }
 

@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+//USE AFEGITS!!!!!
+use App\Company;
+use Redirect;
+use PDF;
 
 class CompanyController extends Controller
 {
@@ -13,7 +17,8 @@ class CompanyController extends Controller
      */
     public function index()
     {
-        //
+      $data['companies'] = Company::orderBy('id_company','desc')->paginate(10);
+      return view('company.list',$data);
     }
 
     /**
@@ -23,7 +28,7 @@ class CompanyController extends Controller
      */
     public function create()
     {
-        //
+        return view('company.create');
     }
 
     /**
@@ -34,7 +39,19 @@ class CompanyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // POSAR ELS CAMPS DE LA TAULA OBLIGATORIS
+        $request->validate([
+            'email' => 'required',
+            'name' => 'required',
+            'nif' => 'required',
+            'sector' => 'required',
+            'status' => 'active',
+        ]);
+
+        Company::create($request->all());
+
+        return Redirect::to('companies')
+       ->with('Éxit! L empresa s ha creat correctament!');
     }
 
     /**
@@ -56,7 +73,10 @@ class CompanyController extends Controller
      */
     public function edit($id)
     {
-        //
+        $where = array('id_company' => $id);
+        $data['company_info'] = Company::where($where)->first();
+
+        return view('company.edit', $data);
     }
 
     /**
@@ -66,9 +86,23 @@ class CompanyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,Company $id)
     {
-        //
+        $request->validate([
+            'email' => 'required',
+            'name' => 'required',
+            'nif' => 'required',
+            'sector' => 'required',
+            'status' => 'required',
+        ]);
+
+
+         Company::findOrFail($id)->first()->fill($request->all())->save();
+         //Company::find($request->id)->update($request->all());
+         return redirect()->route('company.index')
+                          ->with('Éxit','L empresa s ha modificat correctament!');
+
+
     }
 
     /**
@@ -79,6 +113,8 @@ class CompanyController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Company::where('id_company',$id)->delete();
+
+        return Redirect::to('companies')->with('Éxit','L empresa s ha eliminat correctament!');
     }
 }
