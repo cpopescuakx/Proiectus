@@ -221,6 +221,41 @@ class UserController extends Controller
         ->with('i', (request()->input('page', 1) -1));
     }
 
+    /** LLISTAR EMPLEATS
+     *
+     *  Extreu els empleats que tenen ID de rol 4 (Empleat), després retorna la vista per a llistar-los.
+     *
+     *  @param void
+     *  @return void
+     * */
+
+    public function indexEmployee()
+    {
+        //
+        $employees = DB::table('users')->where('id_role', 4)->get();
+
+        return view ('employees.index', compact('employees'));
+    }
+
+    /** CREAR EMPLEAT
+     *
+     *  Retorna la vista amb el formulari de creació d'empleats. Passant els noms de les ciutats
+     *  que tenim a la base de dades, per a poder fer el datalist.
+     *
+     *  @param void
+     *  @return \Illuminate\Http\Response
+     */
+    public function createEmployee()
+    {
+        $cities = DB::table('cities')->distinct()->select("name")->get();
+        return view('employees.create',compact('cities'));
+    }
+
+
+
+
+
+
     /**
      * Store a newly created resource in storage.
      *

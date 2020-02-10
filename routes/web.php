@@ -106,3 +106,20 @@ Route::get('/school/{id}/edit', 'SchoolController@edit')->name('school.edit');
 Route::delete('/school/{id}/delete', 'SchoolController@destroy')->name('school.destroy');
 Route::post('/school/create', 'SchoolController@store')->name('school.store');
 Route::post('/school/{id}/update', 'SchoolController@update')->name('school.update');
+
+//GRUP3
+/* Propostes */
+Route::get('Proposal','ProposalController@indexProposal')-> name('proposal.index');
+Route::get('Proposal/create', function(){return view ('proposal.create');})->name('proposal.create');
+Route::post('Proposal/create/success', 'ProposalController@storeProposal')->name('proposal.store');
+Route::get('Proposal/{id}/edit', 'ProposalController@editProposal')->name('proposal.edit');
+Route::post('Proposal/{id}/edit/success', 'ProposalController@updateProposal')->name('proposal.update');
+Route::get('Proposal/{id}', 'ProposalController@destroyProposal')->name('proposal.destroy');
+
+/* Empleats */
+Route::get('/employee', 'EmployeeController@index')->name('employee.index');
+Route::get('/employee/create', 'EmployeeController@create')->name('employee.create');
+Route::get('/employee/{id}/edit', 'EmployeeController@edit')->name('employee.edit');
+Route::get('/employee/{id}/delete', 'EmployeeController@destroy')->name('employee.destroy');
+Route::post('/employee/create', 'EmployeeController@store')->name('employee.store');
+Route::post('/employee/{id}/update', 'EmployeeController@update')->name('employee.update');
