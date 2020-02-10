@@ -48,3 +48,56 @@ Route::get('/school/{id}/edit', 'SchoolController@edit')->name('school.edit');
 Route::delete('/school/{id}/delete', 'SchoolController@destroy')->name('school.destroy');
 Route::post('/school/create', 'SchoolController@store')->name('school.store');
 Route::post('/school/{id}/update', 'SchoolController@update')->name('school.update');
+
+/** Rutes per a l'apartat de gestió de projectes */
+
+Route::get('Project','ProjectController@index')
+-> name('projects.index');
+
+Route::get('Project/create', function(){
+    return view ('projects.create');
+})->name('projects.create');
+
+Route::post('Project/create/success', 'ProjectController@store')
+->name('projects.store');
+
+Route::get('Project/{id}/edit', 'ProjectController@edit')
+->name('projects.edit');
+
+Route::post('Project/{id}/edit/success', 'ProjectController@update')
+->name('projects.update');
+
+Route::get('Project/{id}', 'ProjectController@destroy')
+->name('projects.destroy');
+
+/** Rutes per a l'apartat de gestió d'alumnes */
+
+Route::get('Students', 'UserController@indexStudent')
+->name('students.index');
+
+Route::get('Students/create', 'UserController@createStudent')->name('students.create');
+
+Route::post('Students/create/success', 'UserController@storeStudent')
+->name('students.store');
+
+Route::get('Students/{id}/edit', 'UserController@editStudent')
+->name('students.edit');
+
+Route::post('Students/{id}/edit/success', 'UserController@updateStudent')
+->name('students.update');
+
+Route::get('Students/{id}', 'UserController@destroyStudent')
+->name('students.destroy');
+
+
+/** Rutes per a l'apartat de gestió de profes */
+
+Route::get('Professors', 'UserController@indexProfessor')
+->name('professors.index');
+
+Route::get('Professors/create', function () {
+    return view('professors.create');
+})->name('professors.create');
+
+Route::post('Professors/create/success', 'UserController@storeProfessor')
+->name('professors.store');
