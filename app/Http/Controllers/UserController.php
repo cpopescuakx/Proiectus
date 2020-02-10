@@ -54,21 +54,75 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-        //
+    public function editStudent ($id) {
+        $student = User::find($id);
+        $cities = DB::table('cities')->distinct()->select("name")->get();
+        $nomCiutat = CityController::agafarNom($student->id_city);
+
+        return view('students.edit', compact('student', 'cities', 'nomCiutat'));
     }
 
-    /**
-     * Update the specified resource in storage.
+    /** UPDATE ALUMNE
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     *  Guarda les noves dades de l'alumne a la base de dades. Llavors, redirecciona
+     *  al llistat d'alumnes.
+     *
+     *  @param Request $request
+     *  @return void
      */
-    public function update(Request $request, $id)
-    {
-        //
+
+    public function updateStudent (Request $request) {
+
+        $id = $request->route('id'); // Agafar l'ID de la URL
+
+        // Cercar l'alumne amb la mateixa ID de la BBDD
+        $student = User::find($id);
+
+        // Assignar els valors del formulari
+        $student -> firstname = $request->input('firstname');
+        $student -> lastname = $request->input('lastname');
+        $student -> name = $request->input('name');
+        $student -> dni = $request->input('dni');
+        $student -> email = $request->input('email');
+        $student -> birthdate = $request->input('birthdate');
+        $student -> password = $request->input('password');
+        $nom = $request->input('city');
+        $student -> id_city = CityController::agafarID($nom);
+        $student -> profile_pic = "Res";
+        $student -> bio = "Res";
+        $student -> id_role = 3;
+        $student -> status = $request->input('status');
+
+        // Guardar l'alumne a la BBDD amb les noves dades
+        $student -> save();
+
+        // Tornar a la llista d'alumnes
+
+        $students = DB::table('users')->where('id_role', 3)->get();
+
+        return redirect()->route('students.index',compact('students'))
+        ->with('i', (request()->input('page', 1) -1));
+
+    }
+
+    /** DESTROY STUDENT
+     *
+     *  Busca l'alumne amb l'ID passada com a paràmetre i passa el seu estat a inactive.
+     *  Redirecciona al llistat d'alumnes.
+     *
+     *  @param int $id
+     *  @return void
+     */
+
+    public function destroyStudent ($id) {
+        $student = User::find($id);
+        $student -> status = 'inactive';
+        $student -> save();
+
+        $students = DB::table('users')->where('id_role', 3)->get();
+
+        return redirect()->route('students.index',compact('students'))
+        ->with('i', (request()->input('page', 1) -1));
     }
 
     /**
