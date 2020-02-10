@@ -16,6 +16,7 @@ class CreateBlogsTable extends Migration
         Schema::create('blogs', function (Blueprint $table) {
             $table->integer('id_project')->autoIncrement();
             $table->string('title', 100);
+            $table->timestamps();
         });
     }
 

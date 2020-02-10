@@ -18,8 +18,8 @@ class CreateHistoriesTable extends Migration
             $table->longText('content');
             $table->integer('id_article');
             $table->integer('id_user');
-            $table->datetime('last_modification')->useCurrent();
             $table->enum('status', ['active', 'inactive'])->default('active');
+            $table->timestamps();
         });
     }
 
