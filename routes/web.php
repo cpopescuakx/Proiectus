@@ -20,11 +20,11 @@ Route::get('/', function () {
 
 /** Rutes per a l'apartat de gestió de propostes */
 
-Route::get('Proposal','ProposalController@index')
--> name('proposal.index');
+Route::get('Proposal','ProposalController@indexProposals')
+-> name('proposal.indexProposals');
 
 Route::get('Proposal/create', function(){
-    return view ('projects.create');
+    return view ('proposal.create');
 })->name('proposal.create');
 
 Route::post('Proposal/create/success', 'ProposalController@store')

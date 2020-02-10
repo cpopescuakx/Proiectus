@@ -2,40 +2,77 @@
 
 namespace App\Http\Controllers;
 
+use App\Proposal;
 use Illuminate\Http\Request;
 
 class ProposalController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * Llistar totes les propostes
+     * 
+     * Retorna la vista proposals.index i li injecta la variable $proposals 
+     * que conté una llista de totes les propostes.
+     *  
+     * @return void
+     * 
      */
-    public function index()
+    public function indexProposals()
     {
-        //
+        $proposals = Proposal::all();
+        return view('proposals.index', compact('proposals'))
+            ->with('i', (request()->input('page', 1) -1));
     }
 
+
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
+     * Formulari de creació de propostes
+     * 
+     * Retorna la vista projects.create la qual és un formulari per a 
+     * crear projectes nous
+     * 
+     * @return void
+     * 
      */
     public function create()
     {
-        //
+        return view('proposal.create');
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * Crear una Proposta nova
+     *  
+     * Utilitzem el parametre $request per a conseguir les dades del
+     * formulari i crearà una proposta nova.
+     *  
+     * @param Request $request
+     * 
+     * @return void
+     * 
      */
-    public function store(Request $request)
-    {
-        //
-    }
+    public function store(Request $request){
+        $idProp = Proposal::max('id_proposal');
+
+            // Instanciar
+            $proposal = new Proposal;
+
+            // Assignar valors
+            $proposal -> name = $request->input('name');
+            $proposal -> budget = $request->input('budget');
+            $proposal -> description = $request->input('desc');
+            $proposal -> professional_family = $request->input('pro_family');
+            $proposal -> ending_date = $request->input('end_date');
+
+            // Guardar projecte a la BBDD
+            $proposal -> save();
+
+            // Tornar a la llista de projectes
+            $proposal = Proposal::all();
+            return redirect()->route('proposal.index',compact('proposals'))
+            ->with('i', (request()->input('page', 1) -1));
+
+        }
+        
+    
 
     /**
      * Display the specified resource.
@@ -59,26 +96,65 @@ class ProposalController extends Controller
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+  /**
+     * Editar un projecte existent
+     * 
+     * Busca el projecte en qüestió (utilitzant la ID de la ruta),
+     * li assigna els valors obtinguts del formulari utilitzant la variable 
+     * $request i guarda els canvis.
+     * 
+     * Després redirecciona a la llista de projectes.
+     * 
+     * @param Request $request
+     * 
+     * @return void
+     * 
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
-    }
+        // Agafar la id de la ruta (parametre)
+        $id = $request->route('id');
 
+        // Cercar el projecte amb la mateixa ID de la BBDD
+        $proposal = Proposal::find($id);
+
+        // Assignar els valors del formulari
+        $proposal-> name = $request->input('name');
+        $proposal -> budget = $request->input('budget');
+        $proposal -> description = $request->input('description');
+        $proposal -> professional_family = $request->input('professional_family');
+        $proposal -> ending_date = $request->input('end_date');
+        
+        // Guardar els canvis
+        $proposal ->save();
+
+        // Redireccionar a la llista de projectes
+        $proposal = Proposal::all();
+        return redirect()->route('proposal.index',compact('proposals'))
+        ->with('i', (request()->input('page', 1) -1));
+
+    }
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * Donar de baixa un projecte
+     * 
+     * Busca el projecte en qüestió (utilitzant el parametre $id),
+     * modifica el camp status (inactive) i guarda els canvis.
+     * 
+     * Després redirecciona a la llista de projectes.
+     * 
+     * @param mixed $id
+     * 
+     * @return void
+     * 
      */
     public function destroy($id)
     {
-        //
+        $proposal = Proposal::find($id);
+        $proposal -> status = 'inactive';
+        $proposal ->save();
+        
+        $proposal = Proposal::all();
+            return redirect()->route('proposal.index',compact('proposals'))
+            ->with('i', (request()->input('page', 1) -1));
     }
 }
