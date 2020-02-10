@@ -104,9 +104,18 @@ class UserController extends Controller
         return view('students.edit', compact('student', 'cities', 'nomCiutat'));
     }
 
+    /** UPDATE ALUMNE
+     *
+     *  Guarda les noves dades de l'alumne a la base de dades. Llavors, redirecciona
+     *  al llistat d'alumnes.
+     *
+     *  @param Request $request
+     *  @return void
+     */
+
     public function updateStudent (Request $request) {
-        // Agafar la id de la ruta (parametre)
-        $id = $request->route('id');
+
+        $id = $request->route('id'); // Agafar l'ID de la URL
 
         // Cercar l'alumne amb la mateixa ID de la BBDD
         $student = User::find($id);
@@ -136,8 +145,16 @@ class UserController extends Controller
         return redirect()->route('students.index',compact('students'))
         ->with('i', (request()->input('page', 1) -1));
 
-
     }
+
+    /** DESTROY STUDENT
+     *
+     *  Busca l'alumne amb l'ID passada com a paràmetre i passa el seu estat a inactive.
+     *  Redirecciona al llistat d'alumnes.
+     *
+     *  @param int $id
+     *  @return void
+     */
 
     public function destroyStudent ($id) {
         $student = User::find($id);
