@@ -28,3 +28,69 @@ INFORMACIÓN: S'ha inserit l'alumne Didac Roiget X8174346P dr@gmail.com IES Mont
 feb. 10, 2020 3:34:05 P. M. jframe.classes.Log generarInfoLog
 INFORMACIÓN: S'ha inserit l'alumne Svyatos Semenyuk X8174346P ss@gmail.com IES Montsià 20/01/99 Actiu.
 
+feb. 10, 2020 3:08:03 P. M. jframe.classes.Log generarInfoLog
+INFORMACIÓN: S'ha inserit el professor 1 Toni Morant tn@gmail.com X8174346P 20/01/99 10/02/2020 IES Montsià Informàtica 1500.0  Actiu
+
+feb. 10, 2020 3:08:03 P. M. jframe.classes.Log generarInfoLog
+INFORMACIÓN: S'ha inserit el professor 2 Carles Añó ca@gmail.com X8174346P 20/01/99 10/02/2020 IES Montsià Informàtica 1500.0  Actiu
+
+feb. 10, 2020 3:08:03 P. M. jframe.classes.Log generarInfoLog
+INFORMACIÓN: S'ha inserit el professor 3 Alex Millian am@gmail.com X8174346P 20/01/99 10/02/2020 IES Montsià Comerç 1500.0  Actiu
+
+feb. 10, 2020 3:08:03 P. M. jframe.classes.Log generarInfoLog
+INFORMACIÓN: S'ha inserit el professor 4 Alicia Vericat av@gmail.com X8174346P 20/01/99 10/02/2020 IES Montsià Informàtica 2000.0  Actiu
+
+feb. 10, 2020 3:08:03 P. M. jframe.classes.Log generarInfoLog
+INFORMACIÓN: S'ha inserit el professor 5 Jaume Miralles jm@gmail.com X8174346P 20/01/99 10/02/2020 IES Montsià Comerç 2000.0  Actiu
+
+feb. 10, 2020 3:08:08 P. M. jframe.classes.Log generarInfoLog
+INFORMACIÓN: S'ha eliminat el professor 3 Alex Millian am@gmail.com X8174346P 20/01/99 10/02/2020 IES Montsià Comerç 1500.0 10/02/2020 Inactiu
+
+feb. 10, 2020 3:19:43 P. M. jframe.classes.Log generarInfoLog
+INFORMACIÓN: S'ha inserit el professor 1 Toni Morant tn@gmail.com X8174346P 20/01/99 10/02/2020 IES Montsià Informàtica 1500.0  Actiu
+
+feb. 10, 2020 3:19:43 P. M. jframe.classes.Log generarInfoLog
+INFORMACIÓN: S'ha inserit el professor 2 Carles Añó ca@gmail.com X8174346P 20/01/99 10/02/2020 IES Montsià Informàtica 1500.0  Actiu
+
+feb. 10, 2020 3:19:43 P. M. jframe.classes.Log generarInfoLog
+INFORMACIÓN: S'ha inserit el professor 3 Alex Millian am@gmail.com X8174346P 20/01/99 10/02/2020 IES Montsià Comerç 1500.0  Actiu
+
+feb. 10, 2020 3:19:43 P. M. jframe.classes.Log generarInfoLog
+INFORMACIÓN: S'ha inserit el professor 4 Alicia Vericat av@gmail.com X8174346P 20/01/99 10/02/2020 IES Montsià Informàtica 2000.0  Actiu
+
+feb. 10, 2020 3:19:43 P. M. jframe.classes.Log generarInfoLog
+INFORMACIÓN: S'ha inserit el professor 5 Jaume Miralles jm@gmail.com X8174346P 20/01/99 10/02/2020 IES Montsià Comerç 2000.0  Actiu
+
+feb. 10, 2020 3:19:48 P. M. jframe.classes.Log generarInfoLog
+INFORMACIÓN: S'ha eliminat el professor 5 Jaume Miralles jm@gmail.com X8174346P 20/01/99 10/02/2020 IES Montsià Comerç 2000.0 10/02/2020 Inactiu
+
+feb. 10, 2020 3:21:03 P. M. jframe.classes.Log generarInfoLog
+INFORMACIÓN: S'ha inserit el professor 1 Toni Morant tn@gmail.com X8174346P 20/01/99 10/02/2020 IES Montsià Informàtica 1500.0  Actiu
+
+feb. 10, 2020 3:21:03 P. M. jframe.classes.Log generarInfoLog
+INFORMACIÓN: S'ha inserit el professor 2 Carles Añó ca@gmail.com X8174346P 20/01/99 10/02/2020 IES Montsià Informàtica 1500.0  Actiu
+
+feb. 10, 2020 3:21:03 P. M. jframe.classes.Log generarInfoLog
+INFORMACIÓN: S'ha inserit el professor 3 Alex Millian am@gmail.com X8174346P 20/01/99 10/02/2020 IES Montsià Comerç 1500.0  Actiu
+
+feb. 10, 2020 3:21:03 P. M. jframe.classes.Log generarInfoLog
+INFORMACIÓN: S'ha inserit el professor 4 Alicia Vericat av@gmail.com X8174346P 20/01/99 10/02/2020 IES Montsià Informàtica 2000.0  Actiu
+
+feb. 10, 2020 3:21:03 P. M. jframe.classes.Log generarInfoLog
+INFORMACIÓN: S'ha inserit el professor 5 Jaume Miralles jm@gmail.com X8174346P 20/01/99 10/02/2020 IES Montsià Comerç 2000.0  Actiu
+
+feb. 10, 2020 3:21:15 P. M. jframe.classes.Log generarInfoLog
+INFORMACIÓN: S'ha inserit el professor 6 Toni Morant tn@gmail.com X8174346P 20/01/99 10/02/2020 IES Montsià Informàtica 1500.0  Actiu
+
+feb. 10, 2020 3:21:15 P. M. jframe.classes.Log generarInfoLog
+INFORMACIÓN: S'ha inserit el professor 7 Carles Añó ca@gmail.com X8174346P 20/01/99 10/02/2020 IES Montsià Informàtica 1500.0  Actiu
+
+feb. 10, 2020 3:21:15 P. M. jframe.classes.Log generarInfoLog
+INFORMACIÓN: S'ha inserit el professor 8 Alex Millian am@gmail.com X8174346P 20/01/99 10/02/2020 IES Montsià Comerç 1500.0  Actiu
+
+feb. 10, 2020 3:21:15 P. M. jframe.classes.Log generarInfoLog
+INFORMACIÓN: S'ha inserit el professor 9 Alicia Vericat av@gmail.com X8174346P 20/01/99 10/02/2020 IES Montsià Informàtica 2000.0  Actiu
+
+feb. 10, 2020 3:21:15 P. M. jframe.classes.Log generarInfoLog
+INFORMACIÓN: S'ha inserit el professor 10 Jaume Miralles jm@gmail.com X8174346P 20/01/99 10/02/2020 IES Montsià Comerç 2000.0  Actiu
+
