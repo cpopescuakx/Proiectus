@@ -81,4 +81,18 @@ class CompanyController extends Controller
     {
         //
     }
+
+
+
+
+    //GRUP1 ACCIONS
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function indexCompany()
+    {
+        
+    }
 }
