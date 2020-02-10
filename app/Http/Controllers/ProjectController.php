@@ -146,6 +146,10 @@ class ProjectController extends Controller
      */
     public function edit($id)
     {
+        // ******************* PREGUNTAR A TONI ******************* //
+        // Fa falta considerar a excloure id invalides?
+        // (si un usuari canvia manualment la URL i fica una ID que no existeix)
+        
         $project = Project::find($id);
         return view('projects.edit', compact('project'));
         

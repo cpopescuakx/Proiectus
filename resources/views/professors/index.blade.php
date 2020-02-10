@@ -1,8 +1,12 @@
 @extends('layouts.default')
 
 @section('content')
-<table class="table table-striped">
-<a href="{{route('professors.create')}}">Crear</a>
+<div class="col">
+  <div class="row d-flex justify-content-end p-4">
+    <a href="{{ route('professors.create') }}"><img src={{ asset('img/add.svg') }} width="45" height="45" ></a>
+  </div>
+</div>
+<table class="table table-hover mr-5">
 <thead>
     <tr>
         <td>Nom</td>

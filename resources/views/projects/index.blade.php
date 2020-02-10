@@ -2,11 +2,11 @@
 
 @section('content')
 <div class="col">
-  <div class="row">
-    <a href="{{ route('projects.create') }}" class="btn btn-primary">Crear</a>
+  <div class="row d-flex justify-content-end p-4">
+    <a href="{{ route('projects.create') }}"><img src={{ asset('img/add.svg') }} width="45" height="45" ></a>
   </div>  
 </div>
-<table class="table table-hover mt-5 mr-5">
+<table class="table table-hover mr-5">
 <thead>
     <tr>
         <td>ID</td>
