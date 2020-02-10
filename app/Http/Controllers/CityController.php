@@ -97,4 +97,18 @@ class CityController extends Controller
         $id = $city->id_city;
         return $id;
     }
+
+    /** AGAFAR NOM
+     *
+     *  Mostra el nom de la ciutat a partir de l'ID donada com a paràmetre.
+     *
+     *  @param int $id
+     *  @return String $nomCiutat
+     */
+
+    public static function agafarNom ($id) {
+        $city = DB::table('cities')->select("*")->where("id_city", $id)->get();
+        $nomCiutat = $city[0]->name;
+        return $nomCiutat;
+    }
 }
