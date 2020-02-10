@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\School;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class SchoolController extends Controller
 {
@@ -13,7 +15,8 @@ class SchoolController extends Controller
      */
     public function index()
     {
-        //
+        $data['schools'] = School::orderBy('id_school','desc')->paginate(10);
+        return view('schools.index', $data);
     }
 
     /**
@@ -23,7 +26,7 @@ class SchoolController extends Controller
      */
     public function create()
     {
-        //
+        return view('schools.create');
     }
 
     /**
@@ -34,7 +37,17 @@ class SchoolController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'email' => 'required',
+            'name' => 'required',
+            'code' => 'required',
+            'type' => 'required',
+        ]);
+
+        School::create($request->all());
+
+        return Redirect::to('schools')
+       ->with('Éxit! L institut s ha creat correctament!');
     }
 
     /**
@@ -56,7 +69,10 @@ class SchoolController extends Controller
      */
     public function edit($id)
     {
-        //
+        $where = array('id_school' => $id);
+        $data['school'] = School::where($where)->first();
+
+        return view('schools.edit', $data);
     }
 
     /**
@@ -68,7 +84,15 @@ class SchoolController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'email' => 'required',
+            'name' => 'required',
+            'code' => 'required',
+            'type' => 'required',
+        ]);
+
+        School::find($request->id)->update($request->all());
+        return redirect()->route('schools.index')->with('Éxit','L institut s ha modificat correctament!');
     }
 
     /**
@@ -79,6 +103,7 @@ class SchoolController extends Controller
      */
     public function destroy($id)
     {
-        //
+        School::destroy($id);
+        return redirect()->route('schools.index')->with('Exit', 'L institut s ha borrat correctament!');
     }
 }

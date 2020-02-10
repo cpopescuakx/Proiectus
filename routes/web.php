@@ -123,3 +123,9 @@ Route::get('/employee/{id}/edit', 'EmployeeController@edit')->name('employee.edi
 Route::get('/employee/{id}/delete', 'EmployeeController@destroy')->name('employee.destroy');
 Route::post('/employee/create', 'EmployeeController@store')->name('employee.store');
 Route::post('/employee/{id}/update', 'EmployeeController@update')->name('employee.update');
+Route::get('/school', 'SchoolController@index')->name('schools.index');
+Route::get('/school/create', 'SchoolController@create')->name('schools.create');
+Route::get('/school/{id}/edit', 'SchoolController@edit')->name('schools.edit');
+Route::delete('/school/{id}/delete', 'SchoolController@destroy')->name('schools.destroy');
+Route::post('/school/create', 'SchoolController@store')->name('schools.store');
+Route::post('/school/{id}/update', 'SchoolController@update')->name('schools.update');
