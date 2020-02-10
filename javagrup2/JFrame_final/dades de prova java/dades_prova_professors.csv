@@ -1,6 +1,0 @@
-ID,Nom,Cognom,Email,DNI,Data naixement,Data d’alta,Escola,Departament,Salari,Data de baixa,Estat
-1,Toni,Morant,tn@gmail.com,X8174346P,20/01/99,01/02/12,IES Montsià,Informàtica,1500,,Actiu
-2,Carles,Añó,ca@gmail.com,X8174346P,20/01/99,01/02/12,IES Montsià,Informàtica,1500,01/02/15,Inactiu
-3,Alex,Millian,am@gmail.com,X8174346P,20/01/99,01/02/12,IES Montsià,Comerç,1500,,Actiu
-4,Alicia,Vericat,av@gmail.com,X8174346P,20/01/99,01/02/12,IES Montsià,Informàtica,2000,01/02/15,Inactiu
-5,Jaume,Miralles,jm@gmail.com,X8174346P,20/01/99,01/02/12,IES Montsià,Comerç,2000,,Actiu
