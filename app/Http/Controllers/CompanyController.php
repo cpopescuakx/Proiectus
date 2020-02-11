@@ -110,7 +110,7 @@ class CompanyController extends Controller
     public function indexCompany()
     {
       $data['companies'] = Company::orderBy('id_company','desc')->paginate(10);
-      return view('companies.list',$data);
+      return view('companies.indexCompany',$data);
     }
 
     /**
