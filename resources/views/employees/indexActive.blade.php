@@ -3,7 +3,8 @@
 
 @section('content')
 <div class="col">
-  <div class="row d-flex justify-content-end p-4">
+  <div class="row d-flex justify-content-between p-4">
+  <h2 >Llistat d'empleats actius </h2>
   <a href="{{ route('employee.indexInactive') }}"><img src={{ asset('img/playlist_add_check.svg') }} width="45" height="45"></a>
   <a href="{{ route('employee.create') }}"><img src={{ asset('img/add.svg') }} width="45" height="45" ></a>
   </div>  
