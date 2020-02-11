@@ -37,7 +37,7 @@
                 <td>{{$manager->name}}</td>
                 <td>{{$manager->email}}</td>
                 <td>{{$manager->dni}}</td>
-                <td>{{$city::agafarNom($student->id_city)}}
+                <td>{{$city::agafarNom($manager->id_city)}}
                 <td>{{$manager->status}}</td>
                 <td>
                     <a href="{{ route('managers.edit', [$manager->id]) }}"><img src={{ asset('img/edit.svg') }} width="20" height="20" class="mr-2"></a>
