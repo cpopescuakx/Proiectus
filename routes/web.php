@@ -98,10 +98,15 @@ Route::get('blog/{id_project}/post/{id_post}/edit', [
     'uses' => 'PostController@edit'
 ]);
 
+Route::get('blog/{id_project}/edit', 'BlogController@edit');
+Route::PATCH('blog/{id_project}/update', 'BlogController@update');
+
+
+
 
 /** Rutes per a l'apartat de la gestio dels articles de la wiki */
 
-Route::resource('articles', 'ArticleController');
+
 
 
 Route::get('wiki/{id_project}', [
@@ -109,5 +114,10 @@ Route::get('wiki/{id_project}', [
     'uses' => 'ArticleController@index'
 ]);
 
-/** Rutes per a l'apartat de perfils d'usuari */
+Route::post('wiki/{id_project}/article/store', 'ArticleController@store');
 
+Route::get('wiki/{id_project}/article/create', 'ArticleController@create');
+
+Route::resource('articles', 'ArticleController');
+
+/** Rutes per a l'apartat de perfils d'usuari */

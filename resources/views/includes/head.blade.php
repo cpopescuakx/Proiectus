@@ -1,7 +1,7 @@
 <meta charset="utf-8">
 <meta name="description" content="">
 <meta name="Saquib" content="Blade">
-<title>Checkout our layout</title>
+<title>Proiectus.cat</title>
 <!-- Bootstrap core CSS -->
 <link href="{{ asset('css/main.css') }}" rel="stylesheet" type="text/css">
 <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">

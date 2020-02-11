@@ -31,7 +31,7 @@ class BlogController extends Controller
 
         $blog = Blog::find($id_project);
 
-            return view('Blog.index', compact('posts', 'id_project', 'blog'));   
+            return view('Blog.index', compact('posts', 'id_project', 'blog'));
     }
 
     /**
@@ -72,9 +72,10 @@ class BlogController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id_project)
     {
-        //
+      $blogs = Blog::find($id_project);
+      return view('Blog.edit', compact('blogs', 'id_project'));
     }
 
     /**
@@ -84,9 +85,20 @@ class BlogController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id_project)
     {
-        //
+        $this-> validate($request, [
+            'title'    =>  'required'
+        ]);
+        $blogs = Blog::find($id_project);
+        $blogs->title = $request->get('title');
+        $blogs->id_project = $id_project;
+
+        $blogs->save();
+
+        return redirect()->action('BlogController@index', ['id_project' => $id_project]);
+
+        //return redirect()->route('Blog.index')->with('success', 'Data Updated');
     }
 
     /**

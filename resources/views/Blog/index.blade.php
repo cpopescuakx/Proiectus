@@ -3,8 +3,8 @@
 <br><br>
 @if ($blog != null)
         <div class="container mb-5">
-         <a href="action('BlogController@edit', [$blog->id_projecte])" ><i style="font-size: 1rem" class="material-icons">edit</i></a>
-      <h2 class = "float-left">{{$blog->title}}</h2>
+          <a href="{{$id_project}}/edit" ><i style="font-size: 1rem" class="material-icons">edit</i></a>
+          <h2 class = "float-left">{{$blog->title}}</h2>
             <br><br>
             <form method="post" action="{{$id_project}}/post/store" id="postCreationForm">
             {{csrf_field()}}
