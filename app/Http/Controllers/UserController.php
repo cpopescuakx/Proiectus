@@ -27,17 +27,28 @@ class UserController extends Controller
      *  @return void
      * */
     public function indexManager(){
+        //Mostrem tots els usuaris amb id de rol 5 (gestors)
         $managers = DB::table('users')->where('id_role', 5)->get();
         return view ('managers.index', compact('managers'));
     }
 
+    /** CREAR GESTORS
+     *
+     *  Retorna la vista amb el formulari de creació de gestors. Passant els noms de les ciutats
+     *  que tenim a la base de dades, per a poder fer el datalist.
+     *
+     *  @param void
+     *  @return \Illuminate\Http\Response
+     **/
+
     public function createManager(){
+
         $cities = DB::table('cities')->distinct()->select("name")->get();
         return view('managers.create',compact('cities'));
     }
 
     public function storeManager(Request $request){
-      
+
         $manager = new User;
 
         // Assignació de valors a les propietats
@@ -55,10 +66,10 @@ class UserController extends Controller
         $manager -> id_role = 5;
         $manager -> status = "active";
 
-        // Guardar alumne a la BBDD
+        // Guardar gestors a la BBDD
         $manager -> save();
 
-        // Tornar a la llista d'alumnes
+        // Tornar a la llista de gestors
 
         $managers = DB::table('users')->where('id_role', 5)->get();
 
@@ -66,7 +77,15 @@ class UserController extends Controller
         ->with('i', (request()->input('page', 1) -1));
     }
 
+    /** EDITAR GESTOR
+     *
+     *  Retorna el formulari de modificació de gestors. Passant els gestors a partir de l'ID.
+     *
+     *  @param int $id
+     *  @return void
+     */
     public function editManager($id){
+
         $managers = User::find($id);
         $cities = DB::table('cities')->distinct()->select("name")->get();
         $nomCiutat = CityController::agafarNom($managers->id_city);
@@ -74,11 +93,19 @@ class UserController extends Controller
         return view('managers.edit', compact('managers', 'cities', 'nomCiutat'));
     }
 
+    /** UPDATE GESTORS
+     *
+     *  Guarda les noves dades dels gestors a la base de dades. Llavors, redirecciona
+     *  al llistat de gestors.
+     *
+     *  @param Request $request
+     *  @return void
+     */
     public function updateManager (Request $request) {
 
-        $id = $request->route('id'); // Agafar l'ID de la URL
+        $id = $request->route('id'); // Agafem la ID de la URL
 
-        // Cercar l'alumne amb la mateixa ID de la BBDD
+        // Busquem el gestor amb la mateixa ID
         $manager = User::find($id);
 
         // Assignar els valors del formulari
@@ -96,10 +123,10 @@ class UserController extends Controller
         $manager -> id_role = 5;
         $manager -> status = $request->input('status');
 
-        // Guardar l'alumne a la BBDD amb les noves dades
+        // Guardem el gestor amb les noves dades
         $manager -> save();
 
-        // Tornar a la llista d'alumnes
+        // Tornem a la llista de gestors
 
         $managers = DB::table('users')->where('id_role', 5)->get();
 
@@ -107,7 +134,14 @@ class UserController extends Controller
         ->with('i', (request()->input('page', 1) -1));
 
     }
-
+    /** DESTROY GESTORS
+     *
+     *  Busca al gestor amb l'ID passada com a paràmetre i passa el seu estat a inactive.
+     *  Redirecciona al llistat de gestors.
+     *
+     *  @param int $id
+     *  @return void
+     */
     public function destroyManager ($id) {
         $manager = User::find($id);
         $manager -> status = 'inactive';
@@ -276,7 +310,8 @@ class UserController extends Controller
      */
     public function createProfessor()
     {
-        return view('professors.create');
+      $cities = DB::table('cities')->distinct()->select("name")->get();
+      return view('professors.create',compact('cities'));
     }
 
     /** Crea el nou alumne a partir de les dades donades al formulari.
@@ -296,7 +331,8 @@ class UserController extends Controller
         $professor -> email = $request->input('email');
         $professor -> birthdate = $request->input('birthdate');
         $professor -> password = $request->input('password');
-        $professor -> id_city = 1;
+        $nom = $request->input('city');
+        $professor -> id_city = CityController::agafarID($nom);
         $professor -> profile_pic = "Res";
         $professor -> bio = "Res";
         $professor -> id_role = 4;
@@ -356,7 +392,7 @@ class UserController extends Controller
         $professor -> id_city = CityController::agafarID($nom);
         $professor -> profile_pic = "Res";
         $professor -> bio = "Res";
-        $professor -> id_role = 3;
+        $professor -> id_role = 4;
         $professor -> status = $request->input('status');
 
         // Guardar l'profe a la BBDD amb les noves dades
@@ -406,6 +442,7 @@ class UserController extends Controller
 
         return view ('employees.indexActive', compact('employees'));
     }
+    
 
     /** CREAR EMPLEAT
      *

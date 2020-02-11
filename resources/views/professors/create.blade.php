@@ -63,17 +63,7 @@
                         <div class="form-group mt-4">
                             <div class="row justify-content-center">
                                 <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
-                                    <label for="data-naixement">Data naixement</label>
-                                    <input type="text" name = "birthdate" class="form-control" id="birthdate" required>
-                                    <div class="invalid-feedback">Camp necessari</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group mt-4">
-                            <div class="row justify-content-center">
-                                <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
-                                    <label for="dni">Ciutat</label>
+                                    <label for="ciutat">Ciutat</label>
                                         <datalist id = "cities">
                                             @foreach($cities as $city)
                                                 <option value="{{$city->name}}">
@@ -89,7 +79,7 @@
                             <div class="row justify-content-center">
                                 <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
                                     <label for="data-naixement">Data naixement</label>
-                                    <input type="text" name = "birthdate" class="form-control" id="birthdate" required>
+                                    <input type="text" name = "birthdate" class="form-control" id="birthdate" required value="AAAA-MM-DD">
                                     <div class="invalid-feedback">Camp necessari</div>
                                 </div>
                             </div>
@@ -114,6 +104,7 @@
                                 </div>
                             </div>
                         </div>
+
                         <div class="form-group">
                             <div class="row justify-content-center">
                                 <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
