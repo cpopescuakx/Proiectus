@@ -1,6 +1,7 @@
 @extends('layouts.default')
 @section('content')
 <br><br>
+@if ($blog != null)
         <div class="container mb-5">
           <a href="{{action('BlogController@edit', [$blog->id_projecte])}}" ><i style="font-size: 1rem" class="material-icons">edit</i></a>
           <h2 class = "float-left">{{$blog->title}}</h2>
@@ -69,6 +70,9 @@
                 <h3>No hi ha cap post en aquest blog</h3>
                 @endif
         </div>
-    </div>
-
+@else
+<div class="container mb-5">
+<h1>Aquest blog no existeix</h1>
+</div>
+@endif
 @endsection

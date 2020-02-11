@@ -72,7 +72,6 @@ Route::post('Professors/create/success', 'UserController@storeProfessor')
 ->name('professors.store');
 
 /** Rutes per a l'apartat del blog */
-Route::resource('post', 'PostController');
 
 Route::pattern('id_project', '[0-9]+');
 
@@ -89,8 +88,15 @@ Route::get('blog/{id_project}/post/{id_post}/edit', [
 ]);
 
 
-/** Rutes per a l'apartat de la wiki */
+/** Rutes per a l'apartat de la gestio dels articles de la wiki */
 
+Route::resource('articles', 'ArticleController');
+
+
+Route::get('wiki/{id_project}', [
+    'Middleware' => 'auth',
+    'uses' => 'ArticleController@index'
+]);
 
 /** Rutes per a l'apartat de perfils d'usuari */
 
