@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Proposal;
 
 class ProposalController extends Controller
 {
@@ -11,9 +12,11 @@ class ProposalController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function indexProposal()
     {
-        //
+      $proposals = Proposal::all();
+      return view('proposals.index', compact('proposals'))
+          ->with('i', (request()->input('page', 1) -1));//
     }
 
     /**

@@ -3,8 +3,8 @@
 @section('content')
 <div class="col">
   <div class="row d-flex justify-content-end p-4">
-    <a href="{{ route('projects.create') }}"><img src={{ asset('img/add.svg') }} width="45" height="45" ></a>
-  </div>  
+    <a href="{{ route('proposals.create') }}"><img src={{ asset('img/add.svg') }} width="45" height="45" ></a>
+  </div>
 </div>
 <table class="table table-hover mr-5">
 <thead>
@@ -34,25 +34,28 @@
 
 
 <tbody>
-    @foreach($projects as $project)
+    @foreach($proposals as $proposal)
     <tr>
         <td>{{ ++$i }}</td>
 
-        {{--<td>{{$project->id_project}}</td>--}}
-        <td>{{$project->name}}</td>
-        <td>{{$project->created_at}}</td>
-        <td>{{$project->ending_date}}</td>
-        <td>{{$project->budget}}</td>
-        <td>{{$project->professional_family}}</td>
-        <td>{{$project->status}}</td>
+        {{--<td>{{$proposal->id_proposal}}</td>--}}
+        <td>{{$proposal->name}}</td>
+        <td>{{$proposal->created_at}}</td>
+        <td>{{$proposal->updated_at}}</td>
+        <td>{{$proposal->description}}</td>
+        <td>{{$proposal->limit_date}}</td>
+        <td>{{$proposal->id_author}}</td>
+        <td>{{$proposal->category}}</td>
+        <td>{{$proposal->professional_family}}</td>
+        <td>{{$proposal->status}}</td>
         <td>
-            <a href="{{ route('projects.edit', [$project->id_project]) }}"><img src={{ asset('img/edit.svg') }} width="20" height="20" class="mr-2"></a>
-            <a href="{{ route('projects.destroy', [$project->id_project]) }}"><img src={{ asset('img/delete.svg') }} width="20" height="20"></a>
+            <a href="{{ route('proposals.edit', [$proposal->id_proposal]) }}"><img src={{ asset('img/edit.svg') }} width="20" height="20" class="mr-2"></a>
+            <a href="{{ route('proposals.destroy', [$proposal->id_proposal]) }}"><img src={{ asset('img/delete.svg') }} width="20" height="20"></a>
         </td>
 
-        {{-- <td><a href="{{ route('projects.edit', $project->id)}}" class="btn btn-primary">Editar</a></td> --}}
+        {{-- <td><a href="{{ route('proposals.edit', $proposal->id)}}" class="btn btn-primary">Editar</a></td> --}}
         {{-- <td>
-            <form action="{{ route('projects.destroy', $project->id)}}" method="post">
+              <form action="{{ route('proposals.destroy', $proposal->id)}}" method="post">
                 @csrf
                 @method('DELETE')
                 <button class="btn btn-danger" type="submit">Esborrar</button>

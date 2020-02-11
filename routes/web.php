@@ -131,12 +131,12 @@ Route::post('/schools/{id}/update', 'SchoolController@updateSchool')->name('scho
 
 //GRUP3
 /* Propostes */
-Route::get('Proposals','ProposalController@indexProposal')-> name('proposal.index');
-Route::get('Proposals/create', 'ProposalController@createProposal')->name('proposal.create');
-Route::post('Proposals/create/success', 'ProposalController@storeProposal')->name('proposal.store');
-Route::get('Proposals/{id}/edit', 'ProposalController@editProposal')->name('proposal.edit');
-Route::post('Proposals/{id}/edit/success', 'ProposalController@updateProposal')->name('proposal.update');
-Route::get('Proposals/{id}', 'ProposalController@destroyProposal')->name('proposal.destroy');
+Route::get('Proposals','ProposalController@indexProposal')-> name('proposals.index');
+Route::get('Proposals/create', 'ProposalController@createProposal')->name('proposals.create');
+Route::post('Proposals/create/success', 'ProposalController@storeProposal')->name('proposals.store');
+Route::get('Proposals/{id}/edit', 'ProposalController@editProposal')->name('proposals.edit');
+Route::post('Proposals/{id}/edit/success', 'ProposalController@updateProposal')->name('proposals.update');
+Route::get('Proposals/{id}', 'ProposalController@destroyProposal')->name('proposals.destroy');
 
 /* Empleats */
 Route::get('/Employees/Active', 'UserController@indexEmployeeActive')->name('employee.indexActive');
