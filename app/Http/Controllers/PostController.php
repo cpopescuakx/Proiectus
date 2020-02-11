@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Post;
 
 class PostController extends Controller
 {
@@ -32,9 +33,27 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $id_project)
     {
-        //
+        $id_user = 9;
+        //dd($prova);
+
+        $request->validate([
+            'title'=>'required',
+            'content'=>'required'
+        ]);
+
+        $post = new Post();
+        $post->title = $request->get('title');
+        $post->content = $request->get('content');
+        $post->id_project = $id_project;
+        $post->id_user = $id_user;
+        
+        $post->save();
+
+        //return redirect()->route('blog.index', ['id_project' => $id_project])->with('success','Post creat correctament.');
+        //return redirect()->route('blog.index', ['id_project' => $id_project])->with('success','Post creat correctament.');
+        return redirect()->back();
     }
 
     /**

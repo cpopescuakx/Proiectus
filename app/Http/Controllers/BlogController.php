@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Blog;
+use App\Post;
 
 class BlogController extends Controller
 {
@@ -11,9 +13,23 @@ class BlogController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id_project)
     {
-        //
+
+        // SELECT pt.id_post, pt.title, pt.content, pt.creation_date, pt.last_modified, pt.id_user, us.username
+        // FROM POST pt
+        // INNER JOIN USER us
+        // ON us.id_user = pt.id_user
+        // AND pt.status = 'active' AND pt.id_project = '$id_projecte'
+        // ORDER BY pt.creation_date DESC
+
+
+        // dd($id_project);
+        $posts = Post::all()
+        ->sortByDesc('created_at')
+        ->where('id_project', '=', $id_project);
+
+      return view('Blog.index', compact('posts', 'id_project'));
     }
 
     /**
