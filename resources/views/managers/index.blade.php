@@ -41,7 +41,7 @@
                 <td>{{$manager->status}}</td>
                 <td>
                     <a href="{{ route('managers.edit', [$manager->id]) }}"><img src={{ asset('img/edit.svg') }} width="20" height="20" class="mr-2"></a>
-                    @if($student->status == "active")
+                    @if($manager->status == "active")
                         <a href="{{ route('managers.destroy', [$manager->id]) }}"><img src={{ asset('img/delete.svg') }} width="20" height="20"></a>
                     @endif
                 </td>
