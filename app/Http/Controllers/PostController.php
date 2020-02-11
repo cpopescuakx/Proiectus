@@ -66,7 +66,7 @@ class PostController extends Controller
     public function show($id_post)
     {
         //dd($id_post);
-        $post = post::find($id_post);
+        $post = Post::find($id_post);
         return view('Post.show', compact('post'));
     }
 
@@ -89,9 +89,21 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id_post)
     {
-        //
+        // $this-> validate($request, [
+        //     'title'    =>  'required',
+        //     'content' => 'required'
+        // ]);
+        // $posts = post::find($id_post);
+        // $posts->title = $request->get('title');
+        // $posts->title = $request->get('content');
+        
+        // $posts->save();
+
+        post::find($id_post)->update($request->all());
+
+        return redirect()->action('PostController@show', ['id_post' => $id_post]);
     }
 
     /**

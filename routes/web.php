@@ -93,10 +93,14 @@ Route::get('post/{id_post}', [
 
 
 /** Ruta per al EDIT d'un post */
-Route::get('blog/{id_project}/post/{id_post}/edit', [
+Route::get('post/{id_post}/edit', [
     'Middleware' => 'auth',
     'uses' => 'PostController@edit'
 ]);
+
+/** Ruta per al UPDATE d'un post */
+Route::PATCH('post/{id_post}/update', 'PostController@update');
+
 
 Route::get('blog/{id_project}/edit', 'BlogController@edit');
 Route::PATCH('blog/{id_project}/update', 'BlogController@update');
