@@ -427,22 +427,39 @@ class UserController extends Controller
         ->with('i', (request()->input('page', 1) -1));
     }
 
-    /** LLISTAR EMPLEATS
+    /** LLISTAR EMPLEATS ACTIUS
      *
-     *  Extreu els empleats que tenen ID de rol 4 (Empleat), després retorna la vista per a llistar-los.
+     *  Extreu els empleats que tenen ID de rol 4 (Empleat) els quals tinguin com a estat (active), després retorna la vista per a llistar-los.
      *
      *  @param void
-     *  @return void
+     *  @return \Illuminate\Http\Response
      * */
 
-    public function indexEmployee()
+    public function indexEmployeeActive()
     {
         //
-        $employees = DB::table('users')->where('id_role', 4)->get();
+        $employees = User::where([['id_role',2],['status','active'],])->get();
 
         return view ('employees.indexActive', compact('employees'));
+            
     }
     
+    /** LLISTAR EMPLEATS INACTIUS
+     *
+     *  Extreu els empleats que tenen ID de rol 4 (Empleat) els quals tinguin com a estat (inactive), després retorna la vista per a llistar-los.
+     *
+     *  @param void
+     *  @return \Illuminate\Http\Response
+     * */
+
+    public function indexEmployeeInactive()
+    {
+        //
+        $employees = User::where([['id_role',2],['status','inactive'],])->get();
+
+        return view ('employees.indexInactive', compact('employees'));
+            
+    }
 
     /** CREAR EMPLEAT
      *
