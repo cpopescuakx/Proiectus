@@ -2,6 +2,7 @@ package com.example.proiectus;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -11,7 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity {
     EditText usuari;
     EditText contrassenya;
     Button boto;
@@ -49,12 +50,13 @@ public class MainActivity extends AppCompatActivity {
         return usuaris;
     }
 
+
     public void login (String usuari, String contrassenya, String [][] usuaris) {
         text.setText("");
         int comptador = 0;
         for (int i = 0; i < usuaris.length; i++) {
             if (usuari.equals(usuaris[i][0])  && contrassenya.equals(usuaris[i][1])) {
-                Intent intent = new Intent(MainActivity.this, CrearInstitut.class);
+                Intent intent = new Intent(MainActivity.this, PaginaPrincipal.class);
                 startActivity(intent);
             }
             else {
