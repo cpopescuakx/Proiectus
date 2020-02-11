@@ -33,9 +33,9 @@
         <td>{{$professor->firstname}}</td>
         <td>{{$professor->lastname}}</td>
         <td>{{$professor->name}}</td>
+        <td>{{$professor->email}}</td>                
         <td>{{$professor->dni}}</td>
         <td>{{$city::agafarNom($professor->id_city)}}</td>
-        <td>{{$professor->email}}</td>
         <td>{{$professor->status}}</td>
         <td>
             <a href="{{ route('professors.edit', [$professor->id]) }}"><img src={{ asset('img/edit.svg') }} width="20" height="20" class="mr-2"></a>

@@ -48,7 +48,7 @@ class UserController extends Controller
     }
 
     public function storeManager(Request $request){
-      
+
         $manager = new User;
 
         // Assignació de valors a les propietats
@@ -310,7 +310,8 @@ class UserController extends Controller
      */
     public function createProfessor()
     {
-        return view('professors.create');
+      $cities = DB::table('cities')->distinct()->select("name")->get();
+      return view('professors.create',compact('cities'));
     }
 
     /** Crea el nou alumne a partir de les dades donades al formulari.
@@ -330,7 +331,8 @@ class UserController extends Controller
         $professor -> email = $request->input('email');
         $professor -> birthdate = $request->input('birthdate');
         $professor -> password = $request->input('password');
-        $professor -> id_city = 1;
+        $nom = $request->input('city');
+        $professor -> id_city = CityController::agafarID($nom);
         $professor -> profile_pic = "Res";
         $professor -> bio = "Res";
         $professor -> id_role = 4;
@@ -390,7 +392,7 @@ class UserController extends Controller
         $professor -> id_city = CityController::agafarID($nom);
         $professor -> profile_pic = "Res";
         $professor -> bio = "Res";
-        $professor -> id_role = 3;
+        $professor -> id_role = 4;
         $professor -> status = $request->input('status');
 
         // Guardar l'profe a la BBDD amb les noves dades
