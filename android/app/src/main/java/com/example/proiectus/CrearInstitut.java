@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 public class CrearInstitut extends AppCompatActivity {
     Button botoAfegir;
@@ -28,6 +29,9 @@ public class CrearInstitut extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 llistaInstituts.afegirInstitut(nom.getText().toString(), codi.getText().toString(), ciutat.getText().toString());
+                TextView prova = (TextView)findViewById(R.id.prova);
+                prova.setText(llistaInstituts.array.get(0).getNom());
+                
             }
         });
 
