@@ -46,8 +46,7 @@ class SchoolController extends Controller
 
         School::create($request->all());
 
-        return Redirect::to('schools')
-       ->with('Éxit! L institut s ha creat correctament!');
+        return redirect()->route('schools.index')->with('Éxit','L institut s ha modificat correctament!');
     }
 
     /**

@@ -124,12 +124,12 @@ Route::post('managers/create', 'UserController@storeManager')->name('managers.st
 Route::post('managers/{id}/update', 'UserController@updateManager')->name('managers.update');
 
 /* School */
-Route::get('/school', 'SchoolController@index')->name('school.index');
-Route::get('/school/create', 'SchoolController@create')->name('school.create');
-Route::get('/school/{id}/edit', 'SchoolController@edit')->name('school.edit');
-Route::delete('/school/{id}/delete', 'SchoolController@destroy')->name('school.destroy');
-Route::post('/school/create', 'SchoolController@store')->name('school.store');
-Route::post('/school/{id}/update', 'SchoolController@update')->name('school.update');
+Route::get('/school', 'SchoolController@index')->name('schools.index');
+Route::get('/school/create', 'SchoolController@create')->name('schools.create');
+Route::get('/school/{id}/edit', 'SchoolController@edit')->name('schools.edit');
+Route::delete('/school/{id}/delete', 'SchoolController@destroy')->name('schools.destroy');
+Route::post('/school/create', 'SchoolController@store')->name('schools.store');
+Route::post('/school/{id}/update', 'SchoolController@update')->name('schools.update');
 
 
 //GRUP3
