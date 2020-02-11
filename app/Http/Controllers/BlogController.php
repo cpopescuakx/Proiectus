@@ -31,7 +31,7 @@ class BlogController extends Controller
 
         $blog = Blog::find($id_project);
 
-      return view('Blog.index', compact('posts', 'id_project', 'blog'));
+            return view('Blog.index', compact('posts', 'id_project', 'blog'));   
     }
 
     /**
