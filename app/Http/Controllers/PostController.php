@@ -14,7 +14,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+
+        return view('Post.index', compact('post'));
     }
 
     /**
@@ -62,9 +63,11 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id_post)
     {
-        //
+        //dd($id_post);
+        $post = post::find($id_post);
+        return view('Post.show', compact('post'));
     }
 
     /**
