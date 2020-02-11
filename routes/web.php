@@ -109,8 +109,8 @@ Route::resource('companies', 'CompanyController');
 Route::get('companies', 'CompanyController@showCompany')->name('companies');
 Route::get('/companies', 'CompanyController@indexCompany')->name('companies.index');
 Route::get('/companies/create', 'CompanyController@createCompany')->name('companies.create');
-Route::get('/companies/{id}/edit', 'CompanyController@editCompany')->name('companies.edit');
-Route::get('/companies/{id}/delete', 'CompanyController@destroyCompany')->name('companies.destroy');
+Route::get('/companies/{id}/edit', 'CompanyController@editCompany2')->name('companies.edit');
+Route::delete('/companies/{id}/delete', 'CompanyController@destroyCompany')->name('companies.destroy');
 Route::post('/companies/create', 'CompanyController@storeCompany')->name('companies.store');
 Route::post('/companies/{id}/update', 'CompanyController@updateCompany')->name('companies.update');
 

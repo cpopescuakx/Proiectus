@@ -163,12 +163,13 @@ class CompanyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function editCompany($id)
+    public function editCompany2($id)
     {
         $where = array('id_company' => $id);
         $data['company_info'] = Company::where($where)->first();
 
-        return view('companies.edit', $data);
+        return view('companies.update', $data);
+
     }
 
     /**
@@ -191,7 +192,7 @@ class CompanyController extends Controller
 
          Company::findOrFail($id)->first()->fill($request->all())->save();
          //Company::find($request->id)->update($request->all());
-         return redirect()->route('companies.index')
+         return redirect()->route('companies')
                           ->with('Éxit','L empresa s ha modificat correctament!');
 
 
