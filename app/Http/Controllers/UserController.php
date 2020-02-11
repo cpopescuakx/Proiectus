@@ -406,6 +406,7 @@ class UserController extends Controller
 
         return view ('employees.indexActive', compact('employees'));
     }
+    
 
     /** CREAR EMPLEAT
      *
