@@ -36,8 +36,8 @@
                  <!--<td>{{ date('Y-m-d', strtotime($company->created_at)) }}</td>-->
                  <td><a href="{{ route('companies.edit',$company->id_company)}}" class="btn btn-primary">EDITA</a></td>
                  <td>
-                 <form action="{{ route('companies.destroy', $company->id_company)}}" method="post">
-                  {{ csrf_field() }}
+                 <form action="{{ route('companies.destroy', $company->id_company)}}">
+                  @csrf
                   @method('DELETE')
                   <button class="btn btn-danger" type="submit">ELIMINA</button>
                 </form>
