@@ -491,7 +491,7 @@ class UserController extends Controller
         $user = User::find($id);
         $user->status = 'active';
         $user->save();
-        return redirect()->back();      
+        return redirect()->back();    
     }
 
 
