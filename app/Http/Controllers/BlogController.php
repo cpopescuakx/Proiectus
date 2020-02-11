@@ -29,7 +29,9 @@ class BlogController extends Controller
         ->sortByDesc('created_at')
         ->where('id_project', '=', $id_project);
 
-      return view('Blog.index', compact('posts', 'id_project'));
+        $blog = Blog::find($id_project);
+
+      return view('Blog.index', compact('posts', 'id_project', 'blog'));
     }
 
     /**
