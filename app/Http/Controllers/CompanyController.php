@@ -110,7 +110,7 @@ class CompanyController extends Controller
     public function indexCompany()
     {
       $data['companies'] = Company::orderBy('id_company','desc')->paginate(10);
-      return view('company.list',$data);
+      return view('companies.list',$data);
     }
 
     /**
@@ -120,7 +120,7 @@ class CompanyController extends Controller
      */
     public function createCompany()
     {
-        return view('company.create');
+        return view('companies.createCompany');
     }
 
     /**
@@ -168,7 +168,7 @@ class CompanyController extends Controller
         $where = array('id_company' => $id);
         $data['company_info'] = Company::where($where)->first();
 
-        return view('company.edit', $data);
+        return view('companies.editCompany', $data);
     }
 
     /**
@@ -191,7 +191,7 @@ class CompanyController extends Controller
 
          Company::findOrFail($id)->first()->fill($request->all())->save();
          //Company::find($request->id)->update($request->all());
-         return redirect()->route('company.index')
+         return redirect()->route('companies.indexCompany')
                           ->with('Éxit','L empresa s ha modificat correctament!');
 
 

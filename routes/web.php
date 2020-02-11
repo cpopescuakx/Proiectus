@@ -18,6 +18,11 @@ Route::get('/', function () {
     return view('welcome');
 })-> name('projects.x');
 
+
+
+
+
+//GRUP2
 /** Rutes per a l'apartat de gestió de projectes */
 
 Route::get('Project','ProjectController@index')
@@ -72,6 +77,15 @@ Route::post('Professors/create/success', 'UserController@storeProfessor')
 ->name('professors.store');
 
 
+
+
+
+
+
+
+
+
+
 //GRUP1
 /* Tickets */
 Route::get('/ticket', 'TicketController@index')->name('ticket.index');
@@ -83,13 +97,13 @@ Route::post('/ticket/update', 'TicketController@update')->name('ticket.update');
 
 /* Companies */
 Route::resource('companies', 'CompanyController');
-Route::get('companies', 'CompanyController@show')->name('company');
-Route::get('/companies', 'CompanyController@index')->name('company.index');
-Route::get('/companies/create', 'CompanyController@create')->name('company.create');
-Route::get('/companies/{id}/edit', 'CompanyController@edit')->name('company.edit');
-Route::get('/companies/{id}/delete', 'CompanyController@destroy')->name('company.destroy');
-Route::post('/companies/create', 'CompanyController@store')->name('company.store');
-Route::post('/companies/{id}/update', 'CompanyController@update')->name('company.update');
+Route::get('companies', 'CompanyController@showCompany')->name('companies');
+Route::get('/companies', 'CompanyController@indexCompany')->name('companies.indexCompany');
+Route::get('/companies/create', 'CompanyController@createCompany')->name('companies.createCompany');
+Route::get('/companies/{id}/edit', 'CompanyController@editCompany')->name('companies.editCompany');
+Route::get('/companies/{id}/delete', 'CompanyController@destroyCompany')->name('companies.destroyCompany');
+Route::post('/companies/create', 'CompanyController@storeCompany')->name('companies.storeCompany');
+Route::post('/companies/{id}/update', 'CompanyController@updateCompany')->name('companies.updateCompany');
 
 /* Users */
 Route::get('/gestor', 'UserController@index')->name('user.index');
@@ -106,6 +120,15 @@ Route::get('/school/{id}/edit', 'SchoolController@edit')->name('school.edit');
 Route::delete('/school/{id}/delete', 'SchoolController@destroy')->name('school.destroy');
 Route::post('/school/create', 'SchoolController@store')->name('school.store');
 Route::post('/school/{id}/update', 'SchoolController@update')->name('school.update');
+
+
+
+
+
+
+
+
+
 
 //GRUP3
 /* Propostes */
