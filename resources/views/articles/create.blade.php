@@ -23,24 +23,10 @@
     </div>
 @endif
 
-<form action="{{ route('articles.store') }}" method="POST">
+<form action="store" method="POST">
     @csrf
 
      <div class="row">
-
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>id_article:</strong>
-                <input type="text" name="id_article" class="form-control" placeholder="id_article">
-            </div>
-        </div>
-
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>id_project:</strong>
-                <textarea class="form-control" style="height:150px" name="id_project" placeholder="id_project"></textarea>
-            </div>
-        </div>
 
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
@@ -74,13 +60,6 @@
             <div class="form-group">
                 <strong>reference:</strong>
                 <textarea class="form-control" style="height:150px" name="reference" placeholder="reference"></textarea>
-            </div>
-        </div>
-
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>id_user:</strong>
-                <textarea class="form-control" style="height:150px" name="id_user" placeholder="id_user"></textarea>
             </div>
         </div>
 

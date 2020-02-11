@@ -7,7 +7,7 @@
                 <h2>Prova</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-success" href="{{ route('articles.create') }}">Create</a>
+                <a class="btn btn-success" href="{{$id_project}}/article/create">Create</a>
             </div>
         </div>
     </div>
