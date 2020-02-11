@@ -4,6 +4,7 @@ public/storage
 storage/*.key
 javagrup2
 vendor
+android
 
 .env.backup
 .phpunit.result.cache

@@ -110,7 +110,7 @@
                                 <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
                                     <label for="contrassenya">Estat</label>
                                     <select class="form-control" name = "status" id="status">
-                                        {{-- Mostrar l'estat actual de l'alumne --}}
+                                        {{-- Mostrar l'estat actual del gestor --}}
                                         @if($managers->status == "active")
                                             <option selected value="active">Actiu</option>
                                             <option value="inactive">Innactiu</option>

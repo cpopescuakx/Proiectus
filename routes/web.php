@@ -70,9 +70,7 @@ Route::get('Students/{id}', 'UserController@destroyStudent')
 Route::get('Professors', 'UserController@indexProfessor')
 ->name('professors.index');
 
-Route::get('Professors/create', function () {
-    return view('professors.create');
-})->name('professors.create');
+Route::get('Professors/create', 'UserController@createProfessor')->name('professors.create');
 
 Route::post('Professors/create/success', 'UserController@storeProfessor')
 ->name('professors.store');
@@ -123,13 +121,13 @@ Route::get('managers/{id}/delete', 'UserController@destroyManager')->name('manag
 Route::post('managers/create', 'UserController@storeManager')->name('managers.store');
 Route::post('managers/{id}/update', 'UserController@updateManager')->name('managers.update');
 
-/* School */
-Route::get('/school', 'SchoolController@index')->name('school.index');
-Route::get('/school/create', 'SchoolController@create')->name('school.create');
-Route::get('/school/{id}/edit', 'SchoolController@edit')->name('school.edit');
-Route::delete('/school/{id}/delete', 'SchoolController@destroy')->name('school.destroy');
-Route::post('/school/create', 'SchoolController@store')->name('school.store');
-Route::post('/school/{id}/update', 'SchoolController@update')->name('school.update');
+/* Schools */
+Route::get('/schools', 'SchoolController@indexSchool')->name('schools.index');
+Route::get('/schools/create', 'SchoolController@createSchool')->name('schools.create');
+Route::get('/schools/{id}/edit', 'SchoolController@editSchool')->name('schools.edit');
+Route::delete('/schools/{id}/delete', 'SchoolController@destroySchool')->name('schools.destroy');
+Route::post('/schools/create', 'SchoolController@storeSchool')->name('schools.store');
+Route::post('/schools/{id}/update', 'SchoolController@updateSchool')->name('schools.update');
 
 
 //GRUP3
@@ -150,10 +148,3 @@ Route::get('/Employees/{id}/delete', 'UserController@destroy')->name('employee.d
 Route::post('/Employees/store', 'UserController@store')->name('employee.store');
 Route::post('/Employees/{id}/update', 'UserController@update')->name('employee.update');
 
-/* Escoles */
-Route::get('/school', 'SchoolController@index')->name('schools.index');
-Route::get('/school/create', 'SchoolController@create')->name('schools.create');
-Route::get('/school/{id}/edit', 'SchoolController@edit')->name('schools.edit');
-Route::delete('/school/{id}/delete', 'SchoolController@destroy')->name('schools.destroy');
-Route::post('/school/create', 'SchoolController@store')->name('schools.store');
-Route::post('/school/{id}/update', 'SchoolController@update')->name('schools.update');

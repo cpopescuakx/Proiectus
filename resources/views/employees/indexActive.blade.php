@@ -34,14 +34,13 @@
 <tbody>
     @foreach($employees as $employee)
     <tr>
-        <td>{{ ++$i }}</td>
-
+        <td>{{$employee->id_user}}</td>
         <td>{{$employee->firstname}}</td>
-                <td>{{$employee->lastname}}</td>
-                <td>{{$employee->name}}</td>
-                <td>{{$employee->email}}</td>
-                <td>{{$employee->dni}}</td>
-                <td>{{$city::agafarNom($employee->id_city)}}
+        <td>{{$employee->lastname}}</td>
+        <td>{{$employee->name}}</td>
+        <td>{{$employee->email}}</td>
+        <td>{{$employee->dni}}</td>
+        <td>{{$city::agafarNom($employee->id_city)}}
         <td>
             <a href="{{ route('employees.edit', [$employee->id_employee]) }}"><img src={{ asset('img/edit.svg') }} width="20" height="20" class="mr-2"></a>
             <a href="{{ route('employees.destroy', [$employee->id_employee]) }}"><img src={{ asset('img/delete.svg') }} width="20" height="20"></a>
