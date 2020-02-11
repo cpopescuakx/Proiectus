@@ -105,17 +105,16 @@ Route::post('/ticket/create', 'TicketController@store')->name('ticket.store');
 Route::post('/ticket/update', 'TicketController@update')->name('ticket.update');
 
 /* Companies */
-Route::resource('companies', 'CompanyController');
-Route::get('companies', 'CompanyController@showCompany')->name('companies');
-Route::get('/companies', 'CompanyController@indexCompany')->name('companies.index');
+//Route::resource('companies', 'CompanyController');
+Route::get('companies', 'CompanyController@indexCompany')->name('companies');
+//Route::get('/companies', 'CompanyController@indexCompany')->name('companies.index');
 Route::get('/companies/create', 'CompanyController@createCompany')->name('companies.create');
-Route::get('/companies/{id}/edit', 'CompanyController@editCompany2')->name('companies.edit');
+Route::get('/companies/{id}/edit', 'CompanyController@editCompany')->name('companies.edit');;
 Route::delete('/companies/{id}/delete', 'CompanyController@destroyCompany')->name('companies.destroy');
 Route::post('/companies/create', 'CompanyController@storeCompany')->name('companies.store');
 Route::post('/companies/{id}/update', 'CompanyController@updateCompany')->name('companies.update');
 
 /* Users */
-
 Route::get('managers', 'UserController@indexManager')->name('managers.index');
 Route::get('managers/create', 'UserController@createManager')->name('managers.create');
 Route::get('managers/{id}/edit', 'UserController@editManager')->name('managers.edit');

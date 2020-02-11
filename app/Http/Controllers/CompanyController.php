@@ -163,12 +163,12 @@ class CompanyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function editCompany2($id)
+    public function editCompany($id)
     {
         $where = array('id_company' => $id);
         $data['company_info'] = Company::where($where)->first();
 
-        return view('companies.update', $data);
+        return view('companies.edit', $data);
 
     }
 

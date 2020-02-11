@@ -1,10 +1,11 @@
-@extends('companies.default')
+@extends('layouts.default')
 
 @section('content')
 
     <div class=" formulari ">
+
         <form class="was-validated" action="{{ route('companies.update', $company_info->id_company) }}" method="POST">
-            @csrf
+            {{ csrf_field() }}
             @method('POST')
             <div class="row justify-content-center">
                 <div class="col-11 col-sm-11 col-md-10 col-lg-10 col-xl-10">
