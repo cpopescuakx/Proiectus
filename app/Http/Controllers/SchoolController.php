@@ -13,7 +13,7 @@ class SchoolController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function indexSchool()
     {
         $data['schools'] = School::orderBy('id_school','desc')->paginate(10);
         return view('schools.index', $data);
@@ -24,7 +24,7 @@ class SchoolController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function createSchool()
     {
         return view('schools.create');
     }
@@ -35,7 +35,7 @@ class SchoolController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function storeSchool(Request $request)
     {
         $request->validate([
             'email' => 'required',
@@ -46,8 +46,7 @@ class SchoolController extends Controller
 
         School::create($request->all());
 
-        return Redirect::to('schools')
-       ->with('Éxit! L institut s ha creat correctament!');
+        return redirect()->route('schools.index')->with('Éxit','L institut s ha modificat correctament!');
     }
 
     /**
@@ -56,7 +55,7 @@ class SchoolController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function showSchool($id)
     {
         //
     }
@@ -67,7 +66,7 @@ class SchoolController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function editSchool($id)
     {
         $where = array('id_school' => $id);
         $data['school'] = School::where($where)->first();
@@ -82,7 +81,7 @@ class SchoolController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function updateSchool(Request $request, $id)
     {
         $request->validate([
             'email' => 'required',
@@ -101,7 +100,7 @@ class SchoolController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroySchool($id)
     {
         School::destroy($id);
         return redirect()->route('schools.index')->with('Exit', 'L institut s ha borrat correctament!');
