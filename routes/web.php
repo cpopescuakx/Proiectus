@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 
 use App\Project;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -141,12 +142,12 @@ Route::post('Proposal/{id}/edit/success', 'ProposalController@updateProposal')->
 Route::get('Proposal/{id}', 'ProposalController@destroyProposal')->name('proposal.destroy');
 
 /* Empleats */
-Route::get('/employee', 'EmployeeController@index')->name('employee.index');
-Route::get('/employee/create', 'EmployeeController@create')->name('employee.create');
-Route::get('/employee/{id}/edit', 'EmployeeController@edit')->name('employee.edit');
-Route::get('/employee/{id}/delete', 'EmployeeController@destroy')->name('employee.destroy');
-Route::post('/employee/create', 'EmployeeController@store')->name('employee.store');
-Route::post('/employee/{id}/update', 'EmployeeController@update')->name('employee.update');
+Route::get('/Employee', 'UserController@indexEmployee')->name('employee.index');
+Route::get('/Employee/create', 'UserController@create')->name('employee.create');
+Route::get('/Employee/{id}/edit', 'UserController@edit')->name('employee.edit');
+Route::get('/Employee/{id}/delete', 'UserController@destroy')->name('employee.destroy');
+Route::post('/Employee/store', 'UserController@store')->name('employee.store');
+Route::post('/Employee/{id}/update', 'UserController@update')->name('employee.update');
 
 /* Escoles */
 Route::get('/school', 'SchoolController@index')->name('schools.index');

@@ -52,7 +52,7 @@ class UserController extends Controller
         $manager -> id_city = CityController::agafarID($nom);
         $manager -> profile_pic = "Res";
         $manager -> bio = "Res";
-        $manager -> id_role = 3;
+        $manager -> id_role = 5;
         $manager -> status = "active";
 
         // Guardar alumne a la BBDD
