@@ -1,21 +1,21 @@
 @extends('layouts.default')
 
 @section('content')
-    <div class=" formulari ">
-        <form class="was-validated" action="{{route('professors.store')}}" method="POST">
+    <div class="content formulari closed">
+        <form class="was-validated" action="{{route('managers.store')}}" method="POST">
             @csrf
             <div class="row justify-content-center">
                 <div class="col-11 col-sm-11 col-md-10 col-lg-10 col-xl-10">
                     <div class="container">
                         <div class="contact-image text-center mt-3">
-                            <img class="form-img" src="{{ asset('img/icono_negro.png') }}" />
+                            <img class="form-img" src="./img/icono_negro.png" />
                         </div>
                     </div>
                     <div class="container contact-form">
                         <div class="container">
                             <div class="row no-gutters justify-content-center mt-5">
                                 <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
-                                    <h1>Crear Professor</h1>
+                                    <h1>Crear Alumne</h1>
                                 </div>
                             </div>
                         </div>
@@ -63,16 +63,6 @@
                         <div class="form-group mt-4">
                             <div class="row justify-content-center">
                                 <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
-                                    <label for="data-naixement">Data naixement</label>
-                                    <input type="text" name = "birthdate" class="form-control" id="birthdate" required>
-                                    <div class="invalid-feedback">Camp necessari</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group mt-4">
-                            <div class="row justify-content-center">
-                                <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
                                     <label for="dni">Ciutat</label>
                                         <datalist id = "cities">
                                             @foreach($cities as $city)
@@ -108,7 +98,7 @@
                         <div class="form-group mt-4">
                             <div class="row justify-content-center">
                                 <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
-                                    <label for="contrassenya">Contrassenya</label>
+                                    <label for="contrassenya">Contrasenya</label>
                                     <input type="text" name = "password" class="form-control" id="password" required>
                                     <div class="invalid-feedback">Camp necessari</div>
                                 </div>
@@ -117,12 +107,11 @@
                         <div class="form-group">
                             <div class="row justify-content-center">
                                 <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
-                                    <button type="submit" name = "sbumit" class="btn btn-primary">Crear</button>
+                                    <button type="submit" name = "sbumit" class="btn btn-primary float-right">Crear</button>
                                 </div>
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
