@@ -67,11 +67,11 @@ class UserController extends Controller
     }
 
     public function editManager($id){
-        $manager = User::find($id);
+        $managers = User::find($id);
         $cities = DB::table('cities')->distinct()->select("name")->get();
-        $nomCiutat = CityController::agafarNom($student->id_city);
+        $nomCiutat = CityController::agafarNom($managers->id_city);
 
-        return view('students.edit', compact('student', 'cities', 'nomCiutat'));
+        return view('managers.edit', compact('managers', 'cities', 'nomCiutat'));
     }
 
     public function updateManager (Request $request) {
@@ -93,7 +93,7 @@ class UserController extends Controller
         $manager -> id_city = CityController::agafarID($nom);
         $manager -> profile_pic = "Res";
         $manager -> bio = "Res";
-        $manager -> id_role = 3;
+        $manager -> id_role = 5;
         $manager -> status = $request->input('status');
 
         // Guardar l'alumne a la BBDD amb les noves dades

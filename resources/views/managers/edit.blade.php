@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="content formulari closed">
-        <form class="was-validated" action="{{route('students.update', [$student->id])}}" method="POST">
+        <form class="was-validated" action="{{route('managers.update', [$managers->id])}}" method="POST">
             @csrf
             <div class="row justify-content-center">
                 <div class="col-11 col-sm-11 col-md-10 col-lg-10 col-xl-10">
@@ -15,7 +15,7 @@
                         <div class="container">
                             <div class="row no-gutters justify-content-center mt-5">
                                 <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
-                                    <h1>Modificar Alumne</h1>
+                                    <h1>Modificar Gestors</h1>
                                 </div>
                             </div>
                         </div>
@@ -24,7 +24,7 @@
                             <div class="row justify-content-center">
                                 <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
                                     <label for="nom">Nom</label>
-                                    <input type="text" name = "firstname" class="form-control" value = "{{$student->firstname }}" id="firstname" required>
+                                    <input type="text" name = "firstname" class="form-control" value = "{{$managers->firstname }}" id="firstname" required>
                                     <div class="invalid-feedback">Camp necessari</div>
                                 </div>
                             </div>
@@ -34,7 +34,7 @@
                             <div class="row justify-content-center">
                                 <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
                                     <label for="cognom">Cognom</label>
-                                    <input type="text" name = "lastname" class="form-control" value = "{{$student->lastname }}" id="lastname" required>
+                                    <input type="text" name = "lastname" class="form-control" value = "{{$managers->lastname }}" id="lastname" required>
                                     <div class="invalid-feedback">Camp necessari</div>
                                 </div>
                             </div>
@@ -44,7 +44,7 @@
                             <div class="row justify-content-center">
                                 <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
                                     <label for="usuari">Usuari</label>
-                                    <input type="text" name = "name" class="form-control" value = "{{$student->name }}" id="name" required>
+                                    <input type="text" name = "name" class="form-control" value = "{{$managers->name }}" id="name" required>
                                     <div class="invalid-feedback">Camp necessari</div>
                                 </div>
                             </div>
@@ -54,7 +54,7 @@
                             <div class="row justify-content-center">
                                 <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
                                     <label for="dni">DNI</label>
-                                    <input type="text" name = "dni" class="form-control" value = "{{$student->dni }}" id="dni" required>
+                                    <input type="text" name = "dni" class="form-control" value = "{{$managers->dni }}" id="dni" required>
                                     <div class="invalid-feedback">Camp necessari</div>
                                 </div>
                             </div>
@@ -79,7 +79,7 @@
                             <div class="row justify-content-center">
                                 <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
                                     <label for="data-naixement">Data naixement</label>
-                                    <input type="text" name = "birthdate" class="form-control" value = "{{$student->birthdate }}" id="birthdate" required>
+                                    <input type="text" name = "birthdate" class="form-control" value = "{{$managers->birthdate }}" id="birthdate" required>
                                     <div class="invalid-feedback">Camp necessari</div>
                                 </div>
                             </div>
@@ -89,7 +89,7 @@
                             <div class="row justify-content-center">
                                 <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
                                     <label for="email">Email</label>
-                                    <input type="text" name = "email" class="form-control" value = "{{$student->email }}" id="email" required>
+                                    <input type="text" name = "email" class="form-control" value = "{{$managers->email }}" id="email" required>
                                     <div class="invalid-feedback">Camp necessari</div>
                                 </div>
                             </div>
@@ -99,7 +99,7 @@
                             <div class="row justify-content-center">
                                 <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
                                     <label for="contrassenya">Contrassenya</label>
-                                    <input type="text" name = "password" class="form-control" value = "{{$student->password }}" id="password" required>
+                                    <input type="text" name = "password" class="form-control" value = "{{$managers->password }}" id="password" required>
                                     <div class="invalid-feedback">Camp necessari</div>
                                 </div>
                             </div>
@@ -111,7 +111,7 @@
                                     <label for="contrassenya">Estat</label>
                                     <select class="form-control" name = "status" id="status">
                                         {{-- Mostrar l'estat actual de l'alumne --}}
-                                        @if($student->status == "active")
+                                        @if($managers->status == "active")
                                             <option selected value="active">Actiu</option>
                                             <option value="inactive">Innactiu</option>
                                         @else
