@@ -14,6 +14,7 @@
         <td>Cognom</td>
         <td>Email</td>
         <td>DNI</td>
+        <td>Ciutat</td>
         <td colspan="2">Accions</td>
     </tr>
 </thead>
@@ -31,25 +32,24 @@
 
 
 <tbody>
-    @foreach($projects as $project)
+    @foreach($employees as $employee)
     <tr>
         <td>{{ ++$i }}</td>
 
-        {{--<td>{{$project->id_project}}</td>--}}
-        <td>{{$project->name}}</td>
-        <td>{{$project->created_at}}</td>
-        <td>{{$project->ending_date}}</td>
-        <td>{{$project->budget}}</td>
-        <td>{{$project->professional_family}}</td>
-        <td>{{$project->status}}</td>
+        <td>{{$employee->firstname}}</td>
+                <td>{{$employee->lastname}}</td>
+                <td>{{$employee->name}}</td>
+                <td>{{$employee->email}}</td>
+                <td>{{$employee->dni}}</td>
+                <td>{{$city::agafarNom($employee->id_city)}}
         <td>
-            <a href="{{ route('projects.edit', [$project->id_project]) }}"><img src={{ asset('img/edit.svg') }} width="20" height="20" class="mr-2"></a>
-            <a href="{{ route('projects.destroy', [$project->id_project]) }}"><img src={{ asset('img/delete.svg') }} width="20" height="20"></a>
+            <a href="{{ route('employees.edit', [$employee->id_employee]) }}"><img src={{ asset('img/edit.svg') }} width="20" height="20" class="mr-2"></a>
+            <a href="{{ route('employees.destroy', [$employee->id_employee]) }}"><img src={{ asset('img/delete.svg') }} width="20" height="20"></a>
         </td>
 
-        {{-- <td><a href="{{ route('projects.edit', $project->id)}}" class="btn btn-primary">Editar</a></td> --}}
+        {{-- <td><a href="{{ route('employees.edit', $project->id)}}" class="btn btn-primary">Editar</a></td> --}}
         {{-- <td>
-            <form action="{{ route('projects.destroy', $project->id)}}" method="post">
+            <form action="{{ route('employees.destroy', $project->id)}}" method="post">
                 @csrf
                 @method('DELETE')
                 <button class="btn btn-danger" type="submit">Esborrar</button>

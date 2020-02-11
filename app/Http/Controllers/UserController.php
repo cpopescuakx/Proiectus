@@ -438,7 +438,7 @@ class UserController extends Controller
         //
         $employees = DB::table('users')->where('id_role', 4)->get();
 
-        return view ('employees.index', compact('employees'));
+        return view ('employees.indexActive', compact('employees'));
     }
 
     /** CREAR EMPLEAT
