@@ -94,6 +94,15 @@ Route::get('Professors/{id}', 'UserController@destroyProfessor')
 
 
 //GRUP1
+
+/* Home */
+Route::resource('home', 'HomeController');
+
+
+
+
+
+
 /* Tickets */
 Route::get('/ticket', 'TicketController@index')->name('ticket.index');
 Route::get('/ticket/create', 'TicketController@create')->name('ticket.create');
@@ -146,4 +155,3 @@ Route::get('/Employees/{id}/edit', 'UserController@edit')->name('employee.edit')
 Route::get('/Employees/{id}/delete', 'UserController@destroy')->name('employee.destroy');
 Route::post('/Employees/store', 'UserController@store')->name('employee.store');
 Route::post('/Employees/{id}/update', 'UserController@update')->name('employee.update');
-
