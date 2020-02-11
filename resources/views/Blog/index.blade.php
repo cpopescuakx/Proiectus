@@ -2,12 +2,13 @@
 @section('content')
 <br><br>
         <div class="container mb-5">
-            <h2>{{$blog->title}}</h2>
-            <br>
+          <a href="{{action('BlogController@edit', [$blog->id_projecte])}}" ><i style="font-size: 1rem" class="material-icons">edit</i></a>
+          <h2 class = "float-left">{{$blog->title}}</h2>
+            <br><br>
             <form method="post" action="{{$id_project}}/post/store" id="postCreationForm">
             {{csrf_field()}}
                 <div class="form-group">
-                    <h4><label cfor="exampleFormControlInput1">Crea un post!</label></h4>
+                    <h4><label class ="float-left" cfor="exampleFormControlInput1">Crea un post!</label></h4>
                     <div class="form-group">
                         <input name="title" type="text" class="form-control" placeholder="Titol del post" required>
                     </div>
@@ -56,7 +57,7 @@
                         </a>
                         <div class="">
                             <p class="card-text">{!!$post->content!!}</p>
-                            
+
                         </div>
                     </div>
                     <div class="card-footer text-muted">
