@@ -17,6 +17,7 @@ class CreateCompanyUsersTable extends Migration
             $table->integer('id_company_user')->autoIncrement();
             $table->integer('id_company');
             $table->integer('id_user');
+            $table->timestamps();
 
         });
     }

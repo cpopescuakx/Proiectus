@@ -16,8 +16,8 @@ class CreateDmFoldersTable extends Migration
         Schema::create('dm_folders', function (Blueprint $table) {
             $table->integer('id_folder')->autoIncrement();
             $table->string('folder_name', 50);
-            $table->datetime('creation_date')->useCurrent();
             $table->integer('id_document_manager');
+            $table->timestamps();
         });
     }
 

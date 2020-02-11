@@ -19,7 +19,7 @@ class CreateMessagesTable extends Migration
             $table->integer('id_chat');
             $table->integer('id_user');
             $table->longText('content');
-            $table->datetime('datetime')->useCurrent();
+            $table->timestamps();
         });
     }
 
