@@ -2,7 +2,7 @@
 
 @section('content')
     <div class=" formulari ">
-        <form class="was-validated" action="{{route('companies.storeCompanies')}}" method="POST">
+        <form class="was-validated" action="{{route('companies.store')}}" method="POST">
             @csrf
             <div class="row justify-content-center">
                 <div class="col-11 col-sm-11 col-md-10 col-lg-10 col-xl-10">

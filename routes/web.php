@@ -98,12 +98,12 @@ Route::post('/ticket/update', 'TicketController@update')->name('ticket.update');
 /* Companies */
 Route::resource('companies', 'CompanyController');
 Route::get('companies', 'CompanyController@showCompany')->name('companies');
-Route::get('/companies', 'CompanyController@indexCompany')->name('companies.indexCompany');
-Route::get('/companies/create', 'CompanyController@createCompany')->name('companies.createCompany');
-Route::get('/companies/{id}/edit', 'CompanyController@editCompany')->name('companies.editCompany');
-Route::get('/companies/{id}/delete', 'CompanyController@destroyCompany')->name('companies.destroyCompany');
-Route::post('/companies/create', 'CompanyController@storeCompany')->name('companies.storeCompany');
-Route::post('/companies/{id}/update', 'CompanyController@updateCompany')->name('companies.updateCompany');
+Route::get('/companies', 'CompanyController@indexCompany')->name('companies.index');
+Route::get('/companies/create', 'CompanyController@createCompany')->name('companies.create');
+Route::get('/companies/{id}/edit', 'CompanyController@editCompany')->name('companies.edit');
+Route::get('/companies/{id}/delete', 'CompanyController@destroyCompany')->name('companies.destroy');
+Route::post('/companies/create', 'CompanyController@storeCompany')->name('companies.store');
+Route::post('/companies/{id}/update', 'CompanyController@updateCompany')->name('companies.update');
 
 /* Users */
 Route::get('/gestor', 'UserController@index')->name('user.index');

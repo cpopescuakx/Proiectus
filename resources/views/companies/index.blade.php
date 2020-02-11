@@ -1,7 +1,7 @@
 @extends('layouts.default')
 
 @section('content')
-  <a href="{{ route('companies.createCompanies') }}" class="btn btn-success mb-2">AFEGEIX EMPRESA</a>
+  <a href="{{ route('companies.create') }}" class="btn btn-success mb-2">AFEGEIX EMPRESA</a>
   <br>
    <div class="row">
         <div class="col-12">
