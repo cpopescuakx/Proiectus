@@ -77,6 +77,14 @@ Route::get('Professors/create', function () {
 Route::post('Professors/create/success', 'UserController@storeProfessor')
 ->name('professors.store');
 
+Route::get('Professors/{id}/edit', 'UserController@editProfessor')
+->name('professors.edit');
+
+Route::post('Professors/{id}/edit/success', 'UserController@updateProfessor')
+->name('professors.update');
+
+Route::get('Professors/{id}', 'UserController@destroyProfessor')
+->name('professors.destroy');
 
 
 
@@ -107,12 +115,13 @@ Route::post('/companies/create', 'CompanyController@storeCompany')->name('compan
 Route::post('/companies/{id}/update', 'CompanyController@updateCompany')->name('companies.update');
 
 /* Users */
-Route::get('/gestor', 'UserController@index')->name('user.index');
-Route::get('/gestor/create', 'UserController@create')->name('user.create');
-Route::get('/gestor/{id}/edit', 'UserController@edit')->name('user.edit');
-Route::get('/gestor/{id}/delete', 'UserController@destroy')->name('user.destroy');
-Route::post('/gestor/create', 'UserController@store')->name('user.store');
-Route::post('/gestor/{id}/update', 'UserController@update')->name('user.update');
+
+Route::get('managers', 'UserController@indexManager')->name('managers.index');
+Route::get('managers/create', 'UserController@createManager')->name('managers.create');
+Route::get('managers/{id}/edit', 'UserController@editManager')->name('managers.edit');
+Route::get('managers/{id}/delete', 'UserController@destroyManager')->name('managers.destroy');
+Route::post('managers/create', 'UserController@storeManager')->name('managers.store');
+Route::post('managers/{id}/update', 'UserController@updateManager')->name('managers.update');
 
 /* School */
 Route::get('/school', 'SchoolController@index')->name('school.index');

@@ -26,10 +26,101 @@ class UserController extends Controller
      *  @param void
      *  @return void
      * */
+    public function indexManager(){
+        $managers = DB::table('users')->where('id_role', 5)->get();
+        return view ('managers.index', compact('managers'));
+    }
+
+    public function createManager(){
+        $cities = DB::table('cities')->distinct()->select("name")->get();
+        return view('managers.create',compact('cities'));
+    }
+
+    public function storeManager(Request $request){
+      
+        $manager = new User;
+
+        // Assignació de valors a les propietats
+        $manager -> firstname = $request->input('firstname');
+        $manager -> lastname = $request->input('lastname');
+        $manager -> name = $request->input('name');
+        $manager -> dni = $request->input('dni');
+        $manager -> email = $request->input('email');
+        $manager -> birthdate = $request->input('birthdate');
+        $manager -> password = $request->input('password');
+        $nom = $request->input('city');
+        $manager -> id_city = CityController::agafarID($nom);
+        $manager -> profile_pic = "Res";
+        $manager -> bio = "Res";
+        $manager -> id_role = 5;
+        $manager -> status = "active";
+
+        // Guardar alumne a la BBDD
+        $manager -> save();
+
+        // Tornar a la llista d'alumnes
+
+        $managers = DB::table('users')->where('id_role', 5)->get();
+
+        return redirect()->route('managers.index',compact('managers'))
+        ->with('i', (request()->input('page', 1) -1));
+    }
+
+    public function editManager($id){
+        $manager = User::find($id);
+        $cities = DB::table('cities')->distinct()->select("name")->get();
+        $nomCiutat = CityController::agafarNom($student->id_city);
+
+        return view('students.edit', compact('student', 'cities', 'nomCiutat'));
+    }
+
+    public function updateManager (Request $request) {
+
+        $id = $request->route('id'); // Agafar l'ID de la URL
+
+        // Cercar l'alumne amb la mateixa ID de la BBDD
+        $manager = User::find($id);
+
+        // Assignar els valors del formulari
+        $manager -> firstname = $request->input('firstname');
+        $manager -> lastname = $request->input('lastname');
+        $manager -> name = $request->input('name');
+        $manager -> dni = $request->input('dni');
+        $manager -> email = $request->input('email');
+        $manager -> birthdate = $request->input('birthdate');
+        $manager -> password = $request->input('password');
+        $nom = $request->input('city');
+        $manager -> id_city = CityController::agafarID($nom);
+        $manager -> profile_pic = "Res";
+        $manager -> bio = "Res";
+        $manager -> id_role = 3;
+        $manager -> status = $request->input('status');
+
+        // Guardar l'alumne a la BBDD amb les noves dades
+        $manager -> save();
+
+        // Tornar a la llista d'alumnes
+
+        $managers = DB::table('users')->where('id_role', 5)->get();
+
+        return redirect()->route('managers.index',compact('managers'))
+        ->with('i', (request()->input('page', 1) -1));
+
+    }
+
+    public function destroyManager ($id) {
+        $manager = User::find($id);
+        $manager -> status = 'inactive';
+        $manager -> save();
+
+        $manager = DB::table('users')->where('id_role', 5)->get();
+
+        return redirect()->route('managers.index',compact('managers'))
+        ->with('i', (request()->input('page', 1) -1));
+    }
 
     public function indexStudent()
     {
-        //
         $students = DB::table('users')->where('id_role', 3)->get();
 
         return view ('students.index', compact('students'));
@@ -42,7 +133,8 @@ class UserController extends Controller
      *
      *  @param void
      *  @return \Illuminate\Http\Response
-     */
+     **/
+
     public function createStudent()
     {
         $cities = DB::table('cities')->distinct()->select("name")->get();
@@ -214,6 +306,84 @@ class UserController extends Controller
         $professor -> save();
 
         // Tornar a la llista d'alumnes
+
+        $professors = DB::table('users')->where('id_role', 4)->get();
+
+        return redirect()->route('professors.index',compact('professors'))
+        ->with('i', (request()->input('page', 1) -1));
+    }
+
+    /** EDITAR Professor
+     *
+     *  Retorna el formulari de modificació d'profes. Passant l'profe a partir de l'ID.
+     *
+     *  @param int $id
+     *  @return void
+     */
+    public function editProfessor ($id) {
+        $professor = User::find($id);
+        $cities = DB::table('cities')->distinct()->select("name")->get();
+        $nomCiutat = CityController::agafarNom($professor->id_city);
+
+        return view('professors.edit', compact('professor', 'cities', 'nomCiutat'));
+    }
+
+    /** UPDATE Professor
+     *
+     *  Guarda les noves dades de l'profe a la base de dades. Llavors, redirecciona
+     *  al llistat d'profes.
+     *
+     *  @param Request $request
+     *  @return void
+     */
+
+    public function updateProfessor (Request $request) {
+
+        $id = $request->route('id'); // Agafar l'ID de la URL
+
+        // Cercar l'profe amb la mateixa ID de la BBDD
+        $professor = User::find($id);
+
+        // Assignar els valors del formulari
+        $professor -> firstname = $request->input('firstname');
+        $professor -> lastname = $request->input('lastname');
+        $professor -> name = $request->input('name');
+        $professor -> dni = $request->input('dni');
+        $professor -> email = $request->input('email');
+        $professor -> birthdate = $request->input('birthdate');
+        $professor -> password = $request->input('password');
+        $nom = $request->input('city');
+        $professor -> id_city = CityController::agafarID($nom);
+        $professor -> profile_pic = "Res";
+        $professor -> bio = "Res";
+        $professor -> id_role = 3;
+        $professor -> status = $request->input('status');
+
+        // Guardar l'profe a la BBDD amb les noves dades
+        $professor -> save();
+
+        // Tornar a la llista d'profes
+
+        $professors = DB::table('users')->where('id_role', 4)->get();
+
+        return redirect()->route('professors.index',compact('professors'))
+        ->with('i', (request()->input('page', 1) -1));
+
+    }
+
+    /** DESTROY Professor
+     *
+     *  Busca l'profe amb l'ID passada com a paràmetre i passa el seu estat a inactive.
+     *  Redirecciona al llistat d'profes.
+     *
+     *  @param int $id
+     *  @return void
+     */
+
+    public function destroyProfessor ($id) {
+        $professor = User::find($id);
+        $professor -> status = 'inactive';
+        $professor -> save();
 
         $professors = DB::table('users')->where('id_role', 4)->get();
 
