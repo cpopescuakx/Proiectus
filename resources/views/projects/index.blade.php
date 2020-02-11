@@ -4,12 +4,11 @@
 <div class="col">
   <div class="row d-flex justify-content-end p-4">
     <a href="{{ route('projects.create') }}"><img src={{ asset('img/add.svg') }} width="45" height="45" ></a>
-  </div>  
+  </div>
 </div>
 <table class="table table-hover mr-5">
 <thead>
     <tr>
-        <td>ID</td>
         <td>Nom</td>
         <td>Data d'inici</td>
         <td>Data de finalització</td>
@@ -36,9 +35,7 @@
 <tbody>
     @foreach($projects as $project)
     <tr>
-        <td>{{ ++$i }}</td>
 
-        {{--<td>{{$project->id_project}}</td>--}}
         <td>{{$project->name}}</td>
         <td>{{$project->created_at}}</td>
         <td>{{$project->ending_date}}</td>
