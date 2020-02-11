@@ -16,13 +16,13 @@ class CreateProjectsTable extends Migration
         Schema::create('projects', function (Blueprint $table) {
             $table->integer('id_project')->autoIncrement();
             $table->string('name', 50);
-            $table->datetime('initial_date')->useCurrent();
-            $table->datetime('ending_date')->nullable();;
+            $table->datetime('ending_date');
             $table->integer('budget');
             $table->longText('description');
             $table->string('professional_family', 50);
             $table->enum('status', ['active', 'inactive'])->default('active');
             $table->timestamps();
+
 
 
 

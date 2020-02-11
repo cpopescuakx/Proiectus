@@ -17,6 +17,7 @@ class CreateDocumentManagersTable extends Migration
             $table->integer('id_manager')->autoIncrement();
             $table->integer('size');
             $table->integer('id_project');
+            $table->timestamps();
         });
     }
 

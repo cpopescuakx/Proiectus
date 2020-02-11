@@ -20,9 +20,10 @@ class CreateSchoolsTable extends Migration
             $table->string('address', 100)->nullable();
             $table->integer('id_city')->nullable();
             $table->integer('phone')->nullable();
-            $table->string('type', 100)->nullable();
+            $table->enum('type', ['Batxillerat', 'FP', 'Universitat']);
             $table->string('code', 50);
             $table->enum('status', ['active', 'inactive'])->default('active');
+            $table->timestamps();
 
 
         });

@@ -14,16 +14,16 @@ class CreateArticlesTable extends Migration
     public function up()
     {
         Schema::create('articles', function (Blueprint $table) {
-            
+
             $table->integer('id_article')->autoIncrement();
             $table->integer('id_project');
             $table->integer('version');
             $table->string('title', 50);
             $table->longText('content');
-            $table->datetime('creation_date')->useCurrent();
             $table->longText('reference');
             $table->integer('id_user');
             $table->enum('status', ['active', 'inactive'])->default('active');
+            $table->timestamps();
 
 
 
