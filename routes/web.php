@@ -70,9 +70,7 @@ Route::get('Students/{id}', 'UserController@destroyStudent')
 Route::get('Professors', 'UserController@indexProfessor')
 ->name('professors.index');
 
-Route::get('Professors/create', function () {
-    return view('professors.create');
-})->name('professors.create');
+Route::get('Professors/create', 'UserController@createProfessor')->name('professors.create');
 
 Route::post('Professors/create/success', 'UserController@storeProfessor')
 ->name('professors.store');
