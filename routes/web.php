@@ -87,6 +87,11 @@ Route::get('blog/{id_project}/post/{id_post}/edit', [
     'uses' => 'PostController@edit'
 ]);
 
+Route::get('blog/{id_project}/edit', 'BlogController@edit');
+Route::PATCH('blog/{id_project}/update', 'BlogController@update');
+
+
+
 
 /** Rutes per a l'apartat de la gestio dels articles de la wiki */
 
