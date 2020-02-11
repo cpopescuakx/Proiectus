@@ -1,4 +1,5 @@
 @extends('layouts.default')
+@inject('city', 'App\Http\Controllers\CityController') {{-- Importa el controlador de ciutat --}}
 
 @section('content')
 <div class="col">
@@ -12,6 +13,7 @@
         <td>ID</td>
         <td>Nom</td>
         <td>Cognom</td>
+        <td>Num d'usuari</td>
         <td>Email</td>
         <td>DNI</td>
         <td>Ciutat</td>
@@ -34,7 +36,7 @@
 <tbody>
     @foreach($employees as $employee)
     <tr>
-        <td>{{$employee->id_user}}</td>
+        <td>{{$employee->id}}</td>
         <td>{{$employee->firstname}}</td>
         <td>{{$employee->lastname}}</td>
         <td>{{$employee->name}}</td>
@@ -42,13 +44,13 @@
         <td>{{$employee->dni}}</td>
         <td>{{$city::agafarNom($employee->id_city)}}
         <td>
-            <a href="{{ route('employees.edit', [$employee->id_employee]) }}"><img src={{ asset('img/edit.svg') }} width="20" height="20" class="mr-2"></a>
-            <a href="{{ route('employees.destroy', [$employee->id_employee]) }}"><img src={{ asset('img/delete.svg') }} width="20" height="20"></a>
+            <a href="{{ route('employee.edit', [$employee->id]) }}"><img src={{ asset('img/edit.svg') }} width="20" height="20" class="mr-2"></a>
+            <a href="{{ route('employee.destroy', [$employee->id]) }}"><img src={{ asset('img/delete.svg') }} width="20" height="20"></a>
         </td>
 
-        {{-- <td><a href="{{ route('employees.edit', $project->id)}}" class="btn btn-primary">Editar</a></td> --}}
+        {{-- <td><a href="{{ route('employee.edit', $project->id)}}" class="btn btn-primary">Editar</a></td> --}}
         {{-- <td>
-            <form action="{{ route('employees.destroy', $project->id)}}" method="post">
+            <form action="{{ route('employee.destroy', $project->id)}}" method="post">
                 @csrf
                 @method('DELETE')
                 <button class="btn btn-danger" type="submit">Esborrar</button>

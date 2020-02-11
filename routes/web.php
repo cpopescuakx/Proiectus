@@ -103,17 +103,16 @@ Route::post('/ticket/create', 'TicketController@store')->name('ticket.store');
 Route::post('/ticket/update', 'TicketController@update')->name('ticket.update');
 
 /* Companies */
-Route::resource('companies', 'CompanyController');
-Route::get('companies', 'CompanyController@showCompany')->name('companies');
-Route::get('/companies', 'CompanyController@indexCompany')->name('companies.index');
+//Route::resource('companies', 'CompanyController');
+Route::get('companies', 'CompanyController@indexCompany')->name('companies');
+//Route::get('/companies', 'CompanyController@indexCompany')->name('companies.index');
 Route::get('/companies/create', 'CompanyController@createCompany')->name('companies.create');
-Route::get('/companies/{id}/edit', 'CompanyController@editCompany2')->name('companies.edit');
+Route::get('/companies/{id}/edit', 'CompanyController@editCompany')->name('companies.edit');;
 Route::delete('/companies/{id}/delete', 'CompanyController@destroyCompany')->name('companies.destroy');
 Route::post('/companies/create', 'CompanyController@storeCompany')->name('companies.store');
 Route::post('/companies/{id}/update', 'CompanyController@updateCompany')->name('companies.update');
 
 /* Users */
-
 Route::get('managers', 'UserController@indexManager')->name('managers.index');
 Route::get('managers/create', 'UserController@createManager')->name('managers.create');
 Route::get('managers/{id}/edit', 'UserController@editManager')->name('managers.edit');
@@ -121,13 +120,13 @@ Route::get('managers/{id}/delete', 'UserController@destroyManager')->name('manag
 Route::post('managers/create', 'UserController@storeManager')->name('managers.store');
 Route::post('managers/{id}/update', 'UserController@updateManager')->name('managers.update');
 
-/* School */
-Route::get('/school', 'SchoolController@index')->name('schools.index');
-Route::get('/school/create', 'SchoolController@create')->name('schools.create');
-Route::get('/school/{id}/edit', 'SchoolController@edit')->name('schools.edit');
-Route::delete('/school/{id}/delete', 'SchoolController@destroy')->name('schools.destroy');
-Route::post('/school/create', 'SchoolController@store')->name('schools.store');
-Route::post('/school/{id}/update', 'SchoolController@update')->name('schools.update');
+/* Schools */
+Route::get('/schools', 'SchoolController@indexSchool')->name('schools.index');
+Route::get('/schools/create', 'SchoolController@createSchool')->name('schools.create');
+Route::get('/schools/{id}/edit', 'SchoolController@editSchool')->name('schools.edit');
+Route::delete('/schools/{id}/delete', 'SchoolController@destroySchool')->name('schools.destroy');
+Route::post('/schools/create', 'SchoolController@storeSchool')->name('schools.store');
+Route::post('/schools/{id}/update', 'SchoolController@updateSchool')->name('schools.update');
 
 
 //GRUP3
@@ -140,18 +139,11 @@ Route::post('Proposals/{id}/edit/success', 'ProposalController@updateProposal')-
 Route::get('Proposals/{id}', 'ProposalController@destroyProposal')->name('proposal.destroy');
 
 /* Empleats */
-Route::get('/Employees/Active', 'UserController@indexEmployee')->name('employees.indexActive');
-Route::get('/Employees/Inactive', 'UserController@indexEmployee')->name('employees.indexActive');
-Route::get('/Employees/create', 'UserController@create')->name('employee.create');
+Route::get('/Employees/Active', 'UserController@indexEmployee')->name('employee.indexActive');
+Route::get('/Employees/Inactive', 'UserController@indexEmployee')->name('employee.indexActive');
+Route::get('/Employees/create', 'UserController@createEmployee')->name('employee.create');
 Route::get('/Employees/{id}/edit', 'UserController@edit')->name('employee.edit');
 Route::get('/Employees/{id}/delete', 'UserController@destroy')->name('employee.destroy');
 Route::post('/Employees/store', 'UserController@store')->name('employee.store');
 Route::post('/Employees/{id}/update', 'UserController@update')->name('employee.update');
 
-/* Escoles */
-Route::get('/school', 'SchoolController@index')->name('schools.index');
-Route::get('/school/create', 'SchoolController@create')->name('schools.create');
-Route::get('/school/{id}/edit', 'SchoolController@edit')->name('schools.edit');
-Route::delete('/school/{id}/delete', 'SchoolController@destroy')->name('schools.destroy');
-Route::post('/school/create', 'SchoolController@store')->name('schools.store');
-Route::post('/school/{id}/update', 'SchoolController@update')->name('schools.update');
