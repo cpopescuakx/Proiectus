@@ -76,6 +76,14 @@ Route::get('Professors/create', function () {
 Route::post('Professors/create/success', 'UserController@storeProfessor')
 ->name('professors.store');
 
+Route::get('Professors/{id}/edit', 'UserController@editProfessor')
+->name('professors.edit');
+
+Route::post('Professors/{id}/edit/success', 'UserController@updateProfessor')
+->name('professors.update');
+
+Route::get('Professors/{id}', 'UserController@destroyProfessor')
+->name('professors.destroy');
 
 
 

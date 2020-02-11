@@ -221,6 +221,84 @@ class UserController extends Controller
         ->with('i', (request()->input('page', 1) -1));
     }
 
+    /** EDITAR Professor
+     *
+     *  Retorna el formulari de modificació d'profes. Passant l'profe a partir de l'ID.
+     *
+     *  @param int $id
+     *  @return void
+     */
+    public function editProfessor ($id) {
+        $professor = User::find($id);
+        $cities = DB::table('cities')->distinct()->select("name")->get();
+        $nomCiutat = CityController::agafarNom($professor->id_city);
+
+        return view('professors.edit', compact('professor', 'cities', 'nomCiutat'));
+    }
+
+    /** UPDATE Professor
+     *
+     *  Guarda les noves dades de l'profe a la base de dades. Llavors, redirecciona
+     *  al llistat d'profes.
+     *
+     *  @param Request $request
+     *  @return void
+     */
+
+    public function updateProfessor (Request $request) {
+
+        $id = $request->route('id'); // Agafar l'ID de la URL
+
+        // Cercar l'profe amb la mateixa ID de la BBDD
+        $professor = User::find($id);
+
+        // Assignar els valors del formulari
+        $professor -> firstname = $request->input('firstname');
+        $professor -> lastname = $request->input('lastname');
+        $professor -> name = $request->input('name');
+        $professor -> dni = $request->input('dni');
+        $professor -> email = $request->input('email');
+        $professor -> birthdate = $request->input('birthdate');
+        $professor -> password = $request->input('password');
+        $nom = $request->input('city');
+        $professor -> id_city = CityController::agafarID($nom);
+        $professor -> profile_pic = "Res";
+        $professor -> bio = "Res";
+        $professor -> id_role = 3;
+        $professor -> status = $request->input('status');
+
+        // Guardar l'profe a la BBDD amb les noves dades
+        $professor -> save();
+
+        // Tornar a la llista d'profes
+
+        $professors = DB::table('users')->where('id_role', 4)->get();
+
+        return redirect()->route('professors.index',compact('professors'))
+        ->with('i', (request()->input('page', 1) -1));
+
+    }
+
+    /** DESTROY Professor
+     *
+     *  Busca l'profe amb l'ID passada com a paràmetre i passa el seu estat a inactive.
+     *  Redirecciona al llistat d'profes.
+     *
+     *  @param int $id
+     *  @return void
+     */
+
+    public function destroyProfessor ($id) {
+        $professor = User::find($id);
+        $professor -> status = 'inactive';
+        $professor -> save();
+
+        $professors = DB::table('users')->where('id_role', 4)->get();
+
+        return redirect()->route('professors.index',compact('professors'))
+        ->with('i', (request()->input('page', 1) -1));
+    }
+
     /** LLISTAR EMPLEATS
      *
      *  Extreu els empleats que tenen ID de rol 4 (Empleat), després retorna la vista per a llistar-los.
