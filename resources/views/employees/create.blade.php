@@ -2,8 +2,8 @@
 
 @section('content');
 <body>
-      {{-- <h1>Crear un empleat</h1>
-
+    <h1>Crear un empleat</h1>
+        
   <form action='{{ route('employee.storeEmployees') }}' method='POST'> 
     
       @csrf
@@ -29,7 +29,7 @@
           <input name='crear' value='Crear' type='submit'/>
       </form> --}}
 
-    <div class="content formulari closed">
+    <div class="formulari">
 
       <form action='{{ route('projects.store') }}' method='POST' class="was-validated" >
         @csrf
