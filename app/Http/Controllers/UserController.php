@@ -480,7 +480,7 @@ class UserController extends Controller
 
     /** DONAR D'ALTA TOT TIPUS D'USUARIS
      *
-     *  Extreu els empleats que tenen ID de rol 4 (Empleat) els quals tinguin com a estat (inactive), després retorna la vista per a llistar-los.
+     *  Indiquem la id de l'usuari el qual volem donar d'alta i redireccionem a la vista anterior. 
      *
      *  @param $id Conté la ID de l'usuari
      *  @return \Illuminate\Http\Response
@@ -491,30 +491,7 @@ class UserController extends Controller
         $user = User::find($id);
         $user->status = 'active';
         $user->save();
-
-        switch($user->id_role){
-            //
-            case 1:
-            return redirect()->back();
-            break;
-            //Empleat
-            case 2:
-            //return route('employees.indexActive');
-            return redirect()->back();
-            break;
-            //Alumne
-            case 3:
-            return redirect()->back();
-            break;
-            //Professor
-            case 4:
-            return redirect()->back();
-            break;
-            //Gestor
-            case 5:
-            return redirect()->back();
-            break;
-        }        
+        return redirect()->back();      
     }
 
 
