@@ -2,6 +2,8 @@
 @section('content')
 <br><br>
         <div class="container mb-5">
+            <h2>{{$blog->title}}</h2>
+            <br>
             <form method="post" action="{{$id_project}}/post/store" id="postCreationForm">
             {{csrf_field()}}
                 <div class="form-group">
