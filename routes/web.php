@@ -122,14 +122,6 @@ Route::post('/school/create', 'SchoolController@store')->name('school.store');
 Route::post('/school/{id}/update', 'SchoolController@update')->name('school.update');
 
 
-
-
-
-
-
-
-
-
 //GRUP3
 /* Propostes */
 Route::get('Proposal','ProposalController@indexProposal')-> name('proposal.index');
@@ -146,6 +138,8 @@ Route::get('/employee/{id}/edit', 'EmployeeController@edit')->name('employee.edi
 Route::get('/employee/{id}/delete', 'EmployeeController@destroy')->name('employee.destroy');
 Route::post('/employee/create', 'EmployeeController@store')->name('employee.store');
 Route::post('/employee/{id}/update', 'EmployeeController@update')->name('employee.update');
+
+/* Escoles */
 Route::get('/school', 'SchoolController@index')->name('schools.index');
 Route::get('/school/create', 'SchoolController@create')->name('schools.create');
 Route::get('/school/{id}/edit', 'SchoolController@edit')->name('schools.edit');
