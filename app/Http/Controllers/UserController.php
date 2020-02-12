@@ -496,7 +496,7 @@ class UserController extends Controller
 
     /** EDITAR Empleat
      *
-     *  Retorna el formulari de modificació d'empleats. Passant l'profe a partir de l'ID.
+     *  Retorna el formulari de modificació d'empleats. Passant l'empleat a partir de l'ID.
      *
      *  @param int $id
      *  @return void
