@@ -87,6 +87,9 @@ class ProposalController extends Controller
     {
         //
     }
+    public function editProposal($id){
+      
+    }
 
     /**
      * Update the specified resource in storage.
