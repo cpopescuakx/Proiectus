@@ -157,7 +157,7 @@ class UserController extends Controller
 
     public function indexStudent()
     {
-        $students = DB::table('users')->where('id_role', 3)->get();
+        $students = User::where('id_role', 3)->get();
 
         return view ('students.index', compact('students'));
     }
@@ -173,7 +173,7 @@ class UserController extends Controller
 
     public function createStudent()
     {
-        $cities = DB::table('cities')->distinct()->select("name")->get();
+        $cities = City::distinct()->select("name")->get();
         return view('students.create',compact('cities'));
     }
 
@@ -210,10 +210,9 @@ class UserController extends Controller
 
         // Tornar a la llista d'alumnes
 
-        $students = DB::table('users')->where('id_role', 3)->get();
+        $students = User::where('id_role', 3)->get();
 
-        return redirect()->route('students.index',compact('students'))
-        ->with('i', (request()->input('page', 1) -1));
+        return redirect()->route('students.index',compact('students'));
     }
 
 
@@ -226,7 +225,7 @@ class UserController extends Controller
      */
     public function editStudent ($id) {
         $student = User::find($id);
-        $cities = DB::table('cities')->distinct()->select("name")->get();
+        $cities = City::distinct()->select("name")->get();
         $nomCiutat = CityController::agafarNom($student->id_city);
 
         return view('students.edit', compact('student', 'cities', 'nomCiutat'));
@@ -268,10 +267,9 @@ class UserController extends Controller
 
         // Tornar a la llista d'alumnes
 
-        $students = DB::table('users')->where('id_role', 3)->get();
+        $students = User::where('id_role', 3)->get();
 
-        return redirect()->route('students.index',compact('students'))
-        ->with('i', (request()->input('page', 1) -1));
+        return redirect()->route('students.index',compact('students'));
 
     }
 
@@ -289,10 +287,9 @@ class UserController extends Controller
         $student -> status = 'inactive';
         $student -> save();
 
-        $students = DB::table('users')->where('id_role', 3)->get();
+        $students = User::where('id_role', 3)->get();
 
-        return redirect()->route('students.index',compact('students'))
-        ->with('i', (request()->input('page', 1) -1));
+        return redirect()->route('students.index',compact('students'));
     }
 
         /** Extreu els usuaris que tenen ID de rol 3 (Alumne), després retorna la vista per a llistar-los. */
@@ -443,9 +440,9 @@ class UserController extends Controller
         $employees = User::where([['id_role',2],['status','active'],])->get();
 
         return view ('employees.indexActive', compact('employees'));
-            
+
     }
-    
+
     /** LLISTAR EMPLEATS INACTIUS
      *
      *  Extreu els empleats que tenen ID de rol 4 (Empleat) els quals tinguin com a estat (inactive), després retorna la vista per a llistar-los.
@@ -460,7 +457,7 @@ class UserController extends Controller
         $employees = User::where([['id_role',2],['status','inactive'],])->get();
 
         return view ('employees.indexInactive', compact('employees'));
-            
+
     }
 
     /** CREAR EMPLEAT
@@ -480,18 +477,18 @@ class UserController extends Controller
 
     /** DONAR D'ALTA TOT TIPUS D'USUARIS
      *
-     *  Indiquem la id de l'usuari el qual volem donar d'alta i redireccionem a la vista anterior. 
+     *  Indiquem la id de l'usuari el qual volem donar d'alta i redireccionem a la vista anterior.
      *
      *  @param $id Conté la ID de l'usuari
      *  @return \Illuminate\Http\Response
      * */
 
     public function activeUser($id)
-    {             
+    {
         $user = User::find($id);
         $user->status = 'active';
         $user->save();
-        return redirect()->back();    
+        return redirect()->back();
     }
 
     /** EDITAR Empleat
@@ -547,7 +544,7 @@ class UserController extends Controller
 
         // Retornem la vista on mostrarem els empleats i ell llistat d'aquests
         return redirect()->route('employee.indexActive',compact('employees'));
-    
+
     }
 
     /**
