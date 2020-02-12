@@ -546,8 +546,7 @@ class UserController extends Controller
         $employees = DB::table('users')->where('id_role', 4)->get();
 
         // Retornem la vista on mostrarem els empleats i ell llistat d'aquests
-        return redirect()->route('employee.indexActive',compact('employees'))
-        ->with('i', (request()->input('page', 1) -1));
+        return redirect()->route('employee.indexActive',compact('employees'));
     
     }
 
