@@ -125,6 +125,12 @@ class TicketController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Ticket::destroy($id);
+
+        $tickets = Ticket::all();
+        $users['users'] = User::all();
+        return view('tickets.index', compact('tickets'), $users)
+            ->with('i', (request()->input('page', 1) -1));
+        
     }
 }

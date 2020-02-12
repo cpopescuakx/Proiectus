@@ -98,7 +98,7 @@ Route::get('Professors/{id}', 'UserController@destroyProfessor')
 Route::get('/ticket', 'TicketController@index')->name('tickets.index');
 Route::get('/ticket/create', 'TicketController@create')->name('tickets.create');
 Route::get('/ticket/{id}/edit', 'TicketController@edit')->name('tickets.edit');
-Route::get('/ticket/{id}/delete', 'TickerController@destroy')->name('tickets.destroy');
+Route::get('/ticket/{id}/delete', 'TicketController@destroy')->name('tickets.destroy');
 Route::post('/ticket/create', 'TicketController@store')->name('tickets.store');
 Route::post('/ticket/{id}/update', 'TicketController@update')->name('tickets.update');
 
