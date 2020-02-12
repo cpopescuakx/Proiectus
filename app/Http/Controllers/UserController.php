@@ -28,9 +28,8 @@ class UserController extends Controller
      * */
     public function indexManager(){
         //Mostrem tots els usuaris amb id de rol 5 (gestors)
-        $managers['users'] = User::where('id_role', 5)->take(1000);
-        //dd($managers);
-        //$managers = Users::where('id_role', 5);
+        
+        $managers['users'] = User::all()->where('id_role', 5);
         return view('managers.index', $managers);
     }
 
@@ -45,14 +44,25 @@ class UserController extends Controller
 
     public function createManager(){
 
-        $cities = DB::table('cities')->distinct()->select("name")->get();
-        return view('managers.create',compact('cities'));
+        $cities['cities'] = City::all()->distinct()->select("name")->get();
+        return view('managers.create', $cities);
     }
 
     public function storeManager(Request $request){
 
-        $manager = new User;
-
+        $request->validate([
+            'firstname' => 'required',
+            'lastname' => 'required',
+            'name' => 'required',
+            'dni' => 'required',
+            'email' => 'required',
+            'birthdate' => 'required',
+            'password' => 'required',
+            'profile_pic' => 'Res',
+            'bio' => 'Res',
+            'id_role' => '5',
+            'status' => 'active',
+        ]);
         // Assignació de valors a les propietats
         $manager -> firstname = $request->input('firstname');
         $manager -> lastname = $request->input('lastname');
@@ -105,6 +115,20 @@ class UserController extends Controller
      */
     public function updateManager (Request $request) {
 
+        $request->validate([
+            'email' => 'required',
+            'name' => 'required',
+            'nif' => 'required',
+            'sector' => 'required',
+            'status' => 'required',
+        ]);
+
+
+         Company::findOrFail($id)->first()->fill($request->all())->save();
+         //Company::find($request->id)->update($request->all());
+         return redirect()->route('companies')
+                          ->with('Éxit','L empresa s ha modificat correctament!');
+        
         $id = $request->route('id'); // Agafem la ID de la URL
 
         // Busquem el gestor amb la mateixa ID
@@ -144,7 +168,14 @@ class UserController extends Controller
      *  @param int $id
      *  @return void
      */
+    
     public function destroyManager ($id) {
+        Company::where('id_company',$id)->delete();
+
+        return Redirect::to('companies')->with('Éxit','L empresa s ha eliminat correctament!');
+        
+        //
+
         $manager = User::find($id);
         $manager -> status = 'inactive';
         $manager -> save();
