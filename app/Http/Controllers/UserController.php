@@ -523,30 +523,27 @@ class UserController extends Controller
         $id = $request->route('id'); // Agafar l'ID de la URL
 
         // Cercar l'empleat amb la mateixa ID de la BBDD
-        $employee = User::find($id);
+        $employees = User::find($id);
 
         // Assignar els valors del formulari
-        $employee -> firstname = $request->input('firstname');
-        $employee -> lastname = $request->input('lastname');
-        $employee -> name = $request->input('name');
-        $employee -> dni = $request->input('dni');
-        $employee -> email = $request->input('email');
-        $employee -> birthdate = $request->input('birthdate');
-        $employee -> password = $request->input('password');
+        $employees -> firstname = $request->input('firstname');
+        $employees -> lastname = $request->input('lastname');
+        $employees -> name = $request->input('username');
+        $employees -> dni = $request->input('dni');
+        $employees -> email = $request->input('email');
+        $employees -> birthdate = $request->input('birthdate');
+        $employees -> password = $request->input('password');
         $nom = $request->input('city');
-        $employee -> id_city = CityController::agafarID($nom);
-        $employee -> profile_pic = "Res";
-        $employee -> bio = $request->input('bio');
-        $employee -> id_role = 2;
-        $employee -> status = $request->input('status');
+        $employees -> id_city = CityController::agafarID($nom);
+        $employees -> profile_pic = "Res";
+        $employees -> bio = $request->input('bio');
+        $employees -> id_role = 2;
 
         // Guardar l'profe a la BBDD amb les noves dades
-        $employee -> save();
-
-        // Tornar a la llista d'empleats
-
-        $employees = User::where(['id_role',2])->get();
-        return redirect()->back();    
+        $employees -> save();
+        
+        return view('employees.indexActive', compact('employees'));
+    
     }
 
     /**
