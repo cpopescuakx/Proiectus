@@ -494,7 +494,60 @@ class UserController extends Controller
         return redirect()->back();    
     }
 
+    /** EDITAR Empleat
+     *
+     *  Retorna el formulari de modificació d'empleats. Passant l'profe a partir de l'ID.
+     *
+     *  @param int $id
+     *  @return void
+     */
+    public function editEmployee ($id) {
+        $employee = User::find($id);
+        $cities = DB::table('cities')->distinct()->select("name")->get();
+        $nomCiutat = CityController::agafarNom($employee->id_city);
 
+        return view('employees.edit', compact('employee', 'cities', 'nomCiutat'));
+    }
+
+    /** UPDATE Empleat
+     *
+     *  Guarda les noves dades de l'empleat a la base de dades. Llavors, redirecciona
+     *  al llistat d'empleats.
+     *
+     *  @param Request $request
+     *  @return void
+     */
+
+    public function updateEmployee (Request $request) {
+
+        $id = $request->route('id'); // Agafar l'ID de la URL
+
+        // Cercar l'empleat amb la mateixa ID de la BBDD
+        $employee = User::find($id);
+
+        // Assignar els valors del formulari
+        $employee -> firstname = $request->input('firstname');
+        $employee -> lastname = $request->input('lastname');
+        $employee -> name = $request->input('name');
+        $employee -> dni = $request->input('dni');
+        $employee -> email = $request->input('email');
+        $employee -> birthdate = $request->input('birthdate');
+        $employee -> password = $request->input('password');
+        $nom = $request->input('city');
+        $employee -> id_city = CityController::agafarID($nom);
+        $employee -> profile_pic = "Res";
+        $employee -> bio = $request->input('bio');
+        $employee -> id_role = 2;
+        $employee -> status = $request->input('status');
+
+        // Guardar l'profe a la BBDD amb les noves dades
+        $employee -> save();
+
+        // Tornar a la llista d'empleats
+
+        $employees = User::where(['id_role',2])->get();
+        return redirect()->back();    
+    }
 
     /**
      * Store a newly created resource in storage.
