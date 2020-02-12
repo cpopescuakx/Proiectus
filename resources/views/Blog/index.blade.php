@@ -3,7 +3,7 @@
 <br><br>
 @if ($blog != null)
         <div class="container mb-5">
-          <a href="{{action('BlogController@edit', [$blog->id_projecte])}}" ><i style="font-size: 1rem" class="material-icons">edit</i></a>
+          <a href="{{$id_project}}/edit" ><i style="font-size: 1rem" class="material-icons">edit</i></a>
           <h2 class = "float-left">{{$blog->title}}</h2>
             <br><br>
             <form method="post" action="{{$id_project}}/post/store" id="postCreationForm">
@@ -53,7 +53,9 @@
         @foreach ($posts as $post)
                 <div class="card mb-3">
                     <div class="card-body">
-                        <a href="post/{{$post->id_post}}">
+                    <a class="float-right" href="/post/{{$post->id_post}}/edit" ><i style="font-size: 1rem" class="material-icons">edit</i></a>
+                        <a href="/post/{{$post->id_post}}">
+                        
                             <h5 class="card-title">{{$post->title}}</h5>
                         </a>
                         <div class="">
