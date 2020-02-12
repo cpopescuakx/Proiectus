@@ -15,7 +15,8 @@ class TicketController extends Controller
     public function index()
     {
         $tickets = Ticket::all();
-        return view('tickets.index', compact('tickets'))
+        $users['users'] = User::all();
+        return view('tickets.index', compact('tickets'), $users)
             ->with('i', (request()->input('page', 1) -1));
     }
 
@@ -80,8 +81,9 @@ class TicketController extends Controller
     {
         $where = array('id_ticket' => $id);
         $data['ticket'] = Ticket::where($where)->first();
+        $user['users'] = User::all();
 
-        return view('tickets.edit', $data);
+        return view('tickets.edit', $data, $user);
     }
 
     /**
@@ -93,7 +95,26 @@ class TicketController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // Cercar el projecte amb la mateixa ID de la BBDD
+        $ticket = Ticket::find($id);
+
+        // Assignar els valors del formulari
+        $ticket -> topic = $request->input('topic');
+        $ticket -> type = $request->input('type');
+        $ticket -> priority = $request->input('priority');
+        $ticket -> id_assigned_user = $request->input('assigned');
+        $ticket -> status = $request->input('status');
+        
+        //Id de l'usuari autor és 5
+        $ticket -> id_author = 5;
+        
+        // Guardar alumne a la BBDD
+        $ticket -> save();
+
+        // Redireccionar a la llista de tickets
+        $ticket = Ticket::all();
+        return redirect()->route('tickets.index',compact('tickets'))
+        ->with('i', (request()->input('page', 1) -1));
     }
 
     /**

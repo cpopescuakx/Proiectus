@@ -9,13 +9,13 @@
 <table class="table table-hover mr-5">
 <thead>
     <tr>
-        <td>ID</td>
-        <td>Tipus</td>
-        <td>Tema</td>
-        <td>Prioritat</td>
-        <td>Responsable</td>
-        <td>Estat</td>
-        <td colspan="2">Accions</td>
+        <th>ID</th>
+        <th>Tipus</th>
+        <th>Tema</th>
+        <th>Prioritat</th>
+        <th>Responsable</th>
+        <th>Estat</th>
+        <th colspan="2">Accions</th>
     </tr>
 </thead>
 
@@ -33,9 +33,17 @@
         {{--<td>{{$ticket->id_ticket}}</td>--}}
         <td>{{$ticket->type}}</td>
         <td>{{$ticket->topic}}</td>
-        <td>{{$ticket->priority}}</td>
-        <td>{{$ticket->id_assigned_user}}</td>
-        <td>{{$ticket->status}}</td>
+        <td>
+        <?php if($ticket->priority == "low"){echo "Baixa";} elseif($ticket->priority == "medium"){echo "Mitjana";} else {echo "Alta";}; ?>
+        </td>
+        <td>
+        @foreach($users as $user)
+        <?php if($ticket->id_assigned_user == $user->id){ echo "{$user->firstname} {$user->lastname}";} ?>
+        @endforeach
+        </td>
+        <td>
+        <?php if($ticket->status == "pending"){echo "Pendent";} elseif($ticket->status == "in progress"){echo "En procés";} else {echo "Resolt";}; ?>
+        </td>
         <td>
             <a href="{{ route('tickets.edit', [$ticket->id_ticket]) }}"><img src={{ asset('img/edit.svg') }} width="20" height="20" class="mr-2"></a>
             <a href="{{ route('tickets.destroy', [$ticket->id_ticket]) }}"><img src={{ asset('img/delete.svg') }} width="20" height="20"></a>
