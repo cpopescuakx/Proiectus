@@ -14,7 +14,7 @@ class ProposalController extends Controller
      */
     public function indexProposal()
     {
-      $proposals = Proposal::paginate(10);
+      $proposals = Proposal::all();
       return view('proposals.index', compact('proposals'))
           ->with('i', (request()->input('page', 1) -1));//
     }
