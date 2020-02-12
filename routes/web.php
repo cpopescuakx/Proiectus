@@ -95,12 +95,12 @@ Route::get('Professors/{id}', 'UserController@destroyProfessor')
 
 //GRUP1
 /* Tickets */
-Route::get('/ticket', 'TicketController@index')->name('ticket.index');
-Route::get('/ticket/create', 'TicketController@create')->name('ticket.create');
-Route::get('/ticket/{id}/edit', 'TicketController@edit')->name('ticket.edit');
-Route::get('/ticket/{id}/delete', 'TickerController@destroy')->name('ticket.destroy');
-Route::post('/ticket/create', 'TicketController@store')->name('ticket.store');
-Route::post('/ticket/update', 'TicketController@update')->name('ticket.update');
+Route::get('/ticket', 'TicketController@index')->name('tickets.index');
+Route::get('/ticket/create', 'TicketController@create')->name('tickets.create');
+Route::get('/ticket/{id}/edit', 'TicketController@edit')->name('tickets.edit');
+Route::get('/ticket/{id}/delete', 'TickerController@destroy')->name('tickets.destroy');
+Route::post('/ticket/create', 'TicketController@store')->name('tickets.store');
+Route::post('/ticket/update', 'TicketController@update')->name('tickets.update');
 
 /* Companies */
 //Route::resource('companies', 'CompanyController');
