@@ -1,4 +1,5 @@
 @extends('layouts.default')
+@inject('city', 'App\Http\Controllers\CityController') {{-- Importa el controlador de ciutat --}}
 
 @section('content')
 <div class="col">
@@ -12,6 +13,8 @@
         <td>Nom</td>
         <td>Cognom</td>
         <td>Usuari</td>
+        <td>DNI</td>
+        <td>Ciutat</td>
         <td>Email</td>
         <td>Estat</td>
         <td colspan="2">Accions</td>
@@ -30,16 +33,16 @@
         <td>{{$professor->firstname}}</td>
         <td>{{$professor->lastname}}</td>
         <td>{{$professor->name}}</td>
-        <td>{{$professor->email}}</td>
+        <td>{{$professor->email}}</td>                
+        <td>{{$professor->dni}}</td>
+        <td>{{$city::agafarNom($professor->id_city)}}</td>
         <td>{{$professor->status}}</td>
-        {{-- <td><a href="{{ route('professors.edit', $professor->id)}}" class="btn btn-primary">Editar</a></td> --}}
-        {{-- <td>
-            <form action="{{ route('professors.destroy', $professor->id)}}" method="post">
-                @csrf
-                @method('DELETE')
-                <button class="btn btn-danger" type="submit">Esborrar</button>
-            </form>
-        </td> --}}
+        <td>
+            <a href="{{ route('professors.edit', [$professor->id]) }}"><img src={{ asset('img/edit.svg') }} width="20" height="20" class="mr-2"></a>
+            @if($professor->status == "active")
+                <a href="{{ route('professors.destroy', [$professor->id]) }}"><img src={{ asset('img/delete.svg') }} width="20" height="20"></a>
+            @endif
+        </td>
     </tr>
     @endforeach
 </tbody>

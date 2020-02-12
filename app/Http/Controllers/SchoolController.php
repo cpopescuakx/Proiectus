@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\School;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class SchoolController extends Controller
 {
@@ -11,9 +13,10 @@ class SchoolController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function indexSchool()
     {
-        //
+        $data['schools'] = School::orderBy('id_school','desc')->paginate(10);
+        return view('schools.index', $data);
     }
 
     /**
@@ -21,9 +24,9 @@ class SchoolController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function createSchool()
     {
-        //
+        return view('schools.create');
     }
 
     /**
@@ -32,9 +35,18 @@ class SchoolController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function storeSchool(Request $request)
     {
-        //
+        $request->validate([
+            'email' => 'required',
+            'name' => 'required',
+            'code' => 'required',
+            'type' => 'required',
+        ]);
+
+        School::create($request->all());
+
+        return redirect()->route('schools.index')->with('Éxit','L institut s ha modificat correctament!');
     }
 
     /**
@@ -43,7 +55,7 @@ class SchoolController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function showSchool($id)
     {
         //
     }
@@ -54,9 +66,12 @@ class SchoolController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function editSchool($id)
     {
-        //
+        $where = array('id_school' => $id);
+        $data['school'] = School::where($where)->firstOrFail();
+
+        return view('schools.edit', $data);
     }
 
     /**
@@ -66,9 +81,17 @@ class SchoolController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function updateSchool(Request $request, $id)
     {
-        //
+        $request->validate([
+            'email' => 'required',
+            'name' => 'required',
+            'code' => 'required',
+            'type' => 'required',
+        ]);
+
+        School::find($request->id)->update($request->all());
+        return redirect()->route('schools.index')->with('Éxit','L institut s ha modificat correctament!');
     }
 
     /**
@@ -77,8 +100,9 @@ class SchoolController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroySchool($id)
     {
-        //
+        School::destroy($id);
+        return redirect()->route('schools.index')->with('Exit', 'L institut s ha borrat correctament!');
     }
 }
