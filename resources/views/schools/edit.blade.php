@@ -2,7 +2,7 @@
 
 @section('content')
 <div class=" formulari ">
-    <form class="was-validated" action="{{ route('schools.update', $school->id_school) }}" method="POST" name="update_product">
+    <form class="was-validated" action="{{ route('schools.update', [$school->id_school]) }}" method="POST" name="update_product">
         {{ csrf_field() }}
         @method('POST')
         <div class="row justify-content-center">

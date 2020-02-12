@@ -100,7 +100,7 @@ Route::get('/ticket/create', 'TicketController@create')->name('tickets.create');
 Route::get('/ticket/{id}/edit', 'TicketController@edit')->name('tickets.edit');
 Route::get('/ticket/{id}/delete', 'TickerController@destroy')->name('tickets.destroy');
 Route::post('/ticket/create', 'TicketController@store')->name('tickets.store');
-Route::post('/ticket/update', 'TicketController@update')->name('tickets.update');
+Route::post('/ticket/{id}/update', 'TicketController@update')->name('tickets.update');
 
 /* Companies */
 //Route::resource('companies', 'CompanyController');

@@ -2,33 +2,6 @@
 
 @section('content')
 <body>
-      {{-- <h1>Crear una nova proposta</h1>
-
-  <form action='{{ route('proposals.storeProposals') }}' method='POST'> 
-    
-      @csrf
-          <tr><td>Nom de la proposta:</td><br>
-            <td><input type="text" name="name"></td>
-          </tr>
-          <br>
-          <div class="row">
-              <div></div>
-          </div>
-          <tr><td>Pressupost:</td><br>
-            <td><input type="text" name="budget"></td>
-          </tr>
-          <br>
-          <tr><td>Descripció :</td><br>
-            <td><input type="text" name="desc"></td>
-          </tr>
-          <br>
-          <tr><td>Familia Professional:</td><br>
-            <td><input type="text" name="pro_family"></td>
-          </tr>
-          <br>
-          <input name='crear' value='Crear' type='submit'/>
-      </form> --}}
-
     <div class="content formulari closed">
 
       <form action='{{ route('proposals.store') }}' method='POST' class="was-validated" >
@@ -70,24 +43,13 @@
                       </div>
                       <!-- fin input básico -->
 
-                      <!-- Input básico -->
-                      <div class="form-group mt-4">
-                        <div class="row justify-content-center">
-                            <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
-                                <label for="exampleFormControlInput1">Data d'inici</label>
-                                <input type="date" class="form-control" id="exampleFormControlInput1" name="inici" required>
-
-                            </div>
-                        </div>
-                    </div>
-                    <!-- fin input básico -->
 
                     <!-- Input básico -->
                     <div class="form-group mt-4">
                       <div class="row justify-content-center">
                           <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
                               <label for="exampleFormControlInput1">Data de finalització</label>
-                              <input type="date" class="form-control" id="exampleFormControlInput1" name="fin" required>
+                              <input type="date" class="form-control" id="exampleFormControlInput1" name="limit_date" required>
 
                           </div>
                       </div>
@@ -106,23 +68,12 @@
                 </div>
                 <!-- fin input básico -->
 
-                <!-- Input básico -->
-                <div class="form-group mt-4">
-                  <div class="row justify-content-center">
-                      <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
-                          <label for="exampleFormControlInput1">Categoria</label>
-                          <input type="text" class="form-control" id="exampleFormControlInput1" name="category" required>
-                      </div>
-                  </div>
-                </div>
-              <!-- fin input básico -->
-
               <!-- Input básico -->
               <div class="form-group mt-4">
                 <div class="row justify-content-center">
                     <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
                         <label for="exampleFormControlInput1">Familia Professional</label>
-                        <input type="text" class="form-control" id="exampleFormControlInput1" name="family" required>
+                        <input type="text" class="form-control" id="exampleFormControlInput1" name="professional_family" required>
                     </div>
                 </div>
               </div>
