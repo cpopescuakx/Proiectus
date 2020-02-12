@@ -93,14 +93,15 @@ Route::get('blog/{id_project}/post/{id_post}/edit', [
 
 
 
-Route::get('wiki/{id_project}', [
-    'Middleware' => 'auth',
-    'uses' => 'ArticleController@index'
-]);
+Route::get('wiki/{id_project}', 'ArticleController@index');
+
+Route::get('wiki/{id_project}/article/create', 'ArticleController@create');
 
 Route::post('wiki/{id_project}/article/store', 'ArticleController@store');
 
-Route::get('wiki/{id_project}/article/create', 'ArticleController@create');
+Route::get('wiki/{id_project}/article/{id_article}/edit', 'ArticleController@edit');
+
+Route::post('wiki/{id_project}/article/{id_article}/update', 'ArticleController@update');
 
 Route::resource('articles', 'ArticleController');
 

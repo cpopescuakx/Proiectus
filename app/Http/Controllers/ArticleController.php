@@ -12,26 +12,29 @@ class ArticleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+
     public function index($id_project)
     {
         $articles = Article::all()
-        ->where('id_project', '=', $id_project);
+        ->where('id_project', '=', $id_project)->where('status', '=', 'active');
 
-
-
-
-        return view('articles.index', compact('username','articles','id_project'));
+        return view('articles.index', compact('articles','id_project'));
     }
+
 
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+
+
+    public function create($id_project)
     {
-        return view('articles.create');
+        return view('articles.create', compact('id_project'));
     }
+
 
     /**
      * Store a newly created resource in storage.
@@ -39,6 +42,8 @@ class ArticleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+
     public function store(Request $request, $id_project)
     {
         $id_user = 9;
@@ -47,9 +52,7 @@ class ArticleController extends Controller
             'version' => 'required',
             'title' => 'required',
             'content' => 'required',
-            'creation_date' => 'required',
             'reference' => 'required',
-            'status' => 'required',
         ]);
 
         $article = new Article();
@@ -59,7 +62,7 @@ class ArticleController extends Controller
         $article->content = $request->get('content');
         $article->reference = $request->get('reference');
         $article->id_user = $id_user;
-        $article->status = $request->get('status');
+        $article->status = 'active';
 
 
 
@@ -68,16 +71,20 @@ class ArticleController extends Controller
         return redirect()->back();
     }
 
+
     /**
      * Display the specified resource.
      *
      * @param  \App\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function show(Article $article)
+
+
+    public function show($id_project, $id_article)
     {
-        return view('articles.show',compact('article'));
+
     }
+
 
     /**
      * Show the form for editing the specified resource.
@@ -85,11 +92,15 @@ class ArticleController extends Controller
      * @param  \App\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function edit(Article $id_article)
+
+
+    public function edit($id_project, $id_article)
     {
-        $article = Article::where('id_article', $id_article)->first();
-        return view('articles.edit',compact('article'));
+      $article = Article::where('id_article', '=', $id_article)->firstOrFail();
+
+      return view('articles.edit', compact('article', 'id_project', 'id_article'));
     }
+
 
     /**
      * Update the specified resource in storage.
@@ -98,23 +109,36 @@ class ArticleController extends Controller
      * @param  \App\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id_article)
-    {
-        $validatedData = $request->validate([
-                  'id_article' => 'required',
-                  'id_project' => 'required',
-                  'version' => 'required',
-                  'title' => 'required',
-                  'content' => 'required',
-                  'creation_date' => 'required',
-                  'reference' => 'required',
-                  'id_user' => 'required',
-                  'status' => 'required',
-              ]);
-              Article::whereId($id_article)->update($validatedData);
 
-              return redirect()->route('articles.index')->with('success', 'Article updated successfully');
+
+    public function update(Request $request, $id_project, $id_article)
+    {
+        //Forma curta
+        //Article::find($id_article)->update($request->all());
+
+        //forma llarga
+        $request->validate([
+            'version' => 'required',
+            'title' => 'required',
+            'content' => 'required',
+            'reference' => 'required',
+            'id_user' => 'required',
+        ]);
+
+        $article = Article::find($id_article);
+
+        $article -> version = $request -> get('version');
+        $article -> title = $request -> get('title');
+        $article -> content = $request -> get('content');
+        $article -> reference = $request -> get('reference');
+        $article -> id_user = $request -> get('id_user');
+
+        $article->save();
+
+        return redirect()->back();
+
     }
+
 
     /**
      * Remove the specified resource from storage.
@@ -122,6 +146,8 @@ class ArticleController extends Controller
      * @param  \App\Article  $article
      * @return \Illuminate\Http\Response
      */
+
+
     public function destroy(Article $article)
     {
         $article->delete();
@@ -129,4 +155,6 @@ class ArticleController extends Controller
         return redirect()->route('articles.index')
                         ->with('success','Article deleted successfully');
     }
+
+
 }

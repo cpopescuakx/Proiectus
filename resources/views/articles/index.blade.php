@@ -25,7 +25,8 @@
           <th>version</th>
           <th>title</th>
           <th>content</th>
-          <th>creation_date</th>
+          <th>created_at</th>
+          <th>updated_at</th>
           <th>reference</th>
           <th>id_user</th>
           <th>status</th>
@@ -38,14 +39,15 @@
             <td>{{ $article->version }}</td>
             <td>{{ $article->title }}</td>
             <td>{{ $article->content }}</td>
-            <td>{{ $article->creation_date }}</td>
+            <td>{{ $article->created_at }}</td>
+            <td>{{ $article->updated_at }}</td>
             <td>{{ $article->reference }}</td>
             <td>{{ $article->id_user }}</td>
             <td>{{ $article->status }}</td>
             <td>
                 <form action="{{ route('articles.destroy',$article->id_article) }}" method="POST">
 
-                    <a class="btn btn-primary" href="{{ route('articles.edit',$article->id_article) }}">Edit</a>
+                    <a class="btn btn-primary" href="{{$id_project}}/article/{{$article->id_article}}/edit">Edit</a>
 
                     @csrf
                     @method('DELETE')

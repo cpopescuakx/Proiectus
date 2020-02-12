@@ -7,7 +7,7 @@
             <h2>Add</h2>
         </div>
         <div class="pull-right">
-            <a class="btn btn-primary" href="{{ route('articles.index') }}"> Back</a>
+            <a class="btn btn-primary" href="{{$id_project}}"> Back</a>
         </div>
     </div>
 </div>
@@ -51,22 +51,8 @@
 
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>creation_date:</strong>
-                <textarea class="form-control" style="height:150px" name="creation_date" placeholder="creation_date"></textarea>
-            </div>
-        </div>
-
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
                 <strong>reference:</strong>
                 <textarea class="form-control" style="height:150px" name="reference" placeholder="reference"></textarea>
-            </div>
-        </div>
-
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>status:</strong>
-                <textarea class="form-control" style="height:150px" name="status" placeholder="status"></textarea>
             </div>
         </div>
 

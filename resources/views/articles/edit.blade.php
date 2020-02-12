@@ -22,25 +22,11 @@
             </ul>
         </div>
     @endif
-    <form method="post" action="{{ route('articles.update', $article->id_article)}}">
+
+    <form action="update" method="POST">
       @csrf
-      @method('PATCH')
 
          <div class="row">
-
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>id_article:</strong>
-                    <input type="text" name="id_article" value="{{ $article->id_article }}" class="form-control" placeholder="id_article">
-                </div>
-            </div>
-
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>id_project:</strong>
-                    <input type="text" name="id_project" value="{{ $article->id_project }}" class="form-control" placeholder="id_project">
-                </div>
-            </div>
 
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
@@ -65,13 +51,6 @@
 
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>creation_date:</strong>
-                    <input type="text" name="creation_date" value="{{ $article->creation_date }}" class="form-control" placeholder="creation_date">
-                </div>
-            </div>
-
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
                     <strong>reference:</strong>
                     <input type="text" name="reference" value="{{ $article->reference }}" class="form-control" placeholder="reference">
                 </div>
@@ -81,13 +60,6 @@
                 <div class="form-group">
                     <strong>id_user:</strong>
                     <input type="text" name="id_user" value="{{ $article->id_user }}" class="form-control" placeholder="id_user">
-                </div>
-            </div>
-
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>status:</strong>
-                    <input type="text" name="status" value="{{ $article->status }}" class="form-control" placeholder="status">
                 </div>
             </div>
 
