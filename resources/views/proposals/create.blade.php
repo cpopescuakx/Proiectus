@@ -31,7 +31,7 @@
 
     <div class="content formulari closed">
 
-      <form action='{{ route('projects.store') }}' method='POST' class="was-validated" >
+      <form action='{{ route('proposals.store') }}' method='POST' class="was-validated" >
         @csrf
           <!-- inicio formulario -->
           <div class="row justify-content-center">
