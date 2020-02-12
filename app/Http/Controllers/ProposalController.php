@@ -56,9 +56,9 @@ class ProposalController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'fin' => 'required',
+            'limit_date' => 'required',
             'description' => 'required',
-            'family' => 'required'
+            'professional_family' => 'required'
         ]);
 
         Proposal::create($request->all());

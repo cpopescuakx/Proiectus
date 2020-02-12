@@ -14,6 +14,8 @@ class Proposal extends Model
         'description', 
         'professional_family'
     ];
+
+    //! MODIFICAR CUANDO FUNCIONE LOGIN
     protected $attributes = [
         'id_author' => 1,
         'category' => 'company',

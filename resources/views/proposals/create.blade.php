@@ -49,7 +49,7 @@
                       <div class="row justify-content-center">
                           <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
                               <label for="exampleFormControlInput1">Data de finalització</label>
-                              <input type="date" class="form-control" id="exampleFormControlInput1" name="fin" required>
+                              <input type="date" class="form-control" id="exampleFormControlInput1" name="limit_date" required>
 
                           </div>
                       </div>
@@ -73,7 +73,7 @@
                 <div class="row justify-content-center">
                     <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
                         <label for="exampleFormControlInput1">Familia Professional</label>
-                        <input type="text" class="form-control" id="exampleFormControlInput1" name="family" required>
+                        <input type="text" class="form-control" id="exampleFormControlInput1" name="professional_family" required>
                     </div>
                 </div>
               </div>
