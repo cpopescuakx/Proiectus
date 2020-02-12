@@ -523,26 +523,31 @@ class UserController extends Controller
         $id = $request->route('id'); // Agafar l'ID de la URL
 
         // Cercar l'empleat amb la mateixa ID de la BBDD
-        $employees = User::find($id);
+        $employee = User::find($id);
 
         // Assignar els valors del formulari
-        $employees -> firstname = $request->input('firstname');
-        $employees -> lastname = $request->input('lastname');
-        $employees -> name = $request->input('username');
-        $employees -> dni = $request->input('dni');
-        $employees -> email = $request->input('email');
-        $employees -> birthdate = $request->input('birthdate');
-        $employees -> password = $request->input('password');
+        $employee -> firstname = $request->input('firstname');
+        $employee -> lastname = $request->input('lastname');
+        $employee -> name = $request->input('username');
+        $employee -> dni = $request->input('dni');
+        $employee -> email = $request->input('email');
+        $employee -> birthdate = $request->input('birthdate');
+        $employee -> password = $request->input('password');
         $nom = $request->input('city');
-        $employees -> id_city = CityController::agafarID($nom);
-        $employees -> profile_pic = "Res";
-        $employees -> bio = $request->input('bio');
-        $employees -> id_role = 2;
+        $employee -> id_city = CityController::agafarID($nom);
+        $employee -> profile_pic = "Res";
+        $employee-> bio = $request->input('bio');
+        $employee -> id_role = 2;
 
         // Guardar l'profe a la BBDD amb les noves dades
-        $employees -> save();
-        
-        return view('employees.indexActive', compact('employees'));
+        $employee -> save();
+
+        // Tornem a carregar la llista d'empleats
+        $employees = DB::table('users')->where('id_role', 4)->get();
+
+        // Retornem la vista on mostrarem els empleats i ell llistat d'aquests
+        return redirect()->route('employee.indexActive',compact('employees'))
+        ->with('i', (request()->input('page', 1) -1));
     
     }
 
