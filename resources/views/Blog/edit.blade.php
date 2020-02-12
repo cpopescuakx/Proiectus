@@ -2,7 +2,7 @@
 @section('content')
 
 <div class="content formulari closed">
-    <form class="was-validated" action="update" method="post">
+    <form class="was-validated" action="update" method="POST">
         @csrf
         <input type="hidden" name="_method" value="PATCH" />
         <div class="row justify-content-center">
