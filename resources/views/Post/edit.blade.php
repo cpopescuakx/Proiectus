@@ -12,8 +12,9 @@
 </div>
 @endif @if(Session::has('success')) <div class="alert alert-info"> {{Session::get('success')}} </div> @endif
 <div class="container mb-5">
-	<form method="post" action="{{ route('post.store') }}" id="postCreationForm">
-	{{ csrf_field() }}	
+	<form method="patch" action="update" id="postCreationForm">
+	{{ csrf_field() }}
+	<input name="_method" type="hidden" value="PATCH">
 	<div class="form-group">
 			<h4><label cfor="exampleFormControlInput1">Modificar el post!</label></h4>
 			<div class="form-group">
