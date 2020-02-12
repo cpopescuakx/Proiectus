@@ -25,7 +25,7 @@
                         <div class="row justify-content-center">
                             <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
                                 <strong>NOM</strong>
-                                <input type="text" name="name" class="form-control" placeholder="Empresa1" value="{{ $school->name }}">
+                                <input type="text" name="name" class="form-control" value="{{ $school->name }}" required>
                                 <span class="text-danger">{{ $errors->first('name') }}</span>
                             </div>
                         </div>
@@ -35,7 +35,7 @@
                         <div class="row justify-content-center">
                             <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
                                 <strong>EMAIL</strong>
-                                <input type="text" name="email" class="form-control" placeholder="info@exemple.com" value="{{ $school->email }}">
+                                <input type="text" name="email" class="form-control" value="{{ $school->email }}" required>
                                 <span class="text-danger">{{ $errors->first('email') }}</span>
                             </div>
                         </div>
@@ -45,7 +45,7 @@
                         <div class="row justify-content-center">
                             <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
                                 <strong>CODI</strong>
-                                <input type="text" name="code" class="form-control" placeholder="1564687" value="{{ $school->code }}">
+                                <input type="text" name="code" class="form-control" value="{{ $school->code }}" autocomplete="off" required>
                                 <span class="text-danger">{{ $errors->first('code') }}</span>
                             </div>
                         </div>
@@ -55,7 +55,12 @@
                         <div class="row justify-content-center">
                             <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
                                 <strong>TIPUS</strong>
-                                <input type="text" name="type" class="form-control" placeholder="Batxillerat" value="{{ $school->type }}">
+                                <datalist id="tipus">
+                                    <option value="Batxillerat"></option>
+                                    <option value="FP"></option>
+                                    <option value="Universitat"></option>
+                                </datalist>
+                                <input type="text" class="form-control" col="4" name="type" list="tipus" value="{{ $school->type }}" autocomplete="off" required>
                                 <span class="text-danger">{{ $errors->first('type') }}</span>
                             </div>
                         </div>
