@@ -1,44 +1,48 @@
 @extends('layouts.default')
 
 @section('content')
-<a href="{{ route('schools.create') }}" class="btn btn-success mb-2">AFEGEIX INSTITUT</a>
-  <br>
-   <div class="row">
-        <div class="col-12">
-
-          <table class="table table-bordered" id="laravel_crud">
-           <thead>
-              <tr>
-                 <th>ID</th>
-                 <th>EMAIL</th>
-                 <th>NOM</th>
-                 <th>CODI</th>
-                 <th>Tipus</th>
-                 <th>ESTAT</th>
-                 <td colspan="2">ACTION</td>
-              </tr>
-           </thead>
-           <tbody>
-              @foreach($schools as $school)
-              <tr>
-                 <td>{{ $school->id_school }}</td>
-                 <td>{{ $school->email }}</td>
-                 <td>{{ $school->name }}</td>
-                 <td>{{ $school->code }}</td>
-                 <td>{{ $school->type }}</td>
-                 <td>{{ $school->status }}</td>
-                 <td><a href="{{ route('schools.edit',$school->id_school)}}" class="btn btn-primary">EDITA</a></td>
-                 <td>
-                 <form action="{{ route('schools.destroy', $school->id_school)}}" method="post">
-                  {{ csrf_field() }}
-                  @method('DELETE')
-                  <button class="btn btn-danger" type="submit">ELIMINA</button>
-                </form>
-                </td>
-              </tr>
-              @endforeach
-           </tbody>
-          </table>
-       </div>
+<div class="col">
+   <div class="row d-flex justify-content-end p-4">
+      <a href="{{ route('schools.create') }}"><img src={{ asset('img/add.svg') }} width="45" height="45"></a>
    </div>
+</div>
+<table class="table table-hover mr-5">
+   <thead>
+      <tr>
+         <th>ID</th>
+         <th>EMAIL</th>
+         <th>NOM</th>
+         <th>CODI</th>
+         <th>Tipus</th>
+         <th>ESTAT</th>
+
+         <td colspan="2">Accions</td>
+      </tr>
+   </thead>
+
+   @if ($message = Session::get('success'))
+   <div class="alert alert-success">
+      <p>{{$message}}</p>
+   </div>
+   @endif
+
+   <tbody>
+      @foreach($schools as $school)
+      <tr>
+         <td>{{ $school->id_school }}</td>
+         <td>{{ $school->email }}</td>
+         <td>{{ $school->name }}</td>
+         <td>{{ $school->code }}</td>
+         <td>{{ $school->type }}</td>
+         <td>{{ $school->status }}</td>
+         <td>
+            <a href="{{ route('schools.edit',$school->id_school)}}"><img src={{ asset('img/edit.svg') }} width="20" height="20" class="mr-2"></a>
+            @if($school->status == "active")
+            <a href="{{ route('schools.destroy',$school->id_school) }}"><img src={{ asset('img/delete.svg') }} width="20" height="20"></a>
+            @endif
+         </td>
+      </tr>
+      @endforeach
+   </tbody>
+</table>
 @stop

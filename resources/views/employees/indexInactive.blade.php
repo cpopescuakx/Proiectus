@@ -3,8 +3,9 @@
 
 @section('content')
 <div class="col">
-  <div class="row d-flex justify-content-end p-4">
-    <a href="{{ route('employee.create') }}"><img src={{ asset('img/add.svg') }} width="45" height="45" ></a>
+  <div class="row d-flex justify-content-between p-4">
+  <h2 >Llistat d'empleats inactius </h2>
+  <a href="{{ route('employee.indexActive') }}"><img src={{ asset('img/playlist_add_check.svg') }} width="45" height="45"></a>
   </div>  
 </div>
 <table class="table table-hover mr-5">
@@ -45,7 +46,7 @@
         <td>{{$city::agafarNom($employee->id_city)}}
         <td>
             <a href="{{ route('employee.edit', [$employee->id]) }}"><img src={{ asset('img/edit.svg') }} width="20" height="20" class="mr-2"></a>
-            <a href="{{ route('employee.destroy', [$employee->id]) }}"><img src={{ asset('img/delete.svg') }} width="20" height="20"></a>
+            <a href="{{ route('employee.active', [$employee->id])}}"><img src={{ asset('img/checkIcon.svg') }} width="30" height="30"></a>
         </td>
 
         {{-- <td><a href="{{ route('employee.edit', $project->id)}}" class="btn btn-primary">Editar</a></td> --}}

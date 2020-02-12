@@ -1,37 +1,37 @@
 @extends('layouts.default')
 
-@section('content');
+@section('content')
 <body>
-    <h1>Crear un empleat</h1>
-        
-  <form action='{{ route('employee.storeEmployees') }}' method='POST'> 
+      {{-- <h1>Crear una nova incidència</h1>
+
+  <form action='{{ route('tickets.store') }}' method='POST'> 
     
       @csrf
-          <tr><td>Nom de l'empleat:</td><br>
-            <td><input type="text" name="name"></td>
+          <tr><td>Tipus:</td><br>
+            <td><input type="text" name="type"></td>
           </tr>
           <br>
           <div class="row">
               <div></div>
           </div>
-          <tr><td>Pressupost:</td><br>
-            <td><input type="text" name="budget"></td>
+          <tr><td>Tema:</td><br>
+            <td><input type="text" name="topic"></td>
           </tr>
           <br>
-          <tr><td>Descripció :</td><br>
-            <td><input type="text" name="desc"></td>
+          <tr><td>Prioritat:</td><br>
+            <td><input type="text" name="priority"></td>
           </tr>
           <br>
-          <tr><td>Familia Professional:</td><br>
-            <td><input type="text" name="pro_family"></td>
+          <tr><td>Responsable assignat:</td><br>
+            <td><input type="text" name="assigned"></td>
           </tr>
           <br>
           <input name='crear' value='Crear' type='submit'/>
       </form> --}}
 
-    <div class="formulari">
+    <div class="content formulari closed">
 
-      <form action='{{ route('projects.store') }}' method='POST' class="was-validated" >
+      <form action='{{ route('tickets.store') }}' method='POST' class="was-validated" autocomplete="off">
         @csrf
           <!-- inicio formulario -->
           <div class="row justify-content-center">
@@ -53,7 +53,7 @@
                       <div class="container">
                           <div class="row no-gutters justify-content-center mt-5">
                               <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
-                                  <h1>Crea un projecte nou.</h1>
+                                  <h1>Crea una nova incidència</h1>
                               </div>
                           </div>
                       </div>
@@ -62,8 +62,8 @@
                       <div class="form-group mt-4">
                           <div class="row justify-content-center">
                               <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
-                                  <label for="exampleFormControlInput1">Nom del Projecte</label>
-                                  <input type="name" class="form-control" id="exampleFormControlInput1" placeholder="Proiectus" name="name" required>
+                                  <label for="exampleFormControlInput1">Tipus:</label>
+                                  <input type="name" class="form-control" id="exampleFormControlInput1" placeholder="Titol..." name="type" required>
 
                               </div>
                           </div>
@@ -74,8 +74,8 @@
                       <div class="form-group mt-4">
                         <div class="row justify-content-center">
                             <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
-                                <label for="exampleFormControlInput1">Pressupost</label>
-                                <input type="name" class="form-control" id="exampleFormControlInput1" placeholder="200" name="budget" required>
+                                <label for="exampleFormControlInput1">Tema:</label>
+                                <input type="name" class="form-control" id="exampleFormControlInput1" placeholder="Descripció..." name="topic" required>
 
                             </div>
                         </div>
@@ -86,9 +86,13 @@
                     <div class="form-group mt-4">
                       <div class="row justify-content-center">
                           <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
-                              <label for="exampleFormControlInput1">Descripció</label>
-                              <input type="name" class="form-control" id="exampleFormControlInput1" placeholder="Projecte centrat a la programació" name="desc" required>
-
+                              <label for="exampleFormControlInput1">Prioritat:</label>
+                              <select class="form-control" id="exampleFormControlInput1" name="priority" required>
+                                <option value="">-- Sel·lecionar prioritat --</option>
+                                <option value="low">Baixa</option>
+                                <option value="medium">Mitjana</option>
+                                <option value="high">Alta</option>
+                              </select>
                           </div>
                       </div>
                   </div>
@@ -96,26 +100,19 @@
 
                   <!-- Input básico -->
                   <div class="form-group mt-4">
-                    <div class="row justify-content-center">
-                        <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
-                            <label for="exampleFormControlInput1">Familia Professional</label>
-                            <input type="name" class="form-control" id="exampleFormControlInput1" placeholder="Informàtica" name="pro_family" required>
-
-                        </div>
-                    </div>
-                </div>
-                <!-- fin input básico -->
-
-                <!-- Input básico -->
-                <div class="form-group mt-4">
-                  <div class="row justify-content-center">
-                      <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
-                          <label for="exampleFormControlInput1">Data de finalització <br> (yyy-mm-dd)</label>
-                          <input type="name" class="form-control" id="exampleFormControlInput1" name="end_date">
+                      <div class="row justify-content-center">
+                          <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
+                              <label for="exampleFormControlInput1">Responsable assignat:</label>
+                              <select class="form-control" id="exampleFormControlInput1" name="assigned" required>
+                                <option value="">-- Sel·lecionar usuari --</option>
+                              @foreach($users as $user)
+                                <option value="{{$user->id}}">{{$user->firstname}} {{$user->lastname}}</option>
+                              @endforeach
+                              </select>
+                          </div>
                       </div>
                   </div>
-                </div>
-              <!-- fin input básico -->
+                  <!-- fin input básico -->
 
                 <!-- Botó confirmar -->
                 <div class="form-group">
@@ -139,5 +136,3 @@
 
 </body>
 @stop
-
-
