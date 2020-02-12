@@ -62,6 +62,6 @@
 </tbody>
 </table>
 <div class="d-flex pt-5 justify-content-center">
-    <div class="inner-block">{{ $proposals->links() }}</div>
+    <div class="inline-block">{{ $proposals->links() }}</div>
 </div>
 @stop

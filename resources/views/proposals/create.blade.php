@@ -1,6 +1,6 @@
 @extends('layouts.default')
 
-@section('content');
+@section('content')
 <body>
       {{-- <h1>Crear una nova proposta</h1>
 
@@ -42,7 +42,7 @@
                   <!-- Imagen formulario -->
                   <div class="container">
                       <div class="contact-image text-center mt-3">
-                          <img class="form-img" src="img/icono_negro.png" />
+                          <img class="form-img" src="../img/icono_negro.png" />
                       </div>
                   </div>
 
@@ -53,7 +53,7 @@
                       <div class="container">
                           <div class="row no-gutters justify-content-center mt-5">
                               <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
-                                  <h1>Crea un projecte nou.</h1>
+                                  <h1>Crea una proposta nova.</h1>
                               </div>
                           </div>
                       </div>
@@ -62,7 +62,7 @@
                       <div class="form-group mt-4">
                           <div class="row justify-content-center">
                               <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
-                                  <label for="exampleFormControlInput1">Nom del Projecte</label>
+                                  <label for="exampleFormControlInput1">Nom de la proposta</label>
                                   <input type="name" class="form-control" id="exampleFormControlInput1" placeholder="Proiectus" name="name" required>
 
                               </div>
@@ -74,7 +74,7 @@
                       <div class="form-group mt-4">
                         <div class="row justify-content-center">
                             <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
-                                <label for="exampleFormControlInput1">Pressupost</label>
+                                <label for="exampleFormControlInput1">Data d'inici</label>
                                 <input type="name" class="form-control" id="exampleFormControlInput1" placeholder="200" name="budget" required>
 
                             </div>
@@ -86,7 +86,7 @@
                     <div class="form-group mt-4">
                       <div class="row justify-content-center">
                           <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
-                              <label for="exampleFormControlInput1">Descripció</label>
+                              <label for="exampleFormControlInput1">Data de finalització</label>
                               <input type="name" class="form-control" id="exampleFormControlInput1" placeholder="Projecte centrat a la programació" name="desc" required>
 
                           </div>
@@ -98,7 +98,7 @@
                   <div class="form-group mt-4">
                     <div class="row justify-content-center">
                         <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
-                            <label for="exampleFormControlInput1">Familia Professional</label>
+                            <label for="exampleFormControlInput1">Descripció</label>
                             <input type="name" class="form-control" id="exampleFormControlInput1" placeholder="Informàtica" name="pro_family" required>
 
                         </div>
@@ -110,12 +110,23 @@
                 <div class="form-group mt-4">
                   <div class="row justify-content-center">
                       <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
-                          <label for="exampleFormControlInput1">Data de finalització <br> (yyy-mm-dd)</label>
+                          <label for="exampleFormControlInput1">Categoria</label>
                           <input type="name" class="form-control" id="exampleFormControlInput1" name="end_date">
                       </div>
                   </div>
                 </div>
               <!-- fin input básico -->
+
+              <!-- Input básico -->
+              <div class="form-group mt-4">
+                <div class="row justify-content-center">
+                    <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
+                        <label for="exampleFormControlInput1">Familia Professional</label>
+                        <input type="name" class="form-control" id="exampleFormControlInput1" name="end_date">
+                    </div>
+                </div>
+              </div>
+            <!-- fin input básico -->
 
                 <!-- Botó confirmar -->
                 <div class="form-group">

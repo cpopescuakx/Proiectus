@@ -12,6 +12,11 @@ class ProposalController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function index()
+    {
+        //
+    }
+
     public function indexProposal()
     {
       $proposals = Proposal::paginate(5);
@@ -26,6 +31,12 @@ class ProposalController extends Controller
      */
     public function create()
     {
+        //
+    }
+
+
+    public function createProposal()
+    {
         return view('proposals.create');
     }
 
@@ -37,22 +48,19 @@ class ProposalController extends Controller
      */
     public function store(Request $request)
     {
+        //
+    }
+
+    //! TO-DO
+    public function storeProposal(Request $request)
+    {
         $request->validate([
-
             'name' => 'required',
-
             'description' => 'required',
-
         ]);
 
-  
-
         Proposal::create($request->all());
-
-   
-
         return redirect()->route('proposals.index')
-
                         ->with('success','Proposal created successfully.');
     }
 
