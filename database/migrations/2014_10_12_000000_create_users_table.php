@@ -33,7 +33,7 @@ class CreateUsersTable extends Migration
             $table->integer('id_city');
             $table->longtext('bio');
             $table->integer('id_role');
-            $table->string('dni',10);
+            $table->string('dni',10)->unique();
             $table->date('birthdate');
             $table->enum('status', ['active', 'inactive'])->default('active');
             $table->string('password');

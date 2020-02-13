@@ -4,8 +4,13 @@
 @section('content')
 <div class="col">
   <div class="row d-flex justify-content-between p-4">
-  <h2 >Llistat d'empleats actius </h2>
+  <h2 >Llistat d'empleats</h2>
   <a href="{{ route('employee.create') }}"><img src={{ asset('img/add.svg') }} width="45" height="45" ></a>
+  <select id='filterText' onchange='filterText()'>
+        <option disabled selected>Escull</option>
+		<option value='active'>Actius</option>
+        <option value='inactive'>Inactius</option>
+  </select>
   </div>
 </div>
 <table class="table table-hover mr-5">
@@ -56,4 +61,7 @@
     @endforeach
 </tbody>
 </table>
+<div class="d-flex pt-5 justify-content-center">
+    <div class="inline-block">{{ $employees->links() }}</div>
+</div>
 @stop

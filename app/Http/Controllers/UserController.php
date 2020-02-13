@@ -609,9 +609,9 @@ class UserController extends Controller
         $employee -> status = 'inactive';
         $employee -> save();
 
-        $employees = DB::table('users')->where('id_role', 2)->get();
+        $employees = DB::table('users')->where('id_role', 4)->get();
 
-        return redirect()->route('employees.indexActive',compact('employees'))
+        return redirect()->route('employee.index',compact('employees'))
         ->with('i', (request()->input('page', 1) -1));
     }
 }
