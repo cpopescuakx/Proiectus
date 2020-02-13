@@ -4,7 +4,7 @@
 <title>Checkout our layout</title>
 <!-- Bootstrap core CSS -->
 <link href="{{ asset('css/main.css') }}" rel="stylesheet" type="text/css">
-<link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
+<link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
