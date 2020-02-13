@@ -567,7 +567,7 @@ class UserController extends Controller
         // Assignació de valors a les propietats
         $employee-> firstname = $request->input('firstname');
         $employee-> lastname = $request->input('lastname');
-        $employee-> name = $request->input('name');
+        $employee-> name = $request->input('username');
         $employee-> dni = $request->input('dni');
         $employee-> email = $request->input('email');
         $employee-> birthdate = $request->input('birthdate');
@@ -575,7 +575,7 @@ class UserController extends Controller
         $nom = $request->input('city');
         $employee-> id_city = CityController::agafarID($nom);
         $employee-> profile_pic = "Res";
-        $employee-> bio = "Res";
+        $employee-> bio = $request->input('bio');
         $employee-> id_role = 2;
         $employee-> status = "active";
 
@@ -586,7 +586,7 @@ class UserController extends Controller
 
         $emplpyees = User::where('id_role', 2)->get();
 
-        return redirect()->route('employees.indexActive',compact('employees'));
+        return redirect()->route('employees.index',compact('employees'));
     }
 
     /**
