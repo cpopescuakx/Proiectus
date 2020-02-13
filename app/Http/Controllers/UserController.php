@@ -19,7 +19,7 @@ class UserController extends Controller
         //
     }
 
-    /** LLISTAR GESTORS
+    /** LLISTAR ALUMNES
      *
      *  Extreu els usuaris que tenen ID de rol 3 (Alumne), després retorna la vista per a llistar-los.
      *
@@ -29,15 +29,12 @@ class UserController extends Controller
     public function indexManager(){
         //Mostrem tots els usuaris amb id de rol 5 (gestors)
 
-        $managers['users'] = User::all()->where('id_role', 5);
-        $managers['users'] = User::where('id_role', 5)
-        ->take(1000);
-        //dd($managers);
-        //$managers = Users::where('id_role', 5);
-        return view('managers.index', $managers);
         $managers = User::where([['id_role', 5],['status','active'],])->get();
 
         return view('managers.index', compact('managers'));
+        
+        $managers['users'] = User::all()->where('id_role', 5);
+        return view('managers.index', $managers);
     }
 
     /** CREAR GESTORS
@@ -111,22 +108,7 @@ class UserController extends Controller
      *  @return void
      */
     public function updateManager (Request $request) {
-
-        $request->validate([
-            'email' => 'required',
-            'name' => 'required',
-            'nif' => 'required',
-            'sector' => 'required',
-            'status' => 'required',
-        ]);
-
-
-         Company::findOrFail($id)->first()->fill($request->all())->save();
-         //Company::find($request->id)->update($request->all());
-         return redirect()->route('companies')
-                          ->with('Éxit','L empresa s ha modificat correctament!');
-
-        $id = $request->route('id'); // Agafem la ID de la URL
+        
         $id = $request->route('id'); // Agafar l'ID de la URL
 
         // Cercar l'alumne amb la mateixa ID de la BBDD
@@ -164,18 +146,9 @@ class UserController extends Controller
      *  @param int $id
      *  @return void
      */
+    
     public function destroyManager ($id) {
-        Company::where('id_company',$id)->delete();
-
-        return Redirect::to('companies')->with('Éxit','L empresa s ha eliminat correctament!');
-
-        //
-
-        $manager = User::find($id);
-        $manager -> status = 'inactive';
-        $manager -> save();
-    public function destroyManager ($id) {
-
+        
         $managers = User::find($id);
         $managers -> status = 'inactive';
         $managers -> save();
@@ -235,13 +208,14 @@ class UserController extends Controller
         $student -> id_role = 3;
         $student -> status = "active";
 
-        // Guardar gestors a la BBDD
+        // Guardar alumne a la BBDD
         $student -> save();
 
-        // Tornar a la llista de gestors
-        $student = User::where('id_role', 3)->get();
+        // Tornar a la llista d'alumnes
 
-        return redirect()->route('students.index',compact('student'));
+        $students = User::where('id_role', 3)->get();
+
+        return redirect()->route('students.index',compact('students'));
     }
 
 
@@ -253,11 +227,11 @@ class UserController extends Controller
      *  @return void
      */
     public function editStudent ($id) {
-        $students = User::find($id);
+        $student = User::find($id);
         $cities = City::distinct()->select("name")->get();
-        $nomCiutat = CityController::agafarNom($students->id_city);
+        $nomCiutat = CityController::agafarNom($student->id_city);
 
-        return view('managers.edit', compact('students', 'cities', 'nomCiutat'));
+        return view('students.edit', compact('student', 'cities', 'nomCiutat'));
     }
 
     /** UPDATE ALUMNE
@@ -274,31 +248,32 @@ class UserController extends Controller
         $id = $request->route('id'); // Agafar l'ID de la URL
 
         // Cercar l'alumne amb la mateixa ID de la BBDD
-        $students = User::find($id);
+        $student = User::find($id);
 
         // Assignar els valors del formulari
-        $students -> firstname = $request->input('firstname');
-        $students -> lastname = $request->input('lastname');
-        $students -> name = $request->input('name');
-        $students -> dni = $request->input('dni');
-        $students -> email = $request->input('email');
-        $students -> birthdate = $request->input('birthdate');
-        $students -> password = $request->input('password');
+        $student -> firstname = $request->input('firstname');
+        $student -> lastname = $request->input('lastname');
+        $student -> name = $request->input('name');
+        $student -> dni = $request->input('dni');
+        $student -> email = $request->input('email');
+        $student -> birthdate = $request->input('birthdate');
+        $student -> password = $request->input('password');
         $nom = $request->input('city');
-        $students -> id_city = CityController::agafarID($nom);
-        $students -> profile_pic = "Res";
-        $students -> bio = "Res";
-        $students -> id_role = 3;
-        $students -> status = $request->input('status');
+        $student -> id_city = CityController::agafarID($nom);
+        $student -> profile_pic = "Res";
+        $student -> bio = "Res";
+        $student -> id_role = 3;
+        $student -> status = $request->input('status');
 
         // Guardar l'alumne a la BBDD amb les noves dades
-        $students -> save();
+        $student -> save();
 
         // Tornar a la llista d'alumnes
 
         $students = User::where('id_role', 3)->get();
 
         return redirect()->route('students.index',compact('students'));
+
     }
 
     /** DESTROY STUDENT
@@ -311,9 +286,9 @@ class UserController extends Controller
      */
 
     public function destroyStudent ($id) {
-        $students = User::find($id);
-        $students -> status = 'inactive';
-        $students -> save();
+        $student = User::find($id);
+        $student -> status = 'inactive';
+        $student -> save();
 
         $students = User::where('id_role', 3)->get();
 
@@ -457,38 +432,23 @@ class UserController extends Controller
         ->with('i', (request()->input('page', 1) -1));
     }
 
-    /** LLISTAR EMPLEATS ACTIUS
+
+    /** LLISTAR EMPLEATS
      *
-     *  Extreu els empleats que tenen ID de rol 4 (Empleat) els quals tinguin com a estat (active), després retorna la vista per a llistar-los.
-     *
-     *  @param void
-     *  @return \Illuminate\Http\Response
-     * */
-
-    public function indexEmployeeActive()
-    {
-        //
-        $employees = User::where([['id_role',2],['status','active'],])->paginate(5);
-
-        return view ('employees.indexActive', compact('employees'));
-
-    }
-
-    /** LLISTAR EMPLEATS INACTIUS
-     *
-     *  Extreu els empleats que tenen ID de rol 4 (Empleat) els quals tinguin com a estat (inactive), després retorna la vista per a llistar-los.
+     *  Extreu els empleats que tenen ID de rol 4 (Empleat), després retorna la vista per a llistar-los.
      *
      *  @param void
      *  @return \Illuminate\Http\Response
      * */
 
-    public function indexEmployeeInactive()
+    public function indexEmployee()
     {
-        //
-        $employees = User::where([['id_role',2],['status','inactive'],])->paginate(5);
+        //Realitzem la carrega de dades de tots els usuaris amb rol 2 i establim una paginació per a que només 
+        //apareguin 5 per pàgina
+        $employees = User::where('id_role',2)->paginate(5);
 
-        return view ('employees.indexInactive', compact('employees'));
-
+        return view ('employees.index', compact('employees'));
+            
     }
 
     /** CREAR EMPLEAT
@@ -510,12 +470,12 @@ class UserController extends Controller
      *
      *  Indiquem la id de l'usuari el qual volem donar d'alta i redireccionem a la vista anterior.
      *
-     *  @param $id Conté la ID de l'usuari
+     *  @param int $id Conté la ID de l'usuari
      *  @return \Illuminate\Http\Response
      * */
 
     public function activeUser($id)
-    {             
+    {
         $user = User::find($id);
         $user->status = 'active';
         $user->save();
@@ -524,10 +484,10 @@ class UserController extends Controller
 
     /** EDITAR Empleat
      *
-     *  Retorna el formulari de modificació d'empleats. Passant l'profe a partir de l'ID.
+     *  Retorna el formulari de modificació d'empleats. Passant l'empleat a partir de l'ID.
      *
-     *  @param int $id
-     *  @return void
+     *  @param int $id Conté la ID de l'usuari
+     *  @return \Illuminate\Http\Response
      */
     public function editEmployee ($id) {
         $employee = User::find($id);
@@ -567,17 +527,15 @@ class UserController extends Controller
         $employee-> bio = $request->input('bio');
         $employee -> id_role = 2;
 
-        // Guardar l'profe a la BBDD amb les noves dades
+        // Guardar l'empelat a la BBDD amb les noves dades
         $employee -> save();
 
-
         // Tornem a carregar la llista d'empleats
-        $employees = DB::table('users')->where('id_role', 4)->get();
+        $employees = User::where('id_role', 4);
 
         // Retornem la vista on mostrarem els empleats i ell llistat d'aquests
-        return redirect()->route('employee.indexActive',compact('employees'))
-        ->with('i', (request()->input('page', 1) -1));
-
+        return redirect()->route('employee.index',compact('employees'));
+    
     }
 
     /**
@@ -586,7 +544,7 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function storeEmployees(Request $request)
+    public function store(Request $request)
     {
          // Instanciar
         $employee= new User;
@@ -609,11 +567,10 @@ class UserController extends Controller
         // Guardar alumne a la BBDD
         $employee-> save();
 
-        // Tornar a la llista d'alumnes
-
+        // Tornar a la llista d'empleats
         $emplpyees = User::where('id_role', 2)->get();
-
-        return redirect()->route('employees.indexActive',compact('employees'));
+    
+        return redirect()->route('employees.index',compact('employees'));
     }
 
     /**
@@ -656,7 +613,7 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroyEmployee($id)
     {
         //
     }
