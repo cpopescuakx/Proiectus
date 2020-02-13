@@ -430,32 +430,15 @@ class UserController extends Controller
      *  @return \Illuminate\Http\Response
      * */
 
-    public function indexEmployeeActive()
+    public function indexEmployee()
     {
-        //
-        $employees = User::where([['id_role',2],['status','active'],])->paginate(5);
+        
+        $employees = User::where('id_role',2)->paginate(5);
 
-        return view ('employees.indexActive', compact('employees'));
+        return view ('employees.index', compact('employees'));
             
     }
     
-    /** LLISTAR EMPLEATS INACTIUS
-     *
-     *  Extreu els empleats que tenen ID de rol 4 (Empleat) els quals tinguin com a estat (inactive), després retorna la vista per a llistar-los.
-     *
-     *  @param void
-     *  @return \Illuminate\Http\Response
-     * */
-
-    public function indexEmployeeInactive()
-    {
-        //Realitzem la carrega de dades de tots els usuaris amb rol 2 i establim una paginació per a que només 
-        //apareguin 5 per pàgina
-        $employees = User::where('id_role',2)->paginate(5);
-
-        return view ('employees.indexInactive', compact('employees'));
-            
-    }
 
     /** CREAR EMPLEAT
      *
