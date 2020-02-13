@@ -551,14 +551,14 @@ class UserController extends Controller
         $employee-> id_city = CityController::agafarID($nom);
         $employee-> profile_pic = "Res";
         $employee-> bio = $request->input('bio');
-        $employee-> id_role = 4;
+        $employee-> id_role = 2;
         $employee-> status = "active";
 
         // Guardar alumne a la BBDD
         $employee-> save();
 
         // Tornar a la llista d'empleats
-        $employees = User::where('id_role', 4)->get();
+        $employees = User::where('id_role', 2)->get();
 
         return redirect()->route('employee.index',compact('employees'));
     }
@@ -609,7 +609,7 @@ class UserController extends Controller
         $employee -> status = 'inactive';
         $employee -> save();
 
-        $employees = DB::table('users')->where('id_role', 4)->get();
+        $employees = DB::table('users')->where('id_role', 2)->get();
 
         return redirect()->route('employee.index',compact('employees'))
         ->with('i', (request()->input('page', 1) -1));
