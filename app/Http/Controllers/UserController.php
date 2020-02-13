@@ -221,11 +221,11 @@ class UserController extends Controller
      *  @return void
      */
     public function editStudent ($id) {
-        $students = User::find($id);
+        $student = User::find($id);
         $cities = City::distinct()->select("name")->get();
-        $nomCiutat = CityController::agafarNom($students->id_city);
+        $nomCiutat = CityController::agafarNom($student->id_city);
 
-        return view('managers.edit', compact('students', 'cities', 'nomCiutat'));
+        return view('students.edit', compact('student', 'cities', 'nomCiutat'));
     }
 
     /** UPDATE ALUMNE
