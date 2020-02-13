@@ -19,7 +19,7 @@ class UserController extends Controller
         //
     }
 
-    /** LLISTAR GESTORS
+    /** LLISTAR ALUMNES
      *
      *  Extreu els usuaris que tenen ID de rol 3 (Alumne), després retorna la vista per a llistar-los.
      *
@@ -28,9 +28,9 @@ class UserController extends Controller
      * */
     public function indexManager(){
         //Mostrem tots els usuaris amb id de rol 5 (gestors)
-        $managers = User::where([['id_role', 5],['status','active'],])->get();
 
-        return view('managers.index', compact('managers'));
+        $managers['users'] = User::all()->where('id_role', 5);
+        return view('managers.index', $managers);
     }
 
     /** CREAR GESTORS
@@ -44,16 +44,25 @@ class UserController extends Controller
 
     public function createManager(){
 
-        $cities = City::distinct()->select("name")->get();
-        return view('managers.create',compact('cities'));
-        
+        $cities['cities'] = City::all()->distinct()->select("name")->get();
+        return view('managers.create', $cities);
     }
 
     public function storeManager(Request $request){
 
-         // Instanciar
-         $manager = new User;
-
+        $request->validate([
+            'firstname' => 'required',
+            'lastname' => 'required',
+            'name' => 'required',
+            'dni' => 'required',
+            'email' => 'required',
+            'birthdate' => 'required',
+            'password' => 'required',
+            'profile_pic' => 'Res',
+            'bio' => 'Res',
+            'id_role' => '5',
+            'status' => 'active',
+        ]);
         // Assignació de valors a les propietats
         $manager -> firstname = $request->input('firstname');
         $manager -> lastname = $request->input('lastname');
@@ -73,10 +82,11 @@ class UserController extends Controller
         $manager -> save();
 
         // Tornar a la llista de gestors
-        $manager = User::where('id_role', 5)->get();
 
-        return redirect()->route('managers.index',compact('manager'));
+        $managers = DB::table('users')->where('id_role', 5)->get();
 
+        return redirect()->route('managers.index',compact('managers'))
+        ->with('i', (request()->input('page', 1) -1));
     }
 
     /** EDITAR GESTOR
@@ -89,7 +99,7 @@ class UserController extends Controller
     public function editManager($id){
 
         $managers = User::find($id);
-        $cities = City::distinct()->select("name")->get();
+        $cities = DB::table('cities')->distinct()->select("name")->get();
         $nomCiutat = CityController::agafarNom($managers->id_city);
 
         return view('managers.edit', compact('managers', 'cities', 'nomCiutat'));
@@ -105,34 +115,50 @@ class UserController extends Controller
      */
     public function updateManager (Request $request) {
 
-        $id = $request->route('id'); // Agafar l'ID de la URL
+        $request->validate([
+            'email' => 'required',
+            'name' => 'required',
+            'nif' => 'required',
+            'sector' => 'required',
+            'status' => 'required',
+        ]);
 
-        // Cercar l'alumne amb la mateixa ID de la BBDD
-        $managers = User::find($id);
+
+         Company::findOrFail($id)->first()->fill($request->all())->save();
+         //Company::find($request->id)->update($request->all());
+         return redirect()->route('companies')
+                          ->with('Éxit','L empresa s ha modificat correctament!');
+
+        $id = $request->route('id'); // Agafem la ID de la URL
+
+        // Busquem el gestor amb la mateixa ID
+        $manager = User::find($id);
 
         // Assignar els valors del formulari
-        $managers -> firstname = $request->input('firstname');
-        $managers -> lastname = $request->input('lastname');
-        $managers -> name = $request->input('name');
-        $managers -> dni = $request->input('dni');
-        $managers -> email = $request->input('email');
-        $managers -> birthdate = $request->input('birthdate');
-        $managers -> password = $request->input('password');
+        $manager -> firstname = $request->input('firstname');
+        $manager -> lastname = $request->input('lastname');
+        $manager -> name = $request->input('name');
+        $manager -> dni = $request->input('dni');
+        $manager -> email = $request->input('email');
+        $manager -> birthdate = $request->input('birthdate');
+        $manager -> password = $request->input('password');
         $nom = $request->input('city');
-        $managers -> id_city = CityController::agafarID($nom);
-        $managers -> profile_pic = "Res";
-        $managers -> bio = "Res";
-        $managers -> id_role = 5;
-        $managers -> status = $request->input('status');
+        $manager -> id_city = CityController::agafarID($nom);
+        $manager -> profile_pic = "Res";
+        $manager -> bio = "Res";
+        $manager -> id_role = 5;
+        $manager -> status = $request->input('status');
 
-        // Guardar l'alumne a la BBDD amb les noves dades
-        $managers -> save();
+        // Guardem el gestor amb les noves dades
+        $manager -> save();
 
-        // Tornar a la llista d'alumnes
+        // Tornem a la llista de gestors
 
-        $managers = User::where('id_role', 5)->get();
+        $managers = DB::table('users')->where('id_role', 5)->get();
 
-        return redirect()->route('managers.index',compact('managers'));
+        return redirect()->route('managers.index',compact('managers'))
+        ->with('i', (request()->input('page', 1) -1));
+
     }
     /** DESTROY GESTORS
      *
@@ -142,15 +168,22 @@ class UserController extends Controller
      *  @param int $id
      *  @return void
      */
+
     public function destroyManager ($id) {
-   
-        $managers = User::find($id);
-        $managers -> status = 'inactive';
-        $managers -> save();
+        Company::where('id_company',$id)->delete();
 
-        $managers = User::where('id_role', 5)->get();
+        return Redirect::to('companies')->with('Éxit','L empresa s ha eliminat correctament!');
 
-        return redirect()->route('managers.index',compact('managers'));
+        //
+
+        $manager = User::find($id);
+        $manager -> status = 'inactive';
+        $manager -> save();
+
+        $manager = DB::table('users')->where('id_role', 5)->get();
+
+        return redirect()->route('managers.index',compact('managers'))
+        ->with('i', (request()->input('page', 1) -1));
     }
 
     public function indexStudent()
@@ -203,13 +236,14 @@ class UserController extends Controller
         $student -> id_role = 3;
         $student -> status = "active";
 
-        // Guardar gestors a la BBDD
+        // Guardar alumne a la BBDD
         $student -> save();
 
-        // Tornar a la llista de gestors
-        $student = User::where('id_role', 3)->get();
+        // Tornar a la llista d'alumnes
 
-        return redirect()->route('students.index',compact('student'));
+        $students = User::where('id_role', 3)->get();
+
+        return redirect()->route('students.index',compact('students'));
     }
 
 
@@ -221,11 +255,11 @@ class UserController extends Controller
      *  @return void
      */
     public function editStudent ($id) {
-        $students = User::find($id);
+        $student = User::find($id);
         $cities = City::distinct()->select("name")->get();
-        $nomCiutat = CityController::agafarNom($students->id_city);
+        $nomCiutat = CityController::agafarNom($student->id_city);
 
-        return view('managers.edit', compact('students', 'cities', 'nomCiutat'));
+        return view('students.edit', compact('student', 'cities', 'nomCiutat'));
     }
 
     /** UPDATE ALUMNE
@@ -242,31 +276,32 @@ class UserController extends Controller
         $id = $request->route('id'); // Agafar l'ID de la URL
 
         // Cercar l'alumne amb la mateixa ID de la BBDD
-        $students = User::find($id);
+        $student = User::find($id);
 
         // Assignar els valors del formulari
-        $students -> firstname = $request->input('firstname');
-        $students -> lastname = $request->input('lastname');
-        $students -> name = $request->input('name');
-        $students -> dni = $request->input('dni');
-        $students -> email = $request->input('email');
-        $students -> birthdate = $request->input('birthdate');
-        $students -> password = $request->input('password');
+        $student -> firstname = $request->input('firstname');
+        $student -> lastname = $request->input('lastname');
+        $student -> name = $request->input('name');
+        $student -> dni = $request->input('dni');
+        $student -> email = $request->input('email');
+        $student -> birthdate = $request->input('birthdate');
+        $student -> password = $request->input('password');
         $nom = $request->input('city');
-        $students -> id_city = CityController::agafarID($nom);
-        $students -> profile_pic = "Res";
-        $students -> bio = "Res";
-        $students -> id_role = 3;
-        $students -> status = $request->input('status');
+        $student -> id_city = CityController::agafarID($nom);
+        $student -> profile_pic = "Res";
+        $student -> bio = "Res";
+        $student -> id_role = 3;
+        $student -> status = $request->input('status');
 
         // Guardar l'alumne a la BBDD amb les noves dades
-        $students -> save();
+        $student -> save();
 
         // Tornar a la llista d'alumnes
 
         $students = User::where('id_role', 3)->get();
 
         return redirect()->route('students.index',compact('students'));
+
     }
 
     /** DESTROY STUDENT
@@ -279,9 +314,9 @@ class UserController extends Controller
      */
 
     public function destroyStudent ($id) {
-        $students = User::find($id);
-        $students -> status = 'inactive';
-        $students -> save();
+        $student = User::find($id);
+        $student -> status = 'inactive';
+        $student -> save();
 
         $students = User::where('id_role', 3)->get();
 
@@ -293,9 +328,11 @@ class UserController extends Controller
     public function indexProfessor()
     {
         //
-        $professors = DB::table('users')->where('id_role', 4)->get();
+        // $professors = DB::table('users')->where('id_role', 4)->get();
+        $professors = User::where('id_role',4)->get();
+                    return view ('professors.index', compact('professors'));
 
-        return view ('professors.index', compact('professors'));
+
     }
 
     /**
@@ -305,7 +342,7 @@ class UserController extends Controller
      */
     public function createProfessor()
     {
-      $cities = DB::table('cities')->distinct()->select("name")->get();
+      $cities = City::distinct()->select("name")->get();
       return view('professors.create',compact('cities'));
     }
 
@@ -338,7 +375,7 @@ class UserController extends Controller
 
         // Tornar a la llista d'alumnes
 
-        $professors = DB::table('users')->where('id_role', 4)->get();
+        $professors = User::where('id_role', 4)->get();
 
         return redirect()->route('professors.index',compact('professors'))
         ->with('i', (request()->input('page', 1) -1));
@@ -353,7 +390,7 @@ class UserController extends Controller
      */
     public function editProfessor ($id) {
         $professor = User::find($id);
-        $cities = DB::table('cities')->distinct()->select("name")->get();
+        $cities = City::distinct()->select("name")->get();
         $nomCiutat = CityController::agafarNom($professor->id_city);
 
         return view('professors.edit', compact('professor', 'cities', 'nomCiutat'));
@@ -395,7 +432,8 @@ class UserController extends Controller
 
         // Tornar a la llista d'profes
 
-        $professors = DB::table('users')->where('id_role', 4)->get();
+        $professors = User::where('id_role', 4)->get();
+
 
         return redirect()->route('professors.index',compact('professors'))
         ->with('i', (request()->input('page', 1) -1));
@@ -403,10 +441,10 @@ class UserController extends Controller
     }
 
     /** DESTROY Professor
-     *  
+     *
      *  Busca l'profe amb l'ID passada com a paràmetre i passa el seu estat a inactive.
      *  Redirecciona al llistat d'profes.
-     * 
+     *
      *  @param int $id
      *  @return void
      */
@@ -416,14 +454,14 @@ class UserController extends Controller
         $professor -> status = 'inactive';
         $professor -> save();
 
-        $professors = DB::table('users')->where('id_role', 4)->get();
+        $professors = User::where('id_role', 4)->get();
 
         return redirect()->route('professors.index',compact('professors'))
         ->with('i', (request()->input('page', 1) -1));
     }
 
     /** LLISTAR EMPLEATS ACTIUS
-     * 
+     *
      *  Extreu els empleats que tenen ID de rol 4 (Empleat) els quals tinguin com a estat (active), després retorna la vista per a llistar-los.
      *
      *  @param void
@@ -433,12 +471,12 @@ class UserController extends Controller
     public function indexEmployeeActive()
     {
         //
-        $employees = User::where([['id_role',2],['status','active'],])->paginate(5);
+        $employees = User::where([['id_role',2],['status','active'],])->get();
 
         return view ('employees.indexActive', compact('employees'));
-            
+
     }
-    
+
     /** LLISTAR EMPLEATS INACTIUS
      *
      *  Extreu els empleats que tenen ID de rol 4 (Empleat) els quals tinguin com a estat (inactive), després retorna la vista per a llistar-los.
@@ -450,10 +488,10 @@ class UserController extends Controller
     public function indexEmployeeInactive()
     {
         //
-        $employees = User::where([['id_role',2],['status','inactive'],])->paginate(5);
+        $employees = User::where([['id_role',2],['status','inactive'],])->get();
 
         return view ('employees.indexInactive', compact('employees'));
-            
+
     }
 
     /** CREAR EMPLEAT
@@ -473,23 +511,23 @@ class UserController extends Controller
 
     /** DONAR D'ALTA TOT TIPUS D'USUARIS
      *
-     *  Indiquem la id de l'usuari el qual volem donar d'alta i redireccionem a la vista anterior. 
+     *  Indiquem la id de l'usuari el qual volem donar d'alta i redireccionem a la vista anterior.
      *
      *  @param $id Conté la ID de l'usuari
      *  @return \Illuminate\Http\Response
      * */
 
     public function activeUser($id)
-    {             
+    {
         $user = User::find($id);
         $user->status = 'active';
         $user->save();
-        return redirect()->back();    
+        return redirect()->back();
     }
 
     /** EDITAR Empleat
      *
-     *  Retorna el formulari de modificació d'empleats. Passant l'profe a partir de l'ID.
+     *  Retorna el formulari de modificació d'empleats. Passant l'empleat a partir de l'ID.
      *
      *  @param int $id
      *  @return void
@@ -532,17 +570,21 @@ class UserController extends Controller
         $employee-> bio = $request->input('bio');
         $employee -> id_role = 2;
 
-        // Guardar l'profe a la BBDD amb les noves dades
+        // Guardar l'empelat a la BBDD amb les noves dades
         $employee -> save();
 
-        
         // Tornem a carregar la llista d'empleats
         $employees = DB::table('users')->where('id_role', 4)->get();
 
-        // Retornem la vista on mostrarem els empleats i ell llistat d'aquests
+<<<<<<< HEAD
+        // Retornem la vista on mostrarem els empleats i el llistat d'aquests
         return redirect()->route('employee.indexActive',compact('employees'))
         ->with('i', (request()->input('page', 1) -1));
-    
+=======
+        // Retornem la vista on mostrarem els empleats i ell llistat d'aquests
+        return redirect()->route('employee.indexActive',compact('employees'));
+>>>>>>> e402e4e65b1546ee475cca2b5f598f78e0adbf8c
+
     }
 
     /**
@@ -551,8 +593,9 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function storeEmployees(Request $request)
+    public function store(Request $request)
     {
+<<<<<<< HEAD
          // Instanciar
         $employee= new User;
 
@@ -576,9 +619,17 @@ class UserController extends Controller
 
         // Tornar a la llista d'alumnes
 
-        $emplpyees = User::where('id_role', 2)->get();
+        $employees = User::where('id_role', 2)->get();
 
+<<<<<<< HEAD
+        return redirect()->route('employee.indexActive',compact('employees'))
+        ->with('i', (request()->input('page', 1) -1));
+=======
         return redirect()->route('employees.indexActive',compact('employees'));
+>>>>>>> c20d80aae4522f42fbc690e120092bc872e48e50
+=======
+        //
+>>>>>>> e402e4e65b1546ee475cca2b5f598f78e0adbf8c
     }
 
     /**
@@ -621,7 +672,7 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroyEmployee($id)
     {
         //
     }
