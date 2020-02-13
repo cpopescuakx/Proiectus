@@ -51,7 +51,12 @@
         <td>{{$city::agafarNom($employee->id_city)}}
         <td>
             <a href="{{ route('employee.edit', [$employee->id]) }}"><img src={{ asset('img/edit.svg') }} width="20" height="20" class="mr-2"></a>
+            @if($employee->status == "active")
             <a href="{{ route('employee.destroy', [$employee->id]) }}"><img src={{ asset('img/delete.svg') }} width="20" height="20"></a>
+            @elseif($employee->status == "inactive")
+                <a href="{{ route('employee.active', [$employee->id]) }}"><img src={{ asset('img/checkIcon.svg') }} width="20" height="40" class="mr-2"></a>
+            @endif
+
         </td>
 
         {{-- <td><a href="{{ route('employee.edit', $project->id)}}" class="btn btn-primary">Editar</a></td> --}}
