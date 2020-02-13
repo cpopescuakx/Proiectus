@@ -6,6 +6,10 @@
   <div class="row d-flex justify-content-between p-4">
   <h2 >Llistat d'empleats</h2>
   <a href="{{ route('employee.create') }}"><img src={{ asset('img/add.svg') }} width="45" height="45" ></a>
+  <select id="estat">
+    <option value="active">actius</option>
+    <option value="inactive">inactius</option>
+  </select>
   </div>  
 </div>
 <table class="table table-hover mr-5">

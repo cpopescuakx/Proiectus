@@ -432,35 +432,19 @@ class UserController extends Controller
 
     /** LLISTAR EMPLEATS ACTIUS
      * 
-     *  Extreu els empleats que tenen ID de rol 4 (Empleat) els quals tinguin com a estat (active), després retorna la vista per a llistar-los.
+     *  Extreu els empleats que tenen ID de rol 4 (Empleat), després retorna la vista per a llistar-los.
      *
      *  @param void
      *  @return \Illuminate\Http\Response
      * */
 
-    public function indexEmployeeActive()
+    public function indexEmployee()
     {
-        //
-        $employees = User::where([['id_role',2],['status','active'],])->paginate(5);
+        //Realitzem la carrega de dades de tots els usuaris amb rol 2 i establim una paginació per a que només 
+        //apareguin 5 per pàgina
+        $employees = User::where([['id_role',2],['status',]])->paginate(5);
 
-        return view ('employees.indexActive', compact('employees'));
-            
-    }
-    
-    /** LLISTAR EMPLEATS INACTIUS
-     *
-     *  Extreu els empleats que tenen ID de rol 4 (Empleat) els quals tinguin com a estat (inactive), després retorna la vista per a llistar-los.
-     *
-     *  @param void
-     *  @return \Illuminate\Http\Response
-     * */
-
-    public function indexEmployeeInactive()
-    {
-        //
-        $employees = User::where([['id_role',2],['status','inactive'],])->paginate(5);
-
-        return view ('employees.indexInactive', compact('employees'));
+        return view ('employees.index', compact('employees'));
             
     }
 
@@ -483,7 +467,7 @@ class UserController extends Controller
      *
      *  Indiquem la id de l'usuari el qual volem donar d'alta i redireccionem a la vista anterior. 
      *
-     *  @param $id Conté la ID de l'usuari
+     *  @param int $id Conté la ID de l'usuari
      *  @return \Illuminate\Http\Response
      * */
 
@@ -499,8 +483,8 @@ class UserController extends Controller
      *
      *  Retorna el formulari de modificació d'empleats. Passant l'profe a partir de l'ID.
      *
-     *  @param int $id
-     *  @return void
+     *  @param int $id Conté la ID de l'usuari
+     *  @return \Illuminate\Http\Response
      */
     public function editEmployee ($id) {
         $employee = User::find($id);
@@ -545,11 +529,10 @@ class UserController extends Controller
 
         
         // Tornem a carregar la llista d'empleats
-        $employees = DB::table('users')->where('id_role', 4)->get();
+        $employees = User::where('id_role', 4)->get();
 
         // Retornem la vista on mostrarem els empleats i ell llistat d'aquests
-        return redirect()->route('employee.indexActive',compact('employees'))
-        ->with('i', (request()->input('page', 1) -1));
+        return redirect()->route('employee.index',compact('employees'));
     
     }
 
@@ -586,7 +569,7 @@ class UserController extends Controller
 
         $empleats = DB::table('users')->where('id_role', 2)->get();
 
-        return redirect()->route('employees.indexActive',compact('employees'));
+        return redirect()->route('employees.index',compact('employees'));
     }
 
     /**
