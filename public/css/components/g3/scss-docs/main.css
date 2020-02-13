@@ -24,8 +24,12 @@ a {
 .opcionsDocs {
   margin: 0 auto;
   text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: flex-end;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
 }
 
 .opcionsDocs button:first-child {
@@ -147,8 +151,12 @@ a {
 
 @media screen and (max-width: 1100px) {
   .opcionsDocs {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: flex-end;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
   }
   h1 {
     font-size: 20px;
@@ -190,7 +198,8 @@ ul {
   margin: 0;
   overflow: hidden;
   background-color: #2B7A78;
-  padding-inline-start: 0px;
+  -webkit-padding-start: 0px;
+          padding-inline-start: 0px;
   position: relative;
 }
 
@@ -226,6 +235,7 @@ li a:hover:not(.active) {
   left: 0;
   background-color: #FEFFFF;
   overflow-x: hidden;
+  -webkit-transition: 0.5s;
   transition: 0.5s;
   padding-top: 60px;
 }
@@ -238,6 +248,7 @@ li a:hover:not(.active) {
   font-size: 1.2em;
   color: #17252A;
   display: block;
+  -webkit-transition: 0.3s;
   transition: 0.3s;
   margin-top: 5px;
 }
@@ -271,6 +282,8 @@ li a:hover:not(.active) {
     text-align: center;
   }
   #logo-mobile {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
   }
   #container-mobile {
@@ -278,10 +291,14 @@ li a:hover:not(.active) {
     height: 50px;
   }
   #logo-mobile {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     margin: 4px auto;
   }
   #menu {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
   }
   .barraS {
@@ -309,7 +326,9 @@ li a:hover:not(.active) {
     text-align: justify;
   }
   div.main {
-    flex: 70%;
+    -webkit-box-flex: 70%;
+        -ms-flex: 70%;
+            flex: 70%;
     background-color: #b3f5f4;
     padding: 20px;
   }
@@ -333,6 +352,7 @@ li a:hover:not(.active) {
 /* SCSS per a l'estil del footer */
 .container {
   margin-top: 10px;
+  display: -ms-grid;
   display: grid;
   grid-gap: 10px;
   background-color: #3AAFA9;
@@ -348,12 +368,18 @@ li a:hover:not(.active) {
 }
 
 #mes-info {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
   grid-column: 1 / 2;
+  -ms-grid-row: 1;
   grid-row: 1;
 }
 
 #xarxes {
+  -ms-grid-column: 2;
   grid-column: 2;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
   grid-row: 1 / 3;
 }
 
@@ -382,7 +408,9 @@ li a:hover:not(.active) {
 }
 
 #logo-container {
+  -ms-grid-column: 1;
   grid-column: 1;
+  -ms-grid-row: 2;
   grid-row: 2;
 }
 
@@ -394,6 +422,7 @@ li a:hover:not(.active) {
 
 @media screen and (max-width: 565px) {
   #icones {
+    display: -ms-grid;
     display: grid;
   }
   #icones i {
@@ -402,3 +431,4 @@ li a:hover:not(.active) {
     margin-left: 0px !important;
   }
 }
+/*# sourceMappingURL=main.css.map */

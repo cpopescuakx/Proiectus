@@ -13,19 +13,22 @@
             <!-- Fin logo -->
 
             <!-- Item sidenav -->
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a href="">
                     <i class="material-icons text-light">dashboard</i>
                     <span class="text-light">Dashboard</span>
                 </a>
-            </li>
+            </li> -->
             <!-- Fin item sidenav -->
 
             <!-- Item sidenav -->
             <li class="nav-item">
-                <a href="g3_empleats.php">
+                <a class="dropdown">
                     <i class="material-icons text-light">person</i>
-                    <span class="text-light">Users</span>
+                    <span class="text-light">Usuaris</span>
+                    <i class="dropdown-ico material-icons text-light">keyboard_arrow_down</i>
+
+
                 </a>
 
 
@@ -35,7 +38,7 @@
                         <!-- Submenu -->
                         <li class="nav-item">
                             <a href="">
-                                <span class="text-light">Element 1</span>
+                                <span class="text-light">Empleats</span>
                             </a>
                         </li>
                         <!-- Fin submenu -->
@@ -43,7 +46,7 @@
                         <!-- Submenu -->
                         <li class="nav-item">
                             <a href="">
-                                <span class="text-light">Element 2</span>
+                                <span class="text-light">Professors</span>
                             </a>
                         </li>
                         <!-- Fin submenu -->
@@ -51,7 +54,15 @@
                         <!-- Submenu -->
                         <li class="nav-item">
                             <a href="">
-                                <span class="text-light">Element 3</span>
+                                <span class="text-light">Estudiants</span>
+                            </a>
+                        </li>
+                        <!-- Fin submenu -->
+
+                        <!-- Submenu -->
+                        <li class="nav-item">
+                            <a href="">
+                                <span class="text-light">Gestors</span>
                             </a>
                         </li>
                         <!-- Fin submenu -->
@@ -100,24 +111,13 @@
                 </a>
             </li>
             <!-- Fin item sidenav -->
-            <!-- Item sidenav -->
-            <li class="nav-item">
-                <a class="dropdown">
-                    <i class="material-icons text-light">person</i>
-                    <span class="text-light">Els meus blogs</span>
-                    <i class="dropdown-ico material-icons text-light">keyboard_arrow_down</i>
-                </a>
 
-
-
-            </li>
-            <!-- Fin item sidenav -->
         </ul>
     </nav>
     <!-- Fin sidenav -->
 
     <!-- Inicio menu -->
-    <nav id="top-menu" class="navbar navbar-expand-lg navbar-light fixed-top bg-white">
+    <nav id="top-menu" class="navbar2 navbar-expand-lg navbar-light fixed-top bg-white">
         <!-- Inicio toggle menu -->
         <div class="navbar-header">
             <i id="sidenav-toggle" class="material-icons">menu</i>

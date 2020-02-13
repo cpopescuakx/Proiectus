@@ -18,7 +18,8 @@ ul {
   margin: 0;
   overflow: hidden;
   background-color: #DEF2F1;
-  padding-inline-start: 0px;
+  -webkit-padding-start: 0px;
+          padding-inline-start: 0px;
   position: relative;
 }
 
@@ -54,6 +55,7 @@ li a:hover:not(.active) {
   left: 0;
   background-color: #FEFFFF;
   overflow-x: hidden;
+  -webkit-transition: 0.5s;
   transition: 0.5s;
   padding-top: 60px;
 }
@@ -66,6 +68,7 @@ li a:hover:not(.active) {
   font-size: 1.2em;
   color: #17252A;
   display: block;
+  -webkit-transition: 0.3s;
   transition: 0.3s;
   margin-top: 5px;
 }
@@ -99,6 +102,8 @@ li a:hover:not(.active) {
     text-align: center;
   }
   #logo-mobile {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
   }
   #container-mobile {
@@ -106,10 +111,14 @@ li a:hover:not(.active) {
     height: 50px;
   }
   #logo-mobile {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     margin: 4px auto;
   }
   #menu {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
   }
   .barraS {
@@ -137,7 +146,9 @@ li a:hover:not(.active) {
     text-align: justify;
   }
   div.main {
-    flex: 70%;
+    -webkit-box-flex: 70%;
+        -ms-flex: 70%;
+            flex: 70%;
     background-color: #b3f5f4;
     padding: 20px;
   }
@@ -206,3 +217,4 @@ p {
   font-family: "Montserrat", sans-serif;
   font-size: 18px;
 }
+/*# sourceMappingURL=login.css.map */
