@@ -39,9 +39,10 @@ public class LlistaInstituts {
         while (iter.hasNext()) {
 
             if (iter.next().getId() == id) {
-                x[0] = iter.next().getNom();
-                x[1] = iter.next().getCodi();
-                x[2] = iter.next().getCiutat();
+                x[0] = iter.next().(Integer.par)getId();
+                x[1] = iter.next().getNom();
+                x[2] = iter.next().getCodi();
+                x[3] = iter.next().getCiutat();
             }
         }
         return x;

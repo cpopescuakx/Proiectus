@@ -17,6 +17,10 @@ public class MainActivity extends Activity {
     EditText contrassenya;
     Button boto;
     TextView text;
+    TextView text1;
+
+
+    LlistaInstituts llistaInstituts = new LlistaInstituts();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +40,14 @@ public class MainActivity extends Activity {
                 login(usuari.getText().toString(), contrassenya.getText().toString(), array);
             }
         });
+
+        llistaInstituts.dadesProva();
+        String [] dades = llistaInstituts.getInstitut(1);
+        text1 = (TextView)findViewById(R.id.txtTest);
+        text1.setText(dades[1]);
+
+
+
 
     }
 

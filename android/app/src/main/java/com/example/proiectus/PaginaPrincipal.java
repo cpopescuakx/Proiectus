@@ -22,7 +22,7 @@ public class PaginaPrincipal extends Activity {
         btnModificar = (Button)findViewById(R.id.btnModificar);
 
         // Dades de prova
-        llistaInstituts.dadesProva();
+        //llistaInstituts.dadesProva();
 
         //llistaInstituts.llistarProjectes();
 
