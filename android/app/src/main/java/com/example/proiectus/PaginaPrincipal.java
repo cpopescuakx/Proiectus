@@ -10,19 +10,24 @@ import android.view.View;
 import android.widget.Button;
 
 public class PaginaPrincipal extends Activity {
-    
+    Button btnAfegir;
+    LlistaInstituts llista = new LlistaInstituts();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pagina_principal);
+        btnAfegir = (Button)findViewById(R.id.btnAfegir);
+        llista.llistarProjectes();
+
+        btnAfegir.setOnClickListener(new Button.OnClickListener() {
+            public void onClick(View v) {
+                Intent i  = new Intent(PaginaPrincipal.this, CrearInstitut.class);
+                startActivity(i);
+            }
+        });
 
     }
 
-    /** Inicia l'activitat de crear Instituts */
 
-    public void actAfegir (View view) {
-        Intent i  = new Intent(PaginaPrincipal.this, CrearInstitut.class);
-        startActivity(i);
-    }
 
 }

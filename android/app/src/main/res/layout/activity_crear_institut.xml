@@ -12,8 +12,8 @@
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="132dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginStart="128dp"
+        android:layout_marginTop="48dp"
         android:text="Crear Institut"
         android:textSize="25sp"
         android:textStyle="bold"
@@ -28,6 +28,9 @@
         android:layout_marginTop="300dp"
         android:ems="10"
         android:inputType="textPersonName"
+        android:textColorHighlight="@color/colorPrimaryDark"
+        android:textColorLink="@color/colorPrimaryDark"
+        android:textCursorDrawable="@color/colorPrimaryDark"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -39,6 +42,8 @@
         android:layout_marginTop="172dp"
         android:ems="10"
         android:inputType="textPersonName"
+        android:textColorLink="@color/colorPrimaryDark"
+        android:textCursorDrawable="@color/colorPrimaryDark"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -50,6 +55,9 @@
         android:layout_marginTop="236dp"
         android:ems="10"
         android:inputType="textPersonName"
+        android:textColorHighlight="@color/colorPrimaryDark"
+        android:textColorLink="@color/colorPrimaryDark"
+        android:textCursorDrawable="@color/colorPrimaryDark"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -99,10 +107,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/prova"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="175dp"
-        tools:layout_editor_absoluteY="550dp" />
+    <Button
+        android:id="@+id/botoTornar"
+        android:layout_width="127dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="140dp"
+        android:layout_marginTop="440dp"
+        android:text="Tornar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
