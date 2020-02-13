@@ -28,7 +28,7 @@ class UserController extends Controller
      * */
     public function indexManager(){
         //Mostrem tots els usuaris amb id de rol 5 (gestors)
-        
+
         $managers['users'] = User::all()->where('id_role', 5);
         return view('managers.index', $managers);
     }
@@ -128,7 +128,7 @@ class UserController extends Controller
          //Company::find($request->id)->update($request->all());
          return redirect()->route('companies')
                           ->with('Éxit','L empresa s ha modificat correctament!');
-        
+
         $id = $request->route('id'); // Agafem la ID de la URL
 
         // Busquem el gestor amb la mateixa ID
@@ -168,12 +168,12 @@ class UserController extends Controller
      *  @param int $id
      *  @return void
      */
-    
+
     public function destroyManager ($id) {
         Company::where('id_company',$id)->delete();
 
         return Redirect::to('companies')->with('Éxit','L empresa s ha eliminat correctament!');
-        
+
         //
 
         $manager = User::find($id);
@@ -328,9 +328,11 @@ class UserController extends Controller
     public function indexProfessor()
     {
         //
-        $professors = DB::table('users')->where('id_role', 4)->get();
+        // $professors = DB::table('users')->where('id_role', 4)->get();
+        $professors = User::where('id_role',4)->get();
+                    return view ('professors.index', compact('professors'));
 
-        return view ('professors.index', compact('professors'));
+
     }
 
     /**
@@ -340,7 +342,7 @@ class UserController extends Controller
      */
     public function createProfessor()
     {
-      $cities = DB::table('cities')->distinct()->select("name")->get();
+      $cities = City::distinct()->select("name")->get();
       return view('professors.create',compact('cities'));
     }
 
@@ -373,7 +375,7 @@ class UserController extends Controller
 
         // Tornar a la llista d'alumnes
 
-        $professors = DB::table('users')->where('id_role', 4)->get();
+        $professors = User::where('id_role', 4)->get();
 
         return redirect()->route('professors.index',compact('professors'))
         ->with('i', (request()->input('page', 1) -1));
@@ -388,7 +390,7 @@ class UserController extends Controller
      */
     public function editProfessor ($id) {
         $professor = User::find($id);
-        $cities = DB::table('cities')->distinct()->select("name")->get();
+        $cities = City::distinct()->select("name")->get();
         $nomCiutat = CityController::agafarNom($professor->id_city);
 
         return view('professors.edit', compact('professor', 'cities', 'nomCiutat'));
@@ -430,7 +432,8 @@ class UserController extends Controller
 
         // Tornar a la llista d'profes
 
-        $professors = DB::table('users')->where('id_role', 4)->get();
+        $professors = User::where('id_role', 4)->get();
+
 
         return redirect()->route('professors.index',compact('professors'))
         ->with('i', (request()->input('page', 1) -1));
@@ -451,7 +454,7 @@ class UserController extends Controller
         $professor -> status = 'inactive';
         $professor -> save();
 
-        $professors = DB::table('users')->where('id_role', 4)->get();
+        $professors = User::where('id_role', 4)->get();
 
         return redirect()->route('professors.index',compact('professors'))
         ->with('i', (request()->input('page', 1) -1));
