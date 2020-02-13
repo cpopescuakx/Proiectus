@@ -11,7 +11,6 @@
 <table class="table table-hover mr-5">
 <thead>
     <tr>
-        <td>ID</td>
         <td>Nom</td>
         <td>Cognom</td>
         <td>Num d'usuari</td>
@@ -33,7 +32,6 @@
 <tbody>
     @foreach($employees as $employee)
     <tr>
-        <td>{{$employee->id}}</td>
         <td>{{$employee->firstname}}</td>
         <td>{{$employee->lastname}}</td>
         <td>{{$employee->name}}</td>
