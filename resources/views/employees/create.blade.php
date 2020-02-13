@@ -18,7 +18,7 @@
                         <div class="container">
                             <div class="row no-gutters justify-content-center mt-5">
                                 <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
-                                    <h1>Modificar Empleat</h1>
+                                    <h1>Registrar Empleat</h1>
                                 </div>
                             </div>
                         </div>
@@ -67,7 +67,7 @@
                             <div class="row justify-content-center">
                                 <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
                                     <label for="nom">Correu</label>
-                                    <input type="text" name = "email" class="form-control" id="username"  required>
+                                    <input type="text" name = "email" class="form-control" id="email"  required>
                                     <div class="invalid-feedback">Camp necessari</div>
                                 </div>
                             </div>
@@ -92,7 +92,7 @@
                                                 <option value="{{$city->name}}">
                                             @endforeach
                                         </datalist>
-                                        <input type="text" name = "city" class="form-control"  list="cities" required>
+                                        <input type="text" name = "city" class="form-control" id="city" list="cities" required>
                                     <div class="invalid-feedback">Camp necessari</div>
                                 </div>
                             </div>
