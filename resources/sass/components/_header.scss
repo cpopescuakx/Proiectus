@@ -122,6 +122,13 @@ a:hover {
     z-index: 1;
 }
 
+.navbar2 {
+    height: 56px;
+    background-color: white;
+    transition: left .25s ease;
+    border-bottom: 1px solid gray;
+}
+
 .navbar-nav {
     -webkit-box-orient: horizontal;
     -ms-flex-direction: row;

@@ -1,0 +1,32 @@
+#projecte {
+  margin-left: 25%;
+  margin-right: auto;
+}
+
+.content {
+  padding: 0px;
+}
+
+@media screen and (min-width: 1025px) {
+  .content {
+    left: 122px;
+    width: calc(100% - 122px);
+  }
+  .content.closed {
+    left: 30px;
+    width: calc(100% - 30px);
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    max-width: 100%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 100%;
+  }
+}
+/*# sourceMappingURL=g2_style.css.map */

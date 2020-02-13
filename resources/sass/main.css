@@ -284,13 +284,6 @@ a:hover {
   transition: left .25s ease;
 }
 
-.navbar2 {
-  height: 56px;
-  background-color: white;
-  transition: left .25s ease;
-  border-bottom: 1px solid gray;
-}
-
 .navbar-header {
   position: relative;
   z-index: 1;
