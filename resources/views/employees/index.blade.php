@@ -6,12 +6,16 @@
   <div class="row d-flex justify-content-between p-4">
   <h2 >Llistat d'empleats</h2>
   <a href="{{ route('employee.create') }}"><img src={{ asset('img/add.svg') }} width="45" height="45" ></a>
-  </div>  
+  <select id='filterText' onchange='filterText()'>
+        <option disabled selected>Escull</option>
+		<option value='active'>Actius</option>
+        <option value='inactive'>Inactius</option>
+  </select>
+  </div>
 </div>
 <table class="table table-hover mr-5">
 <thead>
     <tr>
-        <td>ID</td>
         <td>Nom</td>
         <td>Cognom</td>
         <td>Num d'usuari</td>
@@ -22,20 +26,17 @@
     </tr>
 </thead>
 
-
-
-
-
 @if ($message = Session::get('success'))
     <div class="alert alert-success">
         <p>{{$message}}</p>
     </div>
 @endif
 
+
+
 <tbody>
     @foreach($employees as $employee)
     <tr>
-        <td>{{$employee->id}}</td>
         <td>{{$employee->firstname}}</td>
         <td>{{$employee->lastname}}</td>
         <td>{{$employee->name}}</td>
@@ -47,7 +48,6 @@
             <a href="{{ route('employee.destroy', [$employee->id]) }}"><img src={{ asset('img/delete.svg') }} width="20" height="20"></a>
         </td>
 
-        
         {{-- <td><a href="{{ route('employee.edit', $project->id)}}" class="btn btn-primary">Editar</a></td> --}}
         {{-- <td>
             <form action="{{ route('employee.destroy', $project->id)}}" method="post">
@@ -61,7 +61,6 @@
     @endforeach
 </tbody>
 </table>
-
 <div class="d-flex pt-5 justify-content-center">
     <div class="inline-block">{{ $employees->links() }}</div>
 </div>
