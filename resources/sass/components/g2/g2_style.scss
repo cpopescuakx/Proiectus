@@ -1,0 +1,29 @@
+// asd
+#projecte {
+    margin-left: 25%;
+    margin-right: auto;
+
+}
+.content {
+  padding: 0px;
+}
+@media screen and (min-width: 1025px) {
+
+.content {
+    left: 122px;
+    width: calc(100% - 122px);
+
+    &.closed {
+        left: 30px;
+        width: calc(100% - 30px);
+    }
+}
+}
+.container {
+	@media (min-width: 992px) {
+		max-width: 100%;
+	}
+	@media (min-width: 1200px) {
+		max-width:100%;
+	}
+}

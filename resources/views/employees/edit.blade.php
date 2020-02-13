@@ -1,7 +1,7 @@
 @extends('layouts.default')
 
 @section('content')
-    <div class="formulari">
+    <div class="content formulari closed">
         <form class="was-validated" action="{{route('employee.update', [$employee->id])}}" method="POST">
             @csrf
             <div class="row justify-content-center">
