@@ -551,16 +551,16 @@ class UserController extends Controller
         $employee-> id_city = CityController::agafarID($nom);
         $employee-> profile_pic = "Res";
         $employee-> bio = $request->input('bio');
-        $employee-> id_role = 2;
+        $employee-> id_role = 4;
         $employee-> status = "active";
 
         // Guardar alumne a la BBDD
         $employee-> save();
 
         // Tornar a la llista d'empleats
-        $emplpyees = User::where('id_role', 2)->get();
+        $employees = User::where('id_role', 4)->get();
     
-        return redirect()->route('employees.index',compact('employees'));
+        return redirect()->route('employee.index',compact('employees'));
     }
 
     /**
