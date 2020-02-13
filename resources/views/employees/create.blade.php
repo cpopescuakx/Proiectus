@@ -1,37 +1,11 @@
 @extends('layouts.default')
 
-@section('content');
+@section('content')
 <body>
-    <h1>Crear un empleat</h1>
-        
-  <form action='{{ route('employee.storeEmployees') }}' method='POST'> 
-    
-      @csrf
-          <tr><td>Nom de l'empleat:</td><br>
-            <td><input type="text" name="name"></td>
-          </tr>
-          <br>
-          <div class="row">
-              <div></div>
-          </div>
-          <tr><td>Pressupost:</td><br>
-            <td><input type="text" name="budget"></td>
-          </tr>
-          <br>
-          <tr><td>Descripció :</td><br>
-            <td><input type="text" name="desc"></td>
-          </tr>
-          <br>
-          <tr><td>Familia Professional:</td><br>
-            <td><input type="text" name="pro_family"></td>
-          </tr>
-          <br>
-          <input name='crear' value='Crear' type='submit'/>
-      </form> --}}
 
     <div class="formulari">
 
-      <form action='{{ route('projects.store') }}' method='POST' class="was-validated" >
+      <form action="{{ route('employee.store') }}" method='POST' class="was-validated" >
         @csrf
           <!-- inicio formulario -->
           <div class="row justify-content-center">
@@ -53,7 +27,7 @@
                       <div class="container">
                           <div class="row no-gutters justify-content-center mt-5">
                               <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
-                                  <h1>Crea un projecte nou.</h1>
+                                  <h1>Registra un empleat</h1>
                               </div>
                           </div>
                       </div>
