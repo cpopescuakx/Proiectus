@@ -30,7 +30,7 @@
     @endif
 
     <tbody>
-        @foreach($users as $manager)
+        @foreach($managers as $manager)
             <tr>
                 <td>{{$manager->firstname}}</td>
                 <td>{{$manager->lastname}}</td>

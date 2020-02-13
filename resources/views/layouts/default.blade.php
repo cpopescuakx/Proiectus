@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 	<head>
 	   @include('includes.head')
-	   
 	</head>
 	<body>
 		<header class="row">

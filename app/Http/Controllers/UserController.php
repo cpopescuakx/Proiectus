@@ -449,8 +449,9 @@ class UserController extends Controller
 
     public function indexEmployeeInactive()
     {
-        //
-        $employees = User::where([['id_role',2],['status','inactive'],])->paginate(5);
+        //Realitzem la carrega de dades de tots els usuaris amb rol 2 i establim una paginació per a que només 
+        //apareguin 5 per pàgina
+        $employees = User::where('id_role',2)->paginate(5);
 
         return view ('employees.indexInactive', compact('employees'));
             
@@ -537,11 +538,10 @@ class UserController extends Controller
 
         
         // Tornem a carregar la llista d'empleats
-        $employees = DB::table('users')->where('id_role', 4)->get();
+        $employees = User::where('id_role', 4);
 
-        // Retornem la vista on mostrarem els empleats i el llistat d'aquests
-        return redirect()->route('employee.indexActive',compact('employees'))
-        ->with('i', (request()->input('page', 1) -1));
+        // Retornem la vista on mostrarem els empleats i ell llistat d'aquests
+        return redirect()->route('employee.index',compact('employees'));
     
     }
 
@@ -574,12 +574,10 @@ class UserController extends Controller
         // Guardar alumne a la BBDD
         $employee-> save();
 
-        // Tornar a la llista d'alumnes
-
-        $employees = User::where('id_role', 2)->get();
-
-        return redirect()->route('employee.index',compact('employees'))
-        ->with('i', (request()->input('page', 1) -1));
+        // Tornar a la llista d'empleats
+        $emplpyees = User::where('id_role', 2)->get();
+    
+        return redirect()->route('employees.index',compact('employees'));
     }
 
     /**
