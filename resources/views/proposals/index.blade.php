@@ -57,7 +57,7 @@
         </tr>
         @endforeach
 
-        
+
     </tbody>
 </table>
 <div class="d-flex pt-5 justify-content-center">
