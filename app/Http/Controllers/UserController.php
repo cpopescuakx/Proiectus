@@ -28,9 +28,17 @@ class UserController extends Controller
      * */
     public function indexManager(){
         //Mostrem tots els usuaris amb id de rol 5 (gestors)
+<<<<<<< HEAD
+        $managers['users'] = User::where('id_role', 5)
+        ->take(1000);
+        //dd($managers);
+        //$managers = Users::where('id_role', 5);
+        return view('managers.index', $managers);
+=======
         $managers = User::where([['id_role', 5],['status','active'],])->get();
 
         return view('managers.index', compact('managers'));
+>>>>>>> a388c1e0bcdfed342ef720327a493ddeea436e8a
     }
 
     /** CREAR GESTORS
@@ -559,7 +567,7 @@ class UserController extends Controller
         // Assignació de valors a les propietats
         $employee-> firstname = $request->input('firstname');
         $employee-> lastname = $request->input('lastname');
-        $employee-> name = $request->input('username');
+        $employee-> name = $request->input('name');
         $employee-> dni = $request->input('dni');
         $employee-> email = $request->input('email');
         $employee-> birthdate = $request->input('birthdate');
@@ -567,7 +575,7 @@ class UserController extends Controller
         $nom = $request->input('city');
         $employee-> id_city = CityController::agafarID($nom);
         $employee-> profile_pic = "Res";
-        $employee-> bio = $request->input('bio');
+        $employee-> bio = "Res";
         $employee-> id_role = 2;
         $employee-> status = "active";
 
@@ -578,7 +586,7 @@ class UserController extends Controller
 
         $emplpyees = User::where('id_role', 2)->get();
 
-        return redirect()->route('employees.index',compact('employees'));
+        return redirect()->route('employees.indexActive',compact('employees'));
     }
 
     /**

@@ -4,29 +4,25 @@
 @section('content')
 <div class="col">
   <div class="row d-flex justify-content-end p-4">
-    <nav class="navbar navbar-light float-right">
-        <form class="form-inline">
-      
-          <input name="buscarpor" class="form-control mr-sm-2" type="search" placeholder="Buscar por nombre" aria-label="Search">
-      
-             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
-        </form>
-      </nav>
     <a href="{{ route('proposals.create') }}"><img src={{ asset('img/add.svg') }} width="45" height="45" ></a>
   </div>
 </div>
 <table class="table table-hover mr-5">
-    <thead>
-        <tr>
-            <td>Nom</td>
-            <td>Data d'inici</td>
-            <td>Data de finalització</td>
-            <td>Description</td>
-            <td>Category</td>
-            <td>Familia professional</td>
-            <td colspan="2">Accions</td>
-        </tr>
-    </thead>
+<thead>
+    <tr>
+        <td>Nom</td>
+        <td>Data d'inici</td>
+        <td>Data de finalització</td>
+        <td>Description</td>
+        <td>Category</td>
+        <td>Familia professional</td>
+        <td colspan="2">Accions</td>
+    </tr>
+</thead>
+
+
+
+
 
 @if ($message = Session::get('success'))
     <div class="alert alert-success">
@@ -49,6 +45,16 @@
             <a href="{{ route('proposals.edit', [$proposal->id_proposal]) }}"><img src={{ asset('img/edit.svg') }} width="20" height="20" class="mr-2"></a>
             <a href="{{ route('proposals.destroy', [$proposal->id_proposal]) }}"><img src={{ asset('img/delete.svg') }} width="20" height="20"></a>
         </td>
+
+        {{-- <td><a href="{{ route('proposals.edit', $proposal->id)}}" class="btn btn-primary">Editar</a></td> --}}
+        {{-- <td>
+              <form action="{{ route('proposals.destroy', $proposal->id)}}" method="post">
+                @csrf
+                @method('DELETE')
+                <button class="btn btn-danger" type="submit">Esborrar</button>
+            </form>
+        </td> --}}
+
     </tr>
     @endforeach
 
