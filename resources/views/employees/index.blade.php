@@ -10,10 +10,10 @@
         <form class="form-inline">
             <select name="tipo" class="custom-select mr-2">
                 <option selected>Escull</option>
-                <option>active</option>
-                <option>inactive</option>
+                <option value="active">Actius</option>
+                <option value="inactive">Inactius</option>
               </select>
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Cercar</button>
         </form>
       </nav>
   <a href="{{ route('employee.create') }}"><img src={{ asset('img/add.svg') }} width="45" height="45" ></a>
@@ -53,7 +53,7 @@
             <a href="{{ route('employee.edit', [$employee->id]) }}"><img src={{ asset('img/edit.svg') }} width="20" height="20" class="mr-2"></a>
             @if($employee->status == "active")
             <a href="{{ route('employee.destroy', [$employee->id]) }}"><img src={{ asset('img/delete.svg') }} width="20" height="20"></a>
-            @elseif($employee->status == "inactive")
+            @else
                 <a href="{{ route('employee.active', [$employee->id]) }}"><img src={{ asset('img/checkIcon.svg') }} width="20" height="40" class="mr-2"></a>
             @endif
 

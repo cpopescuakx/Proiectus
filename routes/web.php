@@ -140,6 +140,8 @@ Route::post('Proposals/create/success', 'ProposalController@storeProposal')->nam
 Route::get('Proposals/{id}/edit', 'ProposalController@editProposal')->name('proposals.edit');
 Route::post('Proposals/{id}/edit/success', 'ProposalController@updateProposal')->name('proposals.update');
 Route::get('Proposals/{id}', 'ProposalController@destroyProposal')->name('proposals.destroy');
+Route::get('Proposals/{id}/active', 'ProposalController@activeProposal')->name('proposals.active');
+
 
 /* Empleats */
 Route::get('/Employees', 'UserController@indexEmployee')->name('employee.index');
