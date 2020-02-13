@@ -33,8 +33,6 @@
     </div>
 @endif
 
-
-
 <tbody>
     @foreach($employees as $employee)
     <tr>
@@ -63,4 +61,8 @@
     @endforeach
 </tbody>
 </table>
+
+<div class="d-flex pt-5 justify-content-center">
+    <div class="inline-block">{{ $employees->links() }}</div>
+</div>
 @stop
