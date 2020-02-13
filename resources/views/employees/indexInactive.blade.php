@@ -49,6 +49,7 @@
             <a href="{{ route('employee.active', [$employee->id])}}"><img src={{ asset('img/checkIcon.svg') }} width="30" height="30"></a>
         </td>
 
+        
         {{-- <td><a href="{{ route('employee.edit', $project->id)}}" class="btn btn-primary">Editar</a></td> --}}
         {{-- <td>
             <form action="{{ route('employee.active', $project->id)}}" method="post">

@@ -543,6 +543,7 @@ class UserController extends Controller
         // Guardar l'profe a la BBDD amb les noves dades
         $employee -> save();
 
+        
         // Tornem a carregar la llista d'empleats
         $employees = DB::table('users')->where('id_role', 4)->get();
 
