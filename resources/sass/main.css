@@ -199,12 +199,17 @@ a:hover {
   height: 100%;
   overflow-x: hidden;
   z-index: 9999;
+  -webkit-transition: width .25s ease;
   transition: width .25s ease;
 }
 
 #sidenav a {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 #sidenav i {
@@ -241,6 +246,7 @@ a:hover {
   height: auto;
   max-height: 0;
   display: block !important;
+  -webkit-transition: all .3s ease;
   transition: all .3s ease;
 }
 
@@ -258,6 +264,7 @@ a:hover {
   left: 14px;
   top: 5px;
   border-radius: 15px;
+  -webkit-transition: all .4s ease;
   transition: all .4s ease;
 }
 
@@ -281,12 +288,21 @@ a:hover {
 .navbar {
   height: 56px;
   background-color: white;
+  -webkit-transition: left .25s ease;
   transition: left .25s ease;
 }
 
 .navbar-header {
   position: relative;
   z-index: 1;
+}
+
+.navbar2 {
+  height: 56px;
+  background-color: white;
+  -webkit-transition: left .25s ease;
+  transition: left .25s ease;
+  border-bottom: 1px solid gray;
 }
 
 .navbar-nav {
@@ -302,10 +318,12 @@ a:hover {
   position: relative;
   margin-top: 56px;
   padding: 20px;
+  -webkit-transition: all .25s ease;
   transition: all .25s ease;
 }
 
 .content:not(.closed) .navbar-header {
+  -webkit-transition: width .4s ease;
   transition: width .4s ease;
   width: 100%;
 }
@@ -336,12 +354,14 @@ a:hover {
 }
 
 #menu.closed #sidenav .sub-menu.show {
-  transform: scaleY(0);
+  -webkit-transform: scaleY(0);
+          transform: scaleY(0);
   max-height: 0;
 }
 
 #menu.closed #sidenav:hover .sub-menu.show {
-  transform: scaleY(1);
+  -webkit-transform: scaleY(1);
+          transform: scaleY(1);
   max-height: 600px;
 }
 
@@ -397,7 +417,10 @@ a:hover {
   margin: 0;
   padding: 0;
   list-style: none;
-  flex-direction: row;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
   margin-top: 10px;
 }
 
@@ -455,6 +478,7 @@ a:hover {
 }
 
 .content.formulari {
+  background: -webkit-gradient(linear, left top, left bottom, from(#116466), color-stop(35%, #73c1ba), to(#F7F2E5));
   background: linear-gradient(180deg, #116466 0%, #73c1ba 35%, #F7F2E5 100%);
   z-index: 1;
   overflow-x: hidden;
@@ -465,7 +489,8 @@ form .contact-image {
   top: 10vh;
   border-radius: 8%;
   margin-right: auto;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 form .contact-form {
@@ -475,16 +500,21 @@ form .contact-form {
   margin-bottom: 5%;
   padding-top: 5%;
   padding-bottom: 5%;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
   width: fit-content;
 }
 
 form .pagination {
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 form .margleft-410px {
   margin-left: 410px;
-  justify-content: space-around;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
 }
 
 form .form-img {
@@ -533,3 +563,4 @@ form .form-img {
   line-height: 1;
   width: 100%;
 }
+/*# sourceMappingURL=main.css.map */
