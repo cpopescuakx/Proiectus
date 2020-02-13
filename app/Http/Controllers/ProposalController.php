@@ -117,7 +117,7 @@ class ProposalController extends Controller
      *  al llistat de propostes
      *
      *  @param Request $request
-     *  @return void
+     * @return \Illuminate\Http\Response
      */
 
     public function updateProposal(Request $request, $id)
@@ -125,31 +125,19 @@ class ProposalController extends Controller
               $id = $request->route('id'); // Agafar l'ID de la URL
 
               // Cercar la proposta amb la mateixa ID de la BBDD
-              $professor = User::find($id);
+              $proposal = Proposal::find($id);
 
               // Assignar els valors del formulari
-              $professor -> firstname = $request->input('firstname');
-              $professor -> lastname = $request->input('lastname');
-              $professor -> name = $request->input('name');
-              $professor -> dni = $request->input('dni');
-              $professor -> email = $request->input('email');
-              $professor -> birthdate = $request->input('birthdate');
-              $professor -> password = $request->input('password');
-              $nom = $request->input('city');
-              $professor -> id_city = CityController::agafarID($nom);
-              $professor -> profile_pic = "Res";
-              $professor -> bio = "Res";
-              $professor -> id_role = 4;
-              $professor -> status = $request->input('status');
+              $proposal -> name = $request->input('name');
+              $proposal -> limit_date = $request->input('limit_date');
+              $proposal -> description = $request->input('description');
+              $proposal -> professional_family = $request->input('professional_family');
 
-              // Guardar l'profe a la BBDD amb les noves dades
-              $professor -> save();
+              // Guardar la proposta a la BBDD amb les noves dades
+              $proposal -> save();
 
-              // Tornar a la llista d'profes
-
-              $professors = DB::table('users')->where('id_role', 4)->get();
-
-              return redirect()->route('professors.index',compact('professors'))
+              // Tornar a la llista de propostes
+              return redirect()->route('proposals.index')
               ->with('i', (request()->input('page', 1) -1));//
     }
 
