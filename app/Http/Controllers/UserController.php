@@ -473,7 +473,7 @@ class UserController extends Controller
     {
         //Realitzem la carrega de dades de tots els usuaris amb rol 2 i establim una paginació per a que només 
         //apareguin 5 per pàgina
-        $employees = User::where([['id_role',2],['status',]])->paginate(5);
+        $employees = User::where('id_role',2)->paginate(5);
 
         return view ('employees.index', compact('employees'));
             
@@ -559,11 +559,8 @@ class UserController extends Controller
         $employee -> save();
 
         // Tornem a carregar la llista d'empleats
-        $employees = User::where('id_role', 4)->get();
+        $employees = User::where('id_role', 4);
 
-        // Retornem la vista on mostrarem els empleats i el llistat d'aquests
-        return redirect()->route('employee.indexActive',compact('employees'))
-        ->with('i', (request()->input('page', 1) -1));
         // Retornem la vista on mostrarem els empleats i ell llistat d'aquests
         return redirect()->route('employee.index',compact('employees'));
     
@@ -601,7 +598,7 @@ class UserController extends Controller
         // Tornar a la llista d'empleats
         $emplpyees = User::where('id_role', 2)->get();
     
-        return redirect()->route('employees.indexActive',compact('employees'));
+        return redirect()->route('employees.index',compact('employees'));
     }
 
     /**
