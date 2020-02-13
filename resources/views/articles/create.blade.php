@@ -5,14 +5,26 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>Add</h2>
+                <h2>Crear Article</h2>
+                </br>
             </div>
             <div class="pull-right">
-                <a class="btn btn-primary" href="{{$id_project}}"> Back</a>
+                <a class="btn btn-primary" href="{{ url('wiki', [$id_project]) }}"> Back</a>
+                <br></br>
             </div>
         </div>
     </div>
 
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <strong>Whoops!</strong> S'han produït alguns problemes amb la vostra entrada.<br><br>
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
 
     <form action="store" method="POST">
         @csrf
@@ -22,28 +34,28 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>version:</strong>
-                    <textarea class="form-control" name="version" placeholder="version"></textarea>
+                    <input class="form-control" name="version" placeholder="version"></input>
                 </div>
             </div>
 
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>title:</strong>
-                    <textarea class="form-control" name="title" placeholder="title"></textarea>
+                    <input class="form-control" name="title" placeholder="title"></input>
                 </div>
             </div>
 
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>content:</strong>
-                    <textarea class="form-control" name="content" placeholder="content"></textarea>
+                    <input class="form-control" name="content" placeholder="content"></input>
                 </div>
             </div>
 
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>reference:</strong>
-                    <textarea class="form-control" name="reference" placeholder="reference"></textarea>
+                    <input class="form-control" name="reference" placeholder="reference"></input>
                 </div>
             </div>
 

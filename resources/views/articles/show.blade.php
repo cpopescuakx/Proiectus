@@ -8,7 +8,7 @@
                 <h2>Show</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('articles.index') }}"> Back</a>
+                <a class="btn btn-primary" href="{{ url('wiki', [$id_project]) }}"> Back</a>
             </div>
         </div>
     </div>

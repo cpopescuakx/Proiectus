@@ -5,14 +5,26 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>Edit Article</h2>
+                <h2>Editar Article</h2>
+                </br>
             </div>
             <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('articles.index') }}"> Back</a>
+                <a class="btn btn-primary" href="{{ url('wiki', [$id_project]) }}"> Back</a>
+                <br></br>
             </div>
         </div>
     </div>
 
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <strong>Whoops!</strong> S'han produït alguns problemes amb la vostra entrada.<br><br>
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
 
     <form action="update" method="POST">
       @csrf

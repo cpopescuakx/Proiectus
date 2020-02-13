@@ -6,6 +6,7 @@
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
                 <h2>Articles</h2>
+                </br>
             </div>
             <div class="pull-right">
                 <a class="btn btn-success" href="{{$id_project}}/article/create">Crear</a>
