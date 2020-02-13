@@ -25,4 +25,6 @@ public class PaginaPrincipal extends Activity {
         startActivity(i);
     }
 
+    LlistaInstituts ll = new LlistaInstituts();
+
 }
