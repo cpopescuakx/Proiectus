@@ -117,7 +117,7 @@
     <!-- Fin sidenav -->
 
     <!-- Inicio menu -->
-    <nav id="top-menu" class="navbar navbar-expand-lg navbar-light fixed-top bg-white">
+    <nav id="top-menu" class="navbar2 navbar-expand-lg navbar-light fixed-top bg-white">
         <!-- Inicio toggle menu -->
         <div class="navbar-header">
             <i id="sidenav-toggle" class="material-icons">menu</i>
