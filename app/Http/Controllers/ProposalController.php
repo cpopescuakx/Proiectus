@@ -87,8 +87,16 @@ class ProposalController extends Controller
     {
         //
     }
+    /** EDITAR Proposta
+     *
+     *  Retorna el formulari de modificació de propostes. Passant la proposta a partir de l'ID.
+     *
+     *  @param int $id
+     *  @return \Illuminate\Http\Response
+     */
     public function editProposal($id){
-      
+      $proposal = Proposal::find($id);
+      return view('proposals.edit', compact('proposal'));
     }
 
     /**
@@ -101,6 +109,47 @@ class ProposalController extends Controller
     public function update(Request $request, $id)
     {
         //
+    }
+    /** UPDATE PROPOSTA
+     *
+     *  Guarda les noves dades de la proposta a la base de dades. Llavors, redirecciona
+     *  al llistat de propostes
+     *
+     *  @param Request $request
+     *  @return void
+     */
+
+    public function updateProposal(Request $request, $id)
+    {
+              $id = $request->route('id'); // Agafar l'ID de la URL
+
+              // Cercar la proposta amb la mateixa ID de la BBDD
+              $professor = User::find($id);
+
+              // Assignar els valors del formulari
+              $professor -> firstname = $request->input('firstname');
+              $professor -> lastname = $request->input('lastname');
+              $professor -> name = $request->input('name');
+              $professor -> dni = $request->input('dni');
+              $professor -> email = $request->input('email');
+              $professor -> birthdate = $request->input('birthdate');
+              $professor -> password = $request->input('password');
+              $nom = $request->input('city');
+              $professor -> id_city = CityController::agafarID($nom);
+              $professor -> profile_pic = "Res";
+              $professor -> bio = "Res";
+              $professor -> id_role = 4;
+              $professor -> status = $request->input('status');
+
+              // Guardar l'profe a la BBDD amb les noves dades
+              $professor -> save();
+
+              // Tornar a la llista d'profes
+
+              $professors = DB::table('users')->where('id_role', 4)->get();
+
+              return redirect()->route('professors.index',compact('professors'))
+              ->with('i', (request()->input('page', 1) -1));//
     }
 
     /**
