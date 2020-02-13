@@ -1,11 +1,13 @@
 package com.example.proiectus;
 
 public class Institut {
+    private int id;
     private String nom;
     private String codi;
     private String ciutat;
 
-    public Institut (String nom, String codi, String ciutat) {
+    public Institut (int id,String nom, String codi, String ciutat) {
+        this.id = id;
         this.nom = nom;
         this.codi = codi;
         this.ciutat = ciutat;
@@ -22,6 +24,8 @@ public class Institut {
     public void setCiutat (String ciutat) {
         this.ciutat = ciutat;
     }
+
+    public int getId () { return id; }
 
     public String getNom () {
         return nom;

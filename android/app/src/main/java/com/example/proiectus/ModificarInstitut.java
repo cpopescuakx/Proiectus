@@ -20,7 +20,7 @@ public class ModificarInstitut extends AppCompatActivity {
             nom = getIntent().getExtras().getString("nom");
         }
 
-        String [] dades = llistaInstituts.getInstitut(nom);
+        String [] dades = llistaInstituts.getInstitut(1);
 
         System.out.println(dades);
 
