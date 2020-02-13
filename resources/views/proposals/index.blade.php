@@ -57,6 +57,6 @@
     </tbody>
 </table>
 <div class="d-flex pt-5 justify-content-center">
-    <div class="inline-block">{{ $proposals->appends($_REQUEST['tipo'])->links() }}</div>
+    <div class="inline-block">{{ $proposals->appends('tipo', request('tipo'))->links() }}</div>
 </div>
 @stop
