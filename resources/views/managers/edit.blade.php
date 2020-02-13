@@ -113,7 +113,7 @@
                                         {{-- Mostrar l'estat actual del gestor --}}
                                         @if($managers->status == "active")
                                             <option selected value="active">Actiu</option>
-                                            <option value="inactive">Inactiu</option>
+                                            <option value="inactive">Innactiu</option>
                                         @else
                                             <option value="active">Actiu</option>
                                             <option selected value="inactive">Innactiu</option>
