@@ -69,7 +69,7 @@ class SchoolController extends Controller
     public function editSchool($id)
     {
         $where = array('id_school' => $id);
-        $data['school'] = School::where($where)->first();
+        $data['school'] = School::where($where)->firstOrFail();
 
         return view('schools.edit', $data);
     }

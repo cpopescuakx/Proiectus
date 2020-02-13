@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\City;
 
 class CityController extends Controller
 {
@@ -93,7 +94,7 @@ class CityController extends Controller
      */
     public static function agafarID ($name)
     {
-        $city = DB::table('cities')->select("*")->where("name", $name)->get()->first();
+        $city = City::where("name", $name)->get()->first();
         $id = $city->id_city;
         return $id;
     }
@@ -107,7 +108,7 @@ class CityController extends Controller
      */
 
     public static function agafarNom ($id) {
-        $city = DB::table('cities')->select("*")->where("id_city", $id)->get();
+        $city = City::where("id_city", $id)->get();
         $nomCiutat = $city[0]->name;
         return $nomCiutat;
     }

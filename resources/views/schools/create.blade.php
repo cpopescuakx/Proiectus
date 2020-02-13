@@ -2,7 +2,7 @@
 
 @section('content')
 <div class=" formulari ">
-    <form class="was-validated" action="{{ route('schools.store') }}" method="POST" name="add_product">
+    <form class="was-validated" action="{{ route('schools.store') }}" method="POST" autocomplete="nofill">
         @csrf
         <div class="row justify-content-center">
             <div class="col-11 col-sm-11 col-md-10 col-lg-10 col-xl-10">
@@ -24,7 +24,7 @@
                         <div class="row justify-content-center">
                             <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
                                 <strong>NOM</strong>
-                                <input type="text" name="name" class="form-control" placeholder="Institut1">
+                                <input type="text" name="name" class="form-control" required>
                                 <span class="text-danger">{{ $errors->first('name') }}</span>
                             </div>
                         </div>
@@ -34,7 +34,7 @@
                         <div class="row justify-content-center">
                             <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
                                 <strong>EMAIL</strong>
-                                <input type="text" name="email" class="form-control" placeholder="info@exemple.com">
+                                <input type="text" name="email" class="form-control" required>
                                 <span class="text-danger">{{ $errors->first('email') }}</span>
                             </div>
                         </div>
@@ -44,7 +44,7 @@
                         <div class="row justify-content-center">
                             <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
                                 <strong>CODI</strong>
-                                <input type="text" class="form-control" col="4" name="code" placeholder="1564687"></textarea>
+                                <input type="text" class="form-control" col="4" name="code" autocomplete="off" required>
                                 <span class="text-danger">{{ $errors->first('code') }}</span>
                             </div>
                         </div>
@@ -54,7 +54,12 @@
                         <div class="row justify-content-center">
                             <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
                                 <strong>TIPUS</strong>
-                                <input type="text" class="form-control" col="4" name="type" placeholder="Batxillerat"></textarea>
+                                <datalist id="tipus">
+                                    <option value="Batxillerat"></option>
+                                    <option value="FP"></option>
+                                    <option value="Universitat"></option>
+                                </datalist>
+                                <input type="text" class="form-control" col="4" name="type" list="tipus" autocomplete="off" required>
                                 <span class="text-danger">{{ $errors->first('type') }}</span>
                             </div>
                         </div>

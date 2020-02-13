@@ -46,7 +46,7 @@
         <td>{{$city::agafarNom($employee->id_city)}}
         <td>
             <a href="{{ route('employee.edit', [$employee->id]) }}"><img src={{ asset('img/edit.svg') }} width="20" height="20" class="mr-2"></a>
-            <a href="{{ route('employee.destroy', [$employee->id]) }}"><img src={{ asset('img/checkIcon.svg') }} width="30" height="30"></a>
+            <a href="{{ route('employee.active', [$employee->id])}}"><img src={{ asset('img/checkIcon.svg') }} width="30" height="30"></a>
         </td>
 
         {{-- <td><a href="{{ route('employee.edit', $project->id)}}" class="btn btn-primary">Editar</a></td> --}}

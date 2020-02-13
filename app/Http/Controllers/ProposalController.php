@@ -12,9 +12,14 @@ class ProposalController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function index()
+    {
+        //
+    }
+
     public function indexProposal()
     {
-      $proposals = Proposal::all();
+      $proposals = Proposal::paginate(5);
       return view('proposals.index', compact('proposals'))
           ->with('i', (request()->input('page', 1) -1));//
     }
@@ -29,6 +34,12 @@ class ProposalController extends Controller
         //
     }
 
+
+    public function createProposal()
+    {
+        return view('proposals.create');
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -38,6 +49,21 @@ class ProposalController extends Controller
     public function store(Request $request)
     {
         //
+    }
+
+    //! TO-DO
+    public function storeProposal(Request $request)
+    {
+        $request->validate([
+            'name' => 'required',
+            'limit_date' => 'required',
+            'description' => 'required',
+            'professional_family' => 'required'
+        ]);
+
+        Proposal::create($request->all());
+        return redirect()->route('proposals.index')
+                        ->with('success','Proposal created successfully.');
     }
 
     /**
@@ -60,6 +86,9 @@ class ProposalController extends Controller
     public function edit($id)
     {
         //
+    }
+    public function editProposal($id){
+      
     }
 
     /**

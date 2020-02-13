@@ -1,5 +1,6 @@
 @extends('layouts.default')
 
+
 @section('content')
 <div class="col">
   <div class="row d-flex justify-content-end p-4">
@@ -9,15 +10,13 @@
 <table class="table table-hover mr-5">
 <thead>
     <tr>
-        <td>ID</td>
         <td>Nom</td>
         <td>Data d'inici</td>
         <td>Data de finalització</td>
-        <td>Pressupost</td>
+        <td>Description</td>
+        <td>Category</td>
         <td>Familia professional</td>
-        <td>Estat</td>
         <td colspan="2">Accions</td>
-
     </tr>
 </thead>
 
@@ -36,18 +35,12 @@
 <tbody>
     @foreach($proposals as $proposal)
     <tr>
-        <td>{{ ++$i }}</td>
-
-        {{--<td>{{$proposal->id_proposal}}</td>--}}
         <td>{{$proposal->name}}</td>
         <td>{{$proposal->created_at}}</td>
-        <td>{{$proposal->updated_at}}</td>
-        <td>{{$proposal->description}}</td>
         <td>{{$proposal->limit_date}}</td>
-        <td>{{$proposal->id_author}}</td>
+        <td>{{$proposal->description}}</td>
         <td>{{$proposal->category}}</td>
         <td>{{$proposal->professional_family}}</td>
-        <td>{{$proposal->status}}</td>
         <td>
             <a href="{{ route('proposals.edit', [$proposal->id_proposal]) }}"><img src={{ asset('img/edit.svg') }} width="20" height="20" class="mr-2"></a>
             <a href="{{ route('proposals.destroy', [$proposal->id_proposal]) }}"><img src={{ asset('img/delete.svg') }} width="20" height="20"></a>
@@ -64,6 +57,11 @@
 
     </tr>
     @endforeach
+
+    
 </tbody>
 </table>
+<div class="d-flex pt-5 justify-content-center">
+    <div class="inline-block">{{ $proposals->links() }}</div>
+</div>
 @stop
