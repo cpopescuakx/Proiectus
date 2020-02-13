@@ -68,7 +68,7 @@ class ArticleController extends Controller
 
         $article->save();
 
-        return redirect()->route('wiki', ['$id_project' => $id_project]);;;
+        return redirect()->back();
     }
 
 
@@ -135,7 +135,7 @@ class ArticleController extends Controller
 
         $article->save();
 
-        return redirect()->back()->back();
+        return redirect()->back();
 
     }
 
