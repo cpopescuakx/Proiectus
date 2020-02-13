@@ -22,11 +22,17 @@
     </tr>
 </thead>
 
+
+
+
+
 @if ($message = Session::get('success'))
     <div class="alert alert-success">
         <p>{{$message}}</p>
     </div>
 @endif
+
+
 
 <tbody>
     @foreach($employees as $employee)
@@ -42,6 +48,15 @@
             <a href="{{ route('employee.edit', [$employee->id]) }}"><img src={{ asset('img/edit.svg') }} width="20" height="20" class="mr-2"></a>
             <a href="{{ route('employee.active', [$employee->id])}}"><img src={{ asset('img/checkIcon.svg') }} width="30" height="30"></a>
         </td>
+
+        {{-- <td><a href="{{ route('employee.edit', $project->id)}}" class="btn btn-primary">Editar</a></td> --}}
+        {{-- <td>
+            <form action="{{ route('employee.active', $project->id)}}" method="post">
+                @csrf
+                @method('DELETE')
+                <button class="btn btn-danger" type="submit">Esborrar</button>
+            </form>
+        </td> --}}
 
     </tr>
     @endforeach

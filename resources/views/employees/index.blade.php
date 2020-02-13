@@ -45,6 +45,15 @@
             <a href="{{ route('employee.destroy', [$employee->id]) }}"><img src={{ asset('img/delete.svg') }} width="20" height="20"></a>
         </td>
 
+        {{-- <td><a href="{{ route('employee.edit', $project->id)}}" class="btn btn-primary">Editar</a></td> --}}
+        {{-- <td>
+            <form action="{{ route('employee.destroy', $project->id)}}" method="post">
+                @csrf
+                @method('DELETE')
+                <button class="btn btn-danger" type="submit">Esborrar</button>
+            </form>
+        </td> --}}
+
     </tr>
     @endforeach
 </tbody>
