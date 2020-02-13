@@ -460,38 +460,23 @@ class UserController extends Controller
         ->with('i', (request()->input('page', 1) -1));
     }
 
-    /** LLISTAR EMPLEATS ACTIUS
+
+    /** LLISTAR EMPLEATS
      *
-     *  Extreu els empleats que tenen ID de rol 4 (Empleat) els quals tinguin com a estat (active), després retorna la vista per a llistar-los.
-     *
-     *  @param void
-     *  @return \Illuminate\Http\Response
-     * */
-
-    public function indexEmployeeActive()
-    {
-        //
-        $employees = User::where([['id_role',2],['status','active'],])->get();
-
-        return view ('employees.indexActive', compact('employees'));
-
-    }
-
-    /** LLISTAR EMPLEATS INACTIUS
-     *
-     *  Extreu els empleats que tenen ID de rol 4 (Empleat) els quals tinguin com a estat (inactive), després retorna la vista per a llistar-los.
+     *  Extreu els empleats que tenen ID de rol 4 (Empleat), després retorna la vista per a llistar-los.
      *
      *  @param void
      *  @return \Illuminate\Http\Response
      * */
 
-    public function indexEmployeeInactive()
+    public function indexEmployee()
     {
-        //
-        $employees = User::where([['id_role',2],['status','inactive'],])->get();
+        //Realitzem la carrega de dades de tots els usuaris amb rol 2 i establim una paginació per a que només 
+        //apareguin 5 per pàgina
+        $employees = User::where([['id_role',2],['status',]])->paginate(5);
 
-        return view ('employees.indexInactive', compact('employees'));
-
+        return view ('employees.index', compact('employees'));
+            
     }
 
     /** CREAR EMPLEAT
@@ -513,7 +498,7 @@ class UserController extends Controller
      *
      *  Indiquem la id de l'usuari el qual volem donar d'alta i redireccionem a la vista anterior.
      *
-     *  @param $id Conté la ID de l'usuari
+     *  @param int $id Conté la ID de l'usuari
      *  @return \Illuminate\Http\Response
      * */
 
@@ -529,8 +514,8 @@ class UserController extends Controller
      *
      *  Retorna el formulari de modificació d'empleats. Passant l'empleat a partir de l'ID.
      *
-     *  @param int $id
-     *  @return void
+     *  @param int $id Conté la ID de l'usuari
+     *  @return \Illuminate\Http\Response
      */
     public function editEmployee ($id) {
         $employee = User::find($id);
@@ -574,17 +559,14 @@ class UserController extends Controller
         $employee -> save();
 
         // Tornem a carregar la llista d'empleats
-        $employees = DB::table('users')->where('id_role', 4)->get();
+        $employees = User::where('id_role', 4)->get();
 
-<<<<<<< HEAD
         // Retornem la vista on mostrarem els empleats i el llistat d'aquests
         return redirect()->route('employee.indexActive',compact('employees'))
         ->with('i', (request()->input('page', 1) -1));
-=======
         // Retornem la vista on mostrarem els empleats i ell llistat d'aquests
-        return redirect()->route('employee.indexActive',compact('employees'));
->>>>>>> e402e4e65b1546ee475cca2b5f598f78e0adbf8c
-
+        return redirect()->route('employee.index',compact('employees'));
+    
     }
 
     /**
@@ -595,7 +577,6 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-<<<<<<< HEAD
          // Instanciar
         $employee= new User;
 
@@ -617,19 +598,10 @@ class UserController extends Controller
         // Guardar alumne a la BBDD
         $employee-> save();
 
-        // Tornar a la llista d'alumnes
-
-        $employees = User::where('id_role', 2)->get();
-
-<<<<<<< HEAD
-        return redirect()->route('employee.indexActive',compact('employees'))
-        ->with('i', (request()->input('page', 1) -1));
-=======
+        // Tornar a la llista d'empleats
+        $emplpyees = User::where('id_role', 2)->get();
+    
         return redirect()->route('employees.indexActive',compact('employees'));
->>>>>>> c20d80aae4522f42fbc690e120092bc872e48e50
-=======
-        //
->>>>>>> e402e4e65b1546ee475cca2b5f598f78e0adbf8c
     }
 
     /**
