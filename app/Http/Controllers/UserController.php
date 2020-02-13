@@ -555,12 +555,15 @@ class UserController extends Controller
         $employee-> bio = $request->input('bio');
         $employee -> id_role = 2;
 
-        // Guardar l'profe a la BBDD amb les noves dades
+        // Guardar l'empelat a la BBDD amb les noves dades
         $employee -> save();
 
         // Tornem a carregar la llista d'empleats
         $employees = User::where('id_role', 4)->get();
 
+        // Retornem la vista on mostrarem els empleats i el llistat d'aquests
+        return redirect()->route('employee.indexActive',compact('employees'))
+        ->with('i', (request()->input('page', 1) -1));
         // Retornem la vista on mostrarem els empleats i ell llistat d'aquests
         return redirect()->route('employee.index',compact('employees'));
     
@@ -595,11 +598,10 @@ class UserController extends Controller
         // Guardar alumne a la BBDD
         $employee-> save();
 
-        // Tornar a la llista d'alumnes
-
+        // Tornar a la llista d'empleats
         $emplpyees = User::where('id_role', 2)->get();
-
-        return redirect()->route('employees.index',compact('employees'));
+    
+        return redirect()->route('employees.indexActive',compact('employees'));
     }
 
     /**
@@ -642,7 +644,7 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroyEmployee($id)
     {
         //
     }
