@@ -144,6 +144,6 @@ Route::get('/Employees/Inactive', 'UserController@indexEmployeeInactive')->name(
 Route::get('/Employees/create', 'UserController@createEmployee')->name('employee.create');
 Route::get('/Employees/{id}/edit', 'UserController@edit')->name('employee.edit');
 Route::get('/Employees/{id}/delete', 'UserController@destroy')->name('employee.destroy');
-Route::post('/Employees/store', 'UserController@store')->name('employee.store');
+Route::post('/Employees/store', 'UserController@storeEmployees')->name('employee.store');
 Route::post('/Employees/{id}/update', 'UserController@update')->name('employee.update');
 

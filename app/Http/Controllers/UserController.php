@@ -488,9 +488,35 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function storeEmployees(Request $request)
     {
-        //
+         // Instanciar
+        $empleat= new User;
+
+        // Assignació de valors a les propietats
+        $empleat-> firstname = $request->input('firstname');
+        $empleat-> lastname = $request->input('lastname');
+        $empleat-> name = $request->input('name');
+        $empleat-> dni = $request->input('dni');
+        $empleat-> email = $request->input('email');
+        $empleat-> birthdate = $request->input('birthdate');
+        $empleat-> password = $request->input('password');
+        $nom = $request->input('city');
+        $empleat-> id_city = CityController::agafarID($nom);
+        $empleat-> profile_pic = "Res";
+        $empleat-> bio = "Res";
+        $empleat-> id_role = 2;
+        $empleat-> status = "active";
+
+        // Guardar alumne a la BBDD
+        $empleat-> save();
+
+        // Tornar a la llista d'alumnes
+
+        $empleats = DB::table('users')->where('id_role', 2)->get();
+
+        return redirect()->route('employees.indexActive',compact('employees'))
+        ->with('i', (request()->input('page', 1) -1));
     }
 
     /**
