@@ -17,11 +17,13 @@ class ProposalController extends Controller
         //
     }
 
-    public function indexProposal()
+    public function indexProposal(Request $request)
     {
-      $proposals = Proposal::paginate(5);
-      return view('proposals.index', compact('proposals'))
-          ->with('i', (request()->input('page', 1) -1));//
+        $tipo = $request->get('tipo');
+
+        $proposals = Proposal::tipo($tipo)->paginate(5);
+
+        return view('proposals.index', compact('proposals'));
     }
 
     /**

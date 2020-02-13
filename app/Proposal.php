@@ -21,4 +21,11 @@ class Proposal extends Model
         'category' => 'company',
         'status' => 'active'
     ];
+
+    // Función scope para filtrar propuestas activas/inactivas
+    public function scopeTipo($query, $tipo) {
+    	if ($tipo) {
+    		return $query->where('status','=',"$tipo");
+    	}
+    }
 }

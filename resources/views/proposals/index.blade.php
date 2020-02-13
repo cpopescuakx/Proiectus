@@ -2,12 +2,16 @@
 
 @section('content')
 <div class="col">
-  <div class="row d-flex justify-content-end p-4">
+  <div class="row d-flex p-4 justify-content-between">
     <!-- Filtro -->
-    <nav class="navbar navbar-light float-left">
+    <nav class="navbar navbar-light">
         <form class="form-inline">
-            <input name="buscarpor" class="form-control mr-sm-2" type="search" placeholder="Buscar por nombre" aria-label="Search">
-            <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Buscar</button>
+            <select name="tipo" class="custom-select">
+                <option selected>Open this select menu</option>
+                <option>active</option>
+                <option>inactive</option>
+              </select>
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
       </nav>
     <a href="{{ route('proposals.create') }}"><img src={{ asset('img/add.svg') }} width="45" height="45" ></a>
@@ -53,6 +57,6 @@
     </tbody>
 </table>
 <div class="d-flex pt-5 justify-content-center">
-    <div class="inline-block">{{ $proposals->links() }}</div>
+    <div class="inline-block">{{ $proposals->appends($_REQUEST['tipo'])->links() }}</div>
 </div>
 @stop
