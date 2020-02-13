@@ -28,9 +28,17 @@ class UserController extends Controller
      * */
     public function indexManager(){
         //Mostrem tots els usuaris amb id de rol 5 (gestors)
+<<<<<<< HEAD
+        $managers['users'] = User::where('id_role', 5)
+        ->take(1000);
+        //dd($managers);
+        //$managers = Users::where('id_role', 5);
+        return view('managers.index', $managers);
+=======
         $managers = User::where([['id_role', 5],['status','active'],])->get();
 
         return view('managers.index', compact('managers'));
+>>>>>>> a388c1e0bcdfed342ef720327a493ddeea436e8a
     }
 
     /** CREAR GESTORS
@@ -430,15 +438,31 @@ class UserController extends Controller
      *  @return \Illuminate\Http\Response
      * */
 
-    public function indexEmployee()
+    public function indexEmployeeActive()
     {
-        
-        $employees = User::where('id_role',2)->paginate(5);
+        //
+        $employees = User::where([['id_role',2],['status','active'],])->paginate(5);
 
-        return view ('employees.index', compact('employees'));
+        return view ('employees.indexActive', compact('employees'));
             
     }
     
+    /** LLISTAR EMPLEATS INACTIUS
+     *
+     *  Extreu els empleats que tenen ID de rol 4 (Empleat) els quals tinguin com a estat (inactive), després retorna la vista per a llistar-los.
+     *
+     *  @param void
+     *  @return \Illuminate\Http\Response
+     * */
+
+    public function indexEmployeeInactive()
+    {
+        //
+        $employees = User::where([['id_role',2],['status','inactive'],])->paginate(5);
+
+        return view ('employees.indexInactive', compact('employees'));
+            
+    }
 
     /** CREAR EMPLEAT
      *
@@ -516,15 +540,16 @@ class UserController extends Controller
         $employee-> bio = $request->input('bio');
         $employee -> id_role = 2;
 
-        // Guardar l'empelat a la BBDD amb les noves dades
+        // Guardar l'profe a la BBDD amb les noves dades
         $employee -> save();
 
         
         // Tornem a carregar la llista d'empleats
-        $employees = User::where('id_role', 4);
+        $employees = DB::table('users')->where('id_role', 4)->get();
 
         // Retornem la vista on mostrarem els empleats i ell llistat d'aquests
-        return redirect()->route('employee.index',compact('employees'));
+        return redirect()->route('employee.indexActive',compact('employees'))
+        ->with('i', (request()->input('page', 1) -1));
     
     }
 
@@ -542,7 +567,7 @@ class UserController extends Controller
         // Assignació de valors a les propietats
         $employee-> firstname = $request->input('firstname');
         $employee-> lastname = $request->input('lastname');
-        $employee-> name = $request->input('username');
+        $employee-> name = $request->input('name');
         $employee-> dni = $request->input('dni');
         $employee-> email = $request->input('email');
         $employee-> birthdate = $request->input('birthdate');
@@ -550,17 +575,18 @@ class UserController extends Controller
         $nom = $request->input('city');
         $employee-> id_city = CityController::agafarID($nom);
         $employee-> profile_pic = "Res";
-        $employee-> bio = $request->input('bio');
-        $employee-> id_role = 4;
+        $employee-> bio = "Res";
+        $employee-> id_role = 2;
         $employee-> status = "active";
 
         // Guardar alumne a la BBDD
         $employee-> save();
 
-        // Tornar a la llista d'empleats
-        $employees = User::where('id_role', 4)->get();
-    
-        return redirect()->route('employee.index',compact('employees'));
+        // Tornar a la llista d'alumnes
+
+        $emplpyees = User::where('id_role', 2)->get();
+
+        return redirect()->route('employees.indexActive',compact('employees'));
     }
 
     /**
@@ -603,15 +629,8 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroyEmployee($id)
+    public function destroy($id)
     {
-        $employee = User::find($id);
-        $employee -> status = 'inactive';
-        $employee -> save();
-
-        $employees = DB::table('users')->where('id_role', 4)->get();
-
-        return redirect()->route('employee.index',compact('employees'))
-        ->with('i', (request()->input('page', 1) -1));
+        //
     }
 }
