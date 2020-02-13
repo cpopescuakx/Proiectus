@@ -19,6 +19,7 @@ public class PaginaPrincipal extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pagina_principal);
         btnAfegir = (Button)findViewById(R.id.btnAfegir);
+        btnModificar = (Button)findViewById(R.id.btnModificar);
 
         // Dades de prova
         llistaInstituts.dadesProva();
@@ -35,7 +36,7 @@ public class PaginaPrincipal extends Activity {
         btnModificar.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
                 Intent i  = new Intent(PaginaPrincipal.this, ModificarInstitut.class);
-                i.putExtra("nom", "IES Montsià");
+                i.putExtra("id", "1");
                 startActivity(i);
             }
         });

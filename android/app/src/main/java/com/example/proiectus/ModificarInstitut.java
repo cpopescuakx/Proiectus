@@ -14,16 +14,16 @@ public class ModificarInstitut extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_modificar_instituts);
 
-        String nom = "IES Camarles";
+        int id = 2;
 
-        if (getIntent().hasExtra("nom")){
-            nom = getIntent().getExtras().getString("nom");
+        if (getIntent().hasExtra("id")){
+            id = Integer.parseInt(getIntent().getExtras().getString("id"));
         }
 
-        String [] dades = llistaInstituts.getInstitut(1);
+        String [] dades = llistaInstituts.getInstitut(id);
 
         System.out.println(dades);
 
-        llistaInstituts.modificarInstitut(dades[0], dades[1], dades[2]);
+        llistaInstituts.modificarInstitut(1, dades[0], dades[1], dades[2]);
     }
 }
