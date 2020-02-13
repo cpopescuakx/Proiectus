@@ -4,8 +4,7 @@
 @section('content')
 <div class="col">
   <div class="row d-flex justify-content-between p-4">
-  <h2 >Llistat d'empleats actius </h2>
-  <a href="{{ route('employee.indexInactive') }}"><img src={{ asset('img/playlist_add_check.svg') }} width="45" height="45"></a>
+  <h2 >Llistat d'empleats</h2>
   <a href="{{ route('employee.create') }}"><img src={{ asset('img/add.svg') }} width="45" height="45" ></a>
   </div>  
 </div>
@@ -33,8 +32,6 @@
     </div>
 @endif
 
-
-
 <tbody>
     @foreach($employees as $employee)
     <tr>
@@ -50,6 +47,7 @@
             <a href="{{ route('employee.destroy', [$employee->id]) }}"><img src={{ asset('img/delete.svg') }} width="20" height="20"></a>
         </td>
 
+        
         {{-- <td><a href="{{ route('employee.edit', $project->id)}}" class="btn btn-primary">Editar</a></td> --}}
         {{-- <td>
             <form action="{{ route('employee.destroy', $project->id)}}" method="post">
@@ -63,4 +61,8 @@
     @endforeach
 </tbody>
 </table>
+
+<div class="d-flex pt-5 justify-content-center">
+    <div class="inline-block">{{ $employees->links() }}</div>
+</div>
 @stop
