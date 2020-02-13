@@ -17,7 +17,7 @@ use App\Project;
 
 Route::get('/', function () {
     return view('welcome');
-})-> name('projects.x');
+})-> name('index.index');
 
 
 
@@ -147,4 +147,3 @@ Route::get('/Employees/{id}/delete', 'UserController@destroy')->name('employee.d
 Route::post('/Employees/store', 'UserController@storeEmployees')->name('employee.store');
 Route::post('/Employees/{id}/update', 'UserController@updateEmployee')->name('employee.update');
 Route::get('/Employees/{id}/active', 'UserController@activeUser')->name('employee.active');
-
