@@ -7,7 +7,7 @@
   <h2 >Llistat d'empleats actius </h2>
   <a href="{{ route('employee.indexInactive') }}"><img src={{ asset('img/playlist_add_check.svg') }} width="45" height="45"></a>
   <a href="{{ route('employee.create') }}"><img src={{ asset('img/add.svg') }} width="45" height="45" ></a>
-  </div>  
+  </div>
 </div>
 <table class="table table-hover mr-5">
 <thead>
@@ -22,10 +22,6 @@
         <td colspan="2">Accions</td>
     </tr>
 </thead>
-
-
-
-
 
 @if ($message = Session::get('success'))
     <div class="alert alert-success">
@@ -49,15 +45,6 @@
             <a href="{{ route('employee.edit', [$employee->id]) }}"><img src={{ asset('img/edit.svg') }} width="20" height="20" class="mr-2"></a>
             <a href="{{ route('employee.destroy', [$employee->id]) }}"><img src={{ asset('img/delete.svg') }} width="20" height="20"></a>
         </td>
-
-        {{-- <td><a href="{{ route('employee.edit', $project->id)}}" class="btn btn-primary">Editar</a></td> --}}
-        {{-- <td>
-            <form action="{{ route('employee.destroy', $project->id)}}" method="post">
-                @csrf
-                @method('DELETE')
-                <button class="btn btn-danger" type="submit">Esborrar</button>
-            </form>
-        </td> --}}
 
     </tr>
     @endforeach
