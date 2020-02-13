@@ -114,13 +114,19 @@ a:hover {
 .navbar {
     height: 56px;
     background-color: white;
-    border-bottom: 1px solid rgba(0, 0, 0, .2);
     transition: left .25s ease;
 }
 
 .navbar-header {
     position: relative;
     z-index: 1;
+}
+
+.navbar2 {
+    height: 56px;
+    background-color: white;
+    transition: left .25s ease;
+    border-bottom: 1px solid gray;
 }
 
 .navbar-nav {
