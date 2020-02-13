@@ -56,19 +56,19 @@ class ArticleController extends Controller
         ]);
 
         $article = new Article();
-        $article->id_project = $id_project;
-        $article->version = $request->get('version');
-        $article->title = $request->get('title');
-        $article->content = $request->get('content');
-        $article->reference = $request->get('reference');
-        $article->id_user = $id_user;
-        $article->status = 'active';
+        $article -> id_project = $id_project;
+        $article -> version = $request->get('version');
+        $article -> title = $request->get('title');
+        $article -> content = $request->get('content');
+        $article -> reference = $request->get('reference');
+        $article -> id_user = $id_user;
+        $article -> status = 'active';
 
 
 
         $article->save();
 
-        return redirect()->back();
+        return redirect()->route('wiki', ['$id_project' => $id_project]);;;
     }
 
 
@@ -135,7 +135,7 @@ class ArticleController extends Controller
 
         $article->save();
 
-        return redirect()->back();
+        return redirect()->back()->back();
 
     }
 
@@ -148,12 +148,15 @@ class ArticleController extends Controller
      */
 
 
-    public function destroy(Article $article)
+    public function destroy($id_article)
     {
-        $article->delete();
+        $article = Article::find($id_article);
 
-        return redirect()->route('articles.index')
-                        ->with('success','Article deleted successfully');
+        $article -> status = 'inactive';
+
+        $article->save();
+
+        return redirect()->back();
     }
 
 

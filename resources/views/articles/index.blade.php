@@ -1,22 +1,18 @@
-@extends('articles.layout')
+@extends('layouts.default')
 
 @section('content')
+  <div style="padding: 10px">
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>Prova</h2>
+                <h2>Articles</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-success" href="{{$id_project}}/article/create">Create</a>
+                <a class="btn btn-success" href="{{$id_project}}/article/create">Crear</a>
+                <br></br>
             </div>
         </div>
     </div>
-
-    @if ($message = Session::get('success'))
-        <div class="alert alert-success">
-            <p>{{ $message }}</p>
-        </div>
-    @endif
 
     <table class="table table-bordered">
         <tr>
@@ -46,17 +42,15 @@
             <td>{{ $article->status }}</td>
             <td>
                 <form action="{{ route('articles.destroy',$article->id_article) }}" method="POST">
-
-                    <a class="btn btn-primary" href="{{$id_project}}/article/{{$article->id_article}}/edit">Edit</a>
-
+                    <a class="btn btn-primary" href="{{$id_project}}/article/{{$article->id_article}}/edit">Editar</a>
                     @csrf
                     @method('DELETE')
-
-                    <button type="submit" class="btn btn-danger">Delete</button>
+                    <button type="submit" class="btn btn-danger">Eliminar</button>
                 </form>
             </td>
         </tr>
         @endforeach
     </table>
+  </div>
 
 @endsection

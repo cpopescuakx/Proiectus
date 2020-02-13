@@ -1,5 +1,7 @@
-@extends('articles.layout')
+@extends('layouts.default')
+
 @section('content')
+  <div style="padding: 10px">
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
@@ -78,4 +80,5 @@
 
 
     </div>
+  </div>
 @endsection
