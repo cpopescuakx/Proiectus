@@ -11,13 +11,19 @@ import android.widget.Button;
 
 public class PaginaPrincipal extends Activity {
     Button btnAfegir;
-    LlistaInstituts llista = new LlistaInstituts();
+    Button btnModificar;
+    LlistaInstituts llistaInstituts = new LlistaInstituts();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pagina_principal);
         btnAfegir = (Button)findViewById(R.id.btnAfegir);
-        llista.llistarProjectes();
+
+        // Dades de prova
+        llistaInstituts.dadesProva();
+
+        //llistaInstituts.llistarProjectes();
 
         btnAfegir.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
@@ -26,10 +32,16 @@ public class PaginaPrincipal extends Activity {
             }
         });
 
+        btnModificar.setOnClickListener(new Button.OnClickListener() {
+            public void onClick(View v) {
+                Intent i  = new Intent(PaginaPrincipal.this, ModificarInstitut.class);
+                i.putExtra("nom", "IES Montsià");
+                startActivity(i);
+            }
+        });
+
     }
 
 
-
-    LlistaInstituts ll = new LlistaInstituts();
 
 }
