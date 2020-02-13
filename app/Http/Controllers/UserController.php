@@ -586,8 +586,7 @@ class UserController extends Controller
 
         $empleats = DB::table('users')->where('id_role', 2)->get();
 
-        return redirect()->route('employees.indexActive',compact('employees'))
-        ->with('i', (request()->input('page', 1) -1));
+        return redirect()->route('employees.indexActive',compact('employees'));
     }
 
     /**
