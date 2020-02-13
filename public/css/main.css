@@ -166,6 +166,8 @@
   border-color: transparent;
 }
 
+/* Estilo header */
+/* Estilo scroll */
 ::-webkit-scrollbar {
   width: 10px;
 }
@@ -283,12 +285,6 @@ a:hover {
 }
 
 .navbar {
-  height: 56px;
-  background-color: white;
-  transition: left .25s ease;
-}
-
-.navbar2 {
   height: 56px;
   background-color: white;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
@@ -525,6 +521,7 @@ form .form-img {
 }
 
 .carousel-item {
+  vertical-align: middle;
   border-style: none;
   display: block;
   height: auto;

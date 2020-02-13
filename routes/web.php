@@ -139,10 +139,11 @@ Route::post('Proposals/{id}/edit/success', 'ProposalController@updateProposal')-
 Route::get('Proposals/{id}', 'ProposalController@destroyProposal')->name('proposals.destroy');
 
 /* Empleats */
-Route::get('/Employees', 'UserController@indexEmployee')->name('employee.index');
+Route::get('/Employees/Active', 'UserController@indexEmployeeActive')->name('employee.indexActive');
+Route::get('/Employees/Inactive', 'UserController@indexEmployeeInactive')->name('employee.indexInactive');
 Route::get('/Employees/create', 'UserController@createEmployee')->name('employee.create');
 Route::get('/Employees/{id}/edit', 'UserController@editEmployee')->name('employee.edit');
-Route::get('/Employees/{id}/delete', 'UserController@destroyEmployee')->name('employee.destroy');
+Route::get('/Employees/{id}/delete', 'UserController@destroy')->name('employee.destroy');
 Route::post('/Employees/store', 'UserController@storeEmployees')->name('employee.store');
 Route::post('/Employees/{id}/update', 'UserController@updateEmployee')->name('employee.update');
 Route::get('/Employees/{id}/active', 'UserController@activeUser')->name('employee.active');
