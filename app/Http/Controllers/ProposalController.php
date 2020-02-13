@@ -144,11 +144,11 @@ class ProposalController extends Controller
     }
 
     /**BAIXA PROPOSTA
-     * 
+     *
      * Donem de baixa la proposta que indiquem amb la seva ID
      *
      * @param  int  $id
-     * 
+     *
      * @return \Illuminate\Http\Response
      */
     public function destroyProposal($id)
@@ -160,7 +160,7 @@ class ProposalController extends Controller
         $proposals = Proposal::all();
 
         return redirect()->route('proposals.index',compact('proposals'))
-        ->with('i', (request()->input('page', 1) -1));    
+        ->with('i', (request()->input('page', 1) -1));
     }
 
     /** DONAR D'ALTA PROPOSTA
