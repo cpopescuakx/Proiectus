@@ -1,7 +1,7 @@
 
 <div id="menu" class="closed">
     <!-- Inicio sidenav -->
-    <nav id="sidenav" class="bg-primary1">
+    <nav id="sidenav" class="bg-primary">
         <ul class="nav flex-column">
             <!-- Logo -->
             <li class="nav-item">
@@ -13,22 +13,19 @@
             <!-- Fin logo -->
 
             <!-- Item sidenav -->
-            <!-- <li class="nav-item">
+            <li class="nav-item">
                 <a href="">
                     <i class="material-icons text-light">dashboard</i>
                     <span class="text-light">Dashboard</span>
                 </a>
-            </li> -->
+            </li>
             <!-- Fin item sidenav -->
 
             <!-- Item sidenav -->
             <li class="nav-item">
-                <a class="dropdown">
+                <a href="g3_empleats.php">
                     <i class="material-icons text-light">person</i>
-                    <span class="text-light">Usuaris</span>
-                    <i class="dropdown-ico material-icons text-light">keyboard_arrow_down</i>
-
-
+                    <span class="text-light">Users</span>
                 </a>
 
 
@@ -37,32 +34,24 @@
                     <ul class="nav flex-column">
                         <!-- Submenu -->
                         <li class="nav-item">
-                            <a href="{{ route('employee.index') }}">
-                                <span class="text-light">Empleats</span>
+                            <a href="">
+                                <span class="text-light">Element 1</span>
                             </a>
                         </li>
                         <!-- Fin submenu -->
 
                         <!-- Submenu -->
                         <li class="nav-item">
-                            <a href="{{ route('professors.index') }}">
-                                <span class="text-light">Professors</span>
+                            <a href="">
+                                <span class="text-light">Element 2</span>
                             </a>
                         </li>
                         <!-- Fin submenu -->
 
                         <!-- Submenu -->
                         <li class="nav-item">
-                            <a href="{{ route('students.index') }}">
-                                <span class="text-light">Estudiants</span>
-                            </a>
-                        </li>
-                        <!-- Fin submenu -->
-
-                        <!-- Submenu -->
-                        <li class="nav-item">
-                            <a href="{{ route('managers.index') }}">
-                                <span class="text-light">Gestors</span>
+                            <a href="">
+                                <span class="text-light">Element 3</span>
                             </a>
                         </li>
                         <!-- Fin submenu -->
@@ -83,7 +72,7 @@
                   <ul class="nav flex-column">
                     <!-- Submenu -->
                     <li class="nav-item">
-                        <a href="{{ route('proposals.index') }}">
+                        <a href="g3_llistar_propostes.php">
 
                             <span class="text-light">All Proposals</span>
                         </a>
@@ -92,7 +81,7 @@
 
                     <!-- Submenu -->
                     <li class="nav-item">
-                        <a href="{{ route('proposals.index') }}">
+                        <a href="g3_propostes.php">
                             <span class="text-light">My Proposals</span>
                         </a>
                     </li>
@@ -105,30 +94,41 @@
 
             <!-- Item sidenav -->
             <li class="nav-item">
-                <a href="{{ route('projects.index') }}">
+                <a href="g2_llistar_projectes.php">
                     <i class="material-icons text-light">assignment</i>
                     <span class="text-light">Projects</span>
                 </a>
             </li>
             <!-- Fin item sidenav -->
+            <!-- Item sidenav -->
+            <li class="nav-item">
+                <a class="dropdown">
+                    <i class="material-icons text-light">person</i>
+                    <span class="text-light">Els meus blogs</span>
+                    <i class="dropdown-ico material-icons text-light">keyboard_arrow_down</i>
+                </a>
 
+
+
+            </li>
+            <!-- Fin item sidenav -->
         </ul>
     </nav>
     <!-- Fin sidenav -->
-    <!-- jj -->
 
     <!-- Inicio menu -->
-    <nav id="top-menu" class="navbar2 navbar-expand-lg navbar-light fixed-top bg-white">
+    <nav id="top-menu" class="navbar navbar-expand-lg navbar-light fixed-top bg-white">
         <!-- Inicio toggle menu -->
         <div class="navbar-header">
             <i id="sidenav-toggle" class="material-icons">menu</i>
+        </div>
         <!-- Fin toggle menu -->
 
         <!-- Inicio elementos menu -->
-        <ul class="">
+        <ul class="navbar-nav">
             <!-- Elemento menu -->
             <li class="nav-item active">
-                <a class="nav-link" class="text-ternari" href="{{ route('index.index') }}">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" class="text-ternari" href="index.php">Home <span class="sr-only">(current)</span></a>
             </li>
             <!-- Fin elemento menu -->
 
@@ -138,7 +138,6 @@
             </li>
             <!-- Fin elemento menu -->
         </ul>
-      </div>
         <!-- Fin elementos menu -->
     </nav>
     <!-- Fin menu -->
