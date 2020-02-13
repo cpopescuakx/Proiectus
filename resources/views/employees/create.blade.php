@@ -112,7 +112,7 @@
                             <div class="row justify-content-center">
                                 <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
                                     <label for="data-naixement">Data naixement</label>
-                                    <input type="text" name = "birthdate" class="form-control"  id="birthdate" required>
+                                    <input type="date" name = "birthdate" class="form-control"  id="birthdate" required>
                                     <div class="invalid-feedback">Camp necessari</div>
                                 </div>
                             </div>

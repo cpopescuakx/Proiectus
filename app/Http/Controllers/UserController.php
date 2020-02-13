@@ -426,14 +426,15 @@ class UserController extends Controller
      *
      *  Extreu els empleats que tenen ID de rol 4 (Empleat) els quals tinguin com a estat (active), després retorna la vista per a llistar-los.
      *
-     *  @param void
+     *  @param \Illuminate\Http\Request $request Obtenim el tipo d'estat dels empleats a mostrar
      *  @return \Illuminate\Http\Response
      * */
 
-    public function indexEmployee()
+    public function indexEmployee(Request $request)
     {
+        $tipo = $request->get('tipo');
 
-        $employees = User::where('id_role',2)->paginate(5);
+        $employees = User::where('id_role',2)->tipo($tipo)->paginate(5);
 
         return view ('employees.index', compact('employees'));
 

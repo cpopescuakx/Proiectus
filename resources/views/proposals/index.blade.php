@@ -7,7 +7,7 @@
     <nav class="navbar navbar-light">
         <form class="form-inline">
             <select name="tipo" class="custom-select mr-2">
-                <option selected>Open this select menu</option>
+                <option selected>Escull</option>
                 <option>active</option>
                 <option>inactive</option>
               </select>
