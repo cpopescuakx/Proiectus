@@ -1,136 +1,143 @@
 @extends('layouts.default')
 
-@section('content')
-
+@section('content');
 <body>
+    <h1>Crear un empleat</h1>
+        
+  <form action='{{ route('employee.storeEmployees') }}' method='POST'> 
+    
+      @csrf
+          <tr><td>Nom de l'empleat:</td><br>
+            <td><input type="text" name="name"></td>
+          </tr>
+          <br>
+          <div class="row">
+              <div></div>
+          </div>
+          <tr><td>Pressupost:</td><br>
+            <td><input type="text" name="budget"></td>
+          </tr>
+          <br>
+          <tr><td>Descripció :</td><br>
+            <td><input type="text" name="desc"></td>
+          </tr>
+          <br>
+          <tr><td>Familia Professional:</td><br>
+            <td><input type="text" name="pro_family"></td>
+          </tr>
+          <br>
+          <input name='crear' value='Crear' type='submit'/>
+      </form> --}}
 
-    <div class="content formulari closed">
-        <form class="was-validated" action="{{ route('employee.store') }}" method="POST">
-            @csrf
-            <div class="row justify-content-center">
-                <div class="col-11 col-sm-11 col-md-10 col-lg-10 col-xl-10">
-                    <div class="container">
-                        <div class="contact-image text-center mt-3">
-                            <img class="form-img" src="./img/icono_negro.png" />
+    <div class="formulari">
+
+      <form action='{{ route('projects.store') }}' method='POST' class="was-validated" >
+        @csrf
+          <!-- inicio formulario -->
+          <div class="row justify-content-center">
+
+              <!-- grid container formulario-->
+              <div class="col-11 col-sm-11 col-md-10 col-lg-10 col-xl-10">
+
+                  <!-- Imagen formulario -->
+                  <div class="container">
+                      <div class="contact-image text-center mt-3">
+                          <img class="form-img" src="img/icono_negro.png" />
+                      </div>
+                  </div>
+
+                  <!-- container formulario -->
+                  <div class="container contact-form">
+
+
+                      <div class="container">
+                          <div class="row no-gutters justify-content-center mt-5">
+                              <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
+                                  <h1>Crea un projecte nou.</h1>
+                              </div>
+                          </div>
+                      </div>
+
+                      <!-- Input básico -->
+                      <div class="form-group mt-4">
+                          <div class="row justify-content-center">
+                              <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
+                                  <label for="exampleFormControlInput1">Nom del Projecte</label>
+                                  <input type="name" class="form-control" id="exampleFormControlInput1" placeholder="Proiectus" name="name" required>
+
+                              </div>
+                          </div>
+                      </div>
+                      <!-- fin input básico -->
+
+                      <!-- Input básico -->
+                      <div class="form-group mt-4">
+                        <div class="row justify-content-center">
+                            <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
+                                <label for="exampleFormControlInput1">Pressupost</label>
+                                <input type="name" class="form-control" id="exampleFormControlInput1" placeholder="200" name="budget" required>
+
+                            </div>
                         </div>
                     </div>
-                    <div class="container contact-form">
-                        <div class="container">
-                            <div class="row no-gutters justify-content-center mt-5">
-                                <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
-                                    <h1>Modificar Empleat</h1>
-                                </div>
-                            </div>
-                        </div>
+                    <!-- fin input básico -->
 
-                        <div class="form-group mt-4">
-                            <div class="row justify-content-center">
-                                <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
-                                    <label for="nom">Nom</label>
-                                    <input type="text" name="firstname" class="form-control" id="firstname"  required>
-                                    <div class="invalid-feedback">Camp necessari</div>
-                                </div>
-                            </div>
-                        </div>
+                    <!-- Input básico -->
+                    <div class="form-group mt-4">
+                      <div class="row justify-content-center">
+                          <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
+                              <label for="exampleFormControlInput1">Descripció</label>
+                              <input type="name" class="form-control" id="exampleFormControlInput1" placeholder="Projecte centrat a la programació" name="desc" required>
 
-                        <div class="form-group mt-4">
-                            <div class="row justify-content-center">
-                                <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
-                                    <label for="nom">Cognom</label>
-                                    <input type="text" name="lastname" class="form-control" id="lastname"  required>
-                                    <div class="invalid-feedback">Camp necessari</div>
-                                </div>
-                            </div>
-                        </div>
+                          </div>
+                      </div>
+                  </div>
+                  <!-- fin input básico -->
 
-                        <div class="form-group mt-4">
-                            <div class="row justify-content-center">
-                                <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
-                                    <label for="nom">Nom d'usuari</label>
-                                    <input type="text" name="username" class="form-control" id="username"  required>
-                                    <div class="invalid-feedback">Camp necessari</div>
-                                </div>
-                            </div>
-                        </div>
+                  <!-- Input básico -->
+                  <div class="form-group mt-4">
+                    <div class="row justify-content-center">
+                        <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
+                            <label for="exampleFormControlInput1">Familia Professional</label>
+                            <input type="name" class="form-control" id="exampleFormControlInput1" placeholder="Informàtica" name="pro_family" required>
 
-                        <div class="form-group mt-4">
-                            <div class="row justify-content-center">
-                                <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
-                                    <label for="contrassenya">Contrasenya</label>
-                                    <input type="text" name="password" class="form-control"  id="password" required>
-                                    <div class="invalid-feedback">Camp necessari</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group mt-4">
-                            <div class="row justify-content-center">
-                                <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
-                                    <label for="nom">Correu</label>
-                                    <input type="text" name="email" class="form-control" id="username"  required>
-                                    <div class="invalid-feedback">Camp necessari</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group mt-4">
-                            <div class="row justify-content-center">
-                                <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
-                                    <label for="cognom">DNI</label>
-                                    <input type="text" name="dni" class="form-control" id="dni"  required>
-                                    <div class="invalid-feedback">Camp necessari</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group mt-4">
-                            <div class="row justify-content-center">
-                                <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
-                                    <label for="dni">Ciutat</label>
-                                    <datalist id="cities">
-                                        @foreach($cities as $city)
-                                        <option value="{{$city->name}}">
-                                            @endforeach
-                                    </datalist>
-                                    <input type="text" name="city" class="form-control"  required>
-                                    <div class="invalid-feedback">Camp necessari</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group mt-4">
-                            <div class="row justify-content-center">
-                                <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
-                                    <label for="data-naixement">Biografia</label>
-                                    <input type="text" name="bio" class="form-control"  id="bio" required>
-                                    <div class="invalid-feedback">Camp necessari</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group mt-4">
-                            <div class="row justify-content-center">
-                                <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
-                                    <label for="data-naixement">Data naixement</label>
-                                    <input type="text" name="birthdate" class="form-control"  id="birthdate" required>
-                                    <div class="invalid-feedback">Camp necessari</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="row justify-content-center">
-                                <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
-                                    <button type="submit" name="sbumit" class="btn btn-primary float-right">Modificar</button>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-    </div>
-    </form>
-    </div>
+                <!-- fin input básico -->
+
+                <!-- Input básico -->
+                <div class="form-group mt-4">
+                  <div class="row justify-content-center">
+                      <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
+                          <label for="exampleFormControlInput1">Data de finalització <br> (yyy-mm-dd)</label>
+                          <input type="name" class="form-control" id="exampleFormControlInput1" name="end_date">
+                      </div>
+                  </div>
+                </div>
+              <!-- fin input básico -->
+
+                <!-- Botó confirmar -->
+                <div class="form-group">
+                  <div class="row justify-content-center">
+                      <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
+                          <button name='crear' value='Crear' type="submit" class="btn btn-primary float-right">Confirmar</button>
+                      </div>
+                  </div>
+              </div>
+                <!-- fin botó confirmar -->
+
+                  </div>
+                  <!-- fin container formulario -->
+
+              </div>
+              <!--  fin grid container formulario-->
+
+          </div>
+          <!-- fin formulario -->
+      </form>
 
 </body>
 @stop
+
+
