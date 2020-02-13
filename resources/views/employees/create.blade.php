@@ -1,17 +1,17 @@
 @extends('layouts.default')
 
-@section('content');
+@section('content')
 <body>
-    <h1>Crear un empleat</h1>
+    
         
-    <div class="content formulari closed">
-        <form class="was-validated" action="{{route('employee.storeEmployees')}}" method="POST">
+    <div class="formulari">
+        <form class="was-validated" action="{{route('employee.store')}}" method="POST">
             @csrf
             <div class="row justify-content-center">
                 <div class="col-11 col-sm-11 col-md-10 col-lg-10 col-xl-10">
                     <div class="container">
                         <div class="contact-image text-center mt-3">
-                            <img class="form-img" src="./img/icono_negro.png" />
+                            <img class="form-img" src="../img/icono_negro.png" />
                         </div>
                     </div>
                     <div class="container contact-form">
