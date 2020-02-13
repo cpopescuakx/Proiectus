@@ -32,14 +32,14 @@ public class LlistaInstituts {
     }
 
     public String[] getInstitut(int id) {
-        String[] x = new String[2];
+        String[] x = new String[3];
 
         Iterator<Institut> iter = array.iterator();
 
         while (iter.hasNext()) {
 
             if (iter.next().getId() == id) {
-                x[0] = iter.next().(Integer.par)getId();
+                x[0] = String.valueOf(iter.next().getId());
                 x[1] = iter.next().getNom();
                 x[2] = iter.next().getCodi();
                 x[3] = iter.next().getCiutat();
