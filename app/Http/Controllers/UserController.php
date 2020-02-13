@@ -44,25 +44,16 @@ class UserController extends Controller
 
     public function createManager(){
 
-        $cities['cities'] = City::all()->distinct()->select("name")->get();
-        return view('managers.create', $cities);
+        $cities = City::distinct()->select("name")->get();
+        return view('managers.create',compact('cities'));
+
     }
 
     public function storeManager(Request $request){
 
-        $request->validate([
-            'firstname' => 'required',
-            'lastname' => 'required',
-            'name' => 'required',
-            'dni' => 'required',
-            'email' => 'required',
-            'birthdate' => 'required',
-            'password' => 'required',
-            'profile_pic' => 'Res',
-            'bio' => 'Res',
-            'id_role' => '5',
-            'status' => 'active',
-        ]);
+         // Instanciar
+         $manager = new User;
+
         // Assignació de valors a les propietats
         $manager -> firstname = $request->input('firstname');
         $manager -> lastname = $request->input('lastname');
@@ -82,11 +73,10 @@ class UserController extends Controller
         $manager -> save();
 
         // Tornar a la llista de gestors
+        $manager = User::where('id_role', 5)->get();
 
-        $managers = DB::table('users')->where('id_role', 5)->get();
+        return redirect()->route('managers.index',compact('manager'));
 
-        return redirect()->route('managers.index',compact('managers'))
-        ->with('i', (request()->input('page', 1) -1));
     }
 
     /** EDITAR GESTOR
@@ -99,7 +89,7 @@ class UserController extends Controller
     public function editManager($id){
 
         $managers = User::find($id);
-        $cities = DB::table('cities')->distinct()->select("name")->get();
+        $cities = City::distinct()->select("name")->get();
         $nomCiutat = CityController::agafarNom($managers->id_city);
 
         return view('managers.edit', compact('managers', 'cities', 'nomCiutat'));
@@ -114,51 +104,35 @@ class UserController extends Controller
      *  @return void
      */
     public function updateManager (Request $request) {
-
-        $request->validate([
-            'email' => 'required',
-            'name' => 'required',
-            'nif' => 'required',
-            'sector' => 'required',
-            'status' => 'required',
-        ]);
-
-
-         Company::findOrFail($id)->first()->fill($request->all())->save();
-         //Company::find($request->id)->update($request->all());
-         return redirect()->route('companies')
-                          ->with('Éxit','L empresa s ha modificat correctament!');
         
-        $id = $request->route('id'); // Agafem la ID de la URL
+        $id = $request->route('id'); // Agafar l'ID de la URL
 
-        // Busquem el gestor amb la mateixa ID
-        $manager = User::find($id);
+        // Cercar l'alumne amb la mateixa ID de la BBDD
+        $managers = User::find($id);
 
         // Assignar els valors del formulari
-        $manager -> firstname = $request->input('firstname');
-        $manager -> lastname = $request->input('lastname');
-        $manager -> name = $request->input('name');
-        $manager -> dni = $request->input('dni');
-        $manager -> email = $request->input('email');
-        $manager -> birthdate = $request->input('birthdate');
-        $manager -> password = $request->input('password');
+        $managers -> firstname = $request->input('firstname');
+        $managers -> lastname = $request->input('lastname');
+        $managers -> name = $request->input('name');
+        $managers -> dni = $request->input('dni');
+        $managers -> email = $request->input('email');
+        $managers -> birthdate = $request->input('birthdate');
+        $managers -> password = $request->input('password');
         $nom = $request->input('city');
-        $manager -> id_city = CityController::agafarID($nom);
-        $manager -> profile_pic = "Res";
-        $manager -> bio = "Res";
-        $manager -> id_role = 5;
-        $manager -> status = $request->input('status');
+        $managers -> id_city = CityController::agafarID($nom);
+        $managers -> profile_pic = "Res";
+        $managers -> bio = "Res";
+        $managers -> id_role = 3;
+        $managers -> status = $request->input('status');
 
-        // Guardem el gestor amb les noves dades
-        $manager -> save();
+        // Guardar l'alumne a la BBDD amb les noves dades
+        $managers -> save();
 
-        // Tornem a la llista de gestors
+        // Tornar a la llista d'alumnes
 
-        $managers = DB::table('users')->where('id_role', 5)->get();
+        $managers = User::where('id_role', 5)->get();
 
-        return redirect()->route('managers.index',compact('managers'))
-        ->with('i', (request()->input('page', 1) -1));
-
+        return redirect()->route('managers.index',compact('managers'));
     }
     /** DESTROY GESTORS
      *
@@ -170,20 +144,14 @@ class UserController extends Controller
      */
     
     public function destroyManager ($id) {
-        Company::where('id_company',$id)->delete();
-
-        return Redirect::to('companies')->with('Éxit','L empresa s ha eliminat correctament!');
         
-        //
+        $managers = User::find($id);
+        $managers -> status = 'inactive';
+        $managers -> save();
 
-        $manager = User::find($id);
-        $manager -> status = 'inactive';
-        $manager -> save();
+        $managers = User::where('id_role', 5)->get();
 
-        $manager = DB::table('users')->where('id_role', 5)->get();
-
-        return redirect()->route('managers.index',compact('managers'))
-        ->with('i', (request()->input('page', 1) -1));
+        return redirect()->route('managers.index',compact('managers'));
     }
 
     public function indexStudent()
