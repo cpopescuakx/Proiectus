@@ -45,6 +45,9 @@ Route::post('Project/{id}/edit/success', 'ProjectController@update')
 Route::get('Project/{id}', 'ProjectController@destroy')
 ->name('projects.destroy');
 
+Route::get('Dashboard/projects', 'ProjectController@dashboardProject')
+->name('projects.dashboard');
+
 /** Rutes per a l'apartat de gestió d'alumnes */
 
 Route::get('Students', 'UserController@indexStudent')
