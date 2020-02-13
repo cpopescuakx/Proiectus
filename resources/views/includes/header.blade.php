@@ -125,7 +125,7 @@
         <!-- Fin toggle menu -->
 
         <!-- Inicio elementos menu -->
-        <ul class="">
+        <ul class="navbar-nav">
             <!-- Elemento menu -->
             <li class="nav-item active">
                 <a class="nav-link" class="text-ternari" href="{{ route('index.index') }}">Home <span class="sr-only">(current)</span></a>
