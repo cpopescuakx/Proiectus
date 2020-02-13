@@ -587,29 +587,29 @@ class UserController extends Controller
     public function storeEmployees(Request $request)
     {
          // Instanciar
-        $empleat= new User;
+        $employee= new User;
 
         // Assignació de valors a les propietats
-        $empleat-> firstname = $request->input('firstname');
-        $empleat-> lastname = $request->input('lastname');
-        $empleat-> name = $request->input('name');
-        $empleat-> dni = $request->input('dni');
-        $empleat-> email = $request->input('email');
-        $empleat-> birthdate = $request->input('birthdate');
-        $empleat-> password = $request->input('password');
+        $employee-> firstname = $request->input('firstname');
+        $employee-> lastname = $request->input('lastname');
+        $employee-> name = $request->input('name');
+        $employee-> dni = $request->input('dni');
+        $employee-> email = $request->input('email');
+        $employee-> birthdate = $request->input('birthdate');
+        $employee-> password = $request->input('password');
         $nom = $request->input('city');
-        $empleat-> id_city = CityController::agafarID($nom);
-        $empleat-> profile_pic = "Res";
-        $empleat-> bio = "Res";
-        $empleat-> id_role = 2;
-        $empleat-> status = "active";
+        $employee-> id_city = CityController::agafarID($nom);
+        $employee-> profile_pic = "Res";
+        $employee-> bio = "Res";
+        $employee-> id_role = 2;
+        $employee-> status = "active";
 
         // Guardar alumne a la BBDD
-        $empleat-> save();
+        $employee-> save();
 
         // Tornar a la llista d'alumnes
 
-        $empleats = DB::table('users')->where('id_role', 2)->get();
+        $emplpyees = User::where('id_role', 2)->get();
 
         return redirect()->route('employees.indexActive',compact('employees'))
         ->with('i', (request()->input('page', 1) -1));
