@@ -7,7 +7,7 @@
   <h2 >Llistat d'empleats</h2>
   <a href="{{ route('employee.create') }}"><img src={{ asset('img/add.svg') }} width="45" height="45" ></a>
   <select id='filterText' onchange='filterText()'>
-        <option disabled selected>Escolleix</option>
+        <option disabled selected>Escull </option>
 		<option value='active'>Actius</option>
         <option value='inactive'>Inactius</option>
   </select>
