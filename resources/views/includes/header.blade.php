@@ -37,7 +37,7 @@
                     <ul class="nav flex-column">
                         <!-- Submenu -->
                         <li class="nav-item">
-                            <a href="">
+                            <a href="{{ route('employee.index') }}">
                                 <span class="text-light">Empleats</span>
                             </a>
                         </li>
@@ -45,7 +45,7 @@
 
                         <!-- Submenu -->
                         <li class="nav-item">
-                            <a href="">
+                            <a href="{{ route('professors.index') }}">
                                 <span class="text-light">Professors</span>
                             </a>
                         </li>
@@ -53,7 +53,7 @@
 
                         <!-- Submenu -->
                         <li class="nav-item">
-                            <a href="">
+                            <a href="{{ route('students.index') }}">
                                 <span class="text-light">Estudiants</span>
                             </a>
                         </li>
@@ -61,7 +61,7 @@
 
                         <!-- Submenu -->
                         <li class="nav-item">
-                            <a href="">
+                            <a href="{{ route('managers.index') }}">
                                 <span class="text-light">Gestors</span>
                             </a>
                         </li>
