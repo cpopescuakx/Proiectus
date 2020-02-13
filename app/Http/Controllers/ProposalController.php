@@ -62,8 +62,9 @@ class ProposalController extends Controller
         ]);
 
         Proposal::create($request->all());
-        return redirect()->route('proposals.index')
-                        ->with('success','Proposal created successfully.');
+        return redirect()
+                ->route('proposals.index')
+                ->with('success','Proposal created successfully.');
     }
 
     /**
