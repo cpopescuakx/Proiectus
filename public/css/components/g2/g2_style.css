@@ -1,0 +1,21 @@
+#projecte {
+  margin-left: 25%;
+  margin-right: auto;
+}
+
+.content {
+  padding: 0px;
+}
+
+@media (min-width: 992px) {
+  .container {
+    max-width: 100%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 100%;
+  }
+}
+/*# sourceMappingURL=g2_style.css.map */
