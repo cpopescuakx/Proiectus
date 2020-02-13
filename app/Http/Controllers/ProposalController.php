@@ -62,9 +62,8 @@ class ProposalController extends Controller
         ]);
 
         Proposal::create($request->all());
-        return redirect()
-                ->route('proposals.index')
-                ->with('success','Proposal created successfully.');
+        return redirect()->route('proposals.index')
+                        ->with('success','Proposal created successfully.');
     }
 
     /**
@@ -88,16 +87,8 @@ class ProposalController extends Controller
     {
         //
     }
-    /** EDITAR Proposta
-     *
-     *  Retorna el formulari de modificació de propostes. Passant la proposta a partir de l'ID.
-     *
-     *  @param int $id
-     *  @return \Illuminate\Http\Response
-     */
     public function editProposal($id){
-      $proposal = Proposal::find($id);
-      return view('proposals.edit', compact('proposal'));
+      
     }
 
     /**
@@ -110,35 +101,6 @@ class ProposalController extends Controller
     public function update(Request $request, $id)
     {
         //
-    }
-    /** UPDATE PROPOSTA
-     *
-     *  Guarda les noves dades de la proposta a la base de dades. Llavors, redirecciona
-     *  al llistat de propostes
-     *
-     *  @param Request $request
-     * @return \Illuminate\Http\Response
-     */
-
-    public function updateProposal(Request $request, $id)
-    {
-              $id = $request->route('id'); // Agafar l'ID de la URL
-
-              // Cercar la proposta amb la mateixa ID de la BBDD
-              $proposal = Proposal::find($id);
-
-              // Assignar els valors del formulari
-              $proposal -> name = $request->input('name');
-              $proposal -> limit_date = $request->input('limit_date');
-              $proposal -> description = $request->input('description');
-              $proposal -> professional_family = $request->input('professional_family');
-
-              // Guardar la proposta a la BBDD amb les noves dades
-              $proposal -> save();
-
-              // Tornar a la llista de propostes
-              return redirect()->route('proposals.index')
-              ->with('i', (request()->input('page', 1) -1));//
     }
 
     /**
