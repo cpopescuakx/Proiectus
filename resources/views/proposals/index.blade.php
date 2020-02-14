@@ -49,10 +49,11 @@
             <td>
                 <a href="{{ route('proposals.edit', [$proposal->id_proposal]) }}"><img src={{ asset('img/edit.svg') }} width="20" height="20" class="mr-2"></a>
                 @if($proposal->status == "active")
-                <a href="{{ route('proposals.destroy', [$proposal->id_proposal]) }}"><img src={{ asset('img/delete.svg') }} width="20" height="20"></a>
+                <a href="{{ route('proposals.inactive', [$proposal->id_proposal]) }}"><img src={{ asset('img/delete.svg') }} width="20" height="20"></a>
                 @else
                 <a href="{{ route('proposals.active', [$proposal->id_proposal]) }}"><img src={{ asset('img/checkIcon.svg') }} width="20" height="40" class="mr-2"></a>
                 @endif
+                <a href="{{ route('proposals.destroy', [$proposal->id_proposal]) }}" onclick="return confirm('Are you sure?')"><i class="fas fa-times-circle p-2"></i></a>
             </td>
         </tr>
         @endforeach
