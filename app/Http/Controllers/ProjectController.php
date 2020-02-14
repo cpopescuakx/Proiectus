@@ -219,4 +219,18 @@ class ProjectController extends Controller
             return redirect()->route('projects.index',compact('projects'))
             ->with('i', (request()->input('page', 1) -1));
     }
+    
+    /** Llistar els projectes per al dashboard
+    *  
+    *  Agafa tots els projectes de la base de dades i els pagina de 9 en 9.
+    *  Retorna la vista juntament amb l'array de projectes.
+    * 
+    *  @param void
+    *  @return void
+    */
+    public function dashboardProject()
+    {
+        $projects = Project::paginate(9);
+        return view('projects.dashboard', compact('projects'));
+    }
 }

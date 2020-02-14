@@ -139,19 +139,53 @@ class ProposalController extends Controller
               $proposal -> save();
 
               // Tornar a la llista de propostes
-              return redirect()->route('proposals.index')
-              ->with('i', (request()->input('page', 1) -1));//
-    }
+              return redirect()->route(url()->previous());    }
 
-    /**
-     * Remove the specified resource from storage.
+    /**BAIXA PROPOSTA
+     *
+     * Donem de baixa la proposta que indiquem amb la seva ID
      *
      * @param  int  $id
+     *
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function inactiveProposal($id)
     {
-        //
+        $proposal = Proposal::find($id);
+        $proposal -> status = 'inactive';
+        $proposal -> save();
+
+        $proposals = Proposal::all();
+
+        return redirect()->route('proposals.index',compact('proposals'))
+        ->with('i', (request()->input('page', 1) -1));
+    }
+
+    /** DONAR D'ALTA PROPOSTA
+     *
+     *  Indiquem la id de la proposta la qual volem donar d'alta i redireccionem a la vista anterior.
+     *
+     *  @param $id Conté la ID de la proposta
+     *  @return \Illuminate\Http\Response
+     * */
+
+    public function activeProposal($id)
+    {
+        $proposal = Proposal::find($id);
+        $proposal->status = 'active';
+        $proposal->save();
+        return redirect()->back();
+    }
+
+    public function destroyProposal($id)
+    {
+        $proposal = Proposal::find($id)->delete();
+        //$proposal -> save();
+
+        $proposals = Proposal::all();
+
+        return redirect()->route('proposals.index',compact('proposals'))
+            ->with('success','Proposal deleted successfully.');
     }
 
     public function destroyProposal(Request $request, $id)

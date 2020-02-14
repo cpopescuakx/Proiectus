@@ -45,6 +45,9 @@ Route::post('Project/{id}/edit/success', 'ProjectController@update')
 Route::get('Project/{id}', 'ProjectController@destroy')
 ->name('projects.destroy');
 
+Route::get('Dashboard/projects', 'ProjectController@dashboardProject')
+->name('projects.dashboard');
+
 /** Rutes per a l'apartat de gestió d'alumnes */
 
 Route::get('Students', 'UserController@indexStudent')
@@ -112,7 +115,7 @@ Route::delete('/companies/{id}/delete', 'CompanyController@destroyCompany')->nam
 Route::post('/companies/create', 'CompanyController@storeCompany')->name('companies.store');
 Route::post('/companies/{id}/update', 'CompanyController@updateCompany')->name('companies.update');
 
-/* Users */
+/* Gestors */
 Route::get('managers', 'UserController@indexManager')->name('managers.index');
 Route::get('managers/create', 'UserController@createManager')->name('managers.create');
 Route::get('managers/{id}/edit', 'UserController@editManager')->name('managers.edit');
@@ -137,6 +140,9 @@ Route::post('Proposals/create/success', 'ProposalController@storeProposal')->nam
 Route::get('Proposals/{id}/edit', 'ProposalController@editProposal')->name('proposals.edit');
 Route::post('Proposals/{id}/edit/success', 'ProposalController@updateProposal')->name('proposals.update');
 Route::get('Proposals/{id}', 'ProposalController@destroyProposal')->name('proposals.destroy');
+Route::get('Proposals/{id}/active', 'ProposalController@activeProposal')->name('proposals.active');
+Route::get('Proposals/{id}/inactive', 'ProposalController@inactiveProposal')->name('proposals.inactive');
+
 
 /* Empleats */
 Route::get('/Employees', 'UserController@indexEmployee')->name('employee.index');

@@ -86,7 +86,7 @@ class ForeignKeysUsers extends Migration
         });
 
         Schema::table('projects', function(Blueprint $table){
-          $table->foreign('id_project')->references('id_proposal')->on('proposals');
+          $table->foreign('id_project')->references('id_proposal')->on('proposals')->onDelete('cascade');
 
         });
 

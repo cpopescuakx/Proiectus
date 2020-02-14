@@ -221,11 +221,11 @@ class UserController extends Controller
      *  @return void
      */
     public function editStudent ($id) {
-        $students = User::find($id);
+        $student = User::find($id);
         $cities = City::distinct()->select("name")->get();
-        $nomCiutat = CityController::agafarNom($students->id_city);
+        $nomCiutat = CityController::agafarNom($student->id_city);
 
-        return view('managers.edit', compact('students', 'cities', 'nomCiutat'));
+        return view('students.edit', compact('student', 'cities', 'nomCiutat'));
     }
 
     /** UPDATE ALUMNE
@@ -426,14 +426,15 @@ class UserController extends Controller
      *
      *  Extreu els empleats que tenen ID de rol 4 (Empleat) els quals tinguin com a estat (active), després retorna la vista per a llistar-los.
      *
-     *  @param void
+     *  @param \Illuminate\Http\Request $request Obtenim el tipo d'estat dels empleats a mostrar
      *  @return \Illuminate\Http\Response
      * */
 
-    public function indexEmployee()
+    public function indexEmployee(Request $request)
     {
+        $tipo = $request->get('tipo');
 
-        $employees = User::where('id_role',2)->paginate(5);
+        $employees = User::where('id_role',2)->tipo($tipo)->paginate(5);
 
         return view ('employees.index', compact('employees'));
 
@@ -609,7 +610,7 @@ class UserController extends Controller
         $employee -> status = 'inactive';
         $employee -> save();
 
-        $employees = DB::table('users')->where('id_role', 2)->get();
+        $employees = User::where('id_role', 2)->get();
 
         return redirect()->route('employee.index',compact('employees'))
         ->with('i', (request()->input('page', 1) -1));

@@ -36,4 +36,11 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    // Funció scope per a filtrar empleats actius/inactius
+    public function scopeTipo($query, $tipo) {
+    	if ($tipo) {
+    		return $query->where('status','=',"$tipo");
+    	}
+    }
 }
