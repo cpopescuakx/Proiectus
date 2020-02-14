@@ -153,4 +153,30 @@ class ProposalController extends Controller
     {
         //
     }
+
+    public function destroyProposal(Request $request, $id)
+    {
+              $id = $request->route('id'); // Agafar l'ID de la URL
+
+              // Cercar la proposta amb la mateixa ID de la BBDD
+              $proposal = Proposal::find($id);
+
+              $request->validate([
+
+                'status' => 'inactive'
+    
+            ]);
+    
+      
+    
+            $proposal->update($request->all());
+    
+
+              // Guardar la proposta a la BBDD amb les noves dades
+              $proposal -> save();
+
+              // Tornar a la llista de propostes
+              return redirect()->route('proposals.index')
+                    ->with('success','Product deleted successfully');
+    }
 }
