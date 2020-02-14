@@ -139,9 +139,7 @@ class ProposalController extends Controller
               $proposal -> save();
 
               // Tornar a la llista de propostes
-              return redirect()->route('proposals.index')
-              ->with('i', (request()->input('page', 1) -1));//
-    }
+              return redirect()->route(url()->previous());    }
 
     /**BAIXA PROPOSTA
      *
