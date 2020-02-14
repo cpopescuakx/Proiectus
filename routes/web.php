@@ -115,7 +115,7 @@ Route::delete('/companies/{id}/delete', 'CompanyController@destroyCompany')->nam
 Route::post('/companies/create', 'CompanyController@storeCompany')->name('companies.store');
 Route::post('/companies/{id}/update', 'CompanyController@updateCompany')->name('companies.update');
 
-/* Users */
+/* Gestors */
 Route::get('managers', 'UserController@indexManager')->name('managers.index');
 Route::get('managers/create', 'UserController@createManager')->name('managers.create');
 Route::get('managers/{id}/edit', 'UserController@editManager')->name('managers.edit');
