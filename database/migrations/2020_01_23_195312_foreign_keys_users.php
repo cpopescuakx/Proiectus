@@ -14,74 +14,74 @@ class ForeignKeysUsers extends Migration
     public function up()
     {
         Schema::table('articles', function(Blueprint $table){
-          $table->foreign('id_user')->references('id')->on('users');
-          $table->foreign('id_project')->references('id_project')->on('wikis');
+          $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade');
+          $table->foreign('id_project')->references('id_project')->on('wikis')->onDelete('cascade');
 
         });
 
         Schema::table('blogs', function(Blueprint $table){
-          $table->foreign('id_project')->references('id_project')->on('projects');
+          $table->foreign('id_project')->references('id_project')->on('projects')->onDelete('cascade');
 
         });
 
         Schema::table('chats', function(Blueprint $table){
-          $table->foreign('owner')->references('id')->on('users');
+          $table->foreign('owner')->references('id')->on('users')->onDelete('cascade');
 
         });
 
         Schema::table('comments', function(Blueprint $table){
-          $table->foreign('id_user')->references('id')->on('users');
-          $table->foreign('id_post')->references('id_post')->on('posts');
-          $table->foreign('id_project')->references('id_project')->on('blogs');
+          $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade');
+          $table->foreign('id_post')->references('id_post')->on('posts')->onDelete('cascade');
+          $table->foreign('id_project')->references('id_project')->on('blogs')->onDelete('cascade');
 
         });
 
         Schema::table('companies', function(Blueprint $table){
-          $table->foreign('id_city')->references('id_city')->on('cities');
+          $table->foreign('id_city')->references('id_city')->on('cities')->onDelete('cascade');
 
         });
 
         Schema::table('company_for_validations', function(Blueprint $table){
-          $table->foreign('id_city')->references('id_city')->on('cities');
+          $table->foreign('id_city')->references('id_city')->on('cities')->onDelete('cascade');
 
         });
 
         Schema::table('company_users', function(Blueprint $table){
-          $table->foreign('id_user')->references('id')->on('users');
-          $table->foreign('id_company')->references('id_company')->on('companies');
+          $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade');
+          $table->foreign('id_company')->references('id_company')->on('companies')->onDelete('cascade');
 
         });
 
         Schema::table('dm_files', function(Blueprint $table){
-          $table->foreign('id_folder')->references('id_folder')->on('dm_folders');
+          $table->foreign('id_folder')->references('id_folder')->on('dm_folders')->onDelete('cascade');
 
         });
 
         Schema::table('dm_folders', function(Blueprint $table){
-          $table->foreign('id_document_manager')->references('id_manager')->on('document_managers');
+          $table->foreign('id_document_manager')->references('id_manager')->on('document_managers')->onDelete('cascade');
 
         });
 
         Schema::table('document_managers', function(Blueprint $table){
-          $table->foreign('id_project')->references('id_project')->on('projects');
+          $table->foreign('id_project')->references('id_project')->on('projects')->onDelete('cascade');
 
         });
 
         Schema::table('histories', function(Blueprint $table){
-          $table->foreign('id_user')->references('id')->on('users');
-          $table->foreign('id_article')->references('id_article')->on('articles');
+          $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade');
+          $table->foreign('id_article')->references('id_article')->on('articles')->onDelete('cascade');
 
         });
 
         Schema::table('messages', function(Blueprint $table){
-          $table->foreign('id_chat')->references('id_chat')->on('chats');
-          $table->foreign('id_user')->references('id')->on('users');
+          $table->foreign('id_chat')->references('id_chat')->on('chats')->onDelete('cascade');
+          $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade');
 
         });
 
         Schema::table('posts', function(Blueprint $table){
-          $table->foreign('id_user')->references('id')->on('users');
-          $table->foreign('id_project')->references('id_project')->on('blogs');
+          $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade');
+          $table->foreign('id_project')->references('id_project')->on('blogs')->onDelete('cascade');
 
         });
 
@@ -91,64 +91,64 @@ class ForeignKeysUsers extends Migration
         });
 
         Schema::table('proposal_tags', function(Blueprint $table){
-          $table->foreign('id_proposal')->references('id_proposal')->on('proposals');
+          $table->foreign('id_proposal')->references('id_proposal')->on('proposals')->onDelete('cascade');
           $table->foreign('id_tag')->references('id_tag')->on('tags');
 
         });
 
         Schema::table('resource_centers', function(Blueprint $table){
-          $table->foreign('id_project')->references('id_project')->on('projects');
+          $table->foreign('id_project')->references('id_project')->on('projects')->onDelete('cascade');
 
         });
 
         Schema::table('schools', function(Blueprint $table){
-          $table->foreign('id_city')->references('id_city')->on('cities');
+          $table->foreign('id_city')->references('id_city')->on('cities')->onDelete('cascade');
 
         });
 
         Schema::table('school_for_validations', function(Blueprint $table){
-          $table->foreign('id_city')->references('id_city')->on('cities');
+          $table->foreign('id_city')->references('id_city')->on('cities')->onDelete('cascade');
 
         });
 
         Schema::table('school_proposals', function(Blueprint $table){
-          $table->foreign('id_school')->references('id_school')->on('schools');
-          $table->foreign('id_proposal')->references('id_proposal')->on('proposals');
+          $table->foreign('id_school')->references('id_school')->on('schools')->onDelete('cascade');
+          $table->foreign('id_proposal')->references('id_proposal')->on('proposals')->onDelete('cascade');
 
         });
 
         Schema::table('school_users', function(Blueprint $table){
-          $table->foreign('id_user')->references('id')->on('users');
-          $table->foreign('id_school')->references('id_school')->on('schools');
+          $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade');
+          $table->foreign('id_school')->references('id_school')->on('schools')->onDelete('cascade');
 
         });
 
         Schema::table('tickets', function(Blueprint $table){
-          $table->foreign('id_assigned_user')->references('id')->on('users');
-          $table->foreign('id_author')->references('id')->on('users');
+          $table->foreign('id_assigned_user')->references('id')->on('users')->onDelete('cascade');
+          $table->foreign('id_author')->references('id')->on('users')->onDelete('cascade');
 
         });
 
         Schema::table('users', function(Blueprint $table){
-          $table->foreign('id_city')->references('id_city')->on('cities');
-          $table->foreign('id_role')->references('id_role')->on('roles');
+          $table->foreign('id_city')->references('id_city')->on('cities')->onDelete('cascade');
+          $table->foreign('id_role')->references('id_role')->on('roles')->onDelete('cascade');
 
         });
 
         Schema::table('user_projects', function(Blueprint $table){
-          $table->foreign('id_user')->references('id')->on('users');
-          $table->foreign('id_project')->references('id_project')->on('projects');
+          $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade');
+          $table->foreign('id_project')->references('id_project')->on('projects')->onDelete('cascade');
 
         });
 
         Schema::table('user_proposals', function(Blueprint $table){
-          $table->foreign('id_user')->references('id')->on('users');
-          $table->foreign('id_proposal')->references('id_proposal')->on('proposals');
+          $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade');
+          $table->foreign('id_proposal')->references('id_proposal')->on('proposals')->onDelete('cascade');
 
         });
 
         Schema::table('wikis', function(Blueprint $table){
-          $table->foreign('id_project')->references('id_project')->on('projects');
+          $table->foreign('id_project')->references('id_project')->on('projects')->onDelete('cascade');
 
         });
 

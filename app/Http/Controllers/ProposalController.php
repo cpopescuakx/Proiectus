@@ -187,7 +187,7 @@ class ProposalController extends Controller
         return redirect()->route('proposals.index',compact('proposals'))
             ->with('success','Proposal deleted successfully.');
     }
-
+/*
     public function destroyProposal(Request $request, $id)
     {
               $id = $request->route('id'); // Agafar l'ID de la URL
@@ -213,4 +213,5 @@ class ProposalController extends Controller
               return redirect()->route('proposals.index')
                     ->with('success','Product deleted successfully');
     }
+    */
 }
