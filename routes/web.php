@@ -141,6 +141,7 @@ Route::get('Proposals/{id}/edit', 'ProposalController@editProposal')->name('prop
 Route::post('Proposals/{id}/edit/success', 'ProposalController@updateProposal')->name('proposals.update');
 Route::get('Proposals/{id}', 'ProposalController@destroyProposal')->name('proposals.destroy');
 Route::get('Proposals/{id}/active', 'ProposalController@activeProposal')->name('proposals.active');
+Route::get('Proposals/{id}/inactive', 'ProposalController@inactiveProposal')->name('proposals.inactive');
 
 
 /* Empleats */
