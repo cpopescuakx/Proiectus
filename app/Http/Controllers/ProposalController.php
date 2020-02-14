@@ -177,15 +177,17 @@ class ProposalController extends Controller
         return redirect()->back();
     }
 
+
     public function destroyProposal($id)
     {
-        $proposal = Proposal::find($id)->delete();
-        //$proposal -> save();
+        $proposal = Proposal::find($id);
+        $proposal ->status = 'deleted';
+        $proposal ->save();
 
         $proposals = Proposal::all();
 
         return redirect()->route('proposals.index',compact('proposals'))
-            ->with('success','Proposal deleted successfully.');
+                ->with('success','Proposal deleted successfully.');
     }
 /*
     public function destroyProposal(Request $request, $id)
