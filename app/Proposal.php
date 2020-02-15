@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Scopes\ProposalScope;
 use Illuminate\Database\Eloquent\Model;
 
 class Proposal extends Model
@@ -22,10 +23,23 @@ class Proposal extends Model
         'status' => 'active'
     ];
 
+    /**
+     * The "booting" method of the model.
+     *
+     * @return void
+     */
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::addGlobalScope(new ProposalScope);
+    }
+
     // Función scope para filtrar propuestas activas/inactivas
     public function scopeTipo($query, $tipo) {
     	if ($tipo) {
-    		return $query->where('status','=',"$tipo");
+            return $query->where('status','=',"$tipo");
     	}
     }
+
 }

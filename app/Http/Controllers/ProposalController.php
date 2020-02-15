@@ -161,6 +161,18 @@ class ProposalController extends Controller
         ->with('i', (request()->input('page', 1) -1));
     }
 
+    public function destroyProposal($id)
+    {
+        $proposal = Proposal::find($id);
+        $proposal ->status = 'deleted';
+        $proposal ->save();
+
+        $proposals = Proposal::all();
+
+        return redirect()->route('proposals.index',compact('proposals'))
+                ->with('success','Proposal deleted successfully.');
+    }
+
     /** DONAR D'ALTA PROPOSTA
      *
      *  Indiquem la id de la proposta la qual volem donar d'alta i redireccionem a la vista anterior.
@@ -177,43 +189,4 @@ class ProposalController extends Controller
         return redirect()->back();
     }
 
-
-    public function destroyProposal($id)
-    {
-        $proposal = Proposal::find($id);
-        $proposal ->status = 'deleted';
-        $proposal ->save();
-
-        $proposals = Proposal::all();
-
-        return redirect()->route('proposals.index',compact('proposals'))
-                ->with('success','Proposal deleted successfully.');
-    }
-/*
-    public function destroyProposal(Request $request, $id)
-    {
-              $id = $request->route('id'); // Agafar l'ID de la URL
-
-              // Cercar la proposta amb la mateixa ID de la BBDD
-              $proposal = Proposal::find($id);
-
-              $request->validate([
-
-                'status' => 'inactive'
-    
-            ]);
-    
-      
-    
-            $proposal->update($request->all());
-    
-
-              // Guardar la proposta a la BBDD amb les noves dades
-              $proposal -> save();
-
-              // Tornar a la llista de propostes
-              return redirect()->route('proposals.index')
-                    ->with('success','Product deleted successfully');
-    }
-    */
 }

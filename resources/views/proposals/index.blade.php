@@ -7,7 +7,7 @@
     <nav class="navbar navbar-light">
         <form class="form-inline">
             <select name="tipo" class="custom-select mr-2">
-                <option selected>Escull</option>
+                <option selected>Choose an option</option>
                 <option value="active">Active</option>
                 <option value="inactive">Inactive</option>
               </select>
@@ -31,7 +31,7 @@
     </thead>
 
     @if ($message = Session::get('success'))
-        <div class="alert alert-success">
+        <div class="alert alert-success m-2">
             <p>{{$message}}</p>
         </div>
     @endif
