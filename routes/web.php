@@ -48,6 +48,9 @@ Route::get('Project/{id}', 'ProjectController@destroy')
 Route::get('Dashboard/projects', 'ProjectController@dashboardProject')
 ->name('projects.dashboard');
 
+Route::get('Project/{id}/principal', 'ProjectController@show')
+->name('projects.show');
+
 /** Rutes per a l'apartat de gestió d'alumnes */
 
 Route::get('Students', 'UserController@indexStudent')

@@ -127,9 +127,11 @@ class ProjectController extends Controller
     }
 
     
-    public function show(Project $project)
+    public function show($id)
     {
-        //return view('projects.show',compact('project'));
+        $project = Project::find($id);
+        return view ('projects.show', compact('project'));
+
     }
 
     
@@ -222,15 +224,18 @@ class ProjectController extends Controller
     
     /** Llistar els projectes per al dashboard
     *  
-    *  Agafa tots els projectes de la base de dades i els pagina de 9 en 9.
-    *  Retorna la vista juntament amb l'array de projectes.
+    *   Busca els projectes que hi ha a la base de dades i els pagina de 12 en 12
+    *   Si s'ha escrit algo al buscador busca els projectes que coincideixen amb la cerca
+    *   (Scope al model de PROJECTE).
     * 
-    *  @param void
+    *  @param Request $request
     *  @return void
     */
-    public function dashboardProject()
+    public function dashboardProject(Request $request)
     {
-        $projects = Project::paginate(9);
+
+        $projects = Project::name($request->get('name'))->paginate(12);
+
         return view('projects.dashboard', compact('projects'));
     }
 }
