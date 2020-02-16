@@ -10,9 +10,9 @@ class Proposal extends Model
     protected $table = 'proposals';
     protected $primaryKey = 'id_proposal';
     protected $fillable = [
-        'name', 
-        'limit_date', 
-        'description', 
+        'name',
+        'limit_date',
+        'description',
         'professional_family'
     ];
 
@@ -40,6 +40,24 @@ class Proposal extends Model
     	if ($tipo) {
             return $query->where('status','=',"$tipo");
     	}
+    }
+
+    /** Scope project
+     *
+     *  Scope per a filtrar les propostes que coincideixen amb el
+     *  que s'ha escrit al buscador.
+     *
+     *  @param Query $query
+     *  @param String $name
+     *  @return void
+     **/
+
+    public function scopeName($query, $name) {
+
+        if ($name != "") {
+            $query->where('name', 'like', '%'.$name.'%');
+        }
+
     }
 
 }

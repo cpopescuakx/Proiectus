@@ -77,7 +77,8 @@ class ProposalController extends Controller
      */
     public function show($id)
     {
-        //
+      $proposal = Proposal::find($id);
+      return view ('proposal.show', compact('proposal'));
     }
 
     /**
@@ -189,4 +190,10 @@ class ProposalController extends Controller
         return redirect()->back();
     }
 
+    public function dashboardProposal(Request $request)
+    {
+        $proposals = Proposal::name($request->get('name'))->paginate(12);
+
+        return view('proposals.dashboard', compact('proposals'));
+    }
 }
