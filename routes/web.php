@@ -126,3 +126,7 @@ Route::post('wiki/{id_project}/article/{id_article}/update', 'ArticleController@
 Route::resource('articles', 'ArticleController');
 
 /** Rutes per a l'apartat de perfils d'usuari */
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
