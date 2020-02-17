@@ -83,7 +83,7 @@ class ProposalController extends Controller
     public function show($id)
     {
       $proposal = Proposal::find($id);
-      return view ('proposal.show', compact('proposal'));
+      return view ('proposals.show', compact('proposal'));
     }
    
     /**
