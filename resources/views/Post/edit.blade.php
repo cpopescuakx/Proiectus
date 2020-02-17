@@ -48,7 +48,7 @@
 			</script>
 		</div>
 		<div class="form-group">
-			<a class="btn btn-primary float-left" href="{{ url('blog', [$id_project]) }}"> Cancel·lar</a>
+			<a class="btn btn-primary float-left" href="{{ URL::previous() }}"> Cancel·lar</a>
 			<button type="submit" class="btn btn-primary float-right">Confirmar</button>
 		</div>
 	</form>
