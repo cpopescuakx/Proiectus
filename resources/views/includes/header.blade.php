@@ -85,7 +85,7 @@
                     <li class="nav-item">
                         <a href="{{ route('proposals.index') }}">
 
-                            <span class="text-light">All Proposals</span>
+                            <span class="text-light">Totes les Propostes</span>
                         </a>
                     </li>
                     <!-- Fin submenu -->
@@ -93,7 +93,7 @@
                     <!-- Submenu -->
                     <li class="nav-item">
                         <a href="{{ route('proposals.dashboard') }}">
-                            <span class="text-light">My Proposals</span>
+                            <span class="text-light">Les teves Propostes</span>
                         </a>
                     </li>
                     <!-- Fin submenu -->
