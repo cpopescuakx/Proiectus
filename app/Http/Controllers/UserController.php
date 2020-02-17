@@ -22,9 +22,11 @@ class UserController extends Controller
     /** LLISTAR GESTORS
      *
      *  Extreu els usuaris que tenen ID de rol 5 (gestor), després retorna la vista per a llistar-los.
-     *
+     * 
+     *  @author xavier romeu
      *  @param void
-     *  @return void
+     *  @var managers variable per emmagatzemar les dades del usuari i llistar-los
+     *  @return view managers.index
      * */
     public function indexManager(){
         //Mostrem tots els usuaris amb id de rol 5 (gestors)
@@ -37,8 +39,10 @@ class UserController extends Controller
      *
      *  Retorna la vista amb el formulari de creació de gestors. Passant els noms de les ciutats
      *  que tenim a la base de dades, per a poder fer el datalist.
-     *
+     * 
+     *  @author xavier romeu
      *  @param void
+     *  @var cities variable per agafar la id de la ciutat seleccionada al crear un gestor i emmagatzemarla
      *  @return \Illuminate\Http\Response
      **/
 
@@ -52,7 +56,9 @@ class UserController extends Controller
      *
      *  Emmagatzema les dades del nou gestor entrades per l'usuari i les emmagatzema a la base de dades
      *
+     *  @author xavier romeu
      *  @param void
+     *  @var manager variable per emmagatzemar les dades del usuari introduides per crear un nou manager
      *  @return \Illuminate\Http\Response
      **/
     public function storeManager(Request $request){
@@ -89,8 +95,10 @@ class UserController extends Controller
      *
      *  Retorna el formulari de modificació de gestors. Passant els gestors a partir de l'ID.
      *
+     *  @author xavier romeu
      *  @param int $id
-     *  @return void
+     *  @var managers variable per emmagatzemar les dades del usuari a modificades 
+     *  @return view managers.edit per a mostrar el formulari d'edicio de managers
      */
     public function editManager($id){
 
@@ -106,7 +114,9 @@ class UserController extends Controller
      *  Guarda les noves dades dels gestors a la base de dades. Llavors, redirecciona
      *  al llistat de gestors.
      *
+     *  @author xavier romeu
      *  @param Request $request
+     *  @var managers variable per emmagatzemar les dades del usuari modificades a la base de dades
      *  @return void
      */
     public function updateManager (Request $request) {
@@ -144,10 +154,13 @@ class UserController extends Controller
      *
      *  Busca al gestor amb l'ID passada com a paràmetre i passa el seu estat a inactive.
      *  Redirecciona al llistat de gestors.
-     *
+     * 
+     *  @author xavier romeu
      *  @param int $id
+     *  @var managers variable per emmagatzemar les dades del usuari canviant a inactiu el camp d'estat dels managers
      *  @return void
      */
+
     public function destroyManager ($id) {
 
         $managers = User::find($id);
