@@ -93,7 +93,7 @@
                     <!-- Submenu -->
                     <li class="nav-item">
                         <a href="{{ route('proposals.dashboard') }}">
-                            <span class="text-light">Les teves Propostes</span>
+                            <span class="text-light">Les meves Propostes</span>
                         </a>
                     </li>
                     <!-- Fin submenu -->
