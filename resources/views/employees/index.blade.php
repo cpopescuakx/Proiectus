@@ -8,9 +8,11 @@
   <!-- Filtro -->
   <nav class="navbar navbar-light">
         <form class="form-inline">
+            <h4 style="margin-right: 1rem">Filtrar empleats</h4>
+            
             <select name="tipo" class="custom-select mr-2">
-                <option selected>Escull</option>
-                <option value="active">Actius</option>
+                
+                <option value="active" selected>Actius</option>
                 <option value="inactive">Inactius</option>
               </select>
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Cercar</button>
