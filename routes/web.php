@@ -170,7 +170,9 @@ Route::get('blog/{id_project}/post/{id_post}/edit', 'PostController@edit');
 Route::post('blog/{id_project}/post/{id_post}/update', 'PostController@update');
 
 /** Ruta eliminar un post*/
-Route::get('blog/{id_project}/post/{id_post}/destroy', 'PostController@destroy');
+Route::get('blog/{id_project}/post/{id_post}', 'PostController@destroy')
+->name('posts.destroy');
+//Route::get('blog/{id_project}/post/{id_post}/destroy', 'PostController@destroy');
 //Route::get('blog/{id_project}/post/{id_post}', 'PostController@destroy')
 //->name('posts.destroy');
 

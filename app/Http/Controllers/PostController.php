@@ -115,7 +115,7 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id_project, $id_post)
+    public function destroy($id_post)
     {
       $post = post::find($id_post);
       $post -> status = 'inactive';
