@@ -17,6 +17,11 @@ class ProposalController extends Controller
         //
     }
 
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function indexProposal(Request $request)
     {
         $tipo = $request->get('tipo');
@@ -142,7 +147,7 @@ class ProposalController extends Controller
               // Tornar a la llista de propostes
               return redirect()->route(url()->previous());    }
 
-    /**BAIXA PROPOSTA
+    /** BAIXA PROPOSTA
      *
      * Donem de baixa la proposta que indiquem amb la seva ID
      *
