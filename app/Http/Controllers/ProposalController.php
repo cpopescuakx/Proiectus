@@ -85,7 +85,7 @@ class ProposalController extends Controller
       $proposal = Proposal::find($id);
       return view ('proposal.show', compact('proposal'));
     }
-
+   
     /**
      * Show the form for editing the specified resource.
      *
