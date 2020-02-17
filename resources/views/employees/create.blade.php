@@ -57,7 +57,7 @@
                             <div class="row justify-content-center">
                                 <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
                                     <label for="contrassenya">Contrasenya</label>
-                                    <input type="text" name = "password" class="form-control"  id="password" required>
+                                    <input type="password" name = "password" class="form-control"  id="password" required>
                                     <div class="invalid-feedback">Camp necessari</div>
                                 </div>
                             </div>
