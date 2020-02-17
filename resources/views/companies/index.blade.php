@@ -3,6 +3,8 @@
 @section('content')
 
 <div class="col">
+  <br></br>
+  <h3 class="align-middle">GESTIÓ D'EMPRESES</h3>
     <div class="row d-flex justify-content-end p-4">
       <a href="{{ route('companies.create') }}"><img src={{ asset('img/add.svg') }} width="45" height="45" ></a>
     </div>
