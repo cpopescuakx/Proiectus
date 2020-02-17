@@ -1,15 +1,11 @@
 package com.example.proiectus;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.Activity;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
 public class PaginaPrincipal extends Activity {
     Button btnAfegir;
@@ -24,7 +20,7 @@ public class PaginaPrincipal extends Activity {
         setContentView(R.layout.activity_pagina_principal);
         btnAfegir = (Button)findViewById(R.id.btnAfegir);
         btnModificar = (Button)findViewById(R.id.btnModificar);
-        idModificar = (EditText)findViewById(R.id.txtModificar);
+        idModificar = (EditText) findViewById(R.id.txtModificar);
 
 
 

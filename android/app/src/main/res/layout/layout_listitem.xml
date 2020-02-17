@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:padding="15dp"
+    android:id="@+id/parent_layout">
+
+    <TextView
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:text="ID"
+        android:id="@+id/idInsti"
+        android:textColor="#000"
+        android:layout_centerVertical="false"
+        android:textSize="18sp"
+        android:layout_marginLeft="5dp"
+        />
+    <TextView
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:text="Nom"
+        android:id="@+id/nomInsti"
+        android:textColor="#000"
+        android:layout_centerVertical="false"
+        android:textSize="18sp"
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@+id/idInsti"
+        />
+    <TextView
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:text="Codi"
+        android:id="@+id/codiInsti"
+        android:textColor="#000"
+        android:layout_centerVertical="false"
+        android:textSize="18sp"
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@+id/nomInsti"
+
+        />
+    <TextView
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:text="Ciutat"
+        android:id="@+id/ciutatInsti"
+        android:textColor="#000"
+        android:layout_centerVertical="false"
+        android:textSize="18sp"
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@+id/codiInsti"
+
+        />
+</RelativeLayout>
