@@ -443,7 +443,7 @@ class UserController extends Controller
 
     /** LLISTAR EMPLEATS ACTIUS
      *
-     *  Extreu els empleats que tenen ID de rol 4 (Empleat) els quals tinguin com a estat (active), després retorna la vista per a llistar-los.
+     *  Extreu els empleats que tenen ID de rol 2 (Empleat) els quals tinguin com a estat (active), després retorna la vista per a llistar-los.
      *
      *  @param \Illuminate\Http\Request $request Obtenim el tipo d'estat dels empleats a mostrar
      *  @return \Illuminate\Http\Response
