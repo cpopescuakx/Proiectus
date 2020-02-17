@@ -28,6 +28,7 @@
                             maxHeight: 400
                         });
 
+
                         /* Comprovem si el contingut del post esta buit al fer submit i
                             evitem continuar si està buit
                         */
