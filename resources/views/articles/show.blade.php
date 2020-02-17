@@ -1,12 +1,14 @@
-@extends('articles.layout')
+@extends('layouts.default')
+
 @section('content')
+  <div style="padding: 10px">
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
                 <h2>Show</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('articles.index') }}"> Back</a>
+                <a class="btn btn-primary" href="{{ url('wiki', [$id_project]) }}"> Back</a>
             </div>
         </div>
     </div>
@@ -78,4 +80,5 @@
 
 
     </div>
+  </div>
 @endsection

@@ -26,10 +26,137 @@ class UserController extends Controller
      *  @param void
      *  @return void
      * */
+    public function indexManager(){
+        //Mostrem tots els usuaris amb id de rol 5 (gestors)
+        $managers['users'] = User::where('id_role', 5)->take(1000);
+        //dd($managers);
+        //$managers = Users::where('id_role', 5);
+        return view('managers.index', $managers);
+    }
+
+    /** CREAR GESTORS
+     *
+     *  Retorna la vista amb el formulari de creació de gestors. Passant els noms de les ciutats
+     *  que tenim a la base de dades, per a poder fer el datalist.
+     *
+     *  @param void
+     *  @return \Illuminate\Http\Response
+     **/
+
+    public function createManager(){
+
+        $cities = DB::table('cities')->distinct()->select("name")->get();
+        return view('managers.create',compact('cities'));
+    }
+
+    public function storeManager(Request $request){
+
+        $manager = new User;
+
+        // Assignació de valors a les propietats
+        $manager -> firstname = $request->input('firstname');
+        $manager -> lastname = $request->input('lastname');
+        $manager -> name = $request->input('name');
+        $manager -> dni = $request->input('dni');
+        $manager -> email = $request->input('email');
+        $manager -> birthdate = $request->input('birthdate');
+        $manager -> password = $request->input('password');
+        $nom = $request->input('city');
+        $manager -> id_city = CityController::agafarID($nom);
+        $manager -> profile_pic = "Res";
+        $manager -> bio = "Res";
+        $manager -> id_role = 5;
+        $manager -> status = "active";
+
+        // Guardar gestors a la BBDD
+        $manager -> save();
+
+        // Tornar a la llista de gestors
+
+        $managers = DB::table('users')->where('id_role', 5)->get();
+
+        return redirect()->route('managers.index',compact('managers'))
+        ->with('i', (request()->input('page', 1) -1));
+    }
+
+    /** EDITAR GESTOR
+     *
+     *  Retorna el formulari de modificació de gestors. Passant els gestors a partir de l'ID.
+     *
+     *  @param int $id
+     *  @return void
+     */
+    public function editManager($id){
+
+        $managers = User::find($id);
+        $cities = DB::table('cities')->distinct()->select("name")->get();
+        $nomCiutat = CityController::agafarNom($managers->id_city);
+
+        return view('managers.edit', compact('managers', 'cities', 'nomCiutat'));
+    }
+
+    /** UPDATE GESTORS
+     *
+     *  Guarda les noves dades dels gestors a la base de dades. Llavors, redirecciona
+     *  al llistat de gestors.
+     *
+     *  @param Request $request
+     *  @return void
+     */
+    public function updateManager (Request $request) {
+
+        $id = $request->route('id'); // Agafem la ID de la URL
+
+        // Busquem el gestor amb la mateixa ID
+        $manager = User::find($id);
+
+        // Assignar els valors del formulari
+        $manager -> firstname = $request->input('firstname');
+        $manager -> lastname = $request->input('lastname');
+        $manager -> name = $request->input('name');
+        $manager -> dni = $request->input('dni');
+        $manager -> email = $request->input('email');
+        $manager -> birthdate = $request->input('birthdate');
+        $manager -> password = $request->input('password');
+        $nom = $request->input('city');
+        $manager -> id_city = CityController::agafarID($nom);
+        $manager -> profile_pic = "Res";
+        $manager -> bio = "Res";
+        $manager -> id_role = 5;
+        $manager -> status = $request->input('status');
+
+        // Guardem el gestor amb les noves dades
+        $manager -> save();
+
+        // Tornem a la llista de gestors
+
+        $managers = DB::table('users')->where('id_role', 5)->get();
+
+        return redirect()->route('managers.index',compact('managers'))
+        ->with('i', (request()->input('page', 1) -1));
+
+    }
+    /** DESTROY GESTORS
+     *
+     *  Busca al gestor amb l'ID passada com a paràmetre i passa el seu estat a inactive.
+     *  Redirecciona al llistat de gestors.
+     *
+     *  @param int $id
+     *  @return void
+     */
+    public function destroyManager ($id) {
+        $manager = User::find($id);
+        $manager -> status = 'inactive';
+        $manager -> save();
+
+        $manager = DB::table('users')->where('id_role', 5)->get();
+
+        return redirect()->route('managers.index',compact('managers'))
+        ->with('i', (request()->input('page', 1) -1));
+    }
 
     public function indexStudent()
     {
-        //
         $students = DB::table('users')->where('id_role', 3)->get();
 
         return view ('students.index', compact('students'));
@@ -42,7 +169,8 @@ class UserController extends Controller
      *
      *  @param void
      *  @return \Illuminate\Http\Response
-     */
+     **/
+
     public function createStudent()
     {
         $cities = DB::table('cities')->distinct()->select("name")->get();
@@ -184,7 +312,8 @@ class UserController extends Controller
      */
     public function createProfessor()
     {
-        return view('professors.create');
+      $cities = DB::table('cities')->distinct()->select("name")->get();
+      return view('professors.create',compact('cities'));
     }
 
     /** Crea el nou alumne a partir de les dades donades al formulari.
@@ -204,7 +333,8 @@ class UserController extends Controller
         $professor -> email = $request->input('email');
         $professor -> birthdate = $request->input('birthdate');
         $professor -> password = $request->input('password');
-        $professor -> id_city = 1;
+        $nom = $request->input('city');
+        $professor -> id_city = CityController::agafarID($nom);
         $professor -> profile_pic = "Res";
         $professor -> bio = "Res";
         $professor -> id_role = 4;
@@ -220,6 +350,151 @@ class UserController extends Controller
         return redirect()->route('professors.index',compact('professors'))
         ->with('i', (request()->input('page', 1) -1));
     }
+
+    /** EDITAR Professor
+     *
+     *  Retorna el formulari de modificació d'profes. Passant l'profe a partir de l'ID.
+     *
+     *  @param int $id
+     *  @return void
+     */
+    public function editProfessor ($id) {
+        $professor = User::find($id);
+        $cities = DB::table('cities')->distinct()->select("name")->get();
+        $nomCiutat = CityController::agafarNom($professor->id_city);
+
+        return view('professors.edit', compact('professor', 'cities', 'nomCiutat'));
+    }
+
+    /** UPDATE Professor
+     *
+     *  Guarda les noves dades de l'profe a la base de dades. Llavors, redirecciona
+     *  al llistat d'profes.
+     *
+     *  @param Request $request
+     *  @return void
+     */
+
+    public function updateProfessor (Request $request) {
+
+        $id = $request->route('id'); // Agafar l'ID de la URL
+
+        // Cercar l'profe amb la mateixa ID de la BBDD
+        $professor = User::find($id);
+
+        // Assignar els valors del formulari
+        $professor -> firstname = $request->input('firstname');
+        $professor -> lastname = $request->input('lastname');
+        $professor -> name = $request->input('name');
+        $professor -> dni = $request->input('dni');
+        $professor -> email = $request->input('email');
+        $professor -> birthdate = $request->input('birthdate');
+        $professor -> password = $request->input('password');
+        $nom = $request->input('city');
+        $professor -> id_city = CityController::agafarID($nom);
+        $professor -> profile_pic = "Res";
+        $professor -> bio = "Res";
+        $professor -> id_role = 4;
+        $professor -> status = $request->input('status');
+
+        // Guardar l'profe a la BBDD amb les noves dades
+        $professor -> save();
+
+        // Tornar a la llista d'profes
+
+        $professors = DB::table('users')->where('id_role', 4)->get();
+
+        return redirect()->route('professors.index',compact('professors'))
+        ->with('i', (request()->input('page', 1) -1));
+
+    }
+
+    /** DESTROY Professor
+     *
+     *  Busca l'profe amb l'ID passada com a paràmetre i passa el seu estat a inactive.
+     *  Redirecciona al llistat d'profes.
+     *
+     *  @param int $id
+     *  @return void
+     */
+
+    public function destroyProfessor ($id) {
+        $professor = User::find($id);
+        $professor -> status = 'inactive';
+        $professor -> save();
+
+        $professors = DB::table('users')->where('id_role', 4)->get();
+
+        return redirect()->route('professors.index',compact('professors'))
+        ->with('i', (request()->input('page', 1) -1));
+    }
+
+    /** LLISTAR EMPLEATS ACTIUS
+     *
+     *  Extreu els empleats que tenen ID de rol 4 (Empleat) els quals tinguin com a estat (active), després retorna la vista per a llistar-los.
+     *
+     *  @param void
+     *  @return \Illuminate\Http\Response
+     * */
+
+    public function indexEmployeeActive()
+    {
+        //
+        $employees = User::where([['id_role',2],['status','active'],])->get();
+
+        return view ('employees.indexActive', compact('employees'));
+            
+    }
+    
+    /** LLISTAR EMPLEATS INACTIUS
+     *
+     *  Extreu els empleats que tenen ID de rol 4 (Empleat) els quals tinguin com a estat (inactive), després retorna la vista per a llistar-los.
+     *
+     *  @param void
+     *  @return \Illuminate\Http\Response
+     * */
+
+    public function indexEmployeeInactive()
+    {
+        //
+        $employees = User::where([['id_role',2],['status','inactive'],])->get();
+
+        return view ('employees.indexInactive', compact('employees'));
+            
+    }
+
+    /** CREAR EMPLEAT
+     *
+     *  Retorna la vista amb el formulari de creació d'empleats. Passant els noms de les ciutats
+     *  que tenim a la base de dades, per a poder fer el datalist.
+     *
+     *  @param void
+     *  @return \Illuminate\Http\Response
+     */
+    public function createEmployee()
+    {
+        $cities = DB::table('cities')->distinct()->select("name")->get();
+        return view('employees.create',compact('cities'));
+    }
+
+
+    /** DONAR D'ALTA TOT TIPUS D'USUARIS
+     *
+     *  Indiquem la id de l'usuari el qual volem donar d'alta i redireccionem a la vista anterior. 
+     *
+     *  @param $id Conté la ID de l'usuari
+     *  @return \Illuminate\Http\Response
+     * */
+
+    public function activeUser($id)
+    {             
+        $user = User::find($id);
+        $user->status = 'active';
+        $user->save();
+        return redirect()->back();    
+    }
+
+
 
     /**
      * Store a newly created resource in storage.

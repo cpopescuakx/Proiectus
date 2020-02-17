@@ -1,14 +1,14 @@
 @extends('layouts.default')
 
 @section('content')
-    <div class="formulari">
+    <div class="content formulari closed">
         <form class="was-validated" action="{{route('projects.update', [$project->id_project])}}" method="POST">
             @csrf
             <div class="row justify-content-center">
                 <div class="col-11 col-sm-11 col-md-10 col-lg-10 col-xl-10">
                     <div class="container">
                         <div class="contact-image text-center mt-3">
-                            <img class="form-img" src="{{ asset('img/icono_negro.png') }}" />
+                            <img class="form-img" src="./img/icono_negro.png" />
                         </div>
                     </div>
                     <div class="container contact-form">

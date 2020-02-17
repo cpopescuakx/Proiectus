@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Proposal;
 
 class ProposalController extends Controller
 {
@@ -16,6 +17,13 @@ class ProposalController extends Controller
         //
     }
 
+    public function indexProposal()
+    {
+      $proposals = Proposal::paginate(5);
+      return view('proposals.index', compact('proposals'))
+          ->with('i', (request()->input('page', 1) -1));//
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -24,6 +32,12 @@ class ProposalController extends Controller
     public function create()
     {
         //
+    }
+
+
+    public function createProposal()
+    {
+        return view('proposals.create');
     }
 
     /**
@@ -35,6 +49,19 @@ class ProposalController extends Controller
     public function store(Request $request)
     {
         //
+    }
+
+    //! TO-DO
+    public function storeProposal(Request $request)
+    {
+        $request->validate([
+            'name' => 'required',
+            'description' => 'required',
+        ]);
+
+        Proposal::create($request->all());
+        return redirect()->route('proposals.index')
+                        ->with('success','Proposal created successfully.');
     }
 
     /**

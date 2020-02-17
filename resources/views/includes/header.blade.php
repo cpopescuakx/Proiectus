@@ -1,7 +1,7 @@
 
 <div id="menu" class="closed">
     <!-- Inicio sidenav -->
-    <nav id="sidenav" class="bg-primary">
+    <nav id="sidenav" class="bg-primary1">
         <ul class="nav flex-column">
             <!-- Logo -->
             <li class="nav-item">
@@ -72,7 +72,7 @@
                   <ul class="nav flex-column">
                     <!-- Submenu -->
                     <li class="nav-item">
-                        <a href="g3_llistar_propostes.php">
+                        <a href="{{ url('/Proposals') }}">
 
                             <span class="text-light">All Proposals</span>
                         </a>
@@ -81,7 +81,7 @@
 
                     <!-- Submenu -->
                     <li class="nav-item">
-                        <a href="g3_propostes.php">
+                        <a href="">
                             <span class="text-light">My Proposals</span>
                         </a>
                     </li>
