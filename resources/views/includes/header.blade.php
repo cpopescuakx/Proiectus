@@ -75,7 +75,7 @@
             <li class="nav-item">
                 <a class="dropdown">
                     <i class="material-icons text-light">file_copy</i>
-                    <span class="text-light">Proposals</span>
+                    <span class="text-light">Propostes</span>
                     <i class="dropdown-ico material-icons text-light">keyboard_arrow_down</i>
                 </a>
 
@@ -107,7 +107,7 @@
             <li class="nav-item">
                 <a href="{{ route('projects.index') }}">
                     <i class="material-icons text-light">assignment</i>
-                    <span class="text-light">Projects</span>
+                    <span class="text-light">Projectes</span>
                 </a>
             </li>
             <!-- Fin item sidenav -->
