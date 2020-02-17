@@ -78,7 +78,7 @@ class PostController extends Controller
      */
     public function edit($id_project, $id_post)
     {
-        $post=post::find($id_post);
+        $post=Post::find($id_post);
         return view('Post.edit', compact('post', 'id_project', 'id_post'));
 
     }
@@ -102,7 +102,7 @@ class PostController extends Controller
 
         // $posts->save();
 
-        post::find($id_post)->update($request->all());
+        Post::find($id_post)->update($request->all());
 
         return redirect()->action('BlogController@index', ['id_project' => $id_project]);
         //return redirect()->back();
@@ -117,11 +117,21 @@ class PostController extends Controller
      */
     public function destroy($id_project, $id_post)
     {
-      $post = post::find($id_post);
-      $post ->status = 'inactive';
-      $post ->save();
+      $post = Post::find($id_post);
+      $post->status='inactive';
+      $post-> save();
 
-      $posts = post::all();
-          return redirect()->route('Blog.index',compact('post', 'id_project', 'id_post'));
+
+      // $posts = new Post();
+      // $posts->title = $post->title;
+      // $posts->content = $post->content;
+      // $posts->id_project = $post->id_project;
+      // $posts->id_post = $post->id_post;
+      // $posts->id_user = $post->id_user;
+      // $posts->status = 'inactive';
+      // $posts -> save();
+
+
+      return redirect()->action('BlogController@index', ['id_project' => $id_project]);
     }
 }
