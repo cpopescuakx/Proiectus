@@ -27,7 +27,8 @@ class BlogController extends Controller
         // dd($id_project);
         $posts = Post::all()
         ->sortByDesc('created_at')
-        ->where('id_project', '=', $id_project);
+        ->where('id_project', '=', $id_project)
+        ->where('status', '=', 'active');
 
         $blog = Blog::find($id_project);
 

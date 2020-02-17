@@ -186,8 +186,16 @@ Route::PATCH('blog/{id_project}/update', 'BlogController@update');
 
 
 /** Rutes per a l'apartat de la gestio dels articles de la wiki */
+// KEVIN
+Route::get('wiki/{id_project}', 'WikiController@index');
+Route::post('wiki/{id_project}/store', 'ArticleController@store');
 
-Route::get('wiki/{id_project}', 'ArticleController@index');
+Route::get('wiki/{id_project}/edit', 'WikiController@edit');
+Route::PATCH('wiki/{id_project}/update', 'WikiController@update');
+
+
+// Javier
+// Route::get('wiki/{id_project}', 'ArticleController@index');
 Route::get('wiki/{id_project}/article/create', 'ArticleController@create');
 Route::post('wiki/{id_project}/article/store', 'ArticleController@store');
 Route::get('wiki/{id_project}/article/{id_article}/edit', 'ArticleController@edit');

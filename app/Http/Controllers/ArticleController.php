@@ -49,7 +49,7 @@ class ArticleController extends Controller
         $id_user = 9;
 
         $request->validate([
-            'version' => 'required',
+            // 'version' => 'required',
             'title' => 'required',
             'content' => 'required',
             'reference' => 'required',
@@ -57,10 +57,12 @@ class ArticleController extends Controller
 
         $article = new Article();
         $article -> id_project = $id_project;
-        $article -> version = $request->get('version');
+        //$article -> version = $request->get('version');
+        $article -> version = '1';
         $article -> title = $request->get('title');
         $article -> content = $request->get('content');
-        $article -> reference = $request->get('reference');
+        //$article -> reference = $request->get('reference');
+        $article -> reference = '';
         $article -> id_user = $id_user;
         $article -> status = 'active';
 
