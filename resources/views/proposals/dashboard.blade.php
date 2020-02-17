@@ -7,8 +7,8 @@
         <div class="row justify-content-center">
 
                   <form class ="form-inline jsutify-content-center m-4" action="{{route('proposals.dashboard')}}" method = "GET" >
-                      <input name = "name" class="form-control" placeholder="Buscar...">
-                    <button style="color: white;" type="submit" class="btn bg-primary1 ml-2">Buscar</button>
+                      <input name = "name" class="form-control" placeholder="Cercar...">
+                    <button style="color: white;" type="submit" class="btn bg-primary1 ml-2">Cercar</button>
                 </form>
         </div>
     </div>
