@@ -199,7 +199,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView16" />
 
     <EditText
-        android:id="@+id/idModificar"
+        android:id="@+id/txtModificar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -207,4 +207,5 @@
         app:layout_constraintBottom_toTopOf="@+id/btnModificar"
         app:layout_constraintEnd_toEndOf="@+id/btnModificar"
         app:layout_constraintStart_toStartOf="@+id/btnModificar" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

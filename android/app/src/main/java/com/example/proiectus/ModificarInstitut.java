@@ -27,13 +27,13 @@ public class ModificarInstitut extends AppCompatActivity {
         codi = (EditText)findViewById(R.id.txtCodi);
         ciutat = (EditText)findViewById(R.id.txtCiutat);
 
-        int id = 2;
+        int id = -1;
 
         if (getIntent().hasExtra("id")){
             id = Integer.parseInt(getIntent().getExtras().getString("id"));
         }
-
-        final String [] dades = llistaInstituts.getInstitut(id);
+    if (id >= 0) {
+        final String[] dades = llistaInstituts.getInstitut(id);
 
         nom.setText(dades[1]);
         codi.setText(dades[2]);
@@ -43,7 +43,7 @@ public class ModificarInstitut extends AppCompatActivity {
         botoModificar.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
                 llistaInstituts.modificarInstitut(Integer.parseInt(dades[0]), nom.getText().toString(), codi.getText().toString(), ciutat.getText().toString());
-                Intent i  = new Intent(ModificarInstitut.this, PaginaPrincipal.class);
+                Intent i = new Intent(ModificarInstitut.this, PaginaPrincipal.class);
                 startActivity(i);
             }
 
@@ -51,9 +51,10 @@ public class ModificarInstitut extends AppCompatActivity {
 
         botoTornar.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
-                Intent i  = new Intent(ModificarInstitut.this, PaginaPrincipal.class);
+                Intent i = new Intent(ModificarInstitut.this, PaginaPrincipal.class);
                 startActivity(i);
             }
         });
+    }
     }
 }

@@ -8,13 +8,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 public class PaginaPrincipal extends Activity {
     Button btnAfegir;
     Button btnModificar;
     LlistaInstituts llistaInstituts = new LlistaInstituts();
-    TextView text;
+    EditText idModificar;
 
 
     @Override
@@ -23,10 +24,9 @@ public class PaginaPrincipal extends Activity {
         setContentView(R.layout.activity_pagina_principal);
         btnAfegir = (Button)findViewById(R.id.btnAfegir);
         btnModificar = (Button)findViewById(R.id.btnModificar);
+        idModificar = (EditText)findViewById(R.id.txtModificar);
 
-        String [] dades = llistaInstituts.getInstitut(2);
-        text = (TextView)findViewById(R.id.txtTest);
-        text.setText(dades[0] + " - " + dades[1] +" - " + dades[2] +" - " + dades[3]);
+
 
         btnAfegir.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
@@ -38,7 +38,7 @@ public class PaginaPrincipal extends Activity {
         btnModificar.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
                 Intent i  = new Intent(PaginaPrincipal.this, ModificarInstitut.class);
-                i.putExtra("id", "1");
+                i.putExtra("id", idModificar.getText().toString());
                 startActivity(i);
             }
         });
