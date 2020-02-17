@@ -4,14 +4,11 @@
 @section('content')
 <div class="col">
   <div class="row d-flex justify-content-between p-4">
-  <h2 >Llistat d'empleats</h2>
   <!-- Filtro -->
   <nav class="navbar navbar-light">
         <form class="form-inline">
-            <h4 style="margin-right: 1rem">Filtrar empleats</h4>
-            
+            <h4 style="margin-right: 1rem">Llista Empleats</h4>
             <select name="tipo" class="custom-select mr-2">
-                
                 <option value="active" selected>Actius</option>
                 <option value="inactive">Inactius</option>
               </select>

@@ -92,7 +92,7 @@
 
                     <!-- Submenu -->
                     <li class="nav-item">
-                        <a href="{{ route('proposals.index') }}">
+                        <a href="{{ route('proposals.dashboard') }}">
                             <span class="text-light">My Proposals</span>
                         </a>
                     </li>
