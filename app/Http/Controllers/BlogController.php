@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Blog;
 use App\Post;
+use App\User;
 
 class BlogController extends Controller
 {
@@ -29,7 +30,7 @@ class BlogController extends Controller
         ->sortByDesc('created_at')
         ->where('id_project', '=', $id_project)
         ->where('status', '=', 'active');
-
+        
         $blog = Blog::find($id_project);
 
             return view('Blog.index', compact('posts', 'id_project', 'blog'));

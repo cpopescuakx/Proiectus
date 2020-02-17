@@ -1,7 +1,15 @@
 @extends('layouts.default')
 @section('content')
-<br><br>
+
 @if ($blog != null)
+<div>
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="#">Projecte</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Blog</li>
+  </ol>
+</nav>
+</div>
         <div class="container mb-5">
           <a href="{{$id_project}}/edit" ><i style="font-size: 1rem" class="material-icons">edit</i></a>
           <h2 class = "float-left">{{$blog->title}}</h2>

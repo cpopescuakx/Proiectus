@@ -118,7 +118,7 @@ class PostController extends Controller
     public function destroy($id_project, $id_post)
     {
       $post = post::find($id_post);
-      $post -> status = 'inactive';
+      $post ->status = 'inactive';
       $post ->save();
 
       $posts = post::all();
