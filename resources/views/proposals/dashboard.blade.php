@@ -3,7 +3,7 @@
 @section('content')
 <body>
     <div class="container text-center">
-        <h1 class="pt-4">Les teves propostes</h1>
+        <h1 class="pt-4">Les meves propostes</h1>
         <div class="row justify-content-center">
 
                   <form class ="form-inline jsutify-content-center m-4" action="{{route('proposals.dashboard')}}" method = "GET" >

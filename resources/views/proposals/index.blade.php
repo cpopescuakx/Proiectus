@@ -6,10 +6,10 @@
     <!-- Filtro -->
     <nav class="navbar navbar-light">
         <form class="form-inline">
+        <h4 style="margin-right: 1rem">Llistat Propostes</h4>
             <select name="tipo" class="custom-select mr-2">
-                <option selected>Choose an option</option>
-                <option value="active">Active</option>
-                <option value="inactive">Inactive</option>
+                <option value="active" selected>Actives</option>
+                <option value="inactive">Inactives</option>
               </select>
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Cercar</button>
         </form>
