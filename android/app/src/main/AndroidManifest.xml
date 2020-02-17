@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ModificarInstitut"></activity>
+        <activity android:name=".ModificarInstitut" />
         <activity android:name=".PaginaPrincipal" />
         <activity android:name=".CrearInstitut" />
         <activity android:name=".MainActivity">

@@ -2,10 +2,18 @@ package com.example.proiectus;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 
 public class ModificarInstitut extends AppCompatActivity {
-
+    Button botoModificar;
+    Button botoTornar;
+    EditText nom;
+    EditText codi;
+    EditText ciutat;
     LlistaInstituts llistaInstituts = new LlistaInstituts();
 
 
@@ -13,6 +21,11 @@ public class ModificarInstitut extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_modificar_instituts);
+        botoModificar = (Button)findViewById(R.id.botoModificar);
+        botoTornar = (Button)findViewById(R.id.botoTornar_Modificar);
+        nom = (EditText)findViewById(R.id.txtNom);
+        codi = (EditText)findViewById(R.id.txtCodi);
+        ciutat = (EditText)findViewById(R.id.txtCiutat);
 
         int id = 2;
 
@@ -20,10 +33,27 @@ public class ModificarInstitut extends AppCompatActivity {
             id = Integer.parseInt(getIntent().getExtras().getString("id"));
         }
 
-        String [] dades = llistaInstituts.getInstitut(id);
+        final String [] dades = llistaInstituts.getInstitut(id);
 
-        System.out.println(dades);
+        nom.setText(dades[1]);
+        codi.setText(dades[2]);
+        ciutat.setText(dades[3]);
 
-        llistaInstituts.modificarInstitut(1, dades[0], dades[1], dades[2]);
+
+        botoModificar.setOnClickListener(new Button.OnClickListener() {
+            public void onClick(View v) {
+                llistaInstituts.modificarInstitut(Integer.parseInt(dades[0]), nom.getText().toString(), codi.getText().toString(), ciutat.getText().toString());
+                Intent i  = new Intent(ModificarInstitut.this, PaginaPrincipal.class);
+                startActivity(i);
+            }
+
+        });
+
+        botoTornar.setOnClickListener(new Button.OnClickListener() {
+            public void onClick(View v) {
+                Intent i  = new Intent(ModificarInstitut.this, PaginaPrincipal.class);
+                startActivity(i);
+            }
+        });
     }
 }

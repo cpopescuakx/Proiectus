@@ -8,11 +8,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class PaginaPrincipal extends Activity {
     Button btnAfegir;
     Button btnModificar;
     LlistaInstituts llistaInstituts = new LlistaInstituts();
+    TextView text;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,10 +24,9 @@ public class PaginaPrincipal extends Activity {
         btnAfegir = (Button)findViewById(R.id.btnAfegir);
         btnModificar = (Button)findViewById(R.id.btnModificar);
 
-        // Dades de prova
-        //llistaInstituts.dadesProva();
-
-        //llistaInstituts.llistarProjectes();
+        String [] dades = llistaInstituts.getInstitut(2);
+        text = (TextView)findViewById(R.id.txtTest);
+        text.setText(dades[0] + " - " + dades[1] +" - " + dades[2] +" - " + dades[3]);
 
         btnAfegir.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {

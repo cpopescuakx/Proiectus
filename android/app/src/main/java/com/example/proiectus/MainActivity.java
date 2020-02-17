@@ -27,6 +27,8 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        llistaInstituts.dadesProva();
+
         usuari = (EditText)findViewById(R.id.xUsuari);
         contrassenya = (EditText)findViewById(R.id.xContrassenya);
         boto = (Button)findViewById(R.id.xBoto);
@@ -40,14 +42,6 @@ public class MainActivity extends Activity {
                 login(usuari.getText().toString(), contrassenya.getText().toString(), array);
             }
         });
-
-        llistaInstituts.dadesProva();
-        String [] dades = llistaInstituts.getInstitut(1);
-        text1 = (TextView)findViewById(R.id.txtTest);
-        text1.setText(dades[1]);
-
-
-
 
     }
 
