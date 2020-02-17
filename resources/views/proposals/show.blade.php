@@ -6,33 +6,29 @@
     <div class="container ">
         <div class="row justify-content-center">
             <div class="column mt-4 mb-4">
-                <h1>{{$proposal->name}}</h1>
+                <h1>Títol: {{$proposal->name}}</h1>
             </div>
         </div>
     </div>
-    
-    <div class="row justify-content-center">
-        <div id="info" class="tabcontent mt-3">
-            <h2><strong>Descripció<strong></h2>
-            <p>{{$proposal->description}}</p>
+    <div class="container ">
+        <div class="row justify-content-center">
+            <div class="column mt-4 mb-4">
+                <h3>Descripció: {{$proposal->description}}</h3>
+            </div>
         </div>
     </div>
-    
-
-    <script>
-        document.getElementById('info').style.display="block";
-        function tabs(evt, apartat) {
-            var i, tabcontent, tablinks;
-            tabcontent = document.getElementsByClassName("tabcontent");
-            for (i = 0; i < tabcontent.length; i++) {
-                tabcontent[i].style.display = "none";
-            }
-            tablinks = document.getElementsByClassName("tablinks");
-            for (i = 0; i < tablinks.length; i++) {
-                tablinks[i].className = tablinks[i].className.replace(" active", "");
-            }
-            document.getElementById(apartat).style.display = "block";
-            evt.currentTarget.className += " active";
-        }
-</script>
+    <div class="container ">
+        <div class="row justify-content-center">
+            <div class="column mt-4 mb-4">
+                <h3>Familia professional: {{$proposal->professional_family}}</h3>
+            </div>
+        </div>
+    </div>
+    <div class="container ">
+        <div class="row justify-content-center">
+            <div class="column mt-4 mb-4">
+                <h3>Categoria: {{$proposal->category}}</h3>
+            </div>
+        </div>
+    </div>
 @stop
