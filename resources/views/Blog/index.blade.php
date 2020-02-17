@@ -53,9 +53,9 @@
         @foreach ($posts as $post)
                 <div class="card mb-3">
                     <div class="card-body">
-                    <a class="float-right" href="/post/{{$post->id_post}}/edit" ><i style="font-size: 1rem" class="material-icons">edit</i></a>
-                        <a href="/post/{{$post->id_post}}">
-                        
+                    <a class="float-right" href="{{$id_project}}/post/{{$post->id_post}}/edit" ><i style="font-size: 1rem" class="material-icons">edit</i></a>
+                        <a href="{{$id_project}}/post/{{$post->id_post}}">
+
                             <h5 class="card-title">{{$post->title}}</h5>
                         </a>
                         <div class="">

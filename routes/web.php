@@ -162,23 +162,19 @@ Route::get('blog/{id_project}', [
 ]);
 
 /** Ruta per al SHOW d'un post */
-Route::get('post/{id_post}', [
-    'Middleware' => 'auth',
-    'uses' => 'PostController@show'
-]);
+Route::get('blog/{id_project}/post/{id_post}', 'PostController@show');
 
-
-
-/** Ruta per al EDIT d'un post */
-Route::get('post/{id_post}/edit', [
-    'Middleware' => 'auth',
-    'uses' => 'PostController@edit'
-]);
 
 /** Ruta per al UPDATE d'un post */
-Route::PATCH('post/{id_post}/update', 'PostController@update');
+Route::get('blog/{id_project}/post/{id_post}/edit', 'PostController@edit');
+Route::post('blog/{id_project}/post/{id_post}/update', 'PostController@update');
 
+/** Ruta eliminar un post*/
+Route::get('blog/{id_project}/post/{id_post}/destroy', 'PostController@destroy');
+//Route::get('blog/{id_project}/post/{id_post}', 'PostController@destroy')
+//->name('posts.destroy');
 
+/** Ruta per a l'update del titul de blog */
 Route::get('blog/{id_project}/edit', 'BlogController@edit');
 Route::PATCH('blog/{id_project}/update', 'BlogController@update');
 

@@ -2,7 +2,7 @@
 @section('content')
 
 <div class="card-body">
-    <a class="float-right" href=""><i style="font-size: 1rem" class="material-icons">edit</i></a>
+    <a class="float-right" href="{{$post->id_post}}/edit"><i style="font-size: 1rem" class="material-icons">edit</i></a>
         <h5 class="card-title">{{$post->title}}</h5>
     </a>
     <div class="">

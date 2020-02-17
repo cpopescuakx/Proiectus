@@ -8,10 +8,6 @@
                 <h2>Crear Article</h2>
                 </br>
             </div>
-            <div class="pull-right">
-                <a class="btn btn-primary" href="{{ url('wiki', [$id_project]) }}"> Back</a>
-                <br></br>
-            </div>
         </div>
     </div>
 
@@ -60,7 +56,11 @@
             </div>
 
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary">Crear</button>
+            </div>
+            <div class="pull-right">
+                <a class="btn btn-primary" href="{{ url('wiki', [$id_project]) }}"> Back</a>
+                <br></br>
             </div>
         </div>
 

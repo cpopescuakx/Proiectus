@@ -33,6 +33,13 @@
                     <div class="form-group">
                         <div class="row justify-content-center">
                             <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row justify-content-center">
+                            <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
+                              <a class="btn btn-primary float-left" href="{{ url('blog', [$id_project]) }}"> Cancel·lar</a>
                                 <button type="submit" name = "sbumit" class="btn btn-primary float-right">Modificar</button>
                             </div>
                         </div>

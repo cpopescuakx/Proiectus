@@ -49,7 +49,7 @@ class PostController extends Controller
         $post->content = $request->get('content');
         $post->id_project = $id_project;
         $post->id_user = $id_user;
-        
+
         $post->save();
 
         //return redirect()->route('blog.index', ['id_project' => $id_project])->with('success','Post creat correctament.');
@@ -63,7 +63,7 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id_post)
+    public function show($id_project, $id_post)
     {
         //dd($id_post);
         $post = Post::find($id_post);
@@ -76,10 +76,11 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id_post)
+    public function edit($id_project, $id_post)
     {
         $post=post::find($id_post);
-        return view('Post.edit', compact('post'));
+        return view('Post.edit', compact('post', 'id_project', 'id_post'));
+
     }
 
     /**
@@ -89,7 +90,7 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id_post)
+    public function update(Request $request, $id_project, $id_post)
     {
         // $this-> validate($request, [
         //     'title'    =>  'required',
@@ -98,12 +99,14 @@ class PostController extends Controller
         // $posts = post::find($id_post);
         // $posts->title = $request->get('title');
         // $posts->title = $request->get('content');
-        
+
         // $posts->save();
 
         post::find($id_post)->update($request->all());
 
-        return redirect()->action('PostController@show', ['id_post' => $id_post]);
+        return redirect()->action('BlogController@index', ['id_project' => $id_project]);
+        //return redirect()->back();
+
     }
 
     /**
@@ -112,8 +115,13 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id_project, $id_post)
     {
-        //
+      $post = post::find($id_post);
+      $post -> status = 'inactive';
+      $post ->save();
+
+      $posts = post::all();
+          return redirect()->route('Blog.index',compact('post', 'id_project', 'id_post'));
     }
 }
