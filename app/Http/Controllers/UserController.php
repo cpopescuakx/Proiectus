@@ -21,7 +21,7 @@ class UserController extends Controller
 
     /** LLISTAR GESTORS
      *
-     *  Extreu els usuaris que tenen ID de rol 3 (Alumne), després retorna la vista per a llistar-los.
+     *  Extreu els usuaris que tenen ID de rol 5 (gestor), després retorna la vista per a llistar-los.
      *
      *  @param void
      *  @return void
@@ -48,7 +48,13 @@ class UserController extends Controller
         return view('managers.create',compact('cities'));
 
     }
-
+    /** GUARDAR GESTORS
+     *
+     *  Emmagatzema les dades del nou gestor entrades per l'usuari i les emmagatzema a la base de dades
+     *
+     *  @param void
+     *  @return \Illuminate\Http\Response
+     **/
     public function storeManager(Request $request){
 
          // Instanciar
@@ -107,7 +113,7 @@ class UserController extends Controller
 
         $id = $request->route('id'); // Agafar l'ID de la URL
 
-        // Cercar l'alumne amb la mateixa ID de la BBDD
+        // Cercar el gestor amb la mateixa ID de la BBDD
         $managers = User::find($id);
 
         // Assignar els valors del formulari
@@ -125,10 +131,10 @@ class UserController extends Controller
         $managers -> id_role = 5;
         $managers -> status = $request->input('status');
 
-        // Guardar l'alumne a la BBDD amb les noves dades
+        // Guardar el gestor a la BBDD amb les noves dades
         $managers -> save();
 
-        // Tornar a la llista d'alumnes
+        // Tornar a la llista de gestors
 
         $managers = User::where('id_role', 5)->get();
 
