@@ -1,0 +1,1471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta charset="utf-8"/>
+    <title>API Documentation</title>
+    <meta name="author" content=""/>
+    <meta name="description" content=""/>
+
+    <link href="../css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/prism.css" rel="stylesheet" media="all"/>
+    <link href="../css/template.css" rel="stylesheet" media="all"/>
+    
+    <!--[if lt IE 9]>
+    <script src="../js/html5.js"></script>
+    <![endif]-->
+    <script src="../js/jquery-1.11.0.min.js"></script>
+    <script src="../js/ui/1.10.4/jquery-ui.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery.smooth-scroll.js"></script>
+    <script src="../js/prism.min.js"></script>
+    <!-- TODO: Add http://jscrollpane.kelvinluck.com/ to style the scrollbars for browsers not using webkit-->
+    <script type="text/javascript">
+    function loadExternalCodeSnippets() {
+        Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach(function (pre) {
+            var src = pre.getAttribute('data-src');
+            var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
+            var language = 'php';
+
+            var code = document.createElement('code');
+            code.className = 'language-' + language;
+
+            pre.textContent = '';
+
+            code.textContent = 'Loading…';
+
+            pre.appendChild(code);
+
+            var xhr = new XMLHttpRequest();
+
+            xhr.open('GET', src, true);
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4) {
+
+                    if (xhr.status < 400 && xhr.responseText) {
+                        code.textContent = xhr.responseText;
+
+                        Prism.highlightElement(code);
+                    }
+                    else if (xhr.status >= 400) {
+                        code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+                    }
+                    else {
+                        code.textContent = '✖ Error: File does not exist or is empty';
+                    }
+                }
+            };
+
+            xhr.send(null);
+        });
+    }
+
+    $(document).ready(function(){
+        loadExternalCodeSnippets();
+    });
+    $('#source-view').on('shown', function () {
+        loadExternalCodeSnippets();
+    })
+</script>
+
+    <link rel="shortcut icon" href="../images/favicon.ico"/>
+    <link rel="apple-touch-icon" href="../images/apple-touch-icon.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="../images/apple-touch-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="../images/apple-touch-icon-114x114.png"/>
+</head>
+<body>
+
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <i class="icon-ellipsis-vertical"></i>
+            </a>
+            <a class="brand" href="../index.html">API Documentation</a>
+
+            <div class="nav-collapse">
+                <ul class="nav pull-right">
+                                        <li class="dropdown">
+                        <a href="../index.html" class="dropdown-toggle" data-toggle="dropdown">
+                            API Documentation <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                                                        <li><a href="../namespaces/App.html">\App</a></li>
+                                                    </ul>
+                    </li>
+                                        <li class="dropdown" id="charts-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Charts <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../graphs/class.html">
+                                    <i class="icon-list-alt"></i>&#160;Class hierarchy diagram
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown" id="reports-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Reports <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../reports/errors.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">101</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/markers.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <i class="icon-list-alt"></i>&#160;Markers <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/deprecated.html">
+                                                                                                            <i class="icon-list-alt"></i>&#160;Deprecated <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--<div class="go_to_top">-->
+    <!--<a href="#___" style="color: inherit">Back to top&#160;&#160;<i class="icon-upload icon-white"></i></a>-->
+    <!--</div>-->
+</div>
+
+<div id="___" class="container-fluid">
+        <section class="row-fluid">
+        <div class="span2 sidebar">
+                                <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-1989522109"></a>
+                                <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
+            </div>
+            <div id="namespace-1989522109" class="accordion-body collapse in">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-958487950"></a>
+                                <a href="../namespaces/App.html" style="margin-left: 30px; padding-left: 0">App</a>
+            </div>
+            <div id="namespace-958487950" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1865785744"></a>
+                                <a href="../namespaces/App.Http.html" style="margin-left: 30px; padding-left: 0">Http</a>
+            </div>
+            <div id="namespace-1865785744" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1823818946"></a>
+                                <a href="../namespaces/App.Http.Controllers.html" style="margin-left: 30px; padding-left: 0">Controllers</a>
+            </div>
+            <div id="namespace-1823818946" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-753976179"></a>
+                                <a href="../namespaces/App.Http.Controllers.Auth.html" style="margin-left: 30px; padding-left: 0">Auth</a>
+            </div>
+            <div id="namespace-753976179" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/App.Http.Controllers.Auth.ConfirmPasswordController.html">ConfirmPasswordController</a></li>
+                                                    <li class="class"><a href="../classes/App.Http.Controllers.Auth.ForgotPasswordController.html">ForgotPasswordController</a></li>
+                                                    <li class="class"><a href="../classes/App.Http.Controllers.Auth.LoginController.html">LoginController</a></li>
+                                                    <li class="class"><a href="../classes/App.Http.Controllers.Auth.RegisterController.html">RegisterController</a></li>
+                                                    <li class="class"><a href="../classes/App.Http.Controllers.Auth.ResetPasswordController.html">ResetPasswordController</a></li>
+                                                    <li class="class"><a href="../classes/App.Http.Controllers.Auth.VerificationController.html">VerificationController</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/App.Http.Controllers.ArticleController.html">ArticleController</a></li>
+                                                    <li class="class"><a href="../classes/App.Http.Controllers.BlogController.html">BlogController</a></li>
+                                                    <li class="class"><a href="../classes/App.Http.Controllers.Chat_memberController.html">Chat_memberController</a></li>
+                                                    <li class="class"><a href="../classes/App.Http.Controllers.ChatController.html">ChatController</a></li>
+                                                    <li class="class"><a href="../classes/App.Http.Controllers.CityController.html">CityController</a></li>
+                                                    <li class="class"><a href="../classes/App.Http.Controllers.CommentController.html">CommentController</a></li>
+                                                    <li class="class"><a href="../classes/App.Http.Controllers.Company_for_validationsController.html">Company_for_validationsController</a></li>
+                                                    <li class="class"><a href="../classes/App.Http.Controllers.Company_userController.html">Company_userController</a></li>
+                                                    <li class="class"><a href="../classes/App.Http.Controllers.CompanyController.html">CompanyController</a></li>
+                                                    <li class="class"><a href="../classes/App.Http.Controllers.Controller.html">Controller</a></li>
+                                                    <li class="class"><a href="../classes/App.Http.Controllers.DM_container_folderController.html">DM_container_folderController</a></li>
+                                                    <li class="class"><a href="../classes/App.Http.Controllers.Dm_fileController.html">Dm_fileController</a></li>
+                                                    <li class="class"><a href="../classes/App.Http.Controllers.Dm_folderController.html">Dm_folderController</a></li>
+                                                    <li class="class"><a href="../classes/App.Http.Controllers.Document_managerController.html">Document_managerController</a></li>
+                                                    <li class="class"><a href="../classes/App.Http.Controllers.HistoryController.html">HistoryController</a></li>
+                                                    <li class="class"><a href="../classes/App.Http.Controllers.Mail_messageController.html">Mail_messageController</a></li>
+                                                    <li class="class"><a href="../classes/App.Http.Controllers.MessageController.html">MessageController</a></li>
+                                                    <li class="class"><a href="../classes/App.Http.Controllers.PostController.html">PostController</a></li>
+                                                    <li class="class"><a href="../classes/App.Http.Controllers.Project_company_memberController.html">Project_company_memberController</a></li>
+                                                    <li class="class"><a href="../classes/App.Http.Controllers.Project_school_memberController.html">Project_school_memberController</a></li>
+                                                    <li class="class"><a href="../classes/App.Http.Controllers.ProjectController.html">ProjectController</a></li>
+                                                    <li class="class"><a href="../classes/App.Http.Controllers.Proposal_tagController.html">Proposal_tagController</a></li>
+                                                    <li class="class"><a href="../classes/App.Http.Controllers.ProposalController.html">ProposalController</a></li>
+                                                    <li class="class"><a href="../classes/App.Http.Controllers.Resource_centerController.html">Resource_centerController</a></li>
+                                                    <li class="class"><a href="../classes/App.Http.Controllers.RoleController.html">RoleController</a></li>
+                                                    <li class="class"><a href="../classes/App.Http.Controllers.School_for_validationController.html">School_for_validationController</a></li>
+                                                    <li class="class"><a href="../classes/App.Http.Controllers.School_proposalsController.html">School_proposalsController</a></li>
+                                                    <li class="class"><a href="../classes/App.Http.Controllers.School_usersController.html">School_usersController</a></li>
+                                                    <li class="class"><a href="../classes/App.Http.Controllers.SchoolController.html">SchoolController</a></li>
+                                                    <li class="class"><a href="../classes/App.Http.Controllers.TagController.html">TagController</a></li>
+                                                    <li class="class"><a href="../classes/App.Http.Controllers.TicketController.html">TicketController</a></li>
+                                                    <li class="class"><a href="../classes/App.Http.Controllers.User_projectController.html">User_projectController</a></li>
+                                                    <li class="class"><a href="../classes/App.Http.Controllers.User_proposalController.html">User_proposalController</a></li>
+                                                    <li class="class"><a href="../classes/App.Http.Controllers.UserController.html">UserController</a></li>
+                                                    <li class="class"><a href="../classes/App.Http.Controllers.VoteController.html">VoteController</a></li>
+                                                    <li class="class"><a href="../classes/App.Http.Controllers.WikiController.html">WikiController</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        </div>
+    </section>
+    <section class="row-fluid">
+        <div class="span10 offset2">
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <nav>
+                                                <a href="../namespaces/App.Http.Controllers.html">\App\Http\Controllers</a> <i class="icon-level-up"></i>
+                                            </nav>
+                    <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal"><i class="icon-code"></i></a>
+
+                    <h1><small>\App\Http\Controllers</small>UserController</h1>
+                    <p><em></em></p>
+                    
+                    
+                                        
+                    <section id="summary">
+                        <h2>Summary</h2>
+                        <section class="row-fluid heading">
+                            <section class="span4">
+                                <a href="#methods">Methods</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#properties">Properties</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#constants">Constants</a>
+                            </section>
+                        </section>
+                        <section class="row-fluid public">
+                            <section class="span4">
+                                                                    <a href="../classes/App.Http.Controllers.UserController.html#method_index" class="">index()</a><br />
+                                                                    <a href="../classes/App.Http.Controllers.UserController.html#method_indexManager" class="">indexManager()</a><br />
+                                                                    <a href="../classes/App.Http.Controllers.UserController.html#method_createManager" class="">createManager()</a><br />
+                                                                    <a href="../classes/App.Http.Controllers.UserController.html#method_storeManager" class="">storeManager()</a><br />
+                                                                    <a href="../classes/App.Http.Controllers.UserController.html#method_editManager" class="">editManager()</a><br />
+                                                                    <a href="../classes/App.Http.Controllers.UserController.html#method_updateManager" class="">updateManager()</a><br />
+                                                                    <a href="../classes/App.Http.Controllers.UserController.html#method_destroyManager" class="">destroyManager()</a><br />
+                                                                    <a href="../classes/App.Http.Controllers.UserController.html#method_indexStudent" class="">indexStudent()</a><br />
+                                                                    <a href="../classes/App.Http.Controllers.UserController.html#method_createStudent" class="">createStudent()</a><br />
+                                                                    <a href="../classes/App.Http.Controllers.UserController.html#method_storeStudent" class="">storeStudent()</a><br />
+                                                                    <a href="../classes/App.Http.Controllers.UserController.html#method_editStudent" class="">editStudent()</a><br />
+                                                                    <a href="../classes/App.Http.Controllers.UserController.html#method_updateStudent" class="">updateStudent()</a><br />
+                                                                    <a href="../classes/App.Http.Controllers.UserController.html#method_destroyStudent" class="">destroyStudent()</a><br />
+                                                                    <a href="../classes/App.Http.Controllers.UserController.html#method_indexProfessor" class="">indexProfessor()</a><br />
+                                                                    <a href="../classes/App.Http.Controllers.UserController.html#method_createProfessor" class="">createProfessor()</a><br />
+                                                                    <a href="../classes/App.Http.Controllers.UserController.html#method_storeProfessor" class="">storeProfessor()</a><br />
+                                                                    <a href="../classes/App.Http.Controllers.UserController.html#method_editProfessor" class="">editProfessor()</a><br />
+                                                                    <a href="../classes/App.Http.Controllers.UserController.html#method_updateProfessor" class="">updateProfessor()</a><br />
+                                                                    <a href="../classes/App.Http.Controllers.UserController.html#method_destroyProfessor" class="">destroyProfessor()</a><br />
+                                                                    <a href="../classes/App.Http.Controllers.UserController.html#method_indexEmployee" class="">indexEmployee()</a><br />
+                                                                    <a href="../classes/App.Http.Controllers.UserController.html#method_createEmployee" class="">createEmployee()</a><br />
+                                                                    <a href="../classes/App.Http.Controllers.UserController.html#method_activeUser" class="">activeUser()</a><br />
+                                                                    <a href="../classes/App.Http.Controllers.UserController.html#method_editEmployee" class="">editEmployee()</a><br />
+                                                                    <a href="../classes/App.Http.Controllers.UserController.html#method_updateEmployee" class="">updateEmployee()</a><br />
+                                                                    <a href="../classes/App.Http.Controllers.UserController.html#method_storeEmployees" class="">storeEmployees()</a><br />
+                                                                    <a href="../classes/App.Http.Controllers.UserController.html#method_show" class="">show()</a><br />
+                                                                    <a href="../classes/App.Http.Controllers.UserController.html#method_edit" class="">edit()</a><br />
+                                                                    <a href="../classes/App.Http.Controllers.UserController.html#method_update" class="">update()</a><br />
+                                                                    <a href="../classes/App.Http.Controllers.UserController.html#method_destroyEmployee" class="">destroyEmployee()</a><br />
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No public properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No constants found</em>
+                                                            </section>
+                        </section>
+                        <section class="row-fluid protected">
+                            <section class="span4">
+                                                                    <em>No protected methods found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No protected properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                        <section class="row-fluid private">
+                            <section class="span4">
+                                                                    <em>No private methods found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No private properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                    </section>
+                </div>
+                <aside class="span4 detailsbar">
+                                        
+                    
+                    <dl>
+                        <dt>File</dt>
+                            <dd><a href="../files/UserController.html"><div class="path-wrapper">UserController.php</div></a></dd>
+                                                <dt>Package</dt>
+                            <dd><div class="namespace-wrapper">Default</div></dd>
+                                                <dt>Class hierarchy</dt>
+                            <dd class="hierarchy">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+                                        <div class="namespace-wrapper">\Illuminate\Routing\Controller</div>
+                                                                    
+                                        <div class="namespace-wrapper"><a href="../classes/App.Http.Controllers.Controller.html">\App\Http\Controllers\Controller</a></div>
+                                                                                                    <div class="namespace-wrapper">\App\Http\Controllers\UserController</div>
+                            </dd>
+
+                        
+                        
+                        
+                        
+                                                                        </dl>
+                    <h2>Tags</h2>
+                    <table class="table table-condensed">
+                                            <tr><td colspan="2"><em>None found</em></td></tr>
+                                        </table>
+                </aside>
+            </div>
+
+                        
+                        
+                                    <a id="methods" name="methods"></a>
+            <div class="row-fluid">
+                <div class="span8 content class"><h2>Methods</h2></div>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_index" name="method_index" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">index()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">index() : \Illuminate\Http\Response</pre>
+                <p><em>Display a listing of the resource.</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    \Illuminate\Http\Response
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_indexManager" name="method_indexManager" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">indexManager()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">indexManager() </pre>
+                <p><em>LLISTAR GESTORS</em></p>
+                <p>Extreu els usuaris que tenen ID de rol 5 (gestor), després retorna la vista per a llistar-los.</p>
+
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            author
+                        </th>
+                        <td>
+                                                                                            <p>xavier romeu
+@param void
+@var managers variable per emmagatzemar les dades del usuari i llistar-los
+@return view managers.index</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_createManager" name="method_createManager" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">createManager()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">createManager() </pre>
+                <p><em>CREAR GESTORS</em></p>
+                <p>Retorna la vista amb el formulari de creació de gestors. Passant els noms de les ciutats
+que tenim a la base de dades, per a poder fer el datalist.</p>
+
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            author
+                        </th>
+                        <td>
+                                                                                            <p>xavier romeu
+@param void
+@var cities variable per agafar la id de la ciutat seleccionada al crear un gestor i emmagatzemarla
+@return \Illuminate\Http\Response</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_storeManager" name="method_storeManager" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">storeManager()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">storeManager(\Illuminate\Http\Request  <span class="argument">$request</span>) </pre>
+                <p><em>GUARDAR GESTORS</em></p>
+                <p>Emmagatzema les dades del nou gestor entrades per l'usuari i les emmagatzema a la base de dades</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>\Illuminate\Http\Request</td>
+                                <td>$request </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            author
+                        </th>
+                        <td>
+                                                                                            <p>xavier romeu
+@param void
+@var manager variable per emmagatzemar les dades del usuari introduides per crear un nou manager
+@return \Illuminate\Http\Response</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_editManager" name="method_editManager" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">editManager()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">editManager(  <span class="argument">$id</span>) </pre>
+                <p><em>EDITAR GESTOR</em></p>
+                <p>Retorna el formulari de modificació de gestors. Passant els gestors a partir de l'ID.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$id </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            author
+                        </th>
+                        <td>
+                                                                                            <p>xavier romeu
+@param int $id
+@var managers variable per emmagatzemar les dades del usuari a modificades
+@return view managers.edit per a mostrar el formulari d'edicio de managers</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_updateManager" name="method_updateManager" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">updateManager()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">updateManager(\Illuminate\Http\Request  <span class="argument">$request</span>) </pre>
+                <p><em>UPDATE GESTORS</em></p>
+                <p>Guarda les noves dades dels gestors a la base de dades. Llavors, redirecciona
+al llistat de gestors.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>\Illuminate\Http\Request</td>
+                                <td>$request </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            author
+                        </th>
+                        <td>
+                                                                                            <p>xavier romeu
+@param Request $request
+@var managers variable per emmagatzemar les dades del usuari modificades a la base de dades
+@return void</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_destroyManager" name="method_destroyManager" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">destroyManager()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">destroyManager(  <span class="argument">$id</span>) </pre>
+                <p><em>DESTROY GESTORS</em></p>
+                <p>Busca al gestor amb l'ID passada com a paràmetre i passa el seu estat a inactive.
+Redirecciona al llistat de gestors.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$id </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            author
+                        </th>
+                        <td>
+                                                                                            <p>xavier romeu
+@param int $id
+@var managers variable per emmagatzemar les dades del usuari canviant a inactiu el camp d'estat dels managers
+@return void</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_indexStudent" name="method_indexStudent" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">indexStudent()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">indexStudent() </pre>
+                <p><em></em></p>
+                
+
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_createStudent" name="method_createStudent" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">createStudent()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">createStudent() </pre>
+                <p><em>CREAR ALUMNE</em></p>
+                <p>Retorna la vista amb el formulari de creació d'alumnes. Passant els noms de les ciutats
+que tenim a la base de dades, per a poder fer el datalist.</p>
+
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_storeStudent" name="method_storeStudent" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">storeStudent()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">storeStudent(\Illuminate\Http\Request  <span class="argument">$request</span>) </pre>
+                <p><em>GUARDAR ALUMNE</em></p>
+                <p>Guarda el nou alumne a la base de dades a partir de les dades donades al formulari.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>\Illuminate\Http\Request</td>
+                                <td>$request </td>
+                                <td><p>@return void</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_editStudent" name="method_editStudent" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">editStudent()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">editStudent(integer  <span class="argument">$id</span>) </pre>
+                <p><em>EDITAR ALUMNE</em></p>
+                <p>Retorna el formulari de modificació d'alumnes. Passant l'alumne a partir de l'ID.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>integer</td>
+                                <td>$id </td>
+                                <td><p>@return void</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_updateStudent" name="method_updateStudent" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">updateStudent()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">updateStudent(\Illuminate\Http\Request  <span class="argument">$request</span>) </pre>
+                <p><em>UPDATE ALUMNE</em></p>
+                <p>Guarda les noves dades de l'alumne a la base de dades. Llavors, redirecciona
+al llistat d'alumnes.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>\Illuminate\Http\Request</td>
+                                <td>$request </td>
+                                <td><p>@return void</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_destroyStudent" name="method_destroyStudent" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">destroyStudent()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">destroyStudent(integer  <span class="argument">$id</span>) </pre>
+                <p><em>DESTROY STUDENT</em></p>
+                <p>Busca l'alumne amb l'ID passada com a paràmetre i passa el seu estat a inactive.
+Redirecciona al llistat d'alumnes.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>integer</td>
+                                <td>$id </td>
+                                <td><p>@return void</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_indexProfessor" name="method_indexProfessor" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">indexProfessor()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">indexProfessor() </pre>
+                <p><em>Extreu els usuaris que tenen ID de rol 3 (Alumne), després retorna la vista per a llistar-los.</em></p>
+                
+
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_createProfessor" name="method_createProfessor" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">createProfessor()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">createProfessor() : \Illuminate\Http\Response</pre>
+                <p><em>Retorna la vista amb el formulari de creació d&#039;alumnes.</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    \Illuminate\Http\Response
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_storeProfessor" name="method_storeProfessor" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">storeProfessor()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">storeProfessor(\Illuminate\Http\Request  <span class="argument">$request</span>) </pre>
+                <p><em>Crea el nou alumne a partir de les dades donades al formulari.</em></p>
+                <p>@param $request</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>\Illuminate\Http\Request</td>
+                                <td>$request </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_editProfessor" name="method_editProfessor" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">editProfessor()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">editProfessor(integer  <span class="argument">$id</span>) </pre>
+                <p><em>EDITAR Professor</em></p>
+                <p>Retorna el formulari de modificació d'profes. Passant l'profe a partir de l'ID.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>integer</td>
+                                <td>$id </td>
+                                <td><p>@return void</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_updateProfessor" name="method_updateProfessor" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">updateProfessor()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">updateProfessor(\Illuminate\Http\Request  <span class="argument">$request</span>) </pre>
+                <p><em>UPDATE Professor</em></p>
+                <p>Guarda les noves dades de l'profe a la base de dades. Llavors, redirecciona
+al llistat d'profes.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>\Illuminate\Http\Request</td>
+                                <td>$request </td>
+                                <td><p>@return void</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_destroyProfessor" name="method_destroyProfessor" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">destroyProfessor()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">destroyProfessor(integer  <span class="argument">$id</span>) </pre>
+                <p><em>DESTROY Professor</em></p>
+                <p>Busca l'profe amb l'ID passada com a paràmetre i passa el seu estat a inactive.
+Redirecciona al llistat d'profes.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>integer</td>
+                                <td>$id </td>
+                                <td><p>@return void</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_indexEmployee" name="method_indexEmployee" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">indexEmployee()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">indexEmployee(\Illuminate\Http\Request  <span class="argument">$request</span>) </pre>
+                <p><em>LLISTAR EMPLEATS ACTIUS</em></p>
+                <p>Extreu els empleats que tenen ID de rol 4 (Empleat) els quals tinguin com a estat (active), després retorna la vista per a llistar-los.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>\Illuminate\Http\Request</td>
+                                <td>$request </td>
+                                <td><p>Obtenim el tipo d'estat dels empleats a mostrar
+@return \Illuminate\Http\Response</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_createEmployee" name="method_createEmployee" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">createEmployee()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">createEmployee() </pre>
+                <p><em>CREAR EMPLEAT</em></p>
+                <p>Retorna la vista amb el formulari de creació d'empleats. Passant els noms de les ciutats
+que tenim a la base de dades, per a poder fer el datalist.</p>
+
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_activeUser" name="method_activeUser" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">activeUser()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">activeUser(  <span class="argument">$id</span>) </pre>
+                <p><em>DONAR D&#039;ALTA TOT TIPUS D&#039;USUARIS</em></p>
+                <p>Indiquem la id de l'usuari el qual volem donar d'alta i redireccionem a la vista anterior.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$id </td>
+                                <td><p>Conté la ID de l'usuari
+@return \Illuminate\Http\Response</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_editEmployee" name="method_editEmployee" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">editEmployee()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">editEmployee(integer  <span class="argument">$id</span>) </pre>
+                <p><em>EDITAR Empleat</em></p>
+                <p>Retorna el formulari de modificació d'empleats. Passant l'profe a partir de l'ID.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>integer</td>
+                                <td>$id </td>
+                                <td><p>@return void</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_updateEmployee" name="method_updateEmployee" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">updateEmployee()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">updateEmployee(\Illuminate\Http\Request  <span class="argument">$request</span>) </pre>
+                <p><em>UPDATE Empleat</em></p>
+                <p>Guarda les noves dades de l'empleat a la base de dades. Llavors, redirecciona
+al llistat d'empleats.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>\Illuminate\Http\Request</td>
+                                <td>$request </td>
+                                <td><p>@return void</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_storeEmployees" name="method_storeEmployees" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">storeEmployees()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">storeEmployees(\Illuminate\Http\Request  <span class="argument">$request</span>) : \Illuminate\Http\Response</pre>
+                <p><em>Store a newly created resource in storage.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>\Illuminate\Http\Request</td>
+                                <td>$request </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \Illuminate\Http\Response
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_show" name="method_show" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">show()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">show(integer  <span class="argument">$id</span>) : \Illuminate\Http\Response</pre>
+                <p><em>Display the specified resource.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>integer</td>
+                                <td>$id </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \Illuminate\Http\Response
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_edit" name="method_edit" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">edit()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">edit(integer  <span class="argument">$id</span>) : \Illuminate\Http\Response</pre>
+                <p><em>Show the form for editing the specified resource.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>integer</td>
+                                <td>$id </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \Illuminate\Http\Response
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_update" name="method_update" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">update()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">update(\Illuminate\Http\Request  <span class="argument">$request</span>, integer  <span class="argument">$id</span>) : \Illuminate\Http\Response</pre>
+                <p><em>Update the specified resource in storage.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>\Illuminate\Http\Request</td>
+                                <td>$request </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td>integer</td>
+                                <td>$id </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \Illuminate\Http\Response
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_destroyEmployee" name="method_destroyEmployee" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">destroyEmployee()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">destroyEmployee(integer  <span class="argument">$id</span>) : \Illuminate\Http\Response</pre>
+                <p><em>Remove the specified resource from storage.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>integer</td>
+                                <td>$id </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \Illuminate\Http\Response
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                                                    </div>
+    </section>
+
+    <div id="source-view" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="source-view-label" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="source-view-label">UserController.php</h3>
+        </div>
+        <div class="modal-body">
+            <pre data-src="../files/UserController.php.txt" class="language-php line-numbers"></pre>
+        </div>
+    </div>
+
+    <footer class="row-fluid">
+        <section class="span10 offset2">
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <section class="row-fluid footer-sections">
+                        <section class="span4">
+                                                        <h1><i class="icon-code"></i></h1>
+                            <div>
+                                <ul>
+                                                                            <li><a href="../namespaces/App.html">\App</a></li>
+                                                                    </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-bar-chart"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../graphs/class.html">Class Hierarchy Diagram</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-pushpin"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../reports/errors.html">Errors</a></li>
+                                    <li><a href="../reports/markers.html">Markers</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                    </section>
+                </section>
+            </section>
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <hr />
+                    Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
+                    on February 17th, 2020 at 16:57.
+                </section>
+            </section>
+        </section>
+    </footer>
+</div>
+
+</body>
+</html>
