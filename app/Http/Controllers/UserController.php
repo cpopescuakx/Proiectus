@@ -22,7 +22,7 @@ class UserController extends Controller
     /** LLISTAR GESTORS
      *
      *  Extreu els usuaris que tenen ID de rol 5 (gestor), després retorna la vista per a llistar-los.
-     * 
+     *
      *  @author xavier romeu
      *  @param void
      *  @var managers variable per emmagatzemar les dades del usuari i llistar-los
@@ -39,7 +39,7 @@ class UserController extends Controller
      *
      *  Retorna la vista amb el formulari de creació de gestors. Passant els noms de les ciutats
      *  que tenim a la base de dades, per a poder fer el datalist.
-     * 
+     *
      *  @author xavier romeu
      *  @param void
      *  @var cities variable per agafar la id de la ciutat seleccionada al crear un gestor i emmagatzemarla
@@ -97,7 +97,7 @@ class UserController extends Controller
      *
      *  @author xavier romeu
      *  @param int $id
-     *  @var managers variable per emmagatzemar les dades del usuari a modificades 
+     *  @var managers variable per emmagatzemar les dades del usuari a modificades
      *  @return view managers.edit per a mostrar el formulari d'edicio de managers
      */
     public function editManager($id){
@@ -154,7 +154,7 @@ class UserController extends Controller
      *
      *  Busca al gestor amb l'ID passada com a paràmetre i passa el seu estat a inactive.
      *  Redirecciona al llistat de gestors.
-     * 
+     *
      *  @author xavier romeu
      *  @param int $id
      *  @var managers variable per emmagatzemar les dades del usuari canviant a inactiu el camp d'estat dels managers
@@ -307,7 +307,7 @@ class UserController extends Controller
         return redirect()->route('students.index',compact('students'));
     }
 
-        /** Extreu els usuaris que tenen ID de rol 3 (Alumne), després retorna la vista per a llistar-los. */
+        /** Extreu els usuaris que tenen ID de rol 4 (Professor), després retorna la vista per a llistar-los. */
 
     public function indexProfessor()
     {
@@ -318,7 +318,7 @@ class UserController extends Controller
     }
 
     /**
-     * Retorna la vista amb el formulari de creació d'alumnes.
+     * Retorna la vista amb el formulari de creació d'professors.
      *
      * @return \Illuminate\Http\Response
      */
@@ -328,7 +328,7 @@ class UserController extends Controller
       return view('professors.create',compact('cities'));
     }
 
-    /** Crea el nou alumne a partir de les dades donades al formulari.
+    /** Crea el nou professor a partir de les dades donades al formulari.
      *  @param $request
      */
 
@@ -352,10 +352,10 @@ class UserController extends Controller
         $professor -> id_role = 4;
         $professor -> status = "active";
 
-        // Guardar alumne a la BBDD
+        // Guardar professor a la BBDD
         $professor -> save();
 
-        // Tornar a la llista d'alumnes
+        // Tornar a la llista d'professors
 
         $professors = User::where('id_role', 4)->get();
 
@@ -636,17 +636,17 @@ class UserController extends Controller
     }
 
     /** Buscar usuari
-     *  
+     *
      *  Busca l'usuari que té l'ID passada com a paràmetre.
-     *  
+     *
      *  @param void
      *  @return User $user
      */
 
-    public function getUser ($id) 
+    public function getUser ($id)
     {
         $user = User::find($id);
         return $user;
     }
-    
+
 }
