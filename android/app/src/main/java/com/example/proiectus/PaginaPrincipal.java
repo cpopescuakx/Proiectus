@@ -36,6 +36,9 @@ public class PaginaPrincipal extends AppCompatActivity {
         btnModificar = (Button)findViewById(R.id.btnModificar);
 
         idModificar = (EditText) findViewById(R.id.txtModificar);
+
+
+
         btnAfegir.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
                 Intent i  = new Intent(PaginaPrincipal.this, CrearInstitut.class);
