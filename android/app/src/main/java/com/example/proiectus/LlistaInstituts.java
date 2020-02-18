@@ -13,40 +13,7 @@ import java.util.Iterator;
 public class LlistaInstituts extends AppCompatActivity {
     public static ArrayList<Institut> array = new ArrayList<>();
     public int nextId = 1;
-    private static final String TAG = "LlistarInstituts";
-    //    vars
-    private ArrayList<String> idInsti = new ArrayList<>();
-    private ArrayList<String> nomInsti = new ArrayList<>();
-    private ArrayList<String> codiInsti = new ArrayList<>();
-    private ArrayList<String> ciutatInsti = new ArrayList<>();
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.layout_listitem);
-        Log.d(TAG,"onCreate:Started.");
-        initTot();
 
-
-    }
-    private void initTot() {
-        Log.d(TAG, "initIdInstis: Preparant");
-        idInsti.add("1");
-        nomInsti.add("IES Montsia");
-        codiInsti.add("C012345");
-        ciutatInsti.add("Amposta");
-        idInsti.add("2");
-        nomInsti.add("IES Cezar");
-        codiInsti.add("C543210");
-        ciutatInsti.add("Tortosa");
-        initRecyclerView();
-    }
-    private void initRecyclerView() {
-        Log.d(TAG, "initIdInstis: Done");
-        RecyclerView recyclerView = findViewById(R.id.recycler_view);
-        RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, idInsti, nomInsti, codiInsti, ciutatInsti);
-        recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-    }
 
 
     public void afegirInstitut(String nom, String codi, String ciutat) {
