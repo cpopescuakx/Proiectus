@@ -6,10 +6,15 @@ use Illuminate\Http\Request;
 
 class DMController extends Controller
 {
-  //   public function index(){
-  //     return view('dm.index');
-  //   }
-  //
+    public function index(){
+      return view('dm.index');
+    }
+
+
+
+
+
+
   // /*
   // File upload
   // */
@@ -44,4 +49,31 @@ class DMController extends Controller
   //
   //    }
   //  }
+
+
+
+   public function fileCreate(){
+        return view('dm.index');
+   }
+
+    public function fileStore(Request $request){
+        $image = $request->file('file');
+        $imageName = $image->getClientOriginalName();
+        $image->move(public_path('images'),$imageName);
+
+        $imageUpload = new DM();
+        $imageUpload->filename = $imageName;
+        $imageUpload->save();
+        return response()->json(['success'=>$imageName]);
+    }
+
+    public function fileDestroy(Request $request){
+        $filename =  $request->get('f_name');
+        DM::where('f_name',$filename)->delete();
+        $path=public_path().'/dm/'.$filename;
+        if (file_exists($path)) {
+            unlink($path);
+        }
+        return $filename;
+    }
 }

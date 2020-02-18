@@ -150,6 +150,12 @@ Route::get('Project/{id}/principal', 'ProjectController@show')
     //Route::get('/dm','DMController@index');
     //Route::post('/dm/fileupload/','DMController@fileupload')->name('dm.fileupload');
 
+    /* DOCUMENT MANAGER NEW */
+    Route::get('/dm','DMController@fileCreate');
+    Route::get('dm/store','DMController@fileStore');
+    Route::post('dm/delete','DMController@fileDestroy');
+
+
 
 
 //GRUP3

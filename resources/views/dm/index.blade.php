@@ -1,41 +1,63 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Drag and Drop file upload with Dropzone in Laravel</title>
+<head>
+    <title>Laravel Multiple Images Upload Using Dropzone</title>
+    <meta name="_token" content="{{csrf_token()}}" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.4.0/min/dropzone.min.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.4.0/dropzone.js"></script>
+</head>
+<body>
+<div class="container">
 
-    <!-- Meta -->
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta charset="utf-8">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <h3 class="jumbotron">Laravel Multiple Images Upload Using Dropzone</h3>
+    <form method="post" action="{{url('dm/store')}}" enctype="multipart/form-data"
+                  class="dropzone" id="dropzone">
+    @csrf
+</form>
+<script type="text/javascript">
+        Dropzone.options.dropzone =
+         {
+            maxFilesize: 12,
+            renameFile: function(file) {
+                var dt = new Date();
+                var time = dt.getTime();
+               return time+file.name;
+            },
+            acceptedFiles: ".jpeg,.jpg,.png,.gif",
+            addRemoveLinks: true,
+            timeout: 50000,
+            removedfile: function(file)
+            {
+                var name = file.upload.filename;
+                $.ajax({
+                    headers: {
+                                'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+                            },
+                    type: 'POST',
+                    url: '{{ url("dm/delete") }}',
+                    data: {filename: name},
+                    success: function (data){
+                        console.log("File has been successfully removed!!");
+                    },
+                    error: function(e) {
+                        console.log(e);
+                    }});
+                    var fileRef;
+                    return (fileRef = file.previewElement) != null ?
+                    fileRef.parentNode.removeChild(file.previewElement) : void 0;
+            },
 
-    <!-- CSS -->
-    <link rel="stylesheet" type="text/css" href="{{asset('dropzone/dist/min/dropzone.min.css')}}">
-
-    <!-- JS -->
-    <script src="{{asset('dropzone/dist/min/dropzone.min.js')}}" type="text/javascript"></script>
-
-  </head>
-  <body>
-
-    <div class='content'>
-      <!-- Dropzone -->
-      <form action="{{route('dm.fileupload')}}" class='dropzone' >
-      </form>
-    </div>
-
-    <!-- Script -->
-    <script>
-    var CSRF_TOKEN = document.querySelector('meta[name="csrf-token"]').getAttribute("content");
-
-    Dropzone.autoDiscover = false;
-    var myDropzone = new Dropzone(".dropzone",{
-        maxFilesize: 3,  // 3 mb
-        acceptedFiles: ".jpeg,.jpg,.png,.pdf",
-    });
-    myDropzone.on("sending", function(file, xhr, formData) {
-       formData.append("_token", CSRF_TOKEN);
-    });
-    </script>
-
-  </body>
+            success: function(file, response)
+            {
+                console.log(response);
+            },
+            error: function(file, response)
+            {
+               return false;
+            }
+};
+</script>
+</body>
 </html>
