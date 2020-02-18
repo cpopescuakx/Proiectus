@@ -105,10 +105,31 @@
 
             <!-- Item sidenav -->
             <li class="nav-item">
-                <a href="{{ route('projects.index') }}">
+                <a class="dropdown">
                     <i class="material-icons text-light">assignment</i>
                     <span class="text-light">Projectes</span>
+                    <i class="dropdown-ico material-icons text-light">keyboard_arrow_down</i>
                 </a>
+
+                <div class="sub-menu">
+                    <ul class="nav flex-column">
+                        <!-- Submenu -->
+                        <li class="nav-item">
+                            <a href="{{ route('projects.index') }}">
+                                <span class="text-light">Gestió de projectes</span>
+                            </a>
+                        </li>
+                        <!-- Fin submenu -->
+
+                        <!-- Submenu -->
+                        <li class="nav-item">
+                            <a href="{{ route('projects.dashboard') }}">
+                                <span class="text-light">Tots els projectes</span>
+                            </a>
+                        </li>
+                        <!-- Fin submenu -->
+                    </ul>
+                </div>
             </li>
             <!-- Fin item sidenav -->
 
