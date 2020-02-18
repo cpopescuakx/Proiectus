@@ -594,7 +594,7 @@ class UserController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Guardar l'empleat a la base de dades
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -663,7 +663,7 @@ class UserController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Donar de baixa un empleat (Canvia l'estat a inactiu)
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
