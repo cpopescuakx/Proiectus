@@ -1,85 +1,58 @@
 @extends('layouts.default')
 
 @section('content')
-<div>
-  <nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="#">Projecte</a></li>
-      <li class="breadcrumb-item"><a href="{{ URL::previous() }}">Blog</a></li>
-      <li class="breadcrumb-item active" aria-current="page">Post</li>
-    </ol>
-  </nav>
-</div>
-  <div style="padding: 10px">
-    <div class="row">
-        <div class="col-lg-12 margin-tb">
-            <div class="pull-left">
-                <h2>Editar Article</h2>
-                </br>
-            </div>
-            <div class="pull-right">
-                <a class="btn btn-primary" href="{{ url('wiki', [$id_project]) }}"> Enrere</a>
-                <br></br>
+    <div class="formulari">
+        <form class="was-validated" action="update" method="POST">
+            @csrf
+            <div class="row justify-content-center">
+                <div class="col-11 col-sm-11 col-md-10 col-lg-10 col-xl-10">
+                    <div class="container">
+                        <div class="contact-image text-center mt-3">
+                            <img class="form-img" src="{{ asset('img/icono_negro.png') }}" />
+                        </div>
+                    </div>
+                    <div class="container contact-form">
+                        <div class="container">
+                            <div class="row no-gutters justify-content-center mt-5">
+                                <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
+                                    <h1>Modificar Article</h1>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group mt-4">
+                            <div class="row justify-content-center">
+                                <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
+                                    <label for="nom">Titol</label>
+                                    <input type="text" name = "title" class="form-control" value="{{ $article->title }}" required>
+                                    <div class="invalid-feedback">Camp necessari</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group mt-4">
+                            <div class="row justify-content-center">
+                                <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
+                                    <label for="nom">Contingut</label>
+                                    <input type="text" name = "content" class="form-control" value="{{ $article->content }}" required>
+                                    <div class="invalid-feedback">Camp necessari</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="row justify-content-center">
+                                <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
+                                    <button type="submit" name = "sbumit" class="btn btn-primary float-right">Modificar</button>
+                                    <a style="margin-right: 10px" class="btn btn-primary float-right" href="{{ url('wiki', [$id_project]) }}">Enrere</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-
-    @if ($errors->any())
-    <div class="alert alert-danger">
-        <strong>Whoops!</strong> S'han produït alguns problemes amb la vostra entrada.<br><br>
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-    @endif
-
-    <form action="update" method="POST">
-      @csrf
-
-         <div class="row">
-
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>version:</strong>
-                    <input type="text" name="version" value="{{ $article->version }}" class="form-control" placeholder="version">
-                </div>
-            </div>
-
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>title:</strong>
-                    <input type="text" name="title" value="{{ $article->title }}" class="form-control" placeholder="title">
-                </div>
-            </div>
-
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>content:</strong>
-                    <input type="text" name="content" value="{{ $article->content }}" class="form-control" placeholder="content">
-                </div>
-            </div>
-
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>reference:</strong>
-                    <input type="text" name="reference" value="{{ $article->reference }}" class="form-control" placeholder="reference">
-                </div>
-            </div>
-
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>id_user:</strong>
-                    <input type="text" name="id_user" value="{{ $article->id_user }}" class="form-control" placeholder="id_user">
-                </div>
-            </div>
-
-            <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-              <button type="submit" class="btn btn-primary">Modifica!</button>
-            </div>
-        </div>
-
     </form>
-  </div>
+</div>
+
 @endsection

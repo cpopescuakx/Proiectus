@@ -119,20 +119,14 @@ class ArticleController extends Controller
 
         //forma llarga
         $request->validate([
-            'version' => 'required',
             'title' => 'required',
             'content' => 'required',
-            'reference' => 'required',
-            'id_user' => 'required',
         ]);
 
         $article = Article::find($id_article);
 
-        $article->version = $request->get('version');
         $article->title = $request->get('title');
         $article->content = $request->get('content');
-        $article->reference = $request->get('reference');
-        $article->id_user = $request->get('id_user');
 
         $article->save();
 
