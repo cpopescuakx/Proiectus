@@ -6,11 +6,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import androidx.recyclerview.widget.RecyclerView;
 
 public class PaginaPrincipal extends Activity {
     Button btnAfegir;
     Button btnModificar;
     LlistaInstituts llistaInstituts = new LlistaInstituts();
+    LlistarInstituts llistarInstituts = new LlistarInstituts();
+
     EditText idModificar;
 
 

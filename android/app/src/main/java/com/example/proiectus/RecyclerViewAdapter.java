@@ -23,12 +23,12 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     private ArrayList<String> ciutatInsti = new ArrayList<>();
     private Context contextInsti;
 
-    public RecyclerViewAdapter(ArrayList<String> idInsti, ArrayList<String> nomInsti, ArrayList<String> codiInsti, ArrayList<String> ciutatInsti, Context contextInsti) {
+    public RecyclerViewAdapter( Context contextInsti, ArrayList<String> idInsti, ArrayList<String> nomInsti, ArrayList<String> codiInsti, ArrayList<String> ciutatInsti) {
+        this.contextInsti = contextInsti;
         this.idInsti = idInsti;
         this.nomInsti = nomInsti;
         this.codiInsti = codiInsti;
         this.ciutatInsti = ciutatInsti;
-        this.contextInsti = contextInsti;
     }
 
 

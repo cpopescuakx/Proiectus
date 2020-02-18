@@ -19,9 +19,10 @@ public class LlistarInstituts extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_llistar_instituts);
+        setContentView(R.layout.layout_listitem);
         Log.d(TAG,"onCreate:Started.");
-        initTot();
+        initRecyclerView();
+
 
     }
     private void initTot() {
@@ -31,7 +32,7 @@ public class LlistarInstituts extends AppCompatActivity {
     private void initRecyclerView() {
         Log.d(TAG, "initIdInstis: Done");
         RecyclerView recyclerView = findViewById(R.id.recycler_view);
-        RecyclerViewAdapter adapter = new RecyclerViewAdapter(idInsti, nomInsti, codiInsti, ciutatInsti, this);
+        RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, idInsti, nomInsti, codiInsti, ciutatInsti);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
