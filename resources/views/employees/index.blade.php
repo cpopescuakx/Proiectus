@@ -45,7 +45,7 @@
     <tr>
         <td>{{$employee->firstname}}</td>
         <td>{{$employee->lastname}}</td>
-        <td>{{$employee->name}}</td>
+        <td>{{$employee->username}}</td>
         <td>{{$employee->email}}</td>
         <td>{{$employee->dni}}</td>
         <td>{{$city::agafarNom($employee->id_city)}}
