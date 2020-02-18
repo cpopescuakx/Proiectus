@@ -126,15 +126,15 @@ Route::get('Project/{id}/principal', 'ProjectController@show')
     Route::post('/companies/create', 'CompanyController@storeCompany')->name('companies.store');
     Route::post('/companies/{id}/update', 'CompanyController@updateCompany')->name('companies.update');
 
-/* Gestors */
-Route::get('profile/{id}', 'UserController@indexProfile')->name('profile.indexP');
-Route::get('profile/{id}/edit', 'UserController@editProfile')->name('profile.editP');
-Route::get('managers', 'UserController@indexManager')->name('managers.index');
-Route::get('managers/create', 'UserController@createManager')->name('managers.create');
-Route::get('managers/{id}/edit', 'UserController@editManager')->name('managers.edit');
-Route::get('managers/{id}/delete', 'UserController@destroyManager')->name('managers.destroy');
-Route::post('managers/create', 'UserController@storeManager')->name('managers.store');
-Route::post('managers/{id}/update', 'UserController@updateManager')->name('managers.update');
+    /* Gestors */
+    Route::get('profile/{id}', 'UserController@indexProfile')->name('managers.indexP');
+    Route::get('profile/{id}/edit', 'UserController@editProfile')->name('managers.editP');
+    Route::get('managers', 'UserController@indexManager')->name('managers.index');
+    Route::get('managers/create', 'UserController@createManager')->name('managers.create');
+    Route::get('managers/{id}/edit', 'UserController@editManager')->name('managers.edit');
+    Route::get('managers/{id}/delete', 'UserController@destroyManager')->name('managers.destroy');
+    Route::post('managers/create', 'UserController@storeManager')->name('managers.store');
+    Route::post('managers/{id}/update', 'UserController@updateManager')->name('managers.update');
 
     /* Schools */
     Route::get('/schools', 'SchoolController@indexSchool')->name('schools.index');

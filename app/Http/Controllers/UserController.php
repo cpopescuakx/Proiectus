@@ -62,7 +62,7 @@ class UserController extends Controller
 
         $managers = User::where('id_role', 5)->get();
 
-        return redirect()->route('managers.index',compact('managers'));
+        return redirect()->route('managers.indexP',compact('managers'));
     }
     /** LLISTAR GESTORS
      *
