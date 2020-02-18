@@ -19,6 +19,10 @@ Route::get('/', function () {
     return view('welcome');
 })-> name('index.index');
 
+Route::get('/home', function () {
+    return view('home');
+})-> name('home.index');
+
 Auth::routes(['verify' => true]);
 
 Route::post('entityRegistration/{type}', 'EntityRegistration@store')->name('entityRegistration.store');
