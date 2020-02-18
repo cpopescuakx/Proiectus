@@ -119,7 +119,7 @@ Route::post('/companies/create', 'CompanyController@storeCompany')->name('compan
 Route::post('/companies/{id}/update', 'CompanyController@updateCompany')->name('companies.update');
 
 /* Gestors */
-Route::get('profile', 'UserController@indexProfile')->name('profile.indexP');
+Route::get('profile/{id}', 'UserController@indexProfile')->name('profile.indexP');
 Route::get('profile/{id}/edit', 'UserController@editProfile')->name('profile.editP');
 Route::get('managers', 'UserController@indexManager')->name('managers.index');
 Route::get('managers/create', 'UserController@createManager')->name('managers.create');
