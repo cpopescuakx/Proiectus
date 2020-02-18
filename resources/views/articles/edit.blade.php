@@ -34,7 +34,7 @@
                             <div class="row justify-content-center">
                                 <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
                                     <label for="nom">Contingut</label>
-                                    <input type="text" name = "content" class="form-control" value="{{ $article->content }}" required>
+                                    <textarea name="content" id=summernote>{{$article->content}}</textarea>
                                     <div class="invalid-feedback">Camp necessari</div>
                                 </div>
                             </div>
@@ -54,5 +54,25 @@
         </div>
     </form>
 </div>
+<script>
+	$('#summernote').summernote({
+		placeholder: 'Contingut del post',
+		tabsize: 2,
+		height: 100,
+		minHeight: 100,
+		maxHeight: 400
+	});
 
+	/* Comprovem si el contingut del post esta buit al fer submit i
+			evitem continuar si està buit
+	*/
+	$('#postCreationForm').on('submit', function(e) {
+		// Comprovem si el contingut del post esta buit
+		if ($('#summernote').summernote('isEmpty')) {
+			console.log('Introdueix el contingut del post!');
+			// Evitar el submit
+			e.preventDefault();
+		}
+	})
+</script>
 @endsection
