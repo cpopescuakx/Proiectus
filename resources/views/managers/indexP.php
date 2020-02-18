@@ -1,61 +1,49 @@
-<?php
-/*
-session_start();
+@extends('layouts.default')
+@inject('city', 'App\Http\Controllers\CityController') {{-- Importa el controlador de ciutat --}}
 
-if (isset($_SESSION['login_user'])) {
-} else {
-    header("Location: ../index.php");
-}
-*/
-?>
-<!DOCTYPE html>
-<html lang="en">
+@section('content')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<div class="col">
+    <div class="row d-flex justify-content-end p-4">
+      <a href="{{ route('managers.create') }}"><img src={{ asset('img/add.svg') }} width="45" height="45" ></a>
+    </div>
+</div>
 
-    <?php include_once("includes/imports.php"); ?>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <td><strong>Nom</strong></td>
+            <td><strong>Cognom</strong></td>
+            <td><strong>Usuari</strong></td>
+            <td><strong>Email</strong></td>
+            <td><strong>DNI</strong></td>
+            <td><strong>Ciutat</strong></td>
+            <td><strong>Estat</strong></td>
+            <td colspan="2"><strong>Accions</strong></td>
+        </tr>
+    </thead>
 
-    <!-- Codi CSS i JS per al editor de text -->
-    <link href="../summernote-master/dist/summernote-bs4.css" rel="stylesheet">
-    <script src="../summernote-master/dist/summernote-bs4.min.js"></script>
-    <title>Usuari | <?php echo $_GET['usr'] ?></title>
-</head>
-
-<body>
-    <?php include_once("includes/header.php"); ?>
-    <div id="content" class="content closed bg-light">
-        <div class="container">
-            <?php
-            include_once("../classes/Connection.php");
-            $connection = crearConexio();
-            try {
-                $sql = "SELECT firstname, lastname, username, profilepic, email, bio, birthdate FROM USER WHERE username = '" . $_GET['usr'] . "'";
-                $resultat = $connection->query($sql);
-                $row = $resultat->fetch_assoc();
-            } catch (Exception $e) {
-                echo $e;
-                $connexio->close();
-            }
-            ?>
-            <img src="<?php echo $row['profilepic']; ?>" style="max-width: 10em;" alt="Aquest usuari no te imatge de perfil" class="img-thumbnail">
-            <br><br>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">Nom: <?php echo $row['firstname']; ?></li>
-                <li class="list-group-item">Cognoms: <?php echo $row['lastname']; ?></li>
-                <li class="list-group-item">Nom d'usuari: <?php echo $row['username']; ?></li>
-                <li class="list-group-item">Correu: <?php echo $row['email']; ?></li>
-                <li class="list-group-item">Biografia: <?php echo $row['bio']; ?></li>
-            </ul>
+    @if ($message = Session::get('success'))
+        <div class="alert alert-success">
+            <p>{{$message}}</p>
         </div>
-    </div>
-    </div>
+    @endif
 
-    <?php include_once("includes/footer.php"); ?>
-
-    <script src="js/header.js"></script>
-</body>
-
-</html>
+    <tbody>
+        @foreach($managers as $manager)
+            <tr>
+                <td>{{$manager->firstname}}</td>
+                <td>{{$manager->lastname}}</td>
+                <td>{{$manager->name}}</td>
+                <td>{{$manager->email}}</td>
+                <td>{{$manager->dni}}</td>
+                <td>{{$city::agafarNom($manager->id_city)}}
+                <td>{{$manager->status}}</td>
+                <td>
+                    <a href="{{ route('managers.editP', [$manager->id]) }}"><img src={{ asset('img/edit.svg') }} width="20" height="20" class="mr-2"></a>
+                </td>
+            </tr>
+        @endforeach
+    </tbody>
+</table>
+@endsection
