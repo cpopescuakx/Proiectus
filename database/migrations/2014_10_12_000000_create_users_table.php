@@ -52,12 +52,14 @@ class CreateUsersTable extends Migration
             $table->string('profile_pic', 500)->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->integer('id_city');
+            $table->integer('id_city')->nullable();
             $table->longtext('bio')->nullable();
-            $table->integer('id_role');
+            $table->integer('id_role')->nullable();
             $table->string('dni', 10)->nullable();
             $table->date('birthdate')->nullable();
             $table->enum('status', ['active', 'inactive'])->default('active');
+            $table->boolean('pending_entity_registration')->nullable()->default(null);
+            $table->boolean('pending_entity_verification')->nullable()->default(null);
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();

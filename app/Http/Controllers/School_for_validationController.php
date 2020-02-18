@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\School_for_validation;
+use App\School_users;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class School_for_validationController extends Controller
 {
@@ -34,7 +37,33 @@ class School_for_validationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //dd($request->input('name'));
+        $request->validate([
+            'name' => 'required',
+            'address' => 'required',
+            'city' => 'required',
+            'phone' => 'required',
+            'type' => 'required',
+            'code' => 'required',
+        ]);
+
+        $school = new School_for_validation();
+        $school->id_user = Auth::user()->id;
+        $school->name = $request->name;
+        $school->email = Auth::user()->email;
+        $school->address = $request->address;
+        $school->id_city = CityController::agafarID($request->city);
+        $school->phone = $request->phone;
+        $school->type = $request->type;
+        $school->code = $request->code;
+        $school->save();
+
+        $school_user = new School_users();
+        $school_user->id_user = Auth::user()->id;
+        $school_user->id_school = $school->id_school;
+        $school_user->save();
+
+        
     }
 
     /**
