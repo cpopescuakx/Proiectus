@@ -10,13 +10,15 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 public class CrearInstitut extends Activity {
     Button botoAfegir;
     Button botoTornar;
     EditText nom;
     EditText codi;
     EditText ciutat;
-    LlistaInstituts llistaInstituts = new LlistaInstituts();
+    LlistaInstituts llistaInstituts;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,8 +32,21 @@ public class CrearInstitut extends Activity {
 
         botoAfegir.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
+                Bundle extras = getIntent().getExtras();
+                int nextId = extras.getInt("nextId");
+                ArrayList idInsti = extras.getStringArrayList("idInsti");
+                ArrayList nomInsti = extras.getStringArrayList("nomInsti");
+                ArrayList codiInsti = extras.getStringArrayList("codiInsti");
+                ArrayList ciutatInsti = extras.getStringArrayList("ciutatInsti");
+
+                llistaInstituts = new LlistaInstituts(nextId, idInsti, nomInsti, codiInsti, ciutatInsti);
                 llistaInstituts.afegirInstitut(nom.getText().toString(), codi.getText().toString(), ciutat.getText().toString());
                 Intent i  = new Intent(CrearInstitut.this, PaginaPrincipal.class);
+                i.putExtra("nextId", llistaInstituts.nextId);
+                i.putExtra("idInsti", idInsti);
+                i.putExtra("nomInsti", nomInsti);
+                i.putExtra("codiInsti", codiInsti);
+                i.putExtra("ciutatInsti", ciutatInsti);
                 startActivity(i);
             }
 

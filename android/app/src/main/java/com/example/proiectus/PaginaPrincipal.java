@@ -16,7 +16,7 @@ import java.util.ArrayList;
 public class PaginaPrincipal extends AppCompatActivity {
     Button btnAfegir;
     Button btnModificar;
-    LlistaInstituts llistaInstituts = new LlistaInstituts();
+    LlistaInstituts llistaInstituts;
 
     EditText idModificar;
     private static final String TAG = "LlistaInstituts";
@@ -29,6 +29,18 @@ public class PaginaPrincipal extends AppCompatActivity {
         setContentView(R.layout.layout_listitem);
         Log.d(TAG,"onCreate:Started.");
         setContentView(R.layout.activity_pagina_principal);
+        Bundle extras = getIntent().getExtras();
+        if(extras == null) {
+            llistaInstituts = new LlistaInstituts();
+        }else {
+            int nextId =extras.getInt("nextId");
+            ArrayList idInsti = extras.getStringArrayList("idInsti");
+            ArrayList nomInsti = extras.getStringArrayList("nomInsti");
+            ArrayList codiInsti = extras.getStringArrayList("codiInsti");
+            ArrayList ciutatInsti = extras.getStringArrayList("ciutatInsti");
+            llistaInstituts = new LlistaInstituts(nextId, idInsti, nomInsti, codiInsti, ciutatInsti);
+        }
+
 
         initTot();
 
@@ -36,12 +48,14 @@ public class PaginaPrincipal extends AppCompatActivity {
         btnModificar = (Button)findViewById(R.id.btnModificar);
 
         idModificar = (EditText) findViewById(R.id.txtModificar);
-
-
-
         btnAfegir.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
                 Intent i  = new Intent(PaginaPrincipal.this, CrearInstitut.class);
+                i.putExtra("nextId", llistaInstituts.nextId);
+                i.putExtra("idInsti", llistaInstituts.idInsti);
+                i.putExtra("nomInsti", llistaInstituts.nomInsti);
+                i.putExtra("codiInsti", llistaInstituts.codiInsti);
+                i.putExtra("ciutatInsti", llistaInstituts.ciutatInsti);
                 startActivity(i);
             }
         });
@@ -59,7 +73,7 @@ public class PaginaPrincipal extends AppCompatActivity {
     private void initTot() {
         Log.d(TAG, "initIdInstis: Preparant");
 
-        llistaInstituts.dadesProva();
+        //llistaInstituts.dadesProva();
 
         initRecyclerView();
     }
