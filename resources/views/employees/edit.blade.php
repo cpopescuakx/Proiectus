@@ -44,7 +44,7 @@
                             <div class="row justify-content-center">
                                 <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
                                     <label for="nom">Nom d'usuari</label>
-                                    <input type="text" name = "username" class="form-control" id="username" value="{{$employee->name}}" required>
+                                    <input type="text" name = "username" class="form-control" id="username" value="{{$employee->username}}" required>
                                     <div class="invalid-feedback">Camp necessari</div>
                                 </div>
                             </div>
