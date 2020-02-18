@@ -28,7 +28,7 @@ Route::middleware(['registeredEntity'])->group(function () {
     Route::get('/home', function () {
         return view('home');
     })-> name('home.index');
-    
+
 
     Route::get('entityRegistration', 'EntityRegistration@index')->name('entityRegistration.index');
 
@@ -145,6 +145,11 @@ Route::get('Project/{id}/principal', 'ProjectController@show')
     Route::delete('/schools/{id}/delete', 'SchoolController@destroySchool')->name('schools.destroy');
     Route::post('/schools/create', 'SchoolController@storeSchool')->name('schools.store');
     Route::post('/schools/{id}/update', 'SchoolController@updateSchool')->name('schools.update');
+
+    /* DOCUMENT MANAGER OLD */
+    //Route::get('/dm','DMController@index');
+    //Route::post('/dm/fileupload/','DMController@fileupload')->name('dm.fileupload');
+
 
 
 //GRUP3
