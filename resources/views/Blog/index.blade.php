@@ -57,18 +57,39 @@
             <br>
         </div>
         <div class="container">
+
         @if($posts->count())
         @foreach ($posts as $post)
+        <!-- Modal -->
+<div class="modal fade" id="deleteConfirmationModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Estàs segur d'eliminar el post?</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" data-dismiss="modal">Cancela</button>
+        <a type="button" class="btn btn-danger" href="{{$id_project}}/post/{{$post->id_post}}/destroy">Elimina</a>
+      </div>
+    </div>
+  </div>
+</div>
                 <div class="card mb-3">
                     <div class="card-body">
-                    <a class="float-right" href="{{$id_project}}/post/{{$post->id_post}}/edit" ><i style="font-size: 1rem" class="material-icons">edit</i></a>
-                    <a class="float-right" href="{{$id_project}}/post/{{$post->id_post}}/destroy" ><i style="font-size: 1rem" class="material-icons">delete</i></a>
+                    <a class="float-right" href="{{$id_project}}/post/{{$post->id_post}}/edit" ><i style="font-size: 140%" class="material-icons">edit</i></a>
+                    <!--<a class="float-right" href="{{$id_project}}/post/{{$post->id_post}}/destroy" ><i style="font-size: 1rem" class="material-icons">delete</i></a>
+                    -->
+                    <a class="float-right" data-toggle="modal" data-target="#deleteConfirmationModal" ><i style="font-size: 140%" class="material-icons text-primary">delete</i></a>
 
                         <a href="{{$id_project}}/post/{{$post->id_post}}">
 
                             <h5 class="card-title">{{$post->title}}</h5>
                         </a>
                         <div class="">
+                        <!-- <p class="card-text">{!!\Illuminate\Support\Str::limit($post->content, $limit = 200, $end = '...')!!}</p> -->
                             <p class="card-text">{!!$post->content!!}</p>
 
                         </div>
