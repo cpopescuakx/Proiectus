@@ -489,8 +489,8 @@ class UserController extends Controller
      *
      *  Extreu els usuaris que tenen ID de rol 2 (Empleat) els quals tinguin com a estat (active), després retorna la vista per a llistar-los.
      *
-     *  @param \Illuminate\Http\Request $request Obtenim el tipo d'estat dels empleats a mostrar
-     *  @return \Illuminate\Http\Response
+     *  @param Request $request Obtenim el tipo d'estat dels empleats a mostrar
+     *  @return void
      * */
 
     public function indexEmployee(Request $request)
