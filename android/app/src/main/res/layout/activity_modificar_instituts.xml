@@ -110,7 +110,7 @@
         app:layout_constraintTop_toBottomOf="@+id/lblTitol" />
 
     <Button
-        android:id="@+id/botoTornar-Modificar"
+        android:id="@+id/botoTornarModificar"
         android:layout_width="127dp"
         android:layout_height="44dp"
         android:layout_marginTop="32dp"

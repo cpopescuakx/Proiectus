@@ -39,6 +39,7 @@ public class PaginaPrincipal extends AppCompatActivity {
             ArrayList codiInsti = extras.getStringArrayList("codiInsti");
             ArrayList ciutatInsti = extras.getStringArrayList("ciutatInsti");
             llistaInstituts = new LlistaInstituts(nextId, idInsti, nomInsti, codiInsti, ciutatInsti);
+
         }
 
 
@@ -73,11 +74,13 @@ public class PaginaPrincipal extends AppCompatActivity {
     private void initTot() {
         Log.d(TAG, "initIdInstis: Preparant");
 
-        //llistaInstituts.dadesProva();
+
 
         initRecyclerView();
     }
     private void initRecyclerView() {
+        llistaInstituts.dadesProva();
+
         Log.d(TAG, "initIdInstis: Done");
         RecyclerView recyclerView = findViewById(R.id.recycler_view);
         RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, llistaInstituts.idInsti, llistaInstituts.nomInsti, llistaInstituts.codiInsti, llistaInstituts.ciutatInsti);

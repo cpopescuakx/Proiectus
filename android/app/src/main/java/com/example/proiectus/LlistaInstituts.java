@@ -11,8 +11,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 public class LlistaInstituts extends AppCompatActivity {
-    public  ArrayList<Institut> array = new ArrayList<>();
-    public int nextId = 1;
+    public final ArrayList<Institut> array = new ArrayList<>();
+    public int nextId = 0;
 
     public ArrayList<String> idInsti = new ArrayList<>();
     public ArrayList<String> nomInsti = new ArrayList<>();
@@ -31,6 +31,9 @@ public class LlistaInstituts extends AppCompatActivity {
         this.ciutatInsti = ciutatInsti;
     }
 
+    public ArrayList<Institut> getDades(){
+        return array;
+    }
 
     public void afegirInstitut(String nom, String codi, String ciutat) {
         Institut i = new Institut(nextId, nom, codi, ciutat);
@@ -44,17 +47,11 @@ public class LlistaInstituts extends AppCompatActivity {
 
     public void dadesProva() {
 
-        idInsti.add(String.valueOf(nextId));
-        nomInsti.add("IES Montsia");
-        codiInsti.add("C012345");
-        ciutatInsti.add("Amposta");
-        nextId++;
-
-        idInsti.add(String.valueOf(nextId));
-        nomInsti.add("IES Cezar");
-        codiInsti.add("C543210");
-        ciutatInsti.add("Tortosa");
-        nextId++;
+        afegirInstitut("IES Montsia", "C012345", "Amposta");
+        afegirInstitut("Ramon Berenguer IV", "C012345", "Amposta");
+        afegirInstitut("IES Camarles", "C012345", "Amposta");
+        afegirInstitut("IES L'aldea", "C012345", "Amposta");
+        afegirInstitut("IES Rumania", "C012345", "Amposta");
     }
 
     public String[] getInstitut(int id) {
@@ -63,9 +60,7 @@ public class LlistaInstituts extends AppCompatActivity {
         Iterator<Institut> iter = array.iterator();
 
 
-
         while (iter.hasNext()) {
-
             Institut ins = iter.next();
 
             if (ins.getId() == id) {
@@ -79,18 +74,18 @@ public class LlistaInstituts extends AppCompatActivity {
     }
 
     public void modificarInstitut(int id, String nom, String codi, String ciutat) {
-        Iterator<Institut> iter = array.iterator();
+        Iterator<String> iterId = idInsti.iterator();
 
-        while (iter.hasNext()) {
 
-            Institut ins = iter.next();
 
-            if (ins.getId() == id) {
-                ins.setNom(nom);
-                ins.setCodi(codi);
-                ins.setCiutat(ciutat);
+        while (iterId.hasNext()) {
 
-                array.set(id, ins);
+            int insId = Integer.parseInt(iterId.next());
+
+            if (insId == id) {
+                nomInsti.set(id, nom);
+                codiInsti.set(id, codi);
+                ciutatInsti.set(id, ciutat);
 
             }
         }

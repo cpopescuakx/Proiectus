@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import java.util.ArrayList;
+
 public class ModificarInstitut extends AppCompatActivity {
     Button botoModificar;
     Button botoTornar;
@@ -17,12 +19,17 @@ public class ModificarInstitut extends AppCompatActivity {
     LlistaInstituts llistaInstituts = new LlistaInstituts();
 
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        //llistaInstituts.dadesProva();
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_modificar_instituts);
         botoModificar = (Button)findViewById(R.id.botoModificar);
-        botoTornar = (Button)findViewById(R.id.botoTornar_Modificar);
+        botoTornar = (Button)findViewById(R.id.botoTornarModificar);
         nom = (EditText)findViewById(R.id.txtNom);
         codi = (EditText)findViewById(R.id.txtCodi);
         ciutat = (EditText)findViewById(R.id.txtCiutat);
@@ -32,6 +39,7 @@ public class ModificarInstitut extends AppCompatActivity {
         if (getIntent().hasExtra("id")){
             id = Integer.parseInt(getIntent().getExtras().getString("id"));
         }
+
     if (id >= 0) {
         final String[] dades = llistaInstituts.getInstitut(id);
 

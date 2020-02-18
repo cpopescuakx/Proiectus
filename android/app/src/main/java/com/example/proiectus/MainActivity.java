@@ -27,8 +27,6 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        llistaInstituts.dadesProva();
-
         usuari = (EditText)findViewById(R.id.xUsuari);
         contrassenya = (EditText)findViewById(R.id.xContrassenya);
         boto = (Button)findViewById(R.id.xBoto);

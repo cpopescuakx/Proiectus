@@ -17,10 +17,10 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
 
 
-    private ArrayList<String> idInsti = new ArrayList<>();
-    private ArrayList<String> nomInsti = new ArrayList<>();
-    private ArrayList<String> codiInsti = new ArrayList<>();
-    private ArrayList<String> ciutatInsti = new ArrayList<>();
+    private ArrayList<String> idInsti;
+    private ArrayList<String> nomInsti;
+    private ArrayList<String> codiInsti;
+    private ArrayList<String> ciutatInsti;
     private Context contextInsti;
 
     public RecyclerViewAdapter( Context contextInsti, ArrayList<String> idInsti, ArrayList<String> nomInsti, ArrayList<String> codiInsti, ArrayList<String> ciutatInsti) {
