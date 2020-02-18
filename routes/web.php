@@ -19,16 +19,17 @@ Route::get('/', function () {
     return view('welcome');
 })-> name('index.index');
 
-Route::get('/home', function () {
-    return view('home');
-})-> name('home.index');
-
 Auth::routes(['verify' => true]);
 
 Route::post('entityRegistration/{type}', 'EntityRegistration@store')->name('entityRegistration.store');
 
 
 Route::middleware(['registeredEntity'])->group(function () {
+    Route::get('/home', function () {
+        return view('home');
+    })-> name('home.index');
+    
+
     Route::get('entityRegistration', 'EntityRegistration@index')->name('entityRegistration.index');
 
     //GRUP2
