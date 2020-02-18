@@ -28,7 +28,7 @@ class UserController extends Controller
     //Editar les dades del usuari
     public function editProfile($id){
         $managers = User::find($id);
-        $cities = City::distinct()->select("name")->get();
+        $cities = City::distinct()->select("username")->get();
         $nomCiutat = CityController::agafarNom($managers->id_city);
 
         return view('managers.editP', compact('managers', 'cities', 'nomCiutat'));
@@ -93,7 +93,7 @@ class UserController extends Controller
 
     public function createManager(){
 
-        $cities = City::distinct()->select("name")->get();
+        $cities = City::distinct()->select("username")->get();
         return view('managers.create',compact('cities'));
 
     }
@@ -148,7 +148,7 @@ class UserController extends Controller
     public function editManager($id){
 
         $managers = User::find($id);
-        $cities = City::distinct()->select("name")->get();
+        $cities = City::distinct()->select("username")->get();
         $nomCiutat = CityController::agafarNom($managers->id_city);
 
         return view('managers.edit', compact('managers', 'cities', 'nomCiutat'));
@@ -174,7 +174,7 @@ class UserController extends Controller
         // Assignar els valors del formulari
         $managers -> firstname = $request->input('firstname');
         $managers -> lastname = $request->input('lastname');
-        $managers -> name = $request->input('username');
+        $managers -> username = $request->input('username');
         $managers -> dni = $request->input('dni');
         $managers -> email = $request->input('email');
         $managers -> birthdate = $request->input('birthdate');
@@ -235,7 +235,7 @@ class UserController extends Controller
 
     public function createStudent()
     {
-        $cities = City::distinct()->select("name")->get();
+        $cities = City::distinct()->select("username")->get();
         return view('students.create',compact('cities'));
     }
 
@@ -255,7 +255,7 @@ class UserController extends Controller
         // Assignació de valors a les propietats
         $student -> firstname = $request->input('firstname');
         $student -> lastname = $request->input('lastname');
-        $student -> name = $request->input('name');
+        $student -> username = $request->input('username');
         $student -> dni = $request->input('dni');
         $student -> email = $request->input('email');
         $student -> birthdate = $request->input('birthdate');
@@ -286,7 +286,7 @@ class UserController extends Controller
      */
     public function editStudent ($id) {
         $student = User::find($id);
-        $cities = City::distinct()->select("name")->get();
+        $cities = City::distinct()->select("username")->get();
         $nomCiutat = CityController::agafarNom($student->id_city);
 
         return view('students.edit', compact('student', 'cities', 'nomCiutat'));
@@ -311,7 +311,7 @@ class UserController extends Controller
         // Assignar els valors del formulari
         $students -> firstname = $request->input('firstname');
         $students -> lastname = $request->input('lastname');
-        $students -> name = $request->input('name');
+        $students -> username = $request->input('username');
         $students -> dni = $request->input('dni');
         $students -> email = $request->input('email');
         $students -> birthdate = $request->input('birthdate');
@@ -369,7 +369,7 @@ class UserController extends Controller
      */
     public function createProfessor()
     {
-      $cities = City::distinct()->select("name")->get();
+      $cities = City::distinct()->select("username")->get();
       return view('professors.create',compact('cities'));
     }
 
@@ -385,7 +385,7 @@ class UserController extends Controller
         // Assignació de valors a les propietats
         $professor -> firstname = $request->input('firstname');
         $professor -> lastname = $request->input('lastname');
-        $professor -> name = $request->input('name');
+        $professor -> username = $request->input('username');
         $professor -> dni = $request->input('dni');
         $professor -> email = $request->input('email');
         $professor -> birthdate = $request->input('birthdate');
@@ -417,7 +417,7 @@ class UserController extends Controller
      */
     public function editProfessor ($id) {
         $professor = User::find($id);
-        $cities = City::distinct()->select("name")->get();
+        $cities = City::distinct()->select("username")->get();
         $nomCiutat = CityController::agafarNom($professor->id_city);
 
         return view('professors.edit', compact('professor', 'cities', 'nomCiutat'));
@@ -442,7 +442,7 @@ class UserController extends Controller
         // Assignar els valors del formulari
         $professor -> firstname = $request->input('firstname');
         $professor -> lastname = $request->input('lastname');
-        $professor -> name = $request->input('name');
+        $professor -> username = $request->input('username');
         $professor -> dni = $request->input('dni');
         $professor -> email = $request->input('email');
         $professor -> birthdate = $request->input('birthdate');
@@ -515,7 +515,7 @@ class UserController extends Controller
      */
     public function createEmployee()
     {
-        $cities = DB::table('cities')->distinct()->select("name")->get();
+        $cities = DB::table('cities')->distinct()->select("username")->get();
         return view('employees.create',compact('cities'));
     }
 
@@ -545,7 +545,7 @@ class UserController extends Controller
      */
     public function editEmployee ($id) {
         $employee = User::find($id);
-        $cities = DB::table('cities')->distinct()->select("name")->get();
+        $cities = DB::table('cities')->distinct()->select("username")->get();
         $nomCiutat = CityController::agafarNom($employee->id_city);
 
         return view('employees.edit', compact('employee', 'cities', 'nomCiutat'));
@@ -570,7 +570,7 @@ class UserController extends Controller
         // Assignar els valors del formulari
         $employee -> firstname = $request->input('firstname');
         $employee -> lastname = $request->input('lastname');
-        $employee -> name = $request->input('username');
+        $employee -> username = $request->input('username');
         $employee -> dni = $request->input('dni');
         $employee -> email = $request->input('email');
         $employee -> birthdate = $request->input('birthdate');
@@ -607,7 +607,7 @@ class UserController extends Controller
         // Assignació de valors a les propietats
         $employee-> firstname = $request->input('firstname');
         $employee-> lastname = $request->input('lastname');
-        $employee-> name = $request->input('username');
+        $employee-> username = $request->input('username');
         $employee-> dni = $request->input('dni');
         $employee-> email = $request->input('email');
         $employee-> birthdate = $request->input('birthdate');
