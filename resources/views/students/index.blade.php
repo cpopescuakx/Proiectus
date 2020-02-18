@@ -34,7 +34,7 @@
             <tr>
                 <td>{{$student->firstname}}</td>
                 <td>{{$student->lastname}}</td>
-                <td>{{$student->name}}</td>
+                <td>{{$student->username}}</td>
                 <td>{{$student->email}}</td>
                 <td>{{$student->dni}}</td>
                 <td>{{$city::agafarNom($student->id_city)}}
