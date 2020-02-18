@@ -488,7 +488,7 @@ class UserController extends Controller
 
     /** LLISTAR EMPLEATS ACTIUS
      *
-     *  Extreu els empleats que tenen ID de rol 2 (Empleat) els quals tinguin com a estat (active), després retorna la vista per a llistar-los.
+     *  Extreu els usuaris que tenen ID de rol 2 (Empleat) els quals tinguin com a estat (active), després retorna la vista per a llistar-los.
      *
      *  @param \Illuminate\Http\Request $request Obtenim el tipo d'estat dels empleats a mostrar
      *  @return \Illuminate\Http\Response
@@ -511,11 +511,11 @@ class UserController extends Controller
      *  que tenim a la base de dades, per a poder fer el datalist.
      *
      *  @param void
-     *  @return \Illuminate\Http\Response
+     *  @return void
      */
     public function createEmployee()
     {
-        $cities = DB::table('cities')->distinct()->select("name")->get();
+        $cities = City::distinct()->select("name")->get();
         return view('employees.create',compact('cities'));
     }
 
@@ -524,8 +524,8 @@ class UserController extends Controller
      *
      *  Indiquem la id de l'usuari el qual volem donar d'alta i redireccionem a la vista anterior.
      *
-     *  @param $id Conté la ID de l'usuari
-     *  @return \Illuminate\Http\Response
+     *  @param int $id Conté la ID de l'usuari.
+     *  @return void
      * */
 
     public function activeUser($id)
@@ -538,9 +538,9 @@ class UserController extends Controller
 
     /** EDITAR Empleat
      *
-     *  Retorna el formulari de modificació d'empleats. Passant l'profe a partir de l'ID.
+     *  Retorna el formulari de modificació d'empleats. Passant l'empleat a partir de l'ID.
      *
-     *  @param int $id
+     *  @param int $id Conté la ID de l'usuari.
      *  @return void
      */
     public function editEmployee ($id) {
@@ -556,7 +556,7 @@ class UserController extends Controller
      *  Guarda les noves dades de l'empleat a la base de dades. Llavors, redirecciona
      *  al llistat d'empleats.
      *
-     *  @param Request $request
+     *  @param Request $request Conté la ID de l'usuari.
      *  @return void
      */
 
@@ -581,7 +581,7 @@ class UserController extends Controller
         $employee-> bio = $request->input('bio');
         $employee -> id_role = 2;
 
-        // Guardar l'empelat a la BBDD amb les noves dades
+        // Guardar l'empleat a la BBDD amb les noves dades
         $employee -> save();
 
 
@@ -593,11 +593,12 @@ class UserController extends Controller
 
     }
 
-    /**
+    /** STORE Empleat
+     * 
      * Guardar l'empleat a la base de dades
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param  Request $request Conté les dades de l'empleat.
+     * @return void
      */
     public function storeEmployees(Request $request)
     {
@@ -626,6 +627,25 @@ class UserController extends Controller
         $employees = User::where('id_role', 2)->get();
 
         return redirect()->route('employee.index',compact('employees'));
+    }
+
+     /** DESTROY Empleat
+      * 
+     * Donar de baixa un empleat (Canvia l'estat a inactiu)
+     *
+     * @param  int  $id Conté la id de l'empleat
+     * @return void
+     */
+    public function destroyEmployee($id)
+    {
+        $employee = User::find($id);
+        $employee -> status = 'inactive';
+        $employee -> save();
+
+        $employees = User::where('id_role', 2)->get();
+
+        return redirect()->route('employee.index',compact('employees'))
+        ->with('i', (request()->input('page', 1) -1));
     }
 
     /**
@@ -662,23 +682,7 @@ class UserController extends Controller
         //
     }
 
-    /**
-     * Donar de baixa un empleat (Canvia l'estat a inactiu)
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroyEmployee($id)
-    {
-        $employee = User::find($id);
-        $employee -> status = 'inactive';
-        $employee -> save();
-
-        $employees = User::where('id_role', 2)->get();
-
-        return redirect()->route('employee.index',compact('employees'))
-        ->with('i', (request()->input('page', 1) -1));
-    }
+  
 
     /** Buscar usuari
      *
