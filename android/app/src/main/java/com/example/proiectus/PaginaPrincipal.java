@@ -32,6 +32,9 @@ public class PaginaPrincipal extends AppCompatActivity {
         setContentView(R.layout.layout_listitem);
         Log.d(TAG,"onCreate:Started.");
         setContentView(R.layout.activity_pagina_principal);
+
+        initTot();
+
         btnAfegir = (Button)findViewById(R.id.btnAfegir);
         btnModificar = (Button)findViewById(R.id.btnModificar);
         idModificar = (EditText) findViewById(R.id.txtModificar);
@@ -49,9 +52,6 @@ public class PaginaPrincipal extends AppCompatActivity {
                 startActivity(i);
             }
         });
-        initTot();
-
-
 
     }
 
@@ -65,6 +65,9 @@ public class PaginaPrincipal extends AppCompatActivity {
         nomInsti.add("IES Cezar");
         codiInsti.add("C543210");
         ciutatInsti.add("Tortosa");
+
+
+
         initRecyclerView();
     }
     private void initRecyclerView() {

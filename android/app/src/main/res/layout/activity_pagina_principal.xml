@@ -11,24 +11,14 @@ xmlns:android="http://schemas.android.com/apk/res/android"
     tools:context=".PaginaPrincipal">
 
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/recycler_view">
-    </androidx.recyclerview.widget.RecyclerView>
-
     <Button
         android:id="@+id/btnAfegir"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
+        android:layout_alignStart="@+id/recycler_view"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="230dp"
-        android:layout_marginTop="621dp"
-        android:layout_marginEnd="93dp"
-        android:layout_marginBottom="62dp"
+        android:layout_marginStart="223dp"
+        android:layout_marginBottom="57dp"
         android:text="Afegir" />
 
     <Button
@@ -36,13 +26,9 @@ xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="615dp"
-        android:layout_marginEnd="261dp"
-        android:layout_marginBottom="68dp"
+        android:layout_marginStart="67dp"
+        android:layout_marginBottom="59dp"
         android:text="Modificar" />
 
     <EditText
@@ -58,5 +44,20 @@ xmlns:android="http://schemas.android.com/apk/res/android"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Id a modificar" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="409dp"
+        android:layout_height="730dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="0dp">
+
+    </androidx.recyclerview.widget.RecyclerView>
 
 </RelativeLayout>
