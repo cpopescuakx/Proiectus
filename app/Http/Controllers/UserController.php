@@ -60,7 +60,7 @@ class UserController extends Controller
 
         // Tornar a la llista de gestors
 
-        $managers = User::where('id_role', 5)->get();
+        $managers = User::where('id', $id)->get();
 
         return redirect()->route('managers.indexP',compact('managers'));
     }
