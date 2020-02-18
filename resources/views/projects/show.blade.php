@@ -1,12 +1,12 @@
 @extends('layouts.default')
-
+@inject('controller', 'App\Http\Controllers\UserController')
 @section('content')
-  
+
     <link rel="stylesheet" type="text/css" href="{{asset('css/components/g2/g2_style.css')}}">
     <div class="container ">
         <div class="row justify-content-center">
             <div class="column mt-4 mb-4">
-                <h1>{{$project->name}}</h1>
+                <h1 class="display-4">{{$project->name}}</h1>
             </div>
         </div>
     </div>
@@ -24,42 +24,67 @@
     
     <div class="row justify-content-center">
         <div id="info" class="tabcontent mt-3">
-            <h2><strong>Descripció<strong></h2>
-            <p>{{$project->description}}</p>
+            <div class="row justify-content-center mb-3">
+                <h2 class="mt-3"><strong>Informació</strong></h2>
+            </div>
+            <div class="row">
+                <p class="lead"><i style="width: 50px;" class="fas fa-angle-right fa-lg pl-2"></i>Descripció: {{$project->description}}</p>
+            </div>
+
+            <div class="row">
+                <p class="lead"><i style="width: 50px;" class="fas fa-angle-right fa-lg pl-2"></i>Família: {{$project->professional_family}}</p>
+            </div>
+
+            <div class="row">
+                <p class="lead"><i style="width: 50px;" class="fas fa-clock fa-lg"></i>Data límit: {{$project->ending_date}}</p>
+            </div>
+
+            <div class="row">
+                <p class="lead"><i style="width: 50px;" class="fas fa-money-bill-wave fa-lg"></i>Pressupost: {{$project->budget}} €</p>
+            </div>
         </div>
     </div>
 
     <div class="row justify-content-center">
         <div id="gest" class="tabcontent mt-3">
-            <h2><strong>Gestor documental<strong></h2>
+            <h2 class="mt-3"><strong>Gestor documental<strong></h2>
             
         </div>
     </div>
 
     <div class="row justify-content-center">
         <div id="wiki" class="tabcontent mt-3">
-            <h2><strong>Wiki<strong></h2>
+            <h2 class="mt-3"><strong>Wiki<strong></h2>
             
         </div>
     </div>
 
     <div class="row justify-content-center">
         <div id="blog" class="tabcontent mt-3">
-            <h2><strong>Blog<strong></h2>
+            <h2 class="mt-3"><strong>Blog<strong></h2>
             
         </div>
     </div>
 
     <div class="row justify-content-center">
         <div id="participants" class="tabcontent mt-3">
-            <h2><strong>Participants<strong></h2>
             
+            <h2 class="mt-3 mb-3"><strong>Participants<strong></h2>
+                <div class="container">
+                    @foreach ($participants as $participant)
+                        @php 
+                            $user = $controller->getUser($participant->id_user)
+                        @endphp
+                        <p><i class="fas fa-user fa-lg mr-3"></i> {{$user->firstname.' '.$user->lastname}}</p>
+                    @endforeach
+                </div>
+            </div>
         </div>
     </div>
 
     <div class="row justify-content-center">
         <div id="xat" class="tabcontent mt-3">
-            <h2><strong>Xat<strong></h2>
+            <h2 class="mt-3"><strong>Xat<strong></h2>
             
         </div>
     </div>

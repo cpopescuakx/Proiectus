@@ -634,4 +634,19 @@ class UserController extends Controller
         return redirect()->route('employee.index',compact('employees'))
         ->with('i', (request()->input('page', 1) -1));
     }
+
+    /** Buscar usuari
+     *  
+     *  Busca l'usuari que té l'ID passada com a paràmetre.
+     *  
+     *  @param void
+     *  @return User $user
+     */
+
+    public function getUser ($id) 
+    {
+        $user = User::find($id);
+        return $user;
+    }
+    
 }

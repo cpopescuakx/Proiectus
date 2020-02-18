@@ -8,6 +8,7 @@ namespace App\Http\Controllers;
 use App\Project;
 use Illuminate\Http\Request;
 use App\Proposal;
+use App\User_project;
 
 class ProjectController extends Controller
 {
@@ -130,7 +131,8 @@ class ProjectController extends Controller
     public function show($id)
     {
         $project = Project::find($id);
-        return view ('projects.show', compact('project'));
+        $participants = User_project::select()->where('id_project', $id)->get();
+        return view ('projects.show', compact('project', 'participants'));
 
     }
 
