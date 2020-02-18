@@ -52,7 +52,6 @@ class UserController extends Controller
         $managers -> id_city = CityController::agafarID($nom);
         $managers -> profile_pic = "Res";
         $managers -> bio = "Res";
-        $managers -> id_role = 5;
         $managers -> status = $request->input('status');
 
         // Guardar el gestor a la BBDD amb les noves dades
@@ -174,7 +173,7 @@ class UserController extends Controller
         // Assignar els valors del formulari
         $managers -> firstname = $request->input('firstname');
         $managers -> lastname = $request->input('lastname');
-        $managers -> name = $request->input('username');
+        $managers -> username = $request->input('username');
         $managers -> dni = $request->input('dni');
         $managers -> email = $request->input('email');
         $managers -> birthdate = $request->input('birthdate');
