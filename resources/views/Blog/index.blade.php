@@ -45,7 +45,25 @@
                         // Evitar el submit
                         e.preventDefault();
                     }
-                })
+                });
+                /** CODI PER AL MENU RIGHTCLICK */
+                /** ---------- NO FUNCIONA ----------- */
+                $('#prova').on('contextmenu', function(e) {
+                    var top = e.pageY - 40;
+                    var left = e.pageX - 60;
+                    $("#context-menu").css({
+                        display: "block",
+                        top: top,
+                        left: left
+                    }).addClass("show");
+                    return false; //blocks default Webbrowser right click menu
+                }).on("click", function() {
+                    $("#context-menu").removeClass("show").hide();
+                });
+
+                $("#context-menu a").on("click", function() {
+                    $(this).parent().removeClass("show").hide();
+                });
             </script>
         </div>
         <div class="form-group">
@@ -76,6 +94,14 @@
             </div>
         </div>
     </div>
+<!-- Menu d'opcins rightclick -->
+    <div class="dropdown-menu dropdown-menu-sm" id="context-menu">
+            <h6 class="dropdown-header">Opcions del post</h6>
+          <a class="dropdown-item" href="#">Eliminar</a>
+          <a class="dropdown-item" href="#">Modificar</a>
+          <a class="dropdown-item" href="#"></a>
+        </div>
+
     <div class="card mb-3">
         <div class="card-body">
             <a class="float-right" href="{{$id_project}}/post/{{$post->id_post}}/edit"><i style="font-size: 140%" class="material-icons">edit</i></a>
