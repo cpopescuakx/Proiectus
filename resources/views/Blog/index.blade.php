@@ -22,7 +22,7 @@
             </div>
             <!-- Textarea de l'editor de text -->
             <div class="form-group">
-                <textarea name="content" id=summernote></textarea>
+                <textarea name="content" id=summernote required></textarea>
             </div>
 
             <!-- Script per a inicialitzar l'editor de text-->
