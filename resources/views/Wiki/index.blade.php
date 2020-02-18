@@ -100,7 +100,7 @@
 </div>
 @else
 <div class="container mb-5">
-    <h1>Aquest article no existeix</h1>
+    <h1>Aquesta wiki no existeix</h1>
 </div>
 @endif
 @endsection
