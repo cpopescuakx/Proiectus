@@ -138,15 +138,16 @@ Route::get('Project/{id}/principal', 'ProjectController@show')
     Route::post('/companies/create', 'CompanyController@storeCompany')->name('companies.store');
     Route::post('/companies/{id}/update', 'CompanyController@updateCompany')->name('companies.update');
 
-/* Gestors */
-Route::get('profile/{id}', 'UserController@indexProfile')->name('profile.indexP');
-Route::get('profile/{id}/edit', 'UserController@editProfile')->name('profile.editP');
-Route::get('managers', 'UserController@indexManager')->name('managers.index');
-Route::get('managers/create', 'UserController@createManager')->name('managers.create');
-Route::get('managers/{id}/edit', 'UserController@editManager')->name('managers.edit');
-Route::get('managers/{id}/delete', 'UserController@destroyManager')->name('managers.destroy');
-Route::post('managers/create', 'UserController@storeManager')->name('managers.store');
-Route::post('managers/{id}/update', 'UserController@updateManager')->name('managers.update');
+    /* Gestors */
+    Route::get('managerProfile/{id}', 'UserController@indexProfile')->name('managers.indexP');
+    Route::get('managerProfile/{id}/edit', 'UserController@editProfile')->name('managers.editP');
+    Route::post('managersProfile/{id}/update', 'UserController@updateProfile')->name('managers.update');
+    Route::get('managers', 'UserController@indexManager')->name('managers.index');
+    Route::get('managers/create', 'UserController@createManager')->name('managers.create');
+    Route::get('managers/{id}/edit', 'UserController@editManager')->name('managers.edit');
+    Route::get('managers/{id}/delete', 'UserController@destroyManager')->name('managers.destroy');
+    Route::post('managers/create', 'UserController@storeManager')->name('managers.store');
+    Route::post('managers/{id}/update', 'UserController@updateManager')->name('managers.update');
 
     /* Schools */
     Route::get('/schools', 'SchoolController@indexSchool')->name('schools.index');
@@ -155,6 +156,17 @@ Route::post('managers/{id}/update', 'UserController@updateManager')->name('manag
     Route::delete('/schools/{id}/delete', 'SchoolController@destroySchool')->name('schools.destroy');
     Route::post('/schools/create', 'SchoolController@storeSchool')->name('schools.store');
     Route::post('/schools/{id}/update', 'SchoolController@updateSchool')->name('schools.update');
+
+    /* DOCUMENT MANAGER OLD */
+    //Route::get('/dm','DMController@index');
+    //Route::post('/dm/fileupload/','DMController@fileupload')->name('dm.fileupload');
+
+    /* DOCUMENT MANAGER NEW */
+    Route::get('/dm','DMController@fileCreate');
+    Route::get('dm/store','DMController@fileStore');
+    Route::post('dm/delete','DMController@fileDestroy');
+
+
 
 
 //GRUP3

@@ -22,13 +22,13 @@
 <table class="table table-hover mr-5">
 <thead>
     <tr>
-        <td>Nom</td>
-        <td>Cognom</td>
-        <td>Num d'usuari</td>
-        <td>Email</td>
-        <td>DNI</td>
-        <td>Ciutat</td>
-        <td colspan="2">Accions</td>
+        <td><strong>Nom</strong></td>
+        <td><strong>Cognom</strong></td>
+        <td><strong>Num d'usuari</strong></td>
+        <td><strong>Email</strong></td>
+        <td><strong>DNI</strong></td>
+        <td><strong>Ciutat</strong></td>
+        <td colspan="2"><strong>Accions</strong></td>
     </tr>
 </thead>
 
@@ -45,7 +45,7 @@
     <tr>
         <td>{{$employee->firstname}}</td>
         <td>{{$employee->lastname}}</td>
-        <td>{{$employee->name}}</td>
+        <td>{{$employee->username}}</td>
         <td>{{$employee->email}}</td>
         <td>{{$employee->dni}}</td>
         <td>{{$city::agafarNom($employee->id_city)}}

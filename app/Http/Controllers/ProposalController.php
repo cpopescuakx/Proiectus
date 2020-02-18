@@ -7,6 +7,10 @@ use App\Proposal;
 
 class ProposalController extends Controller
 {
+  public function __construct()
+{
+$this->middleware('auth');
+}
     /**
      * Display a listing of the resource.
      *
@@ -85,7 +89,7 @@ class ProposalController extends Controller
       $proposal = Proposal::find($id);
       return view ('proposals.show', compact('proposal'));
     }
-   
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -197,8 +201,8 @@ class ProposalController extends Controller
 
     public function dashboardProposal(Request $request)
     {
-        $proposals = Proposal::name($request->get('name'))->paginate(12);
 
+        $proposals = Proposal::nameAuthor($request->get('name'), $request->user()->id)->paginate(12);
         return view('proposals.dashboard', compact('proposals'));
     }
 }

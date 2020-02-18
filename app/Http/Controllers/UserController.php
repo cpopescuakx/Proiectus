@@ -43,7 +43,7 @@ class UserController extends Controller
         // Assignar els valors del formulari
         $managers -> firstname = $request->input('firstname');
         $managers -> lastname = $request->input('lastname');
-        $managers -> name = $request->input('name');
+        $managers -> username = $request->input('username');
         $managers -> dni = $request->input('dni');
         $managers -> email = $request->input('email');
         $managers -> birthdate = $request->input('birthdate');
@@ -52,7 +52,6 @@ class UserController extends Controller
         $managers -> id_city = CityController::agafarID($nom);
         $managers -> profile_pic = "Res";
         $managers -> bio = "Res";
-        $managers -> id_role = 5;
         $managers -> status = $request->input('status');
 
         // Guardar el gestor a la BBDD amb les noves dades
@@ -60,9 +59,9 @@ class UserController extends Controller
 
         // Tornar a la llista de gestors
 
-        $managers = User::where('id_role', 5)->get();
+        $managers = User::where('id', $id)->get();
 
-        return redirect()->route('managers.index',compact('managers'));
+        return redirect()->route('managers.indexP',compact('managers'));
     }
     /** LLISTAR GESTORS
      *
@@ -114,7 +113,7 @@ class UserController extends Controller
         // Assignació de valors a les propietats
         $manager -> firstname = $request->input('firstname');
         $manager -> lastname = $request->input('lastname');
-        $manager -> name = $request->input('name');
+        $manager -> username = $request->input('username');
         $manager -> dni = $request->input('dni');
         $manager -> email = $request->input('email');
         $manager -> birthdate = $request->input('birthdate');
@@ -174,7 +173,7 @@ class UserController extends Controller
         // Assignar els valors del formulari
         $managers -> firstname = $request->input('firstname');
         $managers -> lastname = $request->input('lastname');
-        $managers -> name = $request->input('name');
+        $managers -> username = $request->input('username');
         $managers -> dni = $request->input('dni');
         $managers -> email = $request->input('email');
         $managers -> birthdate = $request->input('birthdate');
@@ -255,7 +254,7 @@ class UserController extends Controller
         // Assignació de valors a les propietats
         $student -> firstname = $request->input('firstname');
         $student -> lastname = $request->input('lastname');
-        $student -> name = $request->input('name');
+        $student -> username = $request->input('username');
         $student -> dni = $request->input('dni');
         $student -> email = $request->input('email');
         $student -> birthdate = $request->input('birthdate');
@@ -311,7 +310,7 @@ class UserController extends Controller
         // Assignar els valors del formulari
         $students -> firstname = $request->input('firstname');
         $students -> lastname = $request->input('lastname');
-        $students -> name = $request->input('name');
+        $students -> username = $request->input('username');
         $students -> dni = $request->input('dni');
         $students -> email = $request->input('email');
         $students -> birthdate = $request->input('birthdate');
@@ -385,7 +384,7 @@ class UserController extends Controller
         // Assignació de valors a les propietats
         $professor -> firstname = $request->input('firstname');
         $professor -> lastname = $request->input('lastname');
-        $professor -> name = $request->input('name');
+        $professor -> username = $request->input('username');
         $professor -> dni = $request->input('dni');
         $professor -> email = $request->input('email');
         $professor -> birthdate = $request->input('birthdate');
@@ -442,7 +441,7 @@ class UserController extends Controller
         // Assignar els valors del formulari
         $professor -> firstname = $request->input('firstname');
         $professor -> lastname = $request->input('lastname');
-        $professor -> name = $request->input('name');
+        $professor -> username = $request->input('username');
         $professor -> dni = $request->input('dni');
         $professor -> email = $request->input('email');
         $professor -> birthdate = $request->input('birthdate');
@@ -488,10 +487,10 @@ class UserController extends Controller
 
     /** LLISTAR EMPLEATS ACTIUS
      *
-     *  Extreu els empleats que tenen ID de rol 2 (Empleat) els quals tinguin com a estat (active), després retorna la vista per a llistar-los.
+     *  Extreu els usuaris que tenen ID de rol 2 (Empleat) els quals tinguin com a estat (active), després retorna la vista per a llistar-los.
      *
-     *  @param \Illuminate\Http\Request $request Obtenim el tipo d'estat dels empleats a mostrar
-     *  @return \Illuminate\Http\Response
+     *  @param Request $request Obtenim el tipo d'estat dels empleats a mostrar
+     *  @return void
      * */
 
     public function indexEmployee(Request $request)
@@ -511,11 +510,11 @@ class UserController extends Controller
      *  que tenim a la base de dades, per a poder fer el datalist.
      *
      *  @param void
-     *  @return \Illuminate\Http\Response
+     *  @return void
      */
     public function createEmployee()
     {
-        $cities = DB::table('cities')->distinct()->select("name")->get();
+        $cities = City::distinct()->select("name")->get();
         return view('employees.create',compact('cities'));
     }
 
@@ -524,8 +523,8 @@ class UserController extends Controller
      *
      *  Indiquem la id de l'usuari el qual volem donar d'alta i redireccionem a la vista anterior.
      *
-     *  @param $id Conté la ID de l'usuari
-     *  @return \Illuminate\Http\Response
+     *  @param int $id Conté la ID de l'usuari.
+     *  @return void
      * */
 
     public function activeUser($id)
@@ -538,9 +537,9 @@ class UserController extends Controller
 
     /** EDITAR Empleat
      *
-     *  Retorna el formulari de modificació d'empleats. Passant l'profe a partir de l'ID.
+     *  Retorna el formulari de modificació d'empleats. Passant l'empleat a partir de l'ID.
      *
-     *  @param int $id
+     *  @param int $id Conté la ID de l'usuari.
      *  @return void
      */
     public function editEmployee ($id) {
@@ -556,7 +555,7 @@ class UserController extends Controller
      *  Guarda les noves dades de l'empleat a la base de dades. Llavors, redirecciona
      *  al llistat d'empleats.
      *
-     *  @param Request $request
+     *  @param Request $request Conté la ID de l'usuari.
      *  @return void
      */
 
@@ -581,7 +580,7 @@ class UserController extends Controller
         $employee-> bio = $request->input('bio');
         $employee -> id_role = 2;
 
-        // Guardar l'empelat a la BBDD amb les noves dades
+        // Guardar l'empleat a la BBDD amb les noves dades
         $employee -> save();
 
 
@@ -593,11 +592,12 @@ class UserController extends Controller
 
     }
 
-    /**
+    /** STORE Empleat
+     * 
      * Guardar l'empleat a la base de dades
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param  Request $request Conté les dades de l'empleat.
+     * @return void
      */
     public function storeEmployees(Request $request)
     {
@@ -626,6 +626,25 @@ class UserController extends Controller
         $employees = User::where('id_role', 2)->get();
 
         return redirect()->route('employee.index',compact('employees'));
+    }
+
+     /** DESTROY Empleat
+      * 
+     * Donar de baixa un empleat (Canvia l'estat a inactiu)
+     *
+     * @param  int  $id Conté la id de l'empleat
+     * @return void
+     */
+    public function destroyEmployee($id)
+    {
+        $employee = User::find($id);
+        $employee -> status = 'inactive';
+        $employee -> save();
+
+        $employees = User::where('id_role', 2)->get();
+
+        return redirect()->route('employee.index',compact('employees'))
+        ->with('i', (request()->input('page', 1) -1));
     }
 
     /**
@@ -662,23 +681,7 @@ class UserController extends Controller
         //
     }
 
-    /**
-     * Donar de baixa un empleat (Canvia l'estat a inactiu)
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroyEmployee($id)
-    {
-        $employee = User::find($id);
-        $employee -> status = 'inactive';
-        $employee -> save();
-
-        $employees = User::where('id_role', 2)->get();
-
-        return redirect()->route('employee.index',compact('employees'))
-        ->with('i', (request()->input('page', 1) -1));
-    }
+  
 
     /** Buscar usuari
      *
