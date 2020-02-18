@@ -1,6 +1,15 @@
 @extends('layouts.default')
 
 @section('content')
+<div>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="#">Projecte</a></li>
+      <li class="breadcrumb-item"><a href="{{ URL::previous() }}">Blog</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Post</li>
+    </ol>
+  </nav>
+</div>
   <div style="padding: 10px">
     <div class="row">
         <div class="col-lg-12 margin-tb">
@@ -9,7 +18,7 @@
                 </br>
             </div>
             <div class="pull-right">
-                <a class="btn btn-primary" href="{{ url('wiki', [$id_project]) }}"> Back</a>
+                <a class="btn btn-primary" href="{{ url('wiki', [$id_project]) }}"> Enrere</a>
                 <br></br>
             </div>
         </div>
@@ -67,7 +76,7 @@
             </div>
 
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-              <button type="submit" class="btn btn-primary">Submit</button>
+              <button type="submit" class="btn btn-primary">Modifica!</button>
             </div>
         </div>
 

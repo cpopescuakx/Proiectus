@@ -1,7 +1,7 @@
 @extends('layouts.default')
 
 @section('content')
-  <div style="padding: 10px">
+<div style="padding: 10px">
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
@@ -17,17 +17,17 @@
 
     <table class="table table-bordered">
         <tr>
-          <th>id_article</th>
-          <th>id_project</th>
-          <th>version</th>
-          <th>title</th>
-          <th>content</th>
-          <th>created_at</th>
-          <th>updated_at</th>
-          <th>reference</th>
-          <th>id_user</th>
-          <th>status</th>
-          <th width="280px">Action</th>
+            <th>id_article</th>
+            <th>id_project</th>
+            <th>version</th>
+            <th>title</th>
+            <th>content</th>
+            <th>created_at</th>
+            <th>updated_at</th>
+            <th>reference</th>
+            <th>id_user</th>
+            <th>status</th>
+            <th width="280px">Action</th>
         </tr>
         @foreach ($articles as $article)
         <tr>
@@ -52,6 +52,6 @@
         </tr>
         @endforeach
     </table>
-  </div>
+</div>
 
 @endsection

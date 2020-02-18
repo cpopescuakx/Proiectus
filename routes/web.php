@@ -187,6 +187,7 @@ Route::post('wiki/{id_project}/store', 'ArticleController@store');
 
 Route::get('wiki/{id_project}/edit', 'WikiController@edit');
 Route::PATCH('wiki/{id_project}/update', 'WikiController@update');
+Route::get('wiki/{id_project}/article/{id_post}/destroy', 'ArticleController@destroy');
 
 
 // Javier

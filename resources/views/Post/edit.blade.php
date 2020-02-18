@@ -4,7 +4,15 @@
 @if (count($errors) > 0)
 
 @endif @if(Session::has('success')) <div class="alert alert-info"> {{Session::get('success')}} </div> @endif
-
+<div>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="#">Projecte</a></li>
+      <li class="breadcrumb-item"><a href="{{ URL::previous() }}">Blog</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Post</li>
+    </ol>
+  </nav>
+</div>
 
 <div class="formulari">
     <form class="was-validated" action="update" method="POST">

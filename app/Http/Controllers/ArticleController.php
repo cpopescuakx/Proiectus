@@ -17,9 +17,9 @@ class ArticleController extends Controller
     public function index($id_project)
     {
         $articles = Article::all()
-        ->where('id_project', '=', $id_project)->where('status', '=', 'active');
+            ->where('id_project', '=', $id_project)->where('status', '=', 'active');
 
-        return view('articles.index', compact('articles','id_project'));
+        return view('articles.index', compact('articles', 'id_project'));
     }
 
 
@@ -56,15 +56,15 @@ class ArticleController extends Controller
         ]);
 
         $article = new Article();
-        $article -> id_project = $id_project;
+        $article->id_project = $id_project;
         //$article -> version = $request->get('version');
-        $article -> version = '1';
-        $article -> title = $request->get('title');
-        $article -> content = $request->get('content');
+        $article->version = '1';
+        $article->title = $request->get('title');
+        $article->content = $request->get('content');
         //$article -> reference = $request->get('reference');
-        $article -> reference = '';
-        $article -> id_user = $id_user;
-        $article -> status = 'active';
+        $article->reference = '';
+        $article->id_user = $id_user;
+        $article->status = 'active';
 
 
 
@@ -84,7 +84,6 @@ class ArticleController extends Controller
 
     public function show($id_project, $id_article)
     {
-
     }
 
 
@@ -98,9 +97,9 @@ class ArticleController extends Controller
 
     public function edit($id_project, $id_article)
     {
-      $article = Article::where('id_article', '=', $id_article)->firstOrFail();
+        $article = Article::where('id_article', '=', $id_article)->firstOrFail();
 
-      return view('articles.edit', compact('article', 'id_project', 'id_article'));
+        return view('articles.edit', compact('article', 'id_project', 'id_article'));
     }
 
 
@@ -129,16 +128,15 @@ class ArticleController extends Controller
 
         $article = Article::find($id_article);
 
-        $article -> version = $request -> get('version');
-        $article -> title = $request -> get('title');
-        $article -> content = $request -> get('content');
-        $article -> reference = $request -> get('reference');
-        $article -> id_user = $request -> get('id_user');
+        $article->version = $request->get('version');
+        $article->title = $request->get('title');
+        $article->content = $request->get('content');
+        $article->reference = $request->get('reference');
+        $article->id_user = $request->get('id_user');
 
         $article->save();
 
         return redirect()->back();
-
     }
 
 
@@ -150,16 +148,14 @@ class ArticleController extends Controller
      */
 
 
-    public function destroy($id_article)
+    public function destroy($id_project, $id_article)
     {
         $article = Article::find($id_article);
 
-        $article -> status = 'inactive';
+        $article->status = 'inactive';
 
         $article->save();
 
         return redirect()->back();
     }
-
-
 }
