@@ -14,6 +14,11 @@ public class LlistaInstituts extends AppCompatActivity {
     public static ArrayList<Institut> array = new ArrayList<>();
     public int nextId = 1;
 
+    public ArrayList<String> idInsti = new ArrayList<>();
+    public ArrayList<String> nomInsti = new ArrayList<>();
+    public ArrayList<String> codiInsti = new ArrayList<>();
+    public ArrayList<String> ciutatInsti = new ArrayList<>();
+
 
 
     public void afegirInstitut(String nom, String codi, String ciutat) {
@@ -22,19 +27,18 @@ public class LlistaInstituts extends AppCompatActivity {
     }
 
     public void dadesProva() {
-        Institut ins1 = new Institut(nextId, "IES Montsià", "C012345", "Amposta");
-        nextId++;
-        Institut ins2 = new Institut(nextId, "Ramon Berenguer IV", "C345713", "Amposta");
-        nextId++;
-        Institut ins3 = new Institut(nextId, "IES Tecnificació", "C561004", "Amposta");
-        nextId++;
-        Institut ins4 = new Institut(nextId, "IES Camarles", "C092773", "Camarles");
+
+        idInsti.add(String.valueOf(nextId));
+        nomInsti.add("IES Montsia");
+        codiInsti.add("C012345");
+        ciutatInsti.add("Amposta");
         nextId++;
 
-        array.add(ins1);
-        array.add(ins2);
-        array.add(ins3);
-        array.add(ins4);
+        idInsti.add(String.valueOf(nextId));
+        nomInsti.add("IES Cezar");
+        codiInsti.add("C543210");
+        ciutatInsti.add("Tortosa");
+        nextId++;
     }
 
     public String[] getInstitut(int id) {

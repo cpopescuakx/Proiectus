@@ -21,10 +21,7 @@ public class PaginaPrincipal extends AppCompatActivity {
     EditText idModificar;
     private static final String TAG = "LlistaInstituts";
     //    vars
-    private ArrayList<String> idInsti = new ArrayList<>();
-    private ArrayList<String> nomInsti = new ArrayList<>();
-    private ArrayList<String> codiInsti = new ArrayList<>();
-    private ArrayList<String> ciutatInsti = new ArrayList<>();
+
     @Override
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +34,7 @@ public class PaginaPrincipal extends AppCompatActivity {
 
         btnAfegir = (Button)findViewById(R.id.btnAfegir);
         btnModificar = (Button)findViewById(R.id.btnModificar);
+
         idModificar = (EditText) findViewById(R.id.txtModificar);
         btnAfegir.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
@@ -57,23 +55,15 @@ public class PaginaPrincipal extends AppCompatActivity {
 
     private void initTot() {
         Log.d(TAG, "initIdInstis: Preparant");
-        idInsti.add("1");
-        nomInsti.add("IES Montsia");
-        codiInsti.add("C012345");
-        ciutatInsti.add("Amposta");
-        idInsti.add("2");
-        nomInsti.add("IES Cezar");
-        codiInsti.add("C543210");
-        ciutatInsti.add("Tortosa");
 
-
+        llistaInstituts.dadesProva();
 
         initRecyclerView();
     }
     private void initRecyclerView() {
         Log.d(TAG, "initIdInstis: Done");
         RecyclerView recyclerView = findViewById(R.id.recycler_view);
-        RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, idInsti, nomInsti, codiInsti, ciutatInsti);
+        RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, llistaInstituts.idInsti, llistaInstituts.nomInsti, llistaInstituts.codiInsti, llistaInstituts.ciutatInsti);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
