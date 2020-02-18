@@ -42,7 +42,7 @@ class Proposal extends Model
     	}
     }
 
-    /** Scope project
+    /** Scope proposal
      *
      *  Scope per a filtrar les propostes que coincideixen amb el
      *  que s'ha escrit al buscador.
@@ -59,5 +59,19 @@ class Proposal extends Model
         }
 
     }
+    /** Scope project
+     *
+     *  Scope per a filtrar les propostes que coincideixen amb el
+     *  que s'ha escrit al buscador de l'usuari que ho ha escrit.
+     *
+     *  @param Query $query
+     *  @param String $name
+     *  @param Integer $id_user
+     *  @return void
+     **/
 
+     public function scopeNameAuthor($query, $name, $id_user) {
+
+             $query->where('name', 'like', '%'.$name.'%')->where('id_author', $id_user);
+     }
 }

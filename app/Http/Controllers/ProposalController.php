@@ -197,12 +197,7 @@ class ProposalController extends Controller
 
     public function dashboardProposal(Request $request)
     {
-        $proposals = Proposal::name($request->get('name'))->paginate(12);
-        $userProposals = new ArrayObject();
-        foreach ($proposals as $proposal) {
-        if ($proposal->id_author == $request->user()->id) {
-          $userProposals = $proposal;
-        }}
-        return view('proposals.dashboard', compact('userProposals'));
+        $proposals = Proposal::nameAuthor($request->get('name'), $request->user()->id)->paginate(12);
+        return view('proposals.dashboard', compact('proposals'));
     }
 }
