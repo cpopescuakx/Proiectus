@@ -44,7 +44,7 @@
                             <div class="row justify-content-center">
                                 <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
                                     <label for="usuari">Usuari</label>
-                                    <input type="text" name = "name" class="form-control" id="name" required>
+                                    <input type="text" name = "username" class="form-control" id="name" required>
                                     <div class="invalid-feedback">Camp necessari</div>
                                 </div>
                             </div>
