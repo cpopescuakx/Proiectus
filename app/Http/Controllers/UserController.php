@@ -43,7 +43,7 @@ class UserController extends Controller
         // Assignar els valors del formulari
         $managers -> firstname = $request->input('firstname');
         $managers -> lastname = $request->input('lastname');
-        $managers -> name = $request->input('name');
+        $managers -> username = $request->input('username');
         $managers -> dni = $request->input('dni');
         $managers -> email = $request->input('email');
         $managers -> birthdate = $request->input('birthdate');
@@ -60,9 +60,9 @@ class UserController extends Controller
 
         // Tornar a la llista de gestors
 
-        $managers = User::where('id_role', 5)->get();
+        $managers = User::where('id', $id)->get();
 
-        return redirect()->route('managers.index',compact('managers'));
+        return redirect()->route('managers.indexP',compact('managers'));
     }
     /** LLISTAR GESTORS
      *
@@ -114,7 +114,7 @@ class UserController extends Controller
         // Assignació de valors a les propietats
         $manager -> firstname = $request->input('firstname');
         $manager -> lastname = $request->input('lastname');
-        $manager -> name = $request->input('name');
+        $manager -> username = $request->input('username');
         $manager -> dni = $request->input('dni');
         $manager -> email = $request->input('email');
         $manager -> birthdate = $request->input('birthdate');
@@ -174,7 +174,7 @@ class UserController extends Controller
         // Assignar els valors del formulari
         $managers -> firstname = $request->input('firstname');
         $managers -> lastname = $request->input('lastname');
-        $managers -> name = $request->input('name');
+        $managers -> name = $request->input('username');
         $managers -> dni = $request->input('dni');
         $managers -> email = $request->input('email');
         $managers -> birthdate = $request->input('birthdate');
