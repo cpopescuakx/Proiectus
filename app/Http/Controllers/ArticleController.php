@@ -52,7 +52,7 @@ class ArticleController extends Controller
             // 'version' => 'required',
             'title' => 'required',
             'content' => 'required',
-            'reference' => 'required',
+            //'reference' => 'required',
         ]);
 
         $article = new Article();
