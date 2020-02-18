@@ -384,7 +384,7 @@ class UserController extends Controller
         // Assignació de valors a les propietats
         $professor -> firstname = $request->input('firstname');
         $professor -> lastname = $request->input('lastname');
-        $professor -> name = $request->input('name');
+        $professor -> username = $request->input('username');
         $professor -> dni = $request->input('dni');
         $professor -> email = $request->input('email');
         $professor -> birthdate = $request->input('birthdate');
@@ -441,7 +441,7 @@ class UserController extends Controller
         // Assignar els valors del formulari
         $professor -> firstname = $request->input('firstname');
         $professor -> lastname = $request->input('lastname');
-        $professor -> name = $request->input('name');
+        $professor -> username = $request->input('username');
         $professor -> dni = $request->input('dni');
         $professor -> email = $request->input('email');
         $professor -> birthdate = $request->input('birthdate');

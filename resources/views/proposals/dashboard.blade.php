@@ -15,7 +15,9 @@
 
     <div class="container justify-content-center">
         <div class="row justify-content-center">
-            @foreach ($proposals as $proposal)
+
+            @foreach ($userProposals as $proposal)
+
                 <div class="column">
                     <div class="card m-2">
                         <img class="card-img-top" src="{{asset('img/foto_small.jpg')}}">
@@ -28,12 +30,13 @@
                         </div>
                     </div>
                 </div>
+
             @endforeach
         </div>
     </div>
 
     <div class="d-flex pt-5 justify-content-center">
-        <div class="inline-block">{{ $proposals->links() }}</div>
+      <div class="inline-block">{{ $userProposals->links() }}</div>
     </div>
 </body>
 
