@@ -43,7 +43,7 @@ class UserController extends Controller
         // Assignar els valors del formulari
         $managers -> firstname = $request->input('firstname');
         $managers -> lastname = $request->input('lastname');
-        $managers -> name = $request->input('name');
+        $managers -> name = $request->input('username');
         $managers -> dni = $request->input('dni');
         $managers -> email = $request->input('email');
         $managers -> birthdate = $request->input('birthdate');
@@ -114,7 +114,7 @@ class UserController extends Controller
         // Assignació de valors a les propietats
         $manager -> firstname = $request->input('firstname');
         $manager -> lastname = $request->input('lastname');
-        $manager -> name = $request->input('name');
+        $manager -> name = $request->input('username');
         $manager -> dni = $request->input('dni');
         $manager -> email = $request->input('email');
         $manager -> birthdate = $request->input('birthdate');
@@ -174,7 +174,7 @@ class UserController extends Controller
         // Assignar els valors del formulari
         $managers -> firstname = $request->input('firstname');
         $managers -> lastname = $request->input('lastname');
-        $managers -> name = $request->input('name');
+        $managers -> name = $request->input('username');
         $managers -> dni = $request->input('dni');
         $managers -> email = $request->input('email');
         $managers -> birthdate = $request->input('birthdate');
