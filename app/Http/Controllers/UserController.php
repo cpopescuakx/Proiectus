@@ -14,11 +14,56 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
         //
     }
+    //Mostrar dades al perfil del usuari
+    public function indexProfile($id){
+        $managers = User::where('id', $id)->get();
 
+        return view('managers.indexP', compact('managers'));
+    }
+    //Editar les dades del usuari
+    public function editProfile($id){
+        $managers = User::find($id);
+        $cities = City::distinct()->select("name")->get();
+        $nomCiutat = CityController::agafarNom($managers->id_city);
+
+        return view('managers.editP', compact('managers', 'cities', 'nomCiutat'));
+    }
+    //Modificar les dades del usuari de la base de dades
+    public function updateProfile(Request $request){
+        $id = $request->route('id'); // Agafar l'ID de la URL
+
+        // Cercar el gestor amb la mateixa ID de la BBDD
+        $managers = User::find($id);
+
+        // Assignar els valors del formulari
+        $managers -> firstname = $request->input('firstname');
+        $managers -> lastname = $request->input('lastname');
+        $managers -> name = $request->input('name');
+        $managers -> dni = $request->input('dni');
+        $managers -> email = $request->input('email');
+        $managers -> birthdate = $request->input('birthdate');
+        $managers -> password = $request->input('password');
+        $nom = $request->input('city');
+        $managers -> id_city = CityController::agafarID($nom);
+        $managers -> profile_pic = "Res";
+        $managers -> bio = "Res";
+        $managers -> id_role = 5;
+        $managers -> status = $request->input('status');
+
+        // Guardar el gestor a la BBDD amb les noves dades
+        $managers -> save();
+
+        // Tornar a la llista de gestors
+
+        $managers = User::where('id_role', 5)->get();
+
+        return redirect()->route('managers.index',compact('managers'));
+    }
     /** LLISTAR GESTORS
      *
      *  Extreu els usuaris que tenen ID de rol 5 (gestor), després retorna la vista per a llistar-los.
