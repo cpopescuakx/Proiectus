@@ -108,7 +108,7 @@ class ForeignKeysUsers extends Migration
 
         Schema::table('school_for_validations', function(Blueprint $table){
           $table->foreign('id_city')->references('id_city')->on('cities')->onDelete('cascade');
-
+          $table->foreign('id_user')->references('id')->on('users');
         });
 
         Schema::table('school_proposals', function(Blueprint $table){
@@ -151,7 +151,6 @@ class ForeignKeysUsers extends Migration
           $table->foreign('id_project')->references('id_project')->on('projects')->onDelete('cascade');
 
         });
-
     }
 
     /**
@@ -161,142 +160,124 @@ class ForeignKeysUsers extends Migration
      */
     public function down()
     {
-      Schema::table('articles', function(Blueprint $table){
+        Schema::table('articles', function (Blueprint $table) {
 
-          $table->dropForeign(['id_user']);
-          $table->dropForeign(['id_project']);
-      });
+            $table->dropForeign(['id_user']);
+            $table->dropForeign(['id_project']);
+        });
 
-      Schema::table('blogs', function(Blueprint $table){
+        Schema::table('blogs', function (Blueprint $table) {
 
-          $table->dropForeign(['id_project']);
-      });
+            $table->dropForeign(['id_project']);
+        });
 
-      Schema::table('chats', function(Blueprint $table){
+        Schema::table('chats', function (Blueprint $table) {
 
-          $table->dropForeign(['owner']);
-      });
+            $table->dropForeign(['owner']);
+        });
 
-      Schema::table('comments', function(Blueprint $table){
+        Schema::table('comments', function (Blueprint $table) {
 
-          $table->dropForeign(['id_user']);
-          $table->dropForeign(['id_post']);
-          $table->dropForeign(['id_project']);
-      });
+            $table->dropForeign(['id_user']);
+            $table->dropForeign(['id_post']);
+            $table->dropForeign(['id_project']);
+        });
 
-      Schema::table('companies', function(Blueprint $table){
+        Schema::table('companies', function (Blueprint $table) {
 
-          $table->dropForeign(['id_city']);
-      });
+            $table->dropForeign(['id_city']);
+        });
 
-      Schema::table('company_for_validations', function(Blueprint $table){
+        Schema::table('company_for_validations', function (Blueprint $table) {
 
-          $table->dropForeign(['id_city']);
-      });
+            $table->dropForeign(['id_city']);
+        });
 
-      Schema::table('company_users', function(Blueprint $table){
+        Schema::table('company_users', function (Blueprint $table) {
 
-          $table->dropForeign(['id_user']);
-          $table->dropForeign(['id_company']);
+            $table->dropForeign(['id_user']);
+            $table->dropForeign(['id_company']);
+        });
 
-      });
+        Schema::table('dm_files', function (Blueprint $table) {
+            $table->dropForeign(['id_folder']);
+        });
 
-      Schema::table('dm_files', function(Blueprint $table){
-          $table->dropForeign(['id_folder']);
+        Schema::table('dm_folders', function (Blueprint $table) {
+            $table->dropForeign(['id_document_manager']);
+        });
+        Schema::table('document_managers', function (Blueprint $table) {
+            $table->dropForeign(['id_project']);
+        });
 
-      });
+        Schema::table('histories', function (Blueprint $table) {
+            $table->dropForeign(['id_user']);
+            $table->dropForeign(['id_article']);
+        });
 
-      Schema::table('dm_folders', function(Blueprint $table){
-          $table->dropForeign(['id_document_manager']);
+        Schema::table('messages', function (Blueprint $table) {
+            $table->dropForeign(['id_chat']);
+            $table->dropForeign(['id_user']);
+        });
 
-      });
-      Schema::table('document_managers', function(Blueprint $table){
-          $table->dropForeign(['id_project']);
+        Schema::table('posts', function (Blueprint $table) {
+            $table->dropForeign(['id_user']);
+            $table->dropForeign(['id_project']);
+        });
 
-      });
+        Schema::table('projects', function (Blueprint $table) {
+            $table->dropForeign(['id_project']);
+        });
 
-      Schema::table('histories', function(Blueprint $table){
-          $table->dropForeign(['id_user']);
-          $table->dropForeign(['id_article']);
+        Schema::table('proposal_tags', function (Blueprint $table) {
+            $table->dropForeign(['id_proposal']);
+            $table->dropForeign(['id_tag']);
+        });
 
-      });
+        Schema::table('resource_centers', function (Blueprint $table) {
+            $table->dropForeign(['id_project']);
+        });
 
-      Schema::table('messages', function(Blueprint $table){
-          $table->dropForeign(['id_chat']);
-          $table->dropForeign(['id_user']);
+        Schema::table('schools', function (Blueprint $table) {
+            $table->dropForeign(['id_city']);
+        });
 
-      });
+        Schema::table('school_for_validations', function (Blueprint $table) {
+            $table->dropForeign(['id_city']);
+            $table->dropForeign(['id_user']);
+        });
 
-      Schema::table('posts', function(Blueprint $table){
-          $table->dropForeign(['id_user']);
-          $table->dropForeign(['id_project']);
+        Schema::table('school_proposals', function (Blueprint $table) {
+            $table->dropForeign(['id_school']);
+            $table->dropForeign(['id_proposal']);
+        });
 
-      });
+        Schema::table('school_users', function (Blueprint $table) {
+            $table->dropForeign(['id_user']);
+            $table->dropForeign(['id_school']);
+        });
 
-      Schema::table('projects', function(Blueprint $table){
-          $table->dropForeign(['id_project']);
+        Schema::table('tickets', function (Blueprint $table) {
+            $table->dropForeign(['id_assigned_user']);
+            $table->dropForeign(['id_author']);
+        });
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropForeign(['id_city']);
+            $table->dropForeign(['id_role']);
+        });
 
-      });
+        Schema::table('user_projects', function (Blueprint $table) {
+            $table->dropForeign(['id_user']);
+            $table->dropForeign(['id_project']);
+        });
 
-      Schema::table('proposal_tags', function(Blueprint $table){
-          $table->dropForeign(['id_proposal']);
-          $table->dropForeign(['id_tag']);
+        Schema::table('user_proposals', function (Blueprint $table) {
+            $table->dropForeign(['id_user']);
+            $table->dropForeign(['id_proposal']);
+        });
 
-      });
-
-      Schema::table('resource_centers', function(Blueprint $table){
-          $table->dropForeign(['id_project']);
-
-      });
-
-      Schema::table('schools', function(Blueprint $table){
-          $table->dropForeign(['id_city']);
-
-      });
-
-      Schema::table('school_for_validations', function(Blueprint $table){
-          $table->dropForeign(['id_city']);
-
-      });
-
-      Schema::table('school_proposals', function(Blueprint $table){
-          $table->dropForeign(['id_school']);
-          $table->dropForeign(['id_proposal']);
-
-      });
-
-      Schema::table('school_users', function(Blueprint $table){
-          $table->dropForeign(['id_user']);
-          $table->dropForeign(['id_school']);
-
-      });
-
-      Schema::table('tickets', function(Blueprint $table){
-          $table->dropForeign(['id_assigned_user']);
-          $table->dropForeign(['id_author']);
-
-      });
-      Schema::table('users', function(Blueprint $table){
-          $table->dropForeign(['id_city']);
-          $table->dropForeign(['id_role']);
-
-      });
-
-      Schema::table('user_projects', function(Blueprint $table){
-          $table->dropForeign(['id_user']);
-          $table->dropForeign(['id_project']);
-
-      });
-
-      Schema::table('user_proposals', function(Blueprint $table){
-          $table->dropForeign(['id_user']);
-          $table->dropForeign(['id_proposal']);
-
-      });
-
-      Schema::table('wikis', function(Blueprint $table){
-          $table->dropForeign(['id_project']);
-
-      });
+        Schema::table('wikis', function (Blueprint $table) {
+            $table->dropForeign(['id_project']);
+        });
     }
 }
