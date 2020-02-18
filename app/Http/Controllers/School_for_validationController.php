@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\School_for_validation;
 use App\School_users;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -58,12 +59,7 @@ class School_for_validationController extends Controller
         $school->code = $request->code;
         $school->save();
 
-        $school_user = new School_users();
-        $school_user->id_user = Auth::user()->id;
-        $school_user->id_school = $school->id_school;
-        $school_user->save();
-
-        
+        User::findOrFail(Auth::user()->id)->update(array('pending_entity_verification' => 1));
     }
 
     /**

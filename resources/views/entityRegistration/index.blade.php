@@ -20,7 +20,7 @@
         <form method="POST" action="{{ route('entityRegistration.store', ['school']) }}">
             @csrf
             <div class="form-group row">
-                <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+                <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Nom') }}</label>
 
                 <div class="col-md-5">
                     <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="username" autofocus>
@@ -34,7 +34,7 @@
             </div>
 
             <div class="form-group row">
-                <label for="address" class="col-md-4 col-form-label text-md-right">{{ __('Address') }}</label>
+                <label for="address" class="col-md-4 col-form-label text-md-right">{{ __('Adreça') }}</label>
 
                 <div class="col-md-5">
                     <input id="address" type="address" class="form-control @error('address') is-invalid @enderror" name="address" value="{{ old('address') }}" required autocomplete="address">
@@ -48,7 +48,7 @@
             </div>
 
             <div class="form-group row">
-                <label for="city" class="col-md-4 col-form-label text-md-right">{{ __('City') }}</label>
+                <label for="city" class="col-md-4 col-form-label text-md-right">{{ __('Ciutat') }}</label>
 
                 <div class="col-md-5">
                     <datalist id="cities">
@@ -67,7 +67,7 @@
             </div>
 
             <div class="form-group row">
-                <label for="phone" class="col-md-4 col-form-label text-md-right">{{ __('Phone') }}</label>
+                <label for="phone" class="col-md-4 col-form-label text-md-right">{{ __('Telèfon') }}</label>
 
                 <div class="col-md-5">
                     <input id="phone" type="tel" pattern="[0-9]{9}" maxlength="9" class="form-control @error('phone') is-invalid @enderror" name="phone" required autocomplete="no_fill">
@@ -81,7 +81,7 @@
             </div>
 
             <div class="form-group row">
-                <label for="type" class="col-md-4 col-form-label text-md-right">{{ __('Type') }}</label>
+                <label for="type" class="col-md-4 col-form-label text-md-right">{{ __('Tipus') }}</label>
 
                 <div class="col-md-5">
                     <datalist id="type">
@@ -99,7 +99,7 @@
             </div>
 
             <div class="form-group row">
-                <label for="code" class="col-md-4 col-form-label text-md-right">{{ __('Code') }}</label>
+                <label for="code" class="col-md-4 col-form-label text-md-right">{{ __('Codi') }}</label>
 
                 <div class="col-md-5">
                     <input id="code" type="code" class="form-control" name="code" required autocomplete="no_fill">
@@ -124,7 +124,104 @@
 
     </div>
     <div class="tab-pane" id="2b">
-        <h3>We use the class nav-pills instead of nav-tabs which automatically creates a background color for the tab</h3>
+    <form method="POST" action="{{ route('entityRegistration.store', ['school']) }}">
+            @csrf
+            <div class="form-group row">
+                <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Nom') }}</label>
+
+                <div class="col-md-5">
+                    <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="username" autofocus>
+
+                    @error('name')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="address" class="col-md-4 col-form-label text-md-right">{{ __('Adreça') }}</label>
+
+                <div class="col-md-5">
+                    <input id="address" type="address" class="form-control @error('address') is-invalid @enderror" name="address" value="{{ old('address') }}" required autocomplete="address">
+
+                    @error('address')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="city" class="col-md-4 col-form-label text-md-right">{{ __('Ciutat') }}</label>
+
+                <div class="col-md-5">
+                    <datalist id="cities">
+                        @foreach($cities as $city)
+                        <option value="{{$city->name}}">
+                            @endforeach
+                    </datalist>
+                    <input type="text" name="city" class="form-control" list="cities" autocomplete="no_fill" required>
+
+                    @error('address')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="phone" class="col-md-4 col-form-label text-md-right">{{ __('Telèfon') }}</label>
+
+                <div class="col-md-5">
+                    <input id="phone" type="tel" pattern="[0-9]{9}" maxlength="9" class="form-control @error('phone') is-invalid @enderror" name="phone" required autocomplete="no_fill">
+
+                    @error('phone')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="sector" class="col-md-4 col-form-label text-md-right">{{ __('Sector') }}</label>
+
+                <div class="col-md-5">
+                    <input id="sector" type="sector" class="form-control" name="sector" required autocomplete="no_fill">
+                    @error('sector')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="nif" class="col-md-4 col-form-label text-md-right">{{ __('Nif') }}</label>
+
+                <div class="col-md-5">
+                    <input id="nif" type="nif" class="form-control" name="nif" required autocomplete="no_fill">
+                    @error('nif')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+                </div>
+            </div>
+
+
+            <div class="form-group row mb-0">
+                <div class="col-md-5 offset-md-4">
+                    <button type="submit" class="btn btn-primary">
+                        {{ __('Register') }}
+                    </button>
+                </div>
+            </div>
+        </form>
     </div>
 </div>
 </div>

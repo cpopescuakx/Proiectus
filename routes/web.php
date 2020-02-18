@@ -23,14 +23,25 @@ Auth::routes(['verify' => true]);
 
 Route::post('entityRegistration/{type}', 'EntityRegistration@store')->name('entityRegistration.store');
 
+Route::middleware(['isAdmin'])->group(function () {
+    Route::get('/pendingSchools', 'pendingSchoolsController@index')->name('pendingSchools.index');
+    Route::get('pendingSchools/{id}/approve', 'pendingSchoolsController@approve')
+    ->name('pendingSchools.approve');
+
+    Route::get('pendingSchools/{id}/deny', 'pendingSchoolsController@deny')
+    ->name('pendingSchools.deny');
+});
 
 Route::middleware(['registeredEntity'])->group(function () {
     Route::get('/home', function () {
         return view('home');
     })-> name('home.index');
-    
 
     Route::get('entityRegistration', 'EntityRegistration@index')->name('entityRegistration.index');
+
+    Route::get('/pendingVerification', function () {
+        return view('pendingVerification.index');
+    })-> name('pendingVerification.index');
 
     //GRUP2
     /** Rutes per a l'apartat de gestió de projectes */

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\City;
+use App\Company_for_validation;
 use App\Http\Controllers\School_for_validationController;
 use Illuminate\Http\Request;
 
@@ -30,8 +31,9 @@ class EntityRegistration extends Controller
         if ($type == 'school') {
             $school = new School_for_validationController;
             $school->store($request);
+            return redirect()->route('pendingVerification.index');
         } else if ($type == 'company') {
-            $company = new CompanyController;
+            $company = new Company_for_validation;
             $company->store($request);
         }
     }

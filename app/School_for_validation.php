@@ -17,4 +17,8 @@ class School_for_validation extends Model
         'type',
         'code'
     ];
+
+    public function user() {
+        return $this->belongsTo('App\User', 'id_user');
+    }
 }
