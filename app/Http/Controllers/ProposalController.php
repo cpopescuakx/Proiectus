@@ -107,9 +107,9 @@ $this->middleware('auth');
      *  @param int $id
      *  @return \Illuminate\Http\Response
      */
-    public function editProposal($id){
+    public function editProposal($id, $url){
       $proposal = Proposal::find($id);
-      return view('proposals.edit', compact('proposal'));
+      return view('proposals.edit', compact('proposal','url'));
     }
 
     /**
@@ -132,10 +132,8 @@ $this->middleware('auth');
      * @return \Illuminate\Http\Response
      */
 
-    public function updateProposal(Request $request, $id)
+    public function updateProposal(Request $request, $id, $url)
     {
-              $id = $request->route('id'); // Agafar l'ID de la URL
-
               // Cercar la proposta amb la mateixa ID de la BBDD
               $proposal = Proposal::find($id);
 
@@ -148,8 +146,9 @@ $this->middleware('auth');
               // Guardar la proposta a la BBDD amb les noves dades
               $proposal -> save();
 
-              // Tornar a la llista de propostes
-              return redirect()->route(url()->previous());    }
+                // Tornar a la llista de propostes
+              return redirect($url);
+     }
 
     /** BAIXA PROPOSTA
      *
