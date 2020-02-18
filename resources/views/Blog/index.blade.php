@@ -18,7 +18,7 @@
         <div class="form-group">
             <h4><label class="float-left" cfor="exampleFormControlInput1">Crea un post!</label></h4>
             <div class="form-group">
-                <input name="title" type="text" class="form-control" placeholder="Titol del post" required>
+                <input name="title" type="text" class="form-control" placeholder="Títol" required>
             </div>
             <!-- Textarea de l'editor de text -->
             <div class="form-group">
@@ -28,7 +28,7 @@
             <!-- Script per a inicialitzar l'editor de text-->
             <script>
                 $('#summernote').summernote({
-                    placeholder: 'Contingut del post',
+                    placeholder: 'Contingut',
                     tabsize: 2,
                     height: 100,
                     minHeight: 100,
