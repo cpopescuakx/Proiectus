@@ -65,6 +65,12 @@ public class PaginaPrincipal extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i  = new Intent(PaginaPrincipal.this, ModificarInstitut.class);
                 i.putExtra("id", idModificar.getText().toString());
+
+                i.putExtra("idInsti", llistaInstituts.idInsti);
+                i.putExtra("nomInsti", llistaInstituts.nomInsti);
+                i.putExtra("codiInsti", llistaInstituts.codiInsti);
+                i.putExtra("ciutatInsti", llistaInstituts.ciutatInsti);
+
                 startActivity(i);
             }
         });
@@ -79,7 +85,6 @@ public class PaginaPrincipal extends AppCompatActivity {
         initRecyclerView();
     }
     private void initRecyclerView() {
-        llistaInstituts.dadesProva();
 
         Log.d(TAG, "initIdInstis: Done");
         RecyclerView recyclerView = findViewById(R.id.recycler_view);

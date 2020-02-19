@@ -11,6 +11,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 
 public class MainActivity extends Activity {
     EditText usuari;
@@ -19,8 +21,8 @@ public class MainActivity extends Activity {
     TextView text;
     TextView text1;
 
-
     LlistaInstituts llistaInstituts = new LlistaInstituts();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +53,7 @@ public class MainActivity extends Activity {
             //usuaris [i][0] = "usuari" + i;
             //usuaris [i][1] = "pass" + i;
         }
+
         return usuaris;
     }
 
@@ -60,8 +63,21 @@ public class MainActivity extends Activity {
         int comptador = 0;
         for (int i = 0; i < usuaris.length; i++) {
             if (usuari.equals(usuaris[i][0])  && contrassenya.equals(usuaris[i][1])) {
+
+
                 Intent intent = new Intent(MainActivity.this, PaginaPrincipal.class);
+
+                llistaInstituts.dadesProva();
+
+                intent.putExtra("nextId", llistaInstituts.nextId);
+                intent.putExtra("idInsti", llistaInstituts.idInsti);
+                intent.putExtra("nomInsti", llistaInstituts.nomInsti);
+                intent.putExtra("codiInsti", llistaInstituts.codiInsti);
+                intent.putExtra("ciutatInsti", llistaInstituts.ciutatInsti);
+
                 startActivity(intent);
+
+
             }
             else {
                 comptador++;

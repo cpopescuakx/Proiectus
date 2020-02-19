@@ -73,10 +73,15 @@ public class LlistaInstituts extends AppCompatActivity {
         return x;
     }
 
+    public void actualitzarLlistes(ArrayList<String> idIns, ArrayList<String> nomIns, ArrayList<String> codiIns, ArrayList<String> ciutatIns) {
+        idInsti = idIns;
+        nomInsti = nomIns;
+        codiInsti = codiIns;
+        ciutatInsti = ciutatIns;
+    }
+
     public void modificarInstitut(int id, String nom, String codi, String ciutat) {
         Iterator<String> iterId = idInsti.iterator();
-
-
 
         while (iterId.hasNext()) {
 

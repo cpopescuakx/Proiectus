@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class ModificarInstitut extends AppCompatActivity {
     Button botoModificar;
@@ -40,8 +41,15 @@ public class ModificarInstitut extends AppCompatActivity {
             id = Integer.parseInt(getIntent().getExtras().getString("id"));
         }
 
+        Bundle extras = getIntent().getExtras();
+        final ArrayList idInsti = extras.getStringArrayList("idInsti");
+        final ArrayList nomInsti = extras.getStringArrayList("nomInsti");
+        final ArrayList codiInsti = extras.getStringArrayList("codiInsti");
+        final ArrayList ciutatInsti = extras.getStringArrayList("ciutatInsti");
+
+
     if (id >= 0) {
-        final String[] dades = llistaInstituts.getInstitut(id);
+        final String[] dades = getInstitut(id, idInsti, nomInsti, codiInsti, ciutatInsti);
 
         nom.setText(dades[1]);
         codi.setText(dades[2]);
@@ -50,9 +58,18 @@ public class ModificarInstitut extends AppCompatActivity {
 
         botoModificar.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
+                llistaInstituts.actualitzarLlistes(idInsti, nomInsti, codiInsti, ciutatInsti);
                 llistaInstituts.modificarInstitut(Integer.parseInt(dades[0]), nom.getText().toString(), codi.getText().toString(), ciutat.getText().toString());
                 Intent i = new Intent(ModificarInstitut.this, PaginaPrincipal.class);
+
+                i.putExtra("idInsti", idInsti);
+                i.putExtra("nomInsti", nomInsti);
+                i.putExtra("codiInsti", codiInsti);
+                i.putExtra("ciutatInsti", ciutatInsti);
+
                 startActivity(i);
+
+
             }
 
         });
@@ -64,5 +81,24 @@ public class ModificarInstitut extends AppCompatActivity {
             }
         });
     }
+    }
+
+    public String[] getInstitut(int id, ArrayList<String> idIns, ArrayList<String> nomIns, ArrayList<String> codiIns, ArrayList<String> ciutatIns) {
+        String[] x = new String[4];
+
+        Iterator<String> iter = idIns.iterator();
+
+
+        while (iter.hasNext()) {
+            int idModificar = Integer.parseInt(iter.next());
+
+            if (idModificar == id) {
+                x[0] = String.valueOf(idModificar);
+                x[1] = nomIns.get(idModificar);
+                x[2] = codiIns.get(idModificar);
+                x[3] = ciutatIns.get(idModificar);
+            }
+        }
+        return x;
     }
 }
