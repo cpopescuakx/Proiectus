@@ -26,10 +26,6 @@ class UserController extends Controller
 
         return view('managers.indexP', compact('managers'));
     }
-    public function indexProfiles($id){
-        $managers = User::where('id', $id)->get();
-
-        return view('managers.indexP1', compact('managers'));
     
     //Editar les dades del usuari
     public function editProfile($id){
