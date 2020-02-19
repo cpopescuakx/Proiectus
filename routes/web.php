@@ -174,8 +174,8 @@ Route::get('Project/{id}/principal', 'ProjectController@show')
 Route::get('Proposals','ProposalController@indexProposal')-> name('proposals.index');
 Route::get('Proposals/create', 'ProposalController@createProposal')->name('proposals.create');
 Route::post('Proposals/create/success', 'ProposalController@storeProposal')->name('proposals.store');
-Route::get('Proposals/{id}/edit', 'ProposalController@editProposal')->name('proposals.edit');
-Route::post('Proposals/{id}/edit/success', 'ProposalController@updateProposal')->name('proposals.update');
+Route::get('Proposals/{page}/{id}/edit', 'ProposalController@editProposal')->name('proposals.edit');
+Route::post('Proposals/{page}/{id}/edit/success', 'ProposalController@updateProposal')->name('proposals.update');
 Route::get('Proposals/{id}', 'ProposalController@destroyProposal')->name('proposals.destroy');
 Route::get('Proposals/{id}/active', 'ProposalController@activeProposal')->name('proposals.active');
 Route::get('Proposals/{id}/inactive', 'ProposalController@inactiveProposal')->name('proposals.inactive');
