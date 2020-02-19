@@ -162,9 +162,9 @@ Route::get('Project/{id}/principal', 'ProjectController@show')
     //Route::post('/dm/fileupload/','DMController@fileupload')->name('dm.fileupload');
 
     /* DOCUMENT MANAGER NEW */
-    Route::get('/dm','DMController@fileCreate');
-    Route::get('dm/store','DMController@fileStore');
-    Route::post('dm/delete','DMController@fileDestroy');
+    // Route::get('/dm','DMController@fileCreate');
+    // Route::post('/dm/store','DMController@fileStore');
+    // Route::post('/dm/delete','DMController@fileDestroy');
 
 
 
