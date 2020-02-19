@@ -34,8 +34,14 @@ class Proposal extends Model
 
         static::addGlobalScope(new ProposalScope);
     }
-
-    // Función scope para filtrar propuestas activas/inactivas
+    /** Scope tipo
+     *
+     *  Scope per a filtrar les propostes actives/inactives
+     *
+     *  @param Query $query
+     *  @param String $tipo Conté les dades introduides en el buscador.
+     *  @return void
+     **/
     public function scopeTipo($query, $tipo) {
     	if ($tipo) {
             return $query->where('status','=',"$tipo");
@@ -44,11 +50,11 @@ class Proposal extends Model
 
     /** Scope proposal
      *
-     *  Scope per a filtrar les propostes que coincideixen amb el
+     *  Scope per a filtrar les propostes que coincideixen amb el 
      *  que s'ha escrit al buscador.
      *
      *  @param Query $query
-     *  @param String $name
+     *  @param String $name Conté les dades introduides en el buscador.
      *  @return void
      **/
 
@@ -65,8 +71,8 @@ class Proposal extends Model
      *  que s'ha escrit al buscador de l'usuari que ho ha escrit.
      *
      *  @param Query $query
-     *  @param String $name
-     *  @param Integer $id_user
+     *  @param String $name Conté el nom de la proposta a cercar
+     *  @param Integer $id_user Conté la id de l'autor de les propostes
      *  @return void
      **/
 
