@@ -33,8 +33,9 @@ $this->middleware('auth');
         $tipo = $request->get('tipo');
 
         $proposals = Proposal::tipo($tipo)->paginate(5);
+        $page = $proposals->currentPage();
 
-        return view('proposals.index', compact('proposals'));
+        return view('proposals.index', compact('proposals','page'));
     }
 
     public function createProposal()
@@ -98,9 +99,9 @@ $this->middleware('auth');
      *  @param int $id
      *  @return \Illuminate\Http\Response
      */
-    public function editProposal($id, $url){
+    public function editProposal($page, $id){
       $proposal = Proposal::find($id);
-      return view('proposals.edit', compact('proposal','url'));
+      return view('proposals.edit', compact('proposal','page'));
     }
 
     /**
@@ -123,10 +124,10 @@ $this->middleware('auth');
      * @return \Illuminate\Http\Response
      */
 
-    public function updateProposal(Request $request, $id, $url)
+    public function updateProposal(Request $request)
     {
               // Cercar la proposta amb la mateixa ID de la BBDD
-              $proposal = Proposal::find($id);
+              $proposal = Proposal::find($request->input('id'));
 
               // Assignar els valors del formulari
               $proposal -> name = $request->input('name');
@@ -137,8 +138,11 @@ $this->middleware('auth');
               // Guardar la proposta a la BBDD amb les noves dades
               $proposal -> save();
 
-                // Tornar a la llista de propostes
-              return redirect($url);
+              $tipo = $request->get('tipo');
+              $page = $request->input('page');
+              $proposals = Proposal::tipo($tipo)->paginate(5);
+
+              return view('proposals.index', compact('proposals', 'page'));              // Tornar a la llista de propostes
      }
 
     /** BAIXA PROPOSTA

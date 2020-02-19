@@ -23,6 +23,12 @@
             <h6>Email: {{$manager->email}}</h6>
             <h6>Localitat: {{$city::agafarNom($manager->id_city)}}</h6>
             <h6>DNI: {{$manager->dni}}</h6>
+            @if($manager->status == "active")
+            <h6>Estat: Alta</h6>
+            @else
+            <h6>Estat: En procés de baixa</h6>
+            @endif
+
         </div>
         @endforeach
         
@@ -32,7 +38,7 @@
                     <span class="icon-cog icon-white"></span></a>
                 <ul class="dropdown-menu">                        
                     <li><a href="{{ route('managers.editP', [$manager->id]) }}"><i class="tiny material-icons">edit</i>Edita el perfil</a></li>
-                    <li><a href="{{ route('managers.destroy', [$manager->id]) }}"><i class="tiny material-icons">delete</i>Dona't de baixa</a></li>
+                    <li><a href="{{ route('managers.destroyP', [$manager->id]) }}"><i class="tiny material-icons">delete</i>Dona't de baixa</a></li>
                 </ul>
             </div>
         </div>
