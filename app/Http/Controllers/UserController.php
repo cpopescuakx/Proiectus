@@ -64,8 +64,20 @@ class UserController extends Controller
 
         $managers = User::where('id', $id)->get();
 
-        return redirect()->route('managers.indexP',compact('managers'));
+        return redirect()->route('managers.indexP1',compact('managers', 'id'));
     }
+
+    public function destroyProfile ($id) {
+
+        $managers = User::find($id);
+        $managers -> status = 'inactive';
+        $managers -> save();
+
+        $managers = User::where('id', $id)->get();
+
+        return redirect()->route('managers.indexP1',compact('managers'));
+    }
+
     /** LLISTAR GESTORS
      *
      *  Extreu els usuaris que tenen ID de rol 5 (gestor), després retorna la vista per a llistar-los.
@@ -77,7 +89,7 @@ class UserController extends Controller
      * */
     public function indexManager(){
         //Mostrem tots els usuaris amb id de rol 5 (gestors)
-        $managers = User::where([['id_role', 5],['status','active'],])->get();
+        $managers = User::where([['id_role', 5],['status','active']])->get();
 
         return view('managers.index', compact('managers'));
     }
@@ -111,7 +123,7 @@ class UserController extends Controller
     public function storeManager(Request $request){
 
          // Instanciar
-         $manager = new User;
+        $manager = new User;
 
         // Assignació de valors a les propietats
         $manager -> firstname = $request->input('firstname');
