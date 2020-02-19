@@ -1,6 +1,3 @@
-
-
-
 @extends('layouts.default')
 @inject('city', 'App\Http\Controllers\CityController') {{-- Importa el controlador de ciutat --}}
 
