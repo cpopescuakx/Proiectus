@@ -30,23 +30,26 @@
     @endif
 
     <tbody>
+
         @foreach($managers as $manager)
+
             <tr>
-                <td>{{$manager->firstname}}</td>
-                <td>{{$manager->lastname}}</td>
-                <td>{{$manager->username}}</td>
-                <td>{{$manager->email}}</td>
-                <td>{{$manager->dni}}</td>
-                <td>{{$city::agafarNom($manager->id_city)}}
-                <td>{{$manager->status}}</td>
+                <td>{{ $manager->firstname }}</td>
+                <td>{{ $manager->lastname }}</td>
+                <td>{{ $manager->username }}</td>
+                <td>{{ $manager->email }}</td>
+                <td>{{ $manager->dni }}</td>
+                <td>{{ $city::agafarNom($manager->id_city) }}
+                <td>{{ $manager->status }}</td>
                 <td>
+
                     <a href="{{ route('managers.edit', [$manager->id]) }}"><img src={{ asset('img/edit.svg') }} width="20" height="20" class="mr-2"></a>
                     @if($manager->status == "active")
                         <a href="{{ route('managers.destroy', [$manager->id]) }}"><img src={{ asset('img/delete.svg') }} width="20" height="20"></a>
                     @endif
                 </td>
             </tr>
-        @endforeach
+            @endforeach
     </tbody>
 </table>
 @endsection
