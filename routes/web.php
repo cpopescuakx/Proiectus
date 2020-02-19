@@ -139,9 +139,11 @@ Route::get('Project/{id}/principal', 'ProjectController@show')
     Route::post('/companies/{id}/update', 'CompanyController@updateCompany')->name('companies.update');
 
     /* Gestors */
-    Route::get('managerProfile/{id}', 'UserController@indexProfile')->name('managers.indexP');
+    Route::get('managerProfile/{id}', 'UserController@indexProfile')->name('managers.indexP1');
     Route::get('managerProfile/{id}/edit', 'UserController@editProfile')->name('managers.editP');
-    Route::post('managersProfile/{id}/update', 'UserController@updateProfile')->name('managers.update');
+    Route::post('managerProfile/{id}/update', 'UserController@updateProfile')->name('managers.updateP');
+    Route::post('managerProfile/{id}/delete', 'UserController@destroyProfile')->name('managers.destroyP');
+    
     Route::get('managers', 'UserController@indexManager')->name('managers.index');
     Route::get('managers/create', 'UserController@createManager')->name('managers.create');
     Route::get('managers/{id}/edit', 'UserController@editManager')->name('managers.edit');
@@ -162,9 +164,9 @@ Route::get('Project/{id}/principal', 'ProjectController@show')
     //Route::post('/dm/fileupload/','DMController@fileupload')->name('dm.fileupload');
 
     /* DOCUMENT MANAGER NEW */
-    Route::get('/dm','DMController@fileCreate');
-    Route::get('dm/store','DMController@fileStore');
-    Route::post('dm/delete','DMController@fileDestroy');
+    // Route::get('/dm','DMController@fileCreate');
+    // Route::post('/dm/store','DMController@fileStore');
+    // Route::post('/dm/delete','DMController@fileDestroy');
 
 
 

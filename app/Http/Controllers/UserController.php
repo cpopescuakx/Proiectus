@@ -19,12 +19,14 @@ class UserController extends Controller
     {
         //
     }
+
     //Mostrar dades al perfil del usuari
     public function indexProfile($id){
         $managers = User::where('id', $id)->get();
 
-        return view('managers.indexP', compact('managers'));
+        return view('managers.indexP1', compact('managers'));
     }
+    
     //Editar les dades del usuari
     public function editProfile($id){
         $managers = User::find($id);
@@ -33,6 +35,7 @@ class UserController extends Controller
 
         return view('managers.editP', compact('managers', 'cities', 'nomCiutat'));
     }
+    
     //Modificar les dades del usuari de la base de dades
     public function updateProfile(Request $request){
         $id = $request->route('id'); // Agafar l'ID de la URL
@@ -61,8 +64,20 @@ class UserController extends Controller
 
         $managers = User::where('id', $id)->get();
 
-        return redirect()->route('managers.indexP',compact('managers'));
+        return redirect()->route('managers.indexP1',compact('managers', 'id'));
     }
+
+    public function destroyProfile ($id) {
+
+        $managers = User::find($id);
+        $managers -> status = 'inactive';
+        $managers -> save();
+
+        $managers = User::where('id', $id)->get();
+
+        return redirect()->route('managers.indexP1',compact('managers'));
+    }
+
     /** LLISTAR GESTORS
      *
      *  Extreu els usuaris que tenen ID de rol 5 (gestor), després retorna la vista per a llistar-los.
@@ -74,7 +89,7 @@ class UserController extends Controller
      * */
     public function indexManager(){
         //Mostrem tots els usuaris amb id de rol 5 (gestors)
-        $managers = User::where([['id_role', 5],['status','active'],])->get();
+        $managers = User::where('id_role', 5)->get();
 
         return view('managers.index', compact('managers'));
     }
@@ -108,7 +123,7 @@ class UserController extends Controller
     public function storeManager(Request $request){
 
          // Instanciar
-         $manager = new User;
+        $manager = new User;
 
         // Assignació de valors a les propietats
         $manager -> firstname = $request->input('firstname');
@@ -430,7 +445,6 @@ class UserController extends Controller
      *  @param Request $request
      *  @return void
      */
-
     public function updateProfessor (Request $request) {
 
         $id = $request->route('id'); // Agafar l'ID de la URL
@@ -473,7 +487,6 @@ class UserController extends Controller
      *  @param int $id
      *  @return void
      */
-
     public function destroyProfessor ($id) {
         $professor = User::find($id);
         $professor -> status = 'inactive';
@@ -485,14 +498,14 @@ class UserController extends Controller
         ->with('i', (request()->input('page', 1) -1));
     }
 
-    /** LLISTAR EMPLEATS ACTIUS
+    /** LLISTAR EMPLEATS
      *
-     *  Extreu els usuaris que tenen ID de rol 2 (Empleat) els quals tinguin com a estat (active), després retorna la vista per a llistar-los.
+     *  Extreu els usuaris que tenen ID de rol 2 (Empleat), mostrar-ne els actius/innactius, indicats amb el deplegable,
+     *  després els retorna la vista per a llistar-los.
      *
-     *  @param Request $request Obtenim el tipo d'estat dels empleats a mostrar
+     *  @param Request $request Obtenim el tipo d'estat dels empleats a mostrar.
      *  @return void
      * */
-
     public function indexEmployee(Request $request)
     {
         $tipo = $request->get('tipo');
@@ -535,7 +548,7 @@ class UserController extends Controller
         return redirect()->back();
     }
 
-    /** EDITAR Empleat
+    /** EDITAR EMPLEAT
      *
      *  Retorna el formulari de modificació d'empleats. Passant l'empleat a partir de l'ID.
      *
@@ -555,7 +568,7 @@ class UserController extends Controller
      *  Guarda les noves dades de l'empleat a la base de dades. Llavors, redirecciona
      *  al llistat d'empleats.
      *
-     *  @param Request $request Conté la ID de l'usuari.
+     *  @param Request $request Conté totes les dades de l'empleat.
      *  @return void
      */
 
