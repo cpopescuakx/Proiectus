@@ -1,11 +1,7 @@
 @extends('layouts.default')
 
 @section('content')
-<div class="col">
-   <div class="row d-flex justify-content-end p-4">
-      <a href="{{ route('schools.create') }}"><img src={{ asset('img/add.svg') }} width="45" height="45"></a>
-   </div>
-</div>
+<br>
 <table class="table table-hover mr-5">
    <thead>
       <tr>
@@ -15,7 +11,7 @@
          <th>CODI</th>
          <th>TIPUS</th>
          <th>GESTOR</th>
-         <td colspan="2">Accions</td>
+         <th>ACCIONS</th>
       </tr>
    </thead>
 
@@ -36,7 +32,7 @@
          <td>{{ $school->user->username }}</td>
          <td>
             <a href="{{ route('pendingSchools.approve',$school->id_school)}}"><img src={{ asset('img/checkIcon.svg') }} width="20" height="20" class="mr-2"></a>
-            <a href="{{ route('pendingSchools.deny',$school->id_school) }}"><img src={{ asset('img/delete.svg') }} width="20" height="20"></a>
+            <a href="{{ route('pendingSchools.deny',$school->id_school) }}"><img src={{ asset('img/cancel.svg') }} width="20" height="20"></a>
          </td>
       </tr>
       @endforeach

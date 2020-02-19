@@ -17,7 +17,7 @@ use App\Project;
 
 Route::get('/', function () {
     return view('welcome');
-})-> name('index.index');
+})->name('index.index');
 
 Auth::routes(['verify' => true]);
 
@@ -26,23 +26,25 @@ Route::post('entityRegistration/{type}', 'EntityRegistration@store')->name('enti
 Route::middleware(['isAdmin'])->group(function () {
     Route::get('/pendingSchools', 'pendingSchoolsController@index')->name('pendingSchools.index');
     Route::get('pendingSchools/{id}/approve', 'pendingSchoolsController@approve')
-    ->name('pendingSchools.approve');
+        ->name('pendingSchools.approve');
 
     Route::get('pendingSchools/{id}/deny', 'pendingSchoolsController@deny')
-    ->name('pendingSchools.deny');
+        ->name('pendingSchools.deny');
 });
 
 Route::middleware(['registeredEntity'])->group(function () {
-    Route::get('/home', function () {
-        return view('home');
-    })-> name('home.index');
+    
+    Route::middleware(['verified'])->group(function () {
+        Route::get('/home', function () {
+            return view('home');
+        })->name('home.index');
 
-    Route::get('entityRegistration', 'EntityRegistration@index')->name('entityRegistration.index');
+        Route::get('entityRegistration', 'EntityRegistration@index')->name('entityRegistration.index');
 
-    Route::get('/pendingVerification', function () {
-        return view('pendingVerification.index');
-    })-> name('pendingVerification.index');
-
+        Route::get('/pendingVerification', function () {
+            return view('pendingVerification.index');
+        })->name('pendingVerification.index');
+    });
     //GRUP2
     /** Rutes per a l'apartat de gestió de projectes */
 
@@ -65,13 +67,13 @@ Route::middleware(['registeredEntity'])->group(function () {
     Route::get('Project/{id}', 'ProjectController@destroy')
         ->name('projects.destroy');
 
-Route::get('Dashboard/projects', 'ProjectController@dashboardProject')
-->name('projects.dashboard');
+    Route::get('Dashboard/projects', 'ProjectController@dashboardProject')
+        ->name('projects.dashboard');
 
-Route::get('Project/{id}/principal', 'ProjectController@show')
-->name('projects.show');
+    Route::get('Project/{id}/principal', 'ProjectController@show')
+        ->name('projects.show');
 
-/** Rutes per a l'apartat de gestió d'alumnes */
+    /** Rutes per a l'apartat de gestió d'alumnes */
 
     Route::get('Students', 'UserController@indexStudent')
         ->name('students.index');
@@ -169,26 +171,26 @@ Route::get('Project/{id}/principal', 'ProjectController@show')
 
 
 
-//GRUP3
-/* Propostes */
-Route::get('Proposals','ProposalController@indexProposal')-> name('proposals.index');
-Route::get('Proposals/create', 'ProposalController@createProposal')->name('proposals.create');
-Route::post('Proposals/create/success', 'ProposalController@storeProposal')->name('proposals.store');
-Route::get('Proposals/{id}/edit', 'ProposalController@editProposal')->name('proposals.edit');
-Route::post('Proposals/{id}/edit/success', 'ProposalController@updateProposal')->name('proposals.update');
-Route::get('Proposals/{id}', 'ProposalController@destroyProposal')->name('proposals.destroy');
-Route::get('Proposals/{id}/active', 'ProposalController@activeProposal')->name('proposals.active');
-Route::get('Proposals/{id}/inactive', 'ProposalController@inactiveProposal')->name('proposals.inactive');
-Route::get('Dashboard/proposals', 'ProposalController@dashboardProposal')->name('proposals.dashboard');
-Route::get('Proposal/{id}/principal', 'ProposalController@show')->name('proposals.show');
+    //GRUP3
+    /* Propostes */
+    Route::get('Proposals', 'ProposalController@indexProposal')->name('proposals.index');
+    Route::get('Proposals/create', 'ProposalController@createProposal')->name('proposals.create');
+    Route::post('Proposals/create/success', 'ProposalController@storeProposal')->name('proposals.store');
+    Route::get('Proposals/{id}/edit', 'ProposalController@editProposal')->name('proposals.edit');
+    Route::post('Proposals/{id}/edit/success', 'ProposalController@updateProposal')->name('proposals.update');
+    Route::get('Proposals/{id}', 'ProposalController@destroyProposal')->name('proposals.destroy');
+    Route::get('Proposals/{id}/active', 'ProposalController@activeProposal')->name('proposals.active');
+    Route::get('Proposals/{id}/inactive', 'ProposalController@inactiveProposal')->name('proposals.inactive');
+    Route::get('Dashboard/proposals', 'ProposalController@dashboardProposal')->name('proposals.dashboard');
+    Route::get('Proposal/{id}/principal', 'ProposalController@show')->name('proposals.show');
 
 
-/* Empleats */
-Route::get('/Employees', 'UserController@indexEmployee')->name('employee.index');
-Route::get('/Employees/create', 'UserController@createEmployee')->name('employee.create');
-Route::get('/Employees/{id}/edit', 'UserController@editEmployee')->name('employee.edit');
-Route::get('/Employees/{id}/delete', 'UserController@destroyEmployee')->name('employee.destroy');
-Route::post('/Employees/store', 'UserController@storeEmployees')->name('employee.store');
-Route::post('/Employees/{id}/update', 'UserController@updateEmployee')->name('employee.update');
-Route::get('/Employees/{id}/active', 'UserController@activeUser')->name('employee.active');
+    /* Empleats */
+    Route::get('/Employees', 'UserController@indexEmployee')->name('employee.index');
+    Route::get('/Employees/create', 'UserController@createEmployee')->name('employee.create');
+    Route::get('/Employees/{id}/edit', 'UserController@editEmployee')->name('employee.edit');
+    Route::get('/Employees/{id}/delete', 'UserController@destroyEmployee')->name('employee.destroy');
+    Route::post('/Employees/store', 'UserController@storeEmployees')->name('employee.store');
+    Route::post('/Employees/{id}/update', 'UserController@updateEmployee')->name('employee.update');
+    Route::get('/Employees/{id}/active', 'UserController@activeUser')->name('employee.active');
 });

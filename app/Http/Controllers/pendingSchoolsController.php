@@ -59,7 +59,12 @@ class pendingSchoolsController extends Controller
     public function deny(Request $request)
     {
         $school_ = School_for_validation::findOrFail($request->id);
-        $school_->destroy();
+        User::findOrFail($school_->id_user)->update(array(
+            'pending_entity_registration' => 1,
+            'pending_entity_verification' => 0
+        ));
+        
+        School_for_validation::destroy($request->id);
         return redirect()->route('pendingSchools.index');
     }
 
