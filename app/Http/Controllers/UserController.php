@@ -19,12 +19,14 @@ class UserController extends Controller
     {
         //
     }
+
     //Mostrar dades al perfil del usuari
     public function indexProfile($id){
         $managers = User::where('id', $id)->get();
 
         return view('managers.indexP', compact('managers'));
     }
+    
     //Editar les dades del usuari
     public function editProfile($id){
         $managers = User::find($id);
@@ -33,6 +35,7 @@ class UserController extends Controller
 
         return view('managers.editP', compact('managers', 'cities', 'nomCiutat'));
     }
+    
     //Modificar les dades del usuari de la base de dades
     public function updateProfile(Request $request){
         $id = $request->route('id'); // Agafar l'ID de la URL

@@ -141,7 +141,7 @@ Route::get('Project/{id}/principal', 'ProjectController@show')
     /* Gestors */
     Route::get('managerProfile/{id}', 'UserController@indexProfile')->name('managers.indexP');
     Route::get('managerProfile/{id}/edit', 'UserController@editProfile')->name('managers.editP');
-    Route::post('managersProfile/{id}/update', 'UserController@updateProfile')->name('managers.update');
+    Route::post('managersProfile/{id}/update', 'UserController@updateProfile')->name('managers.updateP');
     Route::get('managers', 'UserController@indexManager')->name('managers.index');
     Route::get('managers/create', 'UserController@createManager')->name('managers.create');
     Route::get('managers/{id}/edit', 'UserController@editManager')->name('managers.edit');
