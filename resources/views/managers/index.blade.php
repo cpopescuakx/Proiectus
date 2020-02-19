@@ -34,7 +34,7 @@
             <tr>
                 <td>{{$manager->firstname}}</td>
                 <td>{{$manager->lastname}}</td>
-                <td>{{$manager->name}}</td>
+                <td>{{$manager->username}}</td>
                 <td>{{$manager->email}}</td>
                 <td>{{$manager->dni}}</td>
                 <td>{{$city::agafarNom($manager->id_city)}}
