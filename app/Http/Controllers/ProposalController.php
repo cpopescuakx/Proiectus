@@ -191,8 +191,8 @@ $this->middleware('auth');
 
     /** DASHBOARD PROPOSTES
      *
-     *  Indiquem la id de la proposta la qual volem donar d'alta i redireccionem a la vista anterior.
-     *
+     *  
+     * 
      *  @param $id Conté la ID de la proposta
      *  @return \Illuminate\Http\Response
      * */
