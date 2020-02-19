@@ -445,7 +445,6 @@ class UserController extends Controller
      *  @param Request $request
      *  @return void
      */
-
     public function updateProfessor (Request $request) {
 
         $id = $request->route('id'); // Agafar l'ID de la URL
@@ -488,7 +487,6 @@ class UserController extends Controller
      *  @param int $id
      *  @return void
      */
-
     public function destroyProfessor ($id) {
         $professor = User::find($id);
         $professor -> status = 'inactive';
@@ -500,14 +498,14 @@ class UserController extends Controller
         ->with('i', (request()->input('page', 1) -1));
     }
 
-    /** LLISTAR EMPLEATS ACTIUS
+    /** LLISTAR EMPLEATS
      *
-     *  Extreu els usuaris que tenen ID de rol 2 (Empleat) els quals tinguin com a estat (active), després retorna la vista per a llistar-los.
+     *  Extreu els usuaris que tenen ID de rol 2 (Empleat), mostrar-ne els actius/innactius, indicats amb el deplegable,
+     *  després els retorna la vista per a llistar-los.
      *
-     *  @param Request $request Obtenim el tipo d'estat dels empleats a mostrar
+     *  @param Request $request Obtenim el tipo d'estat dels empleats a mostrar.
      *  @return void
      * */
-
     public function indexEmployee(Request $request)
     {
         $tipo = $request->get('tipo');
@@ -550,7 +548,7 @@ class UserController extends Controller
         return redirect()->back();
     }
 
-    /** EDITAR Empleat
+    /** EDITAR EMPLEAT
      *
      *  Retorna el formulari de modificació d'empleats. Passant l'empleat a partir de l'ID.
      *
@@ -570,7 +568,7 @@ class UserController extends Controller
      *  Guarda les noves dades de l'empleat a la base de dades. Llavors, redirecciona
      *  al llistat d'empleats.
      *
-     *  @param Request $request Conté la ID de l'usuari.
+     *  @param Request $request Conté totes les dades de l'empleat.
      *  @return void
      */
 

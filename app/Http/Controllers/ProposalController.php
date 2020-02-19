@@ -21,11 +21,13 @@ $this->middleware('auth');
         //
     }
 
-    /**
-     * Display a listing of the resource.
+    /** LLISTAR PROPOSTES
      *
-     * @return \Illuminate\Http\Response
-     */
+     *  Extreu les propostes 
+     *
+     *  @param Request $request Obtenim el tipo d'estat dels empleats a mostrar.
+     *  @return void
+     * */
     public function indexProposal(Request $request)
     {
         $tipo = $request->get('tipo');
@@ -34,17 +36,6 @@ $this->middleware('auth');
 
         return view('proposals.index', compact('proposals'));
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
 
     public function createProposal()
     {
@@ -198,10 +189,27 @@ $this->middleware('auth');
         return redirect()->back();
     }
 
+    /** DASHBOARD PROPOSTES
+     *
+     *  
+     * 
+     *  @param $id Conté la ID de la proposta
+     *  @return \Illuminate\Http\Response
+     * */
     public function dashboardProposal(Request $request)
     {
 
         $proposals = Proposal::nameAuthor($request->get('name'), $request->user()->id)->paginate(12);
         return view('proposals.dashboard', compact('proposals'));
+    }
+
+     /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        //
     }
 }
