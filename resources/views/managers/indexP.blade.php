@@ -16,7 +16,6 @@
             <td><strong>Cognom</strong></td>
             <td><strong>Usuari</strong></td>
             <td><strong>Email</strong></td>
-            <td><strong>Usuari</strong></td>
             <td><strong>DNI</strong></td>
             <td><strong>Ciutat</strong></td>
             <td><strong>Estat</strong></td>
@@ -37,7 +36,6 @@
                 <td>{{$manager->lastname}}</td>
                 <td>{{$manager->username}}</td>
                 <td>{{$manager->email}}</td>
-                <td>{{$manager->username}}</td>
                 <td>{{$manager->dni}}</td>
                 <td>{{$city::agafarNom($manager->id_city)}}
                 <td>{{$manager->status}}</td>
