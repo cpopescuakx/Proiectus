@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import com.example.myapplication.Classes.User;
+
 public class LoggedIn extends AppCompatActivity {
 
     @Override
@@ -12,10 +14,9 @@ public class LoggedIn extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_logged_in);
 
-        String username = getIntent().getStringExtra("username");
-        int userid = getIntent().getIntExtra("userid", -1);
+        User user = (User) getIntent().getSerializableExtra("user");
 
         TextView welcome = findViewById(R.id.welcome);
-        welcome.setText("Logged in as: " + username + " with id: " + userid);
+        welcome.setText("Logged in as: " + user.getUsername() + " with id: " + user.getUserId());
     }
 }

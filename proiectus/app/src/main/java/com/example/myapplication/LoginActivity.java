@@ -2,8 +2,8 @@ package com.example.myapplication;
 
 import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,12 +15,10 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.Volley;
+import com.example.myapplication.Classes.User;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.io.Serializable;
-import java.lang.reflect.Array;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -38,6 +36,8 @@ public class LoginActivity extends AppCompatActivity {
         usrname = findViewById(R.id.usrname);
         pwd = findViewById(R.id.pwd);
 
+        usrname.setText("prova");
+        pwd.setText("alumne");
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -48,14 +48,12 @@ public class LoginActivity extends AppCompatActivity {
                 Response.Listener<JSONObject> responseListener = new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
-                         System.out.println(response);
+                        System.out.println(response);
                         try {
-                            int uid = response.getInt("id_user");
-                            String uname = response.getString("username");
+                            User user = new User(response.getInt("id_user"), response.getString("username"));
 
-                            Intent intent = new Intent(LoginActivity.this, LoggedIn.class);
-                            intent.putExtra("userid", uid);
-                            intent.putExtra("username", uname);
+                            Intent intent = new Intent(LoginActivity.this, ListTickets.class);
+                            intent.putExtra("user", user);
                             LoginActivity.this.startActivity(intent);
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -78,7 +76,7 @@ public class LoginActivity extends AppCompatActivity {
                             }
                         }
 
-                        Toast.makeText(getApplicationContext(), errorMSG, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), errorMSG, Toast.LENGTH_LONG).show();
                     }
                 };
 
