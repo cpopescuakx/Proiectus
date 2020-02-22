@@ -5,4 +5,5 @@
     <string name="mostrar">MOSTRAR</string>
     <string name="descripcio">DESCRIPCIO</string>
     <string name="modificar">MODIFICAR</string>
+    <string name="borrar">BORRAR</string>
 </resources>

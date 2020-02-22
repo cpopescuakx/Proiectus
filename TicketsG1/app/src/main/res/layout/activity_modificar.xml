@@ -4,9 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
     tools:context=".Modificar">
-
-
 
 
     <TextView
@@ -17,6 +16,7 @@
         android:layout_marginTop="124dp"
         android:layout_marginEnd="43dp"
         android:text="@string/assumpte"
+        android:textColor="@color/colorPrimary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -31,6 +31,13 @@
         android:ems="10"
         android:importantForAutofill="no"
         android:inputType="textPersonName"
+        android:shadowColor="@color/colorPrimary"
+        android:textColor="@color/colorPrimary"
+        android:textColorHighlight="@color/colorPrimary"
+        android:textColorHint="@color/colorPrimary"
+        android:textColorLink="@color/colorPrimary"
+        android:textCursorDrawable="@color/colorPrimary"
+        android:backgroundTint="@color/colorPrimary"
         app:layout_constraintBottom_toTopOf="@+id/bt_guardar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -45,6 +52,7 @@
         android:layout_marginTop="40dp"
         android:layout_marginEnd="43dp"
         android:text="@string/descripcio"
+        android:textColor="@color/colorPrimary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -57,6 +65,13 @@
         android:ems="10"
         android:importantForAutofill="no"
         android:inputType="textPersonName"
+        android:shadowColor="@color/colorPrimary"
+        android:textColor="@color/colorPrimary"
+        android:textColorHighlight="@color/colorPrimary"
+        android:textColorHint="@color/colorPrimary"
+        android:textColorLink="@color/colorPrimary"
+        android:textCursorDrawable="@color/colorPrimary"
+        android:backgroundTint="@color/colorPrimary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
@@ -69,10 +84,26 @@
         android:layout_marginEnd="43dp"
         android:layout_marginBottom="128dp"
         android:text="@string/modificar"
+        android:textColor="@color/colorPrimary"
+        android:background="@drawable/button_rounded_border"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.509"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/bt_borrar"
+        android:layout_width="339dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="43dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="43dp"
+        android:background="@drawable/button_rounded_border"
+        android:text="@string/borrar"
+        android:textColor="@color/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bt_modificar" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

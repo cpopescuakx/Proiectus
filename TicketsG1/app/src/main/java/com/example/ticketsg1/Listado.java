@@ -3,6 +3,7 @@ package com.example.ticketsg1;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -22,6 +23,11 @@ public class Listado extends AppCompatActivity {
     ListView listView;
     ArrayList<String> listado;
 
+    @Override
+    protected void onPostResume() {
+        super.onPostResume();
+        CargarListado();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,15 +38,22 @@ public class Listado extends AppCompatActivity {
 
 
 
-        listado = ListaTickets();
-        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, listado);
-        listView.setAdapter(adapter);
+
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Toast.makeText(Listado.this,listado.get(position),Toast.LENGTH_SHORT ).show();
                 int clave=Integer.parseInt(listado.get(position).split(" ")[0]);
+                String assumpte = listado.get(position).split(" ")[1];
+                String descripcio = listado.get(position).split(" ")[2];
+
+                Intent intent = new Intent(Listado.this, Modificar.class);
+                intent.putExtra("Id", clave);
+                intent.putExtra("Assumpte", assumpte);
+                intent.putExtra("Descripcio", descripcio);
+                startActivity(intent);
+
             }
         });
 
@@ -62,6 +75,14 @@ public class Listado extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+
+
+    private void CargarListado(){
+        listado = ListaTickets();
+        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, listado);
+        listView.setAdapter(adapter);
     }
 
 
