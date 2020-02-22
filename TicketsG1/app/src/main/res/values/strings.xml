@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">TicketsG1</string>
+    <string name="assumpte">ASSUMPTE</string>
+    <string name="guardar">GUARDAR</string>
+    <string name="mostrar">MOSTRAR</string>
+    <string name="descripcio">DESCRIPCIO</string>
+    <string name="modificar">MODIFICAR</string>
 </resources>
