@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Blog;
+use App\Post;
+use App\User;
 
 class BlogController extends Controller
 {
@@ -11,9 +14,26 @@ class BlogController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id_project)
     {
-        //
+
+        // SELECT pt.id_post, pt.title, pt.content, pt.creation_date, pt.last_modified, pt.id_user, us.username
+        // FROM POST pt
+        // INNER JOIN USER us
+        // ON us.id_user = pt.id_user
+        // AND pt.status = 'active' AND pt.id_project = '$id_projecte'
+        // ORDER BY pt.creation_date DESC
+
+
+        // dd($id_project);
+        $posts = Post::all()
+        ->sortByDesc('created_at')
+        ->where('id_project', '=', $id_project)
+        ->where('status', '=', 'active');
+        
+        $blog = Blog::find($id_project);
+
+            return view('Blog.index', compact('posts', 'id_project', 'blog'));
     }
 
     /**
@@ -54,9 +74,10 @@ class BlogController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id_project)
     {
-        //
+      $blogs = Blog::find($id_project);
+      return view('Blog.edit', compact('blogs', 'id_project'));
     }
 
     /**
@@ -66,9 +87,20 @@ class BlogController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id_project)
     {
-        //
+        $this-> validate($request, [
+            'title'    =>  'required'
+        ]);
+        $blogs = Blog::find($id_project);
+        $blogs->title = $request->get('title');
+        $blogs->id_project = $id_project;
+
+        $blogs->save();
+
+        return redirect()->action('BlogController@index', ['id_project' => $id_project]);
+
+        //return redirect()->route('Blog.index')->with('success', 'Data Updated');
     }
 
     /**
