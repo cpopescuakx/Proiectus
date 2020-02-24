@@ -43,7 +43,8 @@ public class Listado extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(Listado.this,listado.get(position),Toast.LENGTH_SHORT ).show();
+                //↓↓TEXT PER QUAN POLSEM SOBRE 1 INCIDENCIA↓↓
+                //Toast.makeText(Listado.this,listado.get(position),Toast.LENGTH_SHORT ).show();
                 int clave=Integer.parseInt(listado.get(position).split(" ")[0]);
                 String assumpte = listado.get(position).split(" ")[1];
                 String descripcio = listado.get(position).split(" ")[2];
