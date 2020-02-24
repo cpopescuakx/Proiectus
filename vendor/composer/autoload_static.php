@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitc86f97ac6910aa9b922122296f7b073e
+class ComposerStaticInit17d909f51a07e81e8015ed36a56d1398
 {
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
@@ -447,6 +447,7 @@ class ComposerStaticInitc86f97ac6910aa9b922122296f7b073e
         'App\\Http\\Controllers\\Company_for_validationsController' => __DIR__ . '/../..' . '/app/Http/Controllers/Company_for_validationsController.php',
         'App\\Http\\Controllers\\Company_userController' => __DIR__ . '/../..' . '/app/Http/Controllers/Company_userController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
+        'App\\Http\\Controllers\\DMController' => __DIR__ . '/../..' . '/app/Http/Controllers/DMController.php',
         'App\\Http\\Controllers\\DM_container_folderController' => __DIR__ . '/../..' . '/app/Http/Controllers/DM_container_folderController.php',
         'App\\Http\\Controllers\\Dm_fileController' => __DIR__ . '/../..' . '/app/Http/Controllers/Dm_fileController.php',
         'App\\Http\\Controllers\\Dm_folderController' => __DIR__ . '/../..' . '/app/Http/Controllers/Dm_folderController.php',
@@ -475,6 +476,8 @@ class ComposerStaticInitc86f97ac6910aa9b922122296f7b073e
         'App\\Http\\Controllers\\User_proposalController' => __DIR__ . '/../..' . '/app/Http/Controllers/User_proposalController.php',
         'App\\Http\\Controllers\\VoteController' => __DIR__ . '/../..' . '/app/Http/Controllers/VoteController.php',
         'App\\Http\\Controllers\\WikiController' => __DIR__ . '/../..' . '/app/Http/Controllers/WikiController.php',
+        'App\\Http\\Controllers\\pendingCompaniesController' => __DIR__ . '/../..' . '/app/Http/Controllers/pendingCompaniesController.php',
+        'App\\Http\\Controllers\\pendingSchoolsController' => __DIR__ . '/../..' . '/app/Http/Controllers/pendingSchoolsController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
         'App\\Http\\Middleware\\CheckForMaintenanceMode' => __DIR__ . '/../..' . '/app/Http/Middleware/CheckForMaintenanceMode.php',
@@ -484,6 +487,7 @@ class ComposerStaticInitc86f97ac6910aa9b922122296f7b073e
         'App\\Http\\Middleware\\TrimStrings' => __DIR__ . '/../..' . '/app/Http/Middleware/TrimStrings.php',
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
+        'App\\Http\\Middleware\\isAdmin' => __DIR__ . '/../..' . '/app/Http/Middleware/isAdmin.php',
         'App\\Mail_message' => __DIR__ . '/../..' . '/app/Mail_message.php',
         'App\\Message' => __DIR__ . '/../..' . '/app/Message.php',
         'App\\Post' => __DIR__ . '/../..' . '/app/Post.php',
@@ -4552,9 +4556,9 @@ class ComposerStaticInitc86f97ac6910aa9b922122296f7b073e
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitc86f97ac6910aa9b922122296f7b073e::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitc86f97ac6910aa9b922122296f7b073e::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInitc86f97ac6910aa9b922122296f7b073e::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit17d909f51a07e81e8015ed36a56d1398::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit17d909f51a07e81e8015ed36a56d1398::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit17d909f51a07e81e8015ed36a56d1398::$classMap;
 
         }, null, ClassLoader::class);
     }
