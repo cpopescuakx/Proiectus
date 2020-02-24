@@ -33,7 +33,7 @@ Route::middleware(['isAdmin'])->group(function () {
 });
 
 Route::middleware(['registeredEntity'])->group(function () {
-    
+
     Route::middleware(['verified'])->group(function () {
         Route::get('/home', function () {
             return view('home');
@@ -145,7 +145,7 @@ Route::middleware(['registeredEntity'])->group(function () {
     Route::get('managerProfile/{id}/edit', 'UserController@editProfile')->name('managers.editP');
     Route::post('managerProfile/{id}/update', 'UserController@updateProfile')->name('managers.updateP');
     Route::post('managerProfile/{id}/delete', 'UserController@destroyProfile')->name('managers.destroyP');
-    
+
     Route::get('managers', 'UserController@indexManager')->name('managers.index');
     Route::get('managers/create', 'UserController@createManager')->name('managers.create');
     Route::get('managers/{id}/edit', 'UserController@editManager')->name('managers.edit');
@@ -195,4 +195,59 @@ Route::middleware(['registeredEntity'])->group(function () {
     Route::post('/Employees/store', 'UserController@storeEmployees')->name('employee.store');
     Route::post('/Employees/{id}/update', 'UserController@updateEmployee')->name('employee.update');
     Route::get('/Employees/{id}/active', 'UserController@activeUser')->name('employee.active');
+
+// Routes Grup4
+    /** ------Rutes per a l'apartat del BLOG------ */
+
+    //Route::pattern('id_project', '[0-9]+');
+
+    /** Ruta per al STORE de post */
+    Route::post('blog/{id_project}/post/store', 'PostController@store');
+
+    /** Ruta per al INDEX d'un blog d'un projecte */
+    Route::get('blog/{id_project}', [
+        'Middleware' => 'auth',
+        'uses' => 'BlogController@index'
+    ]);
+
+    /** Ruta per al SHOW d'un post */
+    Route::get('blog/{id_project}/post/{id_post}', 'PostController@show');
+
+
+    /** Ruta per al UPDATE d'un post */
+    Route::get('blog/{id_project}/post/{id_post}/edit', 'PostController@edit');
+    Route::post('blog/{id_project}/post/{id_post}/update', 'PostController@update');
+
+    /** Ruta eliminar un post*/
+    Route::get('blog/{id_project}/post/{id_post}/destroy', 'PostController@destroy');
+
+
+    /** Ruta per a l'update del titul de blog */
+    Route::get('blog/{id_project}/edit', 'BlogController@edit');
+    Route::PATCH('blog/{id_project}/update', 'BlogController@update');
+
+
+    /** Rutes per a l'apartat de la gestio dels articles de la wiki */
+    // KEVIN
+    Route::get('wiki/{id_project}', 'WikiController@index');
+    Route::post('wiki/{id_project}/store', 'ArticleController@store');
+
+    Route::get('wiki/{id_project}/edit', 'WikiController@edit');
+    Route::PATCH('wiki/{id_project}/update', 'WikiController@update');
+    Route::get('wiki/{id_project}/article/{id_post}/destroy', 'ArticleController@destroy');
+
+
+    // Javier
+    // Route::get('wiki/{id_project}', 'ArticleController@index');
+    Route::get('wiki/{id_project}/article/create', 'ArticleController@create');
+    Route::post('wiki/{id_project}/article/store', 'ArticleController@store');
+    Route::get('wiki/{id_project}/article/{id_article}/edit', 'ArticleController@edit');
+    Route::post('wiki/{id_project}/article/{id_article}/update', 'ArticleController@update');
+    Route::resource('articles', 'ArticleController');
+
+    /** Rutes per a l'apartat de perfils d'usuari */
+
+    Auth::routes();
+
+    Route::get('/home', 'HomeController@index')->name('home');
 });

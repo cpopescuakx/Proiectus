@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Article;
 use Illuminate\Http\Request;
 
 class ArticleController extends Controller
@@ -11,20 +12,29 @@ class ArticleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+
+
+    public function index($id_project)
     {
-        //
+        $articles = Article::all()
+            ->where('id_project', '=', $id_project)->where('status', '=', 'active');
+
+        return view('articles.index', compact('articles', 'id_project'));
     }
+
 
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+
+
+    public function create($id_project)
     {
-        //
+        return view('articles.create', compact('id_project'));
     }
+
 
     /**
      * Store a newly created resource in storage.
@@ -32,53 +42,114 @@ class ArticleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+
+
+    public function store(Request $request, $id_project)
     {
-        //
+        $id_user = 9;
+
+        $request->validate([
+            // 'version' => 'required',
+            'title' => 'required',
+            'content' => 'required',
+            //'reference' => 'required',
+        ]);
+
+        $article = new Article();
+        $article->id_project = $id_project;
+        //$article -> version = $request->get('version');
+        $article->version = '1';
+        $article->title = $request->get('title');
+        $article->content = $request->get('content');
+        //$article -> reference = $request->get('reference');
+        $article->reference = '';
+        $article->id_user = $id_user;
+        $article->status = 'active';
+
+
+
+        $article->save();
+
+        return redirect()->back();
     }
+
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+
+
+    public function show($id_project, $id_article)
     {
-        //
     }
+
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+
+
+    public function edit($id_project, $id_article)
     {
-        //
+        $article = Article::where('id_article', '=', $id_article)->firstOrFail();
+
+        return view('articles.edit', compact('article', 'id_project', 'id_article'));
     }
+
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+
+
+    public function update(Request $request, $id_project, $id_article)
     {
-        //
+        //Forma curta
+        //Article::find($id_article)->update($request->all());
+
+        //forma llarga
+        $request->validate([
+            'title' => 'required',
+            'content' => 'required',
+        ]);
+
+        $article = Article::find($id_article);
+
+        $article->title = $request->get('title');
+        $article->content = $request->get('content');
+
+        $article->save();
+
+        return redirect()->back();
     }
+
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+
+
+    public function destroy($id_project, $id_article)
     {
-        //
+        $article = Article::find($id_article);
+
+        $article->status = 'inactive';
+
+        $article->save();
+
+        return redirect()->back();
     }
 }
