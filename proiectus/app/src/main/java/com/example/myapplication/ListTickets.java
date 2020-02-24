@@ -25,8 +25,11 @@ import com.example.myapplication.Classes.User;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.android.volley.Request.Method.GET;
 
 public class ListTickets extends AppCompatActivity {
 
@@ -46,14 +49,6 @@ public class ListTickets extends AppCompatActivity {
             @Override
             public void onResponse(JSONObject response) {
                 try {
-                    //System.out.println(response.getString("error"));
-
-                    System.out.println();
-                    System.out.println();
-                    System.out.println(response.has("error"));
-                    System.out.println();
-                    System.out.println();
-
                     if (response.has("error")) {
                         Toast.makeText(getApplicationContext(), response.getString("error"), Toast.LENGTH_LONG).show();
                     } else {
@@ -68,9 +63,9 @@ public class ListTickets extends AppCompatActivity {
                         for (int i = 0; i < buttons.size(); i++) {
                             Button btn = buttons.get(i);
                             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-                            layoutParams.setMargins(15, 30, 15, 30);
+                            layoutParams.setMargins(32, 0, 32, 50);
                             btn.setGravity(Gravity.LEFT);
-                            btn.setPadding(20, 15, 20, 0);
+                            btn.setPadding(30, 20, 25, 0);
                             btn.setTransformationMethod(null);
                             btn.setLayoutParams(layoutParams);
 

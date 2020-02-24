@@ -34,12 +34,13 @@
 
     <ScrollView
         android:layout_width="409dp"
-        android:layout_height="625dp"
-        android:layout_marginTop="32dp"
+        android:layout_height="650dp"
+        android:layout_marginTop="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addbtn">
+        app:layout_constraintTop_toBottomOf="@+id/addbtn"
+        app:layout_constraintVertical_bias="1.0">
 
         <LinearLayout
             android:id="@+id/layout"

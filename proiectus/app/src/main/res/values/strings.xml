@@ -2,4 +2,9 @@
     <string name="app_name">Proiectus</string>
     <string name="assumpte">Assumpte</string>
     <string name="Tipus">TextView</string>
+    <string name="guardar">GUARDAR</string>
+    <string name="mostrar">MOSTRAR</string>
+    <string name="tipus">TIPUS</string>
+    <string name="modificar">MODIFICAR</string>
+    <string name="borrar">BORRAR</string>
 </resources>
