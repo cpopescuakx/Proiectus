@@ -35,262 +35,6 @@
         "description": "implementation of xdg base directory specification for php"
     },
     {
-        "name": "doctrine/cache",
-        "version": "1.10.0",
-        "version_normalized": "1.10.0.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/doctrine/cache.git",
-            "reference": "382e7f4db9a12dc6c19431743a2b096041bcdd62"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/doctrine/cache/zipball/382e7f4db9a12dc6c19431743a2b096041bcdd62",
-            "reference": "382e7f4db9a12dc6c19431743a2b096041bcdd62",
-            "shasum": ""
-        },
-        "require": {
-            "php": "~7.1"
-        },
-        "conflict": {
-            "doctrine/common": ">2.2,<2.4"
-        },
-        "require-dev": {
-            "alcaeus/mongo-php-adapter": "^1.1",
-            "doctrine/coding-standard": "^6.0",
-            "mongodb/mongodb": "^1.1",
-            "phpunit/phpunit": "^7.0",
-            "predis/predis": "~1.0"
-        },
-        "suggest": {
-            "alcaeus/mongo-php-adapter": "Required to use legacy MongoDB driver"
-        },
-        "time": "2019-11-29T15:36:20+00:00",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "1.9.x-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Doctrine\\Common\\Cache\\": "lib/Doctrine/Common/Cache"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Guilherme Blanco",
-                "email": "guilhermeblanco@gmail.com"
-            },
-            {
-                "name": "Roman Borschel",
-                "email": "roman@code-factory.org"
-            },
-            {
-                "name": "Benjamin Eberlei",
-                "email": "kontakt@beberlei.de"
-            },
-            {
-                "name": "Jonathan Wage",
-                "email": "jonwage@gmail.com"
-            },
-            {
-                "name": "Johannes Schmitt",
-                "email": "schmittjoh@gmail.com"
-            }
-        ],
-        "description": "PHP Doctrine Cache library is a popular cache implementation that supports many different drivers such as redis, memcache, apc, mongodb and others.",
-        "homepage": "https://www.doctrine-project.org/projects/cache.html",
-        "keywords": [
-            "abstraction",
-            "apcu",
-            "cache",
-            "caching",
-            "couchdb",
-            "memcached",
-            "php",
-            "redis",
-            "xcache"
-        ]
-    },
-    {
-        "name": "doctrine/dbal",
-        "version": "v2.10.1",
-        "version_normalized": "2.10.1.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/doctrine/dbal.git",
-            "reference": "c2b8e6e82732a64ecde1cddf9e1e06cb8556e3d8"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/doctrine/dbal/zipball/c2b8e6e82732a64ecde1cddf9e1e06cb8556e3d8",
-            "reference": "c2b8e6e82732a64ecde1cddf9e1e06cb8556e3d8",
-            "shasum": ""
-        },
-        "require": {
-            "doctrine/cache": "^1.0",
-            "doctrine/event-manager": "^1.0",
-            "ext-pdo": "*",
-            "php": "^7.2"
-        },
-        "require-dev": {
-            "doctrine/coding-standard": "^6.0",
-            "jetbrains/phpstorm-stubs": "^2019.1",
-            "phpstan/phpstan": "^0.11.3",
-            "phpunit/phpunit": "^8.4.1",
-            "symfony/console": "^2.0.5|^3.0|^4.0|^5.0"
-        },
-        "suggest": {
-            "symfony/console": "For helpful console commands such as SQL execution and import of files."
-        },
-        "time": "2020-01-04T12:56:21+00:00",
-        "bin": [
-            "bin/doctrine-dbal"
-        ],
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "2.10.x-dev",
-                "dev-develop": "3.0.x-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Doctrine\\DBAL\\": "lib/Doctrine/DBAL"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Guilherme Blanco",
-                "email": "guilhermeblanco@gmail.com"
-            },
-            {
-                "name": "Roman Borschel",
-                "email": "roman@code-factory.org"
-            },
-            {
-                "name": "Benjamin Eberlei",
-                "email": "kontakt@beberlei.de"
-            },
-            {
-                "name": "Jonathan Wage",
-                "email": "jonwage@gmail.com"
-            }
-        ],
-        "description": "Powerful PHP database abstraction layer (DBAL) with many features for database schema introspection and management.",
-        "homepage": "https://www.doctrine-project.org/projects/dbal.html",
-        "keywords": [
-            "abstraction",
-            "database",
-            "db2",
-            "dbal",
-            "mariadb",
-            "mssql",
-            "mysql",
-            "oci8",
-            "oracle",
-            "pdo",
-            "pgsql",
-            "postgresql",
-            "queryobject",
-            "sasql",
-            "sql",
-            "sqlanywhere",
-            "sqlite",
-            "sqlserver",
-            "sqlsrv"
-        ]
-    },
-    {
-        "name": "doctrine/event-manager",
-        "version": "1.1.0",
-        "version_normalized": "1.1.0.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/doctrine/event-manager.git",
-            "reference": "629572819973f13486371cb611386eb17851e85c"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/doctrine/event-manager/zipball/629572819973f13486371cb611386eb17851e85c",
-            "reference": "629572819973f13486371cb611386eb17851e85c",
-            "shasum": ""
-        },
-        "require": {
-            "php": "^7.1"
-        },
-        "conflict": {
-            "doctrine/common": "<2.9@dev"
-        },
-        "require-dev": {
-            "doctrine/coding-standard": "^6.0",
-            "phpunit/phpunit": "^7.0"
-        },
-        "time": "2019-11-10T09:48:07+00:00",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "1.0.x-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Doctrine\\Common\\": "lib/Doctrine/Common"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Guilherme Blanco",
-                "email": "guilhermeblanco@gmail.com"
-            },
-            {
-                "name": "Roman Borschel",
-                "email": "roman@code-factory.org"
-            },
-            {
-                "name": "Benjamin Eberlei",
-                "email": "kontakt@beberlei.de"
-            },
-            {
-                "name": "Jonathan Wage",
-                "email": "jonwage@gmail.com"
-            },
-            {
-                "name": "Johannes Schmitt",
-                "email": "schmittjoh@gmail.com"
-            },
-            {
-                "name": "Marco Pivetta",
-                "email": "ocramius@gmail.com"
-            }
-        ],
-        "description": "The Doctrine Event Manager is a simple PHP event system that was built to be used with the various Doctrine projects.",
-        "homepage": "https://www.doctrine-project.org/projects/event-manager.html",
-        "keywords": [
-            "event",
-            "event dispatcher",
-            "event manager",
-            "event system",
-            "events"
-        ]
-    },
-    {
         "name": "doctrine/inflector",
         "version": "1.3.1",
         "version_normalized": "1.3.1.0",
@@ -1301,32 +1045,148 @@
         ]
     },
     {
-        "name": "league/commonmark",
-        "version": "1.2.2",
-        "version_normalized": "1.2.2.0",
+        "name": "laravel/ui",
+        "version": "v1.2.0",
+        "version_normalized": "1.2.0.0",
         "source": {
             "type": "git",
-            "url": "https://github.com/thephpleague/commonmark.git",
-            "reference": "34cf4ddb3892c715ae785c880e6691d839cff88d"
+            "url": "https://github.com/laravel/ui.git",
+            "reference": "bb64fca681566ca94457d490a00f899516e75664"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/34cf4ddb3892c715ae785c880e6691d839cff88d",
-            "reference": "34cf4ddb3892c715ae785c880e6691d839cff88d",
+            "url": "https://api.github.com/repos/laravel/ui/zipball/bb64fca681566ca94457d490a00f899516e75664",
+            "reference": "bb64fca681566ca94457d490a00f899516e75664",
+            "shasum": ""
+        },
+        "require": {
+            "illuminate/console": "~5.8|^6.0",
+            "illuminate/filesystem": "~5.8|^6.0",
+            "illuminate/support": "~5.8|^6.0",
+            "php": "^7.1.3"
+        },
+        "require-dev": {
+            "mockery/mockery": "^1.0",
+            "phpunit/phpunit": "^8.0"
+        },
+        "time": "2020-02-13T21:12:28+00:00",
+        "type": "library",
+        "extra": {
+            "laravel": {
+                "providers": [
+                    "Laravel\\Ui\\UiServiceProvider"
+                ]
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Laravel\\Ui\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Taylor Otwell",
+                "email": "taylor@laravel.com"
+            }
+        ],
+        "description": "Laravel UI utilities and presets.",
+        "keywords": [
+            "laravel",
+            "ui"
+        ]
+    },
+    {
+        "name": "league/commonmark",
+        "version": "1.3.0",
+        "version_normalized": "1.3.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/laravel/ui.git",
+            "reference": "0287d4eee80aad718bdf7f90117cfe720c493064"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/laravel/ui/zipball/0287d4eee80aad718bdf7f90117cfe720c493064",
+            "reference": "0287d4eee80aad718bdf7f90117cfe720c493064",
+            "shasum": ""
+        },
+        "require": {
+            "illuminate/console": "~5.8|^6.0",
+            "illuminate/filesystem": "~5.8|^6.0",
+            "illuminate/support": "~5.8|^6.0",
+            "php": "^7.1.3"
+        },
+        "require-dev": {
+            "mockery/mockery": "^1.0",
+            "phpunit/phpunit": "^8.0"
+        },
+        "time": "2019-12-20T15:09:01+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.x-dev"
+            },
+            "laravel": {
+                "providers": [
+                    "Laravel\\Ui\\UiServiceProvider"
+                ]
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Laravel\\Ui\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Taylor Otwell",
+                "email": "taylor@laravel.com"
+            }
+        ],
+        "description": "Laravel UI utilities and presets.",
+        "keywords": [
+            "laravel",
+            "ui"
+        ]
+    },
+    {
+        "name": "league/commonmark",
+        "version": "1.3.0",
+        "version_normalized": "1.3.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/thephpleague/commonmark.git",
+            "reference": "4f30be7a2cbf3bfa5788abab71384713e48f451f"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/4f30be7a2cbf3bfa5788abab71384713e48f451f",
+            "reference": "4f30be7a2cbf3bfa5788abab71384713e48f451f",
             "shasum": ""
         },
         "require": {
             "ext-mbstring": "*",
             "php": "^7.1"
         },
-        "replace": {
-            "colinodell/commonmark-php": "*"
+        "conflict": {
+            "scrutinizer/ocular": "1.7.*"
         },
         "require-dev": {
             "cebe/markdown": "~1.0",
             "commonmark/commonmark.js": "0.29.1",
             "erusev/parsedown": "~1.0",
             "ext-json": "*",
+            "github/gfm": "0.29.0",
             "michelf/php-markdown": "~1.4",
             "mikehaertl/php-shellcommand": "^1.4",
             "phpstan/phpstan-shim": "^0.11.5",
@@ -1334,17 +1194,14 @@
             "scrutinizer/ocular": "^1.5",
             "symfony/finder": "^4.2"
         },
-        "suggest": {
-            "league/commonmark-extras": "Library of useful extensions including smart punctuation"
-        },
-        "time": "2020-01-16T01:18:13+00:00",
+        "time": "2020-02-08T23:42:03+00:00",
         "bin": [
             "bin/commonmark"
         ],
         "type": "library",
         "extra": {
             "branch-alias": {
-                "dev-master": "1.3-dev"
+                "dev-master": "1.4-dev"
             }
         },
         "installation-source": "dist",
@@ -1365,11 +1222,16 @@
                 "role": "Lead Developer"
             }
         ],
-        "description": "PHP Markdown parser based on the CommonMark spec",
+        "description": "Highly-extensible PHP Markdown parser which fully supports the CommonMark spec and Github-Flavored Markdown (GFM)",
         "homepage": "https://commonmark.thephpleague.com",
         "keywords": [
             "commonmark",
+            "flavored",
+            "gfm",
+            "github",
+            "github-flavored",
             "markdown",
+            "md",
             "parser"
         ]
     },
@@ -1442,17 +1304,17 @@
     },
     {
         "name": "league/flysystem",
-        "version": "1.0.63",
-        "version_normalized": "1.0.63.0",
+        "version": "1.0.64",
+        "version_normalized": "1.0.64.0",
         "source": {
             "type": "git",
             "url": "https://github.com/thephpleague/flysystem.git",
-            "reference": "8132daec326565036bc8e8d1876f77ec183a7bd6"
+            "reference": "d13c43dbd4b791f815215959105a008515d1a2e0"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/8132daec326565036bc8e8d1876f77ec183a7bd6",
-            "reference": "8132daec326565036bc8e8d1876f77ec183a7bd6",
+            "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/d13c43dbd4b791f815215959105a008515d1a2e0",
+            "reference": "d13c43dbd4b791f815215959105a008515d1a2e0",
             "shasum": ""
         },
         "require": {
@@ -1464,7 +1326,7 @@
         },
         "require-dev": {
             "phpspec/phpspec": "^3.4",
-            "phpunit/phpunit": "^5.7.10"
+            "phpunit/phpunit": "^5.7.26"
         },
         "suggest": {
             "ext-fileinfo": "Required for MimeType",
@@ -1482,7 +1344,7 @@
             "spatie/flysystem-dropbox": "Allows you to use Dropbox storage",
             "srmklive/flysystem-dropbox-v2": "Allows you to use Dropbox storage for PHP 5 applications"
         },
-        "time": "2020-01-04T16:30:31+00:00",
+        "time": "2020-02-05T18:14:17+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -2190,44 +2052,41 @@
     },
     {
         "name": "phpdocumentor/reflection-docblock",
-        "version": "4.3.4",
-        "version_normalized": "4.3.4.0",
+        "version": "5.0.0",
+        "version_normalized": "5.0.0.0",
         "source": {
             "type": "git",
             "url": "https://github.com/phpDocumentor/ReflectionDocBlock.git",
-            "reference": "da3fd972d6bafd628114f7e7e036f45944b62e9c"
+            "reference": "a48807183a4b819072f26e347bbd0b5199a9d15f"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/da3fd972d6bafd628114f7e7e036f45944b62e9c",
-            "reference": "da3fd972d6bafd628114f7e7e036f45944b62e9c",
+            "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/a48807183a4b819072f26e347bbd0b5199a9d15f",
+            "reference": "a48807183a4b819072f26e347bbd0b5199a9d15f",
             "shasum": ""
         },
         "require": {
-            "php": "^7.0",
-            "phpdocumentor/reflection-common": "^1.0.0 || ^2.0.0",
-            "phpdocumentor/type-resolver": "~0.4 || ^1.0.0",
-            "webmozart/assert": "^1.0"
+            "ext-filter": "^7.1",
+            "php": "^7.2",
+            "phpdocumentor/reflection-common": "^2.0",
+            "phpdocumentor/type-resolver": "^1.0",
+            "webmozart/assert": "^1"
         },
         "require-dev": {
-            "doctrine/instantiator": "^1.0.5",
-            "mockery/mockery": "^1.0",
-            "phpdocumentor/type-resolver": "0.4.*",
-            "phpunit/phpunit": "^6.4"
+            "doctrine/instantiator": "^1",
+            "mockery/mockery": "^1"
         },
-        "time": "2019-12-28T18:55:12+00:00",
+        "time": "2020-02-09T09:16:15+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
-                "dev-master": "4.x-dev"
+                "dev-master": "5.x-dev"
             }
         },
         "installation-source": "dist",
         "autoload": {
             "psr-4": {
-                "phpDocumentor\\Reflection\\": [
-                    "src/"
-                ]
+                "phpDocumentor\\Reflection\\": "src"
             }
         },
         "notification-url": "https://packagist.org/downloads/",
@@ -2238,6 +2097,10 @@
             {
                 "name": "Mike van Riel",
                 "email": "me@mikevanriel.com"
+            },
+            {
+                "name": "Jaap van Otterdijk",
+                "email": "account@ijaap.nl"
             }
         ],
         "description": "With this component, a library can provide support for annotations via DocBlocks or otherwise retrieve information that is embedded in a DocBlock."
