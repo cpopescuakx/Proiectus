@@ -8,6 +8,7 @@ import androidx.annotation.Nullable;
 
 public class BaseHelper extends SQLiteOpenHelper {
 
+
     String tabla="CREATE TABLE TICKETS(ID INTEGER PRIMARY KEY, ASSUMPTE TEXT, DESCRIPCIO TEXT)";
     public BaseHelper(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);

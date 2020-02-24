@@ -3,6 +3,9 @@
     xmlns:dist="http://schemas.android.com/apk/distribution"
     package="com.example.ticketsg1">
 
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <dist:module dist:instant="true" />
 
     <application
@@ -14,7 +17,8 @@
         android:theme="@style/AppTheme">
         <activity android:name=".Modificar"></activity>
         <activity android:name=".Listado" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity" />
+            <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
