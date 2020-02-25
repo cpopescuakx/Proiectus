@@ -144,12 +144,12 @@ Route::middleware(['registeredEntity'])->group(function () {
     Route::get('managerProfile/{id}', 'UserController@indexProfile')->name('managers.indexP1');
     Route::get('managerProfile/{id}/edit', 'UserController@editProfile')->name('managers.editP');
     Route::post('managerProfile/{id}/update', 'UserController@updateProfile')->name('managers.updateP');
-    Route::post('managerProfile/{id}/delete', 'UserController@destroyProfile')->name('managers.destroyP');
+    Route::delete('managerProfile/{id}/delete', 'UserController@destroyProfile')->name('managers.destroyP');
 
     Route::get('managers', 'UserController@indexManager')->name('managers.index');
     Route::get('managers/create', 'UserController@createManager')->name('managers.create');
     Route::get('managers/{id}/edit', 'UserController@editManager')->name('managers.edit');
-    Route::get('managers/{id}/delete', 'UserController@destroyManager')->name('managers.destroy');
+    Route::get('managers/{id}/delete', 'UserController@updateManager')->name('managers.destroy');
     Route::post('managers/create', 'UserController@storeManager')->name('managers.store');
     Route::post('managers/{id}/update', 'UserController@updateManager')->name('managers.update');
 

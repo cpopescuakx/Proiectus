@@ -27,10 +27,8 @@
             <h6>Estat: Alta</h6>
             @else
             <h6>Estat: En procés de baixa</h6>
-            @endif
 
         </div>
-        @endforeach
         
         <div class="span2">
             <div class="btn-group dropdown">
@@ -40,6 +38,8 @@
                     <li><a href="{{ route('managers.editP', [$manager->id]) }}"><i class="tiny material-icons">edit</i>Edita el perfil</a></li>
                     <li><a href="{{ route('managers.destroyP', [$manager->id]) }}"><i class="tiny material-icons">delete</i>Dona't de baixa</a></li>
                 </ul>
+                @endif
+                @endforeach
             </div>
         </div>
 </div>
