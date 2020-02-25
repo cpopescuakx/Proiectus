@@ -4,7 +4,7 @@
 @if (count($errors) > 0)
 
 @endif @if(Session::has('success')) <div class="alert alert-info"> {{Session::get('success')}} </div> @endif
-<!-- <div>
+<div>
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><a href="#">Projecte</a></li>
@@ -12,10 +12,10 @@
       <li class="breadcrumb-item active" aria-current="page">Post</li>
     </ol>
   </nav>
-</div> -->
+</div>
 
 <div class="formulari">
-    <form class="was-validated" action="{{route('posts.update', [$id_project, $post->id_post])}}" method="POST">
+    <form class="was-validated" action="update" method="POST">
         @csrf
         <div class="row justify-content-center">
             <div class="col-11 col-sm-11 col-md-10 col-lg-10 col-xl-10">

@@ -104,8 +104,8 @@ class PostController extends Controller
 
         Post::find($id_post)->update($request->all());
 
-        return redirect()->action('ProjectController@show', ['id_project' => $id_project]);
-        // return redirect()->back();
+        return redirect()->action('BlogController@index', ['id_project' => $id_project]);
+        //return redirect()->back();
 
     }
 
@@ -132,8 +132,6 @@ class PostController extends Controller
       // $posts -> save();
 
 
-      // return redirect()->action('BlogController@index', ['id_project' => $id_project]);
-      return redirect()->back();
-
+      return redirect()->action('BlogController@index', ['id_project' => $id_project]);
     }
 }

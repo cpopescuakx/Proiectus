@@ -2,7 +2,7 @@
 @section('content')
 
 <div class="formulari">
-    <form class="was-validated" action="{{route('blogs.update', $id_project)}}" method="POST">
+    <form class="was-validated" action="update" method="POST">
         @csrf
         <input type="hidden" name="_method" value="PATCH" />
         <div class="row justify-content-center">

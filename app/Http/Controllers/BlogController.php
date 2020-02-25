@@ -30,7 +30,7 @@ class BlogController extends Controller
         ->sortByDesc('created_at')
         ->where('id_project', '=', $id_project)
         ->where('status', '=', 'active');
-
+        
         $blog = Blog::find($id_project);
 
             return view('Blog.index', compact('posts', 'id_project', 'blog'));
@@ -98,7 +98,7 @@ class BlogController extends Controller
 
         $blogs->save();
 
-        return redirect()->action('ProjectController@show', ['id_project' => $id_project]);
+        return redirect()->action('BlogController@index', ['id_project' => $id_project]);
 
         //return redirect()->route('Blog.index')->with('success', 'Data Updated');
     }

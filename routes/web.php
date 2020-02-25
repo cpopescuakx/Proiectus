@@ -70,7 +70,7 @@ Route::middleware(['registeredEntity'])->group(function () {
     Route::get('Dashboard/projects', 'ProjectController@dashboardProject')
         ->name('projects.dashboard');
 
-    Route::get('Project/{id_project}/principal', 'ProjectController@show')
+    Route::get('Project/{id}/principal', 'ProjectController@show')
         ->name('projects.show');
 
     /** Rutes per a l'apartat de gestió d'alumnes */
@@ -202,9 +202,7 @@ Route::middleware(['registeredEntity'])->group(function () {
     //Route::pattern('id_project', '[0-9]+');
 
     /** Ruta per al STORE de post */
-    // Route::post('blog/{id_project}/post/store', 'PostController@store');
-    Route::post('blog/{id_project}/post/store', 'PostController@store')
-        ->name('posts.store');
+    Route::post('blog/{id_project}/post/store', 'PostController@store');
 
     /** Ruta per al INDEX d'un blog d'un projecte */
     Route::get('blog/{id_project}', [
@@ -218,21 +216,16 @@ Route::middleware(['registeredEntity'])->group(function () {
 
 
     /** Ruta per al UPDATE d'un post */
-    Route::get('blog/{id_project}/post/{id_post}/edit', 'PostController@edit')
-    ->name('posts.edit');
-    Route::post('blog/{id_project}/post/{id_post}/update', 'PostController@update')
-    ->name('posts.update');
+    Route::get('blog/{id_project}/post/{id_post}/edit', 'PostController@edit');
+    Route::post('blog/{id_project}/post/{id_post}/update', 'PostController@update');
 
     /** Ruta eliminar un post*/
-    Route::get('blog/{id_project}/post/{id_post}/destroy', 'PostController@destroy')
-    ->name('posts.destroy');
+    Route::get('blog/{id_project}/post/{id_post}/destroy', 'PostController@destroy');
 
 
     /** Ruta per a l'update del titul de blog */
-    Route::get('blog/{id_project}/edit', 'BlogController@edit')
-    ->name('blogs.edit');
-    Route::PATCH('blog/{id_project}/update', 'BlogController@update')
-    ->name('blogs.update');
+    Route::get('blog/{id_project}/edit', 'BlogController@edit');
+    Route::PATCH('blog/{id_project}/update', 'BlogController@update');
 
 
     /** Rutes per a l'apartat de la gestio dels articles de la wiki */
