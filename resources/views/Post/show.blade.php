@@ -1,6 +1,6 @@
 @extends('layouts.default')
 @section('content')
-<div>
+<!-- <div>
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><a href="#">Projecte</a></li>
@@ -8,8 +8,8 @@
       <li class="breadcrumb-item active" aria-current="page">Post</li>
     </ol>
   </nav>
-</div>
-
+</div> -->
+<br>
 <div class="container mb-5">
   <footer class="blockquote-footer float-right"> Creat per <a href=""> <cite title="Source Title"> {{$post->id_user}}</cite></a> el {{$post->created_at}}</footer>
   <br><br>

@@ -213,7 +213,8 @@ Route::middleware(['registeredEntity'])->group(function () {
     ]);
 
     /** Ruta per al SHOW d'un post */
-    Route::get('blog/{id_project}/post/{id_post}', 'PostController@show');
+    Route::get('blog/{id_project}/post/{id_post}', 'PostController@show')
+    ->name('posts.show');
 
 
     /** Ruta per al UPDATE d'un post */

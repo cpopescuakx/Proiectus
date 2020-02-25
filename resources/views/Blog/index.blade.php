@@ -111,9 +111,9 @@
                     -->
             <a class="float-right" data-toggle="modal" data-target="#deleteConfirmationModal"><i style="font-size: 140%" class="material-icons text-primary">delete</i></a>
 
-            <a href="{{$id_project}}/post/{{$post->id_post}}">
+            <a href="{{route('posts.show', [$id_project, $post->id_post])}}">
 
-                <h5 class="card-title">{{$post->title}}</h5>
+                <h5 class="card-title">{{$post->title}} </h5>
             </a>
             <div class="">
                 <!-- <p class="card-text">{!!\Illuminate\Support\Str::limit($post->content, $limit = 200, $end = '...')!!}</p> -->
