@@ -68,14 +68,10 @@ class UserController extends Controller
     }
 
     public function destroyProfile ($id) {
-
-        $managers = User::find($id);
-        $managers -> status = 'inactive';
-        $managers -> save();
-
-        $managers = User::where('id', $id)->get();
-
-        return redirect()->route('managers.indexP1',compact('managers'));
+       
+        User::destroy($id);
+        return redirect()->route('managers.index');
+        
     }
 
     /** LLISTAR GESTORS
