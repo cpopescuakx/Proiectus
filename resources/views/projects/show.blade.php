@@ -21,7 +21,7 @@
             <button class="mr-1 tablinks" onclick="tabs(event, 'xat')"><i onclick="tabs(5)" id = "btn-xat" data-toggle="tooltip" title="Xat" class="boto btn fas fa-comments fa-lg"></i></button>
         </div>
     </div>
-    
+
     <div class="row justify-content-center">
         <div id="info" class="tabcontent mt-3">
             <div class="row justify-content-center mb-3">
@@ -48,31 +48,32 @@
     <div class="row justify-content-center">
         <div id="gest" class="tabcontent mt-3">
             <h2 class="mt-3"><strong>Gestor documental<strong></h2>
-            
+
         </div>
     </div>
 
     <div class="row justify-content-center">
         <div id="wiki" class="tabcontent mt-3">
             <h2 class="mt-3"><strong>Wiki<strong></h2>
-            
+
         </div>
     </div>
 
-    <div class="row justify-content-center">
+    <div class="row px-5">
+      <div class="col">
         <div id="blog" class="tabcontent mt-3">
-            <h2 class="mt-3"><strong>Blog<strong></h2>
-            
+            @include('Blog.index')
         </div>
+      </div>
     </div>
 
     <div class="row justify-content-center">
         <div id="participants" class="tabcontent mt-3">
-            
+
             <h2 class="mt-3 mb-3"><strong>Participants<strong></h2>
                 <div class="container">
                     @foreach ($participants as $participant)
-                        @php 
+                        @php
                             $user = $controller->getUser($participant->id_user)
                         @endphp
                         <p><i class="fas fa-user fa-lg mr-3"></i> {{$user->firstname.' '.$user->lastname}}</p>
@@ -85,11 +86,11 @@
     <div class="row justify-content-center">
         <div id="xat" class="tabcontent mt-3">
             <h2 class="mt-3"><strong>Xat<strong></h2>
-            
+
         </div>
     </div>
 
-    
+
 
     <script>
         document.getElementById('info').style.display="block";

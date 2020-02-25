@@ -9,18 +9,20 @@ use App\Project;
 use Illuminate\Http\Request;
 use App\Proposal;
 use App\User_project;
+use App\Blog;
+use App\Post;
 
 class ProjectController extends Controller
 {
-    
+
     /**
      * Llistar tots els projectes
-     * 
-     * Retorna la vista projects.index i li injecta la variable $projects 
+     *
+     * Retorna la vista projects.index i li injecta la variable $projects
      * que conté una llista de tots els projectes.
-     *  
+     *
      * @return void
-     * 
+     *
      */
     public function index()
     {
@@ -29,38 +31,38 @@ class ProjectController extends Controller
             ->with('i', (request()->input('page', 1) -1));
     }
 
-    
+
     /**
      * Formulari de creació de projectes
-     * 
-     * Retorna la vista projects.create la qual és un formulari per a 
+     *
+     * Retorna la vista projects.create la qual és un formulari per a
      * crear projectes nous
-     * 
+     *
      * @return void
-     * 
+     *
      */
     public function create()
     {
         return view('projects.create');
     }
 
-    
+
     /**
      * Crear un projecte nou
-     * 
+     *
      * Comprova si és possible crear un projecte nou (hi han suficients propostes).
-     * 
+     *
      * Si és aixi, utilitzara el parametre $request per a conseguir les dades del
      * formulari i crearà un projecte nou.
-     * 
+     *
      * Sinó crearà primer una proposta amb els mateixos valors + l'usuari autor i
      * el tipus de proposta (centre o empresa) segons l'usuari que l'hagi creat
      * i després crearà el projecte.
-     * 
+     *
      * @param Request $request
-     * 
+     *
      * @return void
-     * 
+     *
      */
     public function store(Request $request)
     {
@@ -127,52 +129,59 @@ class ProjectController extends Controller
         }
     }
 
-    
-    public function show($id)
+
+    public function show($id_project)
     {
-        $project = Project::find($id);
-        $participants = User_project::select()->where('id_project', $id)->get();
-        return view ('projects.show', compact('project', 'participants'));
+      $posts = Post::all()
+      ->sortByDesc('created_at')
+      ->where('id_project', '=', $id_project)
+      ->where('status', '=', 'active');
+
+      $blog = Blog::find($id_project);
+
+        $project = Project::find($id_project);
+        $participants = User_project::select()->where('id_project', $id_project)->get();
+        return view ('projects.show', compact('project', 'participants', 'posts', 'blog', 'id_project'));
 
     }
 
-    
+
     /**
      * Formulari editar
-     * 
+     *
      * Retorna la vista projects.edit i li injecta la variable $project que conté
      * el projecte que correspon a la id del parametre ($id)
-     * 
+     *
      * @param mixed $id
-     * 
+     *
      * @return void
-     * 
+     *
      */
     public function edit($id)
     {
         // ******************* PREGUNTAR A TONI ******************* //
         // Fa falta considerar a excloure id invalides?
         // (si un usuari canvia manualment la URL i fica una ID que no existeix)
-        
+
         $project = Project::find($id);
         return view('projects.edit', compact('project'));
-        
+
     }
 
-    
+
     /**
      * Editar un projecte existent
-     * 
+     *
      * Busca el projecte en qüestió (utilitzant la ID de la ruta),
-     * li assigna els valors obtinguts del formulari utilitzant la variable 
+     * li assigna els valors obtinguts del formulari utilitzant la variable
      * $request i guarda els canvis.
-     * 
+     *
      * Després redirecciona a la llista de projectes.
-     * 
+     *
      * @param Request $request
-     * 
+     *
      * @return void
-     * 
+     *
      */
     public function update(Request $request)
     {
@@ -188,7 +197,7 @@ class ProjectController extends Controller
         $projecte -> description = $request->input('description');
         $projecte -> professional_family = $request->input('professional_family');
         $projecte -> ending_date = $request->input('end_date');
-        
+
         // Guardar els canvis
         $projecte ->save();
 
@@ -199,37 +208,37 @@ class ProjectController extends Controller
 
     }
 
-    
+
     /**
      * Donar de baixa un projecte
-     * 
+     *
      * Busca el projecte en qüestió (utilitzant el parametre $id),
      * modifica el camp status (inactive) i guarda els canvis.
-     * 
+     *
      * Després redirecciona a la llista de projectes.
-     * 
+     *
      * @param mixed $id
-     * 
+     *
      * @return void
-     * 
+     *
      */
     public function destroy($id)
     {
         $projecte = Project::find($id);
         $projecte -> status = 'inactive';
         $projecte ->save();
-        
+
         $projects = Project::all();
             return redirect()->route('projects.index',compact('projects'))
             ->with('i', (request()->input('page', 1) -1));
     }
-    
+
     /** Llistar els projectes per al dashboard
-    *  
+    *
     *   Busca els projectes que hi ha a la base de dades i els pagina de 12 en 12
     *   Si s'ha escrit algo al buscador busca els projectes que coincideixen amb la cerca
     *   (Scope al model de PROJECTE).
-    * 
+    *
     *  @param Request $request
     *  @return void
     */
