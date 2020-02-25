@@ -15,8 +15,8 @@
         <th>ID</th>
          <th>EMAIL</th>
          <th>NOM</th>
-         <th>CODI</th>
-         <th>Tipus</th>
+         <th>DNI</th>
+         <th>LOCALITAT</th>
         
          <td colspan="2"><strong>Accions</strong></td>
         </tr>
