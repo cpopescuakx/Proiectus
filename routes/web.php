@@ -170,9 +170,6 @@ Route::middleware(['registeredEntity'])->group(function () {
     // Route::post('/dm/store','DMController@fileStore');
     // Route::post('/dm/delete','DMController@fileDestroy');
 
-
-
-
     //GRUP3
     /* Propostes */
     Route::get('Proposals', 'ProposalController@indexProposal')->name('proposals.index');
