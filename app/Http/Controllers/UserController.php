@@ -85,9 +85,10 @@ class UserController extends Controller
      * */
     public function indexManager(){
         //Mostrem tots els usuaris amb id de rol 5 (gestors)
-        $managers = User::where('id_role', 5)->get();
+        $data['managers'] = User::where('id_role', 5)->get();
+        
+        return view('managers.index',$data);
 
-        return view('managers.index', compact('managers'));
     }
 
     /** CREAR GESTORS
