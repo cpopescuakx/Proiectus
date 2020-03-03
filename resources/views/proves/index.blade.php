@@ -47,46 +47,4 @@
     @endforeach
 </tbody>
 </table>
-
-<!-- Seccio JS prova -->
-<h2 class="examplequerySelector">un Header</h2>
-<p class="examplequerySelector">un Paragraf</p>
-<ul id="myListBefore">
-  <li>Cafe</li>
-  <li>Te</li>
-</ul>
-
-<button onclick="querySelectorProva()">QuerySelector</button>
-<button onclick="querySelectorAllProva()">QuerySelectorAll</button>
-<button onclick="createElementProva()">Crear Element</button>
-<button onclick="insertBeforeProva()">Insert Before</button>
-
-
-
-
-<script>
-function querySelectorProva() {
-  document.querySelector(".examplequerySelector").style.backgroundColor = "red";
-}
-function querySelectorAllProva() {
-  var x, i;
-  x = document.querySelectorAll(".examplequerySelector");
-  for (i = 0; i < x.length; i++) {
-    x[i].style.backgroundColor = "blue";
-  }
-}
-function createElementProva() {
-  var btn = document.createElement("Button");
-  document.body.appendChild(btn);
-}
-function insertBeforeProva() {
-  var newItem = document.createElement("LI");
-  var textnode = document.createTextNode("Aigua de la bona");
-  newItem.appendChild(textnode);
-
-  var list = document.getElementById("myListBefore");
-  list.insertBefore(newItem, list.childNodes[0]);
-}
-</script>
-<!-- Fin seccio js prova -->
 @endsection
