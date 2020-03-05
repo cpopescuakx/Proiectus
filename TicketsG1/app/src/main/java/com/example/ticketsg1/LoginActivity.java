@@ -36,15 +36,22 @@ public class LoginActivity extends AppCompatActivity {
         usrname = findViewById(R.id.usrname);
         pwd = findViewById(R.id.pwd);
 
-        usrname.setText("prova");
-        pwd.setText("alumne");
+        usrname.setText("admin");
+        pwd.setText("admin");
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 final String username = usrname.getText().toString();
                 final String password = pwd.getText().toString();
 
+                User user = new User(1, "admin");
 
+                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                intent.putExtra("user", user);
+                LoginActivity.this.startActivity(intent);
+
+
+                /**
                 Response.Listener<JSONObject> responseListener = new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
@@ -80,10 +87,12 @@ public class LoginActivity extends AppCompatActivity {
                     }
                 };
 
+                **/
+
                 String req_URL = REQUEST_URL + "?r=login" + "&u=" + username + "&p=" + password;
-                Request request = new Request(req_URL, responseListener, errorListener);
+                //Request request = new Request(req_URL, responseListener, errorListener);
                 RequestQueue queue = Volley.newRequestQueue(LoginActivity.this);
-                queue.add(request);
+                //queue.add(request);
             }
         });
     }
