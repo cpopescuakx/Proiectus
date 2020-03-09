@@ -579,7 +579,7 @@ class UserController extends Controller
         // Assignar els valors del formulari
         $employee -> firstname = $request->input('firstname');
         $employee -> lastname = $request->input('lastname');
-        $employee -> name = $request->input('username');
+        $employee -> username = $request->input('username');
         $employee -> dni = $request->input('dni');
         $employee -> email = $request->input('email');
         $employee -> birthdate = $request->input('birthdate');
@@ -617,7 +617,7 @@ class UserController extends Controller
         // Assignació de valors a les propietats
         $employee-> firstname = $request->input('firstname');
         $employee-> lastname = $request->input('lastname');
-        $employee-> name = $request->input('username');
+        $employee-> username = $request->input('username');
         $employee-> dni = $request->input('dni');
         $employee-> email = $request->input('email');
         $employee-> birthdate = $request->input('birthdate');
