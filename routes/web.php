@@ -145,7 +145,7 @@ Route::middleware(['registeredEntity'])->group(function () {
     Route::get('managerProfile/{id}/edit', 'UserController@editProfile')->name('managers.editP');
     Route::post('managerProfile/{id}/update', 'UserController@updateProfile')->name('managers.updateP');
     Route::delete('managerProfile/{id}/delete', 'UserController@destroyProfile')->name('managers.destroyP');
-    
+
     Route::get('managers', 'UserController@indexManager')->name('managers.index');
     Route::get('managers/create', 'UserController@createManager')->name('managers.create');
     Route::get('managers/{id}/edit', 'UserController@editManager')->name('managers.edit');
@@ -255,4 +255,7 @@ Route::middleware(['registeredEntity'])->group(function () {
     Auth::routes();
 
     Route::get('/home', 'HomeController@index')->name('home');
+
+    // RSS
+    Route::feeds();
 });

@@ -76,6 +76,7 @@ class ComposerStaticInit504e154d762bd8b79414c7146165124b
             'Symfony\\Component\\Debug\\' => 24,
             'Symfony\\Component\\CssSelector\\' => 30,
             'Symfony\\Component\\Console\\' => 26,
+            'Spatie\\Feed\\' => 12,
         ),
         'R' => 
         array (
@@ -276,6 +277,10 @@ class ComposerStaticInit504e154d762bd8b79414c7146165124b
         'Symfony\\Component\\Console\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/console',
+        ),
+        'Spatie\\Feed\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/spatie/laravel-feed/src',
         ),
         'Ramsey\\Uuid\\' => 
         array (
@@ -531,6 +536,7 @@ class ComposerStaticInit504e154d762bd8b79414c7146165124b
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
         'App\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
+        'App\\Providers\\TelescopeServiceProvider' => __DIR__ . '/../..' . '/app/Providers/TelescopeServiceProvider.php',
         'App\\Resource_center' => __DIR__ . '/../..' . '/app/Resource_center.php',
         'App\\Role' => __DIR__ . '/../..' . '/app/Role.php',
         'App\\School' => __DIR__ . '/../..' . '/app/School.php',
@@ -3786,6 +3792,14 @@ class ComposerStaticInit504e154d762bd8b79414c7146165124b
         'SebastianBergmann\\Type\\UnknownType' => __DIR__ . '/..' . '/sebastian/type/src/UnknownType.php',
         'SebastianBergmann\\Type\\VoidType' => __DIR__ . '/..' . '/sebastian/type/src/VoidType.php',
         'SebastianBergmann\\Version' => __DIR__ . '/..' . '/sebastian/version/src/Version.php',
+        'Spatie\\Feed\\Exceptions\\InvalidFeedItem' => __DIR__ . '/..' . '/spatie/laravel-feed/src/Exceptions/InvalidFeedItem.php',
+        'Spatie\\Feed\\Feed' => __DIR__ . '/..' . '/spatie/laravel-feed/src/Feed.php',
+        'Spatie\\Feed\\FeedItem' => __DIR__ . '/..' . '/spatie/laravel-feed/src/FeedItem.php',
+        'Spatie\\Feed\\FeedServiceProvider' => __DIR__ . '/..' . '/spatie/laravel-feed/src/FeedServiceProvider.php',
+        'Spatie\\Feed\\Feedable' => __DIR__ . '/..' . '/spatie/laravel-feed/src/Feedable.php',
+        'Spatie\\Feed\\Helpers\\Path' => __DIR__ . '/..' . '/spatie/laravel-feed/src/Helpers/Path.php',
+        'Spatie\\Feed\\Http\\FeedController' => __DIR__ . '/..' . '/spatie/laravel-feed/src/Http/FeedController.php',
+        'Spatie\\Feed\\ResolveFeedItems' => __DIR__ . '/..' . '/spatie/laravel-feed/src/ResolveFeedItems.php',
         'Symfony\\Component\\Console\\Application' => __DIR__ . '/..' . '/symfony/console/Application.php',
         'Symfony\\Component\\Console\\CommandLoader\\CommandLoaderInterface' => __DIR__ . '/..' . '/symfony/console/CommandLoader/CommandLoaderInterface.php',
         'Symfony\\Component\\Console\\CommandLoader\\ContainerCommandLoader' => __DIR__ . '/..' . '/symfony/console/CommandLoader/ContainerCommandLoader.php',
