@@ -13,9 +13,9 @@
 	   </div>
 
 	</div>
-	<footer class="row">
+	<div id="footerBO">
 			@include('includes.footer')
-	</footer>
+	</div>
 	</body>
 	@include('includes.footer-scripts')
 </html>
