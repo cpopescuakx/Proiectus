@@ -12,7 +12,7 @@
         <ul class="navbar-nav mr-auto">
           <!-- Elemento menu -->
           <li class="nav-item">
-              <a href="g2_llistar_projectes.php" class="nav-link text-ternari p-2 text-dark">Projectes<span class="sr-only">(current)</span></a>
+              <a href="{{ route('projects.dashboard') }}" class="nav-link text-ternari p-2 text-dark">Projectes<span class="sr-only">(current)</span></a>
           </li>
           <!-- Fin elemento menu -->
             <!-- Elemento menu -->
