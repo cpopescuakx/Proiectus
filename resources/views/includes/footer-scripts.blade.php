@@ -6,4 +6,5 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 <script src="{{ asset('js/header.js') }}"></script>
 <script src="{{ asset('js/indexEmployee.js') }}"></script>
-
+<script src="{{ asset('bootstrap-select-1.13.9/dist/js/bootstrap-select.js') }}"></script>
+<script src="{{ asset('bootstrap-table/dist/bootstrap-table.js') }}"></script>
