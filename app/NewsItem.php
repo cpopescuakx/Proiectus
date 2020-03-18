@@ -10,12 +10,13 @@ class NewsItem extends Model implements Feedable
     public function toFeedItem()
     {
         return FeedItem::create([
-            'id' => $this->id,
+
+            'id_article' => $this->id_article,
             'title' => $this->title,
-            'summary' => $this->summary,
-            'updated' => $this->updated_at,
-            'link' => $this->link,
-            'author' => $this->author,
+            'content' => $this->content,
+            'creation_date' => $this->creation_date,
+            'status' => $this->status,
+
         ]);
     }
     public static function getFeedItems()
