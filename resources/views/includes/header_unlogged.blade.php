@@ -37,7 +37,7 @@
 
             <!-- Elemento menu -->
             <li class="nav-item ml-3">
-                <a type="button" class="btn btn-outline-primary"  href="login.php">Inicia sessió<span class="sr-only">(current)</span></a>
+                <a type="button" class="btn btn-outline-primary"  href="login">Inicia sessió<span class="sr-only">(current)</span></a>
             </li>
             <!-- Fin elemento menu -->
 
