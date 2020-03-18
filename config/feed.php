@@ -1,30 +1,36 @@
 <?php
 
 return [
-
     'feeds' => [
-        'news' => [
+        'main' => [
             /*
              * Here you can specify which class and method will return
              * the items that should appear in the feed. For example:
-             * '\App\Model@getAllFeedItems'
+             * 'App\Model@getAllFeedItems'
+             *
+             * You can also pass an argument to that method:
+             * ['App\Model@getAllFeedItems', 'argument']
              */
-            'items' => 'App\NewsItem@getFeedItems',
+            'items' => 'app\NewsItem@getFeedItems',
 
             /*
              * The feed will be available on this url.
              */
             'url' => '/feed',
 
-            'title' => 'All newsitems on mysite.com',
+            'title' => 'My feed',
+            'description' => 'The description of the feed.',
+            'language' => 'en-US',
 
             /*
-             * Custom view for the items.
-             *
-             * Defaults to feed::feed if not present.
+             * The view that will render the feed.
              */
-            'view' => 'feed::feed',
+            'view' => 'feed::atom',
+
+            /*
+             * The type to be used in the <link> tag
+             */
+            'type' => 'application/atom+xml',
         ],
     ],
-
 ];

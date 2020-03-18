@@ -257,9 +257,5 @@ Route::middleware(['registeredEntity'])->group(function () {
     Route::get('/home', 'HomeController@index')->name('home');
 
     // RSS
-    Route::get('/app', 'NewsItem@getFeedItems');
-    Route::get('/events/{event}', 'EventsController@show')
-    ->name('events.show');
-
     Route::feeds();
 });
