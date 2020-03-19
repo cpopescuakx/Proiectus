@@ -85,10 +85,16 @@ class Resource_centerController extends Controller
         //
     }
 
-    public function resources($id_project)
-    {
-        return view('resourceCenter.upload', 'id_project');
-    }
+
+    /** Puja el/els fitxer/s seleccionats a la carpeta public/resources,
+     *  afegint al seu nom el temps actual per a evitar duplicats (i sobreescriptures).
+     *  També ho registra a la base de dades.
+     * 
+     *  @param Request $request
+     *  @param Integer $id_project
+     *  @return void
+     *  
+     */
 
     public function uploadResource(Request $request, $id_project)
     {
@@ -105,12 +111,27 @@ class Resource_centerController extends Controller
 
                 $dbFile -> f_name = $nomOriginal;
                 $dbFile -> f_ext = $ext;
-                $dbFile -> f_route = 'resources/'.$path;
+                $dbFile -> f_route = $path;
                 $dbFile -> f_weight = $size;
                 $dbFile -> id_project = $id_project;
                 $dbFile -> save();
             }
         }
         return redirect()->back();
+    }
+
+    /**
+     * Busca l'arxiu seleccionat passant la seva ruta com a paràmetre.
+     * Canvia el nom del fitxer per l'original i el descarrega.
+     * 
+     * @param $path
+     * @return \Illuminate\Http\Response
+     */
+
+    public function downloadFile($path){
+        $pathFile =  public_path("resources/".$path);
+        $original = Resource_center::where('f_route', '=', $path)->get();
+        $originalName = $original[0]->f_name;
+        return response()->download($pathFile, $originalName);
     }
 }

@@ -14,5 +14,10 @@
             <button style="color: white;" type="submit" class="btn bg-primary1 w-100">Pujar</button>
         </div>
     </form> 
+
+    @foreach ($resources as $resource) 
+        <a href={{route('resource.download', $resource->f_route)}}> {{ $resource->f_name }}</a>
+
+    @endforeach
 </div>    
 

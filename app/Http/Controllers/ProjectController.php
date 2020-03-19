@@ -11,6 +11,7 @@ use App\Proposal;
 use App\User_project;
 use App\Blog;
 use App\Post;
+use App\Resource_center;
 
 class ProjectController extends Controller
 {
@@ -132,16 +133,20 @@ class ProjectController extends Controller
 
     public function show($id_project)
     {
-      $posts = Post::all()
-      ->sortByDesc('created_at')
-      ->where('id_project', '=', $id_project)
-      ->where('status', '=', 'active');
+        $posts = Post::all()
+        ->sortByDesc('created_at')
+        ->where('id_project', '=', $id_project)
+        ->where('status', '=', 'active');
 
-      $blog = Blog::find($id_project);
+        $blog = Blog::find($id_project);
 
         $project = Project::find($id_project);
+
         $participants = User_project::select()->where('id_project', $id_project)->get();
-        return view ('projects.show', compact('project', 'participants', 'posts', 'blog', 'id_project'));
+
+        $resources = Resource_center::all()->where('id_project', '=', $id_project);
+
+        return view ('projects.show', compact('project', 'participants', 'posts', 'blog', 'resources', 'id_project'));
 
     }
 

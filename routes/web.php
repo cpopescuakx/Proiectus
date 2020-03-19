@@ -254,4 +254,5 @@ Route::middleware(['registeredEntity'])->group(function () {
 
     Route::get('recursos/{id_project}', 'Resource_centerController@resources')->name('resource.index');
     Route::post('uploadResource/{id_project}', 'Resource_centerController@uploadResource')->name('resource.upload');
+    Route::get('/resources/download/{path}', 'Resource_centerController@downloadFile')->name('resource.download');
 });
