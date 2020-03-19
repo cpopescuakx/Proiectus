@@ -8,18 +8,65 @@
       <a href="{{ route('students.create') }}"><img src={{ asset('img/add.svg') }} width="45" height="45" ></a>
     </div>
 </div>
+<!--
+<table class="table table-sm"
+       data-toggle="table"
+       data-filter-control="true"
+       data-sortable="true"
+       data-pagination="true"
+       data-search="true">
 
-<table class="table table-striped">
+    <thead>
+    <tr>
+        <th data-visible="false">ID</th>
+        <th data-sortable="true" data-filter-control="input">NOMBRE</th>
+        <th data-sortable="true">DOMICILIO</th>
+        <th data-sortable="true" data-filter-control="select">POBLACIÓN</th>
+        <th data-sortable="true" data-filter-control="select">PROVINCIA</th>
+        <th data-sortable="true" data-filter-control="select">PAÍS</th>
+        <th data-sortable="true">NIF</th>
+        <th data-sortable="true">TELÉFONO</th>
+        <th data-sortable="true">EMAIL</th>
+        <th data-sortable="true" data-visible="false">FECHA ALTA</th>
+        <th>OPCIONES</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>adw</td>
+        <td>jea5h</td>
+        <td>hrea</td>
+        <td>reh</td>
+        <td>rhe</td>
+        <td>erha</td>
+        <td>hrea</td>
+        <td>aher</td>
+        <td>arhe</td>
+        <td>haer</td>
+        <td>az</td>
+    </tr>
+    </tbody>
+</table>
+-->
+
+<table class="table table-sm"
+       data-toggle="table"
+       data-filter-control="true"
+       data-sortable="true"
+       data-pagination="true"
+       data-search="true"
+>
     <thead>
         <tr>
-            <td><strong>Nom</strong></td>
-            <td><strong>Cognom</strong></td>
-            <td><strong>Usuari</strong></td>
-            <td><strong>Email</strong></td>
-            <td><strong>DNI</strong></td>
-            <td><strong>Ciutat</strong></td>
-            <td><strong>Estat</strong></td>
-            <td colspan="2"><strong>Accions</strong></td>
+            <th></th>
+            <th data-field="nom">Nom</th>
+            <th data-field="cognom">Cognom</th>
+            <th data-field="usuari">Usuari</th>
+            <th data-field="email">Email</th>
+            <th data-field="dni">DNI</th>
+            <th data-field="ciutat">Ciutat</th>
+            <th data-field="estat">Estat</th>
+            <th data-field="accions" colspan="2">Accions</th>
         </tr>
     </thead>
 
@@ -32,6 +79,7 @@
     <tbody>
         @foreach($students as $student)
             <tr>
+                <td><input type="checkbox" id="" name="" value=""></td>
                 <td>{{$student->firstname}}</td>
                 <td>{{$student->lastname}}</td>
                 <td>{{$student->username}}</td>
