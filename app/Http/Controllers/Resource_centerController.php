@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use App\Resource_center;
+use Illuminate\Support\Facades\File;
 
 class Resource_centerController extends Controller
 {
@@ -90,15 +92,16 @@ class Resource_centerController extends Controller
 
     public function uploadResource(Request $request)
     {
-        $dbFile = new Resource_center;
+        
         $resources=array();
         if($files=$request->file('resources')){
             foreach($files as $file){
+                $dbFile = new Resource_center;
                 $path = time().$file->getClientOriginalName();
                 $file->move('resources', $path);
                 $nomOriginal = $file->getClientOriginalName();
                 $ext = $file->getClientOriginalExtension();
-                $size = 100;
+                $size = File::size(public_path('resources/'.$path));
 
                 $dbFile -> f_name = $nomOriginal;
                 $dbFile -> f_ext = $ext;
