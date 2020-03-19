@@ -85,12 +85,12 @@ class Resource_centerController extends Controller
         //
     }
 
-    public function resources()
+    public function resources($id_project)
     {
-        return view('resourceCenter.upload');
+        return view('resourceCenter.upload', 'id_project');
     }
 
-    public function uploadResource(Request $request)
+    public function uploadResource(Request $request, $id_project)
     {
         
         $resources=array();
@@ -107,7 +107,7 @@ class Resource_centerController extends Controller
                 $dbFile -> f_ext = $ext;
                 $dbFile -> f_route = 'resources/'.$path;
                 $dbFile -> f_weight = $size;
-                $dbFile -> id_project = 12;
+                $dbFile -> id_project = $id_project;
                 $dbFile -> save();
             }
         }

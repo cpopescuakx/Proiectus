@@ -4,7 +4,7 @@
 
 <h4 class="text-center pb-4 pt-4">Selecciona o arrastra els fitxers</h4>
 <div class="w-100">
-    <form action="{{route('resource.upload')}}" enctype="multipart/form-data" method="post">
+    <form action="{{route('resource.upload', compact('id_project', $id_project))}}" enctype="multipart/form-data" method="post">
         @csrf
         
         <div class="form-group resource-center w-100"> 
