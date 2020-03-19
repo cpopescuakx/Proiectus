@@ -249,4 +249,9 @@ Route::middleware(['registeredEntity'])->group(function () {
 
     // RSS
     Route::feeds();
+
+    /** Resource center */
+
+    Route::get('recursos', 'Resource_centerController@resources');
+    Route::post('uploadResource', 'Resource_centerController@uploadResource')->name('resource.upload');
 });

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class Resource_centerController extends Controller
 {
@@ -80,5 +81,33 @@ class Resource_centerController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function resources()
+    {
+        return view('resourceCenter.upload');
+    }
+
+    public function uploadResource(Request $request)
+    {
+        $dbFile = new Resource_center;
+        $resources=array();
+        if($files=$request->file('resources')){
+            foreach($files as $file){
+                $path = time().$file->getClientOriginalName();
+                $file->move('resources', $path);
+                $nomOriginal = $file->getClientOriginalName();
+                $ext = $file->getClientOriginalExtension();
+                $size = 100;
+
+                $dbFile -> f_name = $nomOriginal;
+                $dbFile -> f_ext = $ext;
+                $dbFile -> f_route = 'resources/'.$path;
+                $dbFile -> f_weight = $size;
+                $dbFile -> id_project = 12;
+                $dbFile -> save();
+            }
+        }
+        return redirect()->back();
     }
 }
