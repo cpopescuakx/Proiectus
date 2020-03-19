@@ -112,15 +112,6 @@ Route::middleware(['registeredEntity'])->group(function () {
     Route::get('Professors/{id}', 'UserController@destroyProfessor')
         ->name('professors.destroy');
 
-
-
-
-
-
-
-
-
-
     //GRUP1
     /* Tickets */
     Route::get('/ticket', 'TicketController@index')->name('tickets.index');
