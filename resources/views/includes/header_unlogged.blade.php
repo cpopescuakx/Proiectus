@@ -31,7 +31,7 @@
 
             <!-- Elemento menu -->
             <li class="nav-item">
-                <a class="nav-link text-ternari p-2 text-dark font-weight-bold" href="g1_formRegCentreEntitat.php">Registra't<span class="sr-only">(current)</span></a>
+                <a class="nav-link text-ternari p-2 text-dark font-weight-bold" href="register">Registra't<span class="sr-only">(current)</span></a>
             </li>
             <!-- Fin elemento menu -->
 
