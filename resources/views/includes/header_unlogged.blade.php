@@ -31,13 +31,13 @@
 
             <!-- Elemento menu -->
             <li class="nav-item">
-                <a class="nav-link text-ternari p-2 text-dark font-weight-bold" href="g1_formRegCentreEntitat.php">Registra't<span class="sr-only">(current)</span></a>
+                <a class="nav-link text-ternari p-2 text-dark font-weight-bold" href="register">Registra't<span class="sr-only">(current)</span></a>
             </li>
             <!-- Fin elemento menu -->
 
             <!-- Elemento menu -->
             <li class="nav-item ml-3">
-                <a type="button" class="btn btn-outline-primary"  href="login.php">Inicia sessió<span class="sr-only">(current)</span></a>
+                <a type="button" class="btn btn-outline-primary"  href="login">Inicia sessió<span class="sr-only">(current)</span></a>
             </li>
             <!-- Fin elemento menu -->
 

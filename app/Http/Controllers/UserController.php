@@ -228,6 +228,13 @@ class UserController extends Controller
         return redirect()->route('managers.index',compact('managers'));
     }
 
+    /** INDEX DELS ALUMNES
+     *
+     * Retorna la vista que conte la taula amb el llistat de tots els alumnes, així com les opcions d'aquests
+     *
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function indexStudent()
     {
         $students = User::where('id_role', 3)->get();
@@ -246,7 +253,7 @@ class UserController extends Controller
 
     public function createStudent()
     {
-        $cities = City::distinct()->select("name")->get();
+        $cities = City::all();
         return view('students.create',compact('cities'));
     }
 

@@ -6,7 +6,7 @@
             <!-- Logo -->
             <li class="nav-item">
                 <a class="navbar-brand" href="">
-                    <img src="{{ asset('img/icono_light.png') }}" width="30" height="30" class="d-inline-block align-top" alt="" href="index.php">
+                    <img src="{{ asset('img/icono_light.png') }}" width="30" height="30" class="d-inline-block align-top" alt="" href="{{ route('index.index') }}">
                     <span class="text-light text-uppercase">Proiectus</span>
                 </a>
             </li>

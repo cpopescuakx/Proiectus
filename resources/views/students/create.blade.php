@@ -23,7 +23,7 @@
                         <div class="form-group mt-4">
                             <div class="row justify-content-center">
                                 <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
-                                    <label for="nom">Nom</label>
+                                    <label for="nom">Nom*</label>
                                     <input type="text" name = "firstname" class="form-control" id="firstname" required>
                                     <div class="invalid-feedback">Camp necessari</div>
                                 </div>
@@ -33,7 +33,7 @@
                         <div class="form-group mt-4">
                             <div class="row justify-content-center">
                                 <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
-                                    <label for="cognom">Cognom</label>
+                                    <label for="cognom">Cognom*</label>
                                     <input type="text" name = "lastname" class="form-control" id="lastname" required>
                                     <div class="invalid-feedback">Camp necessari</div>
                                 </div>
@@ -43,8 +43,8 @@
                         <div class="form-group mt-4">
                             <div class="row justify-content-center">
                                 <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
-                                    <label for="usuari">Usuari</label>
-                                    <input type="text" name = "username" class="form-control" id="username" required>
+                                    <label for="usuari">Nom d'usuari*</label>
+                                    <input type="text" name = "username" class="form-control" id="username" pattern="[A-Za-z0-9_]{1,15}" required>
                                     <div class="invalid-feedback">Camp necessari</div>
                                 </div>
                             </div>
@@ -53,8 +53,8 @@
                         <div class="form-group mt-4">
                             <div class="row justify-content-center">
                                 <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
-                                    <label for="dni">DNI</label>
-                                    <input type="text" name = "dni" class="form-control" id="dni" required>
+                                    <label for="dni">DNI*</label>
+                                    <input type="text" name = "dni" class="form-control" id="dni" pattern="[0-9]{8}[A-Za-z]{1}" required>
                                     <div class="invalid-feedback">Camp necessari</div>
                                 </div>
                             </div>
@@ -63,13 +63,12 @@
                         <div class="form-group mt-4">
                             <div class="row justify-content-center">
                                 <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
-                                    <label for="dni">Ciutat</label>
-                                        <datalist id = "cities">
+                                    <label for="dni">Ciutat*</label>
+                                        <select class="selectpicker form-control" data-live-search="true" title="Tria una ciutat... (pots buscar mitjançant el codi postal)">
                                             @foreach($cities as $city)
-                                                <option value="{{$city->name}}">
+                                                <option data-tokens="{{$city->postalcode}}" value="{{$city->name}}">{{$city->name}}</option>
                                             @endforeach
-                                        </datalist>
-                                        <input type="text" name = "city" class="form-control" list="cities" required>
+                                        </select>
                                     <div class="invalid-feedback">Camp necessari</div>
                                 </div>
                             </div>
@@ -78,8 +77,8 @@
                         <div class="form-group mt-4">
                             <div class="row justify-content-center">
                                 <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
-                                    <label for="data-naixement">Data naixement</label>
-                                    <input type="text" name = "birthdate" class="form-control" id="birthdate" required>
+                                    <label for="data-naixement">Data naixement*</label>
+                                    <input type="text" name="birthdate" class="form-control" id="birthdate" required>
                                     <div class="invalid-feedback">Camp necessari</div>
                                 </div>
                             </div>
@@ -88,8 +87,8 @@
                         <div class="form-group mt-4">
                             <div class="row justify-content-center">
                                 <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
-                                    <label for="email">Email</label>
-                                    <input type="text" name = "email" class="form-control" id="email" required>
+                                    <label for="email">Email*</label>
+                                    <input type="text" name = "email" class="form-control" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
                                     <div class="invalid-feedback">Camp necessari</div>
                                 </div>
                             </div>
@@ -98,7 +97,7 @@
                         <div class="form-group mt-4">
                             <div class="row justify-content-center">
                                 <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
-                                    <label for="contrassenya">Contrassenya</label>
+                                    <label for="contrassenya">Contrassenya*</label>
                                     <input type="text" name = "password" class="form-control" id="password" required>
                                     <div class="invalid-feedback">Camp necessari</div>
                                 </div>
@@ -111,11 +110,12 @@
                                 </div>
                             </div>
                         </div>
+                        <p class="text-muted">(*) Camp necessari</p>
                     </div>
                 </div>
             </div>
         </div>
     </form>
 </div>
-
+<script src=""></script>
 @endsection
