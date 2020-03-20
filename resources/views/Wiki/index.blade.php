@@ -10,7 +10,7 @@
 </div>
 @if ($wiki != null)
 <div class="container mb-5">
-    <a href="{{$id_project}}/edit"><i style="font-size: 1rem" class="material-icons">edit</i></a>
+    <a href="{{$id_project}}/edit"><i style="font-size: 1rem" class="material-icons" alt="Icona per a editar">edit</i></a>
     <h2 class="float-left">{{$wiki->title}}</h2>
     <br><br>
     <form method="POST" action="{{$id_project}}/store" id="postCreationForm">
@@ -65,12 +65,12 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Estàs segur d'eliminar l'article?</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <button type="button" name="opcio" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-success" data-dismiss="modal">Cancela</button>
+                    <button type="button" nom="cancelar" class="btn btn-success" data-dismiss="modal">Cancela</button>
                     <a type="button" class="btn btn-danger" href="{{$id_project}}/article/{{$article->id_article}}/destroy">Elimina</a>
                 </div>
             </div>
@@ -78,8 +78,8 @@
     </div>
     <div class="card mb-3">
         <div class="card-body">
-            <a class="float-right" href="{{$id_project}}/article/{{$article->id_article}}/edit"><i style="font-size: 140%" class="material-icons">edit</i></a>
-            <a class="float-right" data-toggle="modal" data-target="#deleteConfirmationModal"><i style="font-size: 140%" class="material-icons text-primary">delete</i></a>
+            <a class="float-right" href="{{$id_project}}/article/{{$article->id_article}}/edit"><i style="font-size: 140%" class="material-icons" alt="Icona per a editar" >edit</i></a>
+            <a class="float-right" data-toggle="modal" data-target="#deleteConfirmationModal"><i style="font-size: 140%" class="material-icons text-primary" alt="Icona per a eliminar">delete</i></a>
 
             <a href="#">
                 <h5 class="card-title">{{$article->title}}</h5>

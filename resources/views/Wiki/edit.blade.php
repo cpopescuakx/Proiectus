@@ -9,7 +9,7 @@
             <div class="col-11 col-sm-11 col-md-10 col-lg-10 col-xl-10">
                 <div class="container">
                     <div class="contact-image text-center mt-3">
-                        <img class="form-img" src="{{ asset('img/icono_negro.png') }}" />
+                        <img class="form-img" src="{{ asset('img/icono_negro.png') }}" alt="" />
                     </div>
                 </div>
                 <div class="container contact-form">
