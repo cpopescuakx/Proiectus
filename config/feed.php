@@ -11,7 +11,7 @@ return [
              * You can also pass an argument to that method:
              * ['App\Model@getAllFeedItems', 'argument']
              */
-            'items' => 'app\NewsItem@getFeedItems',
+            'items' => 'app\NewsItemasd@getFeedItems',
 
             /*
              * The feed will be available on this url.

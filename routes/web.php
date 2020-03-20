@@ -45,6 +45,7 @@ Route::middleware(['registeredEntity'])->group(function () {
             return view('pendingVerification.index');
         })->name('pendingVerification.index');
     });
+
     //GRUP2
     /** Rutes per a l'apartat de gestió de projectes */
 
@@ -258,4 +259,5 @@ Route::middleware(['registeredEntity'])->group(function () {
 
     // RSS
     Route::feeds();
+
 });
