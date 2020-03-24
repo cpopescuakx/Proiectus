@@ -144,20 +144,62 @@
                     <div class="pricing-header px-3 py-5 pt-5 pb-5 mx-auto text-center">
                         <h2 class="display-4 font-weight-bold">On ens pots trobar ?</h2>
                     </div>
-                    <div class="row featurette">
+                    <div class="row featurette justify-content-center">
                         <div class="col-md-7">
 
-                            <h2 class="featurette-heading">Segur que vols saber més <span class="text-muted">...Ara t'ho direm!</span></h2>
-                            @map([
-                                  'lat' => 48.134664,
-                                  'lng' => 11.555220,
-                                  'zoom' => 6,
-                              ])
-                        </div>
+                            <h2 class="featurette-heading mb-3">Si vols vindre a veure-ns, aqui estem</h2>
 
-                        <div class="col-md-4 offset-md-1">
-                            <img class="featurette-image img-fluid mx-auto" src="img/que_es_proiectus.jpg" alt="proiectus">
-                        </div>
+                              <style>
+                              /* Always set the map height explicitly to define the size of the div
+                               * element that contains the map. */
+                              #map2 {
+                                height: 400px;
+                                width: 530px;
+                              }
+
+                            </style>
+                            <div id="map2">
+
+                          </div>
+                          </div>
+
+                          <script>
+                            var map;
+                            var proiectusCO = {lat:40.701968, lng:0.560683};
+                            var iesMontsia = {lat:40.709150, lng: 0.582557};
+                            var consellComarcal = {lat:40.714371, lng: 0.579832};
+                            var hospitalAmposta = {lat: 40.708930, lng: 0.575960};
+                            function initMap() {
+                              map = new google.maps.Map(document.getElementById('map2'), {
+                                center: proiectusCO,
+                                zoom: 17
+                              });
+                              var marker1 = new google.maps.Marker({
+                                position: iesMontsia,
+                                map: map,
+                                title: 'IES Montsià'
+                              });
+                              var marker2 = new google.maps.Marker({
+                                position: consellComarcal,
+                                map: map,
+                                title: 'Consell Comarcal'
+                              });
+                              var marker3 = new google.maps.Marker({
+                                position: hospitalAmposta,
+                                map: map,
+                                title: 'Hospital Amposta'
+                              });
+                              var marker4 = new google.maps.Marker({
+                                position: proiectusCO,
+                                map: map,
+                                title: 'Sede Proiectus'
+                              });
+                            }
+                          </script>
+
+
+
+
                     </div>
                     <hr class="featurette-divider">
             </div><!-- /.container -->

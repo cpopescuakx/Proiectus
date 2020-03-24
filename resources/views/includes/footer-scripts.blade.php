@@ -8,7 +8,5 @@
 <script src="{{ asset('js/jquery-3.4.1.min.js') }}"></script>
 <script src="{{ asset('js/header.js') }}"></script>
 <script src="{{ asset('js/indexEmployee.js') }}"></script>
-
-
-
-
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBneN0MIKQ-fLajTh_7oq-JiX_1w9ApMB8&callback=initMap"
+async defer></script>
