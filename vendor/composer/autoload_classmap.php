@@ -109,6 +109,7 @@ return array(
     'App\\User_proposals' => $baseDir . '/app/User_proposals.php',
     'App\\Vote' => $baseDir . '/app/Vote.php',
     'App\\Wiki' => $baseDir . '/app/Wiki.php',
+    'BlogsTableSeeder' => $baseDir . '/database/seeds/BlogsTableSeeder.php',
     'Carbon\\Carbon' => $vendorDir . '/nesbot/carbon/src/Carbon/Carbon.php',
     'Carbon\\CarbonImmutable' => $vendorDir . '/nesbot/carbon/src/Carbon/CarbonImmutable.php',
     'Carbon\\CarbonInterface' => $vendorDir . '/nesbot/carbon/src/Carbon/CarbonInterface.php',
