@@ -561,6 +561,7 @@ class ComposerStaticInit504e154d762bd8b79414c7146165124b
         'App\\User_proposals' => __DIR__ . '/../..' . '/app/User_proposals.php',
         'App\\Vote' => __DIR__ . '/../..' . '/app/Vote.php',
         'App\\Wiki' => __DIR__ . '/../..' . '/app/Wiki.php',
+        'BlogsTableSeeder' => __DIR__ . '/../..' . '/database/seeds/BlogsTableSeeder.php',
         'Carbon\\Carbon' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Carbon.php',
         'Carbon\\CarbonImmutable' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/CarbonImmutable.php',
         'Carbon\\CarbonInterface' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/CarbonInterface.php',
