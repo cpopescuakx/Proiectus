@@ -27,6 +27,7 @@
                 <td>
                   <form action="{{action('WikiController@destroy', $wiki->id_project)}}" method="post">
                    {{csrf_field()}}
+                   
                    <input name="_method" type="hidden" value="DELETE">
 
                    <button class="btn btn-danger btn-xs" type="submit"><span class="glyphicon glyphicon-trash"></span></button>

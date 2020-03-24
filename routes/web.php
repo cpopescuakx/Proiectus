@@ -45,6 +45,7 @@ Route::middleware(['registeredEntity'])->group(function () {
             return view('pendingVerification.index');
         })->name('pendingVerification.index');
     });
+
     //GRUP2
     /** Rutes per a l'apartat de gestió de projectes */
 
@@ -252,6 +253,8 @@ Route::middleware(['registeredEntity'])->group(function () {
 
     /** Resource center */
 
-    Route::get('recursos', 'Resource_centerController@resources');
-    Route::post('uploadResource', 'Resource_centerController@uploadResource')->name('resource.upload');
+    Route::get('recursos/{id_project}', 'Resource_centerController@resources')->name('resource.index');
+    Route::post('uploadResource/{id_project}', 'Resource_centerController@uploadResource')->name('resource.upload');
+    Route::get('resources/download/{path}', 'Resource_centerController@downloadFile')->name('resource.download');
+    Route::get('resources/delete/{path}', 'Resource_centerController@destroy')->name('resource.delete');
 });

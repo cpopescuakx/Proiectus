@@ -15,6 +15,7 @@
         <div class="tab">
             <button class="mr-1 tablinks active" onclick="tabs(event, 'info')"><i data-toggle="tooltip" title="Informació" class="boto btn fas fa-info fa-lg"></i></button>
             <button class="mr-1 tablinks" onclick="tabs(event, 'gest')"><i data-toggle="tooltip" title="Gestor documental" class="boto btn fas fa-folder-open fa-lg"></i></button>
+            <button class="mr-1 tablinks" onclick="tabs(event, 'res')"><i data-toggle="tooltip" title="Centre de recursos" class="boto btn fas fa-file fa-lg"></i></button>
             <button class="mr-1 tablinks" onclick="tabs(event, 'wiki')"><i data-toggle="tooltip" title="Wikipedia" class="boto btn fab fa-wikipedia-w fa-lg"></i></button>
             <button class="mr-1 tablinks" onclick="tabs(event, 'blog')"><i data-toggle="tooltip" title="Blog" class="boto btn fas fa-rss fa-lg"></i></button>
             <button class="mr-1 tablinks" onclick="tabs(event, 'participants')"><i data-toggle="tooltip" title="Participants" class="boto btn fas fa-users fa-lg"></i></button>
@@ -47,14 +48,21 @@
 
     <div class="row justify-content-center">
         <div id="gest" class="tabcontent mt-3">
-            <h2 class="mt-3"><strong>Gestor documental<strong></h2>
+            <h2 class="mt-3"><strong>Gestor documental</strong></h2>
 
         </div>
     </div>
 
     <div class="row justify-content-center">
+        <div id="res" class="tabcontent mt-3 w-75">
+            <h2 class="mt-3 text-center"><strong>Centre de recursos compartits</strong></h2>
+                @include('resourceCenter.upload')
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
         <div id="wiki" class="tabcontent mt-3">
-            <h2 class="mt-3"><strong>Wiki<strong></h2>
+            <h2 class="mt-3"><strong>Wiki</strong></h2>
 
         </div>
     </div>
@@ -70,7 +78,7 @@
     <div class="row justify-content-center">
         <div id="participants" class="tabcontent mt-3">
 
-            <h2 class="mt-3 mb-3"><strong>Participants<strong></h2>
+            <h2 class="mt-3 mb-3"><strong>Participants</strong></h2>
                 <div class="container">
                     @foreach ($participants as $participant)
                         @php
@@ -85,7 +93,7 @@
 
     <div class="row justify-content-center">
         <div id="xat" class="tabcontent mt-3">
-            <h2 class="mt-3"><strong>Xat<strong></h2>
+            <h2 class="mt-3"><strong>Xat</strong></h2>
 
         </div>
     </div>

@@ -1,20 +1,46 @@
-@extends('layouts.default')
 
-@section('content')
 <link rel="stylesheet" type="text/css" href="{{asset('css/components/g1/g1_styles.css')}}">
 
-<div class="container">
-    <h2 class="text-center pb-4 pt-4">Selecciona o arrastra els fitxers</h2>
-    <form action="{{route('resource.upload')}}" enctype="multipart/form-data" method="post">
+
+<h4 class="text-center pb-4 pt-4">Selecciona o arrastra els fitxers</h4>
+<div class="w-100">
+    <form action="{{route('resource.upload', compact('id_project', $id_project))}}" enctype="multipart/form-data" method="post">
         @csrf
         
         <div class="form-group resource-center w-100"> 
             <input required type="file" class="form-control" name="resources[]" multiple>
         </div>
         <div class="text-center">
-            <button style="color: white;" type="submit" class="btn bg-primary1 w-100">Pujar</button>
+            <button style="color: white;" type="submit" class="btn bg-primary1 w-100 mb-4">Pujar</button>
         </div>
-    </form>     
-</div>
+    </form> 
 
-@endsection
+    @if(count($resources) > 0) {{-- Si hi ha fitxers mostra el títol --}}
+        <h3 class="text-center mt-5 mb-3"><strong>Fitxers pujats</strong></h3>
+    @endif
+
+    <div class="container w-50 mt-4">
+        @foreach ($resources as $resource)
+            <div class="fitxer row mb-2">
+                <div class="column col-1 mt-2">
+                    <i class="far fa-file fa-3x fitxer-img"></i>
+                </div>
+                <div class="column col-8 mt-1">
+                    <div>
+                        <a class="btn-fitxer" href={{route('resource.download', $resource->f_route)}}><strong>{{ $resource->f_name }}</strong></a>
+                    </div>
+                    <div>
+                        <p class="mida">{{$resource->f_weight}}</p>
+                    </div>
+                </div>
+                <div class="column col mt-3">
+                    <a class="btn-fitxer" href={{route('resource.download', $resource->f_route)}}><i class="fas fa-arrow-circle-down fa-2x mr-2"></i></a>
+                    <a class="btn-fitxer" href="{{route('resource.delete', $resource->f_route)}}"><i class="fas fa-trash fa-2x"></i></a>
+                </div>
+            </div>
+        @endforeach
+    </div>
+</div> 
+
+<script src="{{asset('js/g1/js.js')}}"></script>
+

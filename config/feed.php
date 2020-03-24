@@ -11,16 +11,16 @@ return [
              * You can also pass an argument to that method:
              * ['App\Model@getAllFeedItems', 'argument']
              */
-            'items' => 'app\NewsItem@getFeedItems',
+            'items' => 'App\Post@getAllFeedItems',
 
             /*
              * The feed will be available on this url.
              */
             'url' => '/feed',
 
-            'title' => 'My feed',
-            'description' => 'The description of the feed.',
-            'language' => 'en-US',
+            'title' => 'El meu feed',
+            'description' => 'Descripcio arreu',
+            'language' => 'es-ES',
 
             /*
              * The view that will render the feed.

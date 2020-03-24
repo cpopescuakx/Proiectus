@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use App\Resource_center;
+use Illuminate\Support\Facades\File;
 
 class Resource_centerController extends Controller
 {
@@ -73,41 +75,68 @@ class Resource_centerController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Busca el fitxer passat com a paràmetre i l'esborra tant del servidor 
+     * com de la base de dades. Llavors torna a la pàgina principal del projecte.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param  String $path
+     * @return void
      */
-    public function destroy($id)
+
+    public function destroy($path)
     {
-        //
+        $file = Resource_center::where('f_route', '=', $path)->first();
+        File::delete(public_path('resources/'.$file -> f_route));
+        Resource_center::where('f_route', '=', $path)->delete();  // S'ha de tornar a utilitzar eloquent perque no té la columna id (té id_file)     
+        return redirect()->back();
     }
 
-    public function resources()
-    {
-        return view('resourceCenter.upload');
-    }
 
-    public function uploadResource(Request $request)
+    /** Puja el/els fitxer/s seleccionats a la carpeta public/resources,
+     *  afegint al seu nom el temps actual per a evitar duplicats (i sobreescriptures).
+     *  També ho registra a la base de dades.
+     * 
+     *  @param Request $request
+     *  @param Integer $id_project
+     *  @return void
+     *  
+     */
+
+    public function uploadResource(Request $request, $id_project)
     {
-        $dbFile = new Resource_center;
+        
         $resources=array();
         if($files=$request->file('resources')){
             foreach($files as $file){
+                $dbFile = new Resource_center;
                 $path = time().$file->getClientOriginalName();
                 $file->move('resources', $path);
                 $nomOriginal = $file->getClientOriginalName();
                 $ext = $file->getClientOriginalExtension();
-                $size = 100;
+                $size = File::size(public_path('resources/'.$path));
 
                 $dbFile -> f_name = $nomOriginal;
                 $dbFile -> f_ext = $ext;
-                $dbFile -> f_route = 'resources/'.$path;
+                $dbFile -> f_route = $path;
                 $dbFile -> f_weight = $size;
-                $dbFile -> id_project = 12;
+                $dbFile -> id_project = $id_project;
                 $dbFile -> save();
             }
         }
         return redirect()->back();
+    }
+
+    /**
+     * Busca l'arxiu seleccionat passant la seva ruta com a paràmetre.
+     * Canvia el nom del fitxer per l'original i el descarrega.
+     * 
+     * @param $path
+     * @return \Illuminate\Http\Response
+     */
+
+    public function downloadFile($path){
+        $pathFile =  public_path("resources/".$path);
+        $original = Resource_center::where('f_route', '=', $path)->get();
+        $originalName = $original[0]->f_name;
+        return response()->download($pathFile, $originalName);
     }
 }
