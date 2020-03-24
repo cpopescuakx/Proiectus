@@ -6,6 +6,7 @@ use App\City;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\CityController;
 use Illuminate\Http\Request;
+use Response;
 
 class UserController extends Controller
 {
@@ -672,7 +673,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        return response()->json(['status'=>'ok', 'data'=>User::where('id_role', 2)->get()], 200);
     }
 
     /**
