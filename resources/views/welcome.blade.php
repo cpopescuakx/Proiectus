@@ -1,6 +1,7 @@
 @extends('layouts.default_unlogged')
 
 @section('content')
+@mapstyles
 
     <main role="main">
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -145,11 +146,13 @@
                     </div>
                     <div class="row featurette">
                         <div class="col-md-7">
+
                             <h2 class="featurette-heading">Segur que vols saber més <span class="text-muted">...Ara t'ho direm!</span></h2>
-                            <p class="lead">Aquest és un text simulat per a la presentacio de Proiectus.cat en principi no ha de ser tan llarg, ha de ser prou atractiu perquè instituts i empreses vulguin apuntar-se i ser part de la comunitat Proiectus.</p>
-                            <p class="lead">Aquest és un text simulat per a la presentacio de Proiectus.cat en principi no ha de ser tan llarg, ha de ser prou atractiu perquè instituts i empreses vulguin apuntar-se i ser part de la comunitat Proiectus.</p>
-                            <p class="lead">Aquest és un text simulat per a la presentacio de Proiectus.cat en principi no ha de ser tan llarg.</p>
-                            <p class="lead">Tenim una gran tasca per fidelitzar usuaris!</p>
+                            @map([
+                                  'lat' => 48.134664,
+                                  'lng' => 11.555220,
+                                  'zoom' => 6,
+                              ])
                         </div>
 
                         <div class="col-md-4 offset-md-1">
@@ -166,5 +169,5 @@
         </div><!-- /.fin main container -->
 
 
-
+@mapscripts
 @endsection

@@ -24,6 +24,7 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
+        "node-sass": "^4.13.1",
         "vuelidate": "^0.7.5"
     }
 }

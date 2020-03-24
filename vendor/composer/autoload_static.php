@@ -124,6 +124,10 @@ class ComposerStaticInit504e154d762bd8b79414c7146165124b
         array (
             'Illuminate\\' => 11,
         ),
+        'G' => 
+        array (
+            'GoNoWare\\Maps\\' => 14,
+        ),
         'F' => 
         array (
             'Fideloper\\Proxy\\' => 16,
@@ -369,6 +373,10 @@ class ComposerStaticInit504e154d762bd8b79414c7146165124b
         'Illuminate\\' => 
         array (
             0 => __DIR__ . '/..' . '/laravel/framework/src/Illuminate',
+        ),
+        'GoNoWare\\Maps\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/gonoware/laravel-maps/src',
         ),
         'Fideloper\\Proxy\\' => 
         array (
@@ -1295,6 +1303,7 @@ class ComposerStaticInit504e154d762bd8b79414c7146165124b
         'Faker\\ValidGenerator' => __DIR__ . '/..' . '/fzaninotto/faker/src/Faker/ValidGenerator.php',
         'Fideloper\\Proxy\\TrustProxies' => __DIR__ . '/..' . '/fideloper/proxy/src/TrustProxies.php',
         'Fideloper\\Proxy\\TrustedProxyServiceProvider' => __DIR__ . '/..' . '/fideloper/proxy/src/TrustedProxyServiceProvider.php',
+        'GoNoWare\\Maps\\MapsServiceProvider' => __DIR__ . '/..' . '/gonoware/laravel-maps/src/MapsServiceProvider.php',
         'Hamcrest\\Arrays\\IsArray' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Arrays/IsArray.php',
         'Hamcrest\\Arrays\\IsArrayContaining' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Arrays/IsArrayContaining.php',
         'Hamcrest\\Arrays\\IsArrayContainingInAnyOrder' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Arrays/IsArrayContainingInAnyOrder.php',
