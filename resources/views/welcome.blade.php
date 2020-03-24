@@ -137,6 +137,27 @@
                 </div><!-- /.row -->
 
             </div><!-- /.container -->
+            <!-- On ens pots trobar -->
+            <div class="container py-4">
+                <section id="que_es_proiectus">
+                    <div class="pricing-header px-3 py-5 pt-5 pb-5 mx-auto text-center">
+                        <h2 class="display-4 font-weight-bold">On ens pots trobar ?</h2>
+                    </div>
+                    <div class="row featurette">
+                        <div class="col-md-7">
+                            <h2 class="featurette-heading">Segur que vols saber més <span class="text-muted">...Ara t'ho direm!</span></h2>
+                            <p class="lead">Aquest és un text simulat per a la presentacio de Proiectus.cat en principi no ha de ser tan llarg, ha de ser prou atractiu perquè instituts i empreses vulguin apuntar-se i ser part de la comunitat Proiectus.</p>
+                            <p class="lead">Aquest és un text simulat per a la presentacio de Proiectus.cat en principi no ha de ser tan llarg, ha de ser prou atractiu perquè instituts i empreses vulguin apuntar-se i ser part de la comunitat Proiectus.</p>
+                            <p class="lead">Aquest és un text simulat per a la presentacio de Proiectus.cat en principi no ha de ser tan llarg.</p>
+                            <p class="lead">Tenim una gran tasca per fidelitzar usuaris!</p>
+                        </div>
+
+                        <div class="col-md-4 offset-md-1">
+                            <img class="featurette-image img-fluid mx-auto" src="img/que_es_proiectus.jpg" alt="proiectus">
+                        </div>
+                    </div>
+                    <hr class="featurette-divider">
+            </div><!-- /.container -->
 
         </section>
 
