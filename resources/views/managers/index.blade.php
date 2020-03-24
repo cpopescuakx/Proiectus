@@ -5,7 +5,7 @@
 <?php error_reporting(0);?>
 <div class="col">
     <div class="row d-flex justify-content-end p-4">
-      <a href="{{ route('managers.create') }}"><img src={{ asset('img/add.svg') }} width="45" height="45" ></a>
+      <a href="{{ route('managers.create') }}"><img src={{ asset('img/add.svg') }} width="45" height="45" alt="icona per a afegir"></a>
     </div>
 </div>
 
@@ -17,7 +17,7 @@
          <th>NOM</th>
          <th>DNI</th>
          <th>LOCALITAT</th>
-        
+
          <td colspan="2"><strong>Accions</strong></td>
         </tr>
     </thead>
@@ -29,9 +29,7 @@
     @endif
 
     <tbody>
-
         @foreach($managers as $manager)
-
             <tr>
                 <td>{{ $manager->id }}</td>
                 <td>{{ $manager->username }}</td>
@@ -39,10 +37,13 @@
                 <td>{{ $manager->dni }}</td>
                 <td>{{ $city::agafarNom($manager->id_city) }}
                 <td>
-                    <a href="{{ route('managers.edit', $manager->id) }}"><img src={{ asset('img/edit.svg') }} width="20" height="20" class="mr-2"></a>
+
+                    <a href="{{ route('managers.edit', $manager->id) }}"><img src={{ asset('img/edit.svg') }} width="20" height="20" class="mr-2" alt="icona per a editar"></a>
+
                     @if($manager->status == "active")
-                        <a href="{{ route('managers.destroy', $manager->id) }}"><img src={{ asset('img/delete.svg') }} width="20" height="20"></a>
+                        <a href="{{ route('managers.destroy', $manager->id) }}"><img src={{ asset('img/delete.svg') }} width="20" height="20" alt="icona per a eliminar"></a>
                     @endif
+              
                 </td>
             </tr>
             @endforeach
