@@ -48,21 +48,21 @@
 
     <div class="row justify-content-center">
         <div id="gest" class="tabcontent mt-3">
-            <h2 class="mt-3"><strong>Gestor documental<strong></h2>
+            <h2 class="mt-3"><strong>Gestor documental</strong></h2>
 
         </div>
     </div>
 
     <div class="row justify-content-center">
         <div id="res" class="tabcontent mt-3 w-75">
-            <h2 class="mt-3 text-center"><strong>Centre de recursos compartits<strong></h2>
+            <h2 class="mt-3 text-center"><strong>Centre de recursos compartits</strong></h2>
                 @include('resourceCenter.upload')
         </div>
     </div>
 
     <div class="row justify-content-center">
         <div id="wiki" class="tabcontent mt-3">
-            <h2 class="mt-3"><strong>Wiki<strong></h2>
+            <h2 class="mt-3"><strong>Wiki</strong></h2>
 
         </div>
     </div>
@@ -78,7 +78,7 @@
     <div class="row justify-content-center">
         <div id="participants" class="tabcontent mt-3">
 
-            <h2 class="mt-3 mb-3"><strong>Participants<strong></h2>
+            <h2 class="mt-3 mb-3"><strong>Participants</strong></h2>
                 <div class="container">
                     @foreach ($participants as $participant)
                         @php
@@ -93,7 +93,7 @@
 
     <div class="row justify-content-center">
         <div id="xat" class="tabcontent mt-3">
-            <h2 class="mt-3"><strong>Xat<strong></h2>
+            <h2 class="mt-3"><strong>Xat</strong></h2>
 
         </div>
     </div>

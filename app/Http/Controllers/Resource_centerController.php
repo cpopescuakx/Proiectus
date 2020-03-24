@@ -75,14 +75,19 @@ class Resource_centerController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Busca el fitxer passat com a paràmetre i l'esborra tant del servidor 
+     * com de la base de dades. Llavors torna a la pàgina principal del projecte.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param  String $path
+     * @return void
      */
-    public function destroy($id)
+
+    public function destroy($path)
     {
-        //
+        $file = Resource_center::where('f_route', '=', $path)->first();
+        File::delete(public_path('resources/'.$file -> f_route));
+        Resource_center::where('f_route', '=', $path)->delete();  // S'ha de tornar a utilitzar eloquent perque no té la columna id (té id_file)     
+        return redirect()->back();
     }
 
 
