@@ -48,4 +48,5 @@
             @endforeach
     </tbody>
 </table>
+<a width="300px" height="500px" class="twitter-timeline" href="https://twitter.com/insmontsia?ref_src=twsrc%5Etfw">Tweets by insmontsia</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 @endsection
