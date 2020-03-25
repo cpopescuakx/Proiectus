@@ -234,7 +234,6 @@ Route::middleware(['CheckRole'])->group(function () {
 
 
     /** Rutes per a l'apartat de la gestio dels articles de la wiki */
-    // KEVIN
     Route::get('wiki/{id_project}', 'WikiController@index');
     Route::post('wiki/{id_project}/store', 'ArticleController@store');
 
@@ -243,7 +242,6 @@ Route::middleware(['CheckRole'])->group(function () {
     Route::get('wiki/{id_project}/article/{id_post}/destroy', 'ArticleController@destroy');
 
 
-    // Javier
     // Route::get('wiki/{id_project}', 'ArticleController@index');
     Route::get('wiki/{id_project}/article/create', 'ArticleController@create');
     Route::post('wiki/{id_project}/article/store', 'ArticleController@store');
