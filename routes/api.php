@@ -19,3 +19,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 //Ruta per a l'API d'empleats
 Route::resource('empleats', 'UserController');
+
+//Ruta per a l'API de posts
+Route::get('posts', 'PostController@showApi');

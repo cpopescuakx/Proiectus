@@ -215,7 +215,7 @@ Route::middleware(['registeredEntity'])->group(function () {
     /** Ruta eliminar un post*/
     Route::get('blog/{id_project}/post/{id_post}/destroy', 'PostController@destroy')
     ->name('posts.destroy');
-
+    
 
     /** Ruta per a l'update del titul de blog */
     Route::get('blog/{id_project}/edit', 'BlogController@edit')

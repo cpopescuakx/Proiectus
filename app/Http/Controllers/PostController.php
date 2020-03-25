@@ -58,6 +58,7 @@ class PostController extends Controller
     }
 
     /**
+     * 
      * Display the specified resource.
      *
      * @param  int  $id
@@ -65,9 +66,20 @@ class PostController extends Controller
      */
     public function show($id_project, $id_post)
     {
-        //dd($id_post);
         $post = Post::find($id_post);
         return view('Post.show', compact('post'));
+    }
+
+    /**
+     * API Restful dels Posts
+     * 
+     * Retorna tots els posts existents.
+     * 
+     * @return Post 
+     */
+    public function showApi()
+    {
+        return Post::All();
     }
 
     /**
@@ -92,20 +104,9 @@ class PostController extends Controller
      */
     public function update(Request $request, $id_project, $id_post)
     {
-        // $this-> validate($request, [
-        //     'title'    =>  'required',
-        //     'content' => 'required'
-        // ]);
-        // $posts = post::find($id_post);
-        // $posts->title = $request->get('title');
-        // $posts->title = $request->get('content');
-
-        // $posts->save();
-
         Post::find($id_post)->update($request->all());
 
         return redirect()->action('ProjectController@show', ['id_project' => $id_project]);
-        // return redirect()->back();
 
     }
 
@@ -121,19 +122,10 @@ class PostController extends Controller
       $post->status='inactive';
       $post-> save();
 
-
-      // $posts = new Post();
-      // $posts->title = $post->title;
-      // $posts->content = $post->content;
-      // $posts->id_project = $post->id_project;
-      // $posts->id_post = $post->id_post;
-      // $posts->id_user = $post->id_user;
-      // $posts->status = 'inactive';
-      // $posts -> save();
-
-
-      // return redirect()->action('BlogController@index', ['id_project' => $id_project]);
       return redirect()->back();
 
     }
+
+
+    
 }
