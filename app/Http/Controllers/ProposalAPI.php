@@ -42,10 +42,10 @@ class ProposalAPI extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * 
+     * @return Proposal
      */
-    public function show($id)
+    public function show()
     {
         return Proposal::all();
     }

@@ -182,8 +182,7 @@ Route::middleware(['CheckRole'])->group(function () {
     Route::get('Proposals/{id}/inactive', 'ProposalController@inactiveProposal')->name('proposals.inactive');
     Route::get('Dashboard/proposals', 'ProposalController@dashboardProposal')->name('proposals.dashboard');
     Route::get('Proposal/{id}/principal', 'ProposalController@show')->name('proposals.show');
-    /* Ruta per a la API de propostes */
-    //Route::get('Proposals/api/1', 'ProposalController@showAPI')->name('proposals.api');
+    
 
 
     /* Empleats */
