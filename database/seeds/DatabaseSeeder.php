@@ -17,5 +17,6 @@ class DatabaseSeeder extends Seeder
             'email' =>Str::random(15),
             'password' => bcrypt('password')
         ]);
+        $this->call(BlogsTableSeeder::class);
     }
 }

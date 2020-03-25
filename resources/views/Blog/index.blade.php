@@ -10,7 +10,7 @@
 @if ($blog != null)
 <div>
 <div class="container mb-5">
-    <a href="{{route('blogs.edit', $id_project)}}"><i style="font-size: 1rem" class="material-icons">edit</i></a>
+    <a href="{{route('blogs.edit', $id_project)}}"><i style="font-size: 1rem" class="material-icons" alt="Icona per a modificar">edit</i></a>
     <h2 class="float-left">{{$blog->title}}</h2>
     <br><br>
     <form method="post" action="{{route('posts.store', $id_project)}}" id="postCreationForm">
@@ -68,7 +68,7 @@
             </script>
         </div>
         <div class="form-group">
-            <button type="submit" class="btn btn-primary float-right">Crea'l!</button>
+            <button type="submit" name="create" class="btn btn-primary float-right">Crea'l!</button>
         </div>
     </form>
 </div>
@@ -84,13 +84,13 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Estàs segur d'eliminar el post?</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <button type="button" name="delete" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-success" data-dismiss="modal">Cancela</button>
-                    <a type="button" class="btn btn-danger" href="{{route('posts.destroy', [$id_project, $post->id_post])}}">Elimina</a>
+                    <button type="button" name="cancel" class="btn btn-success" data-dismiss="modal">Cancela</button>
+                    <a type="button" name="delete" class="btn btn-danger" href="{{route('posts.destroy', [$id_project, $post->id_post])}}">Elimina</a>
 
                 </div>
             </div>
@@ -106,10 +106,10 @@
 
     <div class="card mb-3">
         <div class="card-body">
-            <a class="float-right" href="{{route('posts.edit', [$id_project, $post->id_post])}}"><i style="font-size: 140%" class="material-icons">edit</i></a>
+            <a class="float-right" href="{{route('posts.edit', [$id_project, $post->id_post])}}"><i style="font-size: 140%" class="material-icons" alt="Icona per a modificar">edit</i></a>
             <!--<a class="float-right" href="{{$id_project}}/post/{{$post->id_post}}/destroy" ><i style="font-size: 1rem" class="material-icons">delete</i></a>
                     -->
-            <a class="float-right" data-toggle="modal" data-target="#deleteConfirmationModal"><i style="font-size: 140%" class="material-icons text-primary">delete</i></a>
+            <a class="float-right" data-toggle="modal" data-target="#deleteConfirmationModal"><i style="font-size: 140%" class="material-icons text-primary" alt="Icona per a eliminar">delete</i></a>
 
             <a href="{{route('posts.show', [$id_project, $post->id_post])}}">
 

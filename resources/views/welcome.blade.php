@@ -1,6 +1,7 @@
-@extends('layouts.default')
+@extends('layouts.default_unlogged')
 
 @section('content')
+@mapstyles
 
     <main role="main">
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -137,6 +138,71 @@
                 </div><!-- /.row -->
 
             </div><!-- /.container -->
+            <!-- On ens pots trobar -->
+            <div class="container py-4">
+                <section id="que_es_proiectus">
+                    <div class="pricing-header px-3 py-5 pt-5 pb-5 mx-auto text-center">
+                        <h2 class="display-4 font-weight-bold">On ens pots trobar ?</h2>
+                    </div>
+                    <div class="row featurette justify-content-center">
+                        <div class="col-md-7">
+
+                            <h2 class="featurette-heading mb-3">Si vols vindre a veure-ns, aqui estem</h2>
+
+                              <style>
+                              /* Always set the map height explicitly to define the size of the div
+                               * element that contains the map. */
+                              #map2 {
+                                height: 400px;
+                                width: 530px;
+                              }
+
+                            </style>
+                            <div id="map2">
+
+                          </div>
+                          </div>
+
+                          <script>
+                            var map;
+                            var proiectusCO = {lat:40.701968, lng:0.560683};
+                            var iesMontsia = {lat:40.709150, lng: 0.582557};
+                            var consellComarcal = {lat:40.714371, lng: 0.579832};
+                            var hospitalAmposta = {lat: 40.708930, lng: 0.575960};
+                            function initMap() {
+                              map = new google.maps.Map(document.getElementById('map2'), {
+                                center: proiectusCO,
+                                zoom: 17
+                              });
+                              var marker1 = new google.maps.Marker({
+                                position: iesMontsia,
+                                map: map,
+                                title: 'IES Montsià'
+                              });
+                              var marker2 = new google.maps.Marker({
+                                position: consellComarcal,
+                                map: map,
+                                title: 'Consell Comarcal'
+                              });
+                              var marker3 = new google.maps.Marker({
+                                position: hospitalAmposta,
+                                map: map,
+                                title: 'Hospital Amposta'
+                              });
+                              var marker4 = new google.maps.Marker({
+                                position: proiectusCO,
+                                map: map,
+                                title: 'Sede Proiectus'
+                              });
+                            }
+                          </script>
+
+
+
+
+                    </div>
+                    <hr class="featurette-divider">
+            </div><!-- /.container -->
 
         </section>
 
@@ -145,5 +211,5 @@
         </div><!-- /.fin main container -->
 
 
-
+@mapscripts
 @endsection

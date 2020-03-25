@@ -1,9 +1,12 @@
 <!-- Bootstrap core JavaScript
 ================================================= -->
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+<script src="{{ asset('bootstrap-select-1.13.9/dist/js/bootstrap-select.js') }}"></script>
+<script src="{{ asset('bootstrap-table-master/dist/bootstrap-table.js') }}"></script>
+<script src="{{ asset('js/bootstrap.js') }}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+<script src="{{ asset('js/jquery-3.4.1.min.js') }}"></script>
 <script src="{{ asset('js/header.js') }}"></script>
 <script src="{{ asset('js/indexEmployee.js') }}"></script>
-
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBneN0MIKQ-fLajTh_7oq-JiX_1w9ApMB8&callback=initMap"
+async defer></script>

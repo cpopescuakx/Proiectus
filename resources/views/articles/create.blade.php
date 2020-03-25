@@ -22,48 +22,57 @@
     </div>
     @endif
 
-    <form action="store" method="POST">
-        @csrf
-
-         <div class="row">
-
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>version:</strong>
-                    <input class="form-control" name="version" placeholder="version"></input>
+    <div class="formulari">
+        <form class="was-validated" action="update" method="POST">
+            @csrf
+            <div class="row justify-content-center">
+            <div class="col-11 col-sm-11 col-md-10 col-lg-10 col-xl-10">
+            <div class="form-group mt-4">
+                <div class="row justify-content-center">
+                     <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
+                        <label for="nom">Versió</label>
+                            <input type="text" name = "version" class="form-control" placeholder="versió" required>
+                                <div class="invalid-feedback">Camp necessari</div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group mt-4">
+                <div class="row justify-content-center">
+                     <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
+                        <label for="nom">Titol</label>
+                            <input type="text" name = "title" class="form-control" placeholder="titol" required>
+                                <div class="invalid-feedback">Camp necessari</div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group mt-4">
+                <div class="row justify-content-center">
+                     <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
+                        <label for="nom">Contingut</label>
+                            <input type="text" name = "content" class="form-control" placeholder="contingut" required>
+                                <div class="invalid-feedback">Camp necessari</div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group mt-4">
+                <div class="row justify-content-center">
+                     <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
+                        <label for="nom">Referència</label>
+                            <input type="text" name = "reference" class="form-control" placeholder="referència" required>
+                                <div class="invalid-feedback">Camp necessari</div>
+                    </div>
                 </div>
             </div>
 
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>title:</strong>
-                    <input class="form-control" name="title" placeholder="title"></input>
+            <div class="form-group">
+                <div class="row justify-content-center">
+                    <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
+                        <button type="submit" name = "sbumit" class="btn btn-primary float-right">Crear</button>
+                            <a style="margin-right: 10px" class="btn btn-primary float-right" href="{{ url('wiki', [$id_project]) }}">Enrere</a>
+                    </div>
                 </div>
-            </div>
-
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>content:</strong>
-                    <input class="form-control" name="content" placeholder="content"></input>
-                </div>
-            </div>
-
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>reference:</strong>
-                    <input class="form-control" name="reference" placeholder="reference"></input>
-                </div>
-            </div>
-
-            <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                    <button type="submit" class="btn btn-primary">Crear</button>
-            </div>
-            <div class="pull-right">
-                <a class="btn btn-primary" href="{{ url('wiki', [$id_project]) }}"> Back</a>
-                <br></br>
-            </div>
+             </div>
         </div>
-
     </form>
   </div>
 @endsection

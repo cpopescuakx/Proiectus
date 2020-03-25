@@ -45,6 +45,7 @@ Route::middleware(['registeredEntity'])->group(function () {
             return view('pendingVerification.index');
         })->name('pendingVerification.index');
     });
+
     //GRUP2
     /** Rutes per a l'apartat de gestió de projectes */
 
@@ -75,21 +76,21 @@ Route::middleware(['registeredEntity'])->group(function () {
 
     /** Rutes per a l'apartat de gestió d'alumnes */
 
-    Route::get('Students', 'UserController@indexStudent')
+    Route::get('students', 'UserController@indexStudent')
         ->name('students.index');
 
-    Route::get('Students/create', 'UserController@createStudent')->name('students.create');
+    Route::get('students/create', 'UserController@createStudent')->name('students.create');
 
-    Route::post('Students/create/success', 'UserController@storeStudent')
+    Route::post('students/create/success', 'UserController@storeStudent')
         ->name('students.store');
 
-    Route::get('Students/{id}/edit', 'UserController@editStudent')
+    Route::get('students/{id}/edit', 'UserController@editStudent')
         ->name('students.edit');
 
-    Route::post('Students/{id}/edit/success', 'UserController@updateStudent')
+    Route::post('students/{id}/edit/success', 'UserController@updateStudent')
         ->name('students.update');
 
-    Route::get('Students/{id}', 'UserController@destroyStudent')
+    Route::get('students/{id}', 'UserController@destroyStudent')
         ->name('students.destroy');
 
 
@@ -111,15 +112,6 @@ Route::middleware(['registeredEntity'])->group(function () {
 
     Route::get('Professors/{id}', 'UserController@destroyProfessor')
         ->name('professors.destroy');
-
-
-
-
-
-
-
-
-
 
     //GRUP1
     /* Tickets */
@@ -153,7 +145,7 @@ Route::middleware(['CheckRole'])->group(function () {
     Route::get('managerProfile/{id}/edit', 'UserController@editProfile')->name('managers.editP');
     Route::post('managerProfile/{id}/update', 'UserController@updateProfile')->name('managers.updateP');
     Route::delete('managerProfile/{id}/delete', 'UserController@destroyProfile')->name('managers.destroyP');
-    
+
     Route::get('managers', 'UserController@indexManager')->name('managers.index');
     Route::get('managers/create', 'UserController@createManager')->name('managers.create');
     Route::get('managers/{id}/edit', 'UserController@editManager')->name('managers.edit');
@@ -263,4 +255,14 @@ Route::middleware(['CheckRole'])->group(function () {
     Auth::routes();
 
     Route::get('/home', 'HomeController@index')->name('home');
+
+    // RSS
+    Route::feeds();
+
+    /** Resource center */
+
+    Route::get('recursos/{id_project}', 'Resource_centerController@resources')->name('resource.index');
+    Route::post('uploadResource/{id_project}', 'Resource_centerController@uploadResource')->name('resource.upload');
+    Route::get('resources/download/{path}', 'Resource_centerController@downloadFile')->name('resource.download');
+    Route::get('resources/delete/{path}', 'Resource_centerController@destroy')->name('resource.delete');
 });
