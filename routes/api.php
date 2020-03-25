@@ -18,4 +18,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 //Ruta per a l'API de propostes
-Route::resource('proposals', 'ProposalAPI');
+Route::get('proposals', 'ProposalController@showAPI');
