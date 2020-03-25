@@ -673,7 +673,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        return User::where('id_role', 2)->get()->toJson();
+        //
     }
 
     /**
