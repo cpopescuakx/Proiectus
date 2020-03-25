@@ -45,17 +45,40 @@
              <!--<td>{{ $company->id_city }}</td>-->
              <td>{{ $company->status }}</td>
              <!--<td>{{ date('Y-m-d', strtotime($company->created_at)) }}</td>-->
-             <td>
+             <!-- <td>
                 <a href="{{ route('companies.edit',$company->id_company)}}"><img src={{ asset('img/edit.svg') }} width="20" height="20" class="mr-2"></a>
-             </td>
-             <td>
+
                 <form action="{{ route('companies.destroy', $company->id_company)}}" method="post">
                   @csrf
                   @method('DELETE')
                   <button type="submit"><img  src={{ asset('img/delete.svg') }} width="20" height="20"></a></button>
                 </form>
+            </td> -->
+            <td>
+                <a href ="{{ route('companiesUser.index',$company->id_company) }}"><i class="large material-icons mr-2 large align-bottom" style="color: #116466; font-size: 29px;">person_add</i>
+                <a href="{{ route('companies.edit',$company->id_company) }}"><img src={{ asset('img/edit.svg') }} width="20" height="20" class="mr-2" alt="icona per a editar"></a>
+
+                @if($company->status == "active")
+                    <a data-toggle="modal" data-target="#deleteConfirmationModal"><img src={{ asset('img/delete.svg') }} width="20" height="20" alt="icona per a eliminar"></a>
+                @endif
             </td>
            </tr>
+               <div class="modal fade" id="deleteConfirmationModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                   <div class="modal-dialog" role="document">
+                       <div class="modal-content">
+                           <div class="modal-header">
+                               <h5 class="modal-title" id="exampleModalLabel">Estàs segur d'eliminar l'empresa?</h5>
+                               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                   <span aria-hidden="true">&times;</span>
+                               </button>
+                           </div>
+                           <div class="modal-footer">
+                               <button type="button" name="cancel" class="btn btn-success" data-dismiss="modal">Cancela</button>
+                               <a type="button" class="btn btn-danger" name="delete" href="{{ route('companies.destroy', $company->id_company) }}">Elimina</a>
+                           </div>
+                       </div>
+                   </div>
+               </div>
         @endforeach
     </tbody>
 </table>

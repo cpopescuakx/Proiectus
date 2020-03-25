@@ -13,10 +13,10 @@
     <thead>
         <tr>
         <th>ID</th>
-         <th>EMAIL</th>
-         <th>NOM</th>
-         <th>DNI</th>
-         <th>LOCALITAT</th>
+        <th>NOM</th>
+        <th>EMAIL</th>
+        <th>DNI</th>
+        <th>LOCALITAT</th>
 
          <td colspan="2"><strong>Accions</strong></td>
         </tr>
@@ -43,7 +43,7 @@
                     @if($manager->status == "active")
                         <a href="{{ route('managers.destroy', $manager->id) }}"><img src={{ asset('img/delete.svg') }} width="20" height="20" alt="icona per a eliminar"></a>
                     @endif
-              
+
                 </td>
             </tr>
             @endforeach

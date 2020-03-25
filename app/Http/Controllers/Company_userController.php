@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Company; //afegit
+use App\User; //afegit
+
 
 class Company_userController extends Controller
 {
@@ -13,7 +16,8 @@ class Company_userController extends Controller
      */
     public function index()
     {
-        //
+      return view('companiesUser.index');
+
     }
 
     /**
@@ -23,7 +27,7 @@ class Company_userController extends Controller
      */
     public function create()
     {
-        //
+        return view('companies.create');
     }
 
     /**
