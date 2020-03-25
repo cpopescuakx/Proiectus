@@ -161,9 +161,12 @@ Route::middleware(['CheckRole'])->group(function () {
     Route::get('/schools', 'SchoolController@indexSchool')->name('schools.index');
     Route::get('/schools/create', 'SchoolController@createSchool')->name('schools.create');
     Route::get('/schools/{id}/edit', 'SchoolController@editSchool')->name('schools.edit');
-    Route::delete('/schools/{id}/delete', 'SchoolController@destroySchool')->name('schools.destroy');
+    Route::get('/schools/{id}/delete', 'SchoolController@destroySchool')->name('schools.destroy');
     Route::post('/schools/create', 'SchoolController@storeSchool')->name('schools.store');
     Route::post('/schools/{id}/update', 'SchoolController@updateSchool')->name('schools.update');
+
+    Route::get('schools/{id}/addUser', 'School_usersController@index')->name('schoolsUsers.manager');
+    Route::post('schools/{id}/storeUser', 'School_usersController@store')->name('schoolsUsers.store');
 
     /* DOCUMENT MANAGER OLD */
     //Route::get('/dm','DMController@index');

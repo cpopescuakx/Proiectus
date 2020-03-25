@@ -10,13 +10,13 @@
    <thead>
       <tr>
          <th>ID</th>
-         <th>EMAIL</th>
-         <th>NOM</th>
-         <th>CODI</th>
+         <th>Email</th>
+         <th>Nom</th>
+         <th>Codi</th>
          <th>Tipus</th>
-         <th>ESTAT</th>
+         <th>Estat</th>
 
-         <td colspan="2">Accions</td>
+         <td colspan="2"><strong>Accions</strong></td>
       </tr>
    </thead>
 
@@ -36,12 +36,30 @@
          <td>{{ $school->type }}</td>
          <td>{{ $school->status }}</td>
          <td>
+            <a href="{{route('schoolsUsers.manager', $school->id_school)}}"><i style="color: #116466; height: 20px;" class="material-icons large align-bottom mr-2">person_add</i></a>
             <a href="{{ route('schools.edit',$school->id_school)}}"><img src={{ asset('img/edit.svg') }} width="20" height="20" class="mr-2"></a>
             @if($school->status == "active")
-            <a href="{{ route('schools.destroy',$school->id_school) }}"><img src={{ asset('img/delete.svg') }} width="20" height="20"></a>
+               <a data-toggle="modal" data-target="#deleteConfirmationModal"><img src={{ asset('img/delete.svg') }} width="20" height="20" alt="icona per a eliminar"></a>           
             @endif
          </td>
       </tr>
+
+      <div class="modal fade" id="deleteConfirmationModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+         <div class="modal-dialog" role="document">
+             <div class="modal-content">
+                 <div class="modal-header">
+                     <h5 class="modal-title" id="exampleModalLabel">Estàs segur d'eliminar l'empresa?</h5>
+                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                         <span aria-hidden="true">&times;</span>
+                     </button>
+                 </div>
+                 <div class="modal-footer">
+                     <button type="button" name="cancel" class="btn btn-success" data-dismiss="modal">Cancela</button>
+                     <a type="button" class="btn btn-danger" name="delete" href="{{ route('schools.destroy', $school->id_school) }}">Elimina</a>
+                 </div>
+             </div>
+         </div>
+     </div>
       @endforeach
    </tbody>
 </table>
