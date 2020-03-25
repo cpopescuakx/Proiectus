@@ -133,6 +133,14 @@ Route::middleware(['registeredEntity'])->group(function () {
     Route::post('/companies/{id}/update', 'CompanyController@updateCompany')->name('companies.update');
 
     /* Gestors */
+Route::get('/', function () {
+    return view('welcome');
+})->name('index.index');
+
+Auth::routes(['verify' => true]);
+
+Route::middleware(['CheckRole'])->group(function () {
+
     Route::get('managerProfile/{id}', 'UserController@indexProfile')->name('managers.indexP1');
     Route::get('managerProfile/{id}/edit', 'UserController@editProfile')->name('managers.editP');
     Route::post('managerProfile/{id}/update', 'UserController@updateProfile')->name('managers.updateP');
@@ -144,7 +152,7 @@ Route::middleware(['registeredEntity'])->group(function () {
     Route::get('managers/{id}/delete', 'UserController@updateManager')->name('managers.destroy');
     Route::post('managers/create', 'UserController@storeManager')->name('managers.store');
     Route::post('managers/{id}/update', 'UserController@updateManager')->name('managers.update');
-
+});
     /* Schools */
     Route::get('/schools', 'SchoolController@indexSchool')->name('schools.index');
     Route::get('/schools/create', 'SchoolController@createSchool')->name('schools.create');
