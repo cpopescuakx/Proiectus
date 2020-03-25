@@ -186,6 +186,7 @@ Route::middleware(['CheckRole'])->group(function () {
     Route::get('Proposals/{id}/inactive', 'ProposalController@inactiveProposal')->name('proposals.inactive');
     Route::get('Dashboard/proposals', 'ProposalController@dashboardProposal')->name('proposals.dashboard');
     Route::get('Proposal/{id}/principal', 'ProposalController@show')->name('proposals.show');
+    
 
 
     /* Empleats */
@@ -227,7 +228,7 @@ Route::middleware(['CheckRole'])->group(function () {
     /** Ruta eliminar un post*/
     Route::get('blog/{id_project}/post/{id_post}/destroy', 'PostController@destroy')
     ->name('posts.destroy');
-
+    
 
     /** Ruta per a l'update del titul de blog */
     Route::get('blog/{id_project}/edit', 'BlogController@edit')
@@ -237,7 +238,6 @@ Route::middleware(['CheckRole'])->group(function () {
 
 
     /** Rutes per a l'apartat de la gestio dels articles de la wiki */
-    // KEVIN
     Route::get('wiki/{id_project}', 'WikiController@index');
     Route::post('wiki/{id_project}/store', 'ArticleController@store');
 
@@ -246,7 +246,6 @@ Route::middleware(['CheckRole'])->group(function () {
     Route::get('wiki/{id_project}/article/{id_post}/destroy', 'ArticleController@destroy');
 
 
-    // Javier
     // Route::get('wiki/{id_project}', 'ArticleController@index');
     Route::get('wiki/{id_project}/article/create', 'ArticleController@create');
     Route::post('wiki/{id_project}/article/store', 'ArticleController@store');
