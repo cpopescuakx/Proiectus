@@ -17,5 +17,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-//Ruta per a l'API d'empleats
-Route::resource('empleats', 'UserController');
+//Ruta per a l'API de propostes
+Route::resource('proposals', 'ProposalAPI');

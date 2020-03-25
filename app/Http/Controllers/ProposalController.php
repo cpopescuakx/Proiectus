@@ -82,6 +82,18 @@ $this->middleware('auth');
       return view ('proposals.show', compact('proposal'));
     }
 
+     /**
+     * Display the specified resource.
+     *
+     * @return Proposal
+     * 
+     */
+    public function showAPI(){
+        
+        return Proposal::All();
+
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
