@@ -2,7 +2,7 @@
 
 @section('content')
 <div class=" formulari ">
-    <form class="was-validated" action="{{ route('companiesUsers.index', Request::route('id'))}}" method="POST" autocomplete="nofill">
+    <form class="was-validated" action="{{ route('companiesUser.store', Request::route('id'))}}" method="POST" autocomplete="nofill">
         @csrf
         <div class="row justify-content-center">
             <div class="col-11 col-sm-11 col-md-10 col-lg-10 col-xl-10">
@@ -25,7 +25,7 @@
                             <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
                                 <strong>Nom</strong>
 
-                                <select class="selectpicker form-control" data-live-search="true" title="">
+                                <select class="selectpicker form-control" data-live-search="true" name="gestor">
                                     @foreach($users as $user)
                                         <option data-tokens="{{$user->id}}" value="{{$user->id}}">{{$user->firstname. ' '. $user->lastname}}</option>
                                     @endforeach
@@ -48,5 +48,3 @@
 </form>
 </div>
 @stop
-
-@endsection

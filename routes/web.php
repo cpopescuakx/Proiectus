@@ -134,7 +134,7 @@ Route::middleware(['registeredEntity'])->group(function () {
 
     /* Gestor afegir empresa*/
     Route::get('companiesUser/{id}/index', 'Company_userController@index')->name('companiesUser.index');
-    Route::get('/companiesUser/{id}/create', 'Company_userController@create')->name('companiesUser.addUser');;
+    Route::post('/companiesUser/{id}/store', 'Company_userController@store')->name('companiesUser.store');
 
     /* Gestors */
 Route::get('/', function () {
@@ -186,7 +186,7 @@ Route::middleware(['CheckRole'])->group(function () {
     Route::get('Proposals/{id}/inactive', 'ProposalController@inactiveProposal')->name('proposals.inactive');
     Route::get('Dashboard/proposals', 'ProposalController@dashboardProposal')->name('proposals.dashboard');
     Route::get('Proposal/{id}/principal', 'ProposalController@show')->name('proposals.show');
-    
+
 
 
     /* Empleats */
@@ -228,7 +228,7 @@ Route::middleware(['CheckRole'])->group(function () {
     /** Ruta eliminar un post*/
     Route::get('blog/{id_project}/post/{id_post}/destroy', 'PostController@destroy')
     ->name('posts.destroy');
-    
+
 
     /** Ruta per a l'update del titul de blog */
     Route::get('blog/{id_project}/edit', 'BlogController@edit')

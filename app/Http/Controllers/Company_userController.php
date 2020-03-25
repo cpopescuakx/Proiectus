@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Company; //afegit
+use Redirect; //afegit
 use App\User; //afegit
+use App\Company_users;
 
 
 class Company_userController extends Controller
@@ -16,7 +18,9 @@ class Company_userController extends Controller
      */
     public function index()
     {
-      return view('companiesUser.index');
+      $users = User::all()->sortBy('firstname');
+ return view('companiesUser.index', compact('users'));
+      // return view('companiesUser.index');
 
     }
 
@@ -36,9 +40,15 @@ class Company_userController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store($idCompany, Request $request)
     {
-        //
+      $companyUser = new Company_users;
+      $companyUser -> id_user = $request->input('gestor');
+      $companyUser -> id_company = $idCompany;
+
+      $companyUser->save();
+
+      return redirect()->route('companies');
     }
 
     /**
