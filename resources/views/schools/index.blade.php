@@ -1,6 +1,8 @@
 @extends('layouts.default')
 
 @section('content')
+@mapstyles
+
 <div class="col">
    <div class="row d-flex justify-content-end p-4">
       <a href="{{ route('schools.create') }}"><img src={{ asset('img/add.svg') }} width="45" height="45"></a>
@@ -45,4 +47,50 @@
       @endforeach
    </tbody>
 </table>
+<div class="row featurette justify-content-center">
+   <div class="col-md-7">
+
+   <h2 class="featurette-heading mb-3">Localització dels centres</h2>
+
+<style>
+   /* Always set the map height explicitly to define the size of the div
+    * element that contains the map. */
+   #map2 {
+   height: 400px;
+   width: 530px;
+   }
+   </style>
+   <div id="map2">
+
+   </div>
+   </div>
+
+   <script>
+      var map;
+      var insTecnificacio = {lat:40.708262, lng:0.582430};
+      var iesMontsia = {lat:40.709150, lng: 0.582557};
+      var insBerenguer = {lat:40.709957, lng: 0.581329};
+      function initMap() {
+         map = new google.maps.Map(document.getElementById('map2'), {
+         center: iesMontsia,
+         zoom: 17
+         });
+         var marker1 = new google.maps.Marker({
+         position: iesMontsia,
+         map: map,
+         title: 'IES Montsià'
+         });
+         var marker2 = new google.maps.Marker({
+         position: insBerenguer,
+         map: map,
+         title: 'Institut Ramon Berenguer'
+         });  
+         var marker4 = new google.maps.Marker({
+         position: insTecnificacio,
+         map: map,
+         title: 'Institut de Tecnificació Amposta'
+         });
+      }
+   </script>
+@mapscripts
 @stop

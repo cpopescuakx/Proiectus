@@ -16,7 +16,7 @@
                     <div class="container">
                         <div class="carousel-caption text-left">
                             <h1>Connecta.</h1>
-                            <p>La teva empresa pot connectar amb centres educatius o visceversa <br> Proposa un desafiament, forma el teu equip i desenvolupa un projecte.</p>
+                            <p>La teva empresa pot connectar amb centres educatius o viceversa <br> Proposa un desafiament, forma el teu equip i desenvolupa un projecte.</p>
                             <p><a class="btn btn-lg btn-primary" href="g1_formRegCentreEntitat.php" role="button">Registra't</a></p>
                         </div>
                     </div>
