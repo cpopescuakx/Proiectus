@@ -22,5 +22,6 @@ Route::resource('empleats', 'UserController');
 
 //Ruta per a l'API de posts
 Route::get('posts', 'PostController@showApi');
+
 //Ruta per a l'API de propostes
 Route::resource('proposals', 'ProposalAPI');
