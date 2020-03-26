@@ -1,9 +1,19 @@
 
 <link rel="stylesheet" type="text/css" href="{{asset('css/components/g1/g1_styles.css')}}">
 
+@if(Auth::guest())
+    <div class="text-center row justify-content-md-center">
+        <div class="alert alert-danger mt-4 w-50" role="alert">
+            <i class="fas fa-exclamation-circle fa-2x mr-3"></i>
+            <h4 class="d-inline">Has d'<a href="{{ route ('login') }}">iniciar sessió</a>!</h4> 
+        </div>
+    </div>
 
+@else
+@if (Auth::user()->id_role == 2 || Auth::user()->id_role == 4 || Auth::user()->id_role == 5) 
 <h4 class="text-center pb-4 pt-4">Selecciona o arrastra els fitxers</h4>
 <div class="w-100">
+
     <form action="{{route('resource.upload', compact('id_project', $id_project))}}" enctype="multipart/form-data" method="post">
         @csrf
         
@@ -14,9 +24,12 @@
             <button style="color: white;" type="submit" class="btn bg-primary1 w-100 mb-4">Pujar</button>
         </div>
     </form> 
+@endif
 
     @if(count($resources) > 0) {{-- Si hi ha fitxers mostra el títol --}}
         <h3 class="text-center mt-5 mb-3"><strong>Fitxers pujats</strong></h3>
+    @else 
+        <h3 class="text-center mt-5 mb-3">No hi ha fitxers pujats</h3>
     @endif
 
     <div class="container w-50 mt-4">
@@ -41,6 +54,8 @@
         @endforeach
     </div>
 </div> 
+
+@endif
 
 <script src="{{asset('js/g1/js.js')}}"></script>
 
