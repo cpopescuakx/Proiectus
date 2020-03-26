@@ -109,7 +109,7 @@ class Resource_centerController extends Controller
             foreach($files as $file){
                 $dbFile = new Resource_center;
                 $path = time().$file->getClientOriginalName();
-                $file->move('resources', $path);
+                $file->move(public_path('resources'), $path);
                 $nomOriginal = $file->getClientOriginalName();
                 $ext = $file->getClientOriginalExtension();
                 $size = File::size(public_path('resources/'.$path));
