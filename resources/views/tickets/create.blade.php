@@ -4,8 +4,8 @@
 <body>
       {{-- <h1>Crear una nova incidència</h1>
 
-  <form action='{{ route('tickets.store') }}' method='POST'> 
-    
+  <form action='{{ route('tickets.store') }}' method='POST'>
+
       @csrf
           <tr><td>Tipus:</td><br>
             <td><input type="text" name="type"></td>
@@ -42,7 +42,7 @@
                   <!-- Imagen formulario -->
                   <div class="container">
                       <div class="contact-image text-center mt-3">
-                          <img class="form-img" src="img/icono_negro.png" />
+                          <img class="form-img" src="{{ asset('img/icono_negro.png') }}" />
                       </div>
                   </div>
 
@@ -99,7 +99,7 @@
                   <!-- fin input básico -->
 
                   <!-- Input básico -->
-                  <div class="form-group mt-4">
+                  <!-- <div class="form-group mt-4">
                       <div class="row justify-content-center">
                           <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
                               <label for="exampleFormControlInput1">Responsable assignat:</label>
@@ -111,7 +111,7 @@
                               </select>
                           </div>
                       </div>
-                  </div>
+                  </div> -->
                   <!-- fin input básico -->
 
                 <!-- Botó confirmar -->
