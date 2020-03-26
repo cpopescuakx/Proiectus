@@ -58,6 +58,19 @@
                 </ul>
             </div>
             <!-- Fin columna de 6 -->
+
+            <!-- Columna de 6 -->
+            <div class="col-6 col-md">
+                <!-- Titulo columna -->
+                <h5>Incidències</h5>
+
+                <!-- Elementos -->
+                <ul class="list-unstyled text-small">
+                    <li><a class="text-muted" href="{{ route('tickets.create') }}">Afegir una Incidència</a></li>
+
+                </ul>
+            </div>
+            <!-- Fin columna de 6 -->
         </div>
         <!-- Fin filas -->
     </div>

@@ -102,7 +102,8 @@ class SchoolController extends Controller
      */
     public function destroySchool($id)
     {
-        School::destroy($id);
+        $school = School::find($id);
+        $school->delete();
         return redirect()->route('schools.index')->with('Exit', 'L institut s ha borrat correctament!');
     }
 }

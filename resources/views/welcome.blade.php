@@ -141,10 +141,10 @@
             <!-- On ens pots trobar -->
             <div class="container py-4">
                 <section id="que_es_proiectus">
-                    <div class="pricing-header px-3 py-5 pt-5 pb-5 mx-auto text-center">
+                    <div class="pricing-header mx-auto text-center pr-4">
                         <h2 class="display-4 font-weight-bold">On ens pots trobar ?</h2>
                     </div>
-                    <div class="row featurette justify-content-center">
+                    <div class="row featurette justify-content-center pl-5">
                         <div class="col-md-7">
 
                             <h2 class="featurette-heading mb-3">Si vols vindre a veure-ns, aqui estem</h2>
@@ -158,22 +158,24 @@
                               }
 
                             </style>
-                            <div id="map2">
-
-                          </div>
+                            <div id="map2"></div>
                           </div>
 
                           <script>
+                            // Variable que crea lobjecte mapa
                             var map;
+                            // Variables per als marcadors al mapa
                             var proiectusCO = {lat:40.701968, lng:0.560683};
                             var iesMontsia = {lat:40.709150, lng: 0.582557};
                             var consellComarcal = {lat:40.714371, lng: 0.579832};
                             var hospitalAmposta = {lat: 40.708930, lng: 0.575960};
+                            // Funcio que crida l'objecte del mapa "google.maps.Map"
                             function initMap() {
                               map = new google.maps.Map(document.getElementById('map2'), {
                                 center: proiectusCO,
                                 zoom: 17
                               });
+                              // Diferents marcadors
                               var marker1 = new google.maps.Marker({
                                 position: iesMontsia,
                                 map: map,
@@ -201,7 +203,6 @@
 
 
                     </div>
-                    <hr class="featurette-divider">
             </div><!-- /.container -->
 
         </section>

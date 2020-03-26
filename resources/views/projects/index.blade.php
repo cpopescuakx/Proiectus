@@ -20,6 +20,9 @@
     </tr>
 </thead>
 
+@if(Session::has('success'))
+<p>La sessió està iniciada</p>
+@endif
 
 
 

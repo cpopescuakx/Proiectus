@@ -4,28 +4,21 @@ namespace App;
 
 use App\Post;
 use Illuminate\Database\Eloquent\Model;
+// Implementacions de l'interficie feedable, que retornarà una instancia "FeedItem"
 use Spatie\Feed\Feedable;
 use Spatie\Feed\FeedItem;
-
+// Implementem l'interficie al model
 class Post extends Model Implements Feedable
 {
+    // Paràmetres usables per l'array associativa
     protected $fillable = [
     'id_post', 'title', 'content', 'creation_date', 'update_at'];
-
+    // Clau primària
     protected $primaryKey = "id_post";
-
+    // Acció que fa la crida a l'interficie i crea una array associativa (ja que hem de tenir mínim aquests camps- id, title, summary...)
     public function toFeedItem()
     {
       return FeedItem::create([
-        // 'id_post' => $this->id_post,
-        // 'id_project' => $this->id_project,
-        // 'title' => $this->title,
-        // 'content' => $this->content,
-        // 'id_user' => $this->id_user,
-        // 'status' => $this->status,
-        // 'timestamps' => $this->timestamps,
-        // 'creation_date' => $this->creation_date,
-        // 'update_at' => $this->update_at,
         'id' => $this->id_post,
         'title' => $this->title,
         'summary' => $this->content,
@@ -34,6 +27,7 @@ class Post extends Model Implements Feedable
         'author' => $this->id_user,
       ]);
     }
+    // Acció que ens retorna totes les dades de Post amb Eloquent
     public static function getAllFeedItems()
     {
        return Post::all();
