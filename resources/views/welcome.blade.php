@@ -158,22 +158,24 @@
                               }
 
                             </style>
-                            <div id="map2">
-
-                          </div>
+                            <div id="map2"></div>
                           </div>
 
                           <script>
+                            // Variable que crea lobjecte mapa
                             var map;
+                            // Variables per als marcadors al mapa
                             var proiectusCO = {lat:40.701968, lng:0.560683};
                             var iesMontsia = {lat:40.709150, lng: 0.582557};
                             var consellComarcal = {lat:40.714371, lng: 0.579832};
                             var hospitalAmposta = {lat: 40.708930, lng: 0.575960};
+                            // Funcio que crida l'objecte del mapa "google.maps.Map"
                             function initMap() {
                               map = new google.maps.Map(document.getElementById('map2'), {
                                 center: proiectusCO,
                                 zoom: 17
                               });
+                              // Diferents marcadors
                               var marker1 = new google.maps.Marker({
                                 position: iesMontsia,
                                 map: map,
