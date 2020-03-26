@@ -117,9 +117,13 @@ Route::middleware(['registeredEntity'])->group(function () {
     /* Tickets */
     Route::get('/ticket', 'TicketController@index')->name('tickets.index');
     Route::get('/ticket/create', 'TicketController@create')->name('tickets.create');
+    Route::get('/tickets/create', 'TicketController@createNotManager')->name('tickets.createNotManager');
+
     Route::get('/ticket/{id}/edit', 'TicketController@edit')->name('tickets.edit');
     Route::get('/ticket/{id}/delete', 'TicketController@destroy')->name('tickets.destroy');
-    Route::post('/ticket/create', 'TicketController@store')->name('tickets.store');
+    Route::post('/ticket/store/{id_author}', 'TicketController@store')->name('tickets.store');
+    Route::post('/tickets/store/{id_author}', 'TicketController@storeNotManager')->name('tickets.storeNotManager');
+
     Route::post('/ticket/{id}/update', 'TicketController@update')->name('tickets.update');
 
     /* Companies */

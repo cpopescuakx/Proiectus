@@ -66,7 +66,7 @@
 
                 <!-- Elementos -->
                 <ul class="list-unstyled text-small">
-                    <li><a class="text-muted" href="{{ route('tickets.create') }}">Afegir una Incidència</a></li>
+                    <li><a class="text-muted" href="{{ route('tickets.createNotManager') }}">Afegir una Incidència</a></li>
 
                 </ul>
             </div>

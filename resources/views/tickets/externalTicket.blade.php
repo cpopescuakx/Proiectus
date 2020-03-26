@@ -39,7 +39,7 @@
     @else
 
     <div class="formulari">
-      <form action='{{ route('tickets.store', ['id_author'=>Auth::user()->id]) }}' method='POST' class="was-validated" autocomplete="off">
+      <form action='{{ route('tickets.storeNotManager', ['id_author'=>Auth::user()->id]) }}' method='POST' class="was-validated" autocomplete="off">
         @csrf
           <!-- inicio formulario -->
           <div class="row justify-content-center">
@@ -104,21 +104,6 @@
                           </div>
                       </div>
                   </div>
-
-                <div class="form-group mt-4">
-                    <div class="row justify-content-center">
-                        <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
-                            <label for="exampleFormControlInput1"><strong>Responsable assignat</strong></label>
-                            <select name="assigned" class="selectpicker form-control mt-2" data-live-search="true" title="Escull un usuari">
-                                @foreach($users as $user)
-                                    <option data-tokens="{{$user->id}}" value="{{$user->id}}">{{$user->firstname. ' '. $user->lastname. ' ('.$user->username.')'}}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                    </div>
-                </div>
-
-
 
                 <!-- Botó confirmar -->
                 <div class="form-group">

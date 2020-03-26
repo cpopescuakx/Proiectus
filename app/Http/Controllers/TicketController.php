@@ -5,6 +5,7 @@ use App\User;
 use App\Ticket;
 use Illuminate\Http\Request;
 
+
 class TicketController extends Controller
 {
     /**
@@ -31,13 +32,26 @@ class TicketController extends Controller
         return view('tickets.create', $data);
     }
 
+    public function createNotManager()
+    {
+        $urlPrevious = url()->previous();
+        $urlBase = url()->to('/');
+
+        // Set the previous url that we came from to redirect to after successful login but only if is internal
+        if(($urlPrevious != $urlBase . '/tickets/create') && (substr($urlPrevious, 0, strlen($urlBase)) === $urlBase)) {
+            session()->put('url.intended', $urlPrevious);
+        }
+        $data['users'] = User::all();
+        return view('tickets.externalTicket', $data);
+    }
+
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store($id_author, Request $request)
     {
          // Instanciar
          $ticket = new Ticket;
@@ -48,8 +62,7 @@ class TicketController extends Controller
          $ticket -> priority = $request->input('priority');
          //Usuari assignat
          $ticket -> id_assigned_user = $request->input('assigned');
-         //Id de l'usuari autor és 5
-         $ticket -> id_author = 5;
+         $ticket -> id_author = $id_author;
          
  
          // Guardar alumne a la BBDD
@@ -58,6 +71,26 @@ class TicketController extends Controller
          // Tornar a la llista d'alumnes
          return redirect()->route('tickets.index',compact('tickets'))
          ->with('i', (request()->input('page', 1) -1));
+    }
+
+    public function storeNotManager ($id_author, Request $request) {
+        
+         // Instanciar
+         $ticket = new Ticket;
+
+         // Assignació de valors a les propietats
+         $ticket -> topic = $request->input('topic');
+         $ticket -> type = $request->input('type');
+         $ticket -> priority = $request->input('priority');
+         //Usuari assignat
+         $ticket -> id_assigned_user = 1;
+         $ticket -> id_author = $id_author;
+         
+ 
+         // Guardar alumne a la BBDD
+        $ticket -> save();
+        return redirect()->intended('/');
+ 
     }
 
     /**

@@ -13,6 +13,7 @@
         <th>Tipus</th>
         <th>Tema</th>
         <th>Prioritat</th>
+        <th>Autor</th>
         <th>Responsable</th>
         <th>Estat</th>
         <th colspan="2">Accions</th>
@@ -28,14 +29,18 @@
 <tbody>
     @foreach($tickets as $ticket)
     <tr>
-        <td>{{ ++$i }}</td>
-
-        {{--<td>{{$ticket->id_ticket}}</td>--}}
+        <td>{{$ticket->id_ticket}}</td>
         <td>{{$ticket->type}}</td>
         <td>{{$ticket->topic}}</td>
         <td>
         <?php if($ticket->priority == "low"){echo "Baixa";} elseif($ticket->priority == "medium"){echo "Mitjana";} else {echo "Alta";}; ?>
         </td>
+        <td>
+            @foreach($users as $user)
+                <?php if($ticket->id_author == $user->id){ echo "{$user->firstname} {$user->lastname}";} ?>
+            @endforeach
+        </td>
+        
         <td>
         @foreach($users as $user)
         <?php if($ticket->id_assigned_user == $user->id){ echo "{$user->firstname} {$user->lastname}";} ?>
