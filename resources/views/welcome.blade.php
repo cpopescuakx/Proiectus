@@ -141,10 +141,10 @@
             <!-- On ens pots trobar -->
             <div class="container py-4">
                 <section id="que_es_proiectus">
-                    <div class="pricing-header px-3 py-5 pt-5 pb-5 mx-auto text-center">
+                    <div class="pricing-header mx-auto text-center pr-4">
                         <h2 class="display-4 font-weight-bold">On ens pots trobar ?</h2>
                     </div>
-                    <div class="row featurette justify-content-center">
+                    <div class="row featurette justify-content-center pl-5">
                         <div class="col-md-7">
 
                             <h2 class="featurette-heading mb-3">Si vols vindre a veure-ns, aqui estem</h2>
@@ -203,7 +203,6 @@
 
 
                     </div>
-                    <hr class="featurette-divider">
             </div><!-- /.container -->
 
         </section>
