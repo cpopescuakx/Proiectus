@@ -7,10 +7,10 @@ use App\Proposal;
 
 class ProposalController extends Controller
 {
-  public function __construct()
+  /*public function __construct()
 {
 $this->middleware('auth');
-}
+}*/
     /**
      * Display a listing of the resource.
      *
@@ -88,7 +88,7 @@ $this->middleware('auth');
      * @return Proposal
      * 
      */
-    public function showAPI(){
+    public function showApi(){
         
         return Proposal::All();
 
