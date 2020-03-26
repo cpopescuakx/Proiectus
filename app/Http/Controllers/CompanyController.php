@@ -86,13 +86,17 @@ class CompanyController extends Controller
     }
 
 
-
-
-
-
-
-
-
+    /**
+     * API Restful dels Company
+     *
+     * Retorna totes les empreses existents.
+     *
+     * @return Company
+     */
+    public function showApi()
+    {
+        return Company::All();
+    }
 
 
 
