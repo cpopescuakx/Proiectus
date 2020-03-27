@@ -62,8 +62,7 @@
 
     <div class="row justify-content-center">
         <div id="wiki" class="tabcontent mt-3">
-            <h2 class="mt-3"><strong>Wiki</strong></h2>
-
+            @include('Wiki.index')
         </div>
     </div>
 
