@@ -13,7 +13,6 @@
 <table class="table table-striped">
     <thead>
         <tr>
-        <th>ID</th>
         <th>NOM</th>
         <th>EMAIL</th>
         <th>DNI</th>
@@ -32,7 +31,6 @@
     <tbody>
         @foreach($managers as $manager)
             <tr>
-                <td>{{ $manager->id }}</td>
                 <td>{{ $manager->username }}</td>
                 <td>{{ $manager->email }}</td>
                 <td>{{ $manager->dni }}</td>
