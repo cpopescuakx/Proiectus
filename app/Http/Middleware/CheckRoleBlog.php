@@ -3,6 +3,8 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Illuminate\Support\Facades\Auth;
+
 use App\Blog;
 use App\Post;
 
@@ -17,12 +19,8 @@ class CheckRoleBlog
      */
     public function handle($request, Closure $next)
     {
-        var_dump($request->path());
-
-        /* if (Auth::check() == true && Auth::user()->id == Post::find($request->Post()->id_projecte)->id_user) {
-            return $next($request);
-        } else{
-        return redirect()->route('');
-        }; */
+        if (Auth::check() == true && Auth::user()->id == Post::find($request->route()->parameters()['id_post'])->id_user) {
+            return redirect()->route('login');
+        } 
     }
 }

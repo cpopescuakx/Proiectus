@@ -215,13 +215,12 @@ Route::middleware(['CheckRole'])->group(function () {
     /** Ruta per al INDEX d'un blog d'un projecte */
     Route::get('blog/{id_project}', ['Middleware' => 'auth','uses' => 'BlogController@index']);
 
+     /** Ruta per al SHOW d'un post */
+     Route::get('blog/{id_project}/post/{id_post}', 'PostController@show')->name('posts.show');
 
                                     /** MIDDLEWARE */
     /** Middleware per a controlar que només pugui editar o eliminar un post el seu owner */
     Route::middleware(['CheckRoleBlog'])->group(function () {
-        /** Ruta per al SHOW d'un post */
-        Route::get('blog/{id_project}/post/{id_post}', 'PostController@show')->name('posts.show');
-
         /** Ruta per al UPDATE d'un post */
         Route::get('blog/{id_project}/post/{id_post}/edit', 'PostController@edit')->name('posts.edit');
         Route::post('blog/{id_project}/post/{id_post}/update', 'PostController@update')->name('posts.update');
@@ -247,7 +246,7 @@ Route::middleware(['CheckRole'])->group(function () {
 
                                     /** MIDDLEWARE */
     /** Middleware per a controlar que només pugui editar o eliminar un article el seu owner */
-    Route::middleware(['CheckRoleBlog'])->group(function () {
+    Route::middleware(['CheckRoleWiki'])->group(function () {
         /** Ruta per a eliminar un article */
         Route::get('wiki/{id_project}/article/{id_post}/destroy', 'ArticleController@destroy');
         /** Ruta per a l'update d'un article */
