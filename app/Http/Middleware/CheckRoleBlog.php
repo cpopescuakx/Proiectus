@@ -20,7 +20,9 @@ class CheckRoleBlog
     public function handle($request, Closure $next)
     {
         if (Auth::check() == true && Auth::user()->id == Post::find($request->route()->parameters()['id_post'])->id_user) {
+            return $next($request);
+        } else {
             return redirect()->route('login');
-        } 
+        }
     }
 }
