@@ -149,10 +149,8 @@ class ProjectController extends Controller
 
         $resources = Resource_center::all()->where('id_project', '=', $id_project);
 
-        $articles = Article::all()
-        ->sortByDesc('created_at')
-        ->where('id_project', '=', $id_project)
-        ->where('status', '=', 'active');
+        $articles = Article::all()->sortByDesc('created_at')->where('id_project', '=', $id_project)->where('status', '=', 'active');
+        
         $wiki = Wiki::find($id_project);
 
         return view ('projects.show', compact('project', 'participants', 'posts', 'blog', 'resources', 'id_project', 'articles','wiki'));
