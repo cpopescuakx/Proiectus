@@ -60,11 +60,12 @@
               <iframe width="560" height="315" src="https://www.youtube.com/embed/zD7I-GbjJ_w" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
               <div class="content col-md-6">
-              <p>We have created a "progress bar" to <b>show how far a page has been scrolled</b>.</p>
-              <p>It also <b>works when you scroll back up</b>.</p>
-              <p>It is even <b>responsive</b>! Resize the browser window to see the effect.</p>
-              <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
-              <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
+              <p><b>Josep</b>: Per a realitzar la gestió de <b>blogs</b> i <b>wiki</b> d'un projecte, accedim a aquest.</p>
+              <p><b>[Pausa per accedir al projecte]</b></p>
+              <p><b>Josep</b>: Un cop dintre, com podem observar hi ha un seguit d'<b>icones</b>, les quals accedirem a l'apartat de la <b>wikipedia</b>.</p>
+              <p><b>[Pausa per accedir a l'apartat de wikipedia]</b></p>
+              <p><b>Josep</b>: En aquest com podem observar hi ha el <b>nom</b> de la wikipedia, el qual podem editar fent click a l'icona del <b>llapís</b>, i a més a més hi ha l'opció per a crear un <b>article</b>, on afegirem el <b>títol</b> i la <b>descripció</b> d'aquest. També podem <b>llistar</b> els existents, <b>eliminar</b> i <b>editar</b>.</p>
+              <p><b>[Pausa per a indicar les icones d'eliminar i editar]</b></p>
             </div>
                 <style>
                 .progress-container {
