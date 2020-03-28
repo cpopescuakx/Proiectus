@@ -16,7 +16,7 @@ class CheckRole
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next){      
+    public function handle($request, Closure $next){
             if (Auth::check() == true && Auth::user()->id_role == 5) {
             return $next($request);
             } else {
@@ -47,4 +47,3 @@ class CheckRole
                 }
         }
     } */
-}
