@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\School;
+use App\School_users;
 use App\User;
 use App\City;
 use Illuminate\Support\Facades\DB;
@@ -255,19 +257,22 @@ class UserController extends Controller
     public function createStudent()
     {
         $cities = City::all();
-        return view('students.create',compact('cities'));
+        $schools = School::all();
+
+        return view('students.create',compact('cities', 'schools'));
     }
 
     /** GUARDAR ALUMNE
      *
      *  Guarda el nou alumne a la base de dades a partir de les dades donades al formulari.
      *
-     *  @param Request $request
-     *  @return void
+     * @param Request $request
+     *
+     * @return \Illuminate\Http\RedirectResponse
      */
-
     public function storeStudent(Request $request)
     {
+        dd($request);
         // Instanciar
         $student = new User;
 
@@ -279,17 +284,23 @@ class UserController extends Controller
         $student -> email = $request->input('email');
         $student -> birthdate = $request->input('birthdate');
         $student -> password = $request->input('password');
-        $nom = $request->input('city');
-        $student -> id_city = CityController::agafarID($nom);
+        $postalcode = $request->input('city');
+        $student -> id_city = CityController::agafarID($postalcode);
         $student -> profile_pic = "Res";
         $student -> bio = "Res";
         $student -> id_role = 3;
         $student -> status = "active";
 
-        // Guardar gestors a la BBDD
+        // Guardar alumne a la BBDD
         $student -> save();
 
-        // Tornar a la llista de gestors
+        // Guardar a quin centre pertany l'alumne
+        $school_user = new School_users;
+        $school_user -> id_user = $student->id;
+        $school_user -> id_school = $request->input('school');
+        $school_user -> save();
+
+        // Tornar a la llista d'alumnes
         $student = User::where('id_role', 3)->get();
 
         return redirect()->route('students.index',compact('student'));

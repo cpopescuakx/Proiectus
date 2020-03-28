@@ -48,17 +48,10 @@
     </tbody>
 </table>
 -->
-
-<table class="table table-sm"
-       data-toggle="table"
-       data-filter-control="true"
-       data-sortable="true"
-       data-pagination="true"
-       data-search="true"
->
+<div class="table-responsive">
+<table class="table table-sm table-hover">
     <thead>
         <tr>
-            <th></th>
             <th data-field="nom">Nom</th>
             <th data-field="cognom">Cognom</th>
             <th data-field="usuari">Usuari</th>
@@ -79,7 +72,6 @@
     <tbody>
         @foreach($students as $student)
             <tr>
-                <td><input type="checkbox" id="" name="" value=""></td>
                 <td>{{$student->firstname}}</td>
                 <td>{{$student->lastname}}</td>
                 <td>{{$student->username}}</td>
@@ -97,4 +89,5 @@
         @endforeach
     </tbody>
 </table>
+</div>
 @endsection

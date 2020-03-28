@@ -77,24 +77,24 @@ Route::middleware(['registeredEntity'])->group(function () {
         ->name('projects.show');
 
     /** Rutes per a l'apartat de gestió d'alumnes */
+    Route::middleware(['isProfessor'])->group(function () {
+        Route::get('students', ['Middleware' => 'auth','uses' => 'UserController@indexStudent'])
+            ->name('students.index');
 
-    Route::get('students', 'UserController@indexStudent')
-        ->name('students.index');
+        Route::get('students/create', 'UserController@createStudent')->name('students.create');
 
-    Route::get('students/create', 'UserController@createStudent')->name('students.create');
+        Route::post('students/create/success', 'UserController@storeStudent')
+            ->name('students.store');
 
-    Route::post('students/create/success', 'UserController@storeStudent')
-        ->name('students.store');
+        Route::get('students/{id}/edit', 'UserController@editStudent')
+            ->name('students.edit');
 
-    Route::get('students/{id}/edit', 'UserController@editStudent')
-        ->name('students.edit');
+        Route::post('students/{id}/edit/success', 'UserController@updateStudent')
+            ->name('students.update');
 
-    Route::post('students/{id}/edit/success', 'UserController@updateStudent')
-        ->name('students.update');
-
-    Route::get('students/{id}', 'UserController@destroyStudent')
-        ->name('students.destroy');
-
+        Route::get('students/{id}', 'UserController@destroyStudent')
+            ->name('students.destroy');
+    });
 
     /** Rutes per a l'apartat de gestió de profes */
 
