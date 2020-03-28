@@ -15,9 +15,11 @@ use App\Project;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('index.index');
+Route::get('/', function () {return view('welcome');})->name('index.index');
+
+/** Apartat AJUDA lloc WEB  */
+
+Route::get('/help', function () {return view('help');})->name('help.index');
 
 Auth::routes(['verify' => true]);
 
