@@ -27,13 +27,5 @@ class CheckRoleBlog
             $id_project = (int)$request->route()->parameters()['id_project'];
             return redirect()->action('ProjectController@show', ['id_project'=> $id_project]);
         }
-        /*  $check = FALSE;
-        if (Auth::check() == true && Auth::user()->id == Post::find($request->route()->parameters()['id_post'])->id_user) {
-            $check = TRUE;
-            return $next($request);
-        } else {
-            $id_project = (int)$request->route()->parameters()['id_project'];
-            return redirect()->action('ProjectController@show, ['.$id_project.']');
-        } */
     }
 }
