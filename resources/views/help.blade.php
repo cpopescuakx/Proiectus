@@ -33,7 +33,6 @@
           <div class="content col-md-6">
             <p><b>Didac</b>: Per a realitzar la gestió de <b>gestors</b>, accedim a aquest.</p>
             <p><b>[Pausa per accedir als gestors]</b></p>
-          <p>It is even <b>responsive</b>! Resize the browser window to see the effect.</p>
           <p><b>Didac</b>: Un cop dintre, com podem observar hi ha un llistat dels <b>gestors</b>. Ara crearem un gestor i per a fer-ho anirem a l'icona de <b>crear</b>.</p>
           <p><b>[Pausa per accedir a l'apartat de creació]</b></p>
           <p><b>Didac</b>: Per a poder crear el gestor haurem d'emplenar tots els <b>camps</b>. Un cop realitzat clicarem <b>crear</b>.</p>
