@@ -28,7 +28,7 @@
             <h2 class="mt-3 justify-content-center"><strong>Gestió Gestors</strong></h2>
             <div class="progress-container col-md-6">
               <div class="progress-bar" id="myBar"></div>
-              <iframe width="560" height="315" src="https://www.youtube.com/embed/exQfi015i4o" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              <iframe title="gestor" width="560" height="315" src="https://www.youtube.com/embed/exQfi015i4o" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
           <div class="content col-md-6">
             <p><b>Didac</b>: Per a realitzar la gestió de <b>gestors</b>, accedim a aquest.</p>
@@ -64,7 +64,7 @@
             <h2 class="mt-3 justify-content-center"><strong>Gestió wiki i blog</strong></h2>
             <div class="progress-container col-md-6">
               <div class="progress-bar" id="myBar"></div>
-              <iframe width="560" height="315" src="https://www.youtube.com/embed/zD7I-GbjJ_w" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              <iframe title="wiki_blog" width="560" height="315" src="https://www.youtube.com/embed/zD7I-GbjJ_w" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
               <div class="content col-md-6">
               <p><b>Josep</b>: Per a realitzar la gestió de <b>blogs</b> i <b>wiki</b> d'un projecte, accedim a aquest.</p>
