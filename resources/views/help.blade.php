@@ -51,9 +51,9 @@
             </style>
             </br>
             <audio controls>
-              <source src="sounds/gestio_wiki_blog.mp3" type="audio/mpeg">
-              El teu navegador no soporta aquest audio.
-            </audio> 
+              <source src="explicacio_gestors.ogg" type="audio/ogg">
+                <source src="explicacio_gestors.mp3" type="audio/mpeg">
+            </audio>
         </div>
     </div>
 
@@ -86,9 +86,10 @@
                 </style>
               <h5> Audio descripció per a cegs </h5>
               <audio controls>
+                <source src="gestio_wiki_blog.ogg" type="audio/ogg">
                 <source src="gestio_wiki_blog.mp3" type="audio/mpeg">
                 El teu navegador no soporta aquest audio.
-              </audio> 
+              </audio>
         </div>
     </div>
 
