@@ -89,12 +89,13 @@ class CityController extends Controller
      *  Agafa l'ID de la ciutat a partir del seu nom, com que hi ha duplicats a la base de dades
      *  agafa el primer resultat que troba.
      *
-     *  @param String $name
-     *  @return void
+     * @param $postalcode
+     *
+     * @return int $id
      */
-    public static function agafarID ($name)
+    public static function agafarID ($postalcode)
     {
-        $city = City::where("name", $name)->get()->first();
+        $city = City::where("postalcode", $postalcode)->get()->first();
         $id = $city->id_city;
         return $id;
     }

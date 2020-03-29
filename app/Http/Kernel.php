@@ -63,6 +63,7 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'registeredEntity' => \App\Http\Middleware\PendingEntityRegistration::class,
         'isAdmin' => \App\Http\Middleware\isAdmin::class,
+        'isProfessor' => \App\Http\Middleware\isProfessor::class,
         'CheckRole' => \App\Http\Middleware\CheckRole::class,
         'CheckRoleBlog' => \App\Http\Middleware\CheckRoleBlog::class,
         'CheckRoleWiki' => \App\Http\Middleware\CheckRoleWiki::class

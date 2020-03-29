@@ -11,11 +11,26 @@
                             <img class="form-img" src="{{ asset('img/icono_negro.png') }}" />
                         </div>
                     </div>
+
                     <div class="container contact-form">
                         <div class="container">
                             <div class="row no-gutters justify-content-center mt-5">
                                 <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
                                     <h1>Crear Alumne</h1>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group mt-4">
+                            <div class="row justify-content-center">
+                                <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
+                                    <label for="school">Centre al qual pertany*</label>
+                                    <select data-size="10" class="selectpicker form-control" data-live-search="true" title="Tria una centre..." name="school">
+                                        @foreach($schools as $school)
+                                            <option data-tokens="{{$school->id}}" value="{{$school->id}}">{{$school->name}}</option>
+                                        @endforeach
+                                    </select>
+                                    <div class="invalid-feedback">Camp necessari</div>
                                 </div>
                             </div>
                         </div>
@@ -63,10 +78,10 @@
                         <div class="form-group mt-4">
                             <div class="row justify-content-center">
                                 <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
-                                    <label for="dni">Ciutat*</label>
-                                        <select class="selectpicker form-control" data-live-search="true" title="Tria una ciutat... (pots buscar mitjançant el codi postal)">
+                                    <label for="city">Ciutat*</label>
+                                        <select data-size="10" class="selectpicker form-control" data-live-search="true" title="Tria una ciutat... (pots buscar mitjançant el codi postal)" name="city">
                                             @foreach($cities as $city)
-                                                <option data-tokens="{{$city->postalcode}}" value="{{$city->name}}">{{$city->name}}</option>
+                                                <option data-tokens="{{$city->postalcode}}" value="{{$city->postalcode}}">{{$city->name}}</option>
                                             @endforeach
                                         </select>
                                     <div class="invalid-feedback">Camp necessari</div>
@@ -106,7 +121,7 @@
                         <div class="form-group">
                             <div class="row justify-content-center">
                                 <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
-                                    <button type="submit" name = "sbumit" class="btn btn-primary float-right">Crear</button>
+                                    <button type="submit" name = "submit" class="btn btn-primary float-right" value="true">Crear</button>
                                 </div>
                             </div>
                         </div>
@@ -114,7 +129,6 @@
                     </div>
                 </div>
             </div>
-        </div>
     </form>
 </div>
 <script src=""></script>
