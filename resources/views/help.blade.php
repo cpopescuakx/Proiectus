@@ -31,6 +31,8 @@
               <iframe width="560" height="315" src="https://www.youtube.com/embed/exQfi015i4o" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
           <div class="content col-md-6">
+          <h4>Transcipció</h4>
+
             <p><b>Didac</b>: Per a realitzar la gestió de <b>gestors</b>, accedim a aquest.</p>
             <p><b>[Pausa per accedir als gestors]</b></p>
           <p>It is even <b>responsive</b>! Resize the browser window to see the effect.</p>
@@ -67,6 +69,7 @@
               <iframe width="560" height="315" src="https://www.youtube.com/embed/zD7I-GbjJ_w" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
               <div class="content col-md-6">
+              <h4>Transcipció</h4>
               <p><b>Josep</b>: Per a realitzar la gestió de <b>blogs</b> i <b>wiki</b> d'un projecte, accedim a aquest.</p>
               <p><b>[Pausa per accedir al projecte]</b></p>
               <p><b>Josep</b>: Un cop dintre, com podem observar hi ha un seguit d'<b>icones</b>, les quals accedirem a l'apartat de la <b>wikipedia</b>.</p>
