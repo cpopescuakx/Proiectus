@@ -32,7 +32,6 @@
             </div>
           <div class="content col-md-6">
           <h4>Transcipció</h4>
-
             <p><b>Didac</b>: Per a realitzar la gestió de <b>gestors</b>, accedim a aquest.</p>
             <p><b>[Pausa per accedir als gestors]</b></p>
           <p><b>Didac</b>: Un cop dintre, com podem observar hi ha un llistat dels <b>gestors</b>. Ara crearem un gestor i per a fer-ho anirem a l'icona de <b>crear</b>.</p>
