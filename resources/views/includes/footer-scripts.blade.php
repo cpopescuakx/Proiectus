@@ -8,7 +8,7 @@
 <script src="{{ asset('js/jquery-3.4.1.min.js') }}"></script>
 <script src="{{ asset('js/header.js') }}"></script>
 <script src="{{ asset('js/indexEmployee.js') }}"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBneN0MIKQ-fLajTh_7oq-JiX_1w9ApMB8&callback=initMap&libraries=places"></script>
 <script src="{{asset('bootstrap-datepicker-1.9.0-dist/js/bootstrap-datepicker.js')}}"></script>
 <script src="{{asset('bootstrap-datepicker-1.9.0-dist/locales/bootstrap-datepicker.ca.min.js')}}"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBneN0MIKQ-fLajTh_7oq-JiX_1w9ApMB8&callback=initMap"
-async defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBneN0MIKQ-fLajTh_7oq-JiX_1w9ApMB8&callback=initMap"></script>

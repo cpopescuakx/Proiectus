@@ -11,8 +11,10 @@ use App\Post;
 class CheckRoleBlog
 {
     /**
-     * Handle an incoming request.
-     *
+     *  
+     * Aquest middleware, l'utilitzarem per a realitzar la comprovació del rol d'un usuari 
+     * a l'hora de realitzar qualsevol acció amb un post existent 
+     * 
      * @param  \Illuminate\Http\Request  $request
      * @param  \Closure  $next
      * @return mixed
@@ -22,10 +24,10 @@ class CheckRoleBlog
         $check = FALSE;
         if (Auth::check() == true && Auth::user()->id == Post::find($request->route()->parameters()['id_post'])->id_user) {
             $check = TRUE;
-            return $next($request);
+            return $next($request, ['check'=>$check]);
         } else {
             $id_project = (int)$request->route()->parameters()['id_project'];
-            return redirect()->action('ProjectController@show', ['id_project'=> $id_project]);
+            return redirect()->action('ProjectController@show', ['id_project'=> $id_project], ['check'=>$check]);
         }
     }
 }
