@@ -36,10 +36,16 @@
             <!-- Fin elemento menu -->
 
             <!-- Elemento menu -->
+            @if(Auth::guest())
             <li class="nav-item ml-3">
                 <a type="button" class="btn btn-outline-primary"  href="login">Inicia sessió<span class="sr-only">(current)</span></a>
             </li>
+            @else
+            <li class="nav-item ml-3 mt-2">
+               <a>{{ auth()->user()->username }} </a>
+            </li>
             <!-- Fin elemento menu -->
+            @endif
 
         </ul>
     </div>
