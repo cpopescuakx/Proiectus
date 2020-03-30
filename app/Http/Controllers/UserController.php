@@ -749,7 +749,7 @@ class UserController extends Controller
      *  @return User $user
      */
 
-    public function getUser ($id)
+    public static function getUser ($id)
     {
         $user = User::find($id);
         return $user;

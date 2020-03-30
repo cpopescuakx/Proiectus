@@ -24,10 +24,10 @@ class CheckRoleBlog
         $check = FALSE;
         if (Auth::check() == true && Auth::user()->id == Post::find($request->route()->parameters()['id_post'])->id_user) {
             $check = TRUE;
-            return $next($request, ['check'=>$check]);
+            return $next($request->request->add(['check'=>$check]));
         } else {
             $id_project = (int)$request->route()->parameters()['id_project'];
-            return redirect()->action('ProjectController@show', ['id_project'=> $id_project], ['check'=>$check]);
+            return redirect()->action('ProjectController@show', ['id_project'=> $id_project]);
         }
     }
 }

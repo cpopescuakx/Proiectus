@@ -22,11 +22,12 @@ class CheckRoleWiki
     public function handle($request, Closure $next)
     {
         $check = FALSE;
-        if (Auth::check() == true && Auth::user()->id == Article::find($request->route()->parameters()['id_article'])->id_user) {
+        if (Auth::check() == true && Auth::user()->id == Article::find($request->route()->parameters()['id_article'])->id_user || Auth::user()->id_role == 1) {
             $check = TRUE;
             return $next($request);
         } else {
             $id_project = (int)$request->route()->parameters()['id_project'];
             return redirect()->action('ProjectController@show', ['id_project'=> $id_project]);
-        }    }
+        }    
+    }
 }
