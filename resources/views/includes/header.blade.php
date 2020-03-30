@@ -133,6 +133,39 @@
             </li>
             <!-- Fin item sidenav -->
 
+            <li class="nav-item">
+                <a class="dropdown">
+                    <i class="material-icons text-light">group</i>
+                    <span class="text-light">Entitats</span>
+                    <i class="dropdown-ico material-icons text-light">keyboard_arrow_down</i>
+
+
+                </a>
+
+
+                <div class="sub-menu">
+                    <!-- Inicio Submenu -->
+                    <ul class="nav flex-column">
+                        <!-- Submenu -->
+                        <li class="nav-item">
+                            <a href="{{ route('schools.index') }}">
+                                <span class="text-light">Centres</span>
+                            </a>
+                        </li>
+                        <!-- Fin submenu -->
+
+                        <!-- Submenu -->
+                        <li class="nav-item">
+                            <a href="{{ route('companies.index') }}">
+                                <span class="text-light">Empreses</span>
+                            </a>
+                        </li>
+                        <!-- Fin submenu -->
+                    </ul>
+                </div>
+            </li>
+            <!-- Fin item sidenav -->
+
         </ul>
     </nav>
     <!-- Fin sidenav -->
