@@ -92,12 +92,14 @@ Route::middleware(['registeredEntity'])->group(function () {
         Route::post('students/{id}/edit/success', 'UserController@updateStudent')
             ->name('students.update');
 
-        Route::get('students/{id}', 'UserController@destroyStudent')
+        Route::get('students/{id}/delete', 'UserController@destroyStudent')
             ->name('students.destroy');
+
+        Route::get('students/{id}/enable', 'UserController@enableStudent')
+            ->name('students.enable');
     });
 
     /** Rutes per a l'apartat de gestió de profes */
-
     Route::get('Professors', 'UserController@indexProfessor')
         ->name('professors.index');
 

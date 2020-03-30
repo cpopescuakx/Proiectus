@@ -16,7 +16,7 @@
 <link href="{{ asset('summernote-master/dist/summernote-bs4.css') }}" rel="stylesheet">
 <script src="{{ asset('summernote-master/dist/summernote-bs4.min.js') }}"></script>
 
-<!-- Imports per a les llibreries bootstrap-table i bootstrap-select-->
+<!-- Imports per a les llibreries bootstrap-table, bootstrap-select i bootstrap-datepicker-->
 <link href="{{ asset('bootstrap-table-master/dist/bootstrap-table.css') }}" rel="stylesheet">
 <link href="{{ asset('bootstrap-select-1.13.9/dist/css/bootstrap-select.css') }}" rel="stylesheet">
-
+<link href="{{asset('bootstrap-datepicker-1.9.0-dist/css/bootstrap-datepicker3.css')}}" rel="stylesheet">

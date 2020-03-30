@@ -25,9 +25,14 @@
                             <div class="row justify-content-center">
                                 <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
                                     <label for="school">Centre al qual pertany*</label>
-                                    <select data-size="10" class="selectpicker form-control" data-live-search="true" title="Tria una centre..." name="school">
+                                    <select data-size="10"
+                                            class="selectpicker form-control"
+                                            data-live-search="true"
+                                            data-none-results-text="No s'han trobat coincidències"
+                                            title="Tria una centre..."
+                                            name="school">
                                         @foreach($schools as $school)
-                                            <option data-tokens="{{$school->id}}" value="{{$school->id}}">{{$school->name}}</option>
+                                            <option data-tokens="{{$school->id_school}}" value="{{$school->id_school}}">{{$school->name}}</option>
                                         @endforeach
                                     </select>
                                     <div class="invalid-feedback">Camp necessari</div>
@@ -59,7 +64,17 @@
                             <div class="row justify-content-center">
                                 <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
                                     <label for="usuari">Nom d'usuari*</label>
-                                    <input type="text" name = "username" class="form-control" id="username" pattern="[A-Za-z0-9_]{1,15}" required>
+                                    <div class="input-group mb-2">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text">@</div>
+                                        </div>
+                                        <input type="text"
+                                               name="username"
+                                               class="form-control"
+                                               id="username"
+                                               pattern="[A-Za-z0-9_]{1,15}"
+                                               required>
+                                    </div>
                                     <div class="invalid-feedback">Camp necessari</div>
                                 </div>
                             </div>
@@ -79,7 +94,12 @@
                             <div class="row justify-content-center">
                                 <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
                                     <label for="city">Ciutat*</label>
-                                        <select data-size="10" class="selectpicker form-control" data-live-search="true" title="Tria una ciutat... (pots buscar mitjançant el codi postal)" name="city">
+                                        <select data-size="10"
+                                                class="selectpicker form-control"
+                                                data-live-search="true"
+                                                data-none-results-text="No s'han trobat coincidències"
+                                                title="Tria una ciutat... (pots buscar mitjançant el codi postal)"
+                                                name="city">
                                             @foreach($cities as $city)
                                                 <option data-tokens="{{$city->postalcode}}" value="{{$city->postalcode}}">{{$city->name}}</option>
                                             @endforeach
@@ -93,7 +113,13 @@
                             <div class="row justify-content-center">
                                 <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
                                     <label for="data-naixement">Data naixement*</label>
-                                    <input type="text" name="birthdate" class="form-control" id="birthdate" required>
+                                    <input data-provide="datepicker"
+                                           type="text"
+                                           name="birthdate"
+                                           class="datepicker form-control"
+                                           pattern="[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])"
+                                           id="birthdate"
+                                           required>
                                     <div class="invalid-feedback">Camp necessari</div>
                                 </div>
                             </div>
@@ -121,6 +147,7 @@
                         <div class="form-group">
                             <div class="row justify-content-center">
                                 <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
+                                    <a role="button" class="btn btn-primary" href="{{URL::previous()}}">Enrere</a>
                                     <button type="submit" name = "submit" class="btn btn-primary float-right" value="true">Crear</button>
                                 </div>
                             </div>
