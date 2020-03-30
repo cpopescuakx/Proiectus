@@ -1,3 +1,4 @@
+@inject('user', 'App\Http\Controllers\UserController') {{-- Importa el controlador de user --}}
 @if ($blog != null)
 <div class="container mb-5">
     <a href="{{route('blogs.edit', $id_project)}}"><i style="font-size: 1rem" class="material-icons" alt="Icona per a modificar">edit</i></a>
@@ -90,7 +91,7 @@
             </div>
         </div>
         <div class="card-footer text-muted">
-            <footer class="blockquote-footer float-right"> Creat per <a href=""> <cite title="Source Title"> {{$post->id_user}}</cite></a> el {{$post->created_at}}</footer>
+            <footer class="blockquote-footer float-right"> Creat per <a href=""> <cite title="Source Title"> {{($user::getUser($post->id_user))->username}}</cite></a> el {{$post->created_at}} </footer>
         </div>
     </div>
     @endforeach
