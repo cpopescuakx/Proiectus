@@ -28,12 +28,12 @@
             <h2 class="mt-3 justify-content-center"><strong>Gestió Gestors</strong></h2>
             <div class="progress-container col-md-6">
               <div class="progress-bar" id="myBar"></div>
-              <iframe width="560" height="315" src="https://www.youtube.com/embed/exQfi015i4o" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              <iframe title="gestor" width="560" height="315" src="https://www.youtube.com/embed/exQfi015i4o" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
           <div class="content col-md-6">
+          <h4>Transcipció</h4>
             <p><b>Didac</b>: Per a realitzar la gestió de <b>gestors</b>, accedim a aquest.</p>
             <p><b>[Pausa per accedir als gestors]</b></p>
-          <p>It is even <b>responsive</b>! Resize the browser window to see the effect.</p>
           <p><b>Didac</b>: Un cop dintre, com podem observar hi ha un llistat dels <b>gestors</b>. Ara crearem un gestor i per a fer-ho anirem a l'icona de <b>crear</b>.</p>
           <p><b>[Pausa per accedir a l'apartat de creació]</b></p>
           <p><b>Didac</b>: Per a poder crear el gestor haurem d'emplenar tots els <b>camps</b>. Un cop realitzat clicarem <b>crear</b>.</p>
@@ -49,6 +49,11 @@
               width: 80%;
             }
             </style>
+            </br>
+            <audio controls>
+              <source src="explicacio_gestors.ogg" type="audio/ogg">
+                <source src="explicacio_gestors.mp3" type="audio/mpeg">
+            </audio>
         </div>
     </div>
 
@@ -59,9 +64,10 @@
             <h2 class="mt-3 justify-content-center"><strong>Gestió wiki i blog</strong></h2>
             <div class="progress-container col-md-6">
               <div class="progress-bar" id="myBar"></div>
-              <iframe width="560" height="315" src="https://www.youtube.com/embed/zD7I-GbjJ_w" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              <iframe title="wiki_blog" width="560" height="315" src="https://www.youtube.com/embed/zD7I-GbjJ_w" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
               <div class="content col-md-6">
+              <h4>Transcipció</h4>
               <p><b>Josep</b>: Per a realitzar la gestió de <b>blogs</b> i <b>wiki</b> d'un projecte, accedim a aquest.</p>
               <p><b>[Pausa per accedir al projecte]</b></p>
               <p><b>Josep</b>: Un cop dintre, com podem observar hi ha un seguit d'<b>icones</b>, les quals accedirem a l'apartat de la <b>wikipedia</b>.</p>
@@ -79,8 +85,13 @@
                   width: 80%;
                 }
                 </style>
-            </div>
-
+              <h5> Audio descripció per a cegs </h5>
+              <audio controls>
+                <source src="gestio_wiki_blog.ogg" type="audio/ogg">
+                <source src="gestio_wiki_blog.mp3" type="audio/mpeg">
+                El teu navegador no soporta aquest audio.
+              </audio>
+        </div>
     </div>
 
 
