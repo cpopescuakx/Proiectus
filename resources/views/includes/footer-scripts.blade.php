@@ -12,5 +12,3 @@
 <script src="{{asset('bootstrap-datepicker-1.9.0-dist/js/bootstrap-datepicker.js')}}"></script>
 <script src="{{asset('bootstrap-datepicker-1.9.0-dist/locales/bootstrap-datepicker.ca.min.js')}}"></script>
 <script src="{{ asset('js/g2/students.create.js') }}"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBneN0MIKQ-fLajTh_7oq-JiX_1w9ApMB8&callback=initMap"></script>
-async defer></script>
