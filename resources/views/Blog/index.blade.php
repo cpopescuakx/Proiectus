@@ -1,5 +1,4 @@
 @if ($blog != null)
-<div>
 <div class="container mb-5">
     <a href="{{route('blogs.edit', $id_project)}}"><i style="font-size: 1rem" class="material-icons" alt="Icona per a modificar">edit</i></a>
     <h2 class="float-left">{{$blog->title}}</h2>
@@ -14,48 +13,29 @@
             </div>
             <!-- Textarea de l'editor de text -->
             <div class="form-group">
-                <textarea name="content" id=summernote required></textarea>
+                <textarea name="content" id=summernote></textarea>
             </div>
 
             <!-- Script per a inicialitzar l'editor de text-->
             <script>
                 $('#summernote').summernote({
-                    placeholder: 'Contingut',
+                    placeholder: 'Contingut del article',
                     tabsize: 2,
                     height: 100,
                     minHeight: 100,
                     maxHeight: 400
                 });
 
-                /* Comprovem si el contingut del post esta buit al fer submit i
+                /* Comprovem si el contingut de l'article esta buit al fer submit i
                     evitem continuar si està buit
                 */
                 $('#postCreationForm').on('submit', function(e) {
                     // Comprovem si el contingut del post esta buit
                     if ($('#summernote').summernote('isEmpty')) {
-                        console.log('Introdueix el contingut del post!');
                         // Evitar el submit
                         e.preventDefault();
                     }
-                });
-                /** CODI PER AL MENU RIGHTCLICK */
-                /** ---------- NO FUNCIONA ----------- */
-                $('#prova').on('contextmenu', function(e) {
-                    var top = e.pageY - 40;
-                    var left = e.pageX - 60;
-                    $("#context-menu").css({
-                        display: "block",
-                        top: top,
-                        left: left
-                    }).addClass("show");
-                    return false; //blocks default Webbrowser right click menu
-                }).on("click", function() {
-                    $("#context-menu").removeClass("show").hide();
-                });
-
-                $("#context-menu a").on("click", function() {
-                    $(this).parent().removeClass("show").hide();
-                });
+                })
             </script>
         </div>
         <div class="form-group">
@@ -64,7 +44,6 @@
     </form>
 </div>
 <br>
-</div>
 <div class="container">
 
     @if($posts->count())

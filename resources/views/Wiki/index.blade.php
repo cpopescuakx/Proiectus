@@ -3,7 +3,7 @@
     <a href="{{$id_project}}/edit"><i style="font-size: 1rem" class="material-icons" alt="Icona per a editar">edit</i></a>
     <h2 class="float-left">{{$wiki->title}}</h2>
     <br><br>
-    <form method="POST" action="{{$id_project}}/store" id="postCreationForm">
+    <form method="POST" action="{{$id_project}}/store" id="articleCreationForm">
         {{csrf_field()}}
         <div class="form-group">
             <h4><label class="float-left" cfor="exampleFormControlInput1">Crea un article!</label></h4>
@@ -26,13 +26,12 @@
                 });
 
 
-                /* Comprovem si el contingut del post esta buit al fer submit i
+                /* Comprovem si el contingut de l'article esta buit al fer submit i
                     evitem continuar si està buit
                 */
-                $('#postCreationForm').on('submit', function(e) {
+                $('#articleCreationForm').on('submit', function(e) {
                     // Comprovem si el contingut del post esta buit
                     if ($('#summernote').summernote('isEmpty')) {
-                        console.log('Introdueix el contingut del article!');
                         // Evitar el submit
                         e.preventDefault();
                     }
