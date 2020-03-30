@@ -75,13 +75,14 @@
 
     <div class="card mb-3">
         <div class="card-body">
-
+            @if(!{{Request::get('check')}})
             <a class="float-right" href="{{route('posts.edit', [$id_project, $post->id_post])}}"><i style="font-size: 140%" class="material-icons" alt="Icona per a modificar">edit</i></a>
             <!--<a class="float-right" href="{{$id_project}}/post/{{$post->id_post}}/destroy" ><i style="font-size: 1rem" class="material-icons">delete</i></a>
                     -->
             <a class="float-right" data-toggle="modal" data-target="#deleteConfirmationModal"><i style="font-size: 140%" class="material-icons text-primary" alt="Icona per a eliminar">delete</i></a>
+            @endif
             <a href="{{route('posts.show', [$id_project, $post->id_post])}}">
-
+            
                 <h5 class="card-title">{{$post->title}} </h5>
             </a>
             <div class="">
