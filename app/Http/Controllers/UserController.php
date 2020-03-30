@@ -274,7 +274,7 @@ class UserController extends Controller
     {
         //dd($request);
 
-        $error = DB::transaction(function() use ($request){
+        DB::transaction(function() use ($request){
             // Instanciar
             $student = new User;
 
@@ -304,7 +304,7 @@ class UserController extends Controller
             // Guardar a quin centre pertany l'alumne
             $school_user -> save();
         }, 2);
-        
+
         // Tornar a la llista d'alumnes
         $student = User::where('id_role', 3)->get();
 
@@ -376,7 +376,6 @@ class UserController extends Controller
      *  @param int $id
      *  @return void
      */
-
     public function destroyStudent ($id) {
         $students = User::find($id);
         $students -> status = 'inactive';
@@ -386,6 +385,18 @@ class UserController extends Controller
 
         return redirect()->route('students.index',compact('students'));
     }
+
+    public function enableStudent ($id) {
+        $students = User::find($id);
+        $students -> status = 'active';
+        $students -> save();
+
+        $students = User::where('id_role', 3)->get();
+
+        return redirect()->route('students.index',compact('students'));
+    }
+
+
 
         /** Extreu els usuaris que tenen ID de rol 4 (Professor), després retorna la vista per a llistar-los. */
 
