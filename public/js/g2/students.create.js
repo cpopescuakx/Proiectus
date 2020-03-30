@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    $('.datepicker').datepicker({
+    $('#birthdate-student').datepicker({
         language: 'ca',
         maxViewMode: 2,
         format: "yyyy-mm-dd",

@@ -69,7 +69,6 @@
                                                   <option data-tokens="{{$city->postalcode}}" value="{{$city->postalcode}}">{{$city->name}}</option>
                                               @endforeach
                                           </select>
-                                        <input type="text" name = "city" class="form-control" list="cities" autocomplete="address-level2" required>
                                     <div class="invalid-feedback">Camp necessari</div>
                                 </div>
                             </div>
