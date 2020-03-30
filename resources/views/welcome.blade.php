@@ -160,7 +160,36 @@
                             </style>
                             <div id="map2"></div>
                           </div>
-
+                          <div class="col-md-4">
+                            <div class="btn-group">
+                              <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Tipus d'entitat
+                                <div class="dropdown-menu">
+                                  <div class="dropdown-item">
+                                    Empresa
+                                  </div>
+                                  <div class="dropdown-item">
+                                    Centre
+                                  </div>
+                                </div>
+                              </button>
+                              <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Small button
+                              </button>
+                              <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Small button
+                              </button>
+                              <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Small button
+                              </button>
+                              <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Small button
+                              </button>
+                              <div class="dropdown-menu">
+                                ...
+                              </div>
+                            </div>
+                          </div>
                           <script>
                             // Variable que crea lobjecte mapa
                             var map;
@@ -184,17 +213,17 @@
                               var marker2 = new google.maps.Marker({
                                 position: consellComarcal,
                                 map: map,
-                                title: 'Consell Comarcal'
+                                title: 'Consell Comarcal CO.'
                               });
                               var marker3 = new google.maps.Marker({
                                 position: hospitalAmposta,
                                 map: map,
-                                title: 'Hospital Amposta'
+                                title: 'Hospital Amposta CO.'
                               });
                               var marker4 = new google.maps.Marker({
                                 position: proiectusCO,
                                 map: map,
-                                title: 'Sede Proiectus'
+                                title: 'Sede Proiectus CO.'
                               });
                             }
                           </script>
