@@ -24,9 +24,9 @@ class CheckRoleWiki
         $check = FALSE;
         if (Auth::check() == true && Auth::user()->id == Article::find($request->route()->parameters()['id_article'])->id_user) {
             $check = TRUE;
-            return $next($request, ['check'=>$check]);
+            return $next($request);
         } else {
             $id_project = (int)$request->route()->parameters()['id_project'];
-            return redirect()->action('ProjectController@show', ['id_project'=> $id_project], ['check'=>$check]);
+            return redirect()->action('ProjectController@show', ['id_project'=> $id_project]);
         }    }
 }
