@@ -173,21 +173,7 @@
                                   </div>
                                 </div>
                               </button>
-                              <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Small button
-                              </button>
-                              <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Small button
-                              </button>
-                              <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Small button
-                              </button>
-                              <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Small button
-                              </button>
-                              <div class="dropdown-menu">
-                                ...
-                              </div>
+                              
                             </div>
                           </div>
                           <script>
@@ -208,7 +194,7 @@
                               var marker1 = new google.maps.Marker({
                                 position: iesMontsia,
                                 map: map,
-                                title: 'IES Montsià'
+                                title: 'IES Montsià SC.'
                               });
                               var marker2 = new google.maps.Marker({
                                 position: consellComarcal,
