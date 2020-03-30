@@ -64,12 +64,21 @@
                             <div class="row justify-content-center">
                                 <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
                                     <label for="dni">Ciutat</label>
-                                        <datalist id = "cities">
-                                            @foreach($cities as $city)
-                                                <option value="{{$city->name}}">
-                                            @endforeach
-                                        </datalist>
-                                        <input type="text" name = "city" class="form-control" value = "{{ $nomCiutat }}" list="cities" required>
+                                    <select data-size="10"
+                                            class="selectpicker form-control"
+                                            data-live-search="true"
+                                            data-none-results-text="No s'han trobat coincidències"
+                                            title="Tria una ciutat... (pots buscar mitjançant el codi postal)"
+                                            name="city">
+                                        @foreach($cities as $city)
+                                            <option data-tokens="{{$city->postalcode}}"
+                                                    value="{{$city->postalcode}}"
+                                            @if($city->id_city == $student->id_city)
+                                                selected
+                                            @endif
+                                            >{{$city->name}}</option>
+                                        @endforeach
+                                    </select>
                                     <div class="invalid-feedback">Camp necessari</div>
                                 </div>
                             </div>
@@ -79,7 +88,13 @@
                             <div class="row justify-content-center">
                                 <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
                                     <label for="data-naixement">Data naixement</label>
-                                    <input type="text" name = "birthdate" class="form-control" value = "{{$student->birthdate }}" id="birthdate" required>
+                                    <input type="text"
+                                           name="birthdate"
+                                           class="datepicker form-control"
+                                           pattern="[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])"
+                                           id="birthdate-student"
+                                           value="{{$student->birthdate }}"
+                                           required>
                                     <div class="invalid-feedback">Camp necessari</div>
                                 </div>
                             </div>
@@ -114,7 +129,7 @@
                                         @if($student->status == "active")
                                             <option selected value="active">Actiu</option>
                                             <option value="inactive">Innactiu</option>
-                                        @else
+                                        @elseif($student->status == "inactive")
                                             <option value="active">Actiu</option>
                                             <option selected value="inactive">Innactiu</option>
                                         @endif
@@ -127,15 +142,15 @@
                         <div class="form-group">
                             <div class="row justify-content-center">
                                 <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
-                                    <button type="submit" name = "sbumit" class="btn btn-primary float-right">Modificar</button>
+                                    <a role="button" class="btn btn-primary" href="{{URL::previous()}}">Enrere</a>
+                                    <button type="submit" name="submit" class="btn btn-primary float-right">Modificar</button>
                                 </div>
                             </div>
                         </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </form>
+        </form>
 </div>
-
+<script src="{{ asset('js/g2/students.create.js') }}"></script>
 @endsection

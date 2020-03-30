@@ -84,18 +84,27 @@ class CityController extends Controller
         //
     }
 
+    /**
+     * Aquest mètode retorna la id de la ciutat, codipostal de la qual li entrem
+     *
+     * @param $postalcode
+     * @return mixed
+     */
+    public static function getIdFromPostalCode($postalcode) {
+        return (City::where("postalcode", $postalcode)->get()->first()) -> id_city;
+    }
+
     /** AGAFAR ID
      *
      *  Agafa l'ID de la ciutat a partir del seu nom, com que hi ha duplicats a la base de dades
      *  agafa el primer resultat que troba.
      *
-     * @param $postalcode
-     *
-     * @return int $id
+     *  @param String $name
+     *  @return int $id
      */
-    public static function agafarID ($postalcode)
+    public static function agafarID ($name)
     {
-        $city = City::where("postalcode", $postalcode)->get()->first();
+        $city = City::where("name", $name)->get()->first();
         $id = $city->id_city;
         return $id;
     }

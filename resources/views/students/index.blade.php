@@ -58,6 +58,7 @@
             <th data-field="email">Email</th>
             <th data-field="dni">DNI</th>
             <th data-field="ciutat">Ciutat</th>
+            <th data-field="ciutat">Centre</th>
             <th data-field="estat">Estat</th>
             <th data-field="accions" colspan="2">Accions</th>
         </tr>
@@ -77,7 +78,8 @@
                 <td>{{$student->username}}</td>
                 <td>{{$student->email}}</td>
                 <td>{{$student->dni}}</td>
-                <td>{{$city::agafarNom($student->id_city)}}
+                <td>{{$city::agafarNom($student->id_city)}}</td>
+                <td>{{$student->id}}</td>
                  @if($student->status == "active")
                     <td><span class="badge badge-success">ACTIU</span></td>
                 @elseif($student->status == "inactive")
