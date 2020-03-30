@@ -272,34 +272,39 @@ class UserController extends Controller
      */
     public function storeStudent(Request $request)
     {
-        dd($request);
-        // Instanciar
-        $student = new User;
+        //dd($request);
 
-        // Assignació de valors a les propietats
-        $student -> firstname = $request->input('firstname');
-        $student -> lastname = $request->input('lastname');
-        $student -> username = $request->input('username');
-        $student -> dni = $request->input('dni');
-        $student -> email = $request->input('email');
-        $student -> birthdate = $request->input('birthdate');
-        $student -> password = $request->input('password');
-        $postalcode = $request->input('city');
-        $student -> id_city = CityController::agafarID($postalcode);
-        $student -> profile_pic = "Res";
-        $student -> bio = "Res";
-        $student -> id_role = 3;
-        $student -> status = "active";
+        $error = DB::transaction(function() use ($request){
+            // Instanciar
+            $student = new User;
 
-        // Guardar alumne a la BBDD
-        $student -> save();
+            // Assignació de valors a les propietats del alumne
+            $student -> firstname = $request->input('firstname');
+            $student -> lastname = $request->input('lastname');
+            $student -> username = $request->input('username');
+            $student -> dni = $request->input('dni');
+            $student -> email = $request->input('email');
+            $student -> birthdate = $request->input('birthdate');
+            $student -> password = md5($request->input('password'));
+            $postalcode = $request->input('city');
+            $student -> id_city = CityController::agafarID($postalcode);
+            $student -> profile_pic = "Res";
+            $student -> bio = "Res";
+            $student -> id_role = 3;
+            $student -> status = "active";
 
-        // Guardar a quin centre pertany l'alumne
-        $school_user = new School_users;
-        $school_user -> id_user = $student->id;
-        $school_user -> id_school = $request->input('school');
-        $school_user -> save();
+            // Guardar alumne a la BBDD
+            $student -> save();
 
+            // Creem un objecte school_users per a controlar a quin institut pertany l'alumne
+            $school_user = new School_users;
+            $school_user -> id_user = $student->id;
+            $school_user -> id_school = $request->input('school');
+
+            // Guardar a quin centre pertany l'alumne
+            $school_user -> save();
+        }, 2);
+        
         // Tornar a la llista d'alumnes
         $student = User::where('id_role', 3)->get();
 
