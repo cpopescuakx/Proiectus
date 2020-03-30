@@ -1,69 +1,41 @@
+@inject('user', 'App\Http\Controllers\UserController') {{-- Importa el controlador de user --}}
 @if ($blog != null)
-<!-- @if(!Auth::user()->id == $blog->id_user)
-        <div class="text-center row justify-content-md-center">
-            <div class="alert alert-danger mt-4 w-50" role="alert">
-                <i class="fas fa-exclamation-circle fa-2x mr-3"></i>
-                <h4 class="d-inline">No tens permisos suficients</a>!</h4> 
-            </div>
-        </div>
-@endif -->
-<div>
 <div class="container mb-5">
     <a href="{{route('blogs.edit', $id_project)}}"><i style="font-size: 1rem" class="material-icons" alt="Icona per a modificar">edit</i></a>
     <h2 class="float-left">{{$blog->title}}</h2>
     <br><br>
     <form method="post" action="{{route('posts.store', $id_project)}}" id="postCreationForm">
-
         {{csrf_field()}}
         <div class="form-group">
             <h4><label class="float-left" cfor="exampleFormControlInput1">Crea un post!</label></h4>
             <div class="form-group">
-                <input name="title" type="text" class="form-control" placeholder="Títol" required>
+                <input name="title" type="text" class="form-control" placeholder="Títol del post" required>
             </div>
             <!-- Textarea de l'editor de text -->
             <div class="form-group">
-                <textarea name="content" id=summernote required></textarea>
+                <textarea name="content" id=summernote></textarea>
             </div>
 
             <!-- Script per a inicialitzar l'editor de text-->
             <script>
                 $('#summernote').summernote({
-                    placeholder: 'Contingut',
+                    placeholder: 'Contingut del post',
                     tabsize: 2,
                     height: 100,
                     minHeight: 100,
                     maxHeight: 400
                 });
 
-                /* Comprovem si el contingut del post esta buit al fer submit i
+                /* Comprovem si el contingut de l'article esta buit al fer submit i
                     evitem continuar si està buit
                 */
                 $('#postCreationForm').on('submit', function(e) {
                     // Comprovem si el contingut del post esta buit
                     if ($('#summernote').summernote('isEmpty')) {
-                        console.log('Introdueix el contingut del post!');
                         // Evitar el submit
                         e.preventDefault();
                     }
-                });
-                /** CODI PER AL MENU RIGHTCLICK */
-                /** ---------- NO FUNCIONA ----------- */
-                $('#prova').on('contextmenu', function(e) {
-                    var top = e.pageY - 40;
-                    var left = e.pageX - 60;
-                    $("#context-menu").css({
-                        display: "block",
-                        top: top,
-                        left: left
-                    }).addClass("show");
-                    return false; //blocks default Webbrowser right click menu
-                }).on("click", function() {
-                    $("#context-menu").removeClass("show").hide();
-                });
-
-                $("#context-menu a").on("click", function() {
-                    $(this).parent().removeClass("show").hide();
-                });
+                })
             </script>
         </div>
         <div class="form-group">
@@ -72,9 +44,7 @@
     </form>
 </div>
 <br>
-</div>
 <div class="container">
-
     @if($posts->count())
     @foreach ($posts as $post)
     <!-- Confirmació d'eliminació d'un post -->
@@ -105,11 +75,11 @@
 
     <div class="card mb-3">
         <div class="card-body">
+
             <a class="float-right" href="{{route('posts.edit', [$id_project, $post->id_post])}}"><i style="font-size: 140%" class="material-icons" alt="Icona per a modificar">edit</i></a>
             <!--<a class="float-right" href="{{$id_project}}/post/{{$post->id_post}}/destroy" ><i style="font-size: 1rem" class="material-icons">delete</i></a>
                     -->
             <a class="float-right" data-toggle="modal" data-target="#deleteConfirmationModal"><i style="font-size: 140%" class="material-icons text-primary" alt="Icona per a eliminar">delete</i></a>
-
             <a href="{{route('posts.show', [$id_project, $post->id_post])}}">
 
                 <h5 class="card-title">{{$post->title}} </h5>
@@ -121,7 +91,7 @@
             </div>
         </div>
         <div class="card-footer text-muted">
-            <footer class="blockquote-footer float-right"> Creat per <a href=""> <cite title="Source Title"> {{$post->id_user}}</cite></a> el {{$post->created_at}}</footer>
+            <footer class="blockquote-footer float-right"> Creat per <a href=""> <cite title="Source Title"> {{($user::getUser($post->id_user))->username}}</cite></a> el {{$post->created_at}} </footer>
         </div>
     </div>
     @endforeach

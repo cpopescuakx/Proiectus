@@ -107,7 +107,7 @@ class UserController extends Controller
 
     public function createManager(){
 
-        $cities = City::distinct()->select("name")->get();
+        $cities = City::all();
         return view('managers.create',compact('cities'));
 
     }
@@ -133,8 +133,8 @@ class UserController extends Controller
         $manager -> email = $request->input('email');
         $manager -> birthdate = $request->input('birthdate');
         $manager -> password = $request->input('password');
-        $nom = $request->input('city');
-        $manager -> id_city = CityController::agafarID($nom);
+        $postalcode = $request->input('city');
+        $manager -> id_city = CityController::getIdFromPostalCode($postalcode);
         $manager -> profile_pic = "Res";
         $manager -> bio = "Res";
         $manager -> id_role = 5;
@@ -162,7 +162,7 @@ class UserController extends Controller
     public function editManager($id){
 
         $managers = User::find($id);
-        $cities = City::distinct()->select("name")->get();
+        $cities = City::all();
         $nomCiutat = CityController::agafarNom($managers->id_city);
 
         return view('managers.edit', compact('managers', 'cities', 'nomCiutat'));
@@ -287,7 +287,7 @@ class UserController extends Controller
             $student -> birthdate = $request->input('birthdate');
             $student -> password = md5($request->input('password'));
             $postalcode = $request->input('city');
-            $student -> id_city = CityController::agafarID($postalcode);
+            $student -> id_city = CityController::getIdFromPostalCode($postalcode);
             $student -> profile_pic = "Res";
             $student -> bio = "Res";
             $student -> id_role = 3;
@@ -316,15 +316,14 @@ class UserController extends Controller
      *
      *  Retorna el formulari de modificació d'alumnes. Passant l'alumne a partir de l'ID.
      *
-     *  @param int $id
-     *  @return void
+     * @param int $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function editStudent ($id) {
         $student = User::find($id);
-        $cities = City::distinct()->select("name")->get();
-        $nomCiutat = CityController::agafarNom($student->id_city);
+        $cities = City::all();
 
-        return view('students.edit', compact('student', 'cities', 'nomCiutat'));
+        return view('students.edit', compact('student', 'cities'));
     }
 
     /** UPDATE ALUMNE
@@ -351,8 +350,8 @@ class UserController extends Controller
         $students -> email = $request->input('email');
         $students -> birthdate = $request->input('birthdate');
         $students -> password = $request->input('password');
-        $nom = $request->input('city');
-        $students -> id_city = CityController::agafarID($nom);
+        $postalcode = $request->input('city');
+        $students -> id_city = CityController::getIdFromPostalCode($postalcode);
         $students -> profile_pic = "Res";
         $students -> bio = "Res";
         $students -> id_role = 3;
@@ -736,7 +735,7 @@ class UserController extends Controller
      *  @return User $user
      */
 
-    public function getUser ($id)
+    public static function getUser ($id)
     {
         $user = User::find($id);
         return $user;
