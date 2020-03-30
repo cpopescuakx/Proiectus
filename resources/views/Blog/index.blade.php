@@ -4,12 +4,11 @@
     <h2 class="float-left">{{$blog->title}}</h2>
     <br><br>
     <form method="post" action="{{route('posts.store', $id_project)}}" id="postCreationForm">
-
         {{csrf_field()}}
         <div class="form-group">
             <h4><label class="float-left" cfor="exampleFormControlInput1">Crea un post!</label></h4>
             <div class="form-group">
-                <input name="title" type="text" class="form-control" placeholder="Títol" required>
+                <input name="title" type="text" class="form-control" placeholder="Títol del post" required>
             </div>
             <!-- Textarea de l'editor de text -->
             <div class="form-group">
@@ -19,7 +18,7 @@
             <!-- Script per a inicialitzar l'editor de text-->
             <script>
                 $('#summernote').summernote({
-                    placeholder: 'Contingut del article',
+                    placeholder: 'Contingut del post',
                     tabsize: 2,
                     height: 100,
                     minHeight: 100,
@@ -45,7 +44,6 @@
 </div>
 <br>
 <div class="container">
-
     @if($posts->count())
     @foreach ($posts as $post)
     <!-- Confirmació d'eliminació d'un post -->

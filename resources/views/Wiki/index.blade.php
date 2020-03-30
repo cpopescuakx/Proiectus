@@ -25,7 +25,6 @@
                     maxHeight: 400
                 });
 
-
                 /* Comprovem si el contingut de l'article esta buit al fer submit i
                     evitem continuar si està buit
                 */
