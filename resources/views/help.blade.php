@@ -29,6 +29,7 @@
             <div class="progress-container col-md-6">
               <div class="progress-bar" id="myBar"></div>
               <iframe title="gestor" width="560" height="315" src="https://www.youtube.com/embed/exQfi015i4o" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              <br><a href="https://www.youtube.com/watch?v=exQfi015i4o&feature=emb_title"><u>Enllaç al vídeo</u></a>
             </div>
           <div class="content col-md-6">
           <h4>Transcipció</h4>
@@ -38,6 +39,11 @@
           <p><b>[Pausa per accedir a l'apartat de creació]</b></p>
           <p><b>Didac</b>: Per a poder crear el gestor haurem d'emplenar tots els <b>camps</b>. Un cop realitzat clicarem <b>crear</b>.</p>
           <p><b>[Pausa per a tornar a llistar tots els gestors]</b></p>
+          <h5> Audio descripció per a cegs </h5>
+          <audio controls>
+            <source src="explicacio_gestors.ogg" type="audio/ogg">
+              <source src="explicacio_gestors.mp3" type="audio/mpeg">
+          </audio>
         </div>
             <style>
             .progress-container {
@@ -50,10 +56,6 @@
             }
             </style>
             </br>
-            <audio controls>
-              <source src="explicacio_gestors.ogg" type="audio/ogg">
-                <source src="explicacio_gestors.mp3" type="audio/mpeg">
-            </audio>
         </div>
     </div>
 

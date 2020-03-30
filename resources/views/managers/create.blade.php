@@ -64,11 +64,11 @@
                             <div class="row justify-content-center">
                                 <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
                                     <label for="dni">Ciutat</label>
-                                        <datalist id = "cities">
-                                            @foreach($cities as $city)
-                                                <option value="{{$city->name}}">
-                                            @endforeach
-                                        </datalist>
+                                          <select data-size="10" class="selectpicker form-control" data-live-search="true" title="Tria una ciutat... (pots buscar mitjançant el codi postal)" name="city">
+                                              @foreach($cities as $city)
+                                                  <option data-tokens="{{$city->postalcode}}" value="{{$city->postalcode}}">{{$city->name}}</option>
+                                              @endforeach
+                                          </select>
                                         <input type="text" name = "city" class="form-control" list="cities" autocomplete="address-level2" required>
                                     <div class="invalid-feedback">Camp necessari</div>
                                 </div>
@@ -99,7 +99,7 @@
                             <div class="row justify-content-center">
                                 <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
                                     <label for="contrassenya">Contrasenya</label>
-                                    <input type="password" name = "password" class="form-control" autocomplete="new-password" id="password" required>
+                                    <input type="password" name = "password" class="form-control" autocomplete="current-password" id="password" required>
                                     <div class="invalid-feedback">Camp necessari</div>
                                 </div>
                             </div>
