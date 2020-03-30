@@ -12,6 +12,9 @@ use App\User_project;
 use App\Blog;
 use App\Post;
 use App\Resource_center;
+use App\Wiki;
+use App\Article;
+
 
 class ProjectController extends Controller
 {
@@ -146,7 +149,11 @@ class ProjectController extends Controller
 
         $resources = Resource_center::all()->where('id_project', '=', $id_project);
 
-        return view ('projects.show', compact('project', 'participants', 'posts', 'blog', 'resources', 'id_project'));
+        $articles = Article::all()->sortByDesc('created_at')->where('id_project', '=', $id_project)->where('status', '=', 'active');
+        
+        $wiki = Wiki::find($id_project);
+
+        return view ('projects.show', compact('project', 'participants', 'posts', 'blog', 'resources', 'id_project', 'articles','wiki'));
 
     }
 

@@ -1,13 +1,3 @@
-@extends('layouts.default')
-@section('content')
-<div>
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#">Projecte</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Blog</li>
-        </ol>
-    </nav>
-</div>
 @if ($wiki != null)
 <div class="container mb-5">
     <a href="{{$id_project}}/edit"><i style="font-size: 1rem" class="material-icons" alt="Icona per a editar">edit</i></a>
@@ -56,30 +46,6 @@
 </div>
 <br>
 
-<!-- MAPA GULUGLU -->
-<div id="map" style="width: 100%; height: 400px; background-color: red;">
-</div>
-<script>
-// Initialize and add the map
-function initMap() {
-// The location of Uluru
-var center = {lat: 40.709197, lng: 0.582199};
-var insmontsia = {lat: 40.709197, lng: 0.582199};
-var soriano = {lat: 40.708283, lng: 0.572721};
-var insalfacs = {lat: 40.622954, lng: 0.587436};
-// The map, centered at Uluru
-var map = new google.maps.Map(
-    document.getElementById('map'), {zoom: 15, center: center});
-// The marker, positioned at Uluru
-var marker = new google.maps.Marker({position: insmontsia, map: map});
-var marker = new google.maps.Marker({position: soriano, map: map});
-var marker = new google.maps.Marker({position: insalfacs, map: map});
-}
-</script>
-<!-- MAPA GULUGLU -->
-
-
-
 <div class="container">
     @if($articles->count())
     @foreach ($articles as $article)
@@ -118,6 +84,27 @@ var marker = new google.maps.Marker({position: insalfacs, map: map});
         </div>
     </div>
     @endforeach
+    <!-- MAPA GULUGLU -->
+<div id="map" style="width: 100%; height: 400px; background-color: red;">
+</div>
+<script>
+// Initialize and add the map
+function initMap() {
+// The location of Uluru
+var center = {lat: 40.709197, lng: 0.582199};
+var insmontsia = {lat: 40.709197, lng: 0.582199};
+var soriano = {lat: 40.708283, lng: 0.572721};
+var insalfacs = {lat: 40.622954, lng: 0.587436};
+// The map, centered at Uluru
+var map = new google.maps.Map(
+    document.getElementById('map'), {zoom: 15, center: center});
+// The marker, positioned at Uluru
+var marker = new google.maps.Marker({position: insmontsia, map: map});
+var marker = new google.maps.Marker({position: soriano, map: map});
+var marker = new google.maps.Marker({position: insalfacs, map: map});
+}
+</script>
+<!-- MAPA GULUGLU -->
     @else
     <h3>No hi ha cap article en aquesta wiki</h3>
     @endif
@@ -127,4 +114,3 @@ var marker = new google.maps.Marker({position: insalfacs, map: map});
     <h1>Aquesta wiki no existeix</h1>
 </div>
 @endif
-@endsection

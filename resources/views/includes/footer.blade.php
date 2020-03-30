@@ -71,6 +71,18 @@
                 </ul>
             </div>
             <!-- Fin columna de 6 -->
+            <!-- Inicio columna de 6 -->
+            <div class="col-6 col-md">
+                <!-- Titulo columna -->
+                <h5>Ajuda</h5>
+
+                <!-- Elementos -->
+                <ul class="list-unstyled text-small">
+                    <li><a class="text-muted" href="{{ route('help.index') }}">Gestió Wiki i Blog</a></li>
+                    <li><a class="text-muted" href="{{ route('help.index') }}">Gestió Gestors</a></li>
+                </ul>
+            </div>
+            <!-- Fin columna de 6 -->
         </div>
         <!-- Fin filas -->
     </div>

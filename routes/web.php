@@ -15,9 +15,11 @@ use App\Project;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('index.index');
+Route::get('/', function () {return view('welcome');})->name('index.index');
+
+/** Apartat AJUDA lloc WEB  */
+
+Route::get('/help', function () {return view('help');})->name('help.index');
 
 Auth::routes(['verify' => true]);
 
@@ -75,24 +77,24 @@ Route::middleware(['registeredEntity'])->group(function () {
         ->name('projects.show');
 
     /** Rutes per a l'apartat de gestió d'alumnes */
+    Route::middleware(['isProfessor'])->group(function () {
+        Route::get('students', ['Middleware' => 'auth','uses' => 'UserController@indexStudent'])
+            ->name('students.index');
 
-    Route::get('students', 'UserController@indexStudent')
-        ->name('students.index');
+        Route::get('students/create', 'UserController@createStudent')->name('students.create');
 
-    Route::get('students/create', 'UserController@createStudent')->name('students.create');
+        Route::post('students/create/success', 'UserController@storeStudent')
+            ->name('students.store');
 
-    Route::post('students/create/success', 'UserController@storeStudent')
-        ->name('students.store');
+        Route::get('students/{id}/edit', 'UserController@editStudent')
+            ->name('students.edit');
 
-    Route::get('students/{id}/edit', 'UserController@editStudent')
-        ->name('students.edit');
+        Route::post('students/{id}/edit/success', 'UserController@updateStudent')
+            ->name('students.update');
 
-    Route::post('students/{id}/edit/success', 'UserController@updateStudent')
-        ->name('students.update');
-
-    Route::get('students/{id}', 'UserController@destroyStudent')
-        ->name('students.destroy');
-
+        Route::get('students/{id}', 'UserController@destroyStudent')
+            ->name('students.destroy');
+    });
 
     /** Rutes per a l'apartat de gestió de profes */
 
@@ -205,59 +207,55 @@ Route::middleware(['CheckRole'])->group(function () {
     Route::post('/Employees/{id}/update', 'UserController@updateEmployee')->name('employee.update');
     Route::get('/Employees/{id}/active', 'UserController@activeUser')->name('employee.active');
 
+
 // Routes Grup4
     /** ------Rutes per a l'apartat del BLOG------ */
 
-    //Route::pattern('id_project', '[0-9]+');
-
     /** Ruta per al STORE de post */
-    // Route::post('blog/{id_project}/post/store', 'PostController@store');
-    Route::post('blog/{id_project}/post/store', 'PostController@store')
-        ->name('posts.store');
+    Route::post('blog/{id_project}/post/store', 'PostController@store')->name('posts.store');
 
     /** Ruta per al INDEX d'un blog d'un projecte */
-    Route::get('blog/{id_project}', [
-        'Middleware' => 'auth',
-        'uses' => 'BlogController@index'
-    ]);
+    Route::get('blog/{id_project}', ['Middleware' => 'auth','uses' => 'BlogController@index']);
 
-    /** Ruta per al SHOW d'un post */
-    Route::get('blog/{id_project}/post/{id_post}', 'PostController@show')
-    ->name('posts.show');
+     /** Ruta per al SHOW d'un post */
+     Route::get('blog/{id_project}/post/{id_post}', 'PostController@show')->name('posts.show');
 
-
-    /** Ruta per al UPDATE d'un post */
-    Route::get('blog/{id_project}/post/{id_post}/edit', 'PostController@edit')
-    ->name('posts.edit');
-    Route::post('blog/{id_project}/post/{id_post}/update', 'PostController@update')
-    ->name('posts.update');
-
-    /** Ruta eliminar un post*/
-    Route::get('blog/{id_project}/post/{id_post}/destroy', 'PostController@destroy')
-    ->name('posts.destroy');
-
+                                    /** MIDDLEWARE */
+    /** Middleware per a controlar que només pugui editar o eliminar un post el seu owner */
+    Route::middleware(['CheckRoleBlog'])->group(function () {
+        /** Ruta per al UPDATE d'un post */
+        Route::get('blog/{id_project}/post/{id_post}/edit', 'PostController@edit')->name('posts.edit');
+        Route::post('blog/{id_project}/post/{id_post}/update', 'PostController@update')->name('posts.update');
+        /** Ruta eliminar un post*/
+        Route::get('blog/{id_project}/post/{id_post}/destroy', 'PostController@destroy')->name('posts.destroy');
+    });
 
     /** Ruta per a l'update del titul de blog */
-    Route::get('blog/{id_project}/edit', 'BlogController@edit')
-    ->name('blogs.edit');
-    Route::PATCH('blog/{id_project}/update', 'BlogController@update')
-    ->name('blogs.update');
+    Route::get('blog/{id_project}/edit', 'BlogController@edit')->name('blogs.edit');
+    Route::PATCH('blog/{id_project}/update', 'BlogController@update')->name('blogs.update');
 
 
     /** Rutes per a l'apartat de la gestio dels articles de la wiki */
     Route::get('wiki/{id_project}', 'WikiController@index');
     Route::post('wiki/{id_project}/store', 'ArticleController@store');
 
+
     Route::get('wiki/{id_project}/edit', 'WikiController@edit');
     Route::PATCH('wiki/{id_project}/update', 'WikiController@update');
-    Route::get('wiki/{id_project}/article/{id_post}/destroy', 'ArticleController@destroy');
 
-
-    // Route::get('wiki/{id_project}', 'ArticleController@index');
     Route::get('wiki/{id_project}/article/create', 'ArticleController@create');
     Route::post('wiki/{id_project}/article/store', 'ArticleController@store');
-    Route::get('wiki/{id_project}/article/{id_article}/edit', 'ArticleController@edit');
-    Route::post('wiki/{id_project}/article/{id_article}/update', 'ArticleController@update');
+
+                                    /** MIDDLEWARE */
+    /** Middleware per a controlar que només pugui editar o eliminar un article el seu owner */
+    Route::middleware(['CheckRoleWiki'])->group(function () {
+        /** Ruta per a eliminar un article */
+        Route::get('wiki/{id_project}/article/{id_post}/destroy', 'ArticleController@destroy');
+        /** Ruta per a l'update d'un article */
+        Route::get('wiki/{id_project}/article/{id_article}/edit', 'ArticleController@edit');
+        Route::post('wiki/{id_project}/article/{id_article}/update', 'ArticleController@update');
+    });
+
     Route::resource('articles', 'ArticleController');
 
     /** Rutes per a l'apartat de perfils d'usuari */
