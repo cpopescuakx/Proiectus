@@ -296,7 +296,7 @@
                             // Funcio que crida l'objecte del mapa "google.maps.Map"
                             function initMap() {
                               map = new google.maps.Map(document.getElementById('map2'), {
-                                center: new google.maps.LatLng(40.701968,0.560683),,
+                                center: new google.maps.LatLng(48.1293954,12.556663),
                                 zoom: 17
                               });
                               function canviarCentre (newLat, newLng) {
