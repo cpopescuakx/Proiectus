@@ -1,4 +1,6 @@
 @extends('layouts.default')
+@inject('school_users', 'App\Http\Controllers\School_usersController')
+
 
 @section('content')
     <div class="formulari">
@@ -16,6 +18,33 @@
                             <div class="row no-gutters justify-content-center mt-5">
                                 <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
                                     <h1>Modificar Alumne</h1>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group mt-4">
+                            <div class="row justify-content-center">
+                                <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
+                                    <label for="school">Centre al qual pertany*</label>
+                                    <select data-size="10"
+                                            class="selectpicker form-control"
+                                            data-live-search="true"
+                                            data-none-results-text="No s'han trobat coincidències"
+                                            title="Tria una centre..."
+                                            name="school"
+                                            required>
+                                        @foreach($schools as $school)
+                                            <option data-tokens="{{$school->id_school}}"
+                                                    value="{{$school->id_school}}"
+                                                    @if(is_object($school_users::getUsersSchoolName($student->id)))
+                                                        @if($school->id_school == $school_users::getUsersSchoolName($student->id)->id_school)
+                                                            selected
+                                                        @endif
+                                                    @endif
+                                            >{{$school->name}}</option>
+                                        @endforeach
+                                    </select>
+                                    <div class="invalid-feedback">Camp necessari</div>
                                 </div>
                             </div>
                         </div>
@@ -69,7 +98,8 @@
                                             data-live-search="true"
                                             data-none-results-text="No s'han trobat coincidències"
                                             title="Tria una ciutat... (pots buscar mitjançant el codi postal)"
-                                            name="city">
+                                            name="city"
+                                            required>
                                         @foreach($cities as $city)
                                             <option data-tokens="{{$city->postalcode}}"
                                                     value="{{$city->postalcode}}"

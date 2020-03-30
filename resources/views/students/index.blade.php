@@ -1,5 +1,6 @@
 @extends('layouts.default')
 @inject('city', 'App\Http\Controllers\CityController') {{-- Importa el controlador de ciutat --}}
+@inject('school_users', 'App\Http\Controllers\School_usersController')
 
 @section('content')
 
@@ -79,7 +80,13 @@
                 <td>{{$student->email}}</td>
                 <td>{{$student->dni}}</td>
                 <td>{{$city::agafarNom($student->id_city)}}</td>
-                <td>{{$student->id}}</td>
+                <td>
+                    @if(!is_object($school_users::getUsersSchoolName($student->id)))
+                    {{($school_users::getUsersSchoolName($student->id))}}
+                        @else
+                        {{($school_users::getUsersSchoolName($student->id))->name}}
+                    @endif
+                </td>
                  @if($student->status == "active")
                     <td><span class="badge badge-success">ACTIU</span></td>
                 @elseif($student->status == "inactive")

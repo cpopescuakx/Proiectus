@@ -30,7 +30,8 @@
                                             data-live-search="true"
                                             data-none-results-text="No s'han trobat coincidències"
                                             title="Tria una centre..."
-                                            name="school">
+                                            name="school"
+                                            required>
                                         @foreach($schools as $school)
                                             <option data-tokens="{{$school->id_school}}" value="{{$school->id_school}}">{{$school->name}}</option>
                                         @endforeach
@@ -99,7 +100,8 @@
                                                 data-live-search="true"
                                                 data-none-results-text="No s'han trobat coincidències"
                                                 title="Tria una ciutat... (pots buscar mitjançant el codi postal)"
-                                                name="city">
+                                                name="city"
+                                                required>
                                             @foreach($cities as $city)
                                                 <option data-tokens="{{$city->postalcode}}" value="{{$city->postalcode}}">{{$city->name}}</option>
                                             @endforeach

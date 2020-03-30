@@ -322,8 +322,10 @@ class UserController extends Controller
     public function editStudent ($id) {
         $student = User::find($id);
         $cities = City::all();
+        $schools = School::all();
 
-        return view('students.edit', compact('student', 'cities'));
+
+        return view('students.edit', compact('student', 'cities', 'schools'));
     }
 
     /** UPDATE ALUMNE
@@ -360,8 +362,20 @@ class UserController extends Controller
         // Guardar l'alumne a la BBDD amb les noves dades
         $students -> save();
 
-        // Tornar a la llista d'alumnes
+        $school_user = School_users::where('id_user',$id)->first();
+        if(!is_object($school_user)) {
+            $school_user = new School_users();
+            $school_user -> id_school = $request->input('school');
+            $school_user -> id_user = $id;
+            $school_user->save();
+        } else {
+            $school_user = School_users::where('id_user', $id)->first();
+            //dd($school_user);
+            $school_user -> id_school = $request->input('school');
+            $school_user->save();
+        }
 
+        // Tornar a la llista d'alumnes
         $students = User::where('id_role', 3)->get();
 
         return redirect()->route('students.index',compact('students'));

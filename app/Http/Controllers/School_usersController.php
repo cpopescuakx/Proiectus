@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\School;
 use Illuminate\Http\Request;
 use App\School_users;
-use App\Http\Controllers\Scool_usersController;
 use App\User;
 
 class School_usersController extends Controller
@@ -90,5 +90,20 @@ class School_usersController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    /**
+     * Retorna el centre al qual pertany l'usuari que li entrem
+     *
+     * @param $id
+     * @return mixed
+     */
+    public static function getUsersSchoolName($id) {
+        $school_user = School_users::where('id_user',$id)->first();
+        if (!isset($school_user->id_school)) {
+            return "Cap";
+        } else {
+            return School::find($school_user->id_school);
+        }
     }
 }
