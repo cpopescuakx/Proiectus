@@ -70,7 +70,6 @@
     <div class="row px-5">
       <div class="col">
         <div id="blog" class="tabcontent mt-3">
-
         @include('Blog.index')
         </div>
       </div>

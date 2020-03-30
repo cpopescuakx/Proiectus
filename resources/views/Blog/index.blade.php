@@ -1,17 +1,7 @@
 @if ($blog != null)
-<!-- @if(!Auth::user()->id == $blog->id_user)
-        <div class="text-center row justify-content-md-center">
-            <div class="alert alert-danger mt-4 w-50" role="alert">
-                <i class="fas fa-exclamation-circle fa-2x mr-3"></i>
-                <h4 class="d-inline">No tens permisos suficients</a>!</h4> 
-            </div>
-        </div>
-@endif -->
 <div>
 <div class="container mb-5">
-    @if(Auth::user()->id == $blog->id_user)
     <a href="{{route('blogs.edit', $id_project)}}"><i style="font-size: 1rem" class="material-icons" alt="Icona per a modificar">edit</i></a>
-    @endif
     <h2 class="float-left">{{$blog->title}}</h2>
     <br><br>
     <form method="post" action="{{route('posts.store', $id_project)}}" id="postCreationForm">
