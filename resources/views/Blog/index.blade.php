@@ -112,7 +112,7 @@
             </div>
         </div>
         <div class="card-footer text-muted">
-            <footer class="blockquote-footer float-right"> Creat per <a href=""> <cite title="Source Title"> {{($post::getUser($post->id_user))->username}} </cite></a> el {{$post->created_at}}</footer>
+            <footer class="blockquote-footer float-right"> Creat per <a href=""> <cite title="Source Title"> {{($user::getUser($post->id_user))->username}} </cite></a> el {{$post->created_at}}</footer>
         </div>
     </div>
     @endforeach
