@@ -77,7 +77,7 @@ Route::middleware(['registeredEntity'])->group(function () {
         ->name('projects.show');
 
     /** Rutes per a l'apartat de gestió d'alumnes */
-    Route::middleware(['isProfessor'])->group(function () {
+    Route::middleware(['isProfessor', 'auth'])->group(function () {
         Route::get('students', ['Middleware' => 'auth','uses' => 'UserController@indexStudent'])
             ->name('students.index');
 

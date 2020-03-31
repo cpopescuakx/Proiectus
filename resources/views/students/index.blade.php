@@ -99,7 +99,7 @@
                         <a href="{{ route('students.destroy', [$student->id]) }}"><img src={{ asset('img/delete.svg') }} width="20" height="20"></a>
                     @endif
                     @if($student->status == "inactive")
-                        <a href="{{ route('students.enable', [$student->id]) }}"><img src={{asset('img/how_to_reg-black-18dp.svg')}} width="20"></a>
+                        <a href="{{ route('students.enable', [$student->id]) }}"><img src={{ asset('img/checkIcon.svg') }} width="20" height="20"></a>
                     @endif
                 </td>
             </tr>

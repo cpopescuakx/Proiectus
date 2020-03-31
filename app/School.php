@@ -32,10 +32,10 @@ class School extends Model Implements Feedable
         // 'update_at' => $this->update_at,
         'id' => $this->id_school,
         'title' => $this->name,
-        'summary' => $this->address,
+        'summary' => $this->type,
         'updated' => $this->updated_at,
         'link' => $this->status,
-        'author' => $this->id_city,
+        'author' => $this->code,
       ]);
     }
     public static function getAllFeedItems()

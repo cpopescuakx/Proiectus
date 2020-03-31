@@ -8,6 +8,7 @@ use App\City;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\CityController;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Response;
 
 class UserController extends Controller
@@ -285,7 +286,7 @@ class UserController extends Controller
             $student -> dni = $request->input('dni');
             $student -> email = $request->input('email');
             $student -> birthdate = $request->input('birthdate');
-            $student -> password = md5($request->input('password'));
+            $student -> password = Hash::make($request->input('password'));
             $postalcode = $request->input('city');
             $student -> id_city = CityController::getIdFromPostalCode($postalcode);
             $student -> profile_pic = "Res";
@@ -351,7 +352,7 @@ class UserController extends Controller
         $students -> dni = $request->input('dni');
         $students -> email = $request->input('email');
         $students -> birthdate = $request->input('birthdate');
-        $students -> password = $request->input('password');
+        $students -> password = Hash::make($request->input('password'));
         $postalcode = $request->input('city');
         $students -> id_city = CityController::getIdFromPostalCode($postalcode);
         $students -> profile_pic = "Res";

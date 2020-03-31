@@ -67,6 +67,8 @@
             <div class="progress-container col-md-6">
               <div class="progress-bar" id="myBar"></div>
               <iframe title="wiki_blog" width="560" height="315" src="https://www.youtube.com/embed/zD7I-GbjJ_w" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <br><a href="https://www.youtube.com/watch?v=zD7I-GbjJ_w&feature=emb_title"><u>Enllaç al vídeo</u></a>
+
             </div>
               <div class="content col-md-6">
               <h4>Transcipció</h4>
@@ -76,6 +78,12 @@
               <p><b>[Pausa per accedir a l'apartat de wikipedia]</b></p>
               <p><b>Josep</b>: En aquest com podem observar hi ha el <b>nom</b> de la wikipedia, el qual podem editar fent click a l'icona del <b>llapís</b>, i a més a més hi ha l'opció per a crear un <b>article</b>, on afegirem el <b>títol</b> i la <b>descripció</b> d'aquest. També podem <b>llistar</b> els existents, <b>eliminar</b> i <b>editar</b>.</p>
               <p><b>[Pausa per a indicar les icones d'eliminar i editar]</b></p>
+              <h5> Audio descripció per a cegs </h5>
+              <audio controls>
+                <source src="gestio_wiki_blog.ogg" type="audio/ogg">
+                <source src="gestio_wiki_blog.mp3" type="audio/mpeg">
+                El teu navegador no soporta aquest audio.
+              </audio>
             </div>
                 <style>
                 .progress-container {
@@ -87,12 +95,6 @@
                   width: 80%;
                 }
                 </style>
-              <h5> Audio descripció per a cegs </h5>
-              <audio controls>
-                <source src="gestio_wiki_blog.ogg" type="audio/ogg">
-                <source src="gestio_wiki_blog.mp3" type="audio/mpeg">
-                El teu navegador no soporta aquest audio.
-              </audio>
         </div>
     </div>
 
