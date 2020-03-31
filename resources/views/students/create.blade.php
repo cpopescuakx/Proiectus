@@ -16,7 +16,7 @@
                         <div class="container">
                             <div class="row no-gutters justify-content-center mt-5">
                                 <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
-                                    <h1>Crear Alumne</h1>
+                                    <h1>Crear un Alumne</h1>
                                 </div>
                             </div>
                         </div>
@@ -29,6 +29,7 @@
                                             class="selectpicker form-control"
                                             data-live-search="true"
                                             data-none-results-text="No s'han trobat coincidències"
+                                            data-style="btn-white"
                                             title="Tria una centre..."
                                             name="school"
                                             required>
@@ -45,7 +46,12 @@
                             <div class="row justify-content-center">
                                 <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
                                     <label for="nom">Nom*</label>
-                                    <input type="text" name = "firstname" class="form-control" id="firstname" required>
+                                    <input type="text"
+                                           name="firstname"
+                                           class="form-control"
+                                           id="firstname"
+                                           placeholder="Nom..."
+                                           required>
                                     <div class="invalid-feedback">Camp necessari</div>
                                 </div>
                             </div>
@@ -55,7 +61,12 @@
                             <div class="row justify-content-center">
                                 <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
                                     <label for="cognom">Cognom*</label>
-                                    <input type="text" name = "lastname" class="form-control" id="lastname" required>
+                                    <input type="text"
+                                           name="lastname"
+                                           class="form-control"
+                                           id="lastname"
+                                           placeholder="Cognom..."
+                                           required>
                                     <div class="invalid-feedback">Camp necessari</div>
                                 </div>
                             </div>
@@ -74,6 +85,7 @@
                                                class="form-control"
                                                id="username"
                                                pattern="[A-Za-z0-9_]{1,15}"
+                                               placeholder="Nom d'usuari..."
                                                required>
                                     </div>
                                     <div class="invalid-feedback">Camp necessari</div>
@@ -85,7 +97,13 @@
                             <div class="row justify-content-center">
                                 <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
                                     <label for="dni">DNI*</label>
-                                    <input type="text" name = "dni" class="form-control" id="dni" pattern="[0-9]{8}[A-Za-z]{1}" required>
+                                    <input type="text"
+                                           name="dni"
+                                           class="form-control"
+                                           id="dni"
+                                           pattern="[0-9]{8}[A-Za-z]{1}"
+                                           placeholder="DNI..."
+                                           required>
                                     <div class="invalid-feedback">Camp necessari</div>
                                 </div>
                             </div>
@@ -99,6 +117,7 @@
                                                 class="selectpicker form-control"
                                                 data-live-search="true"
                                                 data-none-results-text="No s'han trobat coincidències"
+                                                data-style="btn-white"
                                                 title="Tria una ciutat... (pots buscar mitjançant el codi postal)"
                                                 name="city"
                                                 required>
@@ -121,6 +140,7 @@
                                            pattern="[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])"
                                            id="birthdate-student"
                                            autocomplete="off"
+                                           placeholder="AAAA-mm-dd"
                                            required>
                                     <div class="invalid-feedback">Camp necessari</div>
                                 </div>
@@ -131,7 +151,13 @@
                             <div class="row justify-content-center">
                                 <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
                                     <label for="email">Email*</label>
-                                    <input type="text" name = "email" class="form-control" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
+                                    <input type="text"
+                                           name="email"
+                                           class="form-control"
+                                           id="email"
+                                           pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                                           placeholder="Correu..."
+                                           required>
                                     <div class="invalid-feedback">Camp necessari</div>
                                 </div>
                             </div>
@@ -141,7 +167,12 @@
                             <div class="row justify-content-center">
                                 <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
                                     <label for="contrassenya">Contrassenya*</label>
-                                    <input type="password" name = "password" class="form-control" id="password" required>
+                                    <input type="password"
+                                           name="password"
+                                           class="form-control"
+                                           id="password"
+                                           placeholder="Contrassenya provisional..."
+                                           required>
                                     <div class="invalid-feedback">Camp necessari</div>
                                 </div>
                             </div>
