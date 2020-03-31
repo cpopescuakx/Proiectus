@@ -106,13 +106,12 @@
                 <h5 class="card-title">{{$post->title}} </h5>
             </a>
             <div class="">
-                <!-- <p class="card-text">{!!\Illuminate\Support\Str::limit($post->content, $limit = 200, $end = '...')!!}</p> -->
                 <p class="card-text">{!!$post->content!!}</p>
 
             </div>
         </div>
         <div class="card-footer text-muted">
-            <footer class="blockquote-footer float-right"> Creat per <a href=""> <cite title="Source Title"> {{($user::getUser($post->id_user))->username}} </cite></a> el {{$post->created_at}}</footer>
+            <footer class="blockquote-footer float-right"> Creat per <a href="{{route('managers.indexP1',[$post->id_user])}}"> <cite title="Source Title"> {{($user::getUser($post->id_user))->username}} </cite></a> el {{$post->created_at}}</footer>
         </div>
     </div>
     @endforeach

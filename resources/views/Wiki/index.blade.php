@@ -84,7 +84,7 @@
             </div>
         </div>
         <div class="card-footer text-muted">
-            <footer class="blockquote-footer float-right"> Creat per <a href=""> <cite title="Source Title"> {{($user::getUser($article->id_user))->username}}</cite></a> el {{$article->created_at}}</footer>
+            <footer class="blockquote-footer float-right"> Creat per <a href="{{route('managers.indexP1',[$article->id_user])}}"> <cite title="Source Title"> {{($user::getUser($article->id_user))->username}}</cite></a> el {{$article->created_at}}</footer>
         </div>
     </div>
     @endforeach
