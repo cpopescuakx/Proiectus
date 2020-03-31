@@ -133,37 +133,42 @@
             </li>
             <!-- Fin item sidenav -->
             <li class="nav-item">
-    <a class="dropdown">
-        <i class="material-icons text-light">group</i>
-        <span class="text-light">Entitats</span>
-        <i class="dropdown-ico material-icons text-light">keyboard_arrow_down</i>
+              @if(Auth::guest())
+              @else
+              @if (Auth::user()->id_role == 1)
+                <a class="dropdown">
+                    <i class="material-icons text-light">group</i>
+                    <span class="text-light">Entitats</span>
+                    <i class="dropdown-ico material-icons text-light">keyboard_arrow_down</i>
 
 
-    </a>
-
-
-    <div class="sub-menu">
-        <!-- Inicio Submenu -->
-        <ul class="nav flex-column">
-            <!-- Submenu -->
-            <li class="nav-item">
-                <a href="{{ route('schools.index') }}">
-                    <span class="text-light">Centres</span>
                 </a>
-            </li>
-            <!-- Fin submenu -->
 
-            <!-- Submenu -->
-            <li class="nav-item">
-                <a href="{{ route('companies.index') }}">
-                    <span class="text-light">Empreses</span>
-                </a>
+
+                <div class="sub-menu">
+                    <!-- Inicio Submenu -->
+                    <ul class="nav flex-column">
+                        <!-- Submenu -->
+                        <li class="nav-item">
+                            <a href="{{ route('schools.index') }}">
+                                <span class="text-light">Centres</span>
+                            </a>
+                        </li>
+                        <!-- Fin submenu -->
+
+                        <!-- Submenu -->
+                        <li class="nav-item">
+                            <a href="{{ route('companies.index') }}">
+                                <span class="text-light">Empreses</span>
+                            </a>
+                        </li>
+                        <!-- Fin submenu -->
+                    </ul>
+                </div>
+                @endif
+                @endif
             </li>
-            <!-- Fin submenu -->
-        </ul>
-    </div>
-</li>
-<!-- Fin item sidenav -->
+            <!-- Fin item sidenav -->
 
 
         </ul>
@@ -188,7 +193,7 @@
             <!-- Elemento menu -->
             @guest
             <li class="nav-item ml-3">
-                <a type="button" class="btn btn-outline-primary"  href="login">Inicia sessió<span class="sr-only">(current)</span></a>
+                <a type="button" class="btn btn-outline-primary"  href="{{ route('login') }}">Inicia sessió<span class="sr-only">(current)</span></a>
             </li>
             @else
             <li class="nav-item ml-3">
@@ -211,7 +216,7 @@
             </li>
             <!-- Fin elemento menu -->
             @endif
-            
+
         </ul>
       </div>
         <!-- Fin elementos menu -->
