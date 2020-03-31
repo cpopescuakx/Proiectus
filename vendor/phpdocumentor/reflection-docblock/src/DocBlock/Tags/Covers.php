@@ -41,6 +41,9 @@ final class Covers extends BaseTag implements Factory\StaticMethod
         $this->description = $description;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public static function create(
         string $body,
         ?DescriptionFactory $descriptionFactory = null,

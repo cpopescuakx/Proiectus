@@ -109,7 +109,7 @@
                     <div class="row justify-content-center">
                         <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
                             <label for="exampleFormControlInput1"><strong>Responsable assignat</strong></label>
-                            <select name="assigned" class="selectpicker form-control mt-2" data-live-search="true" title="Escull un usuari" required>
+                            <select name="assigned" class="selectpicker form-control mt-2" data-live-search="true" title="Escull un usuari">
                                 @foreach($users as $user)
                                     <option data-tokens="{{$user->id}}" value="{{$user->id}}">{{$user->firstname. ' '. $user->lastname. ' ('.$user->username.')'}}</option>
                                 @endforeach

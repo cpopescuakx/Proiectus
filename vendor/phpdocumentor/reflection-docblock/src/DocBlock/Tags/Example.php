@@ -34,7 +34,7 @@ final class Example implements Tag, Factory\StaticMethod
      * @var bool Whether the file path component represents an URI. This determines how the file portion
      *     appears at {@link getContent()}.
      */
-    private $isURI;
+    private $isURI = false;
 
     /** @var int */
     private $startingLine;
@@ -55,7 +55,7 @@ final class Example implements Tag, Factory\StaticMethod
         $this->startingLine = $startingLine;
         $this->lineCount    = $lineCount;
         if ($content !== null) {
-            $this->content = trim($content);
+            $this->content = trim((string) $content);
         }
 
         $this->isURI = $isURI;
@@ -82,6 +82,9 @@ final class Example implements Tag, Factory\StaticMethod
         return $this->content;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public static function create(string $body) : ?Tag
     {
         // File component: File path in quotes or File URI / Source information

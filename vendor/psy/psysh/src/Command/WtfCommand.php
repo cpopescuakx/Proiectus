@@ -3,7 +3,7 @@
 /*
  * This file is part of Psy Shell.
  *
- * (c) 2012-2020 Justin Hileman
+ * (c) 2012-2018 Justin Hileman
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -95,11 +95,7 @@ HELP
         $count     = $input->getOption('all') ? PHP_INT_MAX : \max(3, \pow(2, \strlen($incredulity) + 1));
 
         $shell = $this->getApplication();
-
-        if ($output instanceof ShellOutput) {
-            $output->startPaging();
-        }
-
+        $output->startPaging();
         do {
             $traceCount = \count($exception->getTrace());
             $showLines  = $count;
@@ -124,10 +120,7 @@ HELP
                 $output->writeln('');
             }
         } while ($exception = $exception->getPrevious());
-
-        if ($output instanceof ShellOutput) {
-            $output->stopPaging();
-        }
+        $output->stopPaging();
 
         return 0;
     }

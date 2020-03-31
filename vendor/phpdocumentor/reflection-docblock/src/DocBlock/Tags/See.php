@@ -44,6 +44,9 @@ final class See extends BaseTag implements Factory\StaticMethod
         $this->description = $description;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public static function create(
         string $body,
         ?FqsenResolver $typeResolver = null,

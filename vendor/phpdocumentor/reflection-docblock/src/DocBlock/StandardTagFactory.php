@@ -71,8 +71,8 @@ final class StandardTagFactory implements TagFactory
     public const REGEX_TAGNAME = '[\w\-\_\\\\:]+';
 
     /**
-     * @var array<class-string<Tag>> An array with a tag as a key, and an
-     *                               FQCN to a class that handles it as an array value.
+     * @var string[] An array with a tag as a key, and an
+     *      FQCN to a class that handles it as an array value.
      */
     private $tagHandlerMappings = [
         'author' => Author::class,
@@ -97,7 +97,7 @@ final class StandardTagFactory implements TagFactory
     ];
 
     /**
-     * @var array<class-string<Tag>> An array with a anotation s a key, and an
+     * @var string[] An array with a anotation s a key, and an
      *      FQCN to a class that handles it as an array value.
      */
     private $annotationMappings = [];
@@ -125,7 +125,7 @@ final class StandardTagFactory implements TagFactory
      *
      * @see self::registerTagHandler() to add a new tag handler to the existing default list.
      *
-     * @param array<class-string<Tag>> $tagHandlers
+     * @param string[] $tagHandlers
      */
     public function __construct(FqsenResolver $fqsenResolver, ?array $tagHandlers = null)
     {
@@ -137,6 +137,9 @@ final class StandardTagFactory implements TagFactory
         $this->addService($fqsenResolver, FqsenResolver::class);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function create(string $tagLine, ?TypeContext $context = null) : Tag
     {
         if (!$context) {
@@ -149,22 +152,29 @@ final class StandardTagFactory implements TagFactory
     }
 
     /**
-     * @param mixed $value
+     * {@inheritDoc}
      */
     public function addParameter(string $name, $value) : void
     {
         $this->serviceLocator[$name] = $value;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function addService(object $service, ?string $alias = null) : void
     {
         $this->serviceLocator[$alias ?: get_class($service)] = $service;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function registerTagHandler(string $tagName, string $handler) : void
     {
         Assert::stringNotEmpty($tagName);
         Assert::classExists($handler);
+        /** @var object $handler stupid hack to make phpstan happy.  */
         Assert::implementsInterface($handler, StaticMethod::class);
 
         if (strpos($tagName, '\\') && $tagName[0] !== '\\') {
@@ -210,11 +220,9 @@ final class StandardTagFactory implements TagFactory
         );
 
         try {
+            /** @var callable $callable */
             $callable = [$handlerClassName, 'create'];
-            Assert::isCallable($callable);
-            /** @phpstan-var callable(string): ?Tag $callable */
-            $tag = call_user_func_array($callable, $arguments);
-
+            $tag      = call_user_func_array($callable, $arguments);
             return $tag ?? InvalidTag::create($body, $name);
         } catch (InvalidArgumentException $e) {
             return InvalidTag::create($body, $name)->withError($e);
@@ -223,8 +231,6 @@ final class StandardTagFactory implements TagFactory
 
     /**
      * Determines the Fully Qualified Class Name of the Factory or Tag (containing a Factory Method `create`).
-     *
-     * @return class-string<Tag>
      */
     private function findHandlerClassName(string $tagName, TypeContext $context) : string
     {

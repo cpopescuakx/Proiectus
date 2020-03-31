@@ -54,13 +54,12 @@ class Builder
      */
     public $bindings = [
         'select' => [],
-        'from' => [],
-        'join' => [],
-        'where' => [],
-        'groupBy' => [],
+        'from'   => [],
+        'join'   => [],
+        'where'  => [],
         'having' => [],
-        'order' => [],
-        'union' => [],
+        'order'  => [],
+        'union'  => [],
         'unionOrder' => [],
     ];
 
@@ -1682,22 +1681,6 @@ class Builder
                 Arr::wrap($group)
             );
         }
-
-        return $this;
-    }
-
-    /**
-     * Add a raw groupBy clause to the query.
-     *
-     * @param  string  $sql
-     * @param  array  $bindings
-     * @return $this
-     */
-    public function groupByRaw($sql, array $bindings = [])
-    {
-        $this->groups[] = new Expression($sql);
-
-        $this->addBinding($bindings, 'groupBy');
 
         return $this;
     }

@@ -132,9 +132,7 @@ Route::middleware(['registeredEntity'])->group(function () {
 
     /* Companies */
     //Route::resource('companies', 'CompanyController');
-
-    Route::middleware(['isAdmin'])->group(function () {
-    Route::get('companies', 'CompanyController@indexCompany')->name('companies.index');
+    Route::get('companies', 'CompanyController@indexCompany')->name('companies');
     //Route::get('/companies', 'CompanyController@indexCompany')->name('companies.index');
     Route::get('/companies/create', 'CompanyController@createCompany')->name('companies.create');
     Route::get('/companies/{id}/edit', 'CompanyController@editCompany')->name('companies.edit');;
@@ -145,7 +143,6 @@ Route::middleware(['registeredEntity'])->group(function () {
     /* Gestor afegir empresa*/
     Route::get('companiesUser/{id}/index', 'Company_userController@index')->name('companiesUser.index');
     Route::post('/companiesUser/{id}/store', 'Company_userController@store')->name('companiesUser.store');
-    });
 
     /* Gestors */
 Route::get('/', function () {
@@ -169,7 +166,6 @@ Route::middleware(['CheckRole'])->group(function () {
     Route::post('managers/{id}/update', 'UserController@updateManager')->name('managers.update');
 });
     /* Schools */
-    Route::middleware(['isAdmin'])->group(function () {
     Route::get('/schools', 'SchoolController@indexSchool')->name('schools.index');
     Route::get('/schools/create', 'SchoolController@createSchool')->name('schools.create');
     Route::get('/schools/{id}/edit', 'SchoolController@editSchool')->name('schools.edit');
@@ -179,7 +175,6 @@ Route::middleware(['CheckRole'])->group(function () {
 
     Route::get('schools/{id}/addUser', 'School_usersController@index')->name('schoolsUsers.manager');
     Route::post('schools/{id}/storeUser', 'School_usersController@store')->name('schoolsUsers.store');
-    });
 
     /* DOCUMENT MANAGER OLD */
     //Route::get('/dm','DMController@index');

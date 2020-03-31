@@ -17,7 +17,6 @@ use InvalidArgumentException;
 use LogicException;
 use phpDocumentor\Reflection\DocBlock\DescriptionFactory;
 use phpDocumentor\Reflection\DocBlock\StandardTagFactory;
-use phpDocumentor\Reflection\DocBlock\Tag;
 use phpDocumentor\Reflection\DocBlock\TagFactory;
 use Webmozart\Assert\Assert;
 use function array_shift;
@@ -52,7 +51,7 @@ final class DocBlockFactory implements DocBlockFactoryInterface
     /**
      * Factory method for easy instantiation.
      *
-     * @param array<string, class-string<Tag>> $additionalTags
+     * @param string[] $additionalTags
      */
     public static function createInstance(array $additionalTags = []) : self
     {
@@ -80,12 +79,10 @@ final class DocBlockFactory implements DocBlockFactoryInterface
         if (is_object($docblock)) {
             if (!method_exists($docblock, 'getDocComment')) {
                 $exceptionMessage = 'Invalid object passed; the given object must support the getDocComment method';
-
                 throw new InvalidArgumentException($exceptionMessage);
             }
 
             $docblock = $docblock->getDocComment();
-            Assert::string($docblock);
         }
 
         Assert::stringNotEmpty($docblock);
@@ -109,9 +106,6 @@ final class DocBlockFactory implements DocBlockFactoryInterface
         );
     }
 
-    /**
-     * @param class-string<Tag> $handler
-     */
     public function registerTagHandler(string $tagName, string $handler) : void
     {
         $this->tagFactory->registerTagHandler($tagName, $handler);
@@ -124,8 +118,8 @@ final class DocBlockFactory implements DocBlockFactoryInterface
      */
     private function stripDocComment(string $comment) : string
     {
-        $comment = preg_replace('#[ \t]*(?:\/\*\*|\*\/|\*)?[ \t]?(.*)?#u', '$1', $comment);
-        Assert::string($comment);
+        /** @var string $comment */
+        $comment = preg_replace('#[ \t]*(?:\/\*\*|\*\/|\*)?[ \t]{0,1}(.*)?#u', '$1', $comment);
         $comment = trim($comment);
 
         // reg ex above is not able to remove */ from a single line docblock
@@ -136,7 +130,7 @@ final class DocBlockFactory implements DocBlockFactoryInterface
         return str_replace(["\r\n", "\r"], "\n", $comment);
     }
 
-    // phpcs:disable
+    // phpcs:disable SlevomatCodingStandard.Commenting.ForbiddenAnnotations.AnnotationForbidden
     /**
      * Splits the DocBlock into a template marker, summary, description and block of tags.
      *
@@ -150,7 +144,6 @@ final class DocBlockFactory implements DocBlockFactoryInterface
      */
     private function splitDocBlock(string $comment) : array
     {
-        // phpcs:enable
         // Performance improvement cheat: if the first character is an @ then only tags are in this DocBlock. This
         // method does not split tags so we return this verbatim as the fourth result (tags). This saves us the
         // performance impact of running a regular expression
@@ -159,8 +152,9 @@ final class DocBlockFactory implements DocBlockFactoryInterface
         }
 
         // clears all extra horizontal whitespace from the line endings to prevent parsing issues
+        /** @var string $comment */
         $comment = preg_replace('/\h*$/Sum', '', $comment);
-        Assert::string($comment);
+
         /*
          * Splits the docblock into a template marker, summary, description and tags section.
          *
@@ -253,11 +247,11 @@ final class DocBlockFactory implements DocBlockFactoryInterface
     private function splitTagBlockIntoTagLines(string $tags) : array
     {
         $result = [];
-        foreach (explode("\n", $tags) as $tagLine) {
-            if ($tagLine !== '' && strpos($tagLine, '@') === 0) {
-                $result[] = $tagLine;
+        foreach (explode("\n", $tags) as $tag_line) {
+            if (isset($tag_line[0]) && ($tag_line[0] === '@')) {
+                $result[] = $tag_line;
             } else {
-                $result[count($result) - 1] .= "\n" . $tagLine;
+                $result[count($result) - 1] .= "\n" . $tag_line;
             }
         }
 
@@ -275,9 +269,7 @@ final class DocBlockFactory implements DocBlockFactoryInterface
             // @codeCoverageIgnoreStart
             // Can't simulate this; this only happens if there is an error with the parsing of the DocBlock that
             // we didn't foresee.
-
             throw new LogicException('A tag block started with text instead of an at-sign(@): ' . $tags);
-
             // @codeCoverageIgnoreEnd
         }
 

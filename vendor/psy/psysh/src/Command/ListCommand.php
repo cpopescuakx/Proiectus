@@ -3,7 +3,7 @@
 /*
  * This file is part of Psy Shell.
  *
- * (c) 2012-2020 Justin Hileman
+ * (c) 2012-2018 Justin Hileman
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -22,7 +22,6 @@ use Psy\Command\ListCommand\VariableEnumerator;
 use Psy\Exception\RuntimeException;
 use Psy\Input\CodeArgument;
 use Psy\Input\FilterOptions;
-use Psy\Output\ShellOutput;
 use Psy\VarDumper\Presenter;
 use Psy\VarDumper\PresenterAware;
 use Symfony\Component\Console\Formatter\OutputFormatter;
@@ -58,7 +57,7 @@ class ListCommand extends ReflectingCommand implements PresenterAware
 
         $this
             ->setName('ls')
-            ->setAliases(['dir'])
+            ->setAliases(['list', 'dir'])
             ->setDefinition([
                 new CodeArgument('target', CodeArgument::OPTIONAL, 'A target class or object to list.'),
 
@@ -127,7 +126,7 @@ HELP
         }
 
         // @todo something cleaner than this :-/
-        if ($output instanceof ShellOutput && $input->getOption('long')) {
+        if ($input->getOption('long')) {
             $output->startPaging();
         }
 
@@ -135,7 +134,7 @@ HELP
             $this->$method($output, $enumerator->enumerate($input, $reflector, $target));
         }
 
-        if ($output instanceof ShellOutput && $input->getOption('long')) {
+        if ($input->getOption('long')) {
             $output->stopPaging();
         }
 
@@ -172,11 +171,11 @@ HELP
      * Write the list items to $output.
      *
      * @param OutputInterface $output
-     * @param array           $result List of enumerated items
+     * @param null|array      $result List of enumerated items
      */
-    protected function write(OutputInterface $output, array $result)
+    protected function write(OutputInterface $output, array $result = null)
     {
-        if (\count($result) === 0) {
+        if ($result === null) {
             return;
         }
 
@@ -192,11 +191,11 @@ HELP
      * Items are listed one per line, and include the item signature.
      *
      * @param OutputInterface $output
-     * @param array           $result List of enumerated items
+     * @param null|array      $result List of enumerated items
      */
-    protected function writeLong(OutputInterface $output, array $result)
+    protected function writeLong(OutputInterface $output, array $result = null)
     {
-        if (\count($result) === 0) {
+        if ($result === null) {
             return;
         }
 

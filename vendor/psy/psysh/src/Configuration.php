@@ -3,7 +3,7 @@
 /*
  * This file is part of Psy Shell.
  *
- * (c) 2012-2020 Justin Hileman
+ * (c) 2012-2018 Justin Hileman
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -13,7 +13,6 @@ namespace Psy;
 
 use Psy\Exception\DeprecatedException;
 use Psy\Exception\RuntimeException;
-use Psy\ExecutionLoop\ProcessForker;
 use Psy\Output\OutputPager;
 use Psy\Output\ShellOutput;
 use Psy\Readline\GNUReadline;
@@ -50,7 +49,6 @@ class Configuration
         'manualDbFile',
         'pager',
         'prompt',
-        'rawOutput',
         'requireSemicolons',
         'runtimeDir',
         'startupMessage',
@@ -78,8 +76,7 @@ class Configuration
     private $useBracketedPaste;
     private $hasPcntl;
     private $usePcntl;
-    private $newCommands = [];
-    private $rawOutput = false;
+    private $newCommands       = [];
     private $requireSemicolons = false;
     private $useUnicode;
     private $useTabCompletion;
@@ -149,7 +146,7 @@ class Configuration
     {
         // feature detection
         $this->hasReadline = \function_exists('readline');
-        $this->hasPcntl    = ProcessForker::isSupported();
+        $this->hasPcntl    = \function_exists('pcntl_signal') && \function_exists('posix_getpid');
 
         if ($configFile = $this->getConfigFile()) {
             $this->loadConfigFile($configFile);
@@ -184,7 +181,7 @@ class Configuration
 
         if (!empty($files)) {
             if ($this->warnOnMultipleConfigs && \count($files) > 1) {
-                $msg = \sprintf('Multiple configuration files found: %s. Using %s', \implode(', ', $files), $files[0]);
+                $msg = \sprintf('Multiple configuration files found: %s. Using %s', \implode($files, ', '), $files[0]);
                 \trigger_error($msg, E_USER_NOTICE);
             }
 
@@ -363,9 +360,7 @@ class Configuration
         }
 
         if (!\is_dir($this->runtimeDir)) {
-            if (!@\mkdir($this->runtimeDir, 0700, true)) {
-                throw new RuntimeException(sprintf('Unable to create PsySH runtime directory. Make sure PHP is able to write to %s in order to continue.', dirname($this->runtimeDir)));
-            }
+            \mkdir($this->runtimeDir, 0700, true);
         }
 
         return $this->runtimeDir;
@@ -399,7 +394,7 @@ class Configuration
 
         if (!empty($files)) {
             if ($this->warnOnMultipleConfigs && \count($files) > 1) {
-                $msg = \sprintf('Multiple history files found: %s. Using %s', \implode(', ', $files), $files[0]);
+                $msg = \sprintf('Multiple history files found: %s. Using %s', \implode($files, ', '), $files[0]);
                 \trigger_error($msg, E_USER_NOTICE);
             }
 
@@ -647,29 +642,6 @@ class Configuration
     }
 
     /**
-     * Check whether to use raw output.
-     *
-     * This is set by the --raw-output (-r) flag, and really only makes sense
-     * when non-interactive, e.g. executing stdin.
-     *
-     * @return bool true if raw output is enabled
-     */
-    public function rawOutput()
-    {
-        return $this->rawOutput;
-    }
-
-    /**
-     * Enable or disable raw output.
-     *
-     * @param bool $rawOutput
-     */
-    public function setRawOutput($rawOutput)
-    {
-        $this->rawOutput = (bool) $rawOutput;
-    }
-
-    /**
      * Enable or disable strict requirement of semicolons.
      *
      * @see self::requireSemicolons()
@@ -742,7 +714,8 @@ class Configuration
      * Get the current error logging level.
      *
      * By default, PsySH will automatically log all errors, regardless of the
-     * current `error_reporting` level.
+     * current `error_reporting` level. Additionally, if the `error_reporting`
+     * level warrants, an ErrorException will be thrown.
      *
      * Set `errorLoggingLevel` to 0 to prevent logging non-thrown errors. Set it
      * to any valid error_reporting value to log only errors which match that
@@ -863,7 +836,7 @@ class Configuration
     /**
      * Get the decoration (i.e. color) setting for the Shell Output service.
      *
-     * @return bool|null 3-state boolean corresponding to the current color mode
+     * @return null|bool 3-state boolean corresponding to the current color mode
      */
     public function getOutputDecorated()
     {
@@ -1061,7 +1034,7 @@ class Configuration
         $files = ConfigPaths::getDataFiles(['php_manual.sqlite'], $this->dataDir);
         if (!empty($files)) {
             if ($this->warnOnMultipleConfigs && \count($files) > 1) {
-                $msg = \sprintf('Multiple manual database files found: %s. Using %s', \implode(', ', $files), $files[0]);
+                $msg = \sprintf('Multiple manual database files found: %s. Using %s', \implode($files, ', '), $files[0]);
                 \trigger_error($msg, E_USER_NOTICE);
             }
 

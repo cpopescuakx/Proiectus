@@ -3,7 +3,7 @@
 /*
  * This file is part of Psy Shell.
  *
- * (c) 2012-2020 Justin Hileman
+ * (c) 2012-2018 Justin Hileman
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -24,18 +24,19 @@ class MethodEnumerator extends Enumerator
     protected function listItems(InputInterface $input, \Reflector $reflector = null, $target = null)
     {
         // only list methods when a Reflector is present.
+
         if ($reflector === null) {
-            return [];
+            return;
         }
 
         // We can only list methods on actual class (or object) reflectors.
         if (!$reflector instanceof \ReflectionClass) {
-            return [];
+            return;
         }
 
         // only list methods if we are specifically asked
         if (!$input->getOption('methods')) {
-            return [];
+            return;
         }
 
         $showAll   = $input->getOption('all');
@@ -43,7 +44,7 @@ class MethodEnumerator extends Enumerator
         $methods   = $this->prepareMethods($this->getMethods($showAll, $reflector, $noInherit));
 
         if (empty($methods)) {
-            return [];
+            return;
         }
 
         $ret = [];
@@ -67,9 +68,7 @@ class MethodEnumerator extends Enumerator
 
         $methods = [];
         foreach ($reflector->getMethods() as $name => $method) {
-            // For some reason PHP reflection shows private methods from the parent class, even
-            // though they're effectively worthless. Let's suppress them here, like --no-inherit
-            if (($noInherit || $method->isPrivate()) && $method->getDeclaringClass()->getName() !== $className) {
+            if ($noInherit && $method->getDeclaringClass()->getName() !== $className) {
                 continue;
             }
 

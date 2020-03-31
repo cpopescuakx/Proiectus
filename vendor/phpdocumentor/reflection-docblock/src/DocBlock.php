@@ -19,7 +19,7 @@ use Webmozart\Assert\Assert;
 final class DocBlock
 {
     /** @var string The opening line for this docblock. */
-    private $summary;
+    private $summary = '';
 
     /** @var DocBlock\Description The actual description for this docblock. */
     private $description;
@@ -34,10 +34,10 @@ final class DocBlock
     private $location;
 
     /** @var bool Is this DocBlock (the start of) a template? */
-    private $isTemplateStart;
+    private $isTemplateStart = false;
 
     /** @var bool Does this DocBlock signify the end of a DocBlock template? */
-    private $isTemplateEnd;
+    private $isTemplateEnd = false;
 
     /**
      * @param DocBlock\Tag[] $tags
@@ -150,6 +150,7 @@ final class DocBlock
     {
         $result = [];
 
+        /** @var Tag $tag */
         foreach ($this->getTags() as $tag) {
             if ($tag->getName() !== $name) {
                 continue;
@@ -168,6 +169,7 @@ final class DocBlock
      */
     public function hasTag(string $name) : bool
     {
+        /** @var Tag $tag */
         foreach ($this->getTags() as $tag) {
             if ($tag->getName() === $name) {
                 return true;

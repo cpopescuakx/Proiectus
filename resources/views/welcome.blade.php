@@ -144,138 +144,222 @@
                     <div class="pricing-header mx-auto text-center pr-4">
                         <h2 class="display-4 font-weight-bold">On ens pots trobar ?</h2>
                     </div>
-                    <div class="container mt-5">
-                      <div class="row featurette justify-content-center pl-5">
-                          <div class="col-md-7">
+                    <div class="row featurette justify-content-center pl-5">
+                        <div class="col-md-7">
 
+                            <h2 class="featurette-heading mb-3">Si vols vindre a veure-ns, aqui estem</h2>
 
-                                <style>
-                                /* Always set the map height explicitly to define the size of the div
-                                 * element that contains the map. */
-                                #map {
-                                  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+                              <style>
+                              /* Always set the map height explicitly to define the size of the div
+                               * element that contains the map. */
+                              #map2 {
+                                box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 
-                                  height: 400px;
-                                  width: 530px;
-                                }
+                                height: 400px;
+                                width: 530px;
+                              }
+                              #description {
+                                 font-family: Roboto;
+                                 font-size: 15px;
+                                 font-weight: 300;
+                               }
 
+                               #infowindow-content .title {
+                                 font-weight: bold;
+                               }
 
-                              </style>
+                               #infowindow-content {
+                                 display: none;
+                               }
 
-                              <div id="map"></div>
-                              <div id="infowindow-content">
-                                <img src="" width="16" height="16" id="place-icon">
-                                <span id="place-name"  class="title"></span><br>
-                                <span id="place-address"></span>
-                              </div>
-                            </div>
-                            <div class="col-md-2 ">
-                              <h2 class="pt-2">Empreses</h2>
-                              <div class="btn-group d-flex flex-wrap">
-                                <img src="{{ asset('img/Icono_1.png') }}"class="img-thumbnail "id="logo_e1"style="cursor:pointer">
-                                <img src="{{ asset('img/logo_consellcomarcal.png') }}"class="img-thumbnail"id="logo_e2"style="cursor:pointer">
+                               #map #infowindow-content {
+                                 display: inline;
+                               }
 
+                               .pac-card {
+                                 width: 530px;
+                                 margin: 10px 10px 0 0;
+                                 border-radius: 2px 0 0 2px;
+                                 box-sizing: border-box;
+                                 -moz-box-sizing: border-box;
+                                 outline: none;
+                                 box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+                                 background-color: #fff;
+                                 font-family: Roboto;
+                               }
 
-                              </div>
-                            </div>
+                               #pac-container {
+                                 padding-bottom: 12px;
+                                 margin-right: 12px;
+                               }
 
-                                <div class="col-md-2 "style="height: 500px;">
-                                  <h2 class="pt-2">Instituts</h2>
-                                  <div class="btn-group d-flex flex-wrap">
-                                    <img src="{{ asset('img/logo_iesmontsia.png') }}"class="img-thumbnail img-fluid" id="logo_i1"style="cursor:pointer">
-                                    <img src="{{ asset('img/logo_ramonberenguer.jpg') }}"class="img-thumbnail img-fluid"id="logo_i2"style="cursor:pointer">
+                               .pac-controls {
+                                 display: inline-block;
+                                 padding: 5px 11px;
+                               }
 
+                               .pac-controls label {
+                                 font-family: Roboto;
+                                 font-size: 13px;
+                                 font-weight: 300;
+                               }
 
+                               #pac-input {
+                                 background-color: #fff;
+                                 font-family: Roboto;
+                                 font-size: 15px;
+                                 font-weight: 300;
+                                 margin-left: 12px;
+                                 padding: 0 11px 0 13px;
+                                 text-overflow: ellipsis;
+                                 width: 400px;
+                               }
 
-                                  </div>
+                               #pac-input:focus {
+                                 border-color: #4d90fe;
+                               }
+
+                               #title {
+                                 color: #fff;
+                                 background-color: #4d90fe;
+                                 font-size: 25px;
+                                 font-weight: 500;
+                                 padding: 6px 12px;
+                               }
+
+                            </style>
+                            <div class="pac-card" id="pac-card">
+                              <div>
+                                <div id="title">
+                                  Búsqueda d'entitats
                                 </div>
+                                <div id="type-selector" class="pac-controls">
+                                  <input type="radio" name="type" id="changetype-all" checked="checked">
+                                  <label for="changetype-all">Tot</label>
+
+                                  <input type="radio" name="type" id="changetype-establishment">
+                                  <label for="changetype-establishment">Empreses</label>
+
+                                  <input type="radio" name="type" id="changetype-address">
+                                  <label for="changetype-address">Centres</label>
 
 
-                            <script>
-                              // Variable que crea lobjecte mapa
-                              var map;
-                              // Variables per als marcadors al mapa
-                              var proiectusCO = {lat:40.701968, lng:0.560683};
-                              var iesMontsia = {lat:40.709150, lng: 0.582557};
-                              var iesRamonBerenguer = {lat:40.709906, lng:0.581389};
-                              var consellComarcal = {lat:40.714371, lng: 0.579832};
-                              var hospitalAmposta = {lat: 40.708930, lng: 0.575960};
-                              // Funcio que crida l'objecte del mapa "google.maps.Map"
-                              function initMap() {
-                                map = new google.maps.Map(document.getElementById('map'), {
-                                  center: new google.maps.LatLng(proiectusCO),
-                                  zoom: 17
-                                });
-                                function newLocation(newLat,newLng)
-                                  {
-                                  	map.setCenter({
-                                  		lat : newLat,
-                                  		lng : newLng
-                                  	});
-                                  }
-                                  google.maps.event.addDomListener(window, 'load', initMap);
+                                </div>
+                                <div id="strict-bounds-selector" class="pac-controls">
+                                  <input type="checkbox" id="use-strict-bounds" value="">
+                                  <label for="use-strict-bounds">Strict Bounds</label>
+                                </div>
+                              </div>
+                              <div id="pac-container">
+                                <input id="pac-input" type="text"
+                                    placeholder="Enter a location">
+                              </div>
+                            </div>
+                            <div id="map2"></div>
+                            <div id="infowindow-content">
+                              <img src="" width="16" height="16" id="place-icon">
+                              <span id="place-name"  class="title"></span><br>
+                              <span id="place-address"></span>
+                            </div>
+                          </div>
+                          <div class="col-md-2 mt-5">
+                            Empreses
+                            <div class="btn-group d-flex flex-wrap">
+                              <img src="{{ asset('img/Icono_1.png') }}"class="img-thumbnail" id="logo1" style="cursor:pointer;">
+                              <img src="{{ asset('img/logo_consellcomarcal.png') }}"class="img-thumbnail"id="logo2">
 
-                                // Diferents marcadors
-                                var marker1 = new google.maps.Marker({
-                                  position: iesMontsia,
-                                  map: map,
-                                  title: 'IES Montsià SC.'
-                                });
-                                var marker2 = new google.maps.Marker({
-                                  position: consellComarcal,
-                                  map: map,
-                                  title: 'Consell Comarcal CO.'
-                                });
-                                var marker3 = new google.maps.Marker({
-                                  position: hospitalAmposta,
-                                  map: map,
-                                  title: 'Hospital Amposta CO.'
-                                });
-                                var marker4 = new google.maps.Marker({
-                                  position: proiectusCO,
-                                  map: map,
-                                  title: 'Sede Proiectus CO.'
-                                });
-                                var marker4 = new google.maps.Marker({
-                                  position: iesRamonBerenguer,
-                                  map: map,
-                                  title: 'Ies Ramon Berenguer IV SC.'
+
+                            </div>
+                          </div>
+
+                              <div class="col-md-2 mt-5"style="height: 500px;">
+                                Instituts
+                                <div class="btn-group d-flex flex-wrap">
+
+                                  <img src="{{ asset('img/logo_iesmontsia.png') }}"class="img-thumbnail img-fluid" id="logo5" style="cursor:pointer;">
+                                  <img src="{{ asset('img/logo_ramonberenguer.jpg') }}"class="img-thumbnail img-fluid" id="logo6" style="cursor:pointer;">
+
+
+
+                                </div>
+                              </div>
+
+
+                          <script>
+                            // Variable que crea lobjecte mapa
+                            var map;
+                            // Variables per als marcadors al mapa
+                            var proiectusCO = {lat:40.701968, lng:0.560683};
+                            var iesMontsia = {lat:40.709150, lng: 0.582557};
+                            var consellComarcal = {lat:40.714371, lng: 0.579832};
+                            var hospitalAmposta = {lat: 40.708930, lng: 0.575960};
+                            // Funcio que crida l'objecte del mapa "google.maps.Map"
+                            function initMap() {
+                              map = new google.maps.Map(document.getElementById('map2'), {
+                                center: new google.maps.LatLng(48.1293954,12.556663),
+                                zoom: 17
+                              });
+                              function canviarCentre (newLat, newLng) {
+                                map.setCenter({
+                                  lat: newLat,
+                                  lng: newLng
+
                                 });
                               }
+                              // Diferents marcadors
+                              var marker1 = new google.maps.Marker({
+                                position: iesMontsia,
+                                map: map,
+                                title: 'IES Montsià SC.'
+                              });
+                              var marker2 = new google.maps.Marker({
+                                position: consellComarcal,
+                                map: map,
+                                title: 'Consell Comarcal CO.'
+                              });
+                              var marker3 = new google.maps.Marker({
+                                position: hospitalAmposta,
+                                map: map,
+                                title: 'Hospital Amposta CO.'
+                              });
+                              var marker4 = new google.maps.Marker({
+                                position: proiectusCO,
+                                map: map,
+                                title: 'Sede Proiectus CO.'
+                              });
+                            }
 
+                            new google = google.maps.event.addDomListener(window, 'load', initMap);
 
-
-                                //Setting Location with jQuery
-                                $(document).ready(function ()
+                            //Setting Location with jQuery
+                            $(document).ready(function ()
+                            {
+                                $("#logo1").on('click', function ()
                                 {
-                                    $("#logo_e1").on('click', function ()
-                                    {
-                                	      map.setCenter(new google.maps.LatLng(40.701968,0.560683));
-                                	});
+                            	  canviarCentre(40.701968,0.560683);
+                            	});
 
-                                	$("#logo_e2").on('click', function ()
-                                    {
-                                	   map.setCenter(new google.maps.LatLng(40.714371,0.579832));
-                                	});
+                            	$("#logo2").on('click', function ()
+                                {
+                            	  canviarCentre(40.7033127,-73.979681);
+                            	});
 
-                                    $("#logo_i1").on('click', function ()
-                                    {
-                                	   map.setCenter(new google.maps.LatLng(iesMontsia));
-                                	});
-                                  $("#logo_i2").on('click', function ()
-                                  {
-                                   map.setCenter(new google.maps.LatLng(iesRamonBerenguer));
-                                });
-                                });
-                            </script>
+                                $("#logo5").on('click', function ()
+                                {
+                            	  canviarCentre(iesMontsia);
+                            	});
+                              $("#logo6").on('click', function ()
+                              {
+                              canviarCentre(proiectusCO);
+                            });
+                            });
+                          </script>
 
 
 
 
-                      </div>
-              </div><!-- /.container -->
                     </div>
-
+            </div><!-- /.container -->
 
         </section>
 

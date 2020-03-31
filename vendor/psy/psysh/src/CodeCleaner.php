@@ -3,7 +3,7 @@
 /*
  * This file is part of Psy Shell.
  *
- * (c) 2012-2020 Justin Hileman
+ * (c) 2012-2018 Justin Hileman
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -18,15 +18,14 @@ use Psy\CodeCleaner\AbstractClassPass;
 use Psy\CodeCleaner\AssignThisVariablePass;
 use Psy\CodeCleaner\CalledClassPass;
 use Psy\CodeCleaner\CallTimePassByReferencePass;
-use Psy\CodeCleaner\EmptyArrayDimFetchPass;
 use Psy\CodeCleaner\ExitPass;
 use Psy\CodeCleaner\FinalClassPass;
 use Psy\CodeCleaner\FunctionContextPass;
 use Psy\CodeCleaner\FunctionReturnInWriteContextPass;
 use Psy\CodeCleaner\ImplicitReturnPass;
 use Psy\CodeCleaner\InstanceOfPass;
-use Psy\CodeCleaner\LabelContextPass;
 use Psy\CodeCleaner\LeavePsyshAlonePass;
+use Psy\CodeCleaner\LegacyEmptyPass;
 use Psy\CodeCleaner\ListPass;
 use Psy\CodeCleaner\LoopContextPass;
 use Psy\CodeCleaner\MagicConstantsPass;
@@ -99,12 +98,11 @@ class CodeCleaner
             new FunctionContextPass(),
             new FunctionReturnInWriteContextPass(),
             new InstanceOfPass(),
-            new LabelContextPass(),
             new LeavePsyshAlonePass(),
+            new LegacyEmptyPass(),
             new ListPass(),
             new LoopContextPass(),
             new PassableByReferencePass(),
-            new EmptyArrayDimFetchPass(),
             new ValidConstructorPass(),
 
             // Rewriting shenanigans
@@ -239,9 +237,9 @@ class CodeCleaner
     /**
      * Set the current local namespace.
      *
-     * @param array|null $namespace (default: null)
+     * @param null|array $namespace (default: null)
      *
-     * @return array|null
+     * @return null|array
      */
     public function setNamespace(array $namespace = null)
     {
@@ -251,7 +249,7 @@ class CodeCleaner
     /**
      * Get the current local namespace.
      *
-     * @return array|null
+     * @return null|array
      */
     public function getNamespace()
     {

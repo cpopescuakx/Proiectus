@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace phpDocumentor\Reflection\DocBlock;
 
 use phpDocumentor\Reflection\DocBlock\Tags\Example;
+use const DIRECTORY_SEPARATOR;
 use function array_slice;
 use function file;
 use function getcwd;
@@ -22,7 +23,6 @@ use function is_readable;
 use function rtrim;
 use function sprintf;
 use function trim;
-use const DIRECTORY_SEPARATOR;
 
 /**
  * Class used to find an example file's location based on a given ExampleDescriptor.
@@ -122,7 +122,6 @@ class ExampleFinder
         }
 
         $lines = $normalizedPath && is_readable($normalizedPath) ? file($normalizedPath) : false;
-
         return $lines !== false ? $lines : null;
     }
 

@@ -376,10 +376,6 @@ class Route implements \Serializable
      */
     public function addDefaults(array $defaults)
     {
-        if (isset($defaults['_locale']) && $this->isLocalized()) {
-            unset($defaults['_locale']);
-        }
-
         foreach ($defaults as $name => $default) {
             $this->defaults[$name] = $default;
         }
@@ -422,10 +418,6 @@ class Route implements \Serializable
      */
     public function setDefault($name, $default)
     {
-        if ('_locale' === $name && $this->isLocalized()) {
-            return $this;
-        }
-
         $this->defaults[$name] = $default;
         $this->compiled = null;
 
@@ -469,10 +461,6 @@ class Route implements \Serializable
      */
     public function addRequirements(array $requirements)
     {
-        if (isset($requirements['_locale']) && $this->isLocalized()) {
-            unset($requirements['_locale']);
-        }
-
         foreach ($requirements as $key => $regex) {
             $this->requirements[$key] = $this->sanitizeRequirement($key, $regex);
         }
@@ -515,10 +503,6 @@ class Route implements \Serializable
      */
     public function setRequirement($key, $regex)
     {
-        if ('_locale' === $key && $this->isLocalized()) {
-            return $this;
-        }
-
         $this->requirements[$key] = $this->sanitizeRequirement($key, $regex);
         $this->compiled = null;
 
@@ -592,10 +576,5 @@ class Route implements \Serializable
         }
 
         return $regex;
-    }
-
-    private function isLocalized(): bool
-    {
-        return isset($this->defaults['_locale']) && isset($this->defaults['_canonical_route']) && ($this->requirements['_locale'] ?? null) === preg_quote($this->defaults['_locale'], RouteCompiler::REGEX_DELIMITER);
     }
 }

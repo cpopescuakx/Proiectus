@@ -39,10 +39,10 @@ abstract class TagWithType extends BaseTag
     {
         $type         = '';
         $nestingLevel = 0;
-        for ($i = 0, $iMax = strlen($body); $i < $iMax; $i++) {
+        for ($i = 0; $i < strlen($body); $i++) {
             $character = $body[$i];
 
-            if ($nestingLevel === 0 && trim($character) === '') {
+            if (trim($character) === '' && $nestingLevel === 0) {
                 break;
             }
 

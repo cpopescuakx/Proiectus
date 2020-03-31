@@ -3,7 +3,7 @@
 /*
  * This file is part of Psy Shell.
  *
- * (c) 2012-2020 Justin Hileman
+ * (c) 2012-2018 Justin Hileman
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -30,13 +30,14 @@ class FunctionEnumerator extends Enumerator
         //     ls --functions Foo
         //
         // ... for listing functions in the Foo namespace
+
         if ($reflector !== null || $target !== null) {
-            return [];
+            return;
         }
 
         // only list functions if we are specifically asked
         if (!$input->getOption('functions')) {
-            return [];
+            return;
         }
 
         if ($input->getOption('user')) {
@@ -53,7 +54,7 @@ class FunctionEnumerator extends Enumerator
         $functions = $this->prepareFunctions($functions);
 
         if (empty($functions)) {
-            return [];
+            return;
         }
 
         $ret = [];
@@ -67,7 +68,7 @@ class FunctionEnumerator extends Enumerator
      *
      * Optionally limit functions to "user" or "internal" functions.
      *
-     * @param string|null $type "user" or "internal" (default: both)
+     * @param null|string $type "user" or "internal" (default: both)
      *
      * @return array
      */
@@ -98,15 +99,11 @@ class FunctionEnumerator extends Enumerator
 
         foreach ($functions as $name) {
             if ($this->showItem($name)) {
-                try {
-                    $ret[$name] = [
-                        'name'  => $name,
-                        'style' => self::IS_FUNCTION,
-                        'value' => $this->presentSignature($name),
-                    ];
-                } catch (\Exception $e) {
-                    // Ignore failures. HHVM does this sometimes for internal functions.
-                }
+                $ret[$name] = [
+                    'name'  => $name,
+                    'style' => self::IS_FUNCTION,
+                    'value' => $this->presentSignature($name),
+                ];
             }
         }
 

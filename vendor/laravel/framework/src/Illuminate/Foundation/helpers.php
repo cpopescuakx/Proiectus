@@ -17,6 +17,7 @@ use Illuminate\Foundation\Bus\PendingDispatch;
 use Illuminate\Foundation\Mix;
 use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Queue\CallQueuedClosure;
+use Illuminate\Queue\SerializableClosure;
 use Illuminate\Support\Facades\Date;
 use Illuminate\Support\HtmlString;
 use Symfony\Component\Debug\Exception\FatalThrowableError;
@@ -249,7 +250,13 @@ if (! function_exists('cache')) {
             );
         }
 
-        return app('cache')->put(key($arguments[0]), reset($arguments[0]), $arguments[1] ?? null);
+        if (! isset($arguments[1])) {
+            throw new Exception(
+                'You must specify an expiration time when setting a value in the cache.'
+            );
+        }
+
+        return app('cache')->put(key($arguments[0]), reset($arguments[0]), $arguments[1]);
     }
 }
 
@@ -299,13 +306,13 @@ if (! function_exists('cookie')) {
      * @param  int  $minutes
      * @param  string|null  $path
      * @param  string|null  $domain
-     * @param  bool|null  $secure
+     * @param  bool  $secure
      * @param  bool  $httpOnly
      * @param  bool  $raw
      * @param  string|null  $sameSite
      * @return \Illuminate\Cookie\CookieJar|\Symfony\Component\HttpFoundation\Cookie
      */
-    function cookie($name = null, $value = null, $minutes = 0, $path = null, $domain = null, $secure = null, $httpOnly = true, $raw = false, $sameSite = null)
+    function cookie($name = null, $value = null, $minutes = 0, $path = null, $domain = null, $secure = false, $httpOnly = true, $raw = false, $sameSite = null)
     {
         $cookie = app(CookieFactory::class);
 
@@ -386,7 +393,7 @@ if (! function_exists('dispatch')) {
     function dispatch($job)
     {
         if ($job instanceof Closure) {
-            $job = CallQueuedClosure::create($job);
+            $job = new CallQueuedClosure(new SerializableClosure($job));
         }
 
         return new PendingDispatch($job);

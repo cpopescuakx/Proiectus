@@ -94,11 +94,13 @@ class Serializer
         }
 
         $comment = $this->addTagBlock($docblock, $wrapLength, $indent, $comment);
-
         return $comment . $indent . ' */';
     }
 
-    private function removeTrailingSpaces(string $indent, string $text) : string
+    /**
+     * @return mixed
+     */
+    private function removeTrailingSpaces(string $indent, string $text)
     {
         return str_replace(
             sprintf("\n%s * \n", $indent),
@@ -107,7 +109,10 @@ class Serializer
         );
     }
 
-    private function addAsterisksForEachLine(string $indent, string $text) : string
+    /**
+     * @return mixed
+     */
+    private function addAsterisksForEachLine(string $indent, string $text)
     {
         return str_replace(
             "\n",
@@ -122,7 +127,6 @@ class Serializer
                 : '');
         if ($wrapLength !== null) {
             $text = wordwrap($text, $wrapLength);
-
             return $text;
         }
 

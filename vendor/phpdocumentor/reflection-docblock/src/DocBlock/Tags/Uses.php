@@ -41,6 +41,9 @@ final class Uses extends BaseTag implements Factory\StaticMethod
         $this->description = $description;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public static function create(
         string $body,
         ?FqsenResolver $resolver = null,

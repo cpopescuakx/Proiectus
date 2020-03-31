@@ -1,10 +1,9 @@
-@inject('user', 'App\Http\Controllers\UserController') {{-- Importa el controlador de user --}}
 @if ($wiki != null)
 <div class="container mb-5">
     <a href="{{$id_project}}/edit"><i style="font-size: 1rem" class="material-icons" alt="Icona per a editar">edit</i></a>
     <h2 class="float-left">{{$wiki->title}}</h2>
     <br><br>
-    <form method="POST" action="{{$id_project}}/store" id="articleCreationForm">
+    <form method="POST" action="{{$id_project}}/store" id="postCreationForm">
         {{csrf_field()}}
         <div class="form-group">
             <h4><label class="float-left" cfor="exampleFormControlInput1">Crea un article!</label></h4>
@@ -26,12 +25,14 @@
                     maxHeight: 400
                 });
 
-                /* Comprovem si el contingut de l'article esta buit al fer submit i
+
+                /* Comprovem si el contingut del post esta buit al fer submit i
                     evitem continuar si està buit
                 */
-                $('#articleCreationForm').on('submit', function(e) {
+                $('#postCreationForm').on('submit', function(e) {
                     // Comprovem si el contingut del post esta buit
                     if ($('#summernote').summernote('isEmpty')) {
+                        console.log('Introdueix el contingut del article!');
                         // Evitar el submit
                         e.preventDefault();
                     }
@@ -74,12 +75,12 @@
                 <h5 class="card-title">{{$article->title}}</h5>
             </a>
             <div class="">
-                <p class="card-text">{{$article->content}}</p>
+                <p class="card-text">{!!$article->content!!}</p>
 
             </div>
         </div>
         <div class="card-footer text-muted">
-            <footer class="blockquote-footer float-right"> Creat per <a href=""> <cite title="Source Title"> {{($user::getUser($article->id_user))->username}} </cite></a> el {{$article->created_at}}</footer>
+            <footer class="blockquote-footer float-right"> Creat per <a href=""> <cite title="Source Title"> {{$article->id_user}}</cite></a> el {{$article->created_at}}</footer>
         </div>
     </div>
     @endforeach

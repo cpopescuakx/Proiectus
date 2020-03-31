@@ -3,7 +3,7 @@
 /*
  * This file is part of Psy Shell.
  *
- * (c) 2012-2020 Justin Hileman
+ * (c) 2012-2018 Justin Hileman
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -11,7 +11,6 @@
 
 namespace Psy\Command;
 
-use Psy\Output\ShellOutput;
 use Symfony\Component\Console\Helper\TableHelper;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -87,19 +86,13 @@ class HelpCommand extends Command
                 ]);
             }
 
-            if ($output instanceof ShellOutput) {
-                $output->startPaging();
-            }
-
+            $output->startPaging();
             if ($table instanceof TableHelper) {
                 $table->render($output);
             } else {
                 $table->render();
             }
-
-            if ($output instanceof ShellOutput) {
-                $output->stopPaging();
-            }
+            $output->stopPaging();
         }
 
         return 0;

@@ -28,7 +28,7 @@ use League\CommonMark\Util\Configuration;
 use League\CommonMark\Util\ConfigurationAwareInterface;
 use League\CommonMark\Util\PrioritizedList;
 
-final class Environment implements ConfigurableEnvironmentInterface
+final class Environment implements EnvironmentInterface, ConfigurableEnvironmentInterface
 {
     /**
      * @var ExtensionInterface[]
@@ -334,7 +334,10 @@ final class Environment implements ConfigurableEnvironmentInterface
         }
     }
 
-    public static function createCommonMarkEnvironment(): ConfigurableEnvironmentInterface
+    /**
+     * @return Environment
+     */
+    public static function createCommonMarkEnvironment(): Environment
     {
         $environment = new static();
         $environment->addExtension(new CommonMarkCoreExtension());
@@ -352,7 +355,7 @@ final class Environment implements ConfigurableEnvironmentInterface
         return $environment;
     }
 
-    public static function createGFMEnvironment(): ConfigurableEnvironmentInterface
+    public static function createGFMEnvironment(): EnvironmentInterface
     {
         $environment = self::createCommonMarkEnvironment();
         $environment->addExtension(new GithubFlavoredMarkdownExtension());
