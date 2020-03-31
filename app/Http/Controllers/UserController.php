@@ -285,7 +285,7 @@ class UserController extends Controller
             $student -> dni = $request->input('dni');
             $student -> email = $request->input('email');
             $student -> birthdate = $request->input('birthdate');
-            $student -> password = md5($request->input('password'));
+            $student -> password = Hash::make($request->input('password'));
             $postalcode = $request->input('city');
             $student -> id_city = CityController::getIdFromPostalCode($postalcode);
             $student -> profile_pic = "Res";
