@@ -152,12 +152,33 @@
                 <a class="nav-link" class="text-ternari" href="{{ route('index.index') }}">Home <span class="sr-only">(current)</span></a>
             </li>
             <!-- Fin elemento menu -->
-
             <!-- Elemento menu -->
-            <li class="nav-item">
-                <a class="nav-link" href="">Features</a>
+            @guest
+            <li class="nav-item ml-3">
+                <a type="button" class="btn btn-outline-primary"  href="login">Inicia sessió<span class="sr-only">(current)</span></a>
+            </li>
+            @else
+            <li class="nav-item ml-3">
+                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                   {{ Auth::user()->username }}
+                </a>
+
+                <!-- Desplegable con Logout -->
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{{ route('logout') }}"
+                    onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();">
+                        {{ __('Logout') }}
+                    </a>
+
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+                </div>
             </li>
             <!-- Fin elemento menu -->
+            @endif
+            
         </ul>
       </div>
         <!-- Fin elementos menu -->
