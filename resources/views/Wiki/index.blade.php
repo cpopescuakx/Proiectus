@@ -1,6 +1,8 @@
 @if ($wiki != null)
 <div class="container mb-5">
+    @if(Auth::user()->id == $wiki->id_user || (Auth::user()->id_role == 1))
     <a href="{{$id_project}}/edit"><i style="font-size: 1rem" class="material-icons" alt="Icona per a editar">edit</i></a>
+    @endif
     <h2 class="float-left">{{$wiki->title}}</h2>
     <br><br>
     <form method="POST" action="{{$id_project}}/store" id="postCreationForm">
@@ -68,9 +70,10 @@
     </div>
     <div class="card mb-3">
         <div class="card-body">
+            @if(Auth::user()->id == $article->id_user || (Auth::user()->id_role == 1))
             <a class="float-right" href="{{$id_project}}/article/{{$article->id_article}}/edit"><i style="font-size: 140%" class="material-icons" alt="Icona per a editar" >edit</i></a>
             <a class="float-right" data-toggle="modal" data-target="#deleteConfirmationModal"><i style="font-size: 140%" class="material-icons text-primary" alt="Icona per a eliminar">delete</i></a>
-
+            @endif
             <a href="#">
                 <h5 class="card-title">{{$article->title}}</h5>
             </a>

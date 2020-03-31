@@ -22,9 +22,9 @@ class CheckRoleBlog
     public function handle($request, Closure $next)
     {
         $check = FALSE;
-        if (Auth::check() == true && Auth::user()->id == Post::find($request->route()->parameters()['id_post'])->id_user) {
+        if (Auth::user()->id == Post::find($request->route()->parameters()['id_post'])->id_user || Auth::user()->id_role == 1){
             $check = TRUE;
-            return $next($request->request->add(['check'=>$check]));
+            return $next($request->merge(['check' => $check]));
         } else {
             $id_project = (int)$request->route()->parameters()['id_project'];
             return redirect()->action('ProjectController@show', ['id_project'=> $id_project]);

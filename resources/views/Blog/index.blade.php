@@ -1,11 +1,12 @@
 @if ($blog != null)
 <div>
 <div class="container mb-5">
+    @if(Auth::user()->id == $blog->id_user || (Auth::user()->id_role == 1))
     <a href="{{route('blogs.edit', $id_project)}}"><i style="font-size: 1rem" class="material-icons" alt="Icona per a modificar">edit</i></a>
+    @endif
     <h2 class="float-left">{{$blog->title}}</h2>
     <br><br>
     <form method="post" action="{{route('posts.store', $id_project)}}" id="postCreationForm">
-
         {{csrf_field()}}
         <div class="form-group">
             <h4><label class="float-left" cfor="exampleFormControlInput1">Crea un post!</label></h4>
@@ -16,7 +17,6 @@
             <div class="form-group">
                 <textarea name="content" id=summernote required></textarea>
             </div>
-
             <!-- Script per a inicialitzar l'editor de text-->
             <script>
                 $('#summernote').summernote({
@@ -82,7 +82,6 @@
                 <div class="modal-footer">
                     <button type="button" name="cancel" class="btn btn-success" data-dismiss="modal">Cancela</button>
                     <a type="button" name="delete" class="btn btn-danger" href="{{route('posts.destroy', [$id_project, $post->id_post])}}">Elimina</a>
-
                 </div>
             </div>
         </div>
@@ -97,11 +96,10 @@
 
     <div class="card mb-3">
         <div class="card-body">
-
+            @if(Auth::user()->id == $post->id_user || (Auth::user()->id_role == 1))
             <a class="float-right" href="{{route('posts.edit', [$id_project, $post->id_post])}}"><i style="font-size: 140%" class="material-icons" alt="Icona per a modificar">edit</i></a>
-            <!--<a class="float-right" href="{{$id_project}}/post/{{$post->id_post}}/destroy" ><i style="font-size: 1rem" class="material-icons">delete</i></a>
-                    -->
             <a class="float-right" data-toggle="modal" data-target="#deleteConfirmationModal"><i style="font-size: 140%" class="material-icons text-primary" alt="Icona per a eliminar">delete</i></a>
+            @endif
             <a href="{{route('posts.show', [$id_project, $post->id_post])}}">
 
                 <h5 class="card-title">{{$post->title}} </h5>

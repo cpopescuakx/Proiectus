@@ -219,15 +219,15 @@ Route::middleware(['CheckRole'])->group(function () {
     /** Ruta per al STORE de post */
     Route::post('blog/{id_project}/post/store', 'PostController@store')->name('posts.store');
 
-    /** Ruta per al INDEX d'un blog d'un projecte */
-    Route::get('blog/{id_project}', ['Middleware' => 'auth','uses' => 'BlogController@index']);
-
-     /** Ruta per al SHOW d'un post */
-     Route::get('blog/{id_project}/post/{id_post}', 'PostController@show')->name('posts.show');
+    
 
                                     /** MIDDLEWARE */
     /** Middleware per a controlar que només pugui editar o eliminar un post el seu owner */
-    Route::middleware(['CheckRoleBlog'])->group(function () {
+    Route::middleware(['CheckRoleBlog','auth'])->group(function () {
+        /** Ruta per al INDEX d'un blog d'un projecte */
+        Route::get('blog/{id_project}','BlogController@index')->name('blog.index');
+        /** Ruta per al SHOW d'un post */
+        Route::get('blog/{id_project}/post/{id_post}', 'PostController@show')->name('posts.show');
         /** Ruta per al UPDATE d'un post */
         Route::get('blog/{id_project}/post/{id_post}/edit', 'PostController@edit')->name('posts.edit');
         Route::post('blog/{id_project}/post/{id_post}/update', 'PostController@update')->name('posts.update');

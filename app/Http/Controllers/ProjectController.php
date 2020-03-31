@@ -134,12 +134,9 @@ class ProjectController extends Controller
     }
 
 
-    public function show($id_project)
+    public function show(Request $request, $id_project)
     {
-        $posts = Post::all()
-        ->sortByDesc('created_at')
-        ->where('id_project', '=', $id_project)
-        ->where('status', '=', 'active');
+        $posts = Post::all()->sortByDesc('created_at')->where('id_project', '=', $id_project)->where('status', '=', 'active');
 
         $blog = Blog::find($id_project);
 
@@ -153,7 +150,9 @@ class ProjectController extends Controller
         
         $wiki = Wiki::find($id_project);
 
-        return view ('projects.show', compact('project', 'participants', 'posts', 'blog', 'resources', 'id_project', 'articles','wiki'));
+        $check = $request->get('check');
+
+        return view ('projects.show', compact('project', 'participants', 'posts', 'blog', 'resources', 'id_project', 'articles','wiki','check'));
 
     }
 
