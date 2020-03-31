@@ -1,3 +1,4 @@
+@inject('user', 'App\Http\Controllers\UserController') {{-- Importa el controlador de user --}}
 @if ($blog != null)
 <div>
 <div class="container mb-5">
@@ -111,7 +112,7 @@
             </div>
         </div>
         <div class="card-footer text-muted">
-            <footer class="blockquote-footer float-right"> Creat per <a href=""> <cite title="Source Title"> {{$post->id_user}}</cite></a> el {{$post->created_at}}</footer>
+            <footer class="blockquote-footer float-right"> Creat per <a href=""> <cite title="Source Title"> {{($post::getUser($post->id_user))->username}} </cite></a> el {{$post->created_at}}</footer>
         </div>
     </div>
     @endforeach

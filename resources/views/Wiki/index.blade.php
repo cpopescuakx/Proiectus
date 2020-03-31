@@ -1,3 +1,4 @@
+@inject('user', 'App\Http\Controllers\UserController') {{-- Importa el controlador de user --}}
 @if ($wiki != null)
 <div class="container mb-5">
     @if(Auth::user()->id == $wiki->id_user || (Auth::user()->id_role == 1))
@@ -83,7 +84,7 @@
             </div>
         </div>
         <div class="card-footer text-muted">
-            <footer class="blockquote-footer float-right"> Creat per <a href=""> <cite title="Source Title"> {{$article->id_user}}</cite></a> el {{$article->created_at}}</footer>
+            <footer class="blockquote-footer float-right"> Creat per <a href=""> <cite title="Source Title"> {{($user::getUser($article->id_user))->username}}</cite></a> el {{$article->created_at}}</footer>
         </div>
     </div>
     @endforeach
