@@ -1,11 +1,11 @@
 @if ($wiki != null)
 <div class="container mb-5">
     @if(Auth::user()->id == $wiki->id_user || (Auth::user()->id_role == 1))
-    <a href="{{$id_project}}/edit"><i style="font-size: 1rem" class="material-icons" alt="Icona per a editar">edit</i></a>
+    <a href="{{route('wiki.edit', $id_project)}}" ><i style="font-size: 1rem" class="material-icons" alt="Icona per a editar">edit</i></a>
     @endif
     <h2 class="float-left">{{$wiki->title}}</h2>
     <br><br>
-    <form method="POST" action="{{$id_project}}/store" id="postCreationForm">
+    <form method="POST" action="{{route('article.store', $id_project)}}" id="postCreationForm">
         {{csrf_field()}}
         <div class="form-group">
             <h4><label class="float-left" cfor="exampleFormControlInput1">Crea un article!</label></h4>
