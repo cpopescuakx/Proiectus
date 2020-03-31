@@ -50,7 +50,9 @@
 </table>
 -->
 <div class="table-responsive">
-<table class="table table-sm table-hover shadow-sm">
+    <h4 style="margin-right: 1rem">Administració d'Alumnes </h4>
+
+    <table class="table table-sm table-hover shadow-sm">
     <thead>
         <tr>
             <th data-field="nom">Nom</th>
