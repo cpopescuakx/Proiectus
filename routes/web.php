@@ -215,12 +215,6 @@ Route::middleware(['CheckRole'])->group(function () {
 
 // Routes Grup4
     /** ------Rutes per a l'apartat del BLOG------ */
-
-    /** Ruta per al STORE de post */
-    Route::post('blog/{id_project}/post/store', 'PostController@store')->name('posts.store');
-
-    
-
                                     /** MIDDLEWARE */
     /** Middleware per a controlar que només pugui editar o eliminar un post el seu owner */
     Route::middleware(['CheckRoleBlog','auth'])->group(function () {
@@ -233,36 +227,33 @@ Route::middleware(['CheckRole'])->group(function () {
         Route::post('blog/{id_project}/post/{id_post}/update', 'PostController@update')->name('posts.update');
         /** Ruta eliminar un post*/
         Route::get('blog/{id_project}/post/{id_post}/destroy', 'PostController@destroy')->name('posts.destroy');
+        /** Ruta per a l'update del titul de blog */
+        Route::get('blog/{id_project}/edit', 'BlogController@edit')->name('blogs.edit');
+        Route::PATCH('blog/{id_project}/update', 'BlogController@update')->name('blogs.update');
     });
+       /** Ruta per al STORE de post */
+       Route::post('blog/{id_project}/post/store', 'PostController@store')->name('posts.store');
 
-    /** Ruta per a l'update del titul de blog */
-    Route::get('blog/{id_project}/edit', 'BlogController@edit')->name('blogs.edit');
-    Route::PATCH('blog/{id_project}/update', 'BlogController@update')->name('blogs.update');
-
-
-    /** Rutes per a l'apartat de la gestio dels articles de la wiki */
-    Route::get('wiki/{id_project}', 'WikiController@index');
-    Route::post('wiki/{id_project}/store', 'ArticleController@store');
-
-
-    Route::get('wiki/{id_project}/edit', 'WikiController@edit');
-    Route::PATCH('wiki/{id_project}/update', 'WikiController@update');
-
-    Route::get('wiki/{id_project}/article/create', 'ArticleController@create');
-    Route::post('wiki/{id_project}/article/store', 'ArticleController@store');
+    /** ------Rutes per a l'apartat de WIKI------ */
 
                                     /** MIDDLEWARE */
     /** Middleware per a controlar que només pugui editar o eliminar un article el seu owner */
     Route::middleware(['CheckRoleWiki'])->group(function () {
+        /** Rutes per a l'apartat de la gestio dels articles de la wiki */
+    Route::get('wiki/{id_project}', 'WikiController@index');
         /** Ruta per a eliminar un article */
         Route::get('wiki/{id_project}/article/{id_post}/destroy', 'ArticleController@destroy');
         /** Ruta per a l'update d'un article */
         Route::get('wiki/{id_project}/article/{id_article}/edit', 'ArticleController@edit');
         Route::post('wiki/{id_project}/article/{id_article}/update', 'ArticleController@update');
+        /** Ruta per a l'update d''una wiki */
+        Route::get('wiki/{id_project}/edit', 'WikiController@edit')->name('wiki.edit');
+        Route::PATCH('wiki/{id_project}/update', 'WikiController@update');
     });
+    /** Ruta per a guardar l'article creat */
+    Route::post('wiki/{id_project}/article/store', 'ArticleController@store') ->name('article.store');
 
-    Route::resource('articles', 'ArticleController');
-
+    
     /** Rutes per a l'apartat de perfils d'usuari */
 
     Auth::routes();
