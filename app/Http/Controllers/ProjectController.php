@@ -7,6 +7,7 @@ namespace App\Http\Controllers;
 
 use App\Project;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use App\Proposal;
 use App\User_project;
 use App\Blog;
@@ -147,7 +148,7 @@ class ProjectController extends Controller
         $resources = Resource_center::all()->where('id_project', '=', $id_project);
 
         $articles = Article::all()->sortByDesc('created_at')->where('id_project', '=', $id_project)->where('status', '=', 'active');
-        
+
         $wiki = Wiki::find($id_project);
 
         $check = $request->get('check');
@@ -259,5 +260,14 @@ class ProjectController extends Controller
         $projects = Project::name($request->get('name'))->paginate(12);
 
         return view('projects.dashboard', compact('projects'));
+    }
+    /** Llistar els projectes per a l'api
+    *
+    *   Busca els projectes que hi ha a la base de dades i els presenta en format JSON
+    *
+    *  @return Response
+    */
+    public function indexApi() {
+      return response(Project::all()->jsonSerialize(), Response::HTTP_OK);
     }
 }
