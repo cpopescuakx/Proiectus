@@ -184,10 +184,10 @@
         <!-- Fin toggle menu -->
 
         <!-- Inicio elementos menu -->
-        <ul class="navbar-nav">
+        <ul class="navbar-nav text-header">
             <!-- Elemento menu -->
             <li class="nav-item active">
-                <a class="nav-link" class="text-ternari" href="{{ route('index.index') }}">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link pt-2" class="text-ternari" href="{{ route('index.index') }}">Home <span class="sr-only">(current)</span></a>
             </li>
             <!-- Fin elemento menu -->
             <!-- Elemento menu -->
