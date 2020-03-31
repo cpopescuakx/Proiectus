@@ -29,7 +29,7 @@ class UserController extends Controller
 
         return view('managers.indexP1', compact('managers'));
     }
-    
+
     //Editar les dades del usuari
     public function editProfile($id){
         $managers = User::find($id);
@@ -38,7 +38,7 @@ class UserController extends Controller
 
         return view('managers.editP', compact('managers', 'cities', 'nomCiutat'));
     }
-    
+
     //Modificar les dades del usuari de la base de dades
     public function updateProfile(Request $request){
         $id = $request->route('id'); // Agafar l'ID de la URL
@@ -71,10 +71,10 @@ class UserController extends Controller
     }
 
     public function destroyProfile ($id) {
-       
+
         User::destroy($id);
         return redirect()->route('managers.index');
-        
+
     }
 
     /** LLISTAR GESTORS
@@ -89,7 +89,7 @@ class UserController extends Controller
     public function indexManager(){
         //Mostrem tots els usuaris amb id de rol 5 (gestors)
         $data['managers'] = User::where('id_role', 5)->get();
-        
+
         return view('managers.index',$data);
 
     }
@@ -651,7 +651,7 @@ class UserController extends Controller
     }
 
     /** STORE Empleat
-     * 
+     *
      * Guardar l'empleat a la base de dades
      *
      * @param  Request $request Conté les dades de l'empleat.
@@ -687,7 +687,7 @@ class UserController extends Controller
     }
 
      /** DESTROY Empleat
-      * 
+      *
      * Donar de baixa un empleat (Canvia l'estat a inactiu)
      *
      * @param  int  $id Conté la id de l'empleat
@@ -739,7 +739,7 @@ class UserController extends Controller
         //
     }
 
-  
+
 
     /** Buscar usuari
      *
@@ -749,7 +749,7 @@ class UserController extends Controller
      *  @return User $user
      */
 
-    public function getUser ($id)
+    public static function getUser ($id)
     {
         $user = User::find($id);
         return $user;
