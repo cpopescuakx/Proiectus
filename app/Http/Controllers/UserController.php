@@ -8,6 +8,7 @@ use App\City;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\CityController;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Response;
 
 class UserController extends Controller
