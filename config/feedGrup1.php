@@ -16,7 +16,7 @@ return [
             /*
              * The feed will be available on this url.
              */
-            'url' => '/feedGrup1',
+            'url' => '/feed',
 
             'title' => 'El meu feed',
             'description' => 'Descripcio arreu',

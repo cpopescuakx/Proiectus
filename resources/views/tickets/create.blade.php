@@ -33,7 +33,7 @@
     <div class="text-center row justify-content-md-center">
         <div class="alert alert-danger mt-4 w-50" role="alert">
             <i class="fas fa-exclamation-circle fa-2x mr-3"></i>
-            <h4 class="d-inline">Has d'<a href="{{ route ('login') }}">iniciar sessió</a>!</h4> 
+            <h4 class="d-inline">Has d'<a href="{{ route ('login') }}">iniciar sessió</a>!</h4>
         </div>
     </div>
     @else
@@ -109,7 +109,7 @@
                     <div class="row justify-content-center">
                         <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
                             <label for="exampleFormControlInput1"><strong>Responsable assignat</strong></label>
-                            <select name="assigned" class="selectpicker form-control mt-2" data-live-search="true" title="Escull un usuari">
+                            <select name="assigned" class="selectpicker form-control mt-2" data-live-search="true" title="Escull un usuari" required>
                                 @foreach($users as $user)
                                     <option data-tokens="{{$user->id}}" value="{{$user->id}}">{{$user->firstname. ' '. $user->lastname. ' ('.$user->username.')'}}</option>
                                 @endforeach
