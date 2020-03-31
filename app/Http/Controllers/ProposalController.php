@@ -23,7 +23,7 @@ $this->middleware('auth');
 
     /** LLISTAR PROPOSTES
      *
-     *  Extreu les propostes 
+     *  Extreu les propostes
      *
      *  @param Request $request Obtenim el tipo d'estat dels empleats a mostrar.
      *  @return void
@@ -86,10 +86,10 @@ $this->middleware('auth');
      * Display the specified resource.
      *
      * @return Proposal
-     * 
+     *
      */
     public function showApi(){
-        
+
         return Proposal::All();
 
     }
@@ -207,8 +207,8 @@ $this->middleware('auth');
 
     /** DASHBOARD PROPOSTES
      *
-     *  
-     * 
+     *
+     *
      *  @param $id Conté la ID de la proposta
      *  @return \Illuminate\Http\Response
      * */

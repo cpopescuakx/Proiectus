@@ -50,7 +50,7 @@ class Proposal extends Model
 
     /** Scope proposal
      *
-     *  Scope per a filtrar les propostes que coincideixen amb el 
+     *  Scope per a filtrar les propostes que coincideixen amb el
      *  que s'ha escrit al buscador.
      *
      *  @param Query $query
@@ -60,8 +60,27 @@ class Proposal extends Model
 
     public function scopeName($query, $name) {
 
-        if ($name != "") {
+        if ($name != "" ) {
+            // Proposal::query()
             $query->where('name', 'like', '%'.$name.'%');
+        }
+
+    }
+    /** Scope proposal
+     *
+     *  Scope per a filtrar les propostes que coincideixen amb el
+     *  que s'ha escrit al buscador.
+     *
+     *  @param Query $query
+     *  @param String $category Conté les dades introduides en el buscador.
+     *  @return void
+     **/
+
+    public function scopeCategory($query, $category) {
+
+        if ($category != "") {
+            // Proposal::query()
+            $query->where('category', 'like', '%'.$category.'%');
         }
 
     }

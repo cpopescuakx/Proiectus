@@ -108,7 +108,7 @@
                         <div class="form-group">
                             <div class="row justify-content-center">
                                 <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
-                                    <button type="submit" name = "sbumit" class="btn btn-primary">Crear</button>
+                                    <button type="submit" name = "submit" class="btn btn-primary">Crear</button>
                                 </div>
                             </div>
                         </div>
