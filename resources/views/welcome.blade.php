@@ -34,11 +34,13 @@
                 <div class="carousel-item">
                     <img class="third-slide slide-width" src="img/carrusel2.jpg" alt="Third slide">
                     <div class="container">
+
                         <div class="carousel-caption text-left">
+                          <iframe title="Vue.js Documental" width="560" height="330" src="https://www.youtube.com/embed/OrxmtDw4pVI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             <h1>Per als centres educatius.</h1>
                             <p>Els alumnes podran accedir a experiències professionals <br>a través de la col·laboració en projectes en el seu camp d'estudis.</p>
                             <p>
-                                <a type="button" class="btn btn-lg btn-primary video-btn" href="#" data-toggle="modal" data-src="https://www.youtube.com/embed/o4eRrmZPWQs" data-target="#myModal" role="button">Veure vídeo</a>
+                                <a type="button" class="btn btn-lg btn-primary video-btn" href="#" data-toggle="modal" data-src="https://www.youtube.com/watch?v=2rpfqwCk9Sk" data-target="#myModal" role="button">Veure vídeo</a>
                             </p>
                         </div>
 
@@ -162,7 +164,7 @@
 
                               </style>
 
-                              <div id="map"></div>
+                              <div id="map" title="Mapa"></div>
                               <div id="infowindow-content">
                                 <img src="" width="16" height="16" id="place-icon">
                                 <span id="place-name"  class="title"></span><br>
