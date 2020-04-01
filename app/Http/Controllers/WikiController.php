@@ -9,9 +9,12 @@ use App\Article;
 class WikiController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * Retorna la vista de la wiki passant-li els articles i la wiki.
+     * 
+     * @param int $id_project
+     * @var wiki variable per emmagatzemar la wiki que sigui del projecte que hem passat.
+     * @var articles variable per emmagatzemar tots els articles que siguin del projecte que hem passat.
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
      public function index($id_project)
      {
@@ -26,42 +29,11 @@ class WikiController extends Controller
      }
 
     /**
-     * Show the form for creating a new resource.
+     * Retorna la vista d'edició passant-li la wiki.
      *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param  int  $id_project
+     * @var wiki variable per emmagatzemar la wiki que sigui del projecte que hem passat. 
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
      public function edit($id_project)
      {
@@ -70,36 +42,26 @@ class WikiController extends Controller
      }
 
     /**
-     * Update the specified resource in storage.
+     * Actualitza el títol de la wiki i retorna la vista d'aquesta.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param  int  $id_project
+     * @var wiki variable que busca la wiki per el paràmetre id_project, canvia el títol d'aquesta i ho guarda
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
      public function update(Request $request, $id_project)
      {
          $this-> validate($request, [
              'title'    =>  'required'
          ]);
-         $wikis = Wiki::find($id_project);
-         $wikis->title = $request->get('title');
-         $wikis->id_project = $id_project;
+         $wiki = Wiki::find($id_project);
+         $wiki->title = $request->get('title');
+         $wiki->id_project = $id_project;
 
-         $wikis->save();
+         $wiki->save();
 
          return redirect()->action('WikiController@index', ['id_project' => $id_project]);
 
          //return redirect()->route('Blog.index')->with('success', 'Data Updated');
      }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }

@@ -10,22 +10,15 @@ use App\User;
 class BlogController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * Retorna la vista de la wiki passant-li els articles i la wiki.
+     * 
+     * @param int $id_project
+     * @var blog variable per emmagatzemar la blog que sigui del projecte que hem passat.
+     * @var posts variable per emmagatzemar tots els posts que siguin del projecte que hem passat.
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function index($id_project)
     {
-
-        // SELECT pt.id_post, pt.title, pt.content, pt.creation_date, pt.last_modified, pt.id_user, us.username
-        // FROM POST pt
-        // INNER JOIN USER us
-        // ON us.id_user = pt.id_user
-        // AND pt.status = 'active' AND pt.id_project = '$id_projecte'
-        // ORDER BY pt.creation_date DESC
-
-
-        // dd($id_project);
         $posts = Post::all()
         ->sortByDesc('created_at')
         ->where('id_project', '=', $id_project)
@@ -33,84 +26,41 @@ class BlogController extends Controller
 
         $blog = Blog::find($id_project);
 
-            return view('Blog.index', compact('posts', 'id_project', 'blog'));
+        return view('Blog.index', compact('posts', 'id_project', 'blog'));
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Retorna la vista d'edició passant-li la wiki.
      *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param  int  $id_project
+     * @var blog variable per emmagatzemar la blog que sigui del projecte que hem passat. 
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function edit($id_project)
     {
-      $blogs = Blog::find($id_project);
+      $blog = Blog::find($id_project);
       return view('Blog.edit', compact('blogs', 'id_project'));
     }
 
     /**
-     * Update the specified resource in storage.
+     * Actualitza el títol de la blog i retorna la vista d'aquesta.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param  int  $id_project
+     * @var blog variable que busca la blog per el paràmetre id_project, canvia el títol d'aquesta i ho guarda
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function update(Request $request, $id_project)
     {
         $this-> validate($request, [
             'title'    =>  'required'
         ]);
-        $blogs = Blog::find($id_project);
-        $blogs->title = $request->get('title');
-        $blogs->id_project = $id_project;
+        $blog = Blog::find($id_project);
+        $blog->title = $request->get('title');
+        $blog->id_project = $id_project;
 
-        $blogs->save();
+        $blog->save();
 
         return redirect()->action('ProjectController@show', ['id_project' => $id_project]);
-
-        //return redirect()->route('Blog.index')->with('success', 'Data Updated');
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
     }
 }
