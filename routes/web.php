@@ -52,7 +52,7 @@ Route::middleware(['registeredEntity'])->group(function () {
     /** Rutes per a l'apartat de gestió de projectes */
 
     Route::get('Project', 'ProjectController@index')
-        ->name('projects.index')->middleware('auth', 'isAdminOrGestor');
+        ->name('projects.index')->middleware('auth');
 
     Route::get('Project/create', function () {
         return view('projects.create');
