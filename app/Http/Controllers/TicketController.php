@@ -46,11 +46,15 @@ class TicketController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     *  FUNCIÓ PER A QUAN ÉS UN GESTOR
+     *  
+     *  Guarda el ticket a partir del request que li arriba
+     *  i la ID  de l'autor.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return Redirect
      */
+    
     public function store($id_author, Request $request)
     {
          // Instanciar
@@ -72,6 +76,17 @@ class TicketController extends Controller
          return redirect()->route('tickets.index',compact('tickets'))
          ->with('i', (request()->input('page', 1) -1));
     }
+
+    /**
+     *  FUNCIÓ PER A QUAN NO ÉS UN GESTOR
+     * 
+     *  Guarda el ticket a partir del request que li arriba
+     *  i la ID de l'autor. Per defecte assigna a l'usuari 
+     *  administrador com a responsable.
+     * 
+     *  @param Request $request
+     *  @param $id_author
+     */
 
     public function storeNotManager ($id_author, Request $request) {
         

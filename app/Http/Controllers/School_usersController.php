@@ -30,11 +30,14 @@ class School_usersController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     *  Relaciona l'usuari que es passa com a request a l'escola passada
+     *  com a paràmetre també.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     *  @param  \Illuminate\Http\Request  $request
+     *  @param  $idSchool
+     *  @return Redirect
      */
+
     public function store($idSchool, Request $request)
     {
         $schoolUser = new School_users;

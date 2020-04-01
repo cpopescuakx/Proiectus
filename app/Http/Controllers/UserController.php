@@ -352,7 +352,10 @@ class UserController extends Controller
         $students -> dni = $request->input('dni');
         $students -> email = $request->input('email');
         $students -> birthdate = $request->input('birthdate');
-        $students -> password = Hash::make($request->input('password'));
+        $password = $request->input('password');
+        if (isset($password)) {
+            $students -> password = Hash::make($password);
+        }
         $postalcode = $request->input('city');
         $students -> id_city = CityController::getIdFromPostalCode($postalcode);
         $students -> profile_pic = "Res";
