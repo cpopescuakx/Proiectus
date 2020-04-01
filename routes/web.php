@@ -52,7 +52,7 @@ Route::middleware(['registeredEntity'])->group(function () {
     /** Rutes per a l'apartat de gestió de projectes */
 
     Route::get('Project', 'ProjectController@index')
-        ->name('projects.index');
+        ->name('projects.index')->middleware('auth', 'isAdminOrGestor');
 
     Route::get('Project/create', function () {
         return view('projects.create');
@@ -253,7 +253,7 @@ Route::middleware(['CheckRole'])->group(function () {
     /** Ruta per a guardar l'article creat */
     Route::post('wiki/{id_project}/article/store', 'ArticleController@store') ->name('article.store');
 
-    
+
     /** Rutes per a l'apartat de perfils d'usuari */
 
     Auth::routes();
