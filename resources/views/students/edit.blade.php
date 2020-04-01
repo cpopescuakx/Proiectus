@@ -143,8 +143,8 @@
                         <div class="form-group mt-4">
                             <div class="row justify-content-center">
                                 <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
-                                    <label for="contrassenya">Contrassenya</label>
-                                    <input type="text" name = "password" class="form-control" value = "{{$student->password }}" id="password" required>
+                                    <label for="contrassenya">Contrassenya nova</label>
+                                    <input type="text" name = "password" class="form-control" id="password">
                                     <div class="invalid-feedback">Camp necessari</div>
                                 </div>
                             </div>
