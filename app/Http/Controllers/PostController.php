@@ -14,6 +14,7 @@ class PostController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int $id_projecte Conté la id del projecte que forma part el post
+     * @var post variable per a emmagatzemar les dades del nou post.
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request, $id_project)
@@ -37,8 +38,9 @@ class PostController extends Controller
      *
      * Mijançant la id_post i utilitzant eloquent, agafem totes les dades del post i les enviem a la vista corresponent.
      *
-     * @param  int  $id_project Conté la id del projecte el qual correspon el post
-     * @param  int  $id_post Conté la id del post a cercar
+     * @param  int  $id_project Conté la id del projecte el qual correspon el post.
+     * @param  int  $id_post Conté la id del post a cercar.
+     * @var post variable per emmagatzemar les dades el post cercat.
      * @return \Illuminate\Http\Response
      */
     public function show($id_project, $id_post)
@@ -64,8 +66,9 @@ class PostController extends Controller
      * 
      * Mitjançant la id_post i utilitzant eloquent, agafem totes les dades d'aquest i les enviem a la vista per a mostrar-les en els camps.
      *
-     * @param  int  $id_project Conté la id del projecte el qual correspon el post
-     * @param  int  $id_post Conté la id del post que estem editant
+     * @param  int  $id_project Conté la id del projecte el qual correspon el post.
+     * @param  int  $id_post Conté la id del post que estem editant.
+     * @var post variable per emmagatzemar les dades el post cercat.
      * @return \Illuminate\Http\Response
      */
     public function edit($id_project, $id_post)
@@ -83,6 +86,7 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id_project Conté la id del projecte el qual correspon el post
      * @param  int  $id_post Conté la id del post que estem editant
+     * @var post variable per emmagatzemar les dades el post cercat.
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id_project, $id_post)
@@ -100,6 +104,7 @@ class PostController extends Controller
      *
      * @param  int  $id_project Conté la id del projecte el qual correspon el post
      * @param  int  $id_post Conté la id del post que estem editant
+     * @var post variable per emmagatzemar les dades el post cercat i posteriorment modificar aquestes.
      * @return \Illuminate\Http\Response
      */
     public function destroy($id_project, $id_post)
