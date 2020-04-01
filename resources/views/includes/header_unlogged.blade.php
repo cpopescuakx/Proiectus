@@ -28,7 +28,7 @@
             <!-- Fin elemento menu -->
 
 
-
+            @guest
             <!-- Elemento menu -->
             <li class="nav-item">
                 <a class="nav-link text-ternari p-2 text-dark font-weight-bold" href="register">Registra't<span class="sr-only">(current)</span></a>
@@ -36,7 +36,6 @@
             <!-- Fin elemento menu -->
 
             <!-- Elemento menu -->
-            @guest
             <li class="nav-item ml-3">
                 <a type="button" class="btn btn-outline-primary"  href="login">Inicia sessió<span class="sr-only">(current)</span></a>
             </li>
