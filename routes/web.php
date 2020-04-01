@@ -262,6 +262,8 @@ Route::middleware(['CheckRole'])->group(function () {
 
     // RSS
     Route::feeds();
+    Route::get('/feed', function () {return view('feed.feed');})->name('feed.feed');
+
 
     /** Resource center */
 

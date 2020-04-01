@@ -80,6 +80,8 @@
                 <ul class="list-unstyled text-small">
                     <li><a class="text-muted" href="{{ route('help.index') }}">Gestió Wiki i Blog</a></li>
                     <li><a class="text-muted" href="{{ route('help.index') }}">Gestió Gestors</a></li>
+                    <li><a class="text-muted" href="{{ route('feed.feed') }}">Feed RSS</a></li>
+
                 </ul>
             </div>
             <!-- Fin columna de 6 -->
