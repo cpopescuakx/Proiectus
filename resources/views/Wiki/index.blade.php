@@ -1,9 +1,12 @@
+@inject('user', 'App\Http\Controllers\UserController') {{-- Importa el controlador de user --}}
 @if ($wiki != null)
 <div class="container mb-5">
-    <a href="{{$id_project}}/edit"><i style="font-size: 1rem" class="material-icons" alt="Icona per a editar">edit</i></a>
+    @if(Auth::user()->id == $wiki->id_user || (Auth::user()->id_role == 1))
+    <a href="{{route('wiki.edit', $id_project)}}" ><i style="font-size: 1rem" class="material-icons" alt="Icona per a editar">edit</i></a>
+    @endif
     <h2 class="float-left">{{$wiki->title}}</h2>
     <br><br>
-    <form method="POST" action="{{$id_project}}/store" id="postCreationForm">
+    <form method="POST" action="{{route('article.store', $id_project)}}" id="postCreationForm">
         {{csrf_field()}}
         <div class="form-group">
             <h4><label class="float-left" cfor="exampleFormControlInput1">Crea un article!</label></h4>
@@ -68,9 +71,10 @@
     </div>
     <div class="card mb-3">
         <div class="card-body">
+            @if(Auth::user()->id == $article->id_user || (Auth::user()->id_role == 1))
             <a class="float-right" href="{{$id_project}}/article/{{$article->id_article}}/edit"><i style="font-size: 140%" class="material-icons" alt="Icona per a editar" >edit</i></a>
             <a class="float-right" data-toggle="modal" data-target="#deleteConfirmationModal"><i style="font-size: 140%" class="material-icons text-primary" alt="Icona per a eliminar">delete</i></a>
-
+            @endif
             <a href="#">
                 <h5 class="card-title">{{$article->title}}</h5>
             </a>
@@ -80,7 +84,7 @@
             </div>
         </div>
         <div class="card-footer text-muted">
-            <footer class="blockquote-footer float-right"> Creat per <a href=""> <cite title="Source Title"> {{$article->id_user}}</cite></a> el {{$article->created_at}}</footer>
+            <footer class="blockquote-footer float-right"> Creat per <a href="{{route('managers.indexP1',[$article->id_user])}}"> <cite title="Source Title"> {{($user::getUser($article->id_user))->username}}</cite></a> el {{$article->created_at}}</footer>
         </div>
     </div>
     @endforeach

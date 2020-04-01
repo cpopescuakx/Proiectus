@@ -32,7 +32,6 @@ class ArticleController extends Controller
 
     public function create($id_project)
     {
-        return view('articles.create', compact('id_project'));
     }
 
 
@@ -46,8 +45,6 @@ class ArticleController extends Controller
 
     public function store(Request $request, $id_project)
     {
-        $id_user = 9;
-
         $request->validate([
             // 'version' => 'required',
             'title' => 'required',
@@ -63,7 +60,7 @@ class ArticleController extends Controller
         $article->content = $request->get('content');
         //$article -> reference = $request->get('reference');
         $article->reference = '';
-        $article->id_user = $id_user;
+        $article->id_user = $request->user()->id;
         $article->status = 'active';
 
 

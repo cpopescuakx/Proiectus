@@ -31,3 +31,6 @@ Route::get('companies', 'CompanyController@showApi');
 
 //Ruta per a l'API de professors (retorna la quantitat de professors existens)
 Route::get('professors/num', 'UserController@getNumProfessors');
+
+//Ruta per a l'API de projectes
+Route::get('projects', 'ProjectController@indexApi');

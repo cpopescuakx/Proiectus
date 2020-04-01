@@ -36,24 +36,17 @@ class PostController extends Controller
      */
     public function store(Request $request, $id_project)
     {
-        $id_user = 9;
-        //dd($prova);
-
-        $request->validate([
-            'title'=>'required',
-            'content'=>'required'
-        ]);
+        
+        $request->validate(['title'=>'required','content'=>'required']);
 
         $post = new Post();
         $post->title = $request->get('title');
         $post->content = $request->get('content');
         $post->id_project = $id_project;
-        $post->id_user = $id_user;
+        $post->id_user = $request->user()->id;
 
         $post->save();
 
-        //return redirect()->route('blog.index', ['id_project' => $id_project])->with('success','Post creat correctament.');
-        //return redirect()->route('blog.index', ['id_project' => $id_project])->with('success','Post creat correctament.');
         return redirect()->back();
     }
 
