@@ -135,7 +135,7 @@
             <li class="nav-item">
               @if(Auth::guest())
               @else
-              @if (Auth::user()->id_role == 1)
+              @if (Auth::user()->id_role == 5 || Auth::user()->id_role == 1) 
                 <a class="dropdown">
                     <i class="material-icons text-light">group</i>
                     <span class="text-light">Entitats</span>

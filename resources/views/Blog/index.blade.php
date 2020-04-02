@@ -2,7 +2,7 @@
 @if ($blog != null)
 <div>
 <div class="container mb-5">
-    @if(Auth::user()->id == $blog->id_user || (Auth::user()->id_role == 1))
+    @if(Auth::user()->id_role == 1)
     <a href="{{route('blogs.edit', $id_project)}}"><i style="font-size: 1rem" class="material-icons" alt="Icona per a modificar">edit</i></a>
     @endif
     <h2 class="float-left">{{$blog->title}}</h2>
