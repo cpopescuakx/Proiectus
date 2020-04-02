@@ -15,7 +15,7 @@
                 <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar img-circle img-thumbnail" alt="avatar">
                 <h6>Puja la teua imatge de perfil</h6>
 
-                <!-- NO FUNCIONA -->
+                <!-- NO FUNCIONA: REGALO PARA EL GRUPO1 DEL SPRINT6 -->
                 <input type="file" class="text-center mx-auto file-upload">
             </div>
             <br>
