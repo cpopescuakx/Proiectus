@@ -48,7 +48,7 @@ class Company_userController extends Controller
 
       $companyUser->save();
 
-      return redirect()->route('companies');
+      return redirect()->route('companies.index');
     }
 
     /**
