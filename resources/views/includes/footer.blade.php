@@ -1,5 +1,5 @@
 <!-- Inicio footer -->
-<footer class="content closed pt-4 pt-md-5 border-top fondo-footer">
+<footer class="closed w-100 pt-4 pt-md-5 border-top fondo-footer mt-5">
     <!-- Inicio contenedor -->
     <div class="container">
         <!-- Inicio filas -->
@@ -59,18 +59,6 @@
             </div>
             <!-- Fin columna de 6 -->
 
-            <!-- Columna de 6 -->
-            <div class="col-6 col-md">
-                <!-- Titulo columna -->
-                <h5>Incidències</h5>
-
-                <!-- Elementos -->
-                <ul class="list-unstyled text-small">
-                    <li><a class="text-muted" href="{{ route('tickets.createNotManager') }}">Afegir una Incidència</a></li>
-
-                </ul>
-            </div>
-            <!-- Fin columna de 6 -->
             <!-- Inicio columna de 6 -->
             <div class="col-6 col-md">
                 <!-- Titulo columna -->
