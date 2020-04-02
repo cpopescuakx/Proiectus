@@ -85,7 +85,7 @@ class UserController extends Controller
         $user->status = 'inactive';
         $user->save();
 
-        return redirect()->route('index.index');
+        return redirect()->back();
 
     }
 
