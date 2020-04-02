@@ -70,12 +70,42 @@ class UserController extends Controller
 
         return redirect()->route('managers.indexP1',compact('managers', 'id'));
     }
-
+    /** DESACTIVAR MANAGER
+     *
+     *  Cambia a estado inactivo a un determinado manager
+     *
+     *  @author cmasana 
+     *  @param id
+     *  @var user
+     *  @return view index.index (Página inicio)
+     * */
     public function destroyProfile ($id) {
 
-        User::destroy($id);
-        return redirect()->route('managers.index');
+        $user = User::find($id);
+        $user->status = 'inactive';
+        $user->save();
 
+        return redirect()->route('index.index');
+
+    }
+
+    /** ACTIVAR MANAGER
+     *
+     *  Cambia a estado activo a un determinado manager
+     *
+     *  @author cmasana 
+     *  @param id
+     *  @var user
+     *  @return view managers.indexP1 (Página perfil)
+     * */
+
+    public function activeProfile($id)
+    {
+        $user = User::find($id);
+        $user->status = 'active';
+        $user->save();
+
+        return redirect()->back();
     }
 
     /** LLISTAR GESTORS
