@@ -10,6 +10,9 @@
     </div>
 
 @else
+
+{{-- ESPAI PER A PENJAR FITXERS --}}
+
 @if (Auth::user()->id_role == 2 || Auth::user()->id_role == 4 || Auth::user()->id_role == 5 || Auth::user()->id_role == 1) 
 <h4 class="text-center pb-4 pt-4">Selecciona o arrastra els fitxers</h4>
 <div class="w-100">
@@ -33,7 +36,9 @@
     @endif
 
     <div class="container w-50 mt-4">
+        @php $i = 0; @endphp {{-- Variable per a controlar els modals --}}
         @foreach ($resources as $resource)
+            
             <div class="fitxer row mb-2">
                 <div class="column col-1 mt-2">
                     <i class="far fa-file fa-3x fitxer-img"></i>
@@ -49,9 +54,9 @@
                 <div class="column col mt-3">
                     <a class="btn-fitxer" href={{route('resource.download', $resource->f_route)}}><i class="fas fa-arrow-circle-down fa-2x mr-2"></i></a>
                     @if (Auth::user()->id_role == 2 || Auth::user()->id_role == 4 || Auth::user()->id_role == 5 || Auth::user()->id_role == 1)  
-                        <a class="btn-fitxer"data-toggle="modal" data-target="#deleteConfirmationModal"><i class="fas fa-trash fa-2x"></i></a>
+                        <a class="btn-fitxer"data-toggle="modal" data-target="#deleteConfirmationModal{{$i}}"><i class="fas fa-trash fa-2x"></i></a>
 
-                        <div class="modal fade" id="deleteConfirmationModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal fade" id="deleteConfirmationModal{{$i}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
@@ -70,6 +75,7 @@
                     @endif
                 </div>
             </div>
+            @php $i++ @endphp
         @endforeach
     </div>
 </div> 
