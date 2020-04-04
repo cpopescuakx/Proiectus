@@ -1,6 +1,9 @@
 @extends('layouts.default')
 
 @section('content')
+
+@mapstyles
+
 <div class="col">
   <div class="row d-flex justify-content-end p-4">
     <a href="{{ route('projects.create') }}"><img src={{ asset('img/add.svg') }} width="45" height="45" ></a>
@@ -44,4 +47,50 @@
     @endforeach
 </tbody>
 </table>
+
+<div class="row featurette justify-content-center">
+    <div class="col-md-7">
+ 
+    <h2 class="featurette-heading mb-3">Localitzacions</h2>
+ 
+ <style>
+    /* Always set the map height explicitly to define the size of the div
+     * element that contains the map. */
+    #map {
+    height: 400px;
+    width: 530px;
+    }
+    </style>
+    <div id="map">
+ 
+    </div>
+    </div>
+ 
+    <script>
+       var map;
+       
+       var iesMontsia = {lat: 40.709150, lng: 0.582557};
+       var consellComarcal = {lat: 40.7085462, lng: 0.5728294}
+       
+       function initMap() {
+            map = new google.maps.Map(document.getElementById('map'), {
+            center: {lat: 40.7089797, lng: 0.5749788},
+            zoom: 15
+            });
+
+            var marker1 = new google.maps.Marker({
+            position: iesMontsia,
+            map: map,
+            title: 'IES Montsià'
+            });
+
+            var marker2 = new google.maps.Marker({
+            position: consellComarcal,
+            map: map,
+            title: 'Consell Comarcal del Montsià'
+            });
+        }
+    </script>
+ @mapscripts
+
 @stop
