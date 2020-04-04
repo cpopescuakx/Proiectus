@@ -70,12 +70,42 @@ class UserController extends Controller
 
         return redirect()->route('managers.indexP1',compact('managers', 'id'));
     }
-
+    /** DESACTIVAR MANAGER
+     *
+     *  Cambia a estado inactivo a un determinado manager
+     *
+     *  @author cmasana 
+     *  @param id
+     *  @var user
+     *  @return view index.index (Página inicio)
+     * */
     public function destroyProfile ($id) {
 
-        User::destroy($id);
-        return redirect()->route('managers.index');
+        $user = User::find($id);
+        $user->status = 'inactive';
+        $user->save();
 
+        return redirect()->back();
+
+    }
+
+    /** ACTIVAR MANAGER
+     *
+     *  Cambia a estado activo a un determinado manager
+     *
+     *  @author cmasana 
+     *  @param id
+     *  @var user
+     *  @return view managers.indexP1 (Página perfil)
+     * */
+
+    public function activeProfile($id)
+    {
+        $user = User::find($id);
+        $user->status = 'active';
+        $user->save();
+
+        return redirect()->back();
     }
 
     /** LLISTAR GESTORS
@@ -352,7 +382,10 @@ class UserController extends Controller
         $students -> dni = $request->input('dni');
         $students -> email = $request->input('email');
         $students -> birthdate = $request->input('birthdate');
-        $students -> password = Hash::make($request->input('password'));
+        $password = $request->input('password');
+        if (isset($password)) {
+            $students -> password = Hash::make($password);
+        }
         $postalcode = $request->input('city');
         $students -> id_city = CityController::getIdFromPostalCode($postalcode);
         $students -> profile_pic = "Res";

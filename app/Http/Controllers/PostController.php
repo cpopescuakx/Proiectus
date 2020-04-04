@@ -8,30 +8,13 @@ use App\Post;
 class PostController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-
-        return view('Post.index', compact('post'));
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
+     * Guardar posts creats
+     * 
+     * Comprova que els camps estiguin obligatoris estiguin inserits, agafa les dades dels altres i les afegeix al nou objecte .
      *
      * @param  \Illuminate\Http\Request  $request
+     * @param  int $id_projecte Conté la id del projecte que forma part el post
+     * @var post variable per a emmagatzemar les dades del nou post.
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request, $id_project)
@@ -51,10 +34,13 @@ class PostController extends Controller
     }
 
     /**
-     * 
-     * Display the specified resource.
+     * Mostrar posts existents
      *
-     * @param  int  $id
+     * Mijançant la id_post i utilitzant eloquent, agafem totes les dades del post i les enviem a la vista corresponent.
+     *
+     * @param  int  $id_project Conté la id del projecte el qual correspon el post.
+     * @param  int  $id_post Conté la id del post a cercar.
+     * @var post variable per emmagatzemar les dades el post cercat.
      * @return \Illuminate\Http\Response
      */
     public function show($id_project, $id_post)
@@ -76,9 +62,13 @@ class PostController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Editar un post existent
+     * 
+     * Mitjançant la id_post i utilitzant eloquent, agafem totes les dades d'aquest i les enviem a la vista per a mostrar-les en els camps.
      *
-     * @param  int  $id
+     * @param  int  $id_project Conté la id del projecte el qual correspon el post.
+     * @param  int  $id_post Conté la id del post que estem editant.
+     * @var post variable per emmagatzemar les dades el post cercat.
      * @return \Illuminate\Http\Response
      */
     public function edit($id_project, $id_post)
@@ -89,10 +79,14 @@ class PostController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Actualitzar un post existent
+     * 
+     * Mitjançant la id_post i utilitzant eloquent, cerquem el post i realitzem el update amb les dades retornades mitançant el request.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  int  $id_project Conté la id del projecte el qual correspon el post
+     * @param  int  $id_post Conté la id del post que estem editant
+     * @var post variable per emmagatzemar les dades el post cercat.
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id_project, $id_post)
@@ -104,9 +98,13 @@ class PostController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Esborrar un post existent
+     * 
+     * Mitjançant la id_post i utilitzant eloquent, cerquem el post i establim el seu estatus en inactiu, i després guardem aquest.
      *
-     * @param  int  $id
+     * @param  int  $id_project Conté la id del projecte el qual correspon el post
+     * @param  int  $id_post Conté la id del post que estem editant
+     * @var post variable per emmagatzemar les dades el post cercat i posteriorment modificar aquestes.
      * @return \Illuminate\Http\Response
      */
     public function destroy($id_project, $id_post)
@@ -118,7 +116,4 @@ class PostController extends Controller
       return redirect()->back();
 
     }
-
-
-    
 }

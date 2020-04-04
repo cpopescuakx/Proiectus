@@ -1,7 +1,7 @@
 @inject('user', 'App\Http\Controllers\UserController') {{-- Importa el controlador de user --}}
 @if ($wiki != null)
 <div class="container mb-5">
-    @if(Auth::user()->id == $wiki->id_user || (Auth::user()->id_role == 1))
+    @if(Auth::user()->id_role == 1)
     <a href="{{route('wiki.edit', $id_project)}}" ><i style="font-size: 1rem" class="material-icons" alt="Icona per a editar">edit</i></a>
     @endif
     <h2 class="float-left">{{$wiki->title}}</h2>

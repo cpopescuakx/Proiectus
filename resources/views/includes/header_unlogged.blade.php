@@ -11,10 +11,12 @@
         <!-- Inicio elementos menu -->
         <ul class="navbar-nav mr-auto">
           <!-- Elemento menu -->
+          @if(Auth::user())
           <li class="nav-item">
               <a href="{{ route('projects.dashboard') }}" class="nav-link text-ternari p-2 text-dark">Projectes<span class="sr-only">(current)</span></a>
           </li>
           <!-- Fin elemento menu -->
+          @endif
             <!-- Elemento menu -->
             <li class="nav-item">
                 <a class="nav-link text-ternari p-2 text-dark" href="#que_es_proiectus">Què és Proiectus?<span class="sr-only">(current)</span></a>
@@ -28,7 +30,7 @@
             <!-- Fin elemento menu -->
 
 
-
+            @guest
             <!-- Elemento menu -->
             <li class="nav-item">
                 <a class="nav-link text-ternari p-2 text-dark font-weight-bold" href="register">Registra't<span class="sr-only">(current)</span></a>
@@ -36,7 +38,6 @@
             <!-- Fin elemento menu -->
 
             <!-- Elemento menu -->
-            @guest
             <li class="nav-item ml-3">
                 <a type="button" class="btn btn-outline-primary"  href="login">Inicia sessió<span class="sr-only">(current)</span></a>
             </li>
@@ -45,9 +46,17 @@
                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                    {{ Auth::user()->username }}
                 </a>
-
-                <!-- Desplegable con Logout -->
+                <!-- Login con dropdown -->
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                    <!-- User Profile -->
+                    <a class="dropdown-item" href="{{ route('managers.indexP1', ['id' => Auth::user()->id]) }}">Perfil d'usuari</a>
+                    <!-- TO-DO: Invite new users -->
+                    <a class="dropdown-item" href="#">Convidar a un nou usuari</a>
+                    <div class="dropdown-divider"></div>
+                    <!-- Incidences -->
+                    <a class="dropdown-item" href="{{ route('tickets.create') }}">Notificar un error</a>
+                    <div class="dropdown-divider"></div>
+                    <!-- Logout -->
                     <a class="dropdown-item" href="{{ route('logout') }}"
                     onclick="event.preventDefault();
                                     document.getElementById('logout-form').submit();">
