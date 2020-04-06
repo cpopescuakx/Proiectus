@@ -16,7 +16,7 @@ class isAdminOrGestor
      */
     public function handle($request, Closure $next)
     {
-        if (Auth::check() == true && Auth::user()->id_role == 1 || Auth::user()->id_role == 5) {
+        if (Auth::check() == true && Auth::user()->admin->id_role == 1 || Auth::user()->id_role == 5) {
             return $next($request);
         } else {
             return redirect()->route('login');

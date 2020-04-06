@@ -262,8 +262,10 @@ Route::middleware(['CheckRole'])->group(function () {
     Route::get('/home', 'HomeController@index')->name('home');
 
     // RSS
-    Route::feeds();
-    Route::get('/feed', function () {return view('feed.feed');})->name('feed.feed');
+    Route::middleware(['isAdmin'])->group(function () {
+      Route::feeds();
+    });
+    // Route::get('/feed', function () {return view('feed.feed');})->name('feed.feed');
 
 
     /** Resource center */
