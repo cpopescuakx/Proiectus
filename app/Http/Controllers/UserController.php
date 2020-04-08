@@ -794,4 +794,9 @@ class UserController extends Controller
         return count(User::where('id_role', 4)->get());
     }
 
+    public function getStudents()
+    {
+        return User::where('id_role', 3)->get();
+    }
+
 }

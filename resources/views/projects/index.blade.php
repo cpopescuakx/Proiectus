@@ -1,13 +1,15 @@
 @extends('layouts.default')
 
 @section('content')
-@if((Auth::user()->id_role == 1 || Auth::user()->id_role == 5))
+
+@mapstyles
+
 <div class="col">
   <div class="row d-flex justify-content-end p-4">
     <a href="{{ route('projects.create') }}"><img src={{ asset('img/add.svg') }} width="45" height="45" ></a>
   </div>
 </div>
-@endif
+
 <table class="table table-hover mr-5">
 <thead>
     <tr>
@@ -16,10 +18,8 @@
         <td>Data de finalització</td>
         <td>Pressupost</td>
         <td>Familia professional</td>
-        @if((Auth::user()->id_role == 1 || Auth::user()->id_role == 5))
         <td>Estat</td>
         <td colspan="2">Accions</td>
-        @endif
     </tr>
 </thead>
 
@@ -29,8 +29,6 @@
     </div>
 @endif
 
-
-@if(Auth::user()->id_role == 1 || Auth::user()->id_role == 5)
 <tbody>
     @foreach($projects as $project)
     <tr>
@@ -48,20 +46,53 @@
     </tr>
     @endforeach
 </tbody>
-@endif
-
-@if((Auth::user()->id_role == 3 || Auth::user()->id_role == 4))
-<tbody>
-    @foreach($projects as $project)
-    <tr>
-        <td>{{$project->name}}</td>
-        <td>{{$project->created_at}}</td>
-        <td>{{$project->ending_date}}</td>
-        <td>{{$project->budget}}</td>
-        <td>{{$project->professional_family}}</td>
-    </tr>
-    @endforeach
-</tbody>
-@endif
 </table>
+
+<div class="row featurette justify-content-center">
+    <div class="col-md-7">
+ 
+    <h2 class="featurette-heading mb-3">Localitzacions</h2>
+ 
+ <style>
+    /* Always set the map height explicitly to define the size of the div
+     * element that contains the map. */
+    #map {
+    height: 400px;
+    width: 530px;
+    }
+    </style>
+    <div id="map">
+ 
+    </div>
+    </div>
+ 
+    {{-- <iframe title="Consells de Taylor Otwell" width="560" height="330" src="https://www.youtube.com/embed/Ic_Kkmzm3uQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> --}}
+    
+    <script>
+       var map;
+       
+       var iesMontsia = {lat: 40.709150, lng: 0.582557};
+       var consellComarcal = {lat: 40.7085462, lng: 0.5728294}
+       
+       function initMap() {
+            map = new google.maps.Map(document.getElementById('map'), {
+            center: {lat: 40.7089797, lng: 0.5749788},
+            zoom: 15
+            });
+
+            var marker1 = new google.maps.Marker({
+            position: iesMontsia,
+            map: map,
+            title: 'IES Montsià'
+            });
+
+            var marker2 = new google.maps.Marker({
+            position: consellComarcal,
+            map: map,
+            title: 'Consell Comarcal del Montsià'
+            });
+        }
+    </script>
+ @mapscripts
+
 @stop

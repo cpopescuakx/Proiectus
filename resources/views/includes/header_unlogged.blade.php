@@ -11,10 +11,12 @@
         <!-- Inicio elementos menu -->
         <ul class="navbar-nav mr-auto">
           <!-- Elemento menu -->
+          @if(Auth::user())
           <li class="nav-item">
               <a href="{{ route('projects.dashboard') }}" class="nav-link text-ternari p-2 text-dark">Projectes<span class="sr-only">(current)</span></a>
           </li>
           <!-- Fin elemento menu -->
+          @endif
             <!-- Elemento menu -->
             <li class="nav-item">
                 <a class="nav-link text-ternari p-2 text-dark" href="#que_es_proiectus">Què és Proiectus?<span class="sr-only">(current)</span></a>

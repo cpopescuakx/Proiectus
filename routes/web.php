@@ -52,7 +52,7 @@ Route::middleware(['registeredEntity'])->group(function () {
     /** Rutes per a l'apartat de gestió de projectes */
 
     Route::get('Project', 'ProjectController@index')
-        ->name('projects.index')->middleware('auth');
+        ->name('projects.index')->middleware('auth', 'isAdminOrGestor');
 
     Route::get('Project/create', function () {
         return view('projects.create');
@@ -261,7 +261,9 @@ Route::middleware(['CheckRole'])->group(function () {
     Route::get('/home', 'HomeController@index')->name('home');
 
     // RSS
-    Route::feeds();
+    Route::middleware(['isAdmin'])->group(function () {
+      Route::feeds();
+    });
     Route::get('/feed', function () {return view('feed.feed');})->name('feed.feed');
 
 
