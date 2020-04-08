@@ -265,7 +265,7 @@ Route::middleware(['CheckRole'])->group(function () {
     Route::middleware(['isAdmin'])->group(function () {
       Route::feeds();
     });
-    // Route::get('/feed', function () {return view('feed.feed');})->name('feed.feed');
+    Route::get('/feed', function () {return view('feed.feed');})->name('feed.feed');
 
 
     /** Resource center */
