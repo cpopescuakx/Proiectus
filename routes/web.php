@@ -236,12 +236,11 @@ Route::middleware(['CheckRole'])->group(function () {
        Route::post('blog/{id_project}/post/store', 'PostController@store')->name('posts.store');
 
     /** ------Rutes per a l'apartat de WIKI------ */
-
                                     /** MIDDLEWARE */
     /** Middleware per a controlar que només pugui editar o eliminar un article el seu owner */
     Route::middleware(['CheckRoleWiki'])->group(function () {
         /** Rutes per a l'apartat de la gestio dels articles de la wiki */
-    Route::get('wiki/{id_project}', 'WikiController@index');
+        Route::get('wiki/{id_project}', 'WikiController@index');
         /** Ruta per a eliminar un article */
         Route::get('wiki/{id_project}/article/{id_post}/destroy', 'ArticleController@destroy');
         /** Ruta per a l'update d'un article */
