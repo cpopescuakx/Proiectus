@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\User_project;
 use Illuminate\Http\Request;
+use Auth;
 
 class User_projectController extends Controller
 {
@@ -80,5 +82,17 @@ class User_projectController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    /**
+     * Retorna 1 si el usuari logejat pot accedir a la zona del projecte.
+     *
+     * @param  int  $id_user
+     * @param int $id_project
+     * @return \Illuminate\Http\Response
+     */
+    public function memberOf($id_project)
+    {
+      return User_project::select()->where('id_user', Auth::user()->id)->where('id_project', $id_project)->get()->count();
     }
 }
