@@ -12,17 +12,20 @@
         </div>
     </div>
 
+    {{-- A la ID del botó afegir el nom de la ID del div + "-tab"
+         A la funció tabs() passar-li l'event i el nom de la ID del div --}}
+
     <div class="row justify-content-center">
         <div class="tab">
-            <button class="mr-1 tablinks active" onclick="tabs(event, 'info')"><i data-toggle="tooltip" title="Informació" class="boto btn fas fa-info fa-lg"></i></button>
+            <button id = "info-tab" class="mr-1 tablinks" onclick="tabs(event, 'info')"><i data-toggle="tooltip" title="Informació" class="boto btn fas fa-info fa-lg"></i></button>
             @if(Auth::check())
               @if($userProject->memberOf($id_project) || Auth::user()->id_role == 1 || Auth::user()->id_role == 5)
-              <button class="mr-1 tablinks" onclick="tabs(event, 'gest')"><i data-toggle="tooltip" title="Gestor documental" class="boto btn fas fa-folder-open fa-lg"></i></button>
-              <button class="mr-1 tablinks" onclick="tabs(event, 'res')"><i data-toggle="tooltip" title="Centre de recursos" class="boto btn fas fa-file fa-lg"></i></button>
-              <button class="mr-1 tablinks" onclick="tabs(event, 'wiki')"><i data-toggle="tooltip" title="Wikipedia" class="boto btn fab fa-wikipedia-w fa-lg"></i></button>
-              <button class="mr-1 tablinks" onclick="tabs(event, 'blog')"><i data-toggle="tooltip" title="Blog" class="boto btn fas fa-rss fa-lg"></i></button>
-              <button class="mr-1 tablinks" onclick="tabs(event, 'participants')"><i data-toggle="tooltip" title="Participants" class="boto btn fas fa-users fa-lg"></i></button>
-              <button class="mr-1 tablinks" onclick="tabs(event, 'xat')"><i onclick="tabs(5)" id = "btn-xat" data-toggle="tooltip" title="Xat" class="boto btn fas fa-comments fa-lg"></i></button>
+              <button id = "gest-tab" class="mr-1 tablinks" onclick="tabs(event, 'gest')"><i data-toggle="tooltip" title="Gestor documental" class="boto btn fas fa-folder-open fa-lg"></i></button>
+              <button id = "res-tab" class="mr-1 tablinks" onclick="tabs(event, 'res')"><i data-toggle="tooltip" title="Centre de recursos" class="boto btn fas fa-file fa-lg"></i></button>
+              <button id = "wiki-tab" class="mr-1 tablinks" onclick="tabs(event, 'wiki')"><i data-toggle="tooltip" title="Wikipedia" class="boto btn fab fa-wikipedia-w fa-lg"></i></button>
+              <button id = "blog-tab" class="mr-1 tablinks" onclick="tabs(event, 'blog')"><i data-toggle="tooltip" title="Blog" class="boto btn fas fa-rss fa-lg"></i></button>
+              <button id = "participants-tab" class="mr-1 tablinks" onclick="tabs(event, 'participants')"><i data-toggle="tooltip" title="Participants" class="boto btn fas fa-users fa-lg"></i></button>
+              <button id = "xat-tab" class="mr-1 tablinks" onclick="tabs(event, 'xat')"><i id = "btn-xat" data-toggle="tooltip" title="Xat" class="boto btn fas fa-comments fa-lg"></i></button>
               @endif
             @endif
         </div>
@@ -111,20 +114,41 @@
     
 
     <script>
-        document.getElementById('info').style.display="block";
+
+        /** Al carregar la pàgina comprova si existeix la cookie que gurda l'última tab,
+            si existeix, activa el botó i mostra l'apartat que guardat. En cas contrari, 
+            mostra la primera tab (apartat d'informació) */
+
+        if (localStorage.last) {
+            document.getElementById(localStorage.last).style.display = "block";
+            document.getElementById(localStorage.last + "-tab").className += " active";
+        }
+
+        else {
+            document.getElementById('info').style.display="block";
+        }
+
+        /** Funció que s'activa al fer click a un botó de les tabs, mostra l'apartat que s'ha fet
+            click i activa el botó. Per acabar, guarda al localStorage la tab clickada (Per a que
+            ho recordi quan es refresca la pàgina). */
+
         function tabs(evt, apartat) {
             var i, tabcontent, tablinks;
             tabcontent = document.getElementsByClassName("tabcontent");
             for (i = 0; i < tabcontent.length; i++) {
                 tabcontent[i].style.display = "none";
             }
+
             tablinks = document.getElementsByClassName("tablinks");
             for (i = 0; i < tablinks.length; i++) {
                 tablinks[i].className = tablinks[i].className.replace(" active", "");
             }
+
             document.getElementById(apartat).style.display = "block";
             evt.currentTarget.className += " active";
-        }
-</script>
-<script src="{{asset('js/AJAXAndrei.js')}}"></script>
+            localStorage.last = apartat;
+        } 
+    </script>
+    <script src="{{asset('js/AJAXAndrei.js')}}"></script>
+
 @stop
