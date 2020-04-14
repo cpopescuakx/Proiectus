@@ -66,7 +66,7 @@
     </div>
     </div>
  
-    {{-- <iframe title="Consells de Taylor Otwell" width="560" height="330" src="https://www.youtube.com/embed/Ic_Kkmzm3uQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> --}}
+    <iframe title="Consells de Taylor Otwell" width="560" height="330" src="https://www.youtube.com/embed/Ic_Kkmzm3uQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     
     <script>
        var map;

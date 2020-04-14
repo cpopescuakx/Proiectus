@@ -12,7 +12,7 @@
             </ol>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img class="first-slide slide-width" src="img/carrusel0.jpg" alt="First slide">
+                    <img class="first-slide slide-width" src="img/carrusel0.jpg" alt="">
                     <div class="container">
                         <div class="carousel-caption text-left">
                             <h1>Connecta.</h1>
@@ -22,7 +22,7 @@
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="second-slide slide-width" src="img/carrusel1.jpg" alt="Second slide">
+                    <img class="second-slide slide-width" src="img/carrusel1.jpg" alt="">
                     <div class="container">
                         <div class="carousel-caption">
                             <h1>Per a les empreses.</h1>
@@ -32,11 +32,11 @@
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="third-slide slide-width" src="img/carrusel2.jpg" alt="Third slide">
+                    <img class="third-slide slide-width" src="img/carrusel2.jpg" alt="Professor donant classe">
                     <div class="container">
 
                         <div class="carousel-caption text-left">
-                          <iframe title="Vue.js Documental" width="560" height="330" src="https://www.youtube.com/embed/OrxmtDw4pVI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                          <iframe title="Vue.js Documental" width="560" height="330" src="https://www.youtube.com/embed/OrxmtDw4pVI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen alt="Documental Vue.js"></iframe>
                             <h1>Per als centres educatius.</h1>
                             <p>Els alumnes podran accedir a experiències professionals <br>a través de la col·laboració en projectes en el seu camp d'estudis.</p>
                             <p>
@@ -96,7 +96,7 @@
                     </div>
 
                     <div class="col-md-4 offset-md-1">
-                        <img class="featurette-image img-fluid mx-auto" src="img/que_es_proiectus.jpg" alt="proiectus">
+                        <img class="featurette-image img-fluid mx-auto" src="img/que_es_proiectus.jpg" alt="">
                     </div>
                 </div>
                 <hr class="featurette-divider">
@@ -114,25 +114,25 @@
                 <!-- 4 columnas de texto luego de qué es proiectus-->
                 <div class="row">
                     <div class="col-lg-3 text-center mx-auto ">
-                        <img class="rounded-circle" src="img/pruebaa.jpg" alt="com funciona" width="140" height="140">
+                        <img class="rounded-circle" src="img/pruebaa.jpg" alt="" width="140" height="140">
                         <h3 class="pt-2">Registra't</h3>
                         <p class="pl-4 pr-4">Si vols col·laborar en PROIECTUS.cat com a empresa o centre educatiu, registra't!</p>
                     </div><!-- /.col-lg-3 -->
 
                     <div class="col-lg-3 text-center mx-auto">
-                        <img class="rounded-circle" src="img/pruebab.jpg" alt="Generic placeholder image" width="140" height="140">
+                        <img class="rounded-circle" src="img/pruebab.jpg" alt="" width="140" height="140">
                         <h3 class="pt-2">Proposa</h3>
                         <p class="pl-4 pr-4">Crea una proposta d'un projecte perquè un centre/empresa vulgui col·laborar amb tu!</p>
                     </div><!-- /.col-lg-3 -->
 
                     <div class="col-lg-3 text-center mx-auto">
-                        <img class="rounded-circle" src="img/pruebac.jpg" alt="Generic placeholder image" width="140" height="140">
+                        <img class="rounded-circle" src="img/pruebac.jpg" alt="" width="140" height="140">
                         <h3 class="pt-2">Match!</h3>
                         <p class="pl-4 pr-4">Quan un centre/empresa s'interessa en la teva proposta comença el teu projecte!</p>
                     </div><!-- /.col-lg-3-->
 
                     <div class="col-lg-3 text-center mx-auto mb-5">
-                        <img class="rounded-circle" src="img/pruebad.jpg" alt="Generic placeholder image" width="140" height="140">
+                        <img class="rounded-circle" src="img/pruebad.jpg" alt="" width="140" height="140">
                         <h3 class="pt-2">Segueix</h3>
                         <p class="pl-4 pr-4">Els avenços del projecte, comparteix documents i missatges amb tots els col·laboradors!</p>
                     </div><!-- /.col-lg-3 -->
@@ -174,8 +174,8 @@
                             <div class="col-md-2 ">
                               <h2 class="pt-2">Empreses</h2>
                               <div class="btn-group d-flex flex-wrap">
-                                <img src="{{ asset('img/Icono_1.png') }}"class="img-thumbnail "id="logo_e1"style="cursor:pointer">
-                                <img src="{{ asset('img/logo_consellcomarcal.png') }}"class="img-thumbnail"id="logo_e2"style="cursor:pointer">
+                                <img src="{{ asset('img/Icono_1.png') }}"class="img-thumbnail "id="logo_e1" style="cursor:pointer" alt="logo proiectus">
+                                <img src="{{ asset('img/logo_consellcomarcal.png') }}"class="img-thumbnail"id="logo_e2"style="cursor:pointer" alt="logo consell comarcal">
 
 
                               </div>
