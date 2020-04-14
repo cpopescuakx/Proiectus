@@ -30,23 +30,28 @@
 
     <div class="row justify-content-center">
         <div id="info" class="tabcontent mt-3">
+
             <div class="row justify-content-center mb-3">
                 <h2 class="mt-3"><strong>Informació</strong></h2>
+                {{-- <a style="color: #007bff" onclick="AJAXJSPur();"><i style="font-size: 1.3rem" class="fas fa-sync" alt="Icona per a modificar"></i></a> --}}
+                {{-- <a style="color: #007bff" onclick="AJAXjQuery();"><i style="font-size: 1.3rem" class="fas fa-sync" alt="Icona per a modificar"></i></a> --}}
+                {{-- <a style="color: #007bff" onclick="AJAXJSFetch();"><i style="font-size: 1.3rem" class="fas fa-sync" alt="Icona per a modificar"></i></a> --}}
+
             </div>
             <div class="row">
-                <p class="lead"><i style="width: 50px;" class="fas fa-angle-right fa-lg pl-2"></i>Descripció: {{$project->description}}</p>
+                <p class="desc"><i style="width: 50px;" class="fas fa-angle-right fa-lg pl-2"></i>Descripció: {{$project->description}}</p>
             </div>
 
             <div class="row">
-                <p class="lead"><i style="width: 50px;" class="fas fa-angle-right fa-lg pl-2"></i>Família: {{$project->professional_family}}</p>
+                <p class="fam"><i style="width: 50px;" class="fas fa-angle-right fa-lg pl-2"></i>Família: {{$project->professional_family}}</p>
             </div>
 
             <div class="row">
-                <p class="lead"><i style="width: 50px;" class="fas fa-clock fa-lg"></i>Data límit: {{$project->ending_date}}</p>
+                <p class="ending"><i style="width: 50px;" class="fas fa-clock fa-lg"></i>Data límit: {{$project->ending_date}}</p>
             </div>
 
             <div class="row">
-                <p class="lead"><i style="width: 50px;" class="fas fa-money-bill-wave fa-lg"></i>Pressupost: {{$project->budget}} €</p>
+                <p class="budget"><i style="width: 50px;" class="fas fa-money-bill-wave fa-lg"></i>Pressupost: {{$project->budget}} €</p>
             </div>
         </div>
     </div>
@@ -103,7 +108,7 @@
         </div>
     </div>
 
-
+    
 
     <script>
         document.getElementById('info').style.display="block";
@@ -121,4 +126,5 @@
             evt.currentTarget.className += " active";
         }
 </script>
+<script src="{{asset('js/AJAXAndrei.js')}}"></script>
 @stop
