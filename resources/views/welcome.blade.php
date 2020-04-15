@@ -142,7 +142,7 @@
             </div><!-- /.container -->
             <!-- On ens pots trobar -->
             <div class="container py-4">
-                <section id="que_es_proiectus">
+                <section id="On_ens_pots_trobar">
                     <div class="pricing-header mx-auto text-center pr-4">
                         <h2 class="display-4 font-weight-bold">On ens pots trobar ?</h2>
                     </div>
@@ -273,11 +273,47 @@
 
 
 
-
                       </div>
+                      <hr class="featurette-divider">
+
               </div><!-- /.container -->
                     </div>
 
+
+        </section>
+
+        <section>
+          <script type="text/javascript">
+          	$(document).ready(function(){
+          			var url = "http://api.flickr.com/services/feeds/photos_public.gne?" +
+          	    			  "format=json&jsoncallback=?&tags=nature";
+
+          			$.getJSON(url, function(data){
+          				var html = "";
+          				$.each(data.items, function(i, item){
+                    html += '<div class="slide">';
+          					html += '<img src=' + item.media.m + '>';
+                    html += '</div>';
+                    // $("<img>").attr("src", item.media.m).appendTo("#photos");
+                    if (i == 5) {
+                      return false;
+                    }
+          				});
+          				$("#photos").html(html);
+          			});
+                  });
+            </script>
+
+          <div class="container py-4">
+            <section id="sponsors_proiectus">
+              <div class="pricing-header px-3 py-5 pt-5 pb-5 mx-auto text-center">
+                <h2 class="display-4 font-weight-bold">Sponsors</h2>
+              </div>
+          </div>
+          <div class="customer-logos">
+            <div id="photos">
+            </div>
+          </div>
 
         </section>
 

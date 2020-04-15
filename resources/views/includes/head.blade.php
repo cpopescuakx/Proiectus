@@ -4,6 +4,7 @@
 <title>Proiectus.cat</title>
 <!-- Bootstrap core CSS -->
 <link href="{{ asset('css/main.css') }}" rel="stylesheet" type="text/css">
+<link href="{{ asset('css/infinite-slider.css') }}" rel="stylesheet" type="text/css">
 <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet" type="text/css">
 <link href="{{asset('css/components/g1/g1_styles.css')}}" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
