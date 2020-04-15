@@ -37,3 +37,6 @@ Route::get('projects', 'ProjectController@indexApi');
 
 //Ruta per a l'API de estudiants (retorna tots els usuaris amb rol 3)
 Route::get('students', 'UserController@getStudents');
+
+//Ruta per a l'API de cities
+Route::get('cities', 'CityController@showApi');
