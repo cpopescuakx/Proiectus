@@ -67,7 +67,8 @@ class Kernel extends HttpKernel
         'isProfessor' => \App\Http\Middleware\isProfessor::class,
         'CheckRole' => \App\Http\Middleware\CheckRole::class,
         'CheckRoleBlog' => \App\Http\Middleware\CheckRoleBlog::class,
-        'CheckRoleWiki' => \App\Http\Middleware\CheckRoleWiki::class
+        'CheckRoleWiki' => \App\Http\Middleware\CheckRoleWiki::class,
+        'administracioEstudiants' => \App\Http\Middleware\administracioEstudiants::class
     ];
 
     /**
