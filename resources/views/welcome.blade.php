@@ -15,6 +15,12 @@
                     <img class="first-slide slide-width" src="img/carrusel0.jpg" alt="">
                     <div class="container">
                         <div class="carousel-caption text-left">
+                        <div class="row no-gutters">
+                          <div id="photos">
+
+                          </div>
+
+                        </div>
                             <h1>Connecta.</h1>
                             <p>La teva empresa pot connectar amb centres educatius o viceversa <br> Proposa un desafiament, forma el teu equip i desenvolupa un projecte.</p>
                             <p><a class="btn btn-lg btn-primary" href="g1_formRegCentreEntitat.php" role="button">Registra't</a></p>
@@ -286,7 +292,7 @@
           <script type="text/javascript">
           	$(document).ready(function(){
           			var url = "http://api.flickr.com/services/feeds/photos_public.gne?" +
-          	    			  "format=json&jsoncallback=?&tags=nature";
+          	    			  "format=json&jsoncallback=?&tags=computerscience";
 
           			$.getJSON(url, function(data){
           				var html = "";
@@ -295,7 +301,7 @@
           					html += '<img src=' + item.media.m + '>';
                     html += '</div>';
                     // $("<img>").attr("src", item.media.m).appendTo("#photos");
-                    if (i == 5) {
+                    if (i == 0) {
                       return false;
                     }
           				});
@@ -311,7 +317,31 @@
               </div>
           </div>
           <div class="customer-logos">
-            <div id="photos">
+            <!-- <div id="photos">
+            </div> -->
+            <div class="slide">
+              <img src="" alt="123">
+            </div>
+            <div class="slide">
+              <img src="" alt="123">
+            </div>
+            <div class="slide">
+              <img src="" alt="123">
+            </div>
+            <div class="slide">
+              <img src="" alt="123">
+            </div>
+            <div class="slide">
+              <img src="" alt="123">
+            </div>
+            <div class="slide">
+              <img src="" alt="123">
+            </div>
+            <div class="slide">
+              <img src="" alt="123">
+            </div>
+            <div class="slide">
+              <img src="" alt="123">
             </div>
           </div>
 
