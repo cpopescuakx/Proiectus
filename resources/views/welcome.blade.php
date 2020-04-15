@@ -253,7 +253,7 @@
 
 
 
-                                //Setting Location with jQuery
+                                //Establir localitzacio amb jquery
                                 $(document).ready(function ()
                                 {
                                     $("#logo_e1").on('click', function ()
@@ -320,28 +320,28 @@
             <!-- <div id="photos">
             </div> -->
             <div class="slide">
-              <img src="" alt="123">
+              <img src="{{ asset('img/v_1.png') }}" alt="1">
             </div>
             <div class="slide">
-              <img src="" alt="123">
+              <img src="{{ asset('img/logo_consellcomarcal.png') }}" alt="2">
             </div>
             <div class="slide">
-              <img src="" alt="123">
+              <img src="{{ asset('img/logo_iesmontsia.png') }}" alt="3">
             </div>
             <div class="slide">
-              <img src="" alt="123">
+              <img src="{{ asset('img/logo_ramonberenguer.jpg') }}" alt="4">
             </div>
             <div class="slide">
-              <img src="" alt="123">
+              <img src="{{ asset('img/laravel-logo.png') }}" alt="5">
             </div>
             <div class="slide">
-              <img src="" alt="123">
+              <img src="{{ asset('img/logo-vue.png') }}" alt="123">
             </div>
             <div class="slide">
-              <img src="" alt="123">
+              <img src="{{ asset('img/github-logo.png') }}" alt="123">
             </div>
             <div class="slide">
-              <img src="" alt="123">
+              <img src="{{ asset('img/logo-atom.png') }}" alt="123">
             </div>
           </div>
 
