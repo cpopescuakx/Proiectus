@@ -347,6 +347,19 @@
 
         </section>
 
+        <section>
+
+          <div class="mx-auto py-4">
+              <div class="pricing-header px-3 py-5 pt-5 pb-5 text-center">
+                <h2 class="display-4 font-weight-bold">El nostre equip</h2>
+              </div>
+              <div id="fotosUsuaris" class="ml-5" style="display: flex;"></div>
+          </div>
+          
+          <script src="{{asset('js/FlickrAndrei.js')}}"></script>
+
+        </section>
+
 
 
         </div><!-- /.fin main container -->
