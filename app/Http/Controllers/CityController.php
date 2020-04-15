@@ -122,4 +122,13 @@ class CityController extends Controller
         $nomCiutat = $city[0]->name;
         return $nomCiutat;
     }
+
+    /**
+     * Retorna totes les ciutats per a la api de les ciutats
+     *
+     * @return City[]|\Illuminate\Database\Eloquent\Collection
+     */
+    public static function showApi(){
+        return City::All();
+    }
 }
