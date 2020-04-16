@@ -1,4 +1,12 @@
 /* Slider */
+.slick-slide {
+    margin: 0px 20px;
+}
+
+.slick-slide img {
+    width: 100%;
+}
+
 .slick-slider
 {
     position: relative;
@@ -55,8 +63,6 @@
     left: 0;
 
     display: block;
-    margin-left: auto;
-    margin-right: auto;
 }
 .slick-track:before,
 .slick-track:after
