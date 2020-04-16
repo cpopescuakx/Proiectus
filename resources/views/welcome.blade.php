@@ -301,7 +301,7 @@
           					html += '<img src=' + item.media.m + '>';
                     html += '</div>';
                     // $("<img>").attr("src", item.media.m).appendTo("#photos");
-                    if (i == 0) {
+                    if (i == 1) {
                       return false;
                     }
           				});
