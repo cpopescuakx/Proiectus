@@ -2,26 +2,31 @@
 @section('content')
 <body>
 <div class="container">
+<h1 class="text-center">FAQ</h1>
+<br>
     <div class="row">
         <div class="col-lg-4">
             <div class="nav nav-pills faq-nav" id="faq-tabs" role="tablist" aria-orientation="vertical">
                 <a href="#tab1" class="nav-link active" data-toggle="pill" role="tab" aria-controls="tab1" aria-selected="true">
-                    <i class="mdi mdi-help-circle"></i> Frequently Asked Questions
+                    <i class="mdi mdi-help-circle"></i> Projecte
                 </a>
                 <a href="#tab2" class="nav-link" data-toggle="pill" role="tab" aria-controls="tab2" aria-selected="false">
-                    <i class="mdi mdi-account"></i> Profile
+                    <i class="mdi mdi-account"></i> Proposta
                 </a>
                 <a href="#tab3" class="nav-link" data-toggle="pill" role="tab" aria-controls="tab3" aria-selected="false">
-                    <i class="mdi mdi-account-settings"></i> Account
+                    <i class="mdi mdi-account-settings"></i> Blog
                 </a>
                 <a href="#tab4" class="nav-link" data-toggle="pill" role="tab" aria-controls="tab4" aria-selected="false">
-                    <i class="mdi mdi-heart"></i> Favorites
+                    <i class="mdi mdi-heart"></i> Wiki
                 </a>
                 <a href="#tab5" class="nav-link" data-toggle="pill" role="tab" aria-controls="tab5" aria-selected="false">
-                    <i class="mdi mdi-coin"></i> Transactions
+                    <i class="mdi mdi-coin"></i> Xat
                 </a>
                 <a href="#tab6" class="nav-link" data-toggle="pill" role="tab" aria-controls="tab6" aria-selected="false">
-                    <i class="mdi mdi-help"></i> General help
+                    <i class="mdi mdi-help"></i> Correu
+                </a>
+                <a href="#tab7" class="nav-link" data-toggle="pill" role="tab" aria-controls="tab7" aria-selected="false">
+                    <i class="mdi mdi-help"></i> Compte
                 </a>
             </div>
         </div>
@@ -361,6 +366,23 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+                <div class="tab-pane" id="tab7" role="tabpanel" aria-labelledby="tab6">
+                    <div class="accordion" id="accordion-tab-7">
+                        <div class="card">
+                            <div class="card-header" id="accordion-tab-7-heading-1">
+                                <h5>
+                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-7-content-1" aria-expanded="false" aria-controls="accordion-tab-7-content-1">Titol</button>
+                                </h5>
+                            </div>
+                            <div class="collapse show" id="accordion-tab-7-content-1" aria-labelledby="accordion-tab-7-heading-1" data-parent="#accordion-tab-7">
+                                <div class="card-body">
+                                <p>Contingut</p>
+                                </div>
+                            </div>
+                        </div>
+                        
                     </div>
                 </div>
             </div>
