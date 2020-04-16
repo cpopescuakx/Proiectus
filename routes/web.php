@@ -21,6 +21,10 @@ Route::get('/', function () {return view('welcome');})->name('index.index');
 
 Route::get('/help', function () {return view('help');})->name('help.index');
 
+/** Apartat FAQ lloc WEB  */
+Route::get('/FAQ', function () {return view('FAQ.index');})->name('faq.index');
+
+
 Auth::routes(['verify' => true]);
 
 Route::post('entityRegistration/{type}', 'EntityRegistration@store')->name('entityRegistration.store');
