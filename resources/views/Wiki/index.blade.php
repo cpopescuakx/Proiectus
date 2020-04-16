@@ -11,17 +11,17 @@
         <div class="form-group">
             <h4><label class="float-left" cfor="exampleFormControlInput1">Crea un article!</label></h4>
             <div class="form-group">
-                <input name="title" type="text" class="form-control" placeholder="Titol del article" required>
+                <input name="title" type="text" class="form-control" placeholder="Títol" required>
             </div>
             <!-- Textarea de l'editor de text -->
             <div class="form-group">
-                <textarea name="content" id=summernote></textarea>
+                <textarea name="content" id=summernoteWiki></textarea>
             </div>
 
             <!-- Script per a inicialitzar l'editor de text-->
             <script>
-                $('#summernote').summernote({
-                    placeholder: 'Contingut del article',
+                $('#summernoteWiki').summernote({
+                    placeholder: 'Contingut',
                     tabsize: 2,
                     height: 100,
                     minHeight: 100,
@@ -63,7 +63,7 @@
                     </button>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" nom="cancelar" class="btn btn-success" data-dismiss="modal">Cancela</button>
+                    <button type="button" name="cancelar" class="btn btn-success" data-dismiss="modal">Cancela</button>
                     <a type="button" class="btn btn-danger" href="{{$id_project}}/article/{{$article->id_article}}/destroy">Elimina</a>
                 </div>
             </div>
