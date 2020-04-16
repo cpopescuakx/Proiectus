@@ -16,11 +16,11 @@
             </div>
             <!-- Textarea de l'editor de text -->
             <div class="form-group">
-                <textarea name="content" id=summernote required></textarea>
+                <textarea name="content" id=summernoteBlog required></textarea>
             </div>
             <!-- Script per a inicialitzar l'editor de text-->
             <script>
-                $('#summernote').summernote({
+                $('#summernoteBlog').summernote({
                     placeholder: 'Contingut',
                     tabsize: 2,
                     height: 100,
