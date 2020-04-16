@@ -36,9 +36,9 @@
 
             <div class="row justify-content-center mb-3">
                 <h2 class="mt-3"><strong>Informació</strong></h2>
-                {{-- <a style="color: #007bff" onclick="AJAXJSPur();"><i style="font-size: 1.3rem" class="fas fa-sync" alt="Icona per a modificar"></i></a> --}}
-                {{-- <a style="color: #007bff" onclick="AJAXjQuery();"><i style="font-size: 1.3rem" class="fas fa-sync" alt="Icona per a modificar"></i></a> --}}
-                {{-- <a style="color: #007bff" onclick="AJAXJSFetch();"><i style="font-size: 1.3rem" class="fas fa-sync" alt="Icona per a modificar"></i></a> --}}
+                <a style="color: #007bff" onclick="AJAXJSPur();">a<i style="font-size: 1.3rem" class="fas fa-sync" alt="Icona per a modificar"></i></a>
+                {{-- <a style="color: #007bff" onclick="AJAXjQuery();">b<i style="font-size: 1.3rem" class="fas fa-sync" alt="Icona per a modificar"></i></a> --}}
+                {{-- <a style="color: #007bff" onclick="AJAXJSFetch();">v<i style="font-size: 1.3rem" class="fas fa-sync" alt="Icona per a modificar"></i></a> --}}
 
             </div>
             <div class="row">
@@ -111,12 +111,12 @@
         </div>
     </div>
 
-    
+
 
     <script>
 
         /** Al carregar la pàgina comprova si existeix la cookie que gurda l'última tab,
-            si existeix, activa el botó i mostra l'apartat que guardat. En cas contrari, 
+            si existeix, activa el botó i mostra l'apartat que guardat. En cas contrari,
             mostra la primera tab (apartat d'informació) */
 
         if (localStorage.last) {
@@ -147,7 +147,7 @@
             document.getElementById(apartat).style.display = "block";
             evt.currentTarget.className += " active";
             localStorage.last = apartat;
-        } 
+        }
     </script>
     <script src="{{asset('js/AJAXAndrei.js')}}"></script>
 

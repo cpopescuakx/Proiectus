@@ -280,10 +280,12 @@
 
 
                       </div>
-                      <hr class="featurette-divider">
 
               </div><!-- /.container -->
+
                     </div>
+                    <hr class="featurette-divider">
+
 
 
         </section>
@@ -321,40 +323,22 @@
                 <div class="slide">
                   <img src="{{ asset('img/v_1.png') }}" alt="1">
                 </div>
-                <div class="slide">
-                  <img src="{{ asset('img/logo_consellcomarcal.png') }}" alt="2">
-                </div>
-                <div class="slide">
-                  <img src="{{ asset('img/logo_iesmontsia.png') }}" alt="3">
-                </div>
-                <div class="slide">
-                  <img src="{{ asset('img/logo_ramonberenguer.jpg') }}" alt="4">
-                </div>
-                <div class="slide">
-                  <img src="{{ asset('img/laravel-logo.png') }}" alt="5">
-                </div>
-                <div class="slide">
-                  <img src="" alt="6">
-                </div>
-                <div class="slide">
-                  <img src="{{ asset('img/github-logo.png') }}" alt="7">
-                </div>
-                <div class="slide">
-                  <img src="{{ asset('img/logo-atom.png') }}" alt="8">
-                </div>
+
               </div> -->
+
               <div class="container">
                 <section class="customer-logos slider">
-                  <div class="slide"><img src=""></div>
-                  <div class="slide"><img src=""></div>
-                  <div class="slide"><img src=""></div>
-                  <div class="slide"><img src=""></div>
-                  <div class="slide"><img src=""></div>
-                  <div class="slide"><img src=""></div>
-                  <div class="slide"><img src=""></div>
+                  <div class="slide"><img src="{{ asset('img/v_1.png') }}" alt="1"></div>
+                  <div class="slide"><img src="{{ asset('img/github-logo.png') }}" alt="2"></div>
+                  <div class="slide"><img src="{{ asset('img/logo-akx.png') }}" alt="3"></div>
+                  <div class="slide"><img src="{{ asset('img/logo-captio.png') }}" alt="4"></div>
+                  <div class="slide"><img src="{{ asset('img/logo_iesmontsia.png') }}" alt="5"></div>
+                  <div class="slide"><img src="{{ asset('img/laravel-logo.png') }}" alt="6"></div>
+                  <div class="slide"><img src="{{ asset('img/logo_consellcomarcal.png') }}" alt="7"></div>
                 </section>
               </div>
 
+              <hr class="featurette-divider mt-5">
 
 
 
