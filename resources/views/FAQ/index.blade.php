@@ -373,16 +373,27 @@
                         <div class="card">
                             <div class="card-header" id="accordion-tab-7-heading-1">
                                 <h5>
-                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-7-content-1" aria-expanded="false" aria-controls="accordion-tab-7-content-1">Titol</button>
+                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-7-content-1" aria-expanded="false" aria-controls="accordion-tab-7-content-1">Pregunta</button>
                                 </h5>
                             </div>
                             <div class="collapse show" id="accordion-tab-7-content-1" aria-labelledby="accordion-tab-7-heading-1" data-parent="#accordion-tab-7">
                                 <div class="card-body">
-                                <p>Contingut</p>
+                                <p>Resposta</p>
                                 </div>
                             </div>
                         </div>
-                        
+                        <div class="card">
+                            <div class="card-header" id="accordion-tab-7-heading-2">
+                                <h5>
+                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-7-content-2" aria-expanded="false" aria-controls="accordion-tab-7-content-2">Pregunta 2</button>
+                                </h5>
+                            </div>
+                            <div class="collapse show" id="accordion-tab-7-content-2" aria-labelledby="accordion-tab-7-heading-1" data-parent="#accordion-tab-7">
+                                <div class="card-body">
+                                <p>Resposta 2</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
