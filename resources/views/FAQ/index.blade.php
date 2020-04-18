@@ -93,13 +93,12 @@
                         <div class="card">
                             <div class="card-header" id="accordion-tab-2-heading-1">
                                 <h5>
-                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-2-content-1" aria-expanded="false" aria-controls="accordion-tab-2-content-1">Does anybody else feel jealous and aroused and worried?</button>
+                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-2-content-1" aria-expanded="false" aria-controls="accordion-tab-2-content-1"></button>
                                 </h5>
                             </div>
                             <div class="collapse show" id="accordion-tab-2-content-1" aria-labelledby="accordion-tab-2-heading-1" data-parent="#accordion-tab-2">
                                 <div class="card-body">
-                                    <p>Kif, I have mated with a woman. Inform the men. This is the worst part. The calm before the battle. Bender, being God isn't easy. If you do too much, people get dependent on you, and if you do nothing, they lose hope. You have to use a light touch. Like a safecracker, or a pickpocket.</p>
-                                    <p><strong>Example: </strong>There's no part of that sentence I didn't like! You, a bobsleder!? That I'd like to see!</p>
+                                    <p>Un blog és un lloc web on es va publicant contingut cada cert temps en forma de posts, els quals estan ordenats per data de creació, de manera que els més recents apareixen primers.</p>
                                 </div>
                             </div>
                         </div>
@@ -149,52 +148,72 @@
                         <div class="card">
                             <div class="card-header" id="accordion-tab-3-heading-1">
                                 <h5>
-                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-3-content-1" aria-expanded="false" aria-controls="accordion-tab-3-content-1">Michelle, I don't regret this, but I both rue and lament it?</button>
+                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-3-content-1" aria-expanded="false" aria-controls="accordion-tab-3-content-1">Què és un blog?</button>
                                 </h5>
                             </div>
                             <div class="collapse show" id="accordion-tab-3-content-1" aria-labelledby="accordion-tab-3-heading-1" data-parent="#accordion-tab-3">
                                 <div class="card-body">
-                                    <p>Look, last night was a mistake. We'll need to have a look inside you with this camera. Good news, everyone! There's a report on TV with some very bad news! You know, I was God once. You lived before you met me?!</p>
-                                    <p><strong>Example: </strong>I'm Santa Claus! Pansy. That's a popular name today. Little "e", big "B"?</p>
+                                    <p>Un <strong>blog</strong> és un lloc web on es va publicant contingut cada cert temps en forma de <strong>posts</strong>, els quals estan <strong>ordenats</strong> per data de <strong>creació</strong>, de manera que els més <strong>recents</strong> apareixen primers.</p>
                                 </div>
                             </div>
                         </div>
                         <div class="card">
                             <div class="card-header" id="accordion-tab-3-heading-2">
                                 <h5>
-                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-3-content-2" aria-expanded="false" aria-controls="accordion-tab-3-content-2">Why am I sticky and naked?</button>
+                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-3-content-2" aria-expanded="false" aria-controls="accordion-tab-3-content-2">Qui pot accedir al blog d'un projecte?</button>
                                 </h5>
                             </div>
                             <div class="collapse" id="accordion-tab-3-content-2" aria-labelledby="accordion-tab-3-heading-2" data-parent="#accordion-tab-3">
                                 <div class="card-body">
-                                    <p>Did I miss something fun? Humans dating robots is sick. You people wonder why I'm still single? It's 'cause all the fine robot sisters are dating humans! Kids don't turn rotten just from watching TV.</p>
-                                    <p><strong>Example: </strong>I usually try to keep my sadness pent up inside where it can fester quietly as a mental illness.</p>
+                                    <p> Només poden <strong>accedir</strong> aquests que formin part del mateix <strong>projecte</strong>.</p>
                                 </div>
                             </div>
                         </div>
                         <div class="card">
                             <div class="card-header" id="accordion-tab-3-heading-3">
                                 <h5>
-                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-3-content-3" aria-expanded="false" aria-controls="accordion-tab-3-content-3">Is that a cooking show?</button>
+                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-3-content-3" aria-expanded="false" aria-controls="accordion-tab-3-content-3">Què és un post?</button>
                                 </h5>
                             </div>
                             <div class="collapse" id="accordion-tab-3-content-3" aria-labelledby="accordion-tab-3-heading-3" data-parent="#accordion-tab-3">
                                 <div class="card-body">
-                                    <p>OK, this has gotta stop. I'm going to remind Fry of his humanity the way only a woman can. You seem malnourished. Are you suffering from intestinal parasites? Check it out, y'all. Everyone who was invited is here. I am Singing Wind, Chief of the Martians.</p>
-                                    <p><strong>Example: </strong>Man, I'm sore all over. I feel like I just went ten rounds with mighty Thor.</p>
+                                    <p>Un <strong>post</strong> és cada entrada de <strong>contingut</strong> que publiquem en un <strong>blog</strong>.</p>
                                 </div>
                             </div>
                         </div>
                         <div class="card">
                             <div class="card-header" id="accordion-tab-3-heading-4">
                                 <h5>
-                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-3-content-4" aria-expanded="false" aria-controls="accordion-tab-3-content-4">You are the last hope of the universe?</button>
+                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-3-content-4" aria-expanded="false" aria-controls="accordion-tab-3-content-4">Qui pot crear un post?</button>
                                 </h5>
                             </div>
                             <div class="collapse" id="accordion-tab-3-content-4" aria-labelledby="accordion-tab-3-heading-4" data-parent="#accordion-tab-3">
                                 <div class="card-body">
-                                    <p>I don't want to be rescued. I videotape every customer that comes in here, so that I may blackmail them later. Ah, computer dating. It's like pimping, but you rarely have to use the phrase "upside your head."</p>
-                                    <p><strong>Example: </strong>Tell them I hate them.</p>
+                                    <p>Un <strong>post</strong> pot ser <strong>creat</strong> per qualsevol <strong>membre</strong> d'un <strong>projecte</strong>.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="accordion-tab-3-heading-5">
+                                <h5>
+                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-3-content-5" aria-expanded="false" aria-controls="accordion-tab-3-content-5">Qui pot editar un post ja creat?</button>
+                                </h5>
+                            </div>
+                            <div class="collapse" id="accordion-tab-3-content-5" aria-labelledby="accordion-tab-3-heading-5" data-parent="#accordion-tab-3">
+                                <div class="card-body">
+                                    <p>Un <strong>post</strong> creat només pot ser <strong>editat</strong> pel seu <strong>propietari</strong>.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="accordion-tab-3-heading-6">
+                                <h5>
+                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-3-content-6" aria-expanded="false" aria-controls="accordion-tab-3-content-6">Qui pot eliminar un post ja creat?</button>
+                                </h5>
+                            </div>
+                            <div class="collapse" id="accordion-tab-3-content-6" aria-labelledby="accordion-tab-3-heading-6" data-parent="#accordion-tab-3">
+                                <div class="card-body">
+                                    <p>Un <strong>post</strong> ja creat només pot ser <strong>eliminat</strong> pel seu<strong> propietari</strong>.</p>
                                 </div>
                             </div>
                         </div>
@@ -205,52 +224,72 @@
                         <div class="card">
                             <div class="card-header" id="accordion-tab-4-heading-1">
                                 <h5>
-                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-4-content-1" aria-expanded="false" aria-controls="accordion-tab-4-content-1">You, minion. Lift my arm?</button>
+                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-4-content-1" aria-expanded="false" aria-controls="accordion-tab-4-content-1">Què és una Wiki?</button>
                                 </h5>
                             </div>
                             <div class="collapse show" id="accordion-tab-4-content-1" aria-labelledby="accordion-tab-4-heading-1" data-parent="#accordion-tab-4">
                                 <div class="card-body">
-                                    <p>AFTER HIM! A true inspiration for the children. What are you hacking off? Is it my torso?! 'It is!' My precious torso! I saw you with those two "ladies of the evening" at Elzars. Explain that. She also liked to shut up! Why not indeed!</p>
-                                    <p><strong>Example: </strong>I feel like I was mauled by Jesus. Hello, little man. I will destroy you!</p>
+                                    <p>Una <strong>wiki</strong> és un lloc web <strong>col·laboratiu</strong>, on els <strong>usuaris</strong> d'aquesta poden <strong>crear</strong>, <strong>modificar</strong>, <strong>enllaçar</strong> i <strong>esborrar</strong> articles, de forma <strong>interactiva</strong>, <strong>fàcil</strong> i <strong>ràpida</strong>. </p>
                                 </div>
                             </div>
                         </div>
                         <div class="card">
                             <div class="card-header" id="accordion-tab-4-heading-2">
                                 <h5>
-                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-4-content-2" aria-expanded="false" aria-controls="accordion-tab-4-content-2">No, I'm Santa Claus?</button>
+                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-4-content-2" aria-expanded="false" aria-controls="accordion-tab-4-content-2">Qui pot accedir a la wiki d'un projecte?</button>
                                 </h5>
                             </div>
                             <div class="collapse" id="accordion-tab-4-content-2" aria-labelledby="accordion-tab-4-heading-2" data-parent="#accordion-tab-4">
                                 <div class="card-body">
-                                    <p>I meant 'physically'. Look, perhaps you could let me work for a little food? I could clean the floors or paint a fence, or service you sexually? When the lights go out, it's nobody's business what goes on between two consenting adults.</p>
-                                    <p><strong>Example: </strong>Nay, I respect and admire Harold Zoid too much to beat him to death with his own Oscar.</p>
+                                    <p>Només poden <strong>accedir</strong> aquests que formin part del mateix <strong>projecte</strong>.</p>
                                 </div>
                             </div>
                         </div>
                         <div class="card">
                             <div class="card-header" id="accordion-tab-4-heading-3">
                                 <h5>
-                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-4-content-3" aria-expanded="false" aria-controls="accordion-tab-4-content-3">Belligerent and numerous?</button>
+                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-4-content-3" aria-expanded="false" aria-controls="accordion-tab-4-content-3">Què és un article?</button>
                                 </h5>
                             </div>
                             <div class="collapse" id="accordion-tab-4-content-3" aria-labelledby="accordion-tab-4-heading-3" data-parent="#accordion-tab-4">
                                 <div class="card-body">
-                                    <p>Hey, what kinda party is this? There's no booze and only one hooker. I'm just glad my fat, ugly mama isn't alive to see this day. Wow! A superpowers drug you can just rub onto your skin? You'd think it would be something you'd have to freebase. Well, let's just dump it in the sewer and say we delivered it. You guys realize you live in a sewer, right? </p>
-                                    <p><strong>Example: </strong>Oh Leela! You're the only person I could turn to; you're the only person who ever loved me.</p>
+                                    <p>Un <strong>article</strong> és cada entrada de <strong>contingut</strong> que publiquem en una <strong>wiki</strong>.</p>
                                 </div>
                             </div>
                         </div>
                         <div class="card">
                             <div class="card-header" id="accordion-tab-4-heading-4">
                                 <h5>
-                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-4-content-4" aria-expanded="false" aria-controls="accordion-tab-4-content-4">Take me to your leader?</button>
+                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-4-content-4" aria-expanded="false" aria-controls="accordion-tab-4-content-4">Qui pot crear un article?</button>
                                 </h5>
                             </div>
                             <div class="collapse" id="accordion-tab-4-content-4" aria-labelledby="accordion-tab-4-heading-4" data-parent="#accordion-tab-4">
                                 <div class="card-body">
-                                    <p>PUNY HUMAN NUMBER ONE, PUNY HUMAN NUMBER TWO, and Morbo's good friend, Richard Nixon. Interesting. No, wait, the other thing: tedious. All I want is to be a monkey of moderate intelligence who wears a suit… that's why I'm transferring to business school! Morbo can't understand his teleprompter because he forgot how you say that letter that's shaped like a man wearing a hat.</p>
-                                    <p><strong>Example: </strong>If rubbin' frozen dirt in your crotch is wrong, hey I don't wanna be right.</p>
+                                    <p>Un <strong>article</strong> pot ser <strong>creat</strong> per qualsevol <strong>membre</strong> d'un <strong>projecte</strong>.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="accordion-tab-4-heading-5">
+                                <h5>
+                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-4-content-5" aria-expanded="false" aria-controls="accordion-tab-4-content-5">Qui pot editar un article ja creat?</button>
+                                </h5>
+                            </div>
+                            <div class="collapse" id="accordion-tab-4-content-5" aria-labelledby="accordion-tab-4-heading-5" data-parent="#accordion-tab-4">
+                                <div class="card-body">
+                                    <p>Un <strong>article</strong> només pot ser <strong>editat</strong> pel seu <strong>propietari</strong>.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="accordion-tab-4-heading-6">
+                                <h5>
+                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-4-content-6" aria-expanded="false" aria-controls="accordion-tab-4-content-6">Qui pot eliminar un article ja creat?</button>
+                                </h5>
+                            </div>
+                            <div class="collapse" id="accordion-tab-4-content-6" aria-labelledby="accordion-tab-4-heading-6" data-parent="#accordion-tab-4">
+                                <div class="card-body">
+                                    <p>Un <strong>article</strong> només pot ser <strong>eliminat</strong> pel seu <strong>propietari</strong>.</p>
                                 </div>
                             </div>
                         </div>
@@ -261,52 +300,60 @@
                         <div class="card">
                             <div class="card-header" id="accordion-tab-5-heading-1">
                                 <h5>
-                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-5-content-1" aria-expanded="false" aria-controls="accordion-tab-5-content-1">Say what?</button>
+                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-5-content-1" aria-expanded="false" aria-controls="accordion-tab-5-content-1">Què és un xat?</button>
                                 </h5>
                             </div>
                             <div class="collapse show" id="accordion-tab-5-content-1" aria-labelledby="accordion-tab-5-heading-1" data-parent="#accordion-tab-5">
                                 <div class="card-body">
-                                    <p>That could be 'my' beautiful soul sitting naked on a couch. If I could just learn to play this stupid thing. Oh, I don't have time for this. I have to go and buy a single piece of fruit with a coupon and then return it, making people wait behind me while I complain. I'm just glad my fat, ugly mama isn't alive to see this day. For one beautiful night I knew what it was like to be a grandmother. Subjugated, yet honored. But existing is basically all I do! I never loved you.</p>
-                                    <p><strong>Example: </strong>A sexy mistake. And I'd do it again!</p>
+                                <p>Un <strong>xat</strong> és un <strong>recurs</strong> de <strong>comunicació</strong> en <strong>temps</strong> real. </p>
                                 </div>
                             </div>
                         </div>
                         <div class="card">
                             <div class="card-header" id="accordion-tab-5-heading-2">
                                 <h5>
-                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-5-content-2" aria-expanded="false" aria-controls="accordion-tab-5-content-2">Who's brave enough to fly into something we all keep calling a death sphere?</button>
+                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-5-content-2" aria-expanded="false" aria-controls="accordion-tab-5-content-2">Amb qui puc xatejar?</button>
                                 </h5>
                             </div>
-                            <div class="collapse" id="accordion-tab-5-content-2" aria-labelledby="accordion-tab-5-heading-2" data-parent="#accordion-tab-5">
+                            <div class="collapse show" id="accordion-tab-5-content-2" aria-labelledby="accordion-tab-5-heading-2" data-parent="#accordion-tab-5">
                                 <div class="card-body">
-                                    <p>Maybe I love you so much I love you no matter who you are pretending to be. Ah, the 'Breakfast Club' soundtrack! I can't wait til I'm old enough to feel ways about stuff! Now Fry, it's been a few years since medical school, so remind me.</p>
-                                    <p><strong>Example: </strong>Disemboweling in your species: fatal or non-fatal?</p>
+                                <p>El xat només és <strong>intern</strong> i <strong>exclusiu</strong> per a un <strong>projecte</strong>, és a dir que per cada <strong>projecte</strong> hi ha un <strong>xat</strong> on poden <strong>xatejar</strong> tots els <strong>membres</strong> d'aquest.</p>
                                 </div>
                             </div>
                         </div>
                         <div class="card">
                             <div class="card-header" id="accordion-tab-5-heading-3">
                                 <h5>
-                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-5-content-3" aria-expanded="false" aria-controls="accordion-tab-5-content-3">You mean while I'm sleeping in it?</button>
+                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-5-content-3" aria-expanded="false" aria-controls="accordion-tab-5-content-3">Puc tenir més d'un xat?</button>
                                 </h5>
                             </div>
-                            <div class="collapse" id="accordion-tab-5-content-3" aria-labelledby="accordion-tab-5-heading-3" data-parent="#accordion-tab-5">
+                            <div class="collapse show" id="accordion-tab-5-content-3" aria-labelledby="accordion-tab-5-heading-3" data-parent="#accordion-tab-5">
                                 <div class="card-body">
-                                    <p>We can't compete with Mom! Her company is big and evil! Ours is small and neutral! Look, everyone wants to be like Germany, but do we really have the pure strength of 'will'? I just told you! You've killed me!</p>
-                                    <p><strong>Example: </strong>But, like most politicians, he promised more than he could deliver.</p>
+                                <p>Esclar que si, és poden <strong>tenir</strong> tants de <strong>xats</strong> com <strong>projectes</strong> als quals <strong>pertanys</strong>.</p>
                                 </div>
                             </div>
                         </div>
                         <div class="card">
                             <div class="card-header" id="accordion-tab-5-heading-4">
                                 <h5>
-                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-5-content-4" aria-expanded="false" aria-controls="accordion-tab-5-content-4">And until then, I can never die?</button>
+                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-5-content-4" aria-expanded="false" aria-controls="accordion-tab-5-content-4">Es poden esborrar els missatges d'un xat?</button>
                                 </h5>
                             </div>
-                            <div class="collapse" id="accordion-tab-5-content-4" aria-labelledby="accordion-tab-5-heading-4" data-parent="#accordion-tab-5">
+                            <div class="collapse show" id="accordion-tab-5-content-4" aria-labelledby="accordion-tab-5-heading-4" data-parent="#accordion-tab-5">
                                 <div class="card-body">
-                                    <p>I don't know what you did, Fry, but once again, you screwed up! Now all the planets are gonna start cracking wise about our mamas. Well, let's just dump it in the sewer and say we delivered it.</p>
-                                    <p><strong>Example: </strong>Have you ever tried just turning off the TV, sitting down with your children, and hitting them? Hey, tell me something. You've got all this money. How come you always dress like you're doing your laundry?</p>
+                                <p>No, un cop s'envia el <strong>missatge</strong> aquest ja no es pot <strong>esborrar</strong>.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="accordion-tab-5-heading-5">
+                                <h5>
+                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-5-content-5" aria-expanded="false" aria-controls="accordion-tab-5-content-5">Es poden editar els missatges d'un xat?</button>
+                                </h5>
+                            </div>
+                            <div class="collapse show" id="accordion-tab-5-content-5" aria-labelledby="accordion-tab-5-heading-5" data-parent="#accordion-tab-5">
+                                <div class="card-body">
+                                <p>No, un cop s'envia el <strong>missatge</strong> aquest ja no es pot <strong>editar</strong>.</p>
                                 </div>
                             </div>
                         </div>
@@ -317,7 +364,7 @@
                         <div class="card">
                             <div class="card-header" id="accordion-tab-6-heading-1">
                                 <h5>
-                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-6-content-1" aria-expanded="false" aria-controls="accordion-tab-6-content-1">Doomsday device?</button>
+                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-6-content-1" aria-expanded="false" aria-controls="accordion-tab-6-content-1">Què és un correu?</button>
                                 </h5>
                             </div>
                             <div class="collapse show" id="accordion-tab-6-content-1" aria-labelledby="accordion-tab-6-heading-1" data-parent="#accordion-tab-6">
@@ -330,7 +377,7 @@
                         <div class="card">
                             <div class="card-header" id="accordion-tab-6-heading-2">
                                 <h5>
-                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-6-content-2" aria-expanded="false" aria-controls="accordion-tab-6-content-2">And so we say goodbye to our beloved pet, Nibbler?</button>
+                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-6-content-2" aria-expanded="false" aria-controls="accordion-tab-6-content-2">A qui puc enviar correus?</button>
                                 </h5>
                             </div>
                             <div class="collapse" id="accordion-tab-6-content-2" aria-labelledby="accordion-tab-6-heading-2" data-parent="#accordion-tab-6">
@@ -343,7 +390,7 @@
                         <div class="card">
                             <div class="card-header" id="accordion-tab-6-heading-3">
                                 <h5>
-                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-6-content-3" aria-expanded="false" aria-controls="accordion-tab-6-content-3">Tell her you just want to talk?</button>
+                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-6-content-3" aria-expanded="false" aria-controls="accordion-tab-6-content-3">De qui puc rebre correus?</button>
                                 </h5>
                             </div>
                             <div class="collapse" id="accordion-tab-6-content-3" aria-labelledby="accordion-tab-6-heading-3" data-parent="#accordion-tab-6">
