@@ -41,8 +41,8 @@
         @foreach($proposals as $proposal)
         <tr>
             <td>{{$proposal->name}}</td>
-            <td>{{$proposal->created_at}}</td>
-            <td>{{$proposal->limit_date}}</td>
+            <td>{{ date('d/m/Y', strtotime($proposal->created_at)) }}</td> <!-- Cambio en el formato de fecha -->
+            <td>{{ date('d/m/Y', strtotime($proposal->limit_date)) }}</td>
             <td>{{$proposal->description}}</td>
             <td>{{$proposal->category}}</td>
             <td>{{$proposal->professional_family}}</td>
