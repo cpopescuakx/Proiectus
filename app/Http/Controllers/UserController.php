@@ -458,7 +458,7 @@ class UserController extends Controller
      * Retorna la vista del formulari per a importar alumnes.
      * 
      */
-    
+
     public function indexImportStudents () {
         return view('students.import');
     }
@@ -523,7 +523,7 @@ class UserController extends Controller
 
             }
 
-
+            Log::info($request->user()->username. ' - [ INSERT ] - users - Nou alumne: ' .$import[2]. ' inserit!');
             return redirect()->back()->with(['success' =>'Importació feta correctament.']);
         }
         else {
