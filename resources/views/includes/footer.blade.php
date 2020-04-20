@@ -25,7 +25,6 @@
                 <!-- Elementos -->
                 <ul class="list-unstyled text-small">
                     <li><a class="text-muted" href="{{ route('faq.index') }}">FAQ</a></li>
-
                 </ul>
             </div>
             <!-- Fin columna de 6 -->

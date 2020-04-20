@@ -24,9 +24,7 @@
 
                 <!-- Elementos -->
                 <ul class="list-unstyled text-small">
-                    <li><a class="text-muted" href="#">FAQ 1</a></li>
-                    <li><a class="text-muted" href="#">FAQ 2</a></li>
-                    <li><a class="text-muted" href="#">FAQ 3</a></li>
+                <li><a class="text-muted" href="{{ route('faq.index') }}">FAQ</a></li>
                 </ul>
             </div>
             <!-- Fin columna de 6 -->
