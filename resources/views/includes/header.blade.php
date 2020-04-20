@@ -187,7 +187,9 @@
         <ul class="navbar-nav text-header">
             <!-- Elemento menu -->
             <li class="nav-item active">
-                <a class="nav-link pt-2" class="text-ternari" href="{{ route('index.index') }}">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link pt-2" class="text-ternari" href="{{ route('index.index') }}">
+                    <span class="material-icons"> home </span>
+                    <span class="sr-only">(current)</span></a>
             </li>
             <!-- Fin elemento menu -->
             <!-- Elemento menu -->
@@ -196,6 +198,11 @@
                 <a type="button" class="btn btn-outline-primary"  href="{{ route('login') }}">Inicia sessió<span class="sr-only">(current)</span></a>
             </li>
             @else
+                <!-- Element notificacions -->
+            <li class="nav-item ml-3">
+                <a class="nav-link pt-2" class="text-ternari" href="#"> <span class="material-icons"> notifications </span> </a>
+            </li>
+                <!-- Fi element notificacions -->
             <li class="nav-item ml-3">
                 <a id="navbarDropdown" class="nav-link dropdown-toggle pt-2" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                    {{ Auth::user()->username }}
