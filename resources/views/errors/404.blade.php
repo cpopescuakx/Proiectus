@@ -1,5 +1,5 @@
 @extends('layouts.default')
-<title>Page not found - 404</title>
+<title>Pàgina no trobada - 404</title>
 @section('content')
 
 <style>
@@ -28,8 +28,8 @@ h1 {
   <div class="row">
     <div class="col">
       <h1>404</h1>
-      <h2>No hi ha res aqui...</h2>
-      <h3>...Pero potser <a href="{{route('faq.index')}}">aquí</a> si :)</h3>
+      <h2>No hi ha res aquí...</h2>
+      <h3>...Però potser <a href="{{route('faq.index')}}">aquí</a> si :)</h3>
     </div>
   </div>
 </div>
