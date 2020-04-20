@@ -280,15 +280,16 @@
 
 
                       </div>
-                      <hr class="featurette-divider">
 
               </div><!-- /.container -->
+
                     </div>
+                    <hr class="featurette-divider">
+
 
 
         </section>
 
-        <section>
           <script type="text/javascript">
           	$(document).ready(function(){
           			var url = "http://api.flickr.com/services/feeds/photos_public.gne?" +
@@ -309,43 +310,37 @@
           			});
                   });
             </script>
-
+        <section id="sponsors_proiectus">
           <div class="container py-4">
-            <section id="sponsors_proiectus">
               <div class="pricing-header px-3 py-5 pt-5 pb-5 mx-auto text-center">
                 <h2 class="display-4 font-weight-bold">Sponsors</h2>
               </div>
-          </div>
-          <div class="customer-logos">
-            <!-- <div id="photos">
-            </div> -->
-            <div class="slide">
-              <img src="{{ asset('img/v_1.png') }}" alt="1">
             </div>
-            <div class="slide">
-              <img src="{{ asset('img/logo_consellcomarcal.png') }}" alt="2">
-            </div>
-            <div class="slide">
-              <img src="{{ asset('img/logo_iesmontsia.png') }}" alt="3">
-            </div>
-            <div class="slide">
-              <img src="{{ asset('img/logo_ramonberenguer.jpg') }}" alt="4">
-            </div>
-            <div class="slide">
-              <img src="{{ asset('img/laravel-logo.png') }}" alt="5">
-            </div>
-            <div class="slide">
-              <img src="{{ asset('img/logo-vue.png') }}" alt="123">
-            </div>
-            <div class="slide">
-              <img src="{{ asset('img/github-logo.png') }}" alt="123">
-            </div>
-            <div class="slide">
-              <img src="{{ asset('img/logo-atom.png') }}" alt="123">
-            </div>
-          </div>
+          </section>
 
-        </section>
+              <!-- <div class="customer-logos slider">
+
+                <div class="slide">
+                  <img src="{{ asset('img/v_1.png') }}" alt="1">
+                </div>
+
+              </div> -->
+
+              <div class="container">
+                <section class="customer-logos slider">
+                  <div class="slide"><img src="{{ asset('img/v_1.png') }}" alt="1"></div>
+                  <div class="slide"><img src="{{ asset('img/github-logo.png') }}" alt="2"></div>
+                  <div class="slide"><img src="{{ asset('img/logo-akx.png') }}" alt="3"></div>
+                  <div class="slide"><img src="{{ asset('img/logo-captio.png') }}" alt="4"></div>
+                  <div class="slide"><img src="{{ asset('img/logo_iesmontsia.png') }}" alt="5"></div>
+                  <div class="slide"><img src="{{ asset('img/laravel-logo.png') }}" alt="6"></div>
+                  <div class="slide"><img src="{{ asset('img/logo_consellcomarcal.png') }}" alt="7"></div>
+                </section>
+              </div>
+
+              <hr class="featurette-divider mt-5">
+
+
 
         <section>
 
@@ -355,7 +350,7 @@
               </div>
               <div id="fotosUsuaris" class="ml-5" style="display: flex;"></div>
           </div>
-          
+
           <script src="{{asset('js/FlickrAndrei.js')}}"></script>
 
         </section>
