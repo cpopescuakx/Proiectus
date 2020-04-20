@@ -32,10 +32,9 @@ $this->middleware('auth');
     {
         $tipo = $request->get('tipo');
 
-        $proposals = Proposal::tipo($tipo)->paginate(5);
-        $page = $proposals->currentPage();
+        $proposals = Proposal::tipo($tipo)->latest()->paginate(10); // Añadido latest para ordenar por fecha de creación
 
-        return view('proposals.index', compact('proposals','page'));
+        return view('proposals.index', compact('proposals'));
     }
 
     public function createProposal()
@@ -104,6 +103,7 @@ $this->middleware('auth');
     {
         //
     }
+
     /** EDITAR Proposta
      *
      *  Retorna el formulari de modificació de propostes. Passant la proposta a partir de l'ID.
@@ -111,9 +111,9 @@ $this->middleware('auth');
      *  @param int $id
      *  @return \Illuminate\Http\Response
      */
-    public function editProposal($page, $id){
+    public function editProposal($id){
       $proposal = Proposal::find($id);
-      return view('proposals.edit', compact('proposal','page'));
+      return view('proposals.edit', compact('proposal'));
     }
 
     /**

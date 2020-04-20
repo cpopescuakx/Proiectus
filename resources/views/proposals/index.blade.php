@@ -47,7 +47,7 @@
             <td>{{$proposal->category}}</td>
             <td>{{$proposal->professional_family}}</td>
             <td>
-                <a href="{{ route('proposals.edit', [$page, $proposal->id_proposal])}}"><img src={{ asset('img/edit.svg') }} width="20" height="20" class="mr-2"></a>
+                <a href="{{ route('proposals.edit', [$proposal->id_proposal])}}"><img src={{ asset('img/edit.svg') }} width="20" height="20" class="mr-2"></a>
                 @if($proposal->status == "active")
                 <a href="{{ route('proposals.inactive', [$proposal->id_proposal]) }}"><img src={{ asset('img/delete.svg') }} width="20" height="20"></a>
                 @else

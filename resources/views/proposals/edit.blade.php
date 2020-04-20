@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="content formulari closed">
-      <form class="was-validated" action="{{route('proposals.update',[$page, $proposal->id_proposal])}}" method="POST">
+      <form class="was-validated" action="{{ route('proposals.update','$proposal->id_proposal') }}" method="POST">
             @csrf
             <div class="row justify-content-center">
                 <div class="col-11 col-sm-11 col-md-10 col-lg-10 col-xl-10">
@@ -19,7 +19,6 @@
                                 </div>
                             </div>
                         </div>
-                        <input type="hidden" class="form-control" id="exampleFormControlInput1" name="page" value="{{$page}}" required>
                         <input type="hidden" class="form-control" id="exampleFormControlInput1" name="id" value="{{$proposal->id_proposal}}" required>
                         <!-- Input básico -->
                         <div class="form-group mt-4">
@@ -51,7 +50,7 @@
                       <div class="row justify-content-center">
                           <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
                               <label for="exampleFormControlInput1">Descripció</label>
-                              <input type="text" class="form-control" id="exampleFormControlInput1" name="description" value="{{$proposal->description}}" required></input>
+                              <input type="text" class="form-control" id="exampleFormControlInput1" name="description" value="{{$proposal->description}}" required>
 
                           </div>
                       </div>
