@@ -101,6 +101,11 @@ Route::middleware(['registeredEntity'])->group(function () {
 
         Route::get('students/{id}/enable', 'UserController@enableStudent')
             ->name('students.enable');
+            Route::get('students/import', 'UserController@indexImportStudents')
+            ->name('students.import');
+
+        Route::post('students/import/upload', 'UserController@importStudents')
+            ->name('students.upload');
     });
 
     /** Rutes per a l'apartat de gestió de profes */
