@@ -334,7 +334,9 @@
                   <div class="slide"><img src="{{ asset('img/logo-captio.png') }}" alt="4"></div>
                   <div class="slide"><img src="{{ asset('img/logo_iesmontsia.png') }}" alt="5"></div>
                   <div class="slide"><img src="{{ asset('img/laravel-logo.png') }}" alt="6"></div>
+                  <div class="slide"><img src="{{ asset('img/logo-nath.png') }}" alt="7"></div>
                   <div class="slide"><img src="{{ asset('img/logo_consellcomarcal.png') }}" alt="7"></div>
+                  <div class="slide"><img src="{{ asset('img/logo-disi.png') }}" alt="7"></div>
                 </section>
               </div>
 

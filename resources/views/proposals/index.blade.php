@@ -17,6 +17,7 @@
     <a href="{{ route('proposals.create') }}"><img src={{ asset('img/add.svg') }} width="45" height="45" ></a>
   </div>
 </div>
+<p> -- {{$page}}</p>
 <table class="table table-hover mr-5">
     <thead>
         <tr>

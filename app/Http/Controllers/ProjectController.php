@@ -33,7 +33,6 @@ class ProjectController extends Controller
     public function index()
     {
         $projects = Project::all();
-        Log::info('projectes carregats');
         return view('projects.index', compact('projects'))
             ->with('i', (request()->input('page', 1) -1));
     }
@@ -87,8 +86,9 @@ class ProjectController extends Controller
             $projecte -> professional_family = $request->input('pro_family');
             $projecte -> ending_date = $request->input('end_date');
 
-            // Guardar projecte a la BBDD
+            // Guardar projecte a la BBDD i generar missatge de log
             $projecte -> save();
+            Log::info('[ INSERT ] - projects - Nou projecte: ' .$projecte -> name. ' inserit!');
 
             // Tornar a la llista de projectes
             $projects = Project::all();
