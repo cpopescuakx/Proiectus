@@ -15,6 +15,7 @@ use App\Post;
 use App\Resource_center;
 use App\Wiki;
 use App\Article;
+use Illuminate\Support\Facades\Log;
 
 
 class ProjectController extends Controller
@@ -32,6 +33,7 @@ class ProjectController extends Controller
     public function index()
     {
         $projects = Project::all();
+        Log::info('projectes carregats');
         return view('projects.index', compact('projects'))
             ->with('i', (request()->input('page', 1) -1));
     }
