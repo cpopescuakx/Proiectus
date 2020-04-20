@@ -10,6 +10,8 @@ use App\Http\Controllers\CityController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Response;
+use Illuminate\Support\Facades\Log;
+
 
 class UserController extends Controller
 {
@@ -304,7 +306,7 @@ class UserController extends Controller
     public function storeStudent(Request $request)
     {
         //dd($request);
-
+        
         DB::transaction(function() use ($request){
             // Instanciar
             $student = new User;
@@ -334,10 +336,13 @@ class UserController extends Controller
 
             // Guardar a quin centre pertany l'alumne
             $school_user -> save();
+            Log::info($request->user()->username. ' - [ INSERT ] - school_users - Nou alumne: ' .$school_user -> id_user. ' inserit!');
+
         }, 2);
 
         // Tornar a la llista d'alumnes
         $student = User::where('id_role', 3)->get();
+        Log::info($request->user()->username. ' - [ INSERT ] - users - Nou alumne: ' .$request -> username. ' inserit!');
 
         return redirect()->route('students.index',compact('student'));
     }
@@ -374,6 +379,7 @@ class UserController extends Controller
 
         // Cercar l'alumne amb la mateixa ID de la BBDD
         $students = User::find($id);
+        $studentVell = User::find($id);
 
         // Assignar els valors del formulari
         $students -> firstname = $request->input('firstname');
@@ -397,6 +403,8 @@ class UserController extends Controller
         $students -> save();
 
         $school_user = School_users::where('id_user',$id)->first();
+        $school_userVell = School_users::where('id_user',$id)->first();
+
         if(!is_object($school_user)) {
             $school_user = new School_users();
             $school_user -> id_school = $request->input('school');
@@ -410,8 +418,10 @@ class UserController extends Controller
         }
 
         // Tornar a la llista d'alumnes
-        $students = User::where('id_role', 3)->get();
+        Log::info($request->user()->username. ' - [ UPDATE ] - users - Alumne: ' .$studentVell -> username. ' modificat! - (' .$studentVell -> firstname. ', ' .$studentVell -> lastname. ', ' .$studentVell -> username. ', ' .$studentVell -> email. ', ' .$studentVell -> id_city. ', ' .$studentVell -> dni. ', ' .$studentVell -> birthdate. ', ' .$studentVell -> status.' -> ' .$students -> firstname. ', ' .$students -> lastname. ', ' .$students -> username. ', ' .$students -> email. ', ' .$students -> id_city. ', ' .$students -> dni. ', ' .$students -> birthdate. ', ' .$students -> status. ').');
+        Log::info($request->user()->username. ' - [ UPDATE ] - school_users - Alumne: ' .$school_userVell -> id_user. ' modificat! - (' .$school_userVell -> id_user. ', ' .$school_userVell -> id_school.' -> ' .$school_user -> id_user. ', ' .$school_user -> id_school. ').');
 
+        $students = User::where('id_role', 3)->get();
         return redirect()->route('students.index',compact('students'));
     }
 
@@ -423,23 +433,23 @@ class UserController extends Controller
      *  @param int $id
      *  @return void
      */
-    public function destroyStudent ($id) {
+    public function destroyStudent (Request $request, $id) {
         $students = User::find($id);
         $students -> status = 'inactive';
         $students -> save();
+        Log::info($request->user()->username. ' - [ UPDATE ] - users - Alumne: ' .$students -> username. ' donat de baixa!');
 
         $students = User::where('id_role', 3)->get();
-
         return redirect()->route('students.index',compact('students'));
     }
 
-    public function enableStudent ($id) {
+    public function enableStudent (Request $request, $id) {
         $students = User::find($id);
         $students -> status = 'active';
         $students -> save();
+        Log::info($request->user()->username. ' - [ UPDATE ] - users - Alumne: ' .$students -> username. ' donat de alta!');
 
         $students = User::where('id_role', 3)->get();
-
         return redirect()->route('students.index',compact('students'));
     }
 
