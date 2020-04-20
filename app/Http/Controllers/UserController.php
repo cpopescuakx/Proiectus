@@ -10,6 +10,7 @@ use App\Http\Controllers\CityController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Response;
+use Validator;
 use Illuminate\Support\Facades\Log;
 
 
@@ -451,6 +452,84 @@ class UserController extends Controller
 
         $students = User::where('id_role', 3)->get();
         return redirect()->route('students.index',compact('students'));
+    }
+
+    /**
+     * Retorna la vista del formulari per a importar alumnes.
+     * 
+     */
+    
+    public function indexImportStudents () {
+        return view('students.import');
+    }
+
+    /** IMPORT STUDENTS
+     *  Acció que serveix per a importar alumnes des de un fitxer CSV.
+     * 
+     */
+
+    public function importStudents (Request $request) {
+        // Comprova que el fitxer és un .csv
+        $validar = Validator::make(
+            [
+                'file'      => $request->file,
+                'extension' => strtolower($request->file->getClientOriginalExtension()),
+            ],
+            [
+                'file'          => 'required',
+                'extension'      => 'required|in:csv',
+            ]
+        );
+
+        if($validar->passes()) {
+            $file = $request->file('file');
+            $fileO = fopen($file, 'r');
+
+            $importArr = array();
+
+            $i = 0;
+
+            while (($dadesCsv = fgetcsv($fileO, 1000, "\t")) !== FALSE) {
+                $num = count($dadesCsv);
+
+                for ($c=0; $c < $num; $c++) {
+                    
+                    $importArr[$i][] = $dadesCsv [$c];
+                    
+                }
+
+                $i++;
+            }
+            
+            fclose($fileO);
+
+            foreach ($importArr as $import) {
+
+                $student = new User;
+
+                $student -> firstname = $import[0];
+                $student -> lastname = $import[1];
+                $student -> username = $import[2];
+                $student -> dni = $import[3];
+                $student -> email = $import[4];
+                $student -> password = Hash::make($import[5]);
+                $postalcode = $import[6];
+                $student -> id_city = CityController::getIdFromPostalCode($postalcode);
+                $student -> profile_pic = "Res";
+                $student -> bio = "Res";
+                $student -> id_role = 3;
+                $student -> status = "active";
+                $student -> save();
+
+            }
+
+
+            return redirect()->back()->with(['success' =>'Importació feta correctament.']);
+        }
+        else {
+            return redirect()->back()->with(['errors' => $validar->errors()->all()]);
+        }
+
     }
 
 
