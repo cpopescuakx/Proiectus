@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Proposal;
+use Illuminate\Support\Facades\Log;
+
 
 class ProposalController extends Controller
 {
@@ -65,6 +67,7 @@ $this->middleware('auth');
         ]);
 
         Proposal::create($request->all());
+        Log::info($request->user()->username. ' - [ INSERT ] - proposals - Nova proposta: ' .$request -> name. ' inserida!');
         return redirect()
                 ->route('proposals.index')
                 ->with('success','Proposal created successfully.');
@@ -111,9 +114,9 @@ $this->middleware('auth');
      *  @param int $id
      *  @return \Illuminate\Http\Response
      */
-    public function editProposal($page, $id){
+    public function editProposal($id){
       $proposal = Proposal::find($id);
-      return view('proposals.edit', compact('proposal','page'));
+      return view('proposals.edit', compact('proposal'));
     }
 
     /**
@@ -140,7 +143,8 @@ $this->middleware('auth');
     {
               // Cercar la proposta amb la mateixa ID de la BBDD
               $proposal = Proposal::find($request->input('id'));
-
+              $proposalVella = Proposal::find($request->input('id'));
+              
               // Assignar els valors del formulari
               $proposal -> name = $request->input('name');
               $proposal -> limit_date = $request->input('limit_date');
@@ -153,6 +157,8 @@ $this->middleware('auth');
               $tipo = $request->get('tipo');
               $page = $request->input('page');
               $proposals = Proposal::tipo($tipo)->paginate(5);
+              Log::info($request->user()->username. ' - [ UPDATE ] - proposals - Proposta: ' .$proposalVella -> name. ' modificada! - (' .$proposalVella -> name. ', ' .$proposalVella -> limit_date. ', ' .$proposalVella -> description. ', ' .$proposalVella -> professional_family. ' -> ' .$proposal -> name. ', ' .$proposal -> limit_date. ', ' .$proposal -> description. ', ' .$proposal -> professional_family. ').');
+
 
               return view('proposals.index', compact('proposals', 'page'));              // Tornar a la llista de propostes
      }
@@ -165,25 +171,27 @@ $this->middleware('auth');
      *
      * @return \Illuminate\Http\Response
      */
-    public function inactiveProposal($id)
+    public function inactiveProposal(Request $request, $id)
     {
         $proposal = Proposal::find($id);
         $proposal -> status = 'inactive';
         $proposal -> save();
 
         $proposals = Proposal::all();
+        Log::info($request->user()->username. ' - [ UPDATE ] - proposals - Proposta: ' .$proposal -> name. ' donada de baixa!');
 
         return redirect()->route('proposals.index',compact('proposals'))
         ->with('i', (request()->input('page', 1) -1));
     }
 
-    public function destroyProposal($id)
+    public function destroyProposal(Request $request, $id)
     {
         $proposal = Proposal::find($id);
         $proposal ->status = 'deleted';
         $proposal ->save();
 
         $proposals = Proposal::all();
+        Log::info($request->user()->username. ' - [ DELETE ] - proposals - Proposta: ' .$proposal -> name. ' eliminada!');
 
         return redirect()->route('proposals.index',compact('proposals'))
                 ->with('success','Proposal deleted successfully.');
@@ -197,11 +205,13 @@ $this->middleware('auth');
      *  @return \Illuminate\Http\Response
      * */
 
-    public function activeProposal($id)
+    public function activeProposal(Request $request, $id)
     {
         $proposal = Proposal::find($id);
         $proposal->status = 'active';
         $proposal->save();
+        Log::info($request->user()->username. ' - [ UPDATE ] - proposals - Proposta: ' .$proposal -> name. ' donada de alta!');
+
         return redirect()->back();
     }
 
