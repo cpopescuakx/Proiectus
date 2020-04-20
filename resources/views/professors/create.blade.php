@@ -24,7 +24,7 @@
                             <div class="row justify-content-center">
                                 <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
                                     <label for="nom">Nom</label>
-                                    <input type="text" name = "firstname" class="form-control" id="firstname" required>
+                                    <input autocomplete="given-name" type="text" name = "firstname" class="form-control" id="firstname" required>
                                     <div class="invalid-feedback">Camp necessari</div>
                                 </div>
                             </div>
@@ -34,7 +34,7 @@
                             <div class="row justify-content-center">
                                 <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
                                     <label for="cognom">Cognom</label>
-                                    <input type="text" name = "lastname" class="form-control" id="lastname" required>
+                                    <input autocomplete="family-name" type="text" name = "lastname" class="form-control" id="lastname" required>
                                     <div class="invalid-feedback">Camp necessari</div>
                                 </div>
                             </div>
@@ -44,7 +44,7 @@
                             <div class="row justify-content-center">
                                 <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
                                     <label for="usuari">Usuari</label>
-                                    <input type="text" name = "username" class="form-control" id="username" required>
+                                    <input autocomplete="username" type="text" name = "username" class="form-control" id="username" required>
                                     <div class="invalid-feedback">Camp necessari</div>
                                 </div>
                             </div>
@@ -69,7 +69,7 @@
                                                 <option value="{{$city->name}}">
                                             @endforeach
                                         </datalist>
-                                        <input type="text" name = "city" class="form-control" list="cities" required>
+                                        <input autocomplete="address-level2" type="text" name = "city" class="form-control" list="cities" required>
                                     <div class="invalid-feedback">Camp necessari</div>
                                 </div>
                             </div>
@@ -79,7 +79,7 @@
                             <div class="row justify-content-center">
                                 <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
                                     <label for="data-naixement">Data naixement</label>
-                                    <input type="text" name = "birthdate" class="form-control" id="birthdate" required value="AAAA-MM-DD">
+                                    <input autocomplete="bday" type="text" name = "birthdate" class="form-control" id="birthdate" required value="AAAA-MM-DD">
                                     <div class="invalid-feedback">Camp necessari</div>
                                 </div>
                             </div>
@@ -89,7 +89,7 @@
                             <div class="row justify-content-center">
                                 <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
                                     <label for="email">Email</label>
-                                    <input type="text" name = "email" class="form-control" id="email" required>
+                                    <input autocomplete="email" type="text" name = "email" class="form-control" id="email" required>
                                     <div class="invalid-feedback">Camp necessari</div>
                                 </div>
                             </div>
@@ -99,7 +99,7 @@
                             <div class="row justify-content-center">
                                 <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
                                     <label for="contrassenya">Contrassenya</label>
-                                    <input type="text" name = "password" class="form-control" id="password" required>
+                                    <input autocomplete="off" type="text" name = "password" class="form-control" id="password" required>
                                     <div class="invalid-feedback">Camp necessari</div>
                                 </div>
                             </div>
