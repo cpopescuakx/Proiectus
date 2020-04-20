@@ -29,7 +29,7 @@ h1 {
     <div class="col">
       <h1>404</h1>
       <h2>No hi ha res aqui...</h2>
-      <h3>...Pero potser <a href="{{route('index.index')}}">aquí</a> si :)</h3>
+      <h3>...Pero potser <a href="{{route('faq.index')}}">aquí</a> si :)</h3>
     </div>
   </div>
 </div>
