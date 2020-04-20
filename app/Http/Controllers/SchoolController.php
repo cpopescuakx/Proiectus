@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\School;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Log;
+
 
 class SchoolController extends Controller
 {
@@ -45,6 +47,7 @@ class SchoolController extends Controller
         ]);
 
         School::create($request->all());
+        Log::info($request->user()->username. ' - [ INSERT ] - schools - Nou centre: ' .$request -> name. ' inserit!');
 
         return redirect()->route('schools.index')->with('Éxit','L institut s ha modificat correctament!');
     }
@@ -90,7 +93,10 @@ class SchoolController extends Controller
             'type' => 'required',
         ]);
 
+        $schoolVell = School::find($request->id);
         School::find($request->id)->update($request->all());
+        
+        Log::info($request->user()->username. ' - [ UPDATE ] - schools - Centre: ' .$schoolVell -> name. ' modificat! - (' .$schoolVell -> name. ', ' .$schoolVell -> email. ', ' .$schoolVell -> code. ', ' .$schoolVell -> type. ' -> ' .$request -> name. ', ' .$request -> email. ', ' .$request -> code. ', ' .$request -> type. ').');
         return redirect()->route('schools.index')->with('Éxit','L institut s ha modificat correctament!');
     }
 
@@ -100,10 +106,11 @@ class SchoolController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroySchool($id)
+    public function destroySchool(Request $request, $id)
     {
         $school = School::find($id);
         $school->delete();
+        Log::info($request->user()->username. ' - [ DELETE ] - schools - Centre: ' .$school -> name. ' eliminat!');
         return redirect()->route('schools.index')->with('Exit', 'L institut s ha borrat correctament!');
     }
 }
