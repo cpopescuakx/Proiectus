@@ -77,7 +77,22 @@
                     </div>
                 </div>
               </div>
-            <!-- fin input básico -->
+              <!-- fin input básico -->
+
+              <!-- Input básico -->
+              <div class="form-group mt-4">
+                <div class="row justify-content-center">
+                    <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
+                        <label for="exampleFormControlInput1">Entitat</label>
+                        <select class="form-control" id="exampleFormControlInput1" name="category" required>
+                            <option></option>
+                            <option value="school">Institut</option>
+                            <option value="company">Empresa</option>
+                        </select>
+                    </div>
+                </div>
+              </div>
+              <!-- fin input básico -->
 
                 <!-- Botó confirmar -->
                 <div class="form-group">

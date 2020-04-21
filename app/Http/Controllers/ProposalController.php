@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Proposal;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 
 
@@ -150,6 +151,8 @@ $this->middleware('auth');
               $proposal -> limit_date = $request->input('limit_date');
               $proposal -> description = $request->input('description');
               $proposal -> professional_family = $request->input('professional_family');
+              $proposal -> category = $request->input('category');
+              $proposal -> id_author = Auth::user()->id;
 
               // Guardar la proposta a la BBDD amb les noves dades
               $proposal -> save();
