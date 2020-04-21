@@ -154,49 +154,56 @@
                     </div>
                     <div class="container mt-5">
                       <div class="row featurette justify-content-center pl-5">
-                          <div class="col-md-7">
+                        <style>
+                        /* Always set the map height explicitly to define the size of the div
+                         * element that contains the map. */
+                        #map {
+                          box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 
+                          height: 400px;
+                          width: auto;
 
-                                <style>
-                                /* Always set the map height explicitly to define the size of the div
-                                 * element that contains the map. */
-                                #map {
-                                  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+                        }
 
-                                  height: 400px;
-                                  width: 530px;
-                                }
+                          /* @media (max-width: 600px) {
+                            .col-md-8 {
+                              margin-right: 200px;
+                            }
+                          } */
 
-
-                              </style>
-
-                              <div id="map" title="Mapa"></div>
-                              <div id="infowindow-content">
-                                <img src="" width="16" height="16" id="place-icon">
-                                <span id="place-name"  class="title"></span><br>
-                                <span id="place-address"></span>
-                              </div>
-                            </div>
-                            <div class="col-md-2 ">
-                              <h2 class="pt-2">Empreses</h2>
-                              <div class="btn-group d-flex flex-wrap">
-                                <img src="{{ asset('img/Icono_1.png') }}"class="img-thumbnail "id="logo_e1" style="cursor:pointer" alt="logo proiectus">
-                                <img src="{{ asset('img/logo_consellcomarcal.png') }}"class="img-thumbnail"id="logo_e2"style="cursor:pointer" alt="logo consell comarcal">
-
-
-                              </div>
-                            </div>
-
-                                <div class="col-md-2 "style="height: 500px;">
-                                  <h2 class="pt-2">Instituts</h2>
-                                  <div class="btn-group d-flex flex-wrap">
-                                    <img src="{{ asset('img/logo_iesmontsia.png') }}"class="img-thumbnail img-fluid" id="logo_i1"style="cursor:pointer">
-                                    <img src="{{ asset('img/logo_ramonberenguer.jpg') }}"class="img-thumbnail img-fluid"id="logo_i2"style="cursor:pointer">
+                      </style>
 
 
 
-                                  </div>
-                                </div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <div id="map" title="Mapa"></div>
+    </div>
+    <div class="col">
+      <h2 class="pt-2">Empreses</h2>
+      <div class="btn-group d-flex flex-wrap">
+        <img src="{{ asset('img/Icono_1.png') }}"class=" img-fluid mb-2"id="logo_e1" style="cursor:pointer" alt="logo proiectus">
+        <img src="{{ asset('img/logo_consellcomarcal2.png') }}"class="img-fluid"id="logo_e2"style="cursor:pointer" alt="logo consell comarcal">
+
+
+      </div>
+    </div>
+    <div class="col">
+      <h2 class="pt-2">Instituts</h2>
+      <div class="btn-group d-flex flex-wrap">
+        <img src="{{ asset('img/logo_iesmontsia.png') }}"class="img-fluid" id="logo_i1"style="cursor:pointer">
+        <img src="{{ asset('img/logo_ramonberenguer.jpg') }}"class="img-fluid"id="logo_i2"style="cursor:pointer">
+
+
+
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
 
 
                             <script>
@@ -313,7 +320,7 @@
         <section id="sponsors_proiectus">
           <div class="container py-4">
               <div class="pricing-header px-3 py-5 pt-5 pb-5 mx-auto text-center">
-                <h2 class="display-4 font-weight-bold">Sponsors</h2>
+                <h2 class="display-4 font-weight-bold">Col·laboradors</h2>
               </div>
             </div>
           </section>
@@ -328,14 +335,13 @@
 
               <div class="container">
                 <section class="customer-logos slider">
-                  <div class="slide"><img src="{{ asset('img/v_1.png') }}" alt="1"></div>
-                  <div class="slide"><img src="{{ asset('img/github-logo.png') }}" alt="2"></div>
                   <div class="slide"><img src="{{ asset('img/logo-akx.png') }}" alt="3"></div>
+                  <div class="slide"><img src="{{ asset('img/logo_generalitat.png') }}" alt="2"></div>
                   <div class="slide"><img src="{{ asset('img/logo-captio.png') }}" alt="4"></div>
                   <div class="slide"><img src="{{ asset('img/logo_iesmontsia.png') }}" alt="5"></div>
-                  <div class="slide"><img src="{{ asset('img/laravel-logo.png') }}" alt="6"></div>
                   <div class="slide"><img src="{{ asset('img/logo-nath.png') }}" alt="7"></div>
-                  <div class="slide"><img src="{{ asset('img/logo_consellcomarcal.png') }}" alt="7"></div>
+                  <div class="slide"><img src="{{ asset('img/logo_creacio.png') }}" alt="7"></div>                  
+                  <div class="slide"><img src="{{ asset('img/logo_consellcomarcal2.png') }}" alt="7"></div>
                   <div class="slide"><img src="{{ asset('img/logo-disi.png') }}" alt="7"></div>
                 </section>
               </div>
@@ -344,7 +350,7 @@
 
 
 
-        <section>
+        <!-- <section>
 
           <div class="mx-auto py-4">
               <div class="pricing-header px-3 py-5 pt-5 pb-5 text-center">
@@ -355,7 +361,7 @@
 
           <script src="{{asset('js/FlickrAndrei.js')}}"></script>
 
-        </section>
+        </section> -->
 
 
 
