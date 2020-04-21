@@ -170,12 +170,12 @@ class ForeignKeysUsers extends Migration
 
             $table->dropForeign(['id_project']);
         });
-
+/*  Está dando un error porque no existe ningún campo llamado owner en la tabla chats
         Schema::table('chats', function (Blueprint $table) {
 
             $table->dropForeign(['owner']);
         });
-
+*/
         Schema::table('comments', function (Blueprint $table) {
 
             $table->dropForeign(['id_user']);
