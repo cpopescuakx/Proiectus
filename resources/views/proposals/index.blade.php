@@ -41,7 +41,6 @@
         @foreach($proposals as $proposal)
 
         <tr>
-            @if($proposal->status == "active")
                 <td>{{ $proposal->name }}</td>
                 <td>{{ date('d/m/Y', strtotime($proposal->created_at)) }}</td> <!-- Cambio en el formato de fecha -->
                 <td>{{ date('d/m/Y', strtotime($proposal->limit_date)) }}</td>
@@ -49,15 +48,6 @@
                 <td>{{ $proposal->category }}</td>
                 <td>{{ $proposal->professional_family }}</td>
 
-            <!-- Texto oscurecido para propuestas inactivas-->
-            @else
-                <td class="text-secondary">{{ $proposal->name }}</td>
-                <td class="text-secondary">{{ date('d/m/Y', strtotime($proposal->created_at)) }}</td> <!-- Cambio en el formato de fecha -->
-                <td class="text-secondary">{{ date('d/m/Y', strtotime($proposal->limit_date)) }}</td>
-                <td class="text-secondary">{{ $proposal->description }}</td>
-                <td class="text-secondary">{{ $proposal->category }}</td>
-                <td class="text-secondary">{{ $proposal->professional_family }}</td>
-            @endif
                 <td>
                     <a href="{{ route('proposals.edit', [$proposal->id_proposal])}}"><i class="material-icons text-dark" data-toggle="tooltip" title="Editar proposta">create</i></a>
                     @if($proposal->status == "active")

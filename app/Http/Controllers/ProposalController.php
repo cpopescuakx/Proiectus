@@ -86,7 +86,7 @@ $this->middleware('auth');
         Log::info($request->user()->username. ' - [ INSERT ] - proposals - Nova proposta: ' .$request -> name. ' inserida!');
         return redirect()
                 ->route('proposals.index')
-                ->with('success','Proposal created successfully.');
+                ->with('success','Proposta creada correctament.');
     }
 
     /**
@@ -174,13 +174,16 @@ $this->middleware('auth');
               $proposal -> save();
 
               $tipo = $request->get('tipo');
-              
+
               $proposals = Proposal::tipo($tipo)->paginate(10);
               Log::info($request->user()->username. ' - [ UPDATE ] - proposals - Proposta: ' .$proposalVella -> name. ' modificada! - (' .$proposalVella -> name. ', ' .$proposalVella -> limit_date. ', ' .$proposalVella -> description. ', ' .$proposalVella -> professional_family. ' -> ' .$proposal -> name. ', ' .$proposal -> limit_date. ', ' .$proposal -> description. ', ' .$proposal -> professional_family. ').');
 
 
-              return view('proposals.index', compact('proposals'));              // Tornar a la llista de propostes
+              return redirect()
+                ->route('proposals.index')
+                ->with('success','Proposta actualitzada correctament.');
      }
+
 
     /** BAIXA PROPOSTA
      *
@@ -200,7 +203,7 @@ $this->middleware('auth');
         Log::info($request->user()->username. ' - [ UPDATE ] - proposals - Proposta: ' .$proposal -> name. ' donada de baixa!');
 
         return redirect()->route('proposals.index',compact('proposals'))
-        ->with('i', (request()->input('page', 1) -1));
+                ->with('success','Proposta desactivada correctament.');
     }
 
     public function destroyProposal(Request $request, $id)
@@ -213,7 +216,7 @@ $this->middleware('auth');
         Log::info($request->user()->username. ' - [ DELETE ] - proposals - Proposta: ' .$proposal -> name. ' eliminada!');
 
         return redirect()->route('proposals.index',compact('proposals'))
-                ->with('success','Proposal deleted successfully.');
+                ->with('success','Proposta eliminada correctament.');
     }
 
     /** DONAR D'ALTA PROPOSTA
@@ -231,7 +234,8 @@ $this->middleware('auth');
         $proposal->save();
         Log::info($request->user()->username. ' - [ UPDATE ] - proposals - Proposta: ' .$proposal -> name. ' donada de alta!');
 
-        return redirect()->back();
+        return redirect()->route('proposals.index',compact('proposals'))
+            ->with('success','Proposta activada correctament.');
     }
 
     /** DASHBOARD PROPOSTES
