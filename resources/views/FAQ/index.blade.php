@@ -369,8 +369,7 @@
                             </div>
                             <div class="collapse show" id="accordion-tab-6-content-1" aria-labelledby="accordion-tab-6-heading-1" data-parent="#accordion-tab-6">
                                 <div class="card-body">
-                                    <p>Ah, now the ball's in Farnsworth's court! We'll need to have a look inside you with this camera. Stop it, stop it. It's fine. I will 'destroy' you! Bender! Ship! Stop bickering or I'm going to come back there and change your opinions manually!</p>
-                                    <p><strong>Example: </strong>So I really am important? How I feel when I'm drunk is correct?</p>
+                                    <p>És un sistema <strong>informàtic</strong> el qual et permet <strong>redactar</strong>, <strong>enviar</strong> i <strong>rebre</strong> missatges, utilitzant sistemes de <strong>comunicació</strong> electrònica.</p>
                                 </div>
                             </div>
                         </div>
@@ -382,8 +381,7 @@
                             </div>
                             <div class="collapse" id="accordion-tab-6-content-2" aria-labelledby="accordion-tab-6-heading-2" data-parent="#accordion-tab-6">
                                 <div class="card-body">
-                                    <p>Nibbler, who's gone to a place where I, too, hope one day to go. The toilet. But existing is basically all I do! I suppose I could part with 'one' and still be feared. I just told you! You've killed me!</p>
-                                    <p><strong>Example: </strong>What's with you kids? Every other day it's food, food, food.</p>
+                                    <p>Només es poden <strong>enviar</strong> correus als <strong>comptes</strong> que formen part de <strong>proiectus.cat</strong>.</p>
                                 </div>
                             </div>
                         </div>
@@ -395,8 +393,22 @@
                             </div>
                             <div class="collapse" id="accordion-tab-6-content-3" aria-labelledby="accordion-tab-6-heading-3" data-parent="#accordion-tab-6">
                                 <div class="card-body">
-                                    <p>It has nothing to do with mating. Soon enough. There, now he's trapped in a book I wrote: a crummy world of plot holes and spelling errors! Daylight and everything. Hey! I'm a porno-dealing monster, what do I care what you think?</p>
-                                    <p><strong>Example: </strong>Is that a cooking show? It doesn't look so shiny to me. And why did 'I' have to take a cab?</p>
+                                    <p>Només es poden <strong>rebre</strong> correus dels <strong>comptes</strong> que formen part de <strong>proiectus.cat</strong>.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="accordion-tab-6-heading-4">
+                                <h5>
+                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-6-content-4" aria-expanded="false" aria-controls="accordion-tab-6-content-4">Puc enviar correus massius?</button>
+                                </h5>
+                            </div>
+                            <div class="collapse" id="accordion-tab-6-content-4" aria-labelledby="accordion-tab-6-heading-4" data-parent="#accordion-tab-6">
+                                <div class="card-body">
+                                    <p>Si, es poden <strong>enviar</strong> aquests de diverses maneres: </p> 
+                                    <p>- Indicant-ne tots els <strong>correus</strong> dels <strong>usuaris</strong>, als quals vols <strong>enviar</strong>.</p>
+                                    <p>- Indicant el <strong>tipus</strong> de <strong>rol</strong> (Alumne, Professor, Empleat, etc...) i s'enviarà a tots els <strong>usuaris</strong> que formin part d'aquest.</p>
+                                    <p>- Indicant el <strong>projecte</strong> i enviar a tots els <strong>membres</strong> d'aquest. </p>
                                 </div>
                             </div>
                         </div>
