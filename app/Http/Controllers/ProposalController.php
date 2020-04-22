@@ -56,7 +56,12 @@ $this->middleware('auth');
         //
     }
 
-    //! TO-DO
+    /**
+     * Almacena una propuesta en la bbdd
+     * 
+     * @param  \Illuminate\Http\Request  $request
+     * @return view
+     */
     public function storeProposal(Request $request)
     {
         $request->validate([
@@ -66,7 +71,18 @@ $this->middleware('auth');
             'professional_family' => 'required'
         ]);
 
-        Proposal::create($request->all());
+        $proposal = new Proposal();
+
+        // Assignar els valors del formulari
+        $proposal -> name = $request->input('name');
+        $proposal -> limit_date = $request->input('limit_date');
+        $proposal -> description = $request->input('description');
+        $proposal -> professional_family = $request->input('professional_family');
+        $proposal -> category = $request->input('category');
+        $proposal -> id_author = Auth::user()->id;
+
+        $proposal->save();
+        
         Log::info($request->user()->username. ' - [ INSERT ] - proposals - Nova proposta: ' .$request -> name. ' inserida!');
         return redirect()
                 ->route('proposals.index')
