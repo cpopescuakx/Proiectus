@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="content formulari closed">
-      <form class="was-validated" action="{{ route('proposals.update','$proposal->id_proposal') }}" method="POST">
+      <form class="was-validated" action="{{ route('proposals.update',[$proposal->id_proposal]) }}" method="POST">
             @csrf
             <div class="row justify-content-center">
                 <div class="col-11 col-sm-11 col-md-10 col-lg-10 col-xl-10">
