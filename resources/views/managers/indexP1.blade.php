@@ -12,7 +12,14 @@
     <div class="row">
   		<div class="col-sm-4 mx-auto"><!--left col-->
             <div class="text-center">
+                <!-- Muestra una imagen por defecto si el usuario no ha subido ninguna foto de perfil -->
+                @if(Auth::user()->profile_pic == null)
                 <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar img-circle img-thumbnail" alt="avatar">
+
+                <!-- Muestra la imagen que ha seleccionado el usuario -->
+                @else 
+                <img src="{{ Auth::user()->profile_pic }}" class="avatar img-circle img-thumbnail" alt="avatar">
+                @endif
                 <h6>Puja la teua imatge de perfil</h6>
 
                 <!-- NO FUNCIONA: REGALO PARA EL GRUPO1 DEL SPRINT6 -->
@@ -45,7 +52,34 @@
             </div>
         </div><!--/col-8-->
     </div><!--/row-->
+    <br>
 
+    @if(Auth::user()->id_role == '5')
+    <!-- Sección para subir logo de la empresa/instituto (SOLO VISIBLE POR GESTORES) -->
+    <div class="row">
+    	<div class="col-sm-9 mx-auto">
+            <div class="card">
+                <div class="card-header font-weight-bold">
+                    Logo de l'empresa/institut
+                </div>
+                <div class="text-center my-2">
+                    <!-- Muestra una imagen por defecto si el usuario no ha subido ninguna foto de perfil -->
+                    @if(Auth::user()->profile_pic == null)
+                    <img src="http://ssl.gstatic.com/accounts/ui/avatar_1x.png" class="avatar img-circle img-thumbnail" alt="avatar">
+    
+                    <!-- Muestra la imagen que ha seleccionado el usuario -->
+                    @else 
+                    <img src="{{ Auth::user()->logo_eentity }}" class="avatar img-circle img-thumbnail" alt="avatar">
+                    @endif
+                    <h6>Puja el logo de la teva empresa o institut</h6>
+    
+                    <!-- NO FUNCIONA: REGALO PARA EL GRUPO1 DEL SPRINT6 -->
+                    <input type="file" class="text-center mx-auto file-upload">
+                </div>
+            </div>
+        </div><!--/col-8-->
+    </div><!--/row-->
+    @endif
 
     <div class="col-sm-9 mx-auto">
         <div class="row mt-5">
