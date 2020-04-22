@@ -174,12 +174,12 @@ $this->middleware('auth');
               $proposal -> save();
 
               $tipo = $request->get('tipo');
-              $page = $request->input('page');
-              $proposals = Proposal::tipo($tipo)->paginate(5);
+              
+              $proposals = Proposal::tipo($tipo)->paginate(10);
               Log::info($request->user()->username. ' - [ UPDATE ] - proposals - Proposta: ' .$proposalVella -> name. ' modificada! - (' .$proposalVella -> name. ', ' .$proposalVella -> limit_date. ', ' .$proposalVella -> description. ', ' .$proposalVella -> professional_family. ' -> ' .$proposal -> name. ', ' .$proposal -> limit_date. ', ' .$proposal -> description. ', ' .$proposal -> professional_family. ').');
 
 
-              return view('proposals.index', compact('proposals', 'page'));              // Tornar a la llista de propostes
+              return view('proposals.index', compact('proposals'));              // Tornar a la llista de propostes
      }
 
     /** BAIXA PROPOSTA
