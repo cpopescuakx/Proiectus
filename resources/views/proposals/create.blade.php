@@ -2,7 +2,7 @@
 
 @section('content')
 <body>
-    <div class="content formulari closed">
+    <div class="formulari">
 
       <form action='{{ route('proposals.store') }}' method='POST' class="was-validated" >
         @csrf
@@ -15,7 +15,7 @@
                   <!-- Imagen formulario -->
                   <div class="container">
                       <div class="contact-image text-center mt-3">
-                          <img class="form-img" src="../img/icono_negro.png" />
+                          <img class="form-img" src="{{ asset('img/icono_negro.png') }}"  />
                       </div>
                   </div>
 

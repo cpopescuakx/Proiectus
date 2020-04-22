@@ -91,14 +91,17 @@ $this->middleware('auth');
         // AFEGIR TAGS A LES PROPOSTES
 
         $proposta = Proposal::select('*')->where('name', $request->name)->where('status', 'active')->where('id_author', $proposal->id_author)->first();
+        
+        if($request->tags) {
 
-        foreach ($request->tags as $tag) {
+            foreach ($request->tags as $tag) {
 
-            $proposalTags = new Proposal_tag;
-            $proposalTags->id_proposal = $proposta->id_proposal;
-            $proposalTags->id_tag = $tag;
-            $proposalTags->save();
+                $proposalTags = new Proposal_tag;
+                $proposalTags->id_proposal = $proposta->id_proposal;
+                $proposalTags->id_tag = $tag;
+                $proposalTags->save();
 
+            }
         }
         
         return redirect()
@@ -149,8 +152,10 @@ $this->middleware('auth');
      *  @return \Illuminate\Http\Response
      */
     public function editProposal($id){
-      $proposal = Proposal::find($id);
-      return view('proposals.edit', compact('proposal'));
+        $proposal = Proposal::find($id);
+        $tagsActuals = Proposal_tag::select()->where('id_proposal', $id)->get();
+        $tags = Tag::All();
+        return view('proposals.edit', compact('proposal', 'tagsActuals', 'tags'));
     }
 
     /**
@@ -175,30 +180,46 @@ $this->middleware('auth');
 
     public function updateProposal(Request $request)
     {
-              // Cercar la proposta amb la mateixa ID de la BBDD
-              $proposal = Proposal::find($request->input('id'));
-              $proposalVella = Proposal::find($request->input('id'));
-              
-              // Assignar els valors del formulari
-              $proposal -> name = $request->input('name');
-              $proposal -> limit_date = $request->input('limit_date');
-              $proposal -> description = $request->input('description');
-              $proposal -> professional_family = $request->input('professional_family');
-              $proposal -> category = $request->input('category');
-              $proposal -> id_author = Auth::user()->id;
+        // Cercar la proposta amb la mateixa ID de la BBDD
+        $proposal = Proposal::find($request->input('id'));
+        $proposalVella = Proposal::find($request->input('id'));
+        
+        // Assignar els valors del formulari
+        $proposal -> name = $request->input('name');
+        $proposal -> limit_date = $request->input('limit_date');
+        $proposal -> description = $request->input('description');
+        $proposal -> professional_family = $request->input('professional_family');
+        $proposal -> category = $request->input('category');
+        $proposal -> id_author = Auth::user()->id;
 
-              // Guardar la proposta a la BBDD amb les noves dades
-              $proposal -> save();
+        // Guardar la proposta a la BBDD amb les noves dades
+        $proposal -> save();
 
-              $tipo = $request->get('tipo');
+        $tipo = $request->get('tipo');
 
-              $proposals = Proposal::tipo($tipo)->paginate(10);
-              Log::info($request->user()->username. ' - [ UPDATE ] - proposals - Proposta: ' .$proposalVella -> name. ' modificada! - (' .$proposalVella -> name. ', ' .$proposalVella -> limit_date. ', ' .$proposalVella -> description. ', ' .$proposalVella -> professional_family. ' -> ' .$proposal -> name. ', ' .$proposal -> limit_date. ', ' .$proposal -> description. ', ' .$proposal -> professional_family. ').');
+        $proposals = Proposal::tipo($tipo)->paginate(10);
+        Log::info($request->user()->username. ' - [ UPDATE ] - proposals - Proposta: ' .$proposalVella -> name. ' modificada! - (' .$proposalVella -> name. ', ' .$proposalVella -> limit_date. ', ' .$proposalVella -> description. ', ' .$proposalVella -> professional_family. ' -> ' .$proposal -> name. ', ' .$proposal -> limit_date. ', ' .$proposal -> description. ', ' .$proposal -> professional_family. ').');
+            
+        // AFEGIR TAGS A LES PROPOSTES
+
+        Proposal_tag::where('id_proposal', $proposal->id_proposal)->delete();
+
+        if($request->tags) {
+            foreach ($request->tags as $tag) {
+
+                $proposalTags = new Proposal_tag;
+                $proposalTags->id_proposal = $proposal->id_proposal;
+                $proposalTags->id_tag = $tag;
+                $proposalTags->save();
+    
+            }
+
+        }
 
 
-              return redirect()
-                ->route('proposals.index')
-                ->with('success','Proposta actualitzada correctament.');
+            return redirect()
+            ->route('proposals.index')
+            ->with('success','Proposta actualitzada correctament.');
      }
 
 
