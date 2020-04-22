@@ -94,6 +94,28 @@
               </div>
               <!-- fin input básico -->
 
+
+              <div class="form-group mt-4">
+                <div class="row justify-content-center">
+                    <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
+                        <label for="city">Tags</label>
+                            <select data-size="10"
+                                    class="selectpicker form-control"
+                                    data-live-search="true"
+                                    data-none-results-text="No s'han trobat coincidències"
+                                    data-style="btn-white"
+                                    title="Escull les tags"
+                                    name="tags[]"
+                                    multiple>
+                                @foreach($tags as $tag)
+                                    <option data-tokens="{{$tag->id_tag}}" value="{{$tag->id_tag}}">{{$tag->tag_name}}</option>
+                                @endforeach
+                            </select>
+                        <div class="invalid-feedback">Camp necessari</div>
+                    </div>
+                </div>
+            </div>
+
                 <!-- Botó confirmar -->
                 <div class="form-group">
                   <div class="row justify-content-center">
@@ -102,6 +124,8 @@
                       </div>
                   </div>
               </div>
+
+
                 <!-- fin botó confirmar -->
 
                   </div>

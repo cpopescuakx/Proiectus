@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Proposal;
+use App\Tag;
+use App\Proposal_tag;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 
@@ -42,7 +44,8 @@ $this->middleware('auth');
 
     public function createProposal()
     {
-        return view('proposals.create');
+        $tags = Tag::All();
+        return view('proposals.create', compact('tags'));
     }
 
     /**
@@ -84,6 +87,20 @@ $this->middleware('auth');
         $proposal->save();
         
         Log::info($request->user()->username. ' - [ INSERT ] - proposals - Nova proposta: ' .$request -> name. ' inserida!');
+        
+        // AFEGIR TAGS A LES PROPOSTES
+
+        $proposta = Proposal::select('*')->where('name', $request->name)->where('status', 'active')->where('id_author', $proposal->id_author)->first();
+
+        foreach ($request->tags as $tag) {
+
+            $proposalTags = new Proposal_tag;
+            $proposalTags->id_proposal = $proposta->id_proposal;
+            $proposalTags->id_tag = $tag;
+            $proposalTags->save();
+
+        }
+        
         return redirect()
                 ->route('proposals.index')
                 ->with('success','Proposta creada correctament.');
