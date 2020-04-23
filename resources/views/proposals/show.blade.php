@@ -7,10 +7,9 @@
         <!-- Encabezado con logo y título -->
         <div class="row p-5 shadow">
             <div class="col my-auto">
-                @if(Auth::user()->logo_entity == 'null')
-                    <img class="rounded-circle mr-auto img-fluid img-thumbnail" alt="250x250" src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" data-holder-rendered="true" max-width="50%" />
-                @else 
-            <img class="rounded-circle mr-auto" alt="250x250" src="{{ Auth::user()->logo_entity }}" data-holder-rendered="true" />
+                @if(Auth::user()->logo_entity == 'null')                    
+                @else
+            <img class="rounded-circle mr-auto img-fluid img-thumbnail" alt="250x250" src="{{ Auth::user()->logo_entity }}" data-holder-rendered="true" />
                 @endif
             </div>
             <div class="col my-auto">
@@ -25,13 +24,13 @@
         <!-- Espacio para tags -->
         <div class="row p-5 shadow">
             <div class="col my-auto">
-                             
+
             </div>
             <div class="col my-auto">
-                
+
             </div>
             <div class="col my-auto">
-                
+
             </div>
         </div>
         <!-- /row -->

@@ -17,7 +17,6 @@
                         <div class="carousel-caption text-left">
                         <div class="row no-gutters">
                           <div id="photos">
-
                           </div>
 
                         </div>
@@ -300,7 +299,7 @@
           <script type="text/javascript">
           	$(document).ready(function(){
           			var url = "http://api.flickr.com/services/feeds/photos_public.gne?" +
-          	    			  "format=json&jsoncallback=?&tags=computerscience";
+          	    			  "format=json&jsoncallback=?&tags=nature";
 
           			$.getJSON(url, function(data){
           				var html = "";
@@ -340,7 +339,7 @@
                   <div class="slide"><img src="{{ asset('img/logo-captio.png') }}" alt="4"></div>
                   <div class="slide"><img src="{{ asset('img/logo_iesmontsia.png') }}" alt="5"></div>
                   <div class="slide"><img src="{{ asset('img/logo-nath.png') }}" alt="7"></div>
-                  <div class="slide"><img src="{{ asset('img/logo_creacio.png') }}" alt="7"></div>                  
+                  <div class="slide"><img src="{{ asset('img/logo_creacio.png') }}" alt="7"></div>
                   <div class="slide"><img src="{{ asset('img/logo_consellcomarcal2.png') }}" alt="7"></div>
                   <div class="slide"><img src="{{ asset('img/logo-disi.png') }}" alt="7"></div>
                 </section>
