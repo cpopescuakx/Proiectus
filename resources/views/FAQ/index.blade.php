@@ -10,24 +10,12 @@
                 <a href="#tab1" class="nav-link active" data-toggle="pill" role="tab" aria-controls="tab1" aria-selected="true">
                     <i class="mdi mdi-help-circle"></i> Projecte
                 </a>
-                <a href="#tab2" class="nav-link" data-toggle="pill" role="tab" aria-controls="tab2" aria-selected="false">
-                    <i class="mdi mdi-account"></i> Proposta
-                </a>
-                <a href="#tab3" class="nav-link" data-toggle="pill" role="tab" aria-controls="tab3" aria-selected="false">
-                    <i class="mdi mdi-account-settings"></i> Blog
-                </a>
-                <a href="#tab4" class="nav-link" data-toggle="pill" role="tab" aria-controls="tab4" aria-selected="false">
-                    <i class="mdi mdi-heart"></i> Wiki
-                </a>
-                <a href="#tab5" class="nav-link" data-toggle="pill" role="tab" aria-controls="tab5" aria-selected="false">
-                    <i class="mdi mdi-coin"></i> Xat
-                </a>
-                <a href="#tab6" class="nav-link" data-toggle="pill" role="tab" aria-controls="tab6" aria-selected="false">
-                    <i class="mdi mdi-help"></i> Correu
-                </a>
-                <a href="#tab7" class="nav-link" data-toggle="pill" role="tab" aria-controls="tab7" aria-selected="false">
-                    <i class="mdi mdi-help"></i> Compte
-                </a>
+                <a href="#tab2" class="nav-link" data-toggle="pill" role="tab" aria-controls="tab2" aria-selected="false">Proposta</a>
+                <a href="#tab3" class="nav-link" data-toggle="pill" role="tab" aria-controls="tab3" aria-selected="false">Blog</a>
+                <a href="#tab4" class="nav-link" data-toggle="pill" role="tab" aria-controls="tab4" aria-selected="false">Wiki</a>
+                <a href="#tab5" class="nav-link" data-toggle="pill" role="tab" aria-controls="tab5" aria-selected="false">Xat</a>
+                <a href="#tab6" class="nav-link" data-toggle="pill" role="tab" aria-controls="tab6" aria-selected="false">Correu</a>
+                <a href="#tab7" class="nav-link" data-toggle="pill" role="tab" aria-controls="tab7" aria-selected="false">Compte</a>
             </div>
         </div>
         <div class="col-lg-8">
@@ -41,7 +29,7 @@
                                     <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-1-content-{{$faq->id}}" aria-expanded="false" aria-controls="accordion-tab-1-content-{{$faq->id}}">{{$faq->question}}</button>
                                 </h5>
                             </div>
-                            <div class="collapse show" id="accordion-tab-1-content-{{$faq->id}}" aria-labelledby="accordion-tab-1-heading-{{$faq->id}}" data-parent="#accordion-tab-1">
+                            <div class="collapse" id="accordion-tab-1-content-{{$faq->id}}" aria-labelledby="accordion-tab-1-heading-{{$faq->id}}" data-parent="#accordion-tab-1">
                                 <div class="card-body">
                                     <p>{!!$faq->answer!!}</p>
                                 </div>
@@ -59,7 +47,7 @@
                                     <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-2-content-{{$faq->id}}" aria-expanded="false" aria-controls="accordion-tab-2-content-{{$faq->id}}">{{$faq->question}}</button>
                                 </h5>
                             </div>
-                            <div class="collapse show" id="accordion-tab-2-content-{{$faq->id}}" aria-labelledby="accordion-tab-2-heading-{{$faq->id}}" data-parent="#accordion-tab-2">
+                            <div class="collapse" id="accordion-tab-2-content-{{$faq->id}}" aria-labelledby="accordion-tab-2-heading-{{$faq->id}}" data-parent="#accordion-tab-2">
                                 <div class="card-body">
                                     <p>{!!$faq->answer!!}</p>
                                 </div>
@@ -77,7 +65,7 @@
                                     <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-3-content-{{$faq->id}}" aria-expanded="false" aria-controls="accordion-tab-3-content-{{$faq->id}}">{{$faq->question}}</button>
                                 </h5>
                             </div>
-                            <div class="collapse show" id="accordion-tab-3-content-{{$faq->id}}" aria-labelledby="accordion-tab-3-heading-{{$faq->id}}" data-parent="#accordion-tab-3">
+                            <div class="collapse" id="accordion-tab-3-content-{{$faq->id}}" aria-labelledby="accordion-tab-3-heading-{{$faq->id}}" data-parent="#accordion-tab-3">
                                 <div class="card-body">
                                     <p>{!!$faq->answer!!}</p>
                                 </div>
@@ -95,7 +83,7 @@
                                     <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-4-content-{{$faq->id}}" aria-expanded="false" aria-controls="accordion-tab-4-content-{{$faq->id}}">{{$faq->question}}</button>
                                 </h5>
                             </div>
-                            <div class="collapse show" id="accordion-tab-4-content-{{$faq->id}}" aria-labelledby="accordion-tab-4-heading-{{$faq->id}}" data-parent="#accordion-tab-4">
+                            <div class="collapse" id="accordion-tab-4-content-{{$faq->id}}" aria-labelledby="accordion-tab-4-heading-{{$faq->id}}" data-parent="#accordion-tab-4">
                                 <div class="card-body">
                                     <p>{!!$faq->answer!!}</p>
                                 </div>
@@ -113,7 +101,7 @@
                                     <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-5-content-{{$faq->id}}" aria-expanded="false" aria-controls="accordion-tab-5-content-{{$faq->id}}">{{$faq->question}}</button>
                                 </h5>
                             </div>
-                            <div class="collapse show" id="accordion-tab-5-content-{{$faq->id}}" aria-labelledby="accordion-tab-5-heading-{{$faq->id}}" data-parent="#accordion-tab-5">
+                            <div class="collapse" id="accordion-tab-5-content-{{$faq->id}}" aria-labelledby="accordion-tab-5-heading-{{$faq->id}}" data-parent="#accordion-tab-5">
                                 <div class="card-body">
                                     <p>{!!$faq->answer!!}</p>
                                 </div>
@@ -131,7 +119,7 @@
                                     <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-6-content-{{$faq->id}}" aria-expanded="false" aria-controls="accordion-tab-6-content-{{$faq->id}}">{{$faq->question}}</button>
                                 </h5>
                             </div>
-                            <div class="collapse show" id="accordion-tab-6-content-{{$faq->id}}" aria-labelledby="accordion-tab-6-heading-{{$faq->id}}" data-parent="#accordion-tab-6">
+                            <div class="collapse" id="accordion-tab-6-content-{{$faq->id}}" aria-labelledby="accordion-tab-6-heading-{{$faq->id}}" data-parent="#accordion-tab-6">
                                 <div class="card-body">
                                     <p>{!!$faq->answer!!}</p>
                                 </div>
