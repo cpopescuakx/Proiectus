@@ -13,6 +13,7 @@
 	   </div>
 
 	</div>
+</div>
 	<div id="footerBO">
 			@include('includes.footer')
 	</div>

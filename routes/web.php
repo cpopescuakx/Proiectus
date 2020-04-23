@@ -193,6 +193,9 @@ Route::middleware(['CheckRole'])->group(function () {
     Route::get('schools/{id}/addUser', 'School_usersController@index')->name('schoolsUsers.manager');
     Route::post('schools/{id}/storeUser', 'School_usersController@store')->name('schoolsUsers.store');
     });
+
+    Route::get('/schools/leaderboard', 'SchoolController@leaderBoardSchools')->name('schools.leaderBoard');
+
     /* DOCUMENT MANAGER OLD */
     //Route::get('/dm','DMController@index');
     //Route::post('/dm/fileupload/','DMController@fileupload')->name('dm.fileupload');
