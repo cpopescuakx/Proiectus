@@ -2,7 +2,7 @@
 	<head>
 	   @include('includes.head')
 	</head>
-	<body>
+	<body style="background-color: #eee">
 		<header class="row">
 				@include('includes.header')
 		</header>
