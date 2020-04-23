@@ -286,4 +286,12 @@ Route::middleware(['CheckRole'])->group(function () {
     Route::post('uploadResource/{id_project}', 'Resource_centerController@uploadResource')->name('resource.upload');
     Route::get('resources/download/{path}', 'Resource_centerController@downloadFile')->name('resource.download');
     Route::get('resources/delete/{path}', 'Resource_centerController@destroy')->name('resource.delete');
+
+    Route::middleware(['isLogged'])->group(function () {
+        Route::get('markAsRead', function(){
+            auth()->user()->unreadNotifications->markAsRead();
+            return redirect()->back();
+        })->name('markAllRead');
+    });
+
 });
