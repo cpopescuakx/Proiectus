@@ -133,7 +133,8 @@
     </div>
 </div>
 </body>
-<style>body {
+<style>
+body {
   margin-top: 30px;
   background-color: #eee;
 }
