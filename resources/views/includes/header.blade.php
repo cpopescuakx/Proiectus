@@ -202,10 +202,12 @@
             <div class="dropdown">
                 <a href="#" id="notificationDropdown" class="nav-link dropdown-toggle-split pt-2" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
                     <span class="material-icons"> notifications </span>
-                    <span class="bagde">{{auth()->user()->notifications->count()}}</span>
+                    @if(auth()->user()->unReadNotifications->count())
+                    <span class="badge badge-pill badge-info">{{auth()->user()->unReadNotifications->count()}}</span>
+                    @endif
                 </a>
                 <div class="dropdown-menu" aria-labelledby="notificationDropdown">
-                        <a class="dropdown-item" href="#">Marca totes com a llegides</a>
+                        <a class="dropdown-item" href="{{route ('markAllRead')}}">Marca totes com a llegides</a>
                     <div class="dropdown-divider"></div>
                     @if(auth()->user()->notifications->count() == 0)
                         <div class="dropdown-item">No tens cap notificació</div>
