@@ -23,3 +23,8 @@
 <link href="{{ asset('bootstrap-table-master/dist/bootstrap-table.css') }}" rel="stylesheet">
 <link href="{{ asset('bootstrap-select-1.13.9/dist/css/bootstrap-select.css') }}" rel="stylesheet">
 <link href="{{ asset('bootstrap-datepicker-1.9.0-dist/css/bootstrap-datepicker3.css') }}" rel="stylesheet">
+
+<!-- css header -->
+<link href="{{ asset('css/styleH.css') }}" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
