@@ -15,7 +15,6 @@
                 <a href="#tab4" class="nav-link" data-toggle="pill" role="tab" aria-controls="tab4" aria-selected="false">Wiki</a>
                 <a href="#tab5" class="nav-link" data-toggle="pill" role="tab" aria-controls="tab5" aria-selected="false">Xat</a>
                 <a href="#tab6" class="nav-link" data-toggle="pill" role="tab" aria-controls="tab6" aria-selected="false">Correu</a>
-                <a href="#tab7" class="nav-link" data-toggle="pill" role="tab" aria-controls="tab7" aria-selected="false">Compte</a>
             </div>
         </div>
         <div class="col-lg-8">
@@ -76,7 +75,7 @@
                 </div>
                 <div class="tab-pane" id="tab4" role="tabpanel" aria-labelledby="tab4">
                     <div class="accordion" id="accordion-tab-4">
-                        <@foreach($WikiFAQS as $faq)
+                        @foreach($WikiFAQS as $faq)
                         <div class="card">
                             <div class="card-header" id="accordion-tab-4-heading-{{$faq->id}}">
                                 <h5>
@@ -94,7 +93,7 @@
                 </div>
                 <div class="tab-pane" id="tab5" role="tabpanel" aria-labelledby="tab5">
                     <div class="accordion" id="accordion-tab-5">
-                    <@foreach($XatFAQS as $faq)
+                    @foreach($XatFAQS as $faq)
                         <div class="card">
                             <div class="card-header" id="accordion-tab-5-heading-{{$faq->id}}">
                                 <h5>
@@ -112,7 +111,7 @@
                 </div>
                 <div class="tab-pane" id="tab6" role="tabpanel" aria-labelledby="tab6">
                     <div class="accordion" id="accordion-tab-6">
-                    <@foreach($CorreuFAQS as $faq)
+                    @foreach($CorreuFAQS as $faq)
                         <div class="card">
                             <div class="card-header" id="accordion-tab-6-heading-{{$faq->id}}">
                                 <h5>
