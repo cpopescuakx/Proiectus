@@ -94,11 +94,11 @@
                 </div>
                 <div class="row featurette">
                     <div class="col-md-7">
-                        <h2 class="featurette-heading">Segur que vols saber més <span class="text-muted">...Ara t'ho direm!</span></h2>
-                        <p class="lead">Aquest és un text simulat per a la presentacio de Proiectus.cat en principi no ha de ser tan llarg, ha de ser prou atractiu perquè instituts i empreses vulguin apuntar-se i ser part de la comunitat Proiectus.</p>
-                        <p class="lead">Aquest és un text simulat per a la presentacio de Proiectus.cat en principi no ha de ser tan llarg, ha de ser prou atractiu perquè instituts i empreses vulguin apuntar-se i ser part de la comunitat Proiectus.</p>
-                        <p class="lead">Aquest és un text simulat per a la presentacio de Proiectus.cat en principi no ha de ser tan llarg.</p>
-                        <p class="lead">Tenim una gran tasca per fidelitzar usuaris!</p>
+                        <p class="lead"><b>Proiectus</b> és la solució per a poder connectar empreses i instituts. </p>
+                        <p class="lead"> Per a fer-ho, hem fet una aplicació web que permet connectar-los mitjançant propostes a les
+                        quals es poden afegir empreses o instituts que tinguin la mateixa necessitat. </p>
+                        <p class="lead">Un cop les entitats s’afegeixen, es crea un projecte, on dins d’aquest, totes dues parts poden
+                          comunicar-se mitjançant el xat, compartir fitxers o crear posts per a dur a terme la tasca que s’ha proposat.</p>
                     </div>
 
                     <div class="col-md-4 offset-md-1">
@@ -340,7 +340,7 @@
                   <div class="slide"><img src="{{ asset('img/logo-captio.png') }}" alt="4"></div>
                   <div class="slide"><img src="{{ asset('img/logo_iesmontsia.png') }}" alt="5"></div>
                   <div class="slide"><img src="{{ asset('img/logo-nath.png') }}" alt="7"></div>
-                  <div class="slide"><img src="{{ asset('img/logo_creacio.png') }}" alt="7"></div>                  
+                  <div class="slide"><img src="{{ asset('img/logo_creacio.png') }}" alt="7"></div>
                   <div class="slide"><img src="{{ asset('img/logo_consellcomarcal2.png') }}" alt="7"></div>
                   <div class="slide"><img src="{{ asset('img/logo-disi.png') }}" alt="7"></div>
                 </section>
