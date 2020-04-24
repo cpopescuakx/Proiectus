@@ -8,6 +8,7 @@ namespace App\Http\Controllers;
 use App\Project;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Collection;
 use App\Proposal;
 use App\User_project;
 use App\Blog;
@@ -15,6 +16,9 @@ use App\Post;
 use App\Resource_center;
 use App\Wiki;
 use App\Article;
+use App\User;
+use App\Chat;
+use App\Chat_member;
 use Illuminate\Support\Facades\Log;
 
 
@@ -155,7 +159,20 @@ class ProjectController extends Controller
 
         $check = $request->get('check');
 
-        return view ('projects.show', compact('project', 'participants', 'posts', 'blog', 'resources', 'id_project', 'articles','wiki','check'));
+        $memberof = Chat_member::select()->where('id_user', auth()->user()->id)->get();
+        $chats = collect();
+
+        foreach ($memberof as $m) {
+            $chats->push($m->chats()->get()->first());
+        }
+
+        $users = collect();
+        foreach ($participants as $p) {
+            $users->push($p->user()->get()->first());
+        }
+        $user = auth()->user();
+
+        return view ('projects.show', compact('chats', 'users', 'user', 'project', 'participants', 'posts', 'blog', 'resources', 'id_project', 'articles','wiki','check'));
 
     }
 
