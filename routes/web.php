@@ -290,10 +290,13 @@ Route::middleware(['CheckRole'])->group(function () {
     Route::get('resources/download/{path}', 'Resource_centerController@downloadFile')->name('resource.download');
     Route::get('resources/delete/{path}', 'Resource_centerController@destroy')->name('resource.delete');
 
+    /** NOTIFICACIONS */
     Route::middleware(['isLogged'])->group(function () {
+        Route::get('/notifications', function() {
+           return auth()->user()->notifications;
+        });
         Route::get('markAsRead', function(){
             auth()->user()->unreadNotifications->markAsRead();
-            return redirect()->back();
         })->name('markAllRead');
     });
 
