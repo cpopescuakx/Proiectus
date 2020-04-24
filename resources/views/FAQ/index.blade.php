@@ -31,6 +31,9 @@
                             <div class="collapse" id="accordion-tab-1-content-{{$faq->id}}" aria-labelledby="accordion-tab-1-heading-{{$faq->id}}" data-parent="#accordion-tab-1">
                                 <div class="card-body">
                                     <p>{!!$faq->answer!!}</p>
+                                    <br>
+                                    <a role="button" id="like"> <span class="material-icons text-secondary">thumb_up</span> </a>
+                                    <a role="button" id="dislike"> <span class="material-icons text-secondary">thumb_down</span> </a>
                                 </div>
                             </div>
                         </div>
@@ -49,6 +52,9 @@
                             <div class="collapse" id="accordion-tab-2-content-{{$faq->id}}" aria-labelledby="accordion-tab-2-heading-{{$faq->id}}" data-parent="#accordion-tab-2">
                                 <div class="card-body">
                                     <p>{!!$faq->answer!!}</p>
+                                    <br>
+                                    <a role="button" id="like"> <span class="material-icons text-secondary">thumb_up</span> </a>
+                                    <a role="button" id="dislike"> <span class="material-icons text-secondary">thumb_down</span> </a>
                                 </div>
                             </div>
                         </div>
@@ -67,6 +73,9 @@
                             <div class="collapse" id="accordion-tab-3-content-{{$faq->id}}" aria-labelledby="accordion-tab-3-heading-{{$faq->id}}" data-parent="#accordion-tab-3">
                                 <div class="card-body">
                                     <p>{!!$faq->answer!!}</p>
+                                    <br>
+                                    <a role="button" id="like"> <span class="material-icons text-secondary">thumb_up</span> </a>
+                                    <a role="button" id="dislike"> <span class="material-icons text-secondary">thumb_down</span> </a>
                                 </div>
                             </div>
                         </div>
@@ -85,6 +94,9 @@
                             <div class="collapse" id="accordion-tab-4-content-{{$faq->id}}" aria-labelledby="accordion-tab-4-heading-{{$faq->id}}" data-parent="#accordion-tab-4">
                                 <div class="card-body">
                                     <p>{!!$faq->answer!!}</p>
+                                    <br>
+                                    <a role="button" id="like"> <span class="material-icons text-secondary">thumb_up</span> </a>
+                                    <a role="button" id="dislike"> <span class="material-icons text-secondary">thumb_down</span> </a>
                                 </div>
                             </div>
                         </div>
@@ -103,8 +115,11 @@
                             <div class="collapse" id="accordion-tab-5-content-{{$faq->id}}" aria-labelledby="accordion-tab-5-heading-{{$faq->id}}" data-parent="#accordion-tab-5">
                                 <div class="card-body">
                                     <p>{!!$faq->answer!!}</p>
-                                </div>
-                            </div>
+                                    <br>
+                                    <a role="button" id="like"> <span class="material-icons text-secondary">thumb_up</span> </a>
+                                    <a role="button" id="dislike"> <span class="material-icons text-secondary">thumb_down</span> </a>
+                                </div> 
+                            </div>                       
                         </div>
                     @endforeach
                     </div>
@@ -121,6 +136,9 @@
                             <div class="collapse" id="accordion-tab-6-content-{{$faq->id}}" aria-labelledby="accordion-tab-6-heading-{{$faq->id}}" data-parent="#accordion-tab-6">
                                 <div class="card-body">
                                     <p>{!!$faq->answer!!}</p>
+                                    <br>
+                                    <a role="button" id="like"> <span class="material-icons text-secondary">thumb_up</span> </a>
+                                    <a role="button" id="dislike"> <span class="material-icons text-secondary">thumb_down</span> </a>
                                 </div>
                             </div>
                         </div>
@@ -217,4 +235,31 @@ body {
   border-bottom: 1px solid rgba(0, 0, 0, 0.125);
 }
 </style>
-@stop
+
+<script>
+$(function () {
+  $('#like').click(function () { likeFunction(this); });
+  $('#dislike').click(function () { dislikeFunction(this);});
+});
+
+
+function likeFunction(caller) {
+  var FAQId = caller.parentElement.getAttribute('id');
+  $.ajax({
+      type: "POST",
+      url: "rate.php",
+      data: 'Action=LIKE&PostID=' + postId,
+      success: function () {}
+  });
+}
+function dislikeFunction(caller) {
+  var FAQId = caller.parentElement.getAttribute('id');
+  $.ajax({
+      type: "POST",
+      url: "rate.php",
+      data: 'Action=DISLIKE&PostID=' + postId,
+      success: function () {}
+  });
+}
+</script>
+@endsection
