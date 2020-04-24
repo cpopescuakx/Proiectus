@@ -206,21 +206,8 @@
                     <span class="badge badge-pill badge-info">{{auth()->user()->unReadNotifications->count()}}</span>
                     @endif
                 </a>
-                <div class="dropdown-menu" aria-labelledby="notificationDropdown">
-                        <a class="dropdown-item" href="{{route ('markAllRead')}}">Marca totes com a llegides</a>
-                    <div class="dropdown-divider"></div>
-                    @if(auth()->user()->notifications->count() == 0)
-                        <div class="dropdown-item">No tens cap notificació</div>
-                    @else
+                <div id="notificationContent" class="dropdown-menu" aria-labelledby="notificationDropdown">
 
-                    @foreach(auth()->user()->unReadNotifications as $notification)
-                        <li style="background-color: #e4eef0"><a class="dropdown-item" href="#">{!! $notification->data['data'] !!}</a></li>
-                    @endforeach
-
-                    @foreach(auth()->user()->readNotifications as $notification)
-                        <a class="dropdown-item" href="#">{!! $notification->data['data'] !!}</a>
-                    @endforeach
-                    @endif
                 </div>
             </div>
                 <!-- Fi element notificacions -->

@@ -79,13 +79,36 @@ class FaqController extends Controller
     public function index()
     {
         $BlogFAQS = FaqController::indexBlog();
-        $PropostaFAQS = FaqController::indexWiki();
-        $ProjecteFAQS = FaqController::indexXat();
-        $XatFAQS = FaqController::indexCorreu();
-        $CorreuFAQS = FaqController::indexProposta();
-        $WikiFAQS = FaqController::indexProjecte();
+        $PropostaFAQS = FaqController::indexProposta();
+        $ProjecteFAQS = FaqController::indexProjecte();
+        $XatFAQS = FaqController::indexXat();
+        $CorreuFAQS = FaqController::indexCorreu();
+        $WikiFAQS = FaqController::indexWiki();
 
         return view('FAQ.index',compact('BlogFAQS','PropostaFAQS','ProjecteFAQS','XatFAQS','CorreuFAQS','WikiFAQS'));
+    }
+
+     /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function like()
+    {
+        faq::find($id)->increment('visitors');
+    }
+
+    
+    /**
+    * Display a listing of the resource.
+    *
+    * @return \Illuminate\Http\Response
+    */
+    public function dislike()
+    {
+        faq::find($id)->decrement('like')
+        faq::find($id)->increment('dislike')
+
     }
 
     /**

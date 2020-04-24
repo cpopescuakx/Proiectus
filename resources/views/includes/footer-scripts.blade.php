@@ -21,3 +21,6 @@
 <script src="{{ asset('js/popperH.js') }}"></script>
 <script src="{{ asset('js/bootstrapH.min.js') }}"></script>
 <script src="{{ asset('js/mainH.js') }}"></script>
+
+<!-- Scripts notificacions -->
+<script src="{{ asset('js/notificacions.js') }}"></script>
