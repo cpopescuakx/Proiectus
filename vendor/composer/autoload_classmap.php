@@ -46,6 +46,7 @@ return array(
     'App\\Http\\Controllers\\Dm_folderController' => $baseDir . '/app/Http/Controllers/Dm_folderController.php',
     'App\\Http\\Controllers\\Document_managerController' => $baseDir . '/app/Http/Controllers/Document_managerController.php',
     'App\\Http\\Controllers\\EntityRegistration' => $baseDir . '/app/Http/Controllers/EntityRegistration.php',
+    'App\\Http\\Controllers\\FaqController' => $baseDir . '/app/Http/Controllers/FaqController.php',
     'App\\Http\\Controllers\\HistoryController' => $baseDir . '/app/Http/Controllers/HistoryController.php',
     'App\\Http\\Controllers\\HomeController' => $baseDir . '/app/Http/Controllers/HomeController.php',
     'App\\Http\\Controllers\\Mail_messageController' => $baseDir . '/app/Http/Controllers/Mail_messageController.php',

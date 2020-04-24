@@ -515,6 +515,7 @@ class ComposerStaticInit3be929a50a6529bc9bb0534e0bce8239
         'App\\Http\\Controllers\\Dm_folderController' => __DIR__ . '/../..' . '/app/Http/Controllers/Dm_folderController.php',
         'App\\Http\\Controllers\\Document_managerController' => __DIR__ . '/../..' . '/app/Http/Controllers/Document_managerController.php',
         'App\\Http\\Controllers\\EntityRegistration' => __DIR__ . '/../..' . '/app/Http/Controllers/EntityRegistration.php',
+        'App\\Http\\Controllers\\FaqController' => __DIR__ . '/../..' . '/app/Http/Controllers/FaqController.php',
         'App\\Http\\Controllers\\HistoryController' => __DIR__ . '/../..' . '/app/Http/Controllers/HistoryController.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
         'App\\Http\\Controllers\\Mail_messageController' => __DIR__ . '/../..' . '/app/Http/Controllers/Mail_messageController.php',
