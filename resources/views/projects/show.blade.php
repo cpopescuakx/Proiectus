@@ -108,7 +108,10 @@
     <div class="row justify-content-center">
         <div id="xat" class="tabcontent mt-3">
             <h2 class="mt-3"><strong>Xat</strong></h2>
-
+            <div id="app">
+                <create-chat :initial-users="{{ $users }}" :project="{{ $project->id_project }}"></create-chat>
+                <chats :initial-chats="{{ $chats }}" :user="{{ auth()->user() }}" :project="{{ $project->id_project }}"></chats>
+            </div>
         </div>
     </div>
 
@@ -151,5 +154,5 @@
         }
     </script>
     <script src="{{asset('js/AJAXAndrei.js')}}"></script>
-
+    <script src="{{ asset('js/app.js') }}"></script>
 @stop

@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\ChatCreated;
+use App\Chat;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class ChatController extends Controller
 {
@@ -34,7 +37,29 @@ class ChatController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|max:255',
+            'users' => 'required|array|min:1',
+            'id_project' => 'required'
+        ]);
+        if ($validator->fails()) {
+            return response()->json(['errors'=>$validator->errors()],422);
+        }
+
+        $chat = Chat::create([
+            'name' => request('name'),
+            'id_project' => request('id_project')
+        ]);
+
+        $users = collect(request('users'));
+        $users->push(auth()->user()->id);
+
+        $chat->users()->attach($users);
+
+        broadcast(new ChatCreated($chat))->toOthers();
+
+        return $chat;
     }
 
     /**

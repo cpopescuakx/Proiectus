@@ -15,6 +15,9 @@ use App\Project;
 |
 */
 
+Route::resource('chats', 'ChatController');
+Route::resource('messages', 'MessageController');
+
 Route::get('/', function () {return view('welcome');})->name('index.index');
 
 /** Apartat AJUDA lloc WEB  */
@@ -81,7 +84,7 @@ Route::middleware(['registeredEntity'])->group(function () {
         ->name('projects.show');
 
     /** Rutes per a l'apartat de gestió d'alumnes */
-    Route::middleware(['auth', 'administracioEstudiants'])->group(function () {
+    Route::middleware(['auth', 'isProfessor'])->group(function () {
         Route::get('students', ['Middleware' => 'auth','uses' => 'UserController@indexStudent'])
             ->name('students.index');
 
@@ -101,11 +104,6 @@ Route::middleware(['registeredEntity'])->group(function () {
 
         Route::get('students/{id}/enable', 'UserController@enableStudent')
             ->name('students.enable');
-            Route::get('students/import', 'UserController@indexImportStudents')
-            ->name('students.import');
-
-        Route::post('students/import/upload', 'UserController@importStudents')
-            ->name('students.upload');
     });
 
     /** Rutes per a l'apartat de gestió de profes */
@@ -162,17 +160,13 @@ Route::get('/', function () {
 
 Auth::routes(['verify' => true]);
 
-Route::middleware(['isLogged'])->group(function () {
-
-    Route::get('profile/{id}', 'UserController@indexProfile')->name('managers.indexP1');
-    Route::get('profile/{id}/edit', 'UserController@editProfile')->name('managers.editP');
-    Route::post('profile/{id}/update', 'UserController@updateProfile')->name('managers.updateP');
-    Route::get('profile/{id}/delete', 'UserController@destroyProfile')->name('managers.destroyP');
-    Route::get('profile/{id}/active', 'UserController@activeProfile')->name('managers.activeP');
-
-});
-
 Route::middleware(['CheckRole'])->group(function () {
+
+    Route::get('managerProfile/{id}', 'UserController@indexProfile')->name('managers.indexP1');
+    Route::get('managerProfile/{id}/edit', 'UserController@editProfile')->name('managers.editP');
+    Route::post('managerProfile/{id}/update', 'UserController@updateProfile')->name('managers.updateP');
+    Route::get('managerProfile/{id}/delete', 'UserController@destroyProfile')->name('managers.destroyP');
+    Route::get('managerProfile/{id}/active', 'UserController@activeProfile')->name('managers.activeP');
 
     Route::get('managers', 'UserController@indexManager')->name('managers.index');
     Route::get('managers/create', 'UserController@createManager')->name('managers.create');
@@ -193,9 +187,6 @@ Route::middleware(['CheckRole'])->group(function () {
     Route::get('schools/{id}/addUser', 'School_usersController@index')->name('schoolsUsers.manager');
     Route::post('schools/{id}/storeUser', 'School_usersController@store')->name('schoolsUsers.store');
     });
-
-    Route::get('/schools/leaderboard', 'SchoolController@leaderBoardSchools')->name('schools.leaderBoard');
-
     /* DOCUMENT MANAGER OLD */
     //Route::get('/dm','DMController@index');
     //Route::post('/dm/fileupload/','DMController@fileupload')->name('dm.fileupload');
