@@ -1,8 +1,14 @@
+/**
+ * Intento de opbtenir les notificacions via AJAX
+ *
+ * -------NO S'UTILITZA--------
+ */
+/**
 $('#notificationDropdown').click(function () {
-    var loading = '<div class="spinner-border m-5 text-secondary" role="status">' +
+    let loading = '<div class="spinner-border m-5 text-secondary" role="status">' +
         '<span class="sr-only">Loading...</span>' +
         '</div>';
-    var errorTxt = '<div class="alert alert-danger" role="alert">' +
+    let errorTxt = '<div class="alert alert-danger" role="alert">' +
         "Error: No s'han pogut obtenir les notificacions" +
         '</div>';
 
@@ -19,22 +25,31 @@ $('#notificationDropdown').click(function () {
         dataType: "json",
         success: function(data) {
             alert("HOLA");
-            $("#dades tbody").html("");
-            var dades = "";
+            $("notificationContent").html("");
+            var notificacions = "<a class='dropdown-item' href='{{route ('markAllRead')}}'>Marca totes com a llegides</a>" +
+                '<div class="dropdown-divider"></div>';
             $.each(data, function() {
                 $.each(this, function(key, value) {
-                    dades += "<tr>" +
-                        "<td>" + value.name + "</td>" +
-                        "<td>" + value.description + "</td>" +
-                        "<td>" + value.professional_family + "</td>"+
-                        "<td>" + value.budget + "</td>"+
-                        "<td>" + value.created_at + "</td>"+
-                        "</tr>";
+                    notificacions = "<li style='background-color: #e4eef0'><a class='dropdown-item' href='#'>{!! $notification->data['data'] !!}</a></li>";
                 });
             });
-            $("#dades tbody").append(dades);
+            $("notificationContent").append(dades);
         }
     });
+});
+$('#notificationMarkAllRead').click(function(){
+    $.ajax(
+        {
+            method: "get",
+            url: "/markAsRead",
+            beforeSend: function() {
+                let loading = '<div class="spinner-border" role="status">' +
+                    '<span class="sr-only">Loading...</span>' +
+                    '</div>';
+                $('#notificationMarkAllRead').append(loading);
+            }
+        }
+    )
 });
 @if(auth()->user()->notifications->count() == 0)
 <div class="dropdown-item">No tens cap notificació</div>
@@ -49,3 +64,4 @@ $('#notificationDropdown').click(function () {
 <a class="dropdown-item" href="#">{!! $notification->data['data'] !!}</a>
 @endforeach
 @endif
+*/
