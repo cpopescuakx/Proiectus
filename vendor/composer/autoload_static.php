@@ -23,6 +23,7 @@ class ComposerStaticInit3be929a50a6529bc9bb0534e0bce8239
         '58571171fd5812e6e447dce228f52f4d' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/helpers.php',
         '9cdd7b9056abc3081735233ba9dd9c7f' => __DIR__ . '/..' . '/facade/flare-client-php/src/helpers.php',
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
+        '3109cb1a231dcd04bee1f9f620d46975' => __DIR__ . '/..' . '/paragonie/sodium_compat/autoload.php',
         '2a3c2110e8e0295330dc3d11a4cbc4cb' => __DIR__ . '/..' . '/php-webdriver/webdriver/lib/Exception/TimeoutException.php',
         '801c31d8ed748cfa537fa45402288c95' => __DIR__ . '/..' . '/psy/psysh/src/functions.php',
         'b6ec61354e97f32c0ae683041c78392a' => __DIR__ . '/..' . '/scrivo/highlight.php/HighlightUtilities/functions.php',
@@ -85,6 +86,7 @@ class ComposerStaticInit3be929a50a6529bc9bb0534e0bce8239
         ),
         'P' => 
         array (
+            'Pusher\\' => 7,
             'Psy\\' => 4,
             'Psr\\SimpleCache\\' => 16,
             'Psr\\Log\\' => 8,
@@ -293,6 +295,10 @@ class ComposerStaticInit3be929a50a6529bc9bb0534e0bce8239
         array (
             0 => __DIR__ . '/..' . '/ramsey/uuid/src',
         ),
+        'Pusher\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/pusher/pusher-php-server/src',
+        ),
         'Psy\\' => 
         array (
             0 => __DIR__ . '/..' . '/psy/psysh/src',
@@ -483,6 +489,8 @@ class ComposerStaticInit3be929a50a6529bc9bb0534e0bce8239
         'App\\Dm_file' => __DIR__ . '/../..' . '/app/Dm_file.php',
         'App\\Dm_folder' => __DIR__ . '/../..' . '/app/Dm_folder.php',
         'App\\Document_manager' => __DIR__ . '/../..' . '/app/Document_manager.php',
+        'App\\Events\\ChatCreated' => __DIR__ . '/../..' . '/app/Events/ChatCreated.php',
+        'App\\Events\\NewMessage' => __DIR__ . '/../..' . '/app/Events/NewMessage.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\History' => __DIR__ . '/../..' . '/app/History.php',
         'App\\Http\\Controllers\\ArticleController' => __DIR__ . '/../..' . '/app/Http/Controllers/ArticleController.php',
@@ -537,6 +545,8 @@ class ComposerStaticInit3be929a50a6529bc9bb0534e0bce8239
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
         'App\\Http\\Middleware\\CheckForMaintenanceMode' => __DIR__ . '/../..' . '/app/Http/Middleware/CheckForMaintenanceMode.php',
         'App\\Http\\Middleware\\CheckRole' => __DIR__ . '/../..' . '/app/Http/Middleware/CheckRole.php',
+        'App\\Http\\Middleware\\CheckRoleBlog' => __DIR__ . '/../..' . '/app/Http/Middleware/CheckRoleBlog.php',
+        'App\\Http\\Middleware\\CheckRoleWiki' => __DIR__ . '/../..' . '/app/Http/Middleware/CheckRoleWiki.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
         'App\\Http\\Middleware\\PendingEntityRegistration' => __DIR__ . '/../..' . '/app/Http/Middleware/PendingEntityRegistration.php',
         'App\\Http\\Middleware\\RedirectIfAuthenticated' => __DIR__ . '/../..' . '/app/Http/Middleware/RedirectIfAuthenticated.php',
@@ -544,6 +554,8 @@ class ComposerStaticInit3be929a50a6529bc9bb0534e0bce8239
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'App\\Http\\Middleware\\isAdmin' => __DIR__ . '/../..' . '/app/Http/Middleware/isAdmin.php',
+        'App\\Http\\Middleware\\isAdminOrGestor' => __DIR__ . '/../..' . '/app/Http/Middleware/isAdminOrGestor.php',
+        'App\\Http\\Middleware\\isProfessor' => __DIR__ . '/../..' . '/app/Http/Middleware/isProfessor.php',
         'App\\Mail_message' => __DIR__ . '/../..' . '/app/Mail_message.php',
         'App\\Message' => __DIR__ . '/../..' . '/app/Message.php',
         'App\\NewsItem' => __DIR__ . '/../..' . '/app/NewsItem.php',
@@ -3870,6 +3882,11 @@ class ComposerStaticInit3be929a50a6529bc9bb0534e0bce8239
         'Psy\\VersionUpdater\\GitHubChecker' => __DIR__ . '/..' . '/psy/psysh/src/VersionUpdater/GitHubChecker.php',
         'Psy\\VersionUpdater\\IntervalChecker' => __DIR__ . '/..' . '/psy/psysh/src/VersionUpdater/IntervalChecker.php',
         'Psy\\VersionUpdater\\NoopChecker' => __DIR__ . '/..' . '/psy/psysh/src/VersionUpdater/NoopChecker.php',
+        'Pusher\\Pusher' => __DIR__ . '/..' . '/pusher/pusher-php-server/src/Pusher.php',
+        'Pusher\\PusherCrypto' => __DIR__ . '/..' . '/pusher/pusher-php-server/src/PusherCrypto.php',
+        'Pusher\\PusherException' => __DIR__ . '/..' . '/pusher/pusher-php-server/src/PusherException.php',
+        'Pusher\\PusherInstance' => __DIR__ . '/..' . '/pusher/pusher-php-server/src/PusherInstance.php',
+        'Pusher\\Webhook' => __DIR__ . '/..' . '/pusher/pusher-php-server/src/Webhook.php',
         'Ramsey\\Uuid\\BinaryUtils' => __DIR__ . '/..' . '/ramsey/uuid/src/BinaryUtils.php',
         'Ramsey\\Uuid\\Builder\\DefaultUuidBuilder' => __DIR__ . '/..' . '/ramsey/uuid/src/Builder/DefaultUuidBuilder.php',
         'Ramsey\\Uuid\\Builder\\DegradedUuidBuilder' => __DIR__ . '/..' . '/ramsey/uuid/src/Builder/DegradedUuidBuilder.php',
@@ -4763,7 +4780,9 @@ class ComposerStaticInit3be929a50a6529bc9bb0534e0bce8239
         'Tests\\Browser\\Pages\\Page' => __DIR__ . '/../..' . '/tests/Browser/Pages/Page.php',
         'Tests\\CreatesApplication' => __DIR__ . '/../..' . '/tests/CreatesApplication.php',
         'Tests\\DuskTestCase' => __DIR__ . '/../..' . '/tests/DuskTestCase.php',
+        'Tests\\Feature\\CompanyController' => __DIR__ . '/../..' . '/tests/Feature/CompanyController.php',
         'Tests\\Feature\\ExampleTest' => __DIR__ . '/../..' . '/tests/Feature/ExampleTest.php',
+        'Tests\\Feature\\UserController' => __DIR__ . '/../..' . '/tests/Feature/UserController.php',
         'Tests\\TestCase' => __DIR__ . '/../..' . '/tests/TestCasecp.php',
         'Tests\\Unit\\ExampleTest' => __DIR__ . '/../..' . '/tests/Unit/ExampleTest.php',
         'Text_Template' => __DIR__ . '/..' . '/phpunit/php-text-template/src/Template.php',
