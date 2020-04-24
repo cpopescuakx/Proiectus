@@ -6,8 +6,10 @@
 
 <div class="col">
     <div class="row d-flex justify-content-end p-4">
-      <a href="{{ route('students.create') }}"><img src={{ asset('img/add.svg') }} width="45" height="45" ></a>
+      <a href="{{ route('students.create') }}" class="mr-4"><img src={{ asset('img/add.svg') }}  width="45" height="45" ></a>
+      <a href="{{ route('students.import') }}"><i class="fas fa-file-csv" style="color: #116466; font-size: 45px;"></i></a>
     </div>
+    
 </div>
 <!--
 <table class="table table-sm"

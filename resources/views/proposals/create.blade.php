@@ -2,7 +2,7 @@
 
 @section('content')
 <body>
-    <div class="content formulari closed">
+    <div class="formulari">
 
       <form action='{{ route('proposals.store') }}' method='POST' class="was-validated" >
         @csrf
@@ -15,7 +15,7 @@
                   <!-- Imagen formulario -->
                   <div class="container">
                       <div class="contact-image text-center mt-3">
-                          <img class="form-img" src="../img/icono_negro.png" />
+                          <img class="form-img" src="{{ asset('img/icono_negro.png') }}"  />
                       </div>
                   </div>
 
@@ -77,7 +77,44 @@
                     </div>
                 </div>
               </div>
-            <!-- fin input básico -->
+              <!-- fin input básico -->
+
+              <!-- Input básico -->
+              <div class="form-group mt-4">
+                <div class="row justify-content-center">
+                    <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
+                        <label for="exampleFormControlInput1">Entitat</label>
+                        <select class="form-control" id="exampleFormControlInput1" name="category" required>
+                            <option></option>
+                            <option value="school">Institut</option>
+                            <option value="company">Empresa</option>
+                        </select>
+                    </div>
+                </div>
+              </div>
+              <!-- fin input básico -->
+
+
+              <div class="form-group mt-4">
+                <div class="row justify-content-center">
+                    <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
+                        <label for="city">Tags</label>
+                            <select data-size="10"
+                                    class="selectpicker form-control"
+                                    data-live-search="true"
+                                    data-none-results-text="No s'han trobat coincidències"
+                                    data-style="btn-white"
+                                    title="Escull les tags"
+                                    name="tags[]"
+                                    multiple>
+                                @foreach($tags as $tag)
+                                    <option data-tokens="{{$tag->id_tag}}" value="{{$tag->id_tag}}">{{$tag->tag_name}}</option>
+                                @endforeach
+                            </select>
+                        <div class="invalid-feedback">Camp necessari</div>
+                    </div>
+                </div>
+            </div>
 
                 <!-- Botó confirmar -->
                 <div class="form-group">
@@ -87,6 +124,8 @@
                       </div>
                   </div>
               </div>
+
+
                 <!-- fin botó confirmar -->
 
                   </div>

@@ -1,0 +1,28 @@
+<div class="container ">
+    <div class="row justify-content-center">
+        <div class="column mt-4 mb-4">
+            <h1>Títol: Títol estàndar</h1>
+        </div>
+    </div>
+</div>
+<div class="container ">
+    <div class="row justify-content-center">
+        <div class="column mt-4 mb-4">
+            <h3>Descripció: Descripció Estàndar</h3>
+        </div>
+    </div>
+</div>
+<div class="container ">
+    <div class="row justify-content-center">
+        <div class="column mt-4 mb-4">
+            <h3>Familia professional: Familia professional estàndar</h3>
+        </div>
+    </div>
+</div>
+<div class="container ">
+    <div class="row justify-content-center">
+        <div class="column mt-4 mb-4">
+            <h3>Categoria: Categoria estàndar</h3>
+        </div>
+    </div>
+</div>

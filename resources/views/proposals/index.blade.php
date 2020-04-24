@@ -20,13 +20,13 @@
 <table class="table table-hover mr-5">
     <thead>
         <tr>
-            <td>Nom</td>
-            <td>Data d'inici</td>
-            <td>Data de finalització</td>
-            <td>Description</td>
-            <td>Category</td>
-            <td>Familia professional</td>
-            <td colspan="2">Accions</td>
+            <td class="font-weight-bold">Nom</td>
+            <td class="font-weight-bold">Data d'inici</td>
+            <td class="font-weight-bold">Data de finalització</td>
+            <td class="font-weight-bold">Descripció</td>
+            <td class="font-weight-bold">Categoria</td>
+            <td class="font-weight-bold">Familia professional</td>
+            <td class="font-weight-bold" colspan="2">Accions</td>
         </tr>
     </thead>
 
@@ -39,22 +39,24 @@
 
     <tbody>
         @foreach($proposals as $proposal)
+
         <tr>
-            <td>{{$proposal->name}}</td>
-            <td>{{$proposal->created_at}}</td>
-            <td>{{$proposal->limit_date}}</td>
-            <td>{{$proposal->description}}</td>
-            <td>{{$proposal->category}}</td>
-            <td>{{$proposal->professional_family}}</td>
-            <td>
-                <a href="{{ route('proposals.edit', [$page, $proposal->id_proposal])}}"><img src={{ asset('img/edit.svg') }} width="20" height="20" class="mr-2"></a>
-                @if($proposal->status == "active")
-                <a href="{{ route('proposals.inactive', [$proposal->id_proposal]) }}"><img src={{ asset('img/delete.svg') }} width="20" height="20"></a>
-                @else
-                <a href="{{ route('proposals.active', [$proposal->id_proposal]) }}"><img src={{ asset('img/checkIcon.svg') }} width="20" height="40" class="mr-2"></a>
-                @endif
-                <a href="{{ route('proposals.destroy', [$proposal->id_proposal]) }}" onclick="return confirm('Are you sure?')"><i class="fas fa-times-circle p-2"></i></a>
-            </td>
+                <td>{{ $proposal->name }}</td>
+                <td>{{ date('d/m/Y', strtotime($proposal->created_at)) }}</td> <!-- Cambio en el formato de fecha -->
+                <td>{{ date('d/m/Y', strtotime($proposal->limit_date)) }}</td>
+                <td>{{ $proposal->description }}</td>
+                <td>{{ $proposal->category }}</td>
+                <td>{{ $proposal->professional_family }}</td>
+
+                <td>
+                    <a href="{{ route('proposals.edit', [$proposal->id_proposal])}}"><i class="material-icons text-dark" data-toggle="tooltip" title="Editar proposta">create</i></a>
+                    @if($proposal->status == "active")
+                    <a href="{{ route('proposals.inactive', [$proposal->id_proposal]) }}"><i class="material-icons text-dark" data-toggle="tooltip" title="Posar inactiva">visibility</i></a>
+                    @else
+                    <a href="{{ route('proposals.active', [$proposal->id_proposal]) }}"><i class="material-icons text-dark" data-toggle="tooltip" title="Posar activa">visibility_off</i></a>
+                    @endif
+                    <a href="{{ route('proposals.destroy', [$proposal->id_proposal]) }}" onclick="return confirm('Are you sure?')" data-toggle="tooltip" title="Eliminar proposta"><i class="material-icons text-danger">block</i></a>
+                </td>
         </tr>
         @endforeach
 

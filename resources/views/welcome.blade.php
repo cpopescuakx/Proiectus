@@ -12,9 +12,14 @@
             </ol>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img class="first-slide slide-width" src="img/carrusel0.jpg" alt="First slide">
+                    <img class="first-slide slide-width" src="img/carrusel0.jpg" alt="">
                     <div class="container">
                         <div class="carousel-caption text-left">
+                        <div class="row no-gutters">
+                          <div id="photos">
+                          </div>
+
+                        </div>
                             <h1>Connecta.</h1>
                             <p>La teva empresa pot connectar amb centres educatius o viceversa <br> Proposa un desafiament, forma el teu equip i desenvolupa un projecte.</p>
                             <p><a class="btn btn-lg btn-primary" href="g1_formRegCentreEntitat.php" role="button">Registra't</a></p>
@@ -22,7 +27,7 @@
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="second-slide slide-width" src="img/carrusel1.jpg" alt="Second slide">
+                    <img class="second-slide slide-width" src="img/carrusel1.jpg" alt="">
                     <div class="container">
                         <div class="carousel-caption">
                             <h1>Per a les empreses.</h1>
@@ -32,11 +37,11 @@
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="third-slide slide-width" src="img/carrusel2.jpg" alt="Third slide">
+                    <img class="third-slide slide-width" src="img/carrusel2.jpg" alt="Professor donant classe">
                     <div class="container">
 
                         <div class="carousel-caption text-left">
-                          <iframe title="Vue.js Documental" width="560" height="330" src="https://www.youtube.com/embed/OrxmtDw4pVI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                          <iframe title="Vue.js Documental" width="560" height="330" src="https://www.youtube.com/embed/OrxmtDw4pVI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen alt="Documental Vue.js"></iframe>
                             <h1>Per als centres educatius.</h1>
                             <p>Els alumnes podran accedir a experiències professionals <br>a través de la col·laboració en projectes en el seu camp d'estudis.</p>
                             <p>
@@ -88,15 +93,15 @@
                 </div>
                 <div class="row featurette">
                     <div class="col-md-7">
-                        <h2 class="featurette-heading">Segur que vols saber més <span class="text-muted">...Ara t'ho direm!</span></h2>
-                        <p class="lead">Aquest és un text simulat per a la presentacio de Proiectus.cat en principi no ha de ser tan llarg, ha de ser prou atractiu perquè instituts i empreses vulguin apuntar-se i ser part de la comunitat Proiectus.</p>
-                        <p class="lead">Aquest és un text simulat per a la presentacio de Proiectus.cat en principi no ha de ser tan llarg, ha de ser prou atractiu perquè instituts i empreses vulguin apuntar-se i ser part de la comunitat Proiectus.</p>
-                        <p class="lead">Aquest és un text simulat per a la presentacio de Proiectus.cat en principi no ha de ser tan llarg.</p>
-                        <p class="lead">Tenim una gran tasca per fidelitzar usuaris!</p>
+                        <p class="lead"><b>Proiectus</b> és la solució per a poder connectar empreses i instituts. </p>
+                        <p class="lead"> Per a fer-ho, hem fet una aplicació web que permet connectar-los mitjançant propostes a les
+                        quals es poden afegir empreses o instituts que tinguin la mateixa necessitat. </p>
+                        <p class="lead">Un cop les entitats s’afegeixen, es crea un projecte, on dins d’aquest, totes dues parts poden
+                          comunicar-se mitjançant el xat, compartir fitxers o crear posts per a dur a terme la tasca que s’ha proposat.</p>
                     </div>
 
                     <div class="col-md-4 offset-md-1">
-                        <img class="featurette-image img-fluid mx-auto" src="img/que_es_proiectus.jpg" alt="proiectus">
+                        <img class="featurette-image img-fluid mx-auto" src="img/que_es_proiectus.jpg" alt="">
                     </div>
                 </div>
                 <hr class="featurette-divider">
@@ -114,25 +119,25 @@
                 <!-- 4 columnas de texto luego de qué es proiectus-->
                 <div class="row">
                     <div class="col-lg-3 text-center mx-auto ">
-                        <img class="rounded-circle" src="img/pruebaa.jpg" alt="com funciona" width="140" height="140">
+                        <img class="rounded-circle" src="img/pruebaa.jpg" alt="" width="140" height="140">
                         <h3 class="pt-2">Registra't</h3>
                         <p class="pl-4 pr-4">Si vols col·laborar en PROIECTUS.cat com a empresa o centre educatiu, registra't!</p>
                     </div><!-- /.col-lg-3 -->
 
                     <div class="col-lg-3 text-center mx-auto">
-                        <img class="rounded-circle" src="img/pruebab.jpg" alt="Generic placeholder image" width="140" height="140">
+                        <img class="rounded-circle" src="img/pruebab.jpg" alt="" width="140" height="140">
                         <h3 class="pt-2">Proposa</h3>
                         <p class="pl-4 pr-4">Crea una proposta d'un projecte perquè un centre/empresa vulgui col·laborar amb tu!</p>
                     </div><!-- /.col-lg-3 -->
 
                     <div class="col-lg-3 text-center mx-auto">
-                        <img class="rounded-circle" src="img/pruebac.jpg" alt="Generic placeholder image" width="140" height="140">
+                        <img class="rounded-circle" src="img/pruebac.jpg" alt="" width="140" height="140">
                         <h3 class="pt-2">Match!</h3>
                         <p class="pl-4 pr-4">Quan un centre/empresa s'interessa en la teva proposta comença el teu projecte!</p>
                     </div><!-- /.col-lg-3-->
 
                     <div class="col-lg-3 text-center mx-auto mb-5">
-                        <img class="rounded-circle" src="img/pruebad.jpg" alt="Generic placeholder image" width="140" height="140">
+                        <img class="rounded-circle" src="img/pruebad.jpg" alt="" width="140" height="140">
                         <h3 class="pt-2">Segueix</h3>
                         <p class="pl-4 pr-4">Els avenços del projecte, comparteix documents i missatges amb tots els col·laboradors!</p>
                     </div><!-- /.col-lg-3 -->
@@ -142,55 +147,62 @@
             </div><!-- /.container -->
             <!-- On ens pots trobar -->
             <div class="container py-4">
-                <section id="que_es_proiectus">
+                <section id="On_ens_pots_trobar">
                     <div class="pricing-header mx-auto text-center pr-4">
                         <h2 class="display-4 font-weight-bold">On ens pots trobar ?</h2>
                     </div>
                     <div class="container mt-5">
                       <div class="row featurette justify-content-center pl-5">
-                          <div class="col-md-7">
+                        <style>
+                        /* Always set the map height explicitly to define the size of the div
+                         * element that contains the map. */
+                        #map {
+                          box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 
+                          height: 400px;
+                          width: auto;
 
-                                <style>
-                                /* Always set the map height explicitly to define the size of the div
-                                 * element that contains the map. */
-                                #map {
-                                  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+                        }
 
-                                  height: 400px;
-                                  width: 530px;
-                                }
+                          /* @media (max-width: 600px) {
+                            .col-md-8 {
+                              margin-right: 200px;
+                            }
+                          } */
 
-
-                              </style>
-
-                              <div id="map" title="Mapa"></div>
-                              <div id="infowindow-content">
-                                <img src="" width="16" height="16" id="place-icon">
-                                <span id="place-name"  class="title"></span><br>
-                                <span id="place-address"></span>
-                              </div>
-                            </div>
-                            <div class="col-md-2 ">
-                              <h2 class="pt-2">Empreses</h2>
-                              <div class="btn-group d-flex flex-wrap">
-                                <img src="{{ asset('img/Icono_1.png') }}"class="img-thumbnail "id="logo_e1"style="cursor:pointer">
-                                <img src="{{ asset('img/logo_consellcomarcal.png') }}"class="img-thumbnail"id="logo_e2"style="cursor:pointer">
-
-
-                              </div>
-                            </div>
-
-                                <div class="col-md-2 "style="height: 500px;">
-                                  <h2 class="pt-2">Instituts</h2>
-                                  <div class="btn-group d-flex flex-wrap">
-                                    <img src="{{ asset('img/logo_iesmontsia.png') }}"class="img-thumbnail img-fluid" id="logo_i1"style="cursor:pointer">
-                                    <img src="{{ asset('img/logo_ramonberenguer.jpg') }}"class="img-thumbnail img-fluid"id="logo_i2"style="cursor:pointer">
+                      </style>
 
 
 
-                                  </div>
-                                </div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <div id="map" title="Mapa"></div>
+    </div>
+    <div class="col">
+      <h2 class="pt-2">Empreses</h2>
+      <div class="btn-group d-flex flex-wrap">
+        <img src="{{ asset('img/Icono_1.png') }}"class=" img-fluid mb-2"id="logo_e1" style="cursor:pointer" alt="logo proiectus">
+        <img src="{{ asset('img/logo_consellcomarcal2.png') }}"class="img-fluid"id="logo_e2"style="cursor:pointer" alt="logo consell comarcal">
+
+
+      </div>
+    </div>
+    <div class="col">
+      <h2 class="pt-2">Instituts</h2>
+      <div class="btn-group d-flex flex-wrap">
+        <img src="{{ asset('img/logo_iesmontsia.png') }}"class="img-fluid" id="logo_i1"style="cursor:pointer">
+        <img src="{{ asset('img/logo_ramonberenguer.jpg') }}"class="img-fluid"id="logo_i2"style="cursor:pointer">
+
+
+
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
 
 
                             <script>
@@ -247,7 +259,7 @@
 
 
 
-                                //Setting Location with jQuery
+                                //Establir localitzacio amb jquery
                                 $(document).ready(function ()
                                 {
                                     $("#logo_e1").on('click', function ()
@@ -273,13 +285,82 @@
 
 
 
-
                       </div>
+
               </div><!-- /.container -->
+
                     </div>
+                    <hr class="featurette-divider">
+
 
 
         </section>
+
+          <script type="text/javascript">
+          	$(document).ready(function(){
+          			var url = "http://api.flickr.com/services/feeds/photos_public.gne?" +
+          	    			  "format=json&jsoncallback=?&tags=nature";
+
+          			$.getJSON(url, function(data){
+          				var html = "";
+          				$.each(data.items, function(i, item){
+                    html += '<div class="slide">';
+          					html += '<img src=' + item.media.m + '>';
+                    html += '</div>';
+                    // $("<img>").attr("src", item.media.m).appendTo("#photos");
+                    if (i == 0) {
+                      return false;
+                    }
+          				});
+          				$("#photos").html(html);
+          			});
+                  });
+            </script>
+        <section id="sponsors_proiectus">
+          <div class="container py-4">
+              <div class="pricing-header px-3 py-5 pt-5 pb-5 mx-auto text-center">
+                <h2 class="display-4 font-weight-bold">Col·laboradors</h2>
+              </div>
+            </div>
+          </section>
+
+              <!-- <div class="customer-logos slider">
+
+                <div class="slide">
+                  <img src="{{ asset('img/v_1.png') }}" alt="1">
+                </div>
+
+              </div> -->
+
+              <div class="container">
+                <section class="customer-logos slider">
+                  <div class="slide"><img src="{{ asset('img/logo-akx.png') }}" alt="3"></div>
+                  <div class="slide"><img src="{{ asset('img/logo_generalitat.png') }}" alt="2"></div>
+                  <div class="slide"><img src="{{ asset('img/logo-captio.png') }}" alt="4"></div>
+                  <div class="slide"><img src="{{ asset('img/logo_iesmontsia.png') }}" alt="5"></div>
+                  <div class="slide"><img src="{{ asset('img/logo-nath.png') }}" alt="7"></div>
+                  <div class="slide"><img src="{{ asset('img/logo_creacio.png') }}" alt="7"></div>
+                  <div class="slide"><img src="{{ asset('img/logo_consellcomarcal2.png') }}" alt="7"></div>
+                  <div class="slide"><img src="{{ asset('img/logo-disi.png') }}" alt="7"></div>
+                </section>
+              </div>
+
+              <hr class="featurette-divider mt-5">
+
+
+
+        <!-- <section>
+
+          <div class="mx-auto py-4">
+              <div class="pricing-header px-3 py-5 pt-5 pb-5 text-center">
+                <h2 class="display-4 font-weight-bold">El nostre equip</h2>
+              </div>
+              <div id="fotosUsuaris" class="ml-5" style="display: flex;"></div>
+          </div>
+
+          <script src="{{asset('js/FlickrAndrei.js')}}"></script>
+
+        </section> -->
 
 
 

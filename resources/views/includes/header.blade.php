@@ -186,8 +186,10 @@
         <!-- Inicio elementos menu -->
         <ul class="navbar-nav text-header">
             <!-- Elemento menu -->
-            <li class="nav-item active">
-                <a class="nav-link pt-2" class="text-ternari" href="{{ route('index.index') }}">Home <span class="sr-only">(current)</span></a>
+            <li class="nav-item">
+                <a class="nav-link pt-2"  href="{{ route('index.index') }}">
+                    <span class="material-icons"> home </span>
+                    </a>
             </li>
             <!-- Fin elemento menu -->
             <!-- Elemento menu -->
@@ -196,6 +198,32 @@
                 <a type="button" class="btn btn-outline-primary"  href="{{ route('login') }}">Inicia sessió<span class="sr-only">(current)</span></a>
             </li>
             @else
+                <!-- Element notificacions -->
+            <div class="dropdown">
+                <a href="#" id="notificationDropdown" class="nav-link dropdown-toggle-split pt-2" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
+                    <span class="material-icons"> notifications </span>
+                    @if(auth()->user()->unReadNotifications->count())
+                    <span class="badge badge-pill badge-info">{{auth()->user()->unReadNotifications->count()}}</span>
+                    @endif
+                </a>
+                <div class="dropdown-menu" aria-labelledby="notificationDropdown">
+
+                    @if(auth()->user()->notifications->count() == 0)
+                        <div class="dropdown-item">No tens cap notificació</div>
+                    @else
+                        <a class="dropdown-item" href="{{route ('markAllRead')}}">Marca totes com a llegides</a>
+                        <div class="dropdown-divider"></div>
+                    @foreach(auth()->user()->unReadNotifications as $notification)
+                        <li style="background-color: #e4eef0"><a class="dropdown-item" href="#">{!! $notification->data['data'] !!}</a></li>
+                    @endforeach
+
+                    @foreach(auth()->user()->readNotifications as $notification)
+                        <a class="dropdown-item" href="#">{!! $notification->data['data'] !!}</a>
+                    @endforeach
+                    @endif
+                </div>
+            </div>
+                <!-- Fi element notificacions -->
             <li class="nav-item ml-3">
                 <a id="navbarDropdown" class="nav-link dropdown-toggle pt-2" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                    {{ Auth::user()->username }}
@@ -204,7 +232,7 @@
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                     <!-- User Profile -->
                     <a class="dropdown-item" href="{{ route('managers.indexP1', ['id' => Auth::user()->id]) }}">Perfil d'usuari</a>
-                    <!-- TO-DO: Invite new users -->
+                     <!-- TO-DO: Invite new users -->
                     <a class="dropdown-item" href="#">Convidar a un nou usuari</a>
                     <div class="dropdown-divider"></div>
                     <!-- Incidences -->

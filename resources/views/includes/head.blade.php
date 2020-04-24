@@ -6,6 +6,8 @@
 <link href="{{ asset('css/main.css') }}" rel="stylesheet" type="text/css">
 <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet" type="text/css">
 <link href="{{asset('css/components/g1/g1_styles.css')}}" rel="stylesheet">
+<link href="{{ asset('css/infinite-slider.css') }}" rel="stylesheet" type="text/css">
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
@@ -20,4 +22,9 @@
 <!-- Imports per a les llibreries bootstrap-table, bootstrap-select i bootstrap-datepicker-->
 <link href="{{ asset('bootstrap-table-master/dist/bootstrap-table.css') }}" rel="stylesheet">
 <link href="{{ asset('bootstrap-select-1.13.9/dist/css/bootstrap-select.css') }}" rel="stylesheet">
-<link href="{{asset('bootstrap-datepicker-1.9.0-dist/css/bootstrap-datepicker3.css')}}" rel="stylesheet">
+<link href="{{ asset('bootstrap-datepicker-1.9.0-dist/css/bootstrap-datepicker3.css') }}" rel="stylesheet">
+
+<!-- css header -->
+<link href="{{ asset('css/styleH.css') }}" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">

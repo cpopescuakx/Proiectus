@@ -15,6 +15,7 @@ use App\Post;
 use App\Resource_center;
 use App\Wiki;
 use App\Article;
+use Illuminate\Support\Facades\Log;
 
 
 class ProjectController extends Controller
@@ -85,8 +86,9 @@ class ProjectController extends Controller
             $projecte -> professional_family = $request->input('pro_family');
             $projecte -> ending_date = $request->input('end_date');
 
-            // Guardar projecte a la BBDD
+            // Guardar projecte a la BBDD i generar missatge de log
             $projecte -> save();
+            Log::info('[ INSERT ] - projects - Nou projecte: ' .$projecte -> name. ' inserit!');
 
             // Tornar a la llista de projectes
             $projects = Project::all();
