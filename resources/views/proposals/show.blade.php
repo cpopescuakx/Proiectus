@@ -48,7 +48,7 @@
     
                         <li class="list-group-item"><span class="font-weight-bold">Data d'inici:</span> {{ date('d/m/Y', strtotime($proposal->created_at)) }}</li>
                             
-                        <li class="list-group-item"><span class="font-weight-bold">Data de finaltzació:</span> {{ date('d/m/Y', strtotime($proposal->limit_date)) }}</li>
+                        <li class="list-group-item"><span class="font-weight-bold">Data de finalització:</span> {{ date('d/m/Y', strtotime($proposal->limit_date)) }}</li>
                     </ul>
                 </div>
                 <!-- /card -->
