@@ -116,6 +116,7 @@
                                 <div class="card-body">
                                     <p>{!!$faq->answer!!}</p>
                                     <br>
+                                    <input type="hidden" id="id_faq" value="{{$faq->id}}">
                                     <a role="button" id="like"> <span class="material-icons text-secondary">thumb_up</span> </a>
                                     <a role="button" id="dislike"> <span class="material-icons text-secondary">thumb_down</span> </a>
                                 </div> 
@@ -237,29 +238,28 @@ body {
 </style>
 
 <script>
-$(function () {
-  $('#like').click(function () { likeFunction(this); });
-  $('#dislike').click(function () { dislikeFunction(this);});
+$( document ).ready(function() {
+    var FAQId = $('#id_faq').val();
+    
+    $('#like').click(function () {
+        /*  var FAQId = caller.parentElement.getAttribute('id');*/  
+        $.ajax({
+        type: "POST",
+        url: "/Faq/like",
+        data: {id_faq: FAQId},
+        success: function () {}
+        }); 
+    });
+
+    $('#dislike').click(function () {
+        /* var FAQId = caller.parentElement.getAttribute('id');*/  
+        $.ajax({
+            type: "POST",
+            url: "/Faq/dislike",
+            data: {id_faq: FAQId},
+            success: function () {}
+        }); 
+    });
 });
-
-
-function likeFunction(caller) {
-  var FAQId = caller.parentElement.getAttribute('id');
-  $.ajax({
-      type: "POST",
-      url: "rate.php",
-      data: 'Action=LIKE&PostID=' + postId,
-      success: function () {}
-  });
-}
-function dislikeFunction(caller) {
-  var FAQId = caller.parentElement.getAttribute('id');
-  $.ajax({
-      type: "POST",
-      url: "rate.php",
-      data: 'Action=DISLIKE&PostID=' + postId,
-      success: function () {}
-  });
-}
 </script>
 @endsection
