@@ -122,6 +122,7 @@ return array(
     'App\\Vote' => $baseDir . '/app/Vote.php',
     'App\\Wiki' => $baseDir . '/app/Wiki.php',
     'App\\faq' => $baseDir . '/app/faq.php',
+    'App\\faq_votes' => $baseDir . '/app/faq_votes.php',
     'BlogsTableSeeder' => $baseDir . '/database/seeds/BlogsTableSeeder.php',
     'Carbon\\Carbon' => $vendorDir . '/nesbot/carbon/src/Carbon/Carbon.php',
     'Carbon\\CarbonImmutable' => $vendorDir . '/nesbot/carbon/src/Carbon/CarbonImmutable.php',

@@ -88,6 +88,29 @@ class FaqController extends Controller
         return view('FAQ.index',compact('BlogFAQS','PropostaFAQS','ProjecteFAQS','XatFAQS','CorreuFAQS','WikiFAQS'));
     }
 
+     /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function like()
+    {
+        faq::find($id)->increment('visitors');
+    }
+
+    
+    /**
+    * Display a listing of the resource.
+    *
+    * @return \Illuminate\Http\Response
+    */
+    public function dislike()
+    {
+        faq::find($id)->decrement('like')
+        faq::find($id)->increment('dislike')
+
+    }
+
     /**
      * Show the form for creating a new resource.
      *
