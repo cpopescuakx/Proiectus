@@ -562,6 +562,7 @@ class ComposerStaticInit3be929a50a6529bc9bb0534e0bce8239
         'App\\Mail_message' => __DIR__ . '/../..' . '/app/Mail_message.php',
         'App\\Message' => __DIR__ . '/../..' . '/app/Message.php',
         'App\\NewsItem' => __DIR__ . '/../..' . '/app/NewsItem.php',
+        'App\\Notifications\\TaskComplete' => __DIR__ . '/../..' . '/app/Notifications/TaskComplete.php',
         'App\\Post' => __DIR__ . '/../..' . '/app/Post.php',
         'App\\Project' => __DIR__ . '/../..' . '/app/Project.php',
         'App\\Project_company_member' => __DIR__ . '/../..' . '/app/Project_company_member.php',

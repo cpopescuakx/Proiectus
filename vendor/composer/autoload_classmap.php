@@ -93,6 +93,7 @@ return array(
     'App\\Mail_message' => $baseDir . '/app/Mail_message.php',
     'App\\Message' => $baseDir . '/app/Message.php',
     'App\\NewsItem' => $baseDir . '/app/NewsItem.php',
+    'App\\Notifications\\TaskComplete' => $baseDir . '/app/Notifications/TaskComplete.php',
     'App\\Post' => $baseDir . '/app/Post.php',
     'App\\Project' => $baseDir . '/app/Project.php',
     'App\\Project_company_member' => $baseDir . '/app/Project_company_member.php',
