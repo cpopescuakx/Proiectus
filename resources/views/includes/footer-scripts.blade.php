@@ -23,4 +23,4 @@
 <script src="{{ asset('js/mainH.js') }}"></script>
 
 <!-- Scripts notificacions -->
-<script src="{{ asset('js/notificacions.js') }}"></script>
+<!-- <script src="{{ asset('js/notificacions.js') }}"></script> -->
