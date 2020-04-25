@@ -32,8 +32,9 @@
                                 <div class="card-body">
                                     <p>{!!$faq->answer!!}</p>
                                     <br>
-                                    <a role="button" id="like"> <span class="material-icons text-secondary">thumb_up</span> </a>
-                                    <a role="button" id="dislike"> <span class="material-icons text-secondary">thumb_down</span> </a>
+                                    <input type="hidden" id="id_faq" value="{{$faq->id}}">
+                                    <a role="button" class="like" data-id="{{$faq->id}}"> <span class="material-icons text-secondary">thumb_up</span> </a>
+                                    <a role="button" class="dislike" data-id="{{$faq->id}}"> <span class="material-icons text-secondary">thumb_down</span> </a>
                                 </div>
                             </div>
                         </div>
@@ -53,8 +54,9 @@
                                 <div class="card-body">
                                     <p>{!!$faq->answer!!}</p>
                                     <br>
-                                    <a role="button" id="like"> <span class="material-icons text-secondary">thumb_up</span> </a>
-                                    <a role="button" id="dislike"> <span class="material-icons text-secondary">thumb_down</span> </a>
+                                    <input type="hidden" id="id_faq" value="{{$faq->id}}">
+                                    <a role="button" class="like" data-id="{{$faq->id}}"> <span class="material-icons text-secondary">thumb_up</span> </a>
+                                    <a role="button" class="dislike" data-id="{{$faq->id}}"> <span class="material-icons text-secondary">thumb_down</span> </a>
                                 </div>
                             </div>
                         </div>
@@ -74,8 +76,9 @@
                                 <div class="card-body">
                                     <p>{!!$faq->answer!!}</p>
                                     <br>
-                                    <a role="button" id="like"> <span class="material-icons text-secondary">thumb_up</span> </a>
-                                    <a role="button" id="dislike"> <span class="material-icons text-secondary">thumb_down</span> </a>
+                                    <input type="hidden" id="id_faq" value="{{$faq->id}}">
+                                    <a role="button" class="like" data-id="{{$faq->id}}"> <span class="material-icons text-secondary">thumb_up</span> </a>
+                                    <a role="button" class="dislike" data-id="{{$faq->id}}"> <span class="material-icons text-secondary">thumb_down</span> </a>
                                 </div>
                             </div>
                         </div>
@@ -95,8 +98,9 @@
                                 <div class="card-body">
                                     <p>{!!$faq->answer!!}</p>
                                     <br>
-                                    <a role="button" id="like"> <span class="material-icons text-secondary">thumb_up</span> </a>
-                                    <a role="button" id="dislike"> <span class="material-icons text-secondary">thumb_down</span> </a>
+                                    <input type="hidden" id="id_faq" value="{{$faq->id}}">
+                                    <a role="button" class="like" data-id="{{$faq->id}}"> <span class="material-icons text-secondary">thumb_up</span> </a>
+                                    <a role="button" class="dislike" data-id="{{$faq->id}}"> <span class="material-icons text-secondary">thumb_down</span> </a>
                                 </div>
                             </div>
                         </div>
@@ -116,9 +120,8 @@
                                 <div class="card-body">
                                     <p>{!!$faq->answer!!}</p>
                                     <br>
-                                    <input type="hidden" id="id_faq" value="{{$faq->id}}">
-                                    <a role="button" id="like"> <span class="material-icons text-secondary">thumb_up</span> </a>
-                                    <a role="button" id="dislike"> <span class="material-icons text-secondary">thumb_down</span> </a>
+                                    <a role="button" class="like" data-id="{{$faq->id}}"> <span class="material-icons text-secondary">thumb_up</span> </a>
+                                    <a role="button" class="dislike" data-id="{{$faq->id}}"> <span class="material-icons text-secondary">thumb_down</span> </a>
                                 </div> 
                             </div>                       
                         </div>
@@ -138,8 +141,8 @@
                                 <div class="card-body">
                                     <p>{!!$faq->answer!!}</p>
                                     <br>
-                                    <a role="button" id="like"> <span class="material-icons text-secondary">thumb_up</span> </a>
-                                    <a role="button" id="dislike"> <span class="material-icons text-secondary">thumb_down</span> </a>
+                                    <a role="button" class="like" data-id="{{$faq->id}}"> <span class="material-icons text-secondary">thumb_up</span> </a>
+                                    <a role="button" class="dislike" data-id="{{$faq->id}}"> <span class="material-icons text-secondary">thumb_down</span> </a>
                                 </div>
                             </div>
                         </div>
@@ -239,10 +242,9 @@ body {
 
 <script>
 $( document ).ready(function() {
-    var FAQId = $('#id_faq').val();
-    
-    $('#like').click(function () {
-        /*  var FAQId = caller.parentElement.getAttribute('id');*/  
+    var FAQId = 0;
+     $('.like').click(function () {
+        var FAQId = $(this).data('id');
         $.ajax({
         type: "POST",
         url: "/Faq/like",
@@ -250,9 +252,8 @@ $( document ).ready(function() {
         success: function () {}
         }); 
     });
-
-    $('#dislike').click(function () {
-        /* var FAQId = caller.parentElement.getAttribute('id');*/  
+    $('.dislike').click(function () {
+        var FAQId = $(this).data('id');
         $.ajax({
             type: "POST",
             url: "/Faq/dislike",
