@@ -1,5 +1,9 @@
 <!-- Bootstrap core JavaScript
 ================================================= -->
+
+<!-- JQUERY ESTÁ AQUÍ -->
+<script src="{{ asset('js/jquery-3.4.1.min.js') }}"></script>
+
 <!-- Bootstrap JS -->
 <script src="{{ asset('bootstrap-select-1.13.9/dist/js/bootstrap-select.js') }}"></script>
 <script src="{{ asset('bootstrap-table-master/dist/bootstrap-table.js') }}"></script>
@@ -10,9 +14,6 @@
 
 <!-- TETHER -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-
-<!-- JQUERY ESTÁ AQUÍ -->
-<script src="{{ asset('js/jquery-3.4.1.min.js') }}"></script>
 
 <!-- POPPER -->
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
@@ -27,11 +28,6 @@
 
 <!-- SLICK, LIBRERÍA PARA CARRUSEL -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js"></script>
-
-<!-- Scripts header -->
-<script src="{{ asset('js/popperH.js') }}"></script>
-<script src="{{ asset('js/bootstrapH.min.js') }}"></script>
-<script src="{{ asset('js/mainH.js') }}"></script>
 
 <!-- Scripts summernote -->
 <script src="{{ asset('summernote-master/dist/summernote-bs4.min.js') }}"></script>
