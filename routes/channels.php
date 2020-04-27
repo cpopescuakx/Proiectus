@@ -1,5 +1,5 @@
 <?php
-
+use App\Chat;
 /*
 |--------------------------------------------------------------------------
 | Broadcast Channels
@@ -13,4 +13,12 @@
 
 Broadcast::channel('App.User.{id}', function ($user, $id) {
     return (int) $user->id === (int) $id;
+});
+
+Broadcast::channel('users.{id}', function ($user, $id) {
+    return (int) $user->id === (int) $id;
+});
+
+Broadcast::channel('chats.{chat}', function ($user, Chat $chat) {
+    return $chat->hasUser($user->id);
 });

@@ -79,13 +79,74 @@ class FaqController extends Controller
     public function index()
     {
         $BlogFAQS = FaqController::indexBlog();
-        $PropostaFAQS = FaqController::indexWiki();
-        $ProjecteFAQS = FaqController::indexXat();
-        $XatFAQS = FaqController::indexCorreu();
-        $CorreuFAQS = FaqController::indexProposta();
-        $WikiFAQS = FaqController::indexProjecte();
+        $PropostaFAQS = FaqController::indexProposta();
+        $ProjecteFAQS = FaqController::indexProjecte();
+        $XatFAQS = FaqController::indexXat();
+        $CorreuFAQS = FaqController::indexCorreu();
+        $WikiFAQS = FaqController::indexWiki();
 
         return view('FAQ.index',compact('BlogFAQS','PropostaFAQS','ProjecteFAQS','XatFAQS','CorreuFAQS','WikiFAQS'));
+    }
+
+     /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function like($id_faq)
+    {
+        $faq_vote = new faq_votes;
+        $id_user = auth()->user()->id;
+        $vote = faq_votes::where('id_faq',"$id_faq")->where('id_user',"$id_user");
+        
+        if($vote->vote_type == "dislike"){
+            faq::find($id)->increment('like');
+            faq::find($id)->decrement('dislike');
+            $faq_vote -> id_user = $id_user;
+            $faq_vote -> id_faq = $id_faq;
+            $faq_vote -> vote_type = "like";
+            $faq_vote->save();
+        }
+        elseif($vote->vote_type == "like"){
+        }
+        else{
+            faq::find($id)->increment('like');
+            $faq_vote -> id_user = $id_user;
+            $faq_vote -> id_faq = $id_faq;
+            $faq_vote -> vote_type = "like";
+            $faq_vote->save();
+        }
+    }
+
+    
+    /**
+    * Display a listing of the resource.
+    *
+    * @return \Illuminate\Http\Response
+    */
+    public function dislike($id_faq)
+    {
+        $faq_vote = new faq_votes;
+        $id_user = Auth::user()->id;
+        $vote = faq_votes::where('id_faq',"$id_faq")->where('id_user',"$id_user");
+        
+        if($vote->vote_type == "like"){
+            faq::find($id)->increment('like');
+            faq::find($id)->decrement('dislike');
+            $faq_vote -> id_user = $id_user;
+            $faq_vote -> id_faq = $id_faq;
+            $faq_vote -> vote_type = "dislike";
+            $faq_vote->save();
+        }
+        elseif($vote->vote_type == "dislike"){
+        }
+        else{
+            faq::find($id)->increment('dislike');
+            $faq_vote -> id_user = $id_user;
+            $faq_vote -> id_faq = $id_faq;
+            $faq_vote -> vote_type = "dislike";
+            $faq_vote->save();
+        }
     }
 
     /**

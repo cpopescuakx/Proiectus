@@ -2,6 +2,9 @@
 <meta name="description" content="">
 <meta name="Saquib" content="Blade">
 <title>Proiectus.cat</title>
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" sizes="32x32" href="{{ asset('img/icono_negro.png') }}">
 <!-- Bootstrap core CSS -->
 <link href="{{ asset('css/main.css') }}" rel="stylesheet" type="text/css">
 <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet" type="text/css">

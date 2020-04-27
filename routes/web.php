@@ -193,6 +193,9 @@ Route::middleware(['CheckRole'])->group(function () {
     Route::get('schools/{id}/addUser', 'School_usersController@index')->name('schoolsUsers.manager');
     Route::post('schools/{id}/storeUser', 'School_usersController@store')->name('schoolsUsers.store');
     });
+
+    Route::get('/schools/leaderboard', 'SchoolController@leaderBoardSchools')->name('schools.leaderBoard');
+
     /* DOCUMENT MANAGER OLD */
     //Route::get('/dm','DMController@index');
     //Route::post('/dm/fileupload/','DMController@fileupload')->name('dm.fileupload');
@@ -287,10 +290,13 @@ Route::middleware(['CheckRole'])->group(function () {
     Route::get('resources/download/{path}', 'Resource_centerController@downloadFile')->name('resource.download');
     Route::get('resources/delete/{path}', 'Resource_centerController@destroy')->name('resource.delete');
 
+    /** NOTIFICACIONS */
     Route::middleware(['isLogged'])->group(function () {
+        Route::get('/notifications', function() {
+           return auth()->user()->notifications;
+        });
         Route::get('markAsRead', function(){
             auth()->user()->unreadNotifications->markAsRead();
-            return redirect()->back();
         })->name('markAllRead');
     });
 

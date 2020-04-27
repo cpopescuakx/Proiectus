@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\NewMessage;
+use App\Message;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+
 
 class MessageController extends Controller
 {
@@ -34,7 +38,25 @@ class MessageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'content' => 'required|max:255',
+            'id_chat' => 'required',
+        ]);
+        if ($validator->fails()) {
+            return response()->json(['errors'=>$validator->errors()],422);
+        }
+
+        $message = Message::create([
+            'content' => request('content'),
+            'id_chat' => request('id_chat'),
+            'id_user' => auth()->user()->id,
+        ]);
+
+        $message->load('id_user');
+
+        broadcast(new NewMessage($message))->toOthers();
+
+        return $message->load('id_user');
     }
 
     /**
