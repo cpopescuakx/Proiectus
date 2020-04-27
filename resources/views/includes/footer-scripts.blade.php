@@ -16,7 +16,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js"></script>
 
 <!-- Scripts header -->
-<script src="{{ asset('js/jqueryH.min.js') }}"></script>
+<!-- <script src="{{ asset('js/jqueryH.min.js') }}"></script> -->
 <script src="{{ asset('js/popperH.js') }}"></script>
 <script src="{{ asset('js/bootstrapH.min.js') }}"></script>
 <script src="{{ asset('js/mainH.js') }}"></script>
