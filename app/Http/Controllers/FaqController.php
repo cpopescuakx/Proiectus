@@ -93,8 +93,9 @@ class FaqController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function like($id_faq)
+    public function like(Request $request)
     {
+        $id_faq = $request->route('id_faq');
         $faq_vote = new faq_votes;
         $id_user = auth()->user()->id;
         $vote = faq_votes::where('id_faq',"$id_faq")->where('id_user',"$id_user");
@@ -124,8 +125,9 @@ class FaqController extends Controller
     *
     * @return \Illuminate\Http\Response
     */
-    public function dislike($id_faq)
+    public function dislike(Request $request)
     {
+        $id_faq = $request->route('id_faq');
         $faq_vote = new faq_votes;
         $id_user = Auth::user()->id;
         $vote = faq_votes::where('id_faq',"$id_faq")->where('id_user',"$id_user");

@@ -29,6 +29,8 @@
 <script src="{{ asset('js/header.js') }}"></script>
 <script src="{{ asset('js/indexEmployee.js') }}"></script>
 <script src="{{ asset('js/carousel.js') }}"></script>
+<script src="{{ asset('js/jQueryFAQ.js') }}"></script>
+
 
 <!-- Scripts summernote -->
 <script src="{{ asset('summernote-master/dist/summernote-bs4.min.js') }}"></script>

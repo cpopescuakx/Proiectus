@@ -1,5 +1,8 @@
 @extends('layouts.default')
 @section('content')
+<head>
+<meta name="csrf-token" content="{{ csrf_token() }}">
+</head>
 <body>
 <div class="container">
 <h1 class="text-center">FAQ</h1>
@@ -239,28 +242,4 @@ body {
   border-bottom: 1px solid rgba(0, 0, 0, 0.125);
 }
 </style>
-
-<script>
-$(document).ready(function() {
-    var FAQId = 0;
-     $('.like').click(function () {
-        var FAQId = $(this).data('id');
-        $.ajax({
-        type: "POST",
-        url: "/Faq/like",
-        data: {id_faq: FAQId},
-        success: function () {}
-        }); 
-    });
-    $('.dislike').click(function () {
-        var FAQId = $(this).data('id');
-        $.ajax({
-            type: "POST",
-            url: "/Faq/dislike",
-            data: {id_faq: FAQId},
-            success: function () {}
-        }); 
-    });
-});
-</script>
 @endsection
