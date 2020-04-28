@@ -241,7 +241,7 @@ body {
 </style>
 
 <script>
-$( document ).ready(function() {
+$(document).ready(function() {
     var FAQId = 0;
      $('.like').click(function () {
         var FAQId = $(this).data('id');
