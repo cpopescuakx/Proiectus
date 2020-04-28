@@ -1,7 +1,9 @@
 @extends('layouts.default')
 @section('content')
 <head>
+    <!-- Ya no hace falta, está añadido por defecto a la plantilla default
 <meta name="csrf-token" content="{{ csrf_token() }}">
+    -->
 </head>
 <body>
 <div class="container">
