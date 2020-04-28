@@ -17,6 +17,6 @@
 	<div id="footerBO">
 			@include('includes.footer')
 	</div>
+		@include('includes.footer-scripts') <!-- Los scripts van antes de cerrar el body -->
 	</body>
-	@include('includes.footer-scripts')
 </html>

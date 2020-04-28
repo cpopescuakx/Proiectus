@@ -1,6 +1,9 @@
 <meta charset="utf-8">
 <meta name="description" content="">
 <meta name="Saquib" content="Blade">
+
+<meta name="csrf-token" content="{{ csrf_token() }}">
+
 <title>Proiectus.cat</title>
 
 <!-- Favicon -->
@@ -32,3 +35,6 @@
 
 <!-- css header -->
 <link href="{{ asset('css/styleH.css') }}" rel="stylesheet" type="text/css">
+
+<!-- CSS VUE -->
+<link href="{{ asset('css/app.css') }}" rel="stylesheet">

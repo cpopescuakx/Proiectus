@@ -85,7 +85,7 @@
         <div class="row">
             <!-- Inicio columna -->
             <div class="col-6 col-md pt-3">
-                <img class="mb-2" src="img/icono_negro.png" alt="" width="40px" height="40px">
+                <img class="mb-2" src="{{ asset('img/icono_negro.png') }}" alt="" width="40px" height="40px">
                 <small class="d-block mb-3 text-muted">&copy; 2019-2020</small>
             </div>
             <!-- Fin columna -->
