@@ -283,6 +283,11 @@ Route::middleware(['CheckRole'])->group(function () {
     });
     Route::get('/feed', function () {return view('feed.feed');})->name('feed.feed');
 
+    // Cercador
+    Route::get('/cercador', function () {return view('cercador.index');})->name('cercador.index');
+
+
+
 
     /** Resource center */
 
