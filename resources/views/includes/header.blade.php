@@ -1,260 +1,158 @@
-
-<div id="menu" class="closed">
-    <!-- Inicio sidenav -->
-    <nav id="sidenav" class="bg-primary1">
-        <ul class="nav flex-column">
-            <!-- Logo -->
-            <li class="nav-item">
-                <a class="navbar-brand" href="">
-                    <img src="{{ asset('img/icono_light.png') }}" width="30" height="30" class="d-inline-block align-top" alt="" href="{{ route('index.index') }}">
-                    <span class="text-light text-uppercase">Proiectus</span>
-                </a>
-            </li>
-            <!-- Fin logo -->
-
-            <!-- Item sidenav -->
-            <!-- <li class="nav-item">
-                <a href="">
-                    <i class="material-icons text-light">dashboard</i>
-                    <span class="text-light">Dashboard</span>
-                </a>
-            </li> -->
-            <!-- Fin item sidenav -->
-
-            <!-- Item sidenav -->
-            <li class="nav-item">
-                <a class="dropdown">
-                    <i class="material-icons text-light">person</i>
-                    <span class="text-light">Usuaris</span>
-                    <i class="dropdown-ico material-icons text-light">keyboard_arrow_down</i>
-
-
-                </a>
-
-
-                <div class="sub-menu">
-                    <!-- Inicio Submenu -->
-                    <ul class="nav flex-column">
-                        <!-- Submenu -->
-                        <li class="nav-item">
-                            <a href="{{ route('employee.index') }}">
-                                <span class="text-light">Empleats</span>
-                            </a>
-                        </li>
-                        <!-- Fin submenu -->
-
-                        <!-- Submenu -->
-                        <li class="nav-item">
-                            <a href="{{ route('professors.index') }}">
-                                <span class="text-light">Professors</span>
-                            </a>
-                        </li>
-                        <!-- Fin submenu -->
-
-                        <!-- Submenu -->
-                        <li class="nav-item">
-                            <a href="{{ route('students.index') }}">
-                                <span class="text-light">Estudiants</span>
-                            </a>
-                        </li>
-                        <!-- Fin submenu -->
-
-                        <!-- Submenu -->
-                        <li class="nav-item">
-                            <a href="{{ route('managers.index') }}">
-                                <span class="text-light">Gestors</span>
-                            </a>
-                        </li>
-                        <!-- Fin submenu -->
-                    </ul>
-                </div>
-            </li>
-            <!-- Fin item sidenav -->
-
-            <!-- Item sidenav -->
-            <li class="nav-item">
-                <a class="dropdown">
-                    <i class="material-icons text-light">file_copy</i>
-                    <span class="text-light">Propostes</span>
-                    <i class="dropdown-ico material-icons text-light">keyboard_arrow_down</i>
-                </a>
-
-                <div class="sub-menu">
-                  <ul class="nav flex-column">
-                    <!-- Submenu -->
-                    <li class="nav-item">
-                        <a href="{{ route('proposals.index') }}">
-
-                            <span class="text-light">Totes les Propostes</span>
-                        </a>
-                    </li>
-                    <!-- Fin submenu -->
-
-                    <!-- Submenu -->
-                    <li class="nav-item">
-                        <a href="{{ route('proposals.dashboard') }}">
-                            <span class="text-light">Les meves Propostes</span>
-                        </a>
-                    </li>
-                    <!-- Fin submenu -->
-                  </ul>
-                </div>
-
-            </li>
-            <!-- Fin item sidenav -->
-
-            <!-- Item sidenav -->
-            <li class="nav-item">
-                <a class="dropdown">
-                    <i class="material-icons text-light">assignment</i>
-                    <span class="text-light">Projectes</span>
-                    <i class="dropdown-ico material-icons text-light">keyboard_arrow_down</i>
-                </a>
-
-                <div class="sub-menu">
-                    <ul class="nav flex-column">
-                        <!-- Submenu -->
-                        <li class="nav-item">
-                            <a href="{{ route('projects.index') }}">
-                                <span class="text-light">Gestió de projectes</span>
-                            </a>
-                        </li>
-                        <!-- Fin submenu -->
-
-                        <!-- Submenu -->
-                        <li class="nav-item">
-                            <a href="{{ route('projects.dashboard') }}">
-                                <span class="text-light">Tots els projectes</span>
-                            </a>
-                        </li>
-                        <!-- Fin submenu -->
-                    </ul>
-                </div>
-            </li>
-            <!-- Fin item sidenav -->
-            <li class="nav-item">
-              @if(Auth::guest())
-              @else
-              @if (Auth::user()->id_role == 1)
-                <a class="dropdown">
-                    <i class="material-icons text-light">group</i>
-                    <span class="text-light">Entitats</span>
-                    <i class="dropdown-ico material-icons text-light">keyboard_arrow_down</i>
-
-
-                </a>
-
-
-                <div class="sub-menu">
-                    <!-- Inicio Submenu -->
-                    <ul class="nav flex-column">
-                        <!-- Submenu -->
-                        <li class="nav-item">
-                            <a href="{{ route('schools.index') }}">
-                                <span class="text-light">Centres</span>
-                            </a>
-                        </li>
-                        <!-- Fin submenu -->
-
-                        <!-- Submenu -->
-                        <li class="nav-item">
-                            <a href="{{ route('companies.index') }}">
-                                <span class="text-light">Empreses</span>
-                            </a>
-                        </li>
-                        <!-- Fin submenu -->
-                    </ul>
-                </div>
-                @endif
-                @endif
-            </li>
-            <!-- Fin item sidenav -->
-
-
-        </ul>
-    </nav>
-    <!-- Fin sidenav -->
-    <!-- jj -->
-
-    <!-- Inicio menu -->
-    <nav id="top-menu" class="navbar2 navbar-expand-lg navbar-light fixed-top bg-white">
-        <!-- Inicio toggle menu -->
-        <div class="navbar-header">
-            <i id="sidenav-toggle" class="material-icons">menu</i>
-        <!-- Fin toggle menu -->
-
-        <!-- Inicio elementos menu -->
-        <ul class="navbar-nav text-header">
-            <!-- Elemento menu -->
-            <li class="nav-item">
-                <a class="nav-link pt-2"  href="{{ route('index.index') }}">
-                    <span class="material-icons"> home </span>
-                    </a>
-            </li>
-            <!-- Fin elemento menu -->
-            <!-- Elemento menu -->
-            @guest
-            <li class="nav-item ml-3">
-                <a type="button" class="btn btn-outline-primary"  href="{{ route('login') }}">Inicia sessió<span class="sr-only">(current)</span></a>
-            </li>
-            @else
-                <!-- Element notificacions -->
+<nav id="sidebar">
+  <div class="custom-menu">
+    <button type="button" id="sidebarCollapse" class="btn btn-primary">
+      <i class="fa fa-bars"></i>
+      <span class="sr-only">Toggle Menu</span>
+    </button>
+  </div>
+  <div class="p-4 pt-5">
+    <h1><a href="index.html" class="logo">Proiectus</a></h1>
+    <ul class="list-unstyled components mb-5">
+      <!-- Elemento menu -->
+      @guest
+      <li class="nav-item ml-3">
+          <a type="button" class="btn btn-outline-primary"  href="{{ route('login') }}">Inicia sessió<span class="sr-only">(current)</span></a>
+      </li>
+      @else
+      <!-- Elemento menu FIN -->
+      <li class="mb-3">
+        <a href="#userSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><span class="fa fa-users mr-3"></span>{{ Auth::user()->username }}</a>
+        <ul class="collapse list-unstyled" id="userSubmenu">
+          <li>
+              <a href="{{ route('managers.indexP1', ['id' => Auth::user()->id]) }}">Perfil d'usuari</a>
+          </li>
+          <li>
+              <a href="#">Convidar a un nou usuari</a>
+          </li>
+          <li>
+              <a href="{{ route('tickets.create') }}">Notificar un error</a>
+          </li>
+          <li>
+            <a href="{{ route('logout') }}"
+            onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();">
+                {{ __('Logout') }}
+            </a>
+          </li>
+          <li>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+            </form>
+          </li>
+          <li>
             <div class="dropdown">
-                <a href="#" id="notificationDropdown" class="nav-link dropdown-toggle-split pt-2" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
-                    <span class="material-icons"> notifications </span>
-                    @if(auth()->user()->unReadNotifications->count())
-                    <span class="badge badge-pill badge-info">{{auth()->user()->unReadNotifications->count()}}</span>
-                    @endif
-                </a>
-                <div id="notificationContent" class="dropdown-menu" aria-labelledby="notificationDropdown">
-                    @if(auth()->user()->notifications->count() == 0)
-                        <div class="dropdown-item">No tens cap notificació</div>
-                    @else
-                        <a id="notificationMarkAllRead" class="dropdown-item" role="button">Marca totes com a llegides</a>
-                        <div class="dropdown-divider"></div>
-                    @foreach(auth()->user()->unReadNotifications as $notification)
-                        <li style="background-color: #e4eef0"><a class="dropdown-item" href="#">{!! $notification->data['data'] !!}</a></li>
-                    @endforeach
+            <a href="#" id="notificationDropdown" class="nav-link dropdown-toggle-split pt-2" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
+                <span class="material-icons"> notifications </span>
+                @if(auth()->user()->unReadNotifications->count())
+                <span class="badge badge-pill badge-info">{{auth()->user()->unReadNotifications->count()}}</span>
+                @endif
+            </a>
+            <div id="notificationContent" class="dropdown-menu" aria-labelledby="notificationDropdown">
+                @if(auth()->user()->notifications->count() == 0)
+                    <div class="dropdown-item">No tens cap notificació</div>
+                @else
+                    <a id="notificationMarkAllRead" class="dropdown-item" role="button">Marca totes com a llegides</a>
+                    <div class="dropdown-divider"></div>
+                @foreach(auth()->user()->unReadNotifications as $notification)
+                    <li style="background-color: #e4eef0"><a class="dropdown-item" href="#">{!! $notification->data['data'] !!}</a></li>
+                @endforeach
 
-                    @foreach(auth()->user()->readNotifications as $notification)
-                        <a class="dropdown-item" href="#">{!! $notification->data['data'] !!}</a>
-                    @endforeach
-                    @endif
-                </div>
+                @foreach(auth()->user()->readNotifications as $notification)
+                    <a class="dropdown-item" href="#">{!! $notification->data['data'] !!}</a>
+                @endforeach
+                @endif
             </div>
-                <!-- Fi element notificacions -->
-            <li class="nav-item ml-3">
-                <a id="navbarDropdown" class="nav-link dropdown-toggle pt-2" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                   {{ Auth::user()->username }}
-                </a>
-                <!-- Login con dropdown -->
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                    <!-- User Profile -->
-                    <a class="dropdown-item" href="{{ route('managers.indexP1', ['id' => Auth::user()->id]) }}">Perfil d'usuari</a>
-                     <!-- TO-DO: Invite new users -->
-                    <a class="dropdown-item" href="#">Convidar a un nou usuari</a>
-                    <div class="dropdown-divider"></div>
-                    <!-- Incidences -->
-                    <a class="dropdown-item" href="{{ route('tickets.create') }}">Notificar un error</a>
-                    <div class="dropdown-divider"></div>
-                    <!-- Logout -->
-                    <a class="dropdown-item" href="{{ route('logout') }}"
-                    onclick="event.preventDefault();
-                                    document.getElementById('logout-form').submit();">
-                        {{ __('Logout') }}
-                    </a>
-
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                        @csrf
-                    </form>
-                </div>
-            </li>
-            <!-- Fin elemento menu -->
-            @endif
-
+            </div>
+          </li>
         </ul>
-      </div>
-        <!-- Fin elementos menu -->
-    </nav>
-    <!-- Fin menu -->
-</div>
+      </li>
+      @endif
+
+
+
+      <!-- FI Element notificacions -->
+
+      <li>
+        <a href="{{ route('index.index') }}"><span class="fa fa-home mr-3"></span>Home</a>
+      </li>
+
+      <li>
+        <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><span class="fa fa-users mr-3"></span>Usuaris</a>
+        <ul class="collapse list-unstyled" id="homeSubmenu">
+          <li>
+              <a href="{{ route('students.index') }}"><span class="fa fa-user mr-3"></span>Estudiants</a>
+          </li>
+          <li>
+              <a href="{{ route('professors.index') }}"><span class="fa fa-user mr-3"></span>Professors</a>
+          </li>
+          <li>
+              <a href="{{ route('employee.index') }}"><span class="fa fa-user mr-3"></span>Empleats</a>
+          </li>
+          <li>
+              <a href="{{ route('managers.index') }}"><span class="fa fa-user mr-3"></span>Gestors</a>
+          </li>
+        </ul>
+      </li>
+
+      <li>
+          <a href="#proposalsSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><span class="fa fa-sticky-note mr-3"></span>Propostes</a>
+          <ul class="collapse list-unstyled" id="proposalsSubmenu">
+            <li>
+                <a href="{{ route('proposals.index') }}"><span class="fa fa-sticky-note mr-3"></span>Totes les Propostes</a>
+            </li>
+            <li>
+                <a href="{{ route('proposals.index') }}"><span class="fa fa-sticky-note mr-3"></span>Les meves Propostes</a>
+            </li>
+          </ul>
+      </li>
+
+      <li>
+        <a href="#projectsSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><span class="fa fa-briefcase mr-3"></span>Projectes</a>
+        <ul class="collapse list-unstyled" id="projectsSubmenu">
+          <li>
+              <a href="{{ route('projects.index') }}"><span class="fa fa-briefcase mr-3"></span>Gestió dels Projectes</a>
+          </li>
+          <li>
+              <a href="{{ route('projects.dashboard') }}"><span class="fa fa-briefcase mr-3"></span>Tots els projectes</a>
+          </li>
+        </ul>
+      </li>
+
+      <li>
+        @if(Auth::guest())
+        @else
+        @if (Auth::user()->id_role == 1)
+        <a href="#entitiesSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><span class="fa fa-building mr-3"></span>Entitats</a>
+        <ul class="collapse list-unstyled" id="entitiesSubmenu">
+          <li>
+              <a href="{{ route('schools.index') }}"><span class="fas fa-school mr-3"></span>Centres</a>
+          </li>
+          <li>
+              <a href="{{ route('companies.index') }}"><span class="fa fa-black-tie mr-3"></span>Empreses</a>
+          </li>
+        </ul>
+        @endif
+        @endif
+      </li>
+
+    </ul>
+
+    <div class="mb-5">
+      <h3 class="h6">Subscriu-te per rebre notificacions</h3>
+      <form action="#" class="colorlib-subscribe-form">
+        <div class="form-group d-flex">
+          <div class="icon"><span class="icon-paper-plane"></span></div>
+          <input type="text" class="form-control" placeholder="Adreça electrònica">
+        </div>
+      </form>
+    </div>
+
+
+
+
+    <!-- Fi element notificacions -->
+  </div>
+</nav>
+
+
+        <!-- Page Content  -->

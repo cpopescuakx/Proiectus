@@ -1,5 +1,5 @@
 <!-- Inicio footer -->
-<footer class="closed w-100 pt-4 pt-md-5 border-top fondo-footer mt-5">
+<div class="closed w-100 pt-4 pt-md-5 border-top fondo-footer">
     <!-- Inicio contenedor -->
     <div class="container">
         <!-- Inicio filas -->
@@ -105,5 +105,5 @@
         <!-- Fin filas -->
     </div>
     <!-- Fin contenedor -->
-</footer>
+</div>
 <!-- Fin footer -->

@@ -2,21 +2,23 @@
 	<head>
 	   @include('includes.head')
 	</head>
-	<body style="background-color: #eee">
-		<header class="row">
-				@include('includes.header')
-		</header>
-	<div class="content closed">
+	<body>
 
-	   <div id="main" >
+	<div class="wrapper d-flex align-items-stretch">
+		<header class="headerCSSpropi row">
+			@include('includes.header')
+		</header>
+
+	   <div id="content" class="p-4 p-md-5 pt-5">
 	           @yield('content')
 	   </div>
 
-	</div>
-</div>
-	<div id="footerBO">
+	 </div>
+
+	<div id="footerBO" style="bottom:0;">
 			@include('includes.footer')
 	</div>
+
 	</body>
 	@include('includes.footer-scripts')
 </html>

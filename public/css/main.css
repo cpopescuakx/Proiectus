@@ -1,4 +1,18 @@
 /* Estilo botones */
+#content {
+  margin-left: auto;
+  margin-right: auto;
+}
+#footerBO {
+  height: 2rem;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
+.wrapper {
+  position: relative;
+    min-height: 100vh;
+}
 .active {
   color: #FFCB9A;
 }
@@ -402,6 +416,7 @@ a:hover {
 
 .fondo-footer {
   background-color: white;
+
 }
 
 .social_icon2 ul {
