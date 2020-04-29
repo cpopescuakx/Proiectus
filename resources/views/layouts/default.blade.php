@@ -11,12 +11,14 @@
 	   <div id="main" >
 	           @yield('content')
 	   </div>
-
 	</div>
-</div>
+
 	<div id="footerBO">
 			@include('includes.footer')
 	</div>
-		@include('includes.footer-scripts') <!-- Los scripts van antes de cerrar el body -->
+		@include('includes.footer-scripts') {{-- Los scripts van antes de cerrar el body --}}
+
+        <!-- THIS PAGE's CUSTOM JS-->
+        @yield('custom-scripts') {{-- yield per a incloure scripts personalitzats nomes en algunes pagines on ens interessi --}}
 	</body>
 </html>
