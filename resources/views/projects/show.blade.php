@@ -3,7 +3,6 @@
 @inject('userProject', 'App\Http\Controllers\User_projectController')
 @section('content')
 
-    <link rel="stylesheet" type="text/css" href="{{asset('css/components/g2/g2_style.css')}}">
     <div class="container ">
         <div class="row justify-content-center">
             <div class="column mt-4 mb-4">
@@ -155,4 +154,7 @@
     </script>
     <script src="{{asset('js/AJAXAndrei.js')}}"></script>
     <script src="{{ asset('js/app.js') }}"></script>
-@stop
+    @section('custom-scripts')
+        <script src="{{asset('js/WikiBlog.js')}}"></script>
+    @endsection
+@endsection

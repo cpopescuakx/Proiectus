@@ -3,7 +3,9 @@
 @section('content')
 
     <div class="container pt-5">
-
+        <div id="app">
+        <tips></tips>
+        </div>
         <!-- Encabezado con logo y título -->
         <div class="row p-5 shadow">
             <div class="col my-auto">

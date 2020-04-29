@@ -23,7 +23,8 @@ Route::get('/help', function () {return view('help');})->name('help.index');
 
 /** Apartat FAQ lloc WEB  */
 Route::get('/FAQ', 'FaqController@index')->name('faq.index');
-
+Route::post('/FAQ/{id_faq}/like', 'FaqController@like');
+Route::post('/FAQ/{id_faq}/dislike', 'FaqController@dislike');
 
 Auth::routes(['verify' => true]);
 
@@ -281,6 +282,11 @@ Route::middleware(['CheckRole'])->group(function () {
       Route::feeds();
     });
     Route::get('/feed', function () {return view('feed.feed');})->name('feed.feed');
+
+    // Cercador
+    Route::get('/cercador', function () {return view('cercador.index');})->name('cercador.index');
+
+
 
 
     /** Resource center */

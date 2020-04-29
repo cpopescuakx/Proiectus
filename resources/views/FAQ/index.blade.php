@@ -32,9 +32,8 @@
                                 <div class="card-body">
                                     <p>{!!$faq->answer!!}</p>
                                     <br>
-                                    <input type="hidden" id="id_faq" value="{{$faq->id}}">
-                                    <a role="button" class="like" data-id="{{$faq->id}}"> <span class="material-icons text-secondary">thumb_up</span> </a>
-                                    <a role="button" class="dislike" data-id="{{$faq->id}}"> <span class="material-icons text-secondary">thumb_down</span> </a>
+                                    <a role="button" class="like" data-id="{{$faq->id}}"> <span id="like-{{$faq->id}}" class="material-icons text-secondary">thumb_up</span> </a>
+                                    <a role="button" class="dislike" data-id="{{$faq->id}}"> <span id="dislike-{{$faq->id}}" class="material-icons text-secondary">thumb_down</span> </a>
                                 </div>
                             </div>
                         </div>
@@ -54,9 +53,8 @@
                                 <div class="card-body">
                                     <p>{!!$faq->answer!!}</p>
                                     <br>
-                                    <input type="hidden" id="id_faq" value="{{$faq->id}}">
-                                    <a role="button" class="like" data-id="{{$faq->id}}"> <span class="material-icons text-secondary">thumb_up</span> </a>
-                                    <a role="button" class="dislike" data-id="{{$faq->id}}"> <span class="material-icons text-secondary">thumb_down</span> </a>
+                                    <a role="button" class="like" data-id="{{$faq->id}}"> <span id="like-{{$faq->id}}" class="material-icons text-secondary">thumb_up</span> </a>
+                                    <a role="button" class="dislike" data-id="{{$faq->id}}"> <span id="dislike-{{$faq->id}}" class="material-icons text-secondary">thumb_down</span> </a>
                                 </div>
                             </div>
                         </div>
@@ -76,9 +74,8 @@
                                 <div class="card-body">
                                     <p>{!!$faq->answer!!}</p>
                                     <br>
-                                    <input type="hidden" id="id_faq" value="{{$faq->id}}">
-                                    <a role="button" class="like" data-id="{{$faq->id}}"> <span class="material-icons text-secondary">thumb_up</span> </a>
-                                    <a role="button" class="dislike" data-id="{{$faq->id}}"> <span class="material-icons text-secondary">thumb_down</span> </a>
+                                    <a role="button" class="like" data-id="{{$faq->id}}"> <span id="like-{{$faq->id}}" class="material-icons text-secondary">thumb_up</span> </a>
+                                    <a role="button" class="dislike" data-id="{{$faq->id}}"> <span id="dislike-{{$faq->id}}" class="material-icons text-secondary">thumb_down</span> </a>
                                 </div>
                             </div>
                         </div>
@@ -98,9 +95,8 @@
                                 <div class="card-body">
                                     <p>{!!$faq->answer!!}</p>
                                     <br>
-                                    <input type="hidden" id="id_faq" value="{{$faq->id}}">
-                                    <a role="button" class="like" data-id="{{$faq->id}}"> <span class="material-icons text-secondary">thumb_up</span> </a>
-                                    <a role="button" class="dislike" data-id="{{$faq->id}}"> <span class="material-icons text-secondary">thumb_down</span> </a>
+                                    <a role="button" class="like" data-id="{{$faq->id}}"> <span id="like-{{$faq->id}}"class="material-icons text-secondary">thumb_up</span> </a>
+                                    <a role="button" class="dislike" data-id="{{$faq->id}}"> <span id="dislike-{{$faq->id}}" class="material-icons text-secondary">thumb_down</span> </a>
                                 </div>
                             </div>
                         </div>
@@ -120,8 +116,8 @@
                                 <div class="card-body">
                                     <p>{!!$faq->answer!!}</p>
                                     <br>
-                                    <a role="button" class="like" data-id="{{$faq->id}}"> <span class="material-icons text-secondary">thumb_up</span> </a>
-                                    <a role="button" class="dislike" data-id="{{$faq->id}}"> <span class="material-icons text-secondary">thumb_down</span> </a>
+                                    <a role="button" class="like" data-id="{{$faq->id}}" > <span id="like-{{$faq->id}}" class="material-icons text-secondary">thumb_up</span> </a>
+                                    <a role="button" class="dislike" data-id="{{$faq->id}}" > <span id="dislike-{{$faq->id}}" class="material-icons text-secondary">thumb_down</span> </a>
                                 </div> 
                             </div>                       
                         </div>
@@ -141,8 +137,9 @@
                                 <div class="card-body">
                                     <p>{!!$faq->answer!!}</p>
                                     <br>
-                                    <a role="button" class="like" data-id="{{$faq->id}}"> <span class="material-icons text-secondary">thumb_up</span> </a>
-                                    <a role="button" class="dislike" data-id="{{$faq->id}}"> <span class="material-icons text-secondary">thumb_down</span> </a>
+                                    
+                                    <a role="button" class="like" data-id="{{$faq->id}}" > <span id="like-{{$faq->id}}" class="material-icons text-secondary">thumb_up</span> </a>
+                                    <a role="button" class="dislike" data-id="{{$faq->id}}" > <span id="dislike-{{$faq->id}}" class="material-icons text-secondary">thumb_down</span> </a>
                                 </div>
                             </div>
                         </div>
@@ -239,28 +236,7 @@ body {
   border-bottom: 1px solid rgba(0, 0, 0, 0.125);
 }
 </style>
-
-<script>
-$( document ).ready(function() {
-    var FAQId = 0;
-     $('.like').click(function () {
-        var FAQId = $(this).data('id');
-        $.ajax({
-        type: "POST",
-        url: "/Faq/like",
-        data: {id_faq: FAQId},
-        success: function () {}
-        }); 
-    });
-    $('.dislike').click(function () {
-        var FAQId = $(this).data('id');
-        $.ajax({
-            type: "POST",
-            url: "/Faq/dislike",
-            data: {id_faq: FAQId},
-            success: function () {}
-        }); 
-    });
-});
-</script>
+@section('custom-scripts')
+        <script src="{{ asset('js/jQueryFAQ.js')}}"></script>
+@endsection
 @endsection
