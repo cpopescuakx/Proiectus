@@ -17,7 +17,7 @@
         <div class="row justify-content-center">
             @foreach ($projects as $project)
                 <div class="column">
-                    <div class="card m-2">
+                    <div class="card m-2 shadow-sm p-3 mb-5 bg-white rounded">
                         <img class="card-img-top" src="{{asset('img/foto_small.jpg')}}">
                         <div class="card-body">
                             <h5 style="width: 15rem;" class="text-truncate card-title">{{$project->name}}</h5>
