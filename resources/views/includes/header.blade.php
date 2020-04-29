@@ -203,7 +203,7 @@
                 <a href="#" id="notificationDropdown" class="nav-link dropdown-toggle-split pt-2" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
                     <span class="material-icons"> notifications </span>
                     @if(auth()->user()->unReadNotifications->count())
-                    <span class="badge badge-pill badge-info">{{auth()->user()->unReadNotifications->count()}}</span>
+                    <span class="badge badge-pill" style="background-color: #3aafa9">{{auth()->user()->unReadNotifications->count()}}</span>
                     @endif
                 </a>
                 <div id="notificationContent" class="dropdown-menu" aria-labelledby="notificationDropdown">
