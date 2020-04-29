@@ -5,8 +5,8 @@
         <ul class="nav flex-column">
             <!-- Logo -->
             <li class="nav-item">
-                <a class="navbar-brand" href="">
-                    <img src="{{ asset('img/icono_light.png') }}" width="30" height="30" class="d-inline-block align-top" alt="" href="{{ route('index.index') }}">
+                <a class="navbar-brand" href="{{ route('index.index') }}">
+                    <img src="{{ asset('img/icono_light.png') }}" width="30" height="30" class="d-inline-block align-top" alt="">
                     <span class="text-light text-uppercase">Proiectus</span>
                 </a>
             </li>
