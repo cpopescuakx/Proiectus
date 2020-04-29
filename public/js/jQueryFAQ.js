@@ -7,11 +7,11 @@ $(document).ready(function() {
     var FAQId = 0;
      $('.like').click(function () {
         var FAQId = $(this).data('id');
-        $( "#like-" + FAQId).removeClass("text-secondary").addClass( "text-primary" );
+        
         $.ajax({
         type: "POST",
         url: "/FAQ/"+FAQId+"/like",
-        success: function () {},
+        success: function () {$( "#like-" + FAQId).removeClass("text-secondary").addClass( "text-primary" );},
         error: function (xhr, status, error) {
             console.log(error);
         }
@@ -20,11 +20,10 @@ $(document).ready(function() {
     $('.dislike').click(function () {
         var FAQId = $(this).data('id');
         alert(FAQId);
-        $( "#dislike-" + FAQId ).removeClass("text-secondary").addClass( "text-primary" );
         $.ajax({
             type: "POST",
             url: "/FAQ/"+FAQId+"/dislike",
-            success: function () {},
+            success: function () {$( "#dislike-" + FAQId ).removeClass("text-secondary").addClass( "text-primary" );},
             error: function (xhr, status, error) {
                 console.log(error);
             }
