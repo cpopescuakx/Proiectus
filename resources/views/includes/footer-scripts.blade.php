@@ -23,7 +23,6 @@
 <script src="{{ asset('js/header.js') }}"></script>
 <script src="{{ asset('js/indexEmployee.js') }}"></script>
 <script src="{{ asset('js/carousel.js') }}"></script>
-<script src="{{ asset('js/jQueryFAQ.js') }}"></script>
 
 <!-- OTRAS LIBRERÍAS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js"></script>
