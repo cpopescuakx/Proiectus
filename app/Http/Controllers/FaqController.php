@@ -102,7 +102,7 @@ class FaqController extends Controller
         $id_user = auth()->user()->id;
         $vote = faq_votes::where('id_faq',$id_faq)->where('id_user',$id_user)->first();
 
-        if(faq_votes::count() >= 1){
+        if(isset($vote)){
             if($vote -> vote_type == "dislike"){
                 faq::find($id_faq)->increment('like');
                 faq::find($id_faq)->decrement('dislike');
@@ -136,7 +136,7 @@ class FaqController extends Controller
         $id_user = auth()->user()->id;
         $vote = faq_votes::where('id_faq',$id_faq)->where('id_user',$id_user)->first();
 
-        if(faq_votes::count() >= 1){
+        if(isset($vote)){
             if($vote -> vote_type == "like"){
                 faq::find($id_faq)->increment('dislike');
                 faq::find($id_faq)->decrement('like');

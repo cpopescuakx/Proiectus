@@ -7,7 +7,7 @@ $(document).ready(function() {
     var FAQId = 0;
      $('.like').click(function () {
         var FAQId = $(this).data('id');
-        $( "#like" + FAQId).removeClass("text-secondary").addClass( "text-primary" );
+        $( "#like-" + FAQId).removeClass("text-secondary").addClass( "text-primary" );
         $.ajax({
         type: "POST",
         url: "/FAQ/"+FAQId+"/like",
@@ -19,7 +19,8 @@ $(document).ready(function() {
     });
     $('.dislike').click(function () {
         var FAQId = $(this).data('id');
-        $( "#dislike" + FAQId ).removeClass("text-secondary").addClass( "text-primary" );
+        alert(FAQId);
+        $( "#dislike-" + FAQId ).removeClass("text-secondary").addClass( "text-primary" );
         $.ajax({
             type: "POST",
             url: "/FAQ/"+FAQId+"/dislike",
