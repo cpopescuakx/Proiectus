@@ -33,7 +33,7 @@
                 */
                 $('#postCreationForm').on('submit', function(e) {
                     // Comprovem si el contingut del post esta buit
-                    if ($('#summernote').summernote('isEmpty')) {
+                    if ($('#summernoteBlog').summernote('isEmpty')) {
                         console.log('Introdueix el contingut del post!');
                         // Evitar el submit
                         e.preventDefault();

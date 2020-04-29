@@ -1,10 +1,5 @@
 @extends('layouts.default')
 @section('content')
-<head>
-    <!-- Ya no hace falta, está añadido por defecto a la plantilla default
-<meta name="csrf-token" content="{{ csrf_token() }}">
-    -->
-</head>
 <body>
 <div class="container">
 <h1 class="text-center">FAQ</h1>
@@ -37,7 +32,6 @@
                                 <div class="card-body">
                                     <p>{!!$faq->answer!!}</p>
                                     <br>
-                                    <input type="hidden" id="id_faq" value="{{$faq->id}}">
                                     <a role="button" class="like" data-id="{{$faq->id}}"> <span class="material-icons text-secondary">thumb_up</span> </a>
                                     <a role="button" class="dislike" data-id="{{$faq->id}}"> <span class="material-icons text-secondary">thumb_down</span> </a>
                                 </div>
@@ -59,7 +53,6 @@
                                 <div class="card-body">
                                     <p>{!!$faq->answer!!}</p>
                                     <br>
-                                    <input type="hidden" id="id_faq" value="{{$faq->id}}">
                                     <a role="button" class="like" data-id="{{$faq->id}}"> <span class="material-icons text-secondary">thumb_up</span> </a>
                                     <a role="button" class="dislike" data-id="{{$faq->id}}"> <span class="material-icons text-secondary">thumb_down</span> </a>
                                 </div>
@@ -81,7 +74,6 @@
                                 <div class="card-body">
                                     <p>{!!$faq->answer!!}</p>
                                     <br>
-                                    <input type="hidden" id="id_faq" value="{{$faq->id}}">
                                     <a role="button" class="like" data-id="{{$faq->id}}"> <span class="material-icons text-secondary">thumb_up</span> </a>
                                     <a role="button" class="dislike" data-id="{{$faq->id}}"> <span class="material-icons text-secondary">thumb_down</span> </a>
                                 </div>
@@ -103,7 +95,6 @@
                                 <div class="card-body">
                                     <p>{!!$faq->answer!!}</p>
                                     <br>
-                                    <input type="hidden" id="id_faq" value="{{$faq->id}}">
                                     <a role="button" class="like" data-id="{{$faq->id}}"> <span class="material-icons text-secondary">thumb_up</span> </a>
                                     <a role="button" class="dislike" data-id="{{$faq->id}}"> <span class="material-icons text-secondary">thumb_down</span> </a>
                                 </div>
@@ -146,8 +137,9 @@
                                 <div class="card-body">
                                     <p>{!!$faq->answer!!}</p>
                                     <br>
-                                    <a role="button" class="like" data-id="{{$faq->id}}"> <span class="material-icons text-secondary">thumb_up</span> </a>
-                                    <a role="button" class="dislike" data-id="{{$faq->id}}"> <span class="material-icons text-secondary">thumb_down</span> </a>
+                                    
+                                    <a role="button" class="like" data-id="{{$faq->id}}" id="like-{{$faq->id}}"> <span class="material-icons text-secondary">thumb_up</span> </a>
+                                    <a role="button" class="dislike" data-id="{{$faq->id}}" id="dislike-{{$faq->id}}"> <span class="material-icons text-secondary">thumb_down</span> </a>
                                 </div>
                             </div>
                         </div>
@@ -244,4 +236,7 @@ body {
   border-bottom: 1px solid rgba(0, 0, 0, 0.125);
 }
 </style>
+@section('custom-scripts')
+        <script src="{{ asset('js/jQueryFAQ.js')}}"></script>
+@endsection
 @endsection

@@ -151,6 +151,11 @@ class ForeignKeysUsers extends Migration
           $table->foreign('id_project')->references('id_project')->on('projects')->onDelete('cascade');
 
         });
+        Schema::table('faq_votes', function(Blueprint $table){
+          $table->foreign('id_faq')->references('id')->on('faqs')->onDelete('cascade');
+          $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade');
+
+        });
     }
 
     /**
@@ -279,5 +284,11 @@ class ForeignKeysUsers extends Migration
         Schema::table('wikis', function (Blueprint $table) {
             $table->dropForeign(['id_project']);
         });
+
+        Schema::table('faq_votes', function (Blueprint $table) {
+          $table->dropForeign(['id_faq']);
+          $table->dropForeign(['id_user']);
+
+      });
     }
 }

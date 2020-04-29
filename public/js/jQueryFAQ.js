@@ -7,23 +7,25 @@ $(document).ready(function() {
     var FAQId = 0;
      $('.like').click(function () {
         var FAQId = $(this).data('id');
+        $( "#like" + FAQId).removeClass("text-secondary").addClass( "text-primary" );
         $.ajax({
         type: "POST",
         url: "/FAQ/"+FAQId+"/like",
         success: function () {},
         error: function (xhr, status, error) {
-            alert(error.responseTextss);
+            console.log(error);
         }
         }); 
     });
     $('.dislike').click(function () {
         var FAQId = $(this).data('id');
+        $( "#dislike" + FAQId ).removeClass("text-secondary").addClass( "text-primary" );
         $.ajax({
             type: "POST",
             url: "/FAQ/"+FAQId+"/dislike",
             success: function () {},
             error: function (xhr, status, error) {
-                alert(error.responseTextss);
+                console.log(error);
             }
         }); 
     });
