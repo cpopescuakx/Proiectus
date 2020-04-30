@@ -6,7 +6,7 @@
     </button>
   </div>
   <div class="p-4 pt-5">
-    <h1><a href="index.html" class="logo">Proiectus</a></h1>
+    <h1><a href="{{route('index.index')}}" class="logo">Proiectus</a></h1>
     <ul class="list-unstyled components mb-5">
       <!-- Elemento menu -->
       @guest
