@@ -11,7 +11,9 @@ $(document).ready(function() {
         $.ajax({
         type: "POST",
         url: "/FAQ/"+FAQId+"/like",
-        success: function () {$( "#like-" + FAQId).removeClass("text-secondary").addClass( "text-primary" );},
+        success: function () {
+        $( "#like-" + FAQId).removeClass("text-secondary").addClass( "text-primary" ),
+        $( "#dislike-" + FAQId).removeClass("text-primary").addClass( "text-secondary" );},
         error: function (xhr, status, error) {
             console.log(error);
         }
@@ -23,7 +25,9 @@ $(document).ready(function() {
         $.ajax({
             type: "POST",
             url: "/FAQ/"+FAQId+"/dislike",
-            success: function () {$( "#dislike-" + FAQId ).removeClass("text-secondary").addClass( "text-primary" );},
+            success: function () {
+            $( "#dislike-" + FAQId ).removeClass("text-secondary").addClass( "text-primary" )
+            $( "#like-" + FAQId).removeClass("text-primary").addClass( "text-secondary" );},
             error: function (xhr, status, error) {
                 console.log(error);
             }
