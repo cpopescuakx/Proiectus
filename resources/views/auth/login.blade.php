@@ -54,7 +54,7 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
-                                <button id="submit" disabled="true" type="submit" class="btn btn-primary">
+                                <button id="submit" type="submit" class="btn btn-primary"> <!-- disabled="true" -->
                                     {{ __('Login') }}
                                 </button>
 
@@ -67,14 +67,15 @@
                         </div>
 
                         <br/>
-
+                        <!--
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
                                 <div class="g-recaptcha" data-sitekey="6Ldv7O8UAAAAALnodAqQxwaWfJHVNZMR7u8yRYZQ"  data-callback="recaptcha_ok"></div>
                             </div>
                         </div>
-
+                        -->
                         <script>
+                        /*
                         function recaptcha_ok () {
                             var response = grecaptcha.getResponse();
                             if(response.length == 0){
@@ -84,6 +85,7 @@
                                 document.getElementById("submit").disabled = false;
                             }
                         }
+                        */
                         </script>
 
                     </form>
