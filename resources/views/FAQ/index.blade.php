@@ -196,6 +196,8 @@ body {
 
 .tab-content {
   box-shadow: 0 1px 5px rgba(85, 85, 85, 0.15);
+  width: 45rem;
+
 }
 .tab-content .card {
   border-radius: 0;
