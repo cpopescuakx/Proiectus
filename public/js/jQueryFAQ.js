@@ -7,7 +7,6 @@ $(document).ready(function() {
     var FAQId = 0;
      $('.like').click(function () {
         var FAQId = $(this).data('id');
-        
         $.ajax({
         type: "POST",
         url: "/FAQ/"+FAQId+"/like",
@@ -21,7 +20,6 @@ $(document).ready(function() {
     });
     $('.dislike').click(function () {
         var FAQId = $(this).data('id');
-        alert(FAQId);
         $.ajax({
             type: "POST",
             url: "/FAQ/"+FAQId+"/dislike",
