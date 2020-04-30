@@ -12,6 +12,7 @@
 		<div id="content" class="p-4 p-md-5 pt-5">
 				@yield('content')
 		</div>
+	</div>
 		
 
 			<div id="footerBO">
@@ -21,6 +22,5 @@
 
 				<!-- THIS PAGE's CUSTOM JS-->
 				@yield('custom-scripts') {{-- yield per a incloure scripts personalitzats nomes en algunes pagines on ens interessi --}}
-		</div>
 	</body>
 </html>
