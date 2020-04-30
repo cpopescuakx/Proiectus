@@ -78,6 +78,18 @@ class FaqController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function checkLike()
+    {
+        $id_user = auth()->user()->id;
+        $vote = faq_votes::where('id_user',$id_user)->get();
+        return $vote;
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
         $BlogFAQS = FaqController::indexBlog();
@@ -86,8 +98,9 @@ class FaqController extends Controller
         $XatFAQS = FaqController::indexXat();
         $CorreuFAQS = FaqController::indexCorreu();
         $WikiFAQS = FaqController::indexWiki();
+        $checkLike = FaqController::checkLike();
 
-        return view('FAQ.index',compact('BlogFAQS','PropostaFAQS','ProjecteFAQS','XatFAQS','CorreuFAQS','WikiFAQS'));
+        return view('FAQ.index',compact('BlogFAQS','PropostaFAQS','ProjecteFAQS','XatFAQS','CorreuFAQS','WikiFAQS','checkLike'));
     }
 
      /**
