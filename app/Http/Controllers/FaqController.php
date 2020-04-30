@@ -78,11 +78,17 @@ class FaqController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function checkLike()
-    {
+    public function checkLike(){
         $id_user = auth()->user()->id;
         $vote = faq_votes::where('id_user',$id_user)->get();
-        return $vote;
+        
+        foreach($vote as $checked){
+            if($checked[4] == "like"){
+                return "like";
+            }else{
+                return "dislike";
+            }
+        }  */  
     }
 
     /**

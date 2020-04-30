@@ -53,9 +53,18 @@
                                 <div class="card-body">
                                     <p>{!!$faq->answer!!}</p>
                                     <br>
+                                    @foreach($checkLike as $checked)
+                                    @if($checked -> id_faq  == $faq->id && $checked -> vote_type == "like")
+                                    <a role="button" class="like" data-id="{{$faq->id}}"> <span id="like-{{$faq->id}}" class="material-icons text-primary">thumb_up</span> </a>
+                                    @endif
+                                    @endforeach
                                     <a role="button" class="like" data-id="{{$faq->id}}"> <span id="like-{{$faq->id}}" class="material-icons text-secondary">thumb_up</span> </a>
+                                    @foreach($checkLike as $checked)
+                                    @if($checked -> id_faq  == $faq->id && $checked -> vote_type == "dislike")
+                                    <a role="button" class="dislike" data-id="{{$faq->id}}"> <span id="dislike-{{$faq->id}}" class="material-icons text-primary">thumb_down</span> </a>
+                                    @endif
+                                    @endforeach
                                     <a role="button" class="dislike" data-id="{{$faq->id}}"> <span id="dislike-{{$faq->id}}" class="material-icons text-secondary">thumb_down</span> </a>
-                                </div>
                             </div>
                         </div>
                     @endforeach
@@ -74,7 +83,17 @@
                                 <div class="card-body">
                                     <p>{!!$faq->answer!!}</p>
                                     <br>
+                                    @foreach($checkLike as $checked)
+                                    @if($checked -> id_faq  == $faq->id && $checked -> vote_type == "like")
+                                    <a role="button" class="like" data-id="{{$faq->id}}"> <span id="like-{{$faq->id}}" class="material-icons text-primary">thumb_up</span> </a>
+                                    @endif
+                                    @endforeach
                                     <a role="button" class="like" data-id="{{$faq->id}}"> <span id="like-{{$faq->id}}" class="material-icons text-secondary">thumb_up</span> </a>
+                                    @foreach($checkLike as $checked)
+                                    @if($checked -> id_faq  == $faq->id && $checked -> vote_type == "dislike")
+                                    <a role="button" class="dislike" data-id="{{$faq->id}}"> <span id="dislike-{{$faq->id}}" class="material-icons text-primary">thumb_down</span> </a>
+                                    @endif
+                                    @endforeach
                                     <a role="button" class="dislike" data-id="{{$faq->id}}"> <span id="dislike-{{$faq->id}}" class="material-icons text-secondary">thumb_down</span> </a>
                                 </div>
                             </div>
@@ -95,7 +114,17 @@
                                 <div class="card-body">
                                     <p>{!!$faq->answer!!}</p>
                                     <br>
-                                    <a role="button" class="like" data-id="{{$faq->id}}"> <span id="like-{{$faq->id}}"class="material-icons text-secondary">thumb_up</span> </a>
+                                    @foreach($checkLike as $checked)
+                                    @if($checked -> id_faq  == $faq->id && $checked -> vote_type == "like")
+                                    <a role="button" class="like" data-id="{{$faq->id}}"> <span id="like-{{$faq->id}}" class="material-icons text-primary">thumb_up</span> </a>
+                                    @endif
+                                    @endforeach
+                                    <a role="button" class="like" data-id="{{$faq->id}}"> <span id="like-{{$faq->id}}" class="material-icons text-secondary">thumb_up</span> </a>
+                                    @foreach($checkLike as $checked)
+                                    @if($checked -> id_faq  == $faq->id && $checked -> vote_type == "dislike")
+                                    <a role="button" class="dislike" data-id="{{$faq->id}}"> <span id="dislike-{{$faq->id}}" class="material-icons text-primary">thumb_down</span> </a>
+                                    @endif
+                                    @endforeach
                                     <a role="button" class="dislike" data-id="{{$faq->id}}"> <span id="dislike-{{$faq->id}}" class="material-icons text-secondary">thumb_down</span> </a>
                                 </div>
                             </div>
@@ -116,8 +145,18 @@
                                 <div class="card-body">
                                     <p>{!!$faq->answer!!}</p>
                                     <br>
-                                    <a role="button" class="like" data-id="{{$faq->id}}" > <span id="like-{{$faq->id}}" class="material-icons text-secondary">thumb_up</span> </a>
-                                    <a role="button" class="dislike" data-id="{{$faq->id}}" > <span id="dislike-{{$faq->id}}" class="material-icons text-secondary">thumb_down</span> </a>
+                                    @foreach($checkLike as $checked)
+                                    @if($checked -> id_faq  == $faq->id && $checked -> vote_type == "like")
+                                    <a role="button" class="like" data-id="{{$faq->id}}"> <span id="like-{{$faq->id}}" class="material-icons text-primary">thumb_up</span> </a>
+                                    @endif
+                                    @endforeach
+                                    <a role="button" class="like" data-id="{{$faq->id}}"> <span id="like-{{$faq->id}}" class="material-icons text-secondary">thumb_up</span> </a>
+                                    @foreach($checkLike as $checked)
+                                    @if($checked -> id_faq  == $faq->id && $checked -> vote_type == "dislike")
+                                    <a role="button" class="dislike" data-id="{{$faq->id}}"> <span id="dislike-{{$faq->id}}" class="material-icons text-primary">thumb_down</span> </a>
+                                    @endif
+                                    @endforeach
+                                    <a role="button" class="dislike" data-id="{{$faq->id}}"> <span id="dislike-{{$faq->id}}" class="material-icons text-secondary">thumb_down</span> </a>
                                 </div> 
                             </div>                       
                         </div>
@@ -137,9 +176,18 @@
                                 <div class="card-body">
                                     <p>{!!$faq->answer!!}</p>
                                     <br>
-                                    
-                                    <a role="button" class="like" data-id="{{$faq->id}}" > <span id="like-{{$faq->id}}" class="material-icons text-secondary">thumb_up</span> </a>
-                                    <a role="button" class="dislike" data-id="{{$faq->id}}" > <span id="dislike-{{$faq->id}}" class="material-icons text-secondary">thumb_down</span> </a>
+                                    @foreach($checkLike as $checked)
+                                    @if($checked -> id_faq  == $faq->id && $checked -> vote_type == "like")
+                                    <a role="button" class="like" data-id="{{$faq->id}}"> <span id="like-{{$faq->id}}" class="material-icons text-primary">thumb_up</span> </a>
+                                    @endif
+                                    @endforeach
+                                    <a role="button" class="like" data-id="{{$faq->id}}"> <span id="like-{{$faq->id}}" class="material-icons text-secondary">thumb_up</span> </a>
+                                    @foreach($checkLike as $checked)
+                                    @if($checked -> id_faq  == $faq->id && $checked -> vote_type == "dislike")
+                                    <a role="button" class="dislike" data-id="{{$faq->id}}"> <span id="dislike-{{$faq->id}}" class="material-icons text-primary">thumb_down</span> </a>
+                                    @endif
+                                    @endforeach
+                                    <a role="button" class="dislike" data-id="{{$faq->id}}"> <span id="dislike-{{$faq->id}}" class="material-icons text-secondary">thumb_down</span> </a>
                                 </div>
                             </div>
                         </div>
@@ -153,7 +201,7 @@
 </body>
 <style>
 body {
-  background-color: #eee;
+   background-color: #eee;
 }
 .faq-nav {
   flex-direction: column;
