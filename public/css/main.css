@@ -10,6 +10,10 @@
   /* position: absolute; */
   bottom: 0;
 }
+.headerCSSpropi .btn-outline-primary {
+    color: #116466;
+    border-color: #116466;
+}
 .wrapper {
   position: relative;
     min-height: 100vh;
