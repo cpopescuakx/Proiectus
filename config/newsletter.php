@@ -13,7 +13,7 @@ return [
      * The API key of a MailChimp account. You can find yours at
      * https://us10.admin.mailchimp.com/account/api-key-popup/.
      */
-    'apiKey' => env('bf653db84904ac408de382924c652b30-us8'),
+    'apiKey' => env('65200e3270c4fee2cf133c5540c9afc3-us8'),
 
     /*
      * The listName to use when no listName has been specified in a method.
