@@ -98,10 +98,13 @@
           <a href="#proposalsSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><span class="fa fa-sticky-note mr-3"></span>Propostes</a>
           <ul class="collapse list-unstyled" id="proposalsSubmenu">
             <li>
-                <a href="{{ route('proposals.index') }}"><span class="fa fa-sticky-note mr-3"></span>Totes les Propostes</a>
+                <a href="{{ route('proposals.index') }}"><span class="fa fa-sticky-note mr-3"></span>Gestió de les Propostes</a>
             </li>
             <li>
-                <a href="{{ route('proposals.index') }}"><span class="fa fa-sticky-note mr-3"></span>Les meves Propostes</a>
+              <a href="{{ route('proposals.all') }}"><span class="fa fa-sticky-note mr-3"></span>Totes les Propostes</a>
+            </li>
+            <li>
+                <a href="{{ route('proposals.dashboard') }}"><span class="fa fa-sticky-note mr-3"></span>Les meves Propostes</a>
             </li>
           </ul>
       </li>

@@ -216,7 +216,8 @@ Route::middleware(['CheckRole'])->group(function () {
     Route::get('Proposals/{id}', 'ProposalController@destroyProposal')->name('proposals.destroy');
     Route::get('Proposals/{id}/active', 'ProposalController@activeProposal')->name('proposals.active');
     Route::get('Proposals/{id}/inactive', 'ProposalController@inactiveProposal')->name('proposals.inactive');
-    Route::get('Dashboard/proposals', 'ProposalController@dashboardProposal')->name('proposals.dashboard');
+    Route::get('dashboard/proposals', 'ProposalController@dashboardProposal')->name('proposals.dashboard');
+    Route::get('proposals/all', 'ProposalController@allProposals')->name('proposals.all');
     Route::get('Proposal/{id}/principal', 'ProposalController@show')->name('proposals.show');
 
 

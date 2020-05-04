@@ -290,6 +290,14 @@ $this->middleware('auth');
         return view('proposals.dashboard', compact('proposals'));
     }
 
+    /** Retorna totes les propostes que hi ha a la base de dades de 12 en 12. */
+
+    public function allProposals(Request $request)
+    {
+        $proposals = Proposal::name($request->get('name'))->paginate(12);
+        return view('proposals.all', compact('proposals'));
+    }
+
      /**
      * Show the form for creating a new resource.
      *
