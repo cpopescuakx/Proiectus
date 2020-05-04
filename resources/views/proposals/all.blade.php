@@ -3,10 +3,10 @@
 @section('content')
 <body>
     <div class="container text-center">
-        <h1 class="pt-4">Les meves propostes</h1>
+        <h1 class="pt-4">Totes les propostes</h1>
         <div class="row justify-content-center">
 
-                  <form class ="form-inline jsutify-content-center m-4" action="{{route('proposals.dashboard')}}" method = "GET" >
+                  <form class ="form-inline jsutify-content-center m-4" action="{{route('proposals.all')}}" method = "GET" >
                       <input name = "name" class="form-control" placeholder="Cercar...">
                     <button style="color: white;" type="submit" class="btn bg-primary1 ml-2">Cercar</button>
                 </form>
