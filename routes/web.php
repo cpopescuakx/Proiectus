@@ -219,6 +219,7 @@ Route::middleware(['CheckRole'])->group(function () {
     Route::get('dashboard/proposals', 'ProposalController@dashboardProposal')->name('proposals.dashboard');
     Route::get('proposals/all', 'ProposalController@allProposals')->name('proposals.all');
     Route::get('Proposal/{id}/principal', 'ProposalController@show')->name('proposals.show');
+    Route::get('proposal/convert/{author}/{guest}/{proposal}', 'ProposalController@convertToProject')->name('proposals.convert');
 
 
 
