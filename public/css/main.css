@@ -10,9 +10,10 @@
   /* position: absolute; */
   bottom: 0;
 }
-.headerCSSpropi .btn-outline-primary {
-    color: #116466;
-    border-color: #116466;
+.foto-perfil {
+  height: 35px;
+  width: 35px;
+  border-radius: 20px;
 }
 .wrapper {
   position: relative;
