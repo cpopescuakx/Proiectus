@@ -109,4 +109,19 @@ class School_usersController extends Controller
             return School::find($school_user->id_school);
         }
     }
+
+    /** Comprova si l'usuari passat com a paràmetre pertany a un institut
+     *  @param int $id
+     */
+
+    public static function checkUser($id) {
+        $user = School_users::where('id_user', $id)->first();
+
+        if(isset($user)) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
 }

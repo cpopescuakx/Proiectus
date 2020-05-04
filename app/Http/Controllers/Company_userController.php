@@ -95,4 +95,19 @@ class Company_userController extends Controller
     {
         //
     }
+
+    /** Comprova si l'usuari passat com a paràmetre pertany a una empresa 
+     *  @param int $id
+    */
+
+    public static function checkUser($id) {
+        $user = Company_users::where('id_user', $id)->first();
+
+        if(isset($user)) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
 }
