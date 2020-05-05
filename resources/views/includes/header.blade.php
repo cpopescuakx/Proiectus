@@ -5,9 +5,38 @@
       <span class="sr-only">Toggle Menu</span>
     </button>
   </div>
+
   <div class="p-4 pt-5">
     <h1><a href="{{route('index.index')}}" class="logo">Proiectus</a></h1>
-    <ul class="list-unstyled components mb-5">
+      <div id="notifications" class="">
+          <a href="#" id="notificationDropdown" class="nav-link dropdown-toggle-split pt-2" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
+              <span class="material-icons"> notifications </span>
+              @if(auth()->user()->unReadNotifications->count())
+                  <span class="badge badge-pill badge-info">{{auth()->user()->unReadNotifications->count()}}</span>
+              @endif
+          </a>
+          <div id="notificationContent" class="dropdown-menu" aria-labelledby="notificationDropdown">
+              @if(auth()->user()->notifications->count() == 0)
+                  <div class="dropdown-item">No tens cap notificació</div>
+              @else
+                  <a style="font-size: small" id="notificationMarkAllRead" class="dropdown-item" role="button" href="{{route('markAllRead')}}">Marca totes com a llegides</a>
+                  <div class="dropdown-divider"></div>
+                  @foreach(auth()->user()->unReadNotifications as $notification)
+                      <li ><a class="dropdown-item" href="#">{!! $notification->data['data'] !!}</a></li>
+                  @endforeach
+
+                  @foreach(auth()->user()->readNotifications as $notification)
+                      <a class="dropdown-item" href="#">{!! $notification->data['data'] !!}</a>
+                  @endforeach
+              @endif
+          </div>
+      </div>
+      <div id="cercador" class="pl-3">
+          <a href="{{route('cercador.index')}}">
+              <span class="material-icons"> search </span>
+          </a>
+      </div>
+      <ul class="list-unstyled components mb-5">
       <!-- Elemento menu -->
       @guest
       <li class="nav-item ml-3">

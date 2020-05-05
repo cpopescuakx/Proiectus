@@ -308,6 +308,7 @@ Route::middleware(['CheckRole'])->group(function () {
         });
         Route::get('markAsRead', function(){
             auth()->user()->unreadNotifications->markAsRead();
+            return back();
         })->name('markAllRead');
     });
 
