@@ -14,6 +14,9 @@
           <a type="button" class="btn btn-outline-primary"  href="{{ route('login') }}">Inicia sessió<span class="sr-only">(current)</span></a>
       </li>
       @else
+          <li>
+
+          </li>
       <!-- Elemento menu FIN -->
       <li class="mb-3">
         <a href="#userSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
@@ -47,38 +50,11 @@
             </form>
           </li>
           <li>
-            <div class="dropdown">
-            <a href="#" id="notificationDropdown" class="nav-link dropdown-toggle-split pt-2" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
-                <span class="material-icons"> notifications </span>
-                @if(auth()->user()->unReadNotifications->count())
-                <span class="badge badge-pill badge-info">{{auth()->user()->unReadNotifications->count()}}</span>
-                @endif
-            </a>
-            <div id="notificationContent" class="dropdown-menu" aria-labelledby="notificationDropdown">
-                @if(auth()->user()->notifications->count() == 0)
-                    <div class="dropdown-item">No tens cap notificació</div>
-                @else
-                    <a id="notificationMarkAllRead" class="dropdown-item" role="button">Marca totes com a llegides</a>
-                    <div class="dropdown-divider"></div>
-                @foreach(auth()->user()->unReadNotifications as $notification)
-                    <li style="background-color: #e4eef0"><a class="dropdown-item" href="#">{!! $notification->data['data'] !!}</a></li>
-                @endforeach
 
-                @foreach(auth()->user()->readNotifications as $notification)
-                    <a class="dropdown-item" href="#">{!! $notification->data['data'] !!}</a>
-                @endforeach
-                @endif
-            </div>
-            </div>
           </li>
         </ul>
       </li>
       @endif
-
-
-
-      <!-- FI Element notificacions -->
-
       <li>
         <a href="{{ route('index.index') }}"><span class="fa fa-home mr-3"></span>Home</a>
       </li>
@@ -172,13 +148,6 @@
           <!--End mc_embed_signup-->
         </div>
     </div>
-
-
-
-
-    <!-- Fi element notificacions -->
   </div>
 </nav>
 
-
-        <!-- Page Content  -->
