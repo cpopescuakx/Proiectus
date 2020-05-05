@@ -59,7 +59,7 @@ class Proposal extends Model
     public function scopeName($query, $name) {
 
         if ($name != "") {
-            $query->where('name', 'like', '%'.$name.'%');
+            $query->where('name', 'like', '%'.$name.'%')->where('status', '!=', 'deleted');
         }
     }
     /** Scope proposal
