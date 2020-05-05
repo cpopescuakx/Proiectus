@@ -44,14 +44,8 @@
             @else
             <li class="nav-item ml-3">
                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                  @if(Auth::user()->profile_pic == null)
-                  <img src="\img\profile_pic\avatar_2x.png" class="foto-perfil-small" alt="imatge_de_perfil"><span class="mr-3"></span>{{ Auth::user()->username }}</a>
-                  <!-- Muestra la imagen que ha seleccionado el usuario -->
-                  @else
-                  <img class="foto-perfil-small" src="\img\profile_pic\imatge{{ Auth::user()->profile_pic }}" alt="imatge_de_perfil"/><span class="mr-3"></span>{{ Auth::user()->username }}</a>
-                  @endif
-
-                <ul class="collapse list-unstyled" id="userSubmenu">
+                   {{ Auth::user()->username }}
+                </a>
                 <!-- Login con dropdown -->
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                     <!-- User Profile -->

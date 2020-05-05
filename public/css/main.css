@@ -15,11 +15,6 @@
   width: 35px;
   border-radius: 20px;
 }
-.foto-perfil-small {
-  height: 25px;
-  width: 25px;
-  border-radius: 20px;
-}
 .wrapper {
   position: relative;
   min-height: fit-content;
