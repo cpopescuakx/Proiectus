@@ -16,7 +16,7 @@
                 @if(Auth::user()->profile_pic == null)
                 <img src="\img\profile_pic\avatar_2x.png" class="rounded-circle mr-auto w-50 img-thumbnail" alt="250x250">
 
-                <!-- Muestra la imagen que ha seleccionado el usuario --> 
+                <!-- Muestra la imagen que ha seleccionado el usuario -->
                 @else
                 <img src="\img\profile_pic\imatge{{ Auth::user()->profile_pic }}" class="rounded-circle mr-auto w-50 img-thumbnail" alt="250x250" style="with:200px; height:200px; border-radius:50%;">
                 @endif
