@@ -3,9 +3,6 @@
 @section('content')
 
     <div class="container pt-5">
-        <div id="app">
-        <tips></tips>
-        </div>
         <!-- Encabezado con logo y título -->
         <div class="row p-5 shadow">
             <div class="col my-auto">
@@ -37,7 +34,7 @@
         <br>
         <!-- Características propuestas -->
         <div class="row p-5 shadow">
-                <div class="card">
+                <div class="card col-sm">
                     <div class="card-header font-weight-bold">
                         Característiques
                     </div>
@@ -54,6 +51,9 @@
                     </ul>
                 </div>
                 <!-- /card -->
+                <div id="app" class="col-sm">
+                    <tips></tips>
+                </div>
         </div>
         <!-- /row -->
         <br>

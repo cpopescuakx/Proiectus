@@ -89,6 +89,16 @@ class FaqController extends Controller
 
         return view('FAQ.index',compact('BlogFAQS','PropostaFAQS','ProjecteFAQS','XatFAQS','CorreuFAQS','WikiFAQS'));
     }
+    
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function getApi() 
+    {
+        return response(FAQ::all()->jsonSerialize());
+    }
 
      /**
      * Display a listing of the resource.
