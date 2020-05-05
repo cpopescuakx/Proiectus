@@ -122,7 +122,7 @@
             </div>
         </div><!-- /row -->
     </div>
-
+</div>
 <!-- JS FOTO PERFIL - NO FUNCIONA (REGALO PARA EL GRUPO1 DEL SPRINT 6) -->
 <script>
 $(document).ready(function() {
