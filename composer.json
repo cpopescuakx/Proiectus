@@ -17,7 +17,8 @@
         "laravel/tinker": "^2.0",
         "laravel/ui": "^1.2",
         "pusher/pusher-php-server": "~4.0",
-        "spatie/laravel-feed": "^2.6"
+        "spatie/laravel-feed": "^2.6",
+        "spatie/laravel-newsletter": "^4.8"
     },
     "require-dev": {
         "facade/ignition": "^1.4",

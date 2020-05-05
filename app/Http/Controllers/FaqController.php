@@ -78,17 +78,18 @@ class FaqController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function checkLike(){
+    public function checkVote(){
         $id_user = auth()->user()->id;
         $vote = faq_votes::where('id_user',$id_user)->get();
-        
-        foreach($vote as $checked){
-            if($checked[4] == "like"){
-                return "like";
-            }else{
-                return "dislike";
-            }
-        }  */  
+        $vots = array();
+        $keys = array();
+        $values = array();
+        foreach($vote as $vot){
+            array_push($keys,$vot['id_faq']);
+            array_push($values,$vot['vote_type']);
+        } 
+        $vots=array_combine ($keys,$values);
+        return $vots;
     }
 
     /**
@@ -104,9 +105,19 @@ class FaqController extends Controller
         $XatFAQS = FaqController::indexXat();
         $CorreuFAQS = FaqController::indexCorreu();
         $WikiFAQS = FaqController::indexWiki();
-        $checkLike = FaqController::checkLike();
+        $checkVot = FaqController::checkVote();
 
-        return view('FAQ.index',compact('BlogFAQS','PropostaFAQS','ProjecteFAQS','XatFAQS','CorreuFAQS','WikiFAQS','checkLike'));
+        return view('FAQ.index',compact('BlogFAQS','PropostaFAQS','ProjecteFAQS','XatFAQS','CorreuFAQS','WikiFAQS','checkVot'));
+    }
+    
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function getApi() 
+    {
+        return response(FAQ::all()->jsonSerialize());
     }
 
      /**
