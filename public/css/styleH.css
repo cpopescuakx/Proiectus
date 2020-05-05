@@ -9795,6 +9795,7 @@
 }
 .headerCSSpropi .wrapper {
   width: 100%;
+  min-height: fit-content;
 }
 .headerCSSpropi #sidebar {
   min-width: 270px;
