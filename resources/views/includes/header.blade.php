@@ -17,9 +17,16 @@
           </a>
           <div id="notificationContent" class="dropdown-menu" aria-labelledby="notificationDropdown">
               @if(auth()->user()->notifications->count() == 0)
-                  <div class="dropdown-item">No tens cap notificació</div>
+
+                          <div class="dropdown-header">No tens cap notificació</div>
+                     
               @else
-                  <a style="font-size: small" id="notificationMarkAllRead" class="dropdown-item" role="button" href="{{route('markAllRead')}}">Marca totes com a llegides</a>
+                  <div class="dropdown-header row">
+                      <div class="col-lg-12 col-sm-12 col-12">
+                          <span>Notificacions ({{auth()->user()->unReadNotifications->count()}})</span>
+                          <a style="font-size: small" href="{{route('markAllRead')}}" class="float-right text-info">Marca totes com a llegides</a>
+                      </div>
+                  </div>
                   <div class="dropdown-divider"></div>
                   @foreach(auth()->user()->unReadNotifications as $notification)
                       <li ><a class="dropdown-item" href="#">{!! $notification->data['data'] !!}</a></li>
