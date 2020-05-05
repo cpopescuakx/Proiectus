@@ -10,9 +10,9 @@
         <div class="row p-5 shadow">
             <div class="col my-auto">
                 @if(Auth::user()->logo_entity == 'null')
-                    <img class="rounded-circle mr-auto img-thumbnail" alt="250x250" src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" data-holder-rendered="true" />               
+                    <img class="rounded-circle mr-auto img-thumbnail" alt="250x250" src="\img\logo_pic\avatar_2x.png" data-holder-rendered="true" />
                 @else
-                    <img class="rounded-circle mr-auto w-50 img-thumbnail" alt="250x250" src="{{ Auth::user()->logo_entity }}" data-holder-rendered="true" />
+                    <img class="rounded-circle mr-auto w-50 img-thumbnail" alt="250x250" src="\img\logo_pic\logo{{ Auth::user()->logo_entity }}" data-holder-rendered="true" />
                 @endif
             </div>
             <div class="col my-auto">
@@ -43,13 +43,13 @@
                     </div>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item"><span class="font-weight-bold">Descripció:</span> {{ $proposal->description }}</li>
-    
+
                         <li class="list-group-item"><span class="font-weight-bold">Professional Family:</span> {{ $proposal->professional_family }}</li>
-    
+
                         <li class="list-group-item"><span class="font-weight-bold">Entitat:</span> {{ $proposal->category }}</li>
-    
+
                         <li class="list-group-item"><span class="font-weight-bold">Data d'inici:</span> {{ date('d/m/Y', strtotime($proposal->created_at)) }}</li>
-                            
+
                         <li class="list-group-item"><span class="font-weight-bold">Data de finalització:</span> {{ date('d/m/Y', strtotime($proposal->limit_date)) }}</li>
                     </ul>
                 </div>
@@ -60,12 +60,12 @@
         </div>
         <!-- /row -->
         <br>
-        
+
         @if ($proposal->category == 'school')
-            @if (!$schoolUser::checkUser(Auth::user()->id)) 
+            @if (!$schoolUser::checkUser(Auth::user()->id))
                 <div class="row p-5 shadow">
                     <div class="col my-auto text-center">
-                        <p class="">Pots unir-te a aquesta proposta, al fer-ho, es crearà el projecte on podràs col·laborar amb aquesta entitat.</p>                        
+                        <p class="">Pots unir-te a aquesta proposta, al fer-ho, es crearà el projecte on podràs col·laborar amb aquesta entitat.</p>
                         <a data-toggle="modal" class="btn btn-dark text-white" data-target="#afegir">Unir-se</a>
                     </div>
                 </div>
@@ -74,13 +74,13 @@
             @if(!$companyUser::checkUser(Auth::user()->id))
                 <div class="row p-5 shadow">
                     <div class="col my-auto text-center">
-                        <p class="">Pots unir-te a aquesta proposta, al fer-ho, es crearà el projecte on podràs col·laborar amb aquesta entitat.</p>                        
+                        <p class="">Pots unir-te a aquesta proposta, al fer-ho, es crearà el projecte on podràs col·laborar amb aquesta entitat.</p>
                         <a data-toggle="modal" class="btn btn-dark text-white" data-target="#afegir">Unir-se</a>
                     </div>
-                </div>  
+                </div>
             @endif
         @endif
-        
+
         <!-- /row -->
     </div>
 
@@ -107,4 +107,3 @@
 
 
 @endsection
-
