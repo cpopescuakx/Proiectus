@@ -16,7 +16,7 @@
       @else
       <!-- Elemento menu FIN -->
       <li class="mb-3">
-        <a href="#userSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><span class="fa fa-users mr-3"></span>{{ Auth::user()->username }}</a>
+        <a href="#userSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><img class="foto-perfil" src="{{ Auth::user()->profile_pic }}" alt="imatge_de_perfil"/><span class="mr-3"></span>{{ Auth::user()->username }}</a>
         <ul class="collapse list-unstyled" id="userSubmenu">
           <li>
               <a href="{{ route('managers.indexP1', ['id' => Auth::user()->id]) }}">Perfil d'usuari</a>
@@ -98,10 +98,13 @@
           <a href="#proposalsSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><span class="fa fa-sticky-note mr-3"></span>Propostes</a>
           <ul class="collapse list-unstyled" id="proposalsSubmenu">
             <li>
-                <a href="{{ route('proposals.index') }}"><span class="fa fa-sticky-note mr-3"></span>Totes les Propostes</a>
+                <a href="{{ route('proposals.index') }}"><span class="fa fa-sticky-note mr-3"></span>Gestió de les Propostes</a>
             </li>
             <li>
-                <a href="{{ route('proposals.dashboard', ['id' => Auth::user()->id]) }}"><span class="fa fa-sticky-note mr-3"></span>Les meves Propostes</a>
+              <a href="{{ route('proposals.all') }}"><span class="fa fa-sticky-note mr-3"></span>Totes les Propostes</a>
+            </li>
+            <li>
+                <a href="{{ route('proposals.dashboard') }}"><span class="fa fa-sticky-note mr-3"></span>Les meves Propostes</a>
             </li>
           </ul>
       </li>
@@ -138,13 +141,29 @@
     </ul>
 
     <div class="mb-5">
-      <h3 class="h6">Subscriu-te per rebre notificacions</h3>
-      <form action="#" class="colorlib-subscribe-form">
+      <h3 class="h6 ml-2">Subscriu-te per rebre notificacions</h3>
         <div class="form-group d-flex">
           <div class="icon"><span class="icon-paper-plane"></span></div>
-          <input type="text" class="form-control" placeholder="Adreça electrònica">
+          <!-- Begin Mailchimp Signup Form -->
+          <link href="//cdn-images.mailchimp.com/embedcode/slim-10_7.css" rel="stylesheet" type="text/css">
+          <style type="text/css">
+          	#mc_embed_signup{clear:left; font:14px Helvetica,Arial,sans-serif;  width:222px;}
+          	/* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+          	   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+          </style>
+          <div id="mc_embed_signup">
+          <form action="https://proiectus.us8.list-manage.com/subscribe/post?u=2ce2bd7646119be3b18cdd74f&amp;id=283927efff" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+              <div id="mc_embed_signup_scroll">
+          	<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
+              <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+              <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_2ce2bd7646119be3b18cdd74f_283927efff" tabindex="-1" value=""></div>
+              <div class="clear"><input type="submit" value="Enviar" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+              </div>
+          </form>
+          </div>
+
+          <!--End mc_embed_signup-->
         </div>
-      </form>
     </div>
 
 

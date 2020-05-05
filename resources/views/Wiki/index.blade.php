@@ -15,7 +15,7 @@
             </div>
             <!-- Textarea de l'editor de text -->
             <div class="form-group">
-                <textarea name="content" id=summernoteWiki></textarea>
+                <textarea name="content" id="summernoteWiki" required></textarea>
             </div>
         </div>
         <div class="form-group">

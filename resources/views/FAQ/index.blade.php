@@ -19,7 +19,7 @@
         </div>
         <div class="col-lg-8">
             <div class="tab-content" id="faq-tab-content">
-                <div class="tab-pane show active" id="tab1" role="tabpanel" aria-labelledby="tab1">
+            <div class="tab-pane show active" id="tab1" role="tabpanel" aria-labelledby="tab1">
                     <div class="accordion" id="accordion-tab-1">
                     @foreach($ProjecteFAQS as $faq)
                         <div class="card">
@@ -32,8 +32,22 @@
                                 <div class="card-body">
                                     <p>{!!$faq->answer!!}</p>
                                     <br>
+                                    <?php $i = false;?>
+                                    @foreach($checkVot as $vot => $tipus_vot)
+                                    @if($vot == $faq->id && $tipus_vot == "like")
+                                    <?php $i = true?>
+                                    <a role="button" class="like" data-id="{{$faq->id}}"> <span id="like-{{$faq->id}}" class="material-icons text-primary">thumb_up</span> </a>
+                                    <a role="button" class="dislike" data-id="{{$faq->id}}"> <span id="dislike-{{$faq->id}}" class="material-icons text-secondary">thumb_down</span> </a>
+                                    @elseif($vot == $faq->id && $tipus_vot == "dislike")
+                                    <?php $i = true?>
+                                    <a role="button" class="like" data-id="{{$faq->id}}"> <span id="like-{{$faq->id}}" class="material-icons text-secondary">thumb_up</span> </a>
+                                    <a role="button" class="dislike" data-id="{{$faq->id}}"> <span id="dislike-{{$faq->id}}" class="material-icons text-primary">thumb_down</span> </a>
+                                    @endif
+                                    @endforeach
+                                    @if(!$i)                                    
                                     <a role="button" class="like" data-id="{{$faq->id}}"> <span id="like-{{$faq->id}}" class="material-icons text-secondary">thumb_up</span> </a>
                                     <a role="button" class="dislike" data-id="{{$faq->id}}"> <span id="dislike-{{$faq->id}}" class="material-icons text-secondary">thumb_down</span> </a>
+                                    @endif
                                 </div>
                             </div>
                         </div>
@@ -53,9 +67,22 @@
                                 <div class="card-body">
                                     <p>{!!$faq->answer!!}</p>
                                     <br>
+                                    <?php $i = false;?>
+                                    @foreach($checkVot as $vot => $tipus_vot)
+                                    @if($vot == $faq->id && $tipus_vot == "like")
+                                    <?php $i = true?>
+                                    <a role="button" class="like" data-id="{{$faq->id}}"> <span id="like-{{$faq->id}}" class="material-icons text-primary">thumb_up</span> </a>
+                                    <a role="button" class="dislike" data-id="{{$faq->id}}"> <span id="dislike-{{$faq->id}}" class="material-icons text-secondary">thumb_down</span> </a>
+                                    @elseif($vot == $faq->id && $tipus_vot == "dislike")
+                                    <?php $i = true?>
+                                    <a role="button" class="like" data-id="{{$faq->id}}"> <span id="like-{{$faq->id}}" class="material-icons text-secondary">thumb_up</span> </a>
+                                    <a role="button" class="dislike" data-id="{{$faq->id}}"> <span id="dislike-{{$faq->id}}" class="material-icons text-primary">thumb_down</span> </a>
+                                    @endif
+                                    @endforeach
+                                    @if(!$i)                                    
                                     <a role="button" class="like" data-id="{{$faq->id}}"> <span id="like-{{$faq->id}}" class="material-icons text-secondary">thumb_up</span> </a>
                                     <a role="button" class="dislike" data-id="{{$faq->id}}"> <span id="dislike-{{$faq->id}}" class="material-icons text-secondary">thumb_down</span> </a>
-                                </div>
+                                    @endif
                             </div>
                         </div>
                     @endforeach
@@ -74,8 +101,22 @@
                                 <div class="card-body">
                                     <p>{!!$faq->answer!!}</p>
                                     <br>
+                                    <?php $i = false;?>
+                                    @foreach($checkVot as $vot => $tipus_vot)
+                                    @if($vot == $faq->id && $tipus_vot == "like")
+                                    <?php $i = true?>
+                                    <a role="button" class="like" data-id="{{$faq->id}}"> <span id="like-{{$faq->id}}" class="material-icons text-primary">thumb_up</span> </a>
+                                    <a role="button" class="dislike" data-id="{{$faq->id}}"> <span id="dislike-{{$faq->id}}" class="material-icons text-secondary">thumb_down</span> </a>
+                                    @elseif($vot == $faq->id && $tipus_vot == "dislike")
+                                    <?php $i = true?>
+                                    <a role="button" class="like" data-id="{{$faq->id}}"> <span id="like-{{$faq->id}}" class="material-icons text-secondary">thumb_up</span> </a>
+                                    <a role="button" class="dislike" data-id="{{$faq->id}}"> <span id="dislike-{{$faq->id}}" class="material-icons text-primary">thumb_down</span> </a>
+                                    @endif
+                                    @endforeach
+                                    @if(!$i)                                    
                                     <a role="button" class="like" data-id="{{$faq->id}}"> <span id="like-{{$faq->id}}" class="material-icons text-secondary">thumb_up</span> </a>
                                     <a role="button" class="dislike" data-id="{{$faq->id}}"> <span id="dislike-{{$faq->id}}" class="material-icons text-secondary">thumb_down</span> </a>
+                                    @endif
                                 </div>
                             </div>
                         </div>
@@ -95,8 +136,22 @@
                                 <div class="card-body">
                                     <p>{!!$faq->answer!!}</p>
                                     <br>
-                                    <a role="button" class="like" data-id="{{$faq->id}}"> <span id="like-{{$faq->id}}"class="material-icons text-secondary">thumb_up</span> </a>
+                                    <?php $i = false;?>
+                                    @foreach($checkVot as $vot => $tipus_vot)
+                                    @if($vot == $faq->id && $tipus_vot == "like")
+                                    <?php $i = true?>
+                                    <a role="button" class="like" data-id="{{$faq->id}}"> <span id="like-{{$faq->id}}" class="material-icons text-primary">thumb_up</span> </a>
                                     <a role="button" class="dislike" data-id="{{$faq->id}}"> <span id="dislike-{{$faq->id}}" class="material-icons text-secondary">thumb_down</span> </a>
+                                    @elseif($vot == $faq->id && $tipus_vot == "dislike")
+                                    <?php $i = true?>
+                                    <a role="button" class="like" data-id="{{$faq->id}}"> <span id="like-{{$faq->id}}" class="material-icons text-secondary">thumb_up</span> </a>
+                                    <a role="button" class="dislike" data-id="{{$faq->id}}"> <span id="dislike-{{$faq->id}}" class="material-icons text-primary">thumb_down</span> </a>
+                                    @endif
+                                    @endforeach
+                                    @if(!$i)                                    
+                                    <a role="button" class="like" data-id="{{$faq->id}}"> <span id="like-{{$faq->id}}" class="material-icons text-secondary">thumb_up</span> </a>
+                                    <a role="button" class="dislike" data-id="{{$faq->id}}"> <span id="dislike-{{$faq->id}}" class="material-icons text-secondary">thumb_down</span> </a>
+                                    @endif
                                 </div>
                             </div>
                         </div>
@@ -116,8 +171,22 @@
                                 <div class="card-body">
                                     <p>{!!$faq->answer!!}</p>
                                     <br>
-                                    <a role="button" class="like" data-id="{{$faq->id}}" > <span id="like-{{$faq->id}}" class="material-icons text-secondary">thumb_up</span> </a>
-                                    <a role="button" class="dislike" data-id="{{$faq->id}}" > <span id="dislike-{{$faq->id}}" class="material-icons text-secondary">thumb_down</span> </a>
+                                    <?php $i = false;?>
+                                    @foreach($checkVot as $vot => $tipus_vot)
+                                    @if($vot == $faq->id && $tipus_vot == "like")
+                                    <?php $i = true?>
+                                    <a role="button" class="like" data-id="{{$faq->id}}"> <span id="like-{{$faq->id}}" class="material-icons text-primary">thumb_up</span> </a>
+                                    <a role="button" class="dislike" data-id="{{$faq->id}}"> <span id="dislike-{{$faq->id}}" class="material-icons text-secondary">thumb_down</span> </a>
+                                    @elseif($vot == $faq->id && $tipus_vot == "dislike")
+                                    <?php $i = true?>
+                                    <a role="button" class="like" data-id="{{$faq->id}}"> <span id="like-{{$faq->id}}" class="material-icons text-secondary">thumb_up</span> </a>
+                                    <a role="button" class="dislike" data-id="{{$faq->id}}"> <span id="dislike-{{$faq->id}}" class="material-icons text-primary">thumb_down</span> </a>
+                                    @endif
+                                    @endforeach
+                                    @if(!$i)                                    
+                                    <a role="button" class="like" data-id="{{$faq->id}}"> <span id="like-{{$faq->id}}" class="material-icons text-secondary">thumb_up</span> </a>
+                                    <a role="button" class="dislike" data-id="{{$faq->id}}"> <span id="dislike-{{$faq->id}}" class="material-icons text-secondary">thumb_down</span> </a>
+                                    @endif
                                 </div> 
                             </div>                       
                         </div>
@@ -137,9 +206,22 @@
                                 <div class="card-body">
                                     <p>{!!$faq->answer!!}</p>
                                     <br>
-                                    
-                                    <a role="button" class="like" data-id="{{$faq->id}}" > <span id="like-{{$faq->id}}" class="material-icons text-secondary">thumb_up</span> </a>
-                                    <a role="button" class="dislike" data-id="{{$faq->id}}" > <span id="dislike-{{$faq->id}}" class="material-icons text-secondary">thumb_down</span> </a>
+                                    <?php $i = false;?>
+                                    @foreach($checkVot as $vot => $tipus_vot)
+                                    @if($vot == $faq->id && $tipus_vot == "like")
+                                    <?php $i = true?>
+                                    <a role="button" class="like" data-id="{{$faq->id}}"> <span id="like-{{$faq->id}}" class="material-icons text-primary">thumb_up</span> </a>
+                                    <a role="button" class="dislike" data-id="{{$faq->id}}"> <span id="dislike-{{$faq->id}}" class="material-icons text-secondary">thumb_down</span> </a>
+                                    @elseif($vot == $faq->id && $tipus_vot == "dislike")
+                                    <?php $i = true?>
+                                    <a role="button" class="like" data-id="{{$faq->id}}"> <span id="like-{{$faq->id}}" class="material-icons text-secondary">thumb_up</span> </a>
+                                    <a role="button" class="dislike" data-id="{{$faq->id}}"> <span id="dislike-{{$faq->id}}" class="material-icons text-primary">thumb_down</span> </a>
+                                    @endif
+                                    @endforeach
+                                    @if(!$i)                                    
+                                    <a role="button" class="like" data-id="{{$faq->id}}"> <span id="like-{{$faq->id}}" class="material-icons text-secondary">thumb_up</span> </a>
+                                    <a role="button" class="dislike" data-id="{{$faq->id}}"> <span id="dislike-{{$faq->id}}" class="material-icons text-secondary">thumb_down</span> </a>
+                                    @endif
                                 </div>
                             </div>
                         </div>
@@ -153,7 +235,7 @@
 </body>
 <style>
 body {
-  background-color: #eee;
+   background-color: #eee;
 }
 .faq-nav {
   flex-direction: column;
@@ -195,7 +277,7 @@ body {
 
 .tab-content {
   box-shadow: 0 1px 5px rgba(85, 85, 85, 0.15);
-  width: 45rem;
+       width: 45rem;
 
 }
 .tab-content .card {

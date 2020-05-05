@@ -2730,13 +2730,13 @@
   box-shadow: 0 0 0 0.2rem rgba(82, 88, 93, 0.5);
 }
 .headerCSSpropi .btn-outline-primary {
-  color: #007bff;
-  border-color: #007bff;
+  color: #116466;
+  border-color: #116466;
 }
 .headerCSSpropi .btn-outline-primary:hover {
   color: #fff;
-  background-color: #007bff;
-  border-color: #007bff;
+  background-color: #189799;
+  border-color: #116466;
 }
 .headerCSSpropi .btn-outline-primary:focus,
 .headerCSSpropi .btn-outline-primary.focus {

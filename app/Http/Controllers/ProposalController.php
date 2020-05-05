@@ -6,8 +6,10 @@ use Illuminate\Http\Request;
 use App\Proposal;
 use App\Tag;
 use App\Proposal_tag;
+use App\Project;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
+use DB;
 
 
 class ProposalController extends Controller
@@ -290,6 +292,53 @@ $this->middleware('auth');
         return view('proposals.dashboard', compact('proposals'));
     }
 
+    /** Retorna totes les propostes que hi ha a la base de dades de 12 en 12. */
+
+    public function allProposals(Request $request)
+    {
+        $proposals = Proposal::name($request->get('name'))->paginate(12);
+        return view('proposals.all', compact('proposals'));
+    }
+
+
+    /** Converteix una proposta a projecte
+     *  - Crea el projecte - DONE
+     *  - Afegeix a les entitats a la taula project_company_members/schools
+     *  - Crear wiki, blog, chat del projecte
+     *  - Desactivar la proposta
+     *  
+     */
+    
+    public function convertToProject($idAuthor, $idGuest, $idProposal) {
+
+        // Agafar la ID que tindrà el nou projecte
+        $statement = DB::select("SHOW TABLE STATUS LIKE 'projects'");
+        $idProjecte = $statement[0]->Auto_increment;
+        
+        // Buscar la proposta actual
+        $proposta = Proposal::find($idProposal);
+
+        $projecte = new Project;
+
+        // Assignar valors
+
+        $projecte -> name = $proposta->name;
+        $projecte -> budget = 0;
+        $projecte -> description = $proposta->description;;
+        $projecte -> professional_family = $proposta->professional_family;
+        $projecte -> ending_date = $proposta->limit_date;
+
+        // Guardar projecte a la BBDD i generar missatge de log
+        $projecte -> save();
+        Log::info('[ INSERT ] - projects - Nou projecte: ' .$projecte -> name. ' inserit!');
+
+        /** Afegir les entitats a les taules project_schools/company_members */
+
+        // S'ha de comprovar el tipus de proposta que era
+
+
+    }
+
      /**
      * Show the form for creating a new resource.
      *
@@ -299,4 +348,6 @@ $this->middleware('auth');
     {
         //
     }
+
+
 }

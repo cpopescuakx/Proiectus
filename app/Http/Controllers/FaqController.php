@@ -78,6 +78,25 @@ class FaqController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function checkVote(){
+        $id_user = auth()->user()->id;
+        $vote = faq_votes::where('id_user',$id_user)->get();
+        $vots = array();
+        $keys = array();
+        $values = array();
+        foreach($vote as $vot){
+            array_push($keys,$vot['id_faq']);
+            array_push($values,$vot['vote_type']);
+        } 
+        $vots=array_combine ($keys,$values);
+        return $vots;
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
         $BlogFAQS = FaqController::indexBlog();
@@ -86,8 +105,9 @@ class FaqController extends Controller
         $XatFAQS = FaqController::indexXat();
         $CorreuFAQS = FaqController::indexCorreu();
         $WikiFAQS = FaqController::indexWiki();
+        $checkVot = FaqController::checkVote();
 
-        return view('FAQ.index',compact('BlogFAQS','PropostaFAQS','ProjecteFAQS','XatFAQS','CorreuFAQS','WikiFAQS'));
+        return view('FAQ.index',compact('BlogFAQS','PropostaFAQS','ProjecteFAQS','XatFAQS','CorreuFAQS','WikiFAQS','checkVot'));
     }
     
     /**
