@@ -18,7 +18,7 @@
 
                 <!-- Muestra la imagen que ha seleccionado el usuario -->
                 @else
-                <img src="\img\profile_pic\imatge{{ Auth::user()->profile_pic }}" class="avatar img-circle img-thumbnail" alt="avatar">
+                <img src="\img\profile_pic\imatge{{ Auth::user()->profile_pic }}" class="avatar img-circle img-thumbnail" alt="avatar" style="with:200px; height:200px; border-radius:50%;">
                 @endif
                 <form enctype="multipart/form-data" action="/profile/{id}" method="POST">
                 <h6>Puja la teua imatge de perfil</h6>
