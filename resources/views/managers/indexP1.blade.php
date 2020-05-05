@@ -66,17 +66,20 @@
                 </div>
                 <div class="text-center my-2">
                     <!-- Muestra una imagen por defecto si el usuario no ha subido ninguna foto de perfil -->
-                    @if(Auth::user()->profile_pic == null)
-                    <img src="http://ssl.gstatic.com/accounts/ui/avatar_1x.png" class="avatar img-circle img-thumbnail" alt="avatar">
+                    @if(Auth::user()->logo_entity == null)
+                    <img src="\img\logo_pic\avatar_2x.png" class="avatar img-circle img-thumbnail" alt="avatar">
 
                     <!-- Muestra la imagen que ha seleccionado el usuario -->
                     @else
-                    <img src="{{ Auth::user()->logo_eentity }}" class="avatar img-circle img-thumbnail" alt="avatar">
+                    <img src="\img\logo_pic\logo{{ Auth::user()->logo_entity }}" class="avatar img-circle img-thumbnail" alt="avatar" style="with:200px; height:200px; border-radius:50%;">
                     @endif
-                    <h6>Puja el logo de la teva empresa o institut</h6>
 
-                    <!-- NO FUNCIONA: REGALO PARA EL GRUPO1 DEL SPRINT6 -->
-                    <input type="file" class="text-center mx-auto file-upload">
+                    <form enctype="multipart/form-data" action="/profile/{id}/logo" method="POST">
+                      <h6>Puja el logo de la teva empresa o institut</h6>
+                      <input type="file" name="logo_entity">
+                      <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                      <input type="submit" class="pullright btn btn-sm btn-primary">
+                    </form>
                 </div>
             </div>
         </div><!--/col-8-->

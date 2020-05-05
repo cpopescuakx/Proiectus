@@ -89,6 +89,22 @@ class UserController extends Controller
             ->with('Completat',"Has actualitzat l'imatge.");
 
     }
+
+    public function updateLogoPic(Request $request){
+      $id = Auth::user()->id;
+      if($request->hasFile('logo_entity')){
+        $logo_entity = $request->file('logo_entity');
+        $nomlogo = time() . '.' . $logo_entity->getClientOriginalExtension();
+    		Image::make($logo_entity)->resize(300, 300)->save( public_path('\img\logo_pic\logo' . $nomlogo ) );
+
+    		$managers = User::find($id);
+    		$managers->logo_entity = $nomlogo;
+    		$managers->save();
+      }
+      return back()
+            ->with('Completat',"Has actualitzat l'imatge.");
+
+    }
     /** DESACTIVAR MANAGER
      *
      *  Cambia a estado inactivo a un determinado manager

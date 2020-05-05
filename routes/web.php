@@ -174,6 +174,9 @@ Route::middleware(['isLogged'])->group(function () {
     /*Actualitzar image perfil*/
     Route::post('profile/{id}', 'UserController@updateProfilePic')->name('managers.indexP1');
 
+    /*Actualitzar logo_entity*/
+    Route::post('profile/{id}/logo', 'UserController@updateLogoPic');
+
 });
 
 Route::middleware(['CheckRole'])->group(function () {
