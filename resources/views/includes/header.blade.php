@@ -19,7 +19,7 @@
               @if(auth()->user()->notifications->count() == 0)
 
                           <div class="dropdown-header">No tens cap notificació</div>
-                     
+
               @else
                   <div class="dropdown-header row">
                       <div class="col-lg-12 col-sm-12 col-12">
@@ -29,11 +29,25 @@
                   </div>
                   <div class="dropdown-divider"></div>
                   @foreach(auth()->user()->unReadNotifications as $notification)
-                      <li ><a class="dropdown-item" href="#">{!! $notification->data['data'] !!}</a></li>
+                      <a class="dropdown-item bg-light">
+                          <div class="col-lg-8 col-sm-8 col-8">
+                          <div>
+                              {!! $notification->data['data'] !!}
+                          </div>
+                          <small class="text-black-50">{{$notification->updated_at}}</small>
+                          </div>
+                      </a>
                   @endforeach
 
                   @foreach(auth()->user()->readNotifications as $notification)
-                      <a class="dropdown-item" href="#">{!! $notification->data['data'] !!}</a>
+                      <a class="dropdown-item">
+                          <div class="col-lg-8 col-sm-8 col-8">
+                              <div>
+                                  {!! $notification->data['data'] !!}
+                              </div>
+                              <small class="text-black-50">{{$notification->updated_at}}</small>
+                          </div>
+                      </a>
                   @endforeach
               @endif
           </div>
