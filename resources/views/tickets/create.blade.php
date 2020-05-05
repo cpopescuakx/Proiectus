@@ -138,6 +138,7 @@
 
           </div>
           <!-- fin formulario -->
+        </div>
       </form>
       @endif
 

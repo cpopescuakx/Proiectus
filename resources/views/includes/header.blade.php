@@ -14,9 +14,19 @@
           <a type="button" class="btn btn-outline-primary"  href="{{ route('login') }}">Inicia sessió<span class="sr-only">(current)</span></a>
       </li>
       @else
+          <li>
+
+          </li>
       <!-- Elemento menu FIN -->
       <li class="mb-3">
-        <a href="#userSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><img class="foto-perfil" src="{{ Auth::user()->profile_pic }}" alt="imatge_de_perfil"/><span class="mr-3"></span>{{ Auth::user()->username }}</a>
+        <a href="#userSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+          <!-- Muestra una imagen por defecto si el usuario no ha subido ninguna foto de perfil -->
+          @if(Auth::user()->profile_pic == null)
+          <img src="\img\profile_pic\avatar_2x.png" class="foto-perfil" alt="imatge_de_perfil"><span class="mr-3"></span>{{ Auth::user()->username }}</a>
+          <!-- Muestra la imagen que ha seleccionado el usuario -->
+          @else
+          <img class="foto-perfil" src="\img\profile_pic\imatge{{ Auth::user()->profile_pic }}" alt="imatge_de_perfil"/><span class="mr-3"></span>{{ Auth::user()->username }}</a>
+          @endif
         <ul class="collapse list-unstyled" id="userSubmenu">
           <li>
               <a href="{{ route('managers.indexP1', ['id' => Auth::user()->id]) }}">Perfil d'usuari</a>
@@ -40,38 +50,11 @@
             </form>
           </li>
           <li>
-            <div class="dropdown">
-            <a href="#" id="notificationDropdown" class="nav-link dropdown-toggle-split pt-2" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
-                <span class="material-icons"> notifications </span>
-                @if(auth()->user()->unReadNotifications->count())
-                <span class="badge badge-pill badge-info">{{auth()->user()->unReadNotifications->count()}}</span>
-                @endif
-            </a>
-            <div id="notificationContent" class="dropdown-menu" aria-labelledby="notificationDropdown">
-                @if(auth()->user()->notifications->count() == 0)
-                    <div class="dropdown-item">No tens cap notificació</div>
-                @else
-                    <a id="notificationMarkAllRead" class="dropdown-item" role="button">Marca totes com a llegides</a>
-                    <div class="dropdown-divider"></div>
-                @foreach(auth()->user()->unReadNotifications as $notification)
-                    <li style="background-color: #e4eef0"><a class="dropdown-item" href="#">{!! $notification->data['data'] !!}</a></li>
-                @endforeach
 
-                @foreach(auth()->user()->readNotifications as $notification)
-                    <a class="dropdown-item" href="#">{!! $notification->data['data'] !!}</a>
-                @endforeach
-                @endif
-            </div>
-            </div>
           </li>
         </ul>
       </li>
       @endif
-
-
-
-      <!-- FI Element notificacions -->
-
       <li>
         <a href="{{ route('index.index') }}"><span class="fa fa-home mr-3"></span>Home</a>
       </li>
@@ -104,7 +87,7 @@
               <a href="{{ route('proposals.all') }}"><span class="fa fa-sticky-note mr-3"></span>Totes les Propostes</a>
             </li>
             <li>
-                <a href="{{ route('proposals.dashboard') }}"><span class="fa fa-sticky-note mr-3"></span>Les meves Propostes</a>
+                <a href="{{ route('proposals.dashboard', ['id' => Auth::user()->id]) }}"><span class="fa fa-sticky-note mr-3"></span>Les meves Propostes</a>
             </li>
           </ul>
       </li>
@@ -162,13 +145,6 @@
           <!--End mc_embed_signup-->
         </div>
     </div>
-
-
-
-
-    <!-- Fi element notificacions -->
   </div>
 </nav>
 
-
-        <!-- Page Content  -->

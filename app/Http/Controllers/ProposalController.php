@@ -7,6 +7,9 @@ use App\Proposal;
 use App\Tag;
 use App\Proposal_tag;
 use App\Project;
+use App\Blog;
+use App\Wiki;
+use App\User_project;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use DB;
@@ -301,12 +304,9 @@ $this->middleware('auth');
     }
 
 
-    /** Converteix una proposta a projecte
-     *  - Crea el projecte - DONE
-     *  - Afegeix a les entitats a la taula project_company_members/schools
-     *  - Crear wiki, blog, chat del projecte
-     *  - Desactivar la proposta
-     *  
+    /** Converteix una proposta a projecte, desactivant la proposta actual,
+     *  creant el blog, la wiki del nou projecte i afegint als participants del
+     *  projecte.
      */
     
     public function convertToProject($idAuthor, $idGuest, $idProposal) {
@@ -321,10 +321,9 @@ $this->middleware('auth');
         $projecte = new Project;
 
         // Assignar valors
-
         $projecte -> name = $proposta->name;
         $projecte -> budget = 0;
-        $projecte -> description = $proposta->description;;
+        $projecte -> description = $proposta->description;
         $projecte -> professional_family = $proposta->professional_family;
         $projecte -> ending_date = $proposta->limit_date;
 
@@ -332,11 +331,43 @@ $this->middleware('auth');
         $projecte -> save();
         Log::info('[ INSERT ] - projects - Nou projecte: ' .$projecte -> name. ' inserit!');
 
-        /** Afegir les entitats a les taules project_schools/company_members */
+        // Desactivar la proposta
+        $proposta->status = 'deleted';
+        $proposta->save();
 
-        // S'ha de comprovar el tipus de proposta que era
+        // Crear blog
+        $blog = new Blog;
+
+        $blog->id_project = $idProjecte;
+        $blog->title = 'Blog per al projecte '.$projecte->name;
+        $blog->save();
+
+        // Crear wiki
+        $wiki = new Wiki;
+
+        $wiki->id_project = $idProjecte;
+        $wiki->title = 'Wiki per al projecte '.$projecte->name;
+
+        $wiki->save();
+
+        // Afegir l'autor al projecte
+        $userProjectAuthor = new User_project;
+
+        $userProjectAuthor->id_user = $idAuthor;
+        $userProjectAuthor->id_project = $idProjecte;
+
+        $userProjectAuthor->save();
+
+        // Afegir al guest al projecte
+        $userProjectGuest = new User_project;
+
+        $userProjectGuest->id_user = $idGuest;
+        $userProjectGuest->id_project = $idProjecte;
+
+        $userProjectGuest->save();
 
 
+        return redirect()->route('projects.show', ['id_project' => $idProjecte]);
     }
 
      /**

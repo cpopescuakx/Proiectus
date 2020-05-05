@@ -12,7 +12,8 @@ use Illuminate\Support\Facades\Hash;
 use Response;
 use Validator;
 use Illuminate\Support\Facades\Log;
-
+use Image;
+use Auth;
 
 class UserController extends Controller
 {
@@ -60,7 +61,6 @@ class UserController extends Controller
         $managers -> password = $request->input('password');
         $nom = $request->input('city');
         $managers -> id_city = CityController::agafarID($nom);
-        $managers -> profile_pic = "Res";
         $managers -> bio = "Res";
         $managers -> status = $request->input('status');
 
@@ -73,11 +73,43 @@ class UserController extends Controller
 
         return redirect()->route('managers.indexP1',compact('managers', 'id'));
     }
+
+    public function updateProfilePic(Request $request){
+      $id = Auth::user()->id;
+      if($request->hasFile('profile_pic')){
+        $profile_pic = $request->file('profile_pic');
+        $nom = time() . '.' . $profile_pic->getClientOriginalExtension();
+    		Image::make($profile_pic)->resize(300, 300)->save( public_path('\img\profile_pic\imatge' . $nom ) );
+
+    		$managers = User::find($id);
+    		$managers->profile_pic = $nom;
+    		$managers->save();
+      }
+      return back()
+            ->with('Completat',"Has actualitzat l'imatge.");
+
+    }
+
+    public function updateLogoPic(Request $request){
+      $id = Auth::user()->id;
+      if($request->hasFile('logo_entity')){
+        $logo_entity = $request->file('logo_entity');
+        $nomlogo = time() . '.' . $logo_entity->getClientOriginalExtension();
+    		Image::make($logo_entity)->resize(300, 300)->save( public_path('\img\logo_pic\logo' . $nomlogo ) );
+
+    		$managers = User::find($id);
+    		$managers->logo_entity = $nomlogo;
+    		$managers->save();
+      }
+      return back()
+            ->with('Completat',"Has actualitzat l'imatge.");
+
+    }
     /** DESACTIVAR MANAGER
      *
      *  Cambia a estado inactivo a un determinado manager
      *
-     *  @author cmasana 
+     *  @author cmasana
      *  @param id
      *  @var user
      *  @return view index.index (Página inicio)
@@ -96,7 +128,7 @@ class UserController extends Controller
      *
      *  Cambia a estado activo a un determinado manager
      *
-     *  @author cmasana 
+     *  @author cmasana
      *  @param id
      *  @var user
      *  @return view managers.indexP1 (Página perfil)
@@ -169,7 +201,6 @@ class UserController extends Controller
         $manager -> password = $request->input('password');
         $postalcode = $request->input('city');
         $manager -> id_city = CityController::getIdFromPostalCode($postalcode);
-        $manager -> profile_pic = "Res";
         $manager -> bio = "Res";
         $manager -> id_role = 5;
         $manager -> status = "active";
@@ -229,7 +260,6 @@ class UserController extends Controller
         $managers -> password = $request->input('password');
         $nom = $request->input('city');
         $managers -> id_city = CityController::agafarID($nom);
-        $managers -> profile_pic = "Res";
         $managers -> bio = "Res";
         $managers -> id_role = 5;
         $managers -> status = $request->input('status');
@@ -307,7 +337,7 @@ class UserController extends Controller
     public function storeStudent(Request $request)
     {
         //dd($request);
-        
+
         DB::transaction(function() use ($request){
             // Instanciar
             $student = new User;
@@ -322,7 +352,6 @@ class UserController extends Controller
             $student -> password = Hash::make($request->input('password'));
             $postalcode = $request->input('city');
             $student -> id_city = CityController::getIdFromPostalCode($postalcode);
-            $student -> profile_pic = "Res";
             $student -> bio = "Res";
             $student -> id_role = 3;
             $student -> status = "active";
@@ -395,7 +424,6 @@ class UserController extends Controller
         }
         $postalcode = $request->input('city');
         $students -> id_city = CityController::getIdFromPostalCode($postalcode);
-        $students -> profile_pic = "Res";
         $students -> bio = "Res";
         $students -> id_role = 3;
         $students -> status = $request->input('status');
@@ -456,7 +484,7 @@ class UserController extends Controller
 
     /**
      * Retorna la vista del formulari per a importar alumnes.
-     * 
+     *
      */
 
     public function indexImportStudents () {
@@ -465,7 +493,7 @@ class UserController extends Controller
 
     /** IMPORT STUDENTS
      *  Acció que serveix per a importar alumnes des de un fitxer CSV.
-     * 
+     *
      */
 
     public function importStudents (Request $request) {
@@ -493,14 +521,14 @@ class UserController extends Controller
                 $num = count($dadesCsv);
 
                 for ($c=0; $c < $num; $c++) {
-                    
+
                     $importArr[$i][] = $dadesCsv [$c];
-                    
+
                 }
 
                 $i++;
             }
-            
+
             fclose($fileO);
 
             foreach ($importArr as $import) {
@@ -515,7 +543,6 @@ class UserController extends Controller
                 $student -> password = Hash::make($import[5]);
                 $postalcode = $import[6];
                 $student -> id_city = CityController::getIdFromPostalCode($postalcode);
-                $student -> profile_pic = "Res";
                 $student -> bio = "Res";
                 $student -> id_role = 3;
                 $student -> status = "active";
@@ -574,7 +601,6 @@ class UserController extends Controller
         $professor -> password = $request->input('password');
         $nom = $request->input('city');
         $professor -> id_city = CityController::agafarID($nom);
-        $professor -> profile_pic = "Res";
         $professor -> bio = "Res";
         $professor -> id_role = 4;
         $professor -> status = "active";
@@ -630,7 +656,6 @@ class UserController extends Controller
         $professor -> password = $request->input('password');
         $nom = $request->input('city');
         $professor -> id_city = CityController::agafarID($nom);
-        $professor -> profile_pic = "Res";
         $professor -> bio = "Res";
         $professor -> id_role = 4;
         $professor -> status = $request->input('status');
@@ -757,7 +782,6 @@ class UserController extends Controller
         $employee -> password = $request->input('password');
         $nom = $request->input('city');
         $employee -> id_city = CityController::agafarID($nom);
-        $employee -> profile_pic = "Res";
         $employee-> bio = $request->input('bio');
         $employee -> id_role = 2;
 
@@ -795,7 +819,6 @@ class UserController extends Controller
         $employee-> password = $request->input('password');
         $nom = $request->input('city');
         $employee-> id_city = CityController::agafarID($nom);
-        $employee-> profile_pic = "Res";
         $employee-> bio = $request->input('bio');
         $employee-> id_role = 2;
         $employee-> status = "active";

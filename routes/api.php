@@ -40,3 +40,6 @@ Route::get('students', 'UserController@getStudents');
 
 //Ruta per a l'API de cities
 Route::get('cities', 'CityController@showApi');
+
+// API FAQ
+Route::get('faq', 'FaqController@getApi');

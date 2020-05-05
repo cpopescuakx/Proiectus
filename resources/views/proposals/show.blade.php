@@ -6,9 +6,6 @@
 
 
     <div class="container pt-5">
-        <div id="app">
-        <tips></tips>
-        </div>
         <!-- Encabezado con logo y título -->
         <div class="row p-5 shadow">
             <div class="col my-auto">
@@ -40,7 +37,7 @@
         <br>
         <!-- Características propuestas -->
         <div class="row p-5 shadow">
-                <div class="card">
+                <div class="card col-sm">
                     <div class="card-header font-weight-bold">
                         Característiques
                     </div>
@@ -57,40 +54,30 @@
                     </ul>
                 </div>
                 <!-- /card -->
+                <div id="app" class="col-sm">
+                    <tips></tips>
+                </div>
         </div>
         <!-- /row -->
         <br>
         
         @if ($proposal->category == 'school')
             @if (!$schoolUser::checkUser(Auth::user()->id)) 
-
                 <div class="row p-5 shadow">
-                    <div class="col my-auto">
-                    </div>
-
-                    <div class="col my-auto">
-                    </div>
-
-                    <div class="col my-auto">
-                        <a data-toggle="modal" class="btn btn-dark text-white" data-target="#afegir">Afegir-se</a>
+                    <div class="col my-auto text-center">
+                        <p class="">Pots unir-te a aquesta proposta, al fer-ho, es crearà el projecte on podràs col·laborar amb aquesta entitat.</p>                        
+                        <a data-toggle="modal" class="btn btn-dark text-white" data-target="#afegir">Unir-se</a>
                     </div>
                 </div>
             @endif
         @else
             @if(!$companyUser::checkUser(Auth::user()->id))
                 <div class="row p-5 shadow">
-                    <div class="col my-auto">
+                    <div class="col my-auto text-center">
+                        <p class="">Pots unir-te a aquesta proposta, al fer-ho, es crearà el projecte on podràs col·laborar amb aquesta entitat.</p>                        
+                        <a data-toggle="modal" class="btn btn-dark text-white" data-target="#afegir">Unir-se</a>
                     </div>
-
-                    <div class="col my-auto">
-                    </div>
-
-                    <div class="col my-auto">
-                        <a data-toggle="modal" class="btn btn-dark text-white" data-target="#afegir">Afegir-se</a>
-                    </div>
-                </div>
-
-                
+                </div>  
             @endif
         @endif
         

@@ -191,5 +191,8 @@
             </div>
     </form>
 </div>
-<script src="{{ asset('js/g2/students.create.js') }}"></script>
+@section('custom-scripts')
+    <script src="{{ asset('js/g2/students.create.js') }}"></script>
+@endsection
+
 @endsection
