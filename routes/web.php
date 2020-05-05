@@ -171,6 +171,9 @@ Route::middleware(['isLogged'])->group(function () {
     Route::get('profile/{id}/delete', 'UserController@destroyProfile')->name('managers.destroyP');
     Route::get('profile/{id}/active', 'UserController@activeProfile')->name('managers.activeP');
 
+    /*Actualitzar image perfil*/
+    Route::post('profile/{id}', 'UserController@updateProfilePic')->name('managers.indexP1');
+
 });
 
 Route::middleware(['CheckRole'])->group(function () {

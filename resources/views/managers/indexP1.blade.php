@@ -14,16 +14,18 @@
             <div class="text-center">
                 <!-- Muestra una imagen por defecto si el usuario no ha subido ninguna foto de perfil -->
                 @if(Auth::user()->profile_pic == null)
-                <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar img-circle img-thumbnail" alt="avatar">
+                <img src="\img\profil_pic\avatar_2x.png" class="avatar img-circle img-thumbnail" alt="avatar">
 
                 <!-- Muestra la imagen que ha seleccionado el usuario -->
-                @else 
-                <img src="{{ Auth::user()->profile_pic }}" class="avatar img-circle img-thumbnail" alt="avatar">
+                @else
+                <img src="\img\profil_pic\{{ Auth::user()->profile_pic }}" class="avatar img-circle img-thumbnail" alt="avatar">
                 @endif
+                <form enctype="multipart/form-data" action="/profile/{id}" method="POST">
                 <h6>Puja la teua imatge de perfil</h6>
-
-                <!-- NO FUNCIONA: REGALO PARA EL GRUPO1 DEL SPRINT6 -->
-                <input type="file" class="text-center mx-auto file-upload">
+                <input type="file" name="profile_pic">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                <input type="submit" class="pullright btn btn-sm btn-primary">
+              </form>
             </div>
             <br>
         </div><!--/col-4-->
@@ -44,9 +46,9 @@
                     <li class="list-group-item">Email: {{ Auth::user()->email }}</li>
 
                     <li class="list-group-item">Població: {{ $city::agafarNom(Auth::user()->id_city) }}</li>
-                        
+
                     <li class="list-group-item">DNI: {{ Str::upper(Auth::user()->dni) }}</li>
-                        
+
                     <li class="list-group-item">Estat del compte: {{ Auth::user()->status }}</li>
                 </ul>
             </div>
@@ -66,13 +68,13 @@
                     <!-- Muestra una imagen por defecto si el usuario no ha subido ninguna foto de perfil -->
                     @if(Auth::user()->profile_pic == null)
                     <img src="http://ssl.gstatic.com/accounts/ui/avatar_1x.png" class="avatar img-circle img-thumbnail" alt="avatar">
-    
+
                     <!-- Muestra la imagen que ha seleccionado el usuario -->
-                    @else 
+                    @else
                     <img src="{{ Auth::user()->logo_eentity }}" class="avatar img-circle img-thumbnail" alt="avatar">
                     @endif
                     <h6>Puja el logo de la teva empresa o institut</h6>
-    
+
                     <!-- NO FUNCIONA: REGALO PARA EL GRUPO1 DEL SPRINT6 -->
                     <input type="file" class="text-center mx-auto file-upload">
                 </div>
@@ -122,28 +124,5 @@
             </div>
         </div><!-- /row -->
     </div>
-
-<!-- JS FOTO PERFIL - NO FUNCIONA (REGALO PARA EL GRUPO1 DEL SPRINT 6) -->
-<script>
-$(document).ready(function() {
-
-    
-var readURL = function(input) {
-    if (input.files && input.files[0]) {
-        var reader = new FileReader();
-
-        reader.onload = function (e) {
-            $('.avatar').attr('src', e.target.result);
-        }
-
-        reader.readAsDataURL(input.files[0]);
-    }
-}
-
-
-$(".file-upload").on('change', function(){
-    readURL(this);
-});
-});
-</script>
+  </div>
 @endsection

@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Hash;
 use Response;
 use Validator;
 use Illuminate\Support\Facades\Log;
+use Image;
 
 
 class UserController extends Controller
@@ -73,11 +74,27 @@ class UserController extends Controller
 
         return redirect()->route('managers.indexP1',compact('managers', 'id'));
     }
+
+    public function updateProfilePic(Request $request){
+      $id = $request->route('id');
+      if($request->hasFile('profile_pic')){
+        $profile_pic = $request->file('profile_pic');
+        $nom = time() . '.' . $profile_pic->getClientOriginalExtension();
+    		Image::make($profile_pic)->resize(300, 300)->save( public_path('\img\profil_pic\imatge' . $nom ) );
+
+    		$managers = User::find($id);
+    		$managers->profile_pic = $nom;
+    		$managers->save();
+      }
+      return back()
+            ->with('Completat',"Has actualitzat l'imatge.");
+
+    }
     /** DESACTIVAR MANAGER
      *
      *  Cambia a estado inactivo a un determinado manager
      *
-     *  @author cmasana 
+     *  @author cmasana
      *  @param id
      *  @var user
      *  @return view index.index (Página inicio)
@@ -96,7 +113,7 @@ class UserController extends Controller
      *
      *  Cambia a estado activo a un determinado manager
      *
-     *  @author cmasana 
+     *  @author cmasana
      *  @param id
      *  @var user
      *  @return view managers.indexP1 (Página perfil)
@@ -307,7 +324,7 @@ class UserController extends Controller
     public function storeStudent(Request $request)
     {
         //dd($request);
-        
+
         DB::transaction(function() use ($request){
             // Instanciar
             $student = new User;
@@ -456,7 +473,7 @@ class UserController extends Controller
 
     /**
      * Retorna la vista del formulari per a importar alumnes.
-     * 
+     *
      */
 
     public function indexImportStudents () {
@@ -465,7 +482,7 @@ class UserController extends Controller
 
     /** IMPORT STUDENTS
      *  Acció que serveix per a importar alumnes des de un fitxer CSV.
-     * 
+     *
      */
 
     public function importStudents (Request $request) {
@@ -493,14 +510,14 @@ class UserController extends Controller
                 $num = count($dadesCsv);
 
                 for ($c=0; $c < $num; $c++) {
-                    
+
                     $importArr[$i][] = $dadesCsv [$c];
-                    
+
                 }
 
                 $i++;
             }
-            
+
             fclose($fileO);
 
             foreach ($importArr as $import) {
