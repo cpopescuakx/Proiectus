@@ -63,34 +63,21 @@
         
         @if ($proposal->category == 'school')
             @if (!$schoolUser::checkUser(Auth::user()->id)) 
-
                 <div class="row p-5 shadow">
-                    <div class="col my-auto">
-                    </div>
-
-                    <div class="col my-auto">
-                    </div>
-
-                    <div class="col my-auto">
-                        <a data-toggle="modal" class="btn btn-dark text-white" data-target="#afegir">Afegir-se</a>
+                    <div class="col my-auto text-center">
+                        <p class="">Pots unir-te a aquesta proposta, al fer-ho, es crearà el projecte on podràs col·laborar amb aquesta entitat.</p>                        
+                        <a data-toggle="modal" class="btn btn-dark text-white" data-target="#afegir">Unir-se</a>
                     </div>
                 </div>
             @endif
         @else
             @if(!$companyUser::checkUser(Auth::user()->id))
                 <div class="row p-5 shadow">
-                    <div class="col my-auto">
+                    <div class="col my-auto text-center">
+                        <p class="">Pots unir-te a aquesta proposta, al fer-ho, es crearà el projecte on podràs col·laborar amb aquesta entitat.</p>                        
+                        <a data-toggle="modal" class="btn btn-dark text-white" data-target="#afegir">Unir-se</a>
                     </div>
-
-                    <div class="col my-auto">
-                    </div>
-
-                    <div class="col my-auto">
-                        <a data-toggle="modal" class="btn btn-dark text-white" data-target="#afegir">Afegir-se</a>
-                    </div>
-                </div>
-
-                
+                </div>  
             @endif
         @endif
         
