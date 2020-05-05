@@ -82,6 +82,8 @@ class ProjectController extends Controller
         if($idProj < $idProp){
             // Instanciar
             $projecte = new Project;
+            $blog = new Blog;
+            $wiki = new Wiki;
 
             // Assignar valors
             $projecte -> name = $request->input('name');
@@ -90,9 +92,25 @@ class ProjectController extends Controller
             $projecte -> professional_family = $request->input('pro_family');
             $projecte -> ending_date = $request->input('end_date');
 
+            //Creació d'un blog per a cada projecte
+            $blog -> id_project = $idProj;
+            $blog -> title = $projecte -> name;
+
+            //Creació d'una wiki per a cada projecte
+            $wiki -> id_project = $idProj;
+            $wiki -> title = $projecte -> name;
+
             // Guardar projecte a la BBDD i generar missatge de log
             $projecte -> save();
             Log::info('[ INSERT ] - projects - Nou projecte: ' .$projecte -> name. ' inserit!');
+
+            // Guardar blog a la BBDD i generar missatge de log
+            $blog -> save();
+            Log::info('[ INSERT ] - blogs - Nou blog: ' .$projecte -> name. ' inserit!');
+
+            // Guardar wiki a la BBDD i generar missatge de log
+            $wiki -> save();
+            Log::info('[ INSERT ] - wikis - Nova wiki: ' .$projecte -> name. ' inserit!');
 
             // Tornar a la llista de projectes
             $projects = Project::all();
