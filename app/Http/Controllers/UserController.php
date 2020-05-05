@@ -61,7 +61,6 @@ class UserController extends Controller
         $managers -> password = $request->input('password');
         $nom = $request->input('city');
         $managers -> id_city = CityController::agafarID($nom);
-        $managers -> profile_pic = "Res";
         $managers -> bio = "Res";
         $managers -> status = $request->input('status');
 
@@ -186,7 +185,6 @@ class UserController extends Controller
         $manager -> password = $request->input('password');
         $postalcode = $request->input('city');
         $manager -> id_city = CityController::getIdFromPostalCode($postalcode);
-        $manager -> profile_pic = "Res";
         $manager -> bio = "Res";
         $manager -> id_role = 5;
         $manager -> status = "active";
@@ -246,7 +244,6 @@ class UserController extends Controller
         $managers -> password = $request->input('password');
         $nom = $request->input('city');
         $managers -> id_city = CityController::agafarID($nom);
-        $managers -> profile_pic = "Res";
         $managers -> bio = "Res";
         $managers -> id_role = 5;
         $managers -> status = $request->input('status');
@@ -339,7 +336,6 @@ class UserController extends Controller
             $student -> password = Hash::make($request->input('password'));
             $postalcode = $request->input('city');
             $student -> id_city = CityController::getIdFromPostalCode($postalcode);
-            $student -> profile_pic = "Res";
             $student -> bio = "Res";
             $student -> id_role = 3;
             $student -> status = "active";
@@ -412,7 +408,6 @@ class UserController extends Controller
         }
         $postalcode = $request->input('city');
         $students -> id_city = CityController::getIdFromPostalCode($postalcode);
-        $students -> profile_pic = "Res";
         $students -> bio = "Res";
         $students -> id_role = 3;
         $students -> status = $request->input('status');
@@ -532,7 +527,6 @@ class UserController extends Controller
                 $student -> password = Hash::make($import[5]);
                 $postalcode = $import[6];
                 $student -> id_city = CityController::getIdFromPostalCode($postalcode);
-                $student -> profile_pic = "Res";
                 $student -> bio = "Res";
                 $student -> id_role = 3;
                 $student -> status = "active";
@@ -591,7 +585,6 @@ class UserController extends Controller
         $professor -> password = $request->input('password');
         $nom = $request->input('city');
         $professor -> id_city = CityController::agafarID($nom);
-        $professor -> profile_pic = "Res";
         $professor -> bio = "Res";
         $professor -> id_role = 4;
         $professor -> status = "active";
@@ -647,7 +640,6 @@ class UserController extends Controller
         $professor -> password = $request->input('password');
         $nom = $request->input('city');
         $professor -> id_city = CityController::agafarID($nom);
-        $professor -> profile_pic = "Res";
         $professor -> bio = "Res";
         $professor -> id_role = 4;
         $professor -> status = $request->input('status');
@@ -774,7 +766,6 @@ class UserController extends Controller
         $employee -> password = $request->input('password');
         $nom = $request->input('city');
         $employee -> id_city = CityController::agafarID($nom);
-        $employee -> profile_pic = "Res";
         $employee-> bio = $request->input('bio');
         $employee -> id_role = 2;
 
@@ -812,7 +803,6 @@ class UserController extends Controller
         $employee-> password = $request->input('password');
         $nom = $request->input('city');
         $employee-> id_city = CityController::agafarID($nom);
-        $employee-> profile_pic = "Res";
         $employee-> bio = $request->input('bio');
         $employee-> id_role = 2;
         $employee-> status = "active";
