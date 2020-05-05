@@ -16,7 +16,14 @@
       @else
       <!-- Elemento menu FIN -->
       <li class="mb-3">
-        <a href="#userSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><img class="foto-perfil" src="{{ Auth::user()->profile_pic }}" alt="imatge_de_perfil"/><span class="mr-3"></span>{{ Auth::user()->username }}</a>
+        <a href="#userSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+          <!-- Muestra una imagen por defecto si el usuario no ha subido ninguna foto de perfil -->
+          @if(Auth::user()->profile_pic == null)
+          <img src="\img\profil_pic\avatar_2x.png" class="foto-perfil" alt="imatge_de_perfil"><span class="mr-3"></span>{{ Auth::user()->username }}</a>
+          <!-- Muestra la imagen que ha seleccionado el usuario -->
+          @else
+          <img class="foto-perfil" src="{{ Auth::user()->profile_pic }}" alt="imatge_de_perfil"/><span class="mr-3"></span>{{ Auth::user()->username }}</a>
+          @endif
         <ul class="collapse list-unstyled" id="userSubmenu">
           <li>
               <a href="{{ route('managers.indexP1', ['id' => Auth::user()->id]) }}">Perfil d'usuari</a>
