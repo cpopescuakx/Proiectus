@@ -13,7 +13,7 @@ use Response;
 use Validator;
 use Illuminate\Support\Facades\Log;
 use Image;
-
+use Auth;
 
 class UserController extends Controller
 {
@@ -75,11 +75,11 @@ class UserController extends Controller
     }
 
     public function updateProfilePic(Request $request){
-      $id = $request->route('id');
+      $id = Auth::user()->id;
       if($request->hasFile('profile_pic')){
         $profile_pic = $request->file('profile_pic');
         $nom = time() . '.' . $profile_pic->getClientOriginalExtension();
-    		Image::make($profile_pic)->resize(300, 300)->save( public_path('\img\profil_pic\imatge' . $nom ) );
+    		Image::make($profile_pic)->resize(300, 300)->save( public_path('\img\profile_pic\imatge' . $nom ) );
 
     		$managers = User::find($id);
     		$managers->profile_pic = $nom;

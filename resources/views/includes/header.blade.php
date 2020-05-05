@@ -19,10 +19,10 @@
         <a href="#userSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
           <!-- Muestra una imagen por defecto si el usuario no ha subido ninguna foto de perfil -->
           @if(Auth::user()->profile_pic == null)
-          <img src="\img\profil_pic\avatar_2x.png" class="foto-perfil" alt="imatge_de_perfil"><span class="mr-3"></span>{{ Auth::user()->username }}</a>
+          <img src="\img\profile_pic\avatar_2x.png" class="foto-perfil" alt="imatge_de_perfil"><span class="mr-3"></span>{{ Auth::user()->username }}</a>
           <!-- Muestra la imagen que ha seleccionado el usuario -->
           @else
-          <img class="foto-perfil" src="{{ Auth::user()->profile_pic }}" alt="imatge_de_perfil"/><span class="mr-3"></span>{{ Auth::user()->username }}</a>
+          <img class="foto-perfil" src="\img\profile_pic\imatge{{ Auth::user()->profile_pic }}" alt="imatge_de_perfil"/><span class="mr-3"></span>{{ Auth::user()->username }}</a>
           @endif
         <ul class="collapse list-unstyled" id="userSubmenu">
           <li>
