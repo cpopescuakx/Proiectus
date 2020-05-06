@@ -19,7 +19,7 @@ class CheckRoleBlog
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next)
+    public function handle(Request $request, Closure $next)
     {
         $check = FALSE;
         if (Auth::user()->id == Post::find($request->route()->parameters()['id_post'])->id_user || Auth::user()->id_role == 1){

@@ -82,7 +82,7 @@
               <a href="{{ route('managers.indexP1', ['id' => Auth::user()->id]) }}">Perfil d'usuari</a>
           </li>
           <li>
-              <a href="#">Convidar a un nou usuari</a>
+              <a href="{{route('invitacio')}}">Convidar a un nou usuari</a>
           </li>
           <li>
               <a href="{{ route('tickets.create') }}">Notificar un error</a>
@@ -197,4 +197,3 @@
     </div>
   </div>
 </nav>
-

@@ -1,6 +1,24 @@
 @extends('layouts.default')
 @section('content')
 
+<div class="d-flex justify-content-center">
+    <div class="alert alert-info mt-3 w-100" role="alert">
+        <div class="row">
+            <div class="col">
+                <h2>Ordre de les columnes</h2>
+                <ul>
+                    <li><span class="font-weight-bold">Columna 1:</span> Nom</li>
+                    <li><span class="font-weight-bold">Columna 2:</span> Cognom</li>
+                    <li><span class="font-weight-bold">Columna 3:</span> Usuari</li>
+                    <li><span class="font-weight-bold">Columna 4:</span> DNI</li>
+                    <li><span class="font-weight-bold">Columna 5:</span> Correu electrònic</li>
+                    <li><span class="font-weight-bold">Columna 6:</span> Contrasenya</li>
+                    <li><span class="font-weight-bold">Columna 7:</span> Codi Postal</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
 
 <div class="formulari">
     <form class="was-validated" action="{{route('students.upload')}}" method="POST" enctype="multipart/form-data">
@@ -48,14 +66,6 @@
                 </div>
             </div>
         </div>
-    </form>
+    </form>    
 </div>
-
-
-
-
-
-
-
-
 @stop

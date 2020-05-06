@@ -10,62 +10,66 @@ use Illuminate\Http\Request;
 
 class FaqController extends Controller
 {
-   
 
     /**
-     * Display a listing of the resource.
+     * Llistat de totes les preguntes i respostes amb el tòpic blog.
      *
-     * @return \Illuminate\Http\Response
+     * @return faqs 
      */
     public function indexBlog()
     {
         $faqs = faq::where('topic',"Blog")->get();
         return $faqs;
     }
-       /**
-     * Display a listing of the resource.
+
+    /**
+     * Llistat de totes les preguntes i respostes amb el tòpic wiki.
      *
-     * @return \Illuminate\Http\Response
+     * @return faqs
      */
     public function indexWiki()
     {
         $faqs = faq::where('topic',"Wiki")->get();
         return $faqs;
     }
-       /**
-     * Display a listing of the resource.
+
+    /**
+     * Llistat de totes les preguntes i respostes amb el tòpic xat.
      *
-     * @return \Illuminate\Http\Response
+     * @return faqs
      */
     public function indexXat()
     {
         $faqs = faq::where('topic',"Xat")->get();
         return $faqs;
     }
-       /**
-     * Display a listing of the resource.
+
+    /**
+     * Llistat de totes les preguntes i respostes amb el tòpic correu.
      *
-     * @return \Illuminate\Http\Response
+     * @return faqs
      */
     public function indexCorreu()
     {
         $faqs = faq::where('topic',"Correu")->get();
         return $faqs;
     }
-       /**
-     * Display a listing of the resource.
+
+    /**
+     * Llistat de totes les preguntes i respostes amb el tòpic proposta.
      *
-     * @return \Illuminate\Http\Response
+     * @return faqs
      */
     public function indexProposta()
     {
         $faqs = faq::where('topic',"Proposta")->get();
         return $faqs;
     }
-       /**
-     * Display a listing of the resource.
+
+    /**
+     * Llistat de totes les preguntes i respostes amb el tòpic projecte.
      *
-     * @return \Illuminate\Http\Response
+     * @return faqs
      */
     public function indexProjecte()
     {
@@ -74,26 +78,37 @@ class FaqController extends Controller
     }
 
     /**
-     * Display a listing of the resource.
+     * Comprovació del tipus de vot per a cada pregunta del FAQ.
      *
-     * @return \Illuminate\Http\Response
+     * @return vots
      */
     public function checkVote(){
+
+        //Obtenim l'id de l'usuari loggeat
         $id_user = auth()->user()->id;
+
+        //Fem la cerca de les preguntes votades per aquest usuari
         $vote = faq_votes::where('id_user',$id_user)->get();
+
+        //Creem 3 arrays per a guardar tots els tipus de vots amb les seves preguntes.
         $vots = array();
         $keys = array();
         $values = array();
+
+        //Recorrem cada pregunta del resultat de la recerca anterior i guardem el tipus de vot i la pregunta a la qual pertany.
         foreach($vote as $vot){
             array_push($keys,$vot['id_faq']);
             array_push($values,$vot['vote_type']);
         } 
+
+        //Afegim les 2 arrays anteriors a la de $vots la qual posteriorment retornarem.
         $vots=array_combine ($keys,$values);
+
         return $vots;
     }
 
     /**
-     * Display a listing of the resource.
+     * Fem la crida a les diferents accions per a poder passar a la vista el contingut d'aquestes.
      *
      * @return \Illuminate\Http\Response
      */
@@ -111,9 +126,9 @@ class FaqController extends Controller
     }
     
     /**
-     * Display a listing of the resource.
+     * Llistat de preguntes i respostes amb format JSON.
      *
-     * @return \Illuminate\Http\Response
+     * @return faqs
      */
     public function getApi() 
     {
@@ -121,18 +136,28 @@ class FaqController extends Controller
     }
 
      /**
-     * Display a listing of the resource.
+     * Afegeix un like a la pregunta seleccionada.
      *
-     * @return \Illuminate\Http\Response
+     *  @param Request $request
      */
     public function like(Request $request)
     {
+        //Obtenim l'id de la pregunta seleccionada.
         $id_faq = $request->route('id_faq');
+
+        //Instanciem l'objecte faq_votes
         $faq_vote = new faq_votes;
+        
+        //Obtenim l'id de l'usuari loggeat
         $id_user = auth()->user()->id;
+
+        //Busquem la pregunta amb l'id de l'usuari per si ja ha estat votada anteriorment.
         $vote = faq_votes::where('id_faq',$id_faq)->where('id_user',$id_user)->first();
 
+        //Comprovem si ha estat votada anteriorment
         if(isset($vote)){
+
+            //Si ha estat votada i amb un dislike, incrementem els likes, desincrementem els dislikes i guardem les dades de votació.
             if($vote -> vote_type == "dislike"){
                 faq::find($id_faq)->increment('like');
                 faq::find($id_faq)->decrement('dislike');
@@ -140,33 +165,50 @@ class FaqController extends Controller
                 $vote -> id_faq = $id_faq;
                 $vote -> vote_type = "like";
                 $vote->save();
+                Log::info('[ INSERT ] - faq_votes - Nova votació '.($vote -> vote_type).' del usuari: ' .$id_user. ', sobre la pregunta: '.$id_faq.' inserida!');
+
             }
+
+            //Si ha estat votada i amb un like no realitzem cap acció.
             elseif($vote -> vote_type == "like"){
             }
         }
+
+        //Si no ha estat votada incrementem els likes i guardem les dades de votació.
         else{
             faq::find($id_faq)->increment('like');
             $faq_vote -> id_user = $id_user;
             $faq_vote -> id_faq = $id_faq;
             $faq_vote -> vote_type = "like";
             $faq_vote->save();
+            Log::info('[ INSERT ] - faq_votes - Nova votació '.($vote -> vote_type).' del usuari: ' .$id_user. ', sobre la pregunta: '.$id_faq.' inserida!');
         }
     }
 
     
     /**
-    * Display a listing of the resource.
+    * Afegeix un dislike a la pregunta seleccionada.
     *
     * @return \Illuminate\Http\Response
     */
     public function dislike(Request $request)
     {
+        //Obtenim l'id de la pregunta seleccionada
         $id_faq = $request->route('id_faq');
-        $faq_vote = new faq_votes;
-        $id_user = auth()->user()->id;
-        $vote = faq_votes::where('id_faq',$id_faq)->where('id_user',$id_user)->first();
 
+        //Instanciem l'objecte faq_votes
+        $faq_vote = new faq_votes;
+        
+        //Obtenim l'id de l'usuari loggeat
+        $id_user = auth()->user()->id;
+
+        //Busquem la pregunta amb l'id de l'usuari per si ja ha estat votada anteriorment.
+        $vote = faq_votes::where('id_faq',$id_faq)->where('id_user',$id_user)->first();
+        
+        //Comprovem si ha estat votada anteriorment.
         if(isset($vote)){
+
+            //Si ha estat votada i amb un like, incrementem els dislikes, desincrementem els likes i guardem les dades de votació.
             if($vote -> vote_type == "like"){
                 faq::find($id_faq)->increment('dislike');
                 faq::find($id_faq)->decrement('like');
@@ -174,82 +216,22 @@ class FaqController extends Controller
                 $vote -> id_faq = $id_faq;
                 $vote -> vote_type = "dislike";
                 $vote->save();
+                Log::info('[ INSERT ] - faq_votes - Nova votació '.($vote -> vote_type).' del usuari: ' .$id_user. ', sobre la pregunta: '.$id_faq.' inserida!');
             }
+
+            //Si ha estat votada i amb un like no realitzem cap acció.
             elseif($vote->vote_type == "dislike"){
             }
         }
+
+        //Si no ha estat votada incrementem els dislikes i guardem les dades de votació.
         else{
             faq::find($id_faq)->increment('dislike');
             $faq_vote -> id_user = $id_user;
             $faq_vote -> id_faq = $id_faq;
             $faq_vote -> vote_type = "dislike";
             $faq_vote->save();
+            Log::info('[ INSERT ] - faq_votes - Nova votació '.($vote -> vote_type).' del usuari: ' .$id_user. ', sobre la pregunta: '.$id_faq.' inserida!');
         }
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\faq  $faq
-     * @return \Illuminate\Http\Response
-     */
-    public function show(faq $faq)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\faq  $faq
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(faq $faq)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\faq  $faq
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, faq $faq)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\faq  $faq
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(faq $faq)
-    {
-        //
     }
 }
