@@ -43,3 +43,7 @@ Route::get('cities', 'CityController@showApi');
 
 // API FAQ
 Route::get('faq', 'FaqController@getApi');
+
+// API Tags
+Route::get('proposal/tags', 'Proposal_tagController@index');
+Route::get('proposal/tags/{id}', 'Proposal_tagController@showTags');

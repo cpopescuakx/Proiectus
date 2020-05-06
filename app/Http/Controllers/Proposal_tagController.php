@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Proposal_tag;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
+use DB;
 
 class Proposal_tagController extends Controller
 {
@@ -13,7 +17,8 @@ class Proposal_tagController extends Controller
      */
     public function index()
     {
-        //
+        return response(Proposal_tag::all()->jsonSerialize());
+        //dd(Proposal_tag::all()->jsonSerialize());
     }
 
     /**
@@ -43,9 +48,16 @@ class Proposal_tagController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
         //
+    }
+
+    public function showTags($id) 
+    {
+        return response(Proposal_tag::where('id_proposal', $id)->get()->jsonSerialize());
+        //$proposaltag = Proposal_tag::where('id_proposal', $id)->get()->jsonSerialize();
+        //dd($proposaltag);
     }
 
     /**
