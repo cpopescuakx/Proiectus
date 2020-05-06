@@ -106,6 +106,7 @@ class ProjectController extends Controller
 
             // Guardar projecte a la BBDD
             $projecte -> save();
+            Log::info('[ INSERT ] - projects - Nou porjecte: ' .$projecte -> name. ' inserit!');
 
             //Creació d'un blog per a cada projecte
             $blog -> id_project = $idProj;
