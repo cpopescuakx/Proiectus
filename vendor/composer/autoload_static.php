@@ -586,6 +586,7 @@ class ComposerStaticInit3be929a50a6529bc9bb0534e0bce8239
         'App\\Http\\Middleware\\isAdminOrGestor' => __DIR__ . '/../..' . '/app/Http/Middleware/isAdminOrGestor.php',
         'App\\Http\\Middleware\\isLogged' => __DIR__ . '/../..' . '/app/Http/Middleware/isLogged.php',
         'App\\Http\\Middleware\\isProfessor' => __DIR__ . '/../..' . '/app/Http/Middleware/isProfessor.php',
+        'App\\Invite' => __DIR__ . '/../..' . '/app/Invite.php',
         'App\\Mail_message' => __DIR__ . '/../..' . '/app/Mail_message.php',
         'App\\Message' => __DIR__ . '/../..' . '/app/Message.php',
         'App\\NewsItem' => __DIR__ . '/../..' . '/app/NewsItem.php',

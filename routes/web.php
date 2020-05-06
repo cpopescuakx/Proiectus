@@ -294,7 +294,12 @@ Route::middleware(['CheckRole'])->group(function () {
     // Cercador
     Route::get('/cercador', function () {return view('cercador.index');})->name('cercador.index');
 
-
+    //Rutes per a la invitació d'usuaris
+    Route::get('/UserInvitation', 'UserController@indexInvitacio')->name('invitacio');
+    Route::get('/UserInvitation/invite', 'UserController@invite_view')->name('invite_view');
+    Route::post('/UserInvitation/invite', 'UserController@process_invites')->name('process_invite');
+    Route::get('/registration/{token}', 'UserController@registration_view')->name('registration');
+    Route::POST('/registration', 'Auth\RegisterController@register')->name('accept');
 
 
     /** Resource center */

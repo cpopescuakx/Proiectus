@@ -90,6 +90,7 @@ return array(
     'App\\Http\\Middleware\\isAdminOrGestor' => $baseDir . '/app/Http/Middleware/isAdminOrGestor.php',
     'App\\Http\\Middleware\\isLogged' => $baseDir . '/app/Http/Middleware/isLogged.php',
     'App\\Http\\Middleware\\isProfessor' => $baseDir . '/app/Http/Middleware/isProfessor.php',
+    'App\\Invite' => $baseDir . '/app/Invite.php',
     'App\\Mail_message' => $baseDir . '/app/Mail_message.php',
     'App\\Message' => $baseDir . '/app/Message.php',
     'App\\NewsItem' => $baseDir . '/app/NewsItem.php',
