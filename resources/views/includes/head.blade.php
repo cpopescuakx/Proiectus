@@ -26,7 +26,7 @@
 <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
 
 <!-- SUMMERNOTE CSS - EDITOR DE TEXTO -->
-<link href="{{ asset('summernote-master/dist/summernote-bs4.css') }}" rel="stylesheet">
+<link href="{{ asset('summernote-master/dist/summernote-lite.css') }}" rel="stylesheet">
 
 <!-- Imports per a les llibreries bootstrap-table, bootstrap-select i bootstrap-datepicker-->
 <link href="{{ asset('bootstrap-table-master/dist/bootstrap-table.css') }}" rel="stylesheet">

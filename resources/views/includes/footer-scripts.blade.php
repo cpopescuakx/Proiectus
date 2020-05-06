@@ -40,4 +40,4 @@
 <script src="{{ asset('bootstrap-table-master/dist/bootstrap-table.js') }}"></script>
 <script src="{{ asset('bootstrap-datepicker-1.9.0-dist/js/bootstrap-datepicker.js') }}"></script>
 <script src="{{ asset('bootstrap-datepicker-1.9.0-dist/locales/bootstrap-datepicker.ca.min.js') }}"></script>
-<script src="{{ asset('summernote-master/dist/summernote-bs4.min.js') }}"></script>
+<script src="{{ asset('summernote-master/dist/summernote-lite.js') }}"></script>
