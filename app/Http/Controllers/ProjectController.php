@@ -20,6 +20,7 @@ use App\User;
 use App\Chat;
 use App\Chat_member;
 use Illuminate\Support\Facades\Log;
+use DB;
 
 
 class ProjectController extends Controller
@@ -76,59 +77,61 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-            // ------------------------------  PROPOSTA  ------------------------------  //
-            // Instanciar
-            $proposta = new Proposal;
+        // Agafar la ID que tindrà el nou projecte
+        $statement = DB::select("SHOW TABLE STATUS LIKE 'projects'");
+        $idProj = $statement[0]->Auto_increment;
+        // ------------------------------  PROPOSTA  ------------------------------  //
+        // Instanciar
+        $proposta = new Proposal;
 
-            // Assignar valors
-            $proposta -> name = $request->input('name');
-            $proposta -> description = $request->input('desc');
-            $proposta -> professional_family = $request->input('pro_family');
-            $proposta -> limit_date = $request->input('end_date');
-            $proposta -> id_author = 1;
-            $proposta -> category = 'company';
+        // Assignar valors
+        $proposta -> name = $request->input('name');
+        $proposta -> description = $request->input('desc');
+        $proposta -> professional_family = $request->input('pro_family');
+        $proposta -> limit_date = $request->input('end_date');
+        $proposta -> id_author = 1;
+        $proposta -> category = 'company';
 
-            // Guardar proposta a la BBDD
-            $proposta -> save();
+        // Guardar proposta a la BBDD
+        $proposta -> save();
 
-            // ------------------------------  PROJECTE  ------------------------------  //
-            // Instanciar
-            $projecte = new Project;
-            $blog = new Blog;
-            $wiki = new Wiki;
+        // ------------------------------  PROJECTE  ------------------------------  //
+        // Instanciar
+        $projecte = new Project;
+        $blog = new Blog;
+        $wiki = new Wiki;
 
-            // Assignar valors
-            $projecte -> name = $request->input('name');
-            $projecte -> budget = $request->input('budget');
-            $projecte -> description = $request->input('desc');
-            $projecte -> professional_family = $request->input('pro_family');
-            $projecte -> ending_date = $request->input('end_date');
+        // Assignar valors
+        $projecte -> name = $request->input('name');
+        $projecte -> budget = $request->input('budget');
+        $projecte -> description = $request->input('desc');
+        $projecte -> professional_family = $request->input('pro_family');
+        $projecte -> ending_date = $request->input('end_date');
 
-            // Guardar projecte a la BBDD
-            $projecte -> save();
-            Log::info('[ INSERT ] - projects - Nou porjecte: ' .$projecte -> name. ' inserit!');
+        // Guardar projecte a la BBDD
+        $projecte -> save();
+        Log::info('[ INSERT ] - projects - Nou porjecte: ' .$projecte -> name. ' inserit!');
 
-            //Creació d'un blog per a cada projecte
-            $blog -> id_project = $idProj;
-            $blog -> title = $projecte -> name;
+        //Creació d'un blog per a cada projecte
+        $blog -> id_project = $idProj;
+        $blog -> title = $projecte -> name;
 
-            //Creació d'una wiki per a cada projecte
-            $wiki -> id_project = $idProj;
-            $wiki -> title = $projecte -> name;
+        //Creació d'una wiki per a cada projecte
+        $wiki -> id_project = $idProj;
+        $wiki -> title = $projecte -> name;
 
-            // Guardar blog a la BBDD i generar missatge de log
-            $blog -> save();
-            Log::info('[ INSERT ] - blogs - Nou blog: ' .$projecte -> name. ' inserit!');
+        // Guardar blog a la BBDD i generar missatge de log
+        $blog -> save();
+        Log::info('[ INSERT ] - blogs - Nou blog: ' .$projecte -> name. ' inserit!');
 
-            // Guardar wiki a la BBDD i generar missatge de log
-            $wiki -> save();
-            Log::info('[ INSERT ] - wikis - Nova wiki: ' .$projecte -> name. ' inserit!');
+        // Guardar wiki a la BBDD i generar missatge de log
+        $wiki -> save();
+        Log::info('[ INSERT ] - wikis - Nova wiki: ' .$projecte -> name. ' inserit!');
 
-            // Tornar a la llista de projectes
-            $projects = Project::all();
-            return redirect()->route('projects.index',compact('projects'))
-            ->with('i', (request()->input('page', 1) -1));
-        }
+        // Tornar a la llista de projectes
+        $projects = Project::all();
+        return redirect()->route('projects.index',compact('projects'))
+        ->with('i', (request()->input('page', 1) -1));
     }
 
 
