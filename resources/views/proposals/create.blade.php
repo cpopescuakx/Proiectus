@@ -137,8 +137,8 @@
           </div>
           <!-- fin formulario -->
       </form>
-
+    </div>
 </body>
-@stop
+@endsection
 
 
