@@ -76,53 +76,7 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        $idProj = Project::max('id_project');
-        $idProp = Proposal::max('id_proposal');
-
-        if($idProj < $idProp){
-            // Instanciar
-            $projecte = new Project;
-            $blog = new Blog;
-            $wiki = new Wiki;
-
-            // Assignar valors
-            $projecte -> name = $request->input('name');
-            $projecte -> budget = $request->input('budget');
-            $projecte -> description = $request->input('desc');
-            $projecte -> professional_family = $request->input('pro_family');
-            $projecte -> ending_date = $request->input('end_date');
-
-            //Creació d'un blog per a cada projecte
-            $blog -> id_project = $idProj;
-            $blog -> title = $projecte -> name;
-
-            //Creació d'una wiki per a cada projecte
-            $wiki -> id_project = $idProj;
-            $wiki -> title = $projecte -> name;
-
-            // Guardar projecte a la BBDD i generar missatge de log
-            $projecte -> save();
-            Log::info('[ INSERT ] - projects - Nou projecte: ' .$projecte -> name. ' inserit!');
-
-            // Guardar blog a la BBDD i generar missatge de log
-            $blog -> save();
-            Log::info('[ INSERT ] - blogs - Nou blog: ' .$projecte -> name. ' inserit!');
-
-            // Guardar wiki a la BBDD i generar missatge de log
-            $wiki -> save();
-            Log::info('[ INSERT ] - wikis - Nova wiki: ' .$projecte -> name. ' inserit!');
-
-            // Tornar a la llista de projectes
-            $projects = Project::all();
-            return redirect()->route('projects.index',compact('projects'))
-            ->with('i', (request()->input('page', 1) -1));
-
-        }
-        // Si el nº de projectes no és major que el de propostes haurem de crear una proposta primer i després crear
-        // el projecte associat.
-        else{
             // ------------------------------  PROPOSTA  ------------------------------  //
-
             // Instanciar
             $proposta = new Proposal;
 
@@ -140,6 +94,8 @@ class ProjectController extends Controller
             // ------------------------------  PROJECTE  ------------------------------  //
             // Instanciar
             $projecte = new Project;
+            $blog = new Blog;
+            $wiki = new Wiki;
 
             // Assignar valors
             $projecte -> name = $request->input('name');
@@ -150,6 +106,22 @@ class ProjectController extends Controller
 
             // Guardar projecte a la BBDD
             $projecte -> save();
+
+            //Creació d'un blog per a cada projecte
+            $blog -> id_project = $idProj;
+            $blog -> title = $projecte -> name;
+
+            //Creació d'una wiki per a cada projecte
+            $wiki -> id_project = $idProj;
+            $wiki -> title = $projecte -> name;
+
+            // Guardar blog a la BBDD i generar missatge de log
+            $blog -> save();
+            Log::info('[ INSERT ] - blogs - Nou blog: ' .$projecte -> name. ' inserit!');
+
+            // Guardar wiki a la BBDD i generar missatge de log
+            $wiki -> save();
+            Log::info('[ INSERT ] - wikis - Nova wiki: ' .$projecte -> name. ' inserit!');
 
             // Tornar a la llista de projectes
             $projects = Project::all();
