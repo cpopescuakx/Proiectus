@@ -8,43 +8,26 @@ use Illuminate\Http\Request;
 class ArticleController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
+     * LListat de tots els articles que formin part del projecte i estiguin en status (active).
+     * 
+     * @param  int $id_project Conté la id del projecte del qual cercarem els articles.
      * @return \Illuminate\Http\Response
      */
-
-
-    public function index($id_project)
-    {
-        $articles = Article::all()
-            ->where('id_project', '=', $id_project)->where('status', '=', 'active');
-
+    public function index($id_project){
+        $articles = Article::all()->where('id_project', '=', $id_project)->where('status', '=', 'active');
         return view('articles.index', compact('articles', 'id_project'));
     }
 
-
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-
-
-    public function create($id_project)
-    {
-    }
-
-
-    /**
-     * Store a newly created resource in storage.
+     * Guardem els articles creats.
      *
      * @param  \Illuminate\Http\Request  $request
+     * @param  int $id_project Conté la id del projecte que assignarem als articles guardats. 
      * @return \Illuminate\Http\Response
      */
+    public function store(Request $request, $id_project){
 
-
-    public function store(Request $request, $id_project)
-    {
+        //Establim que els camps següents siguin required i comprovem aquests.
         $request->validate([
             // 'version' => 'required',
             'title' => 'required',
@@ -62,8 +45,6 @@ class ArticleController extends Controller
         $article->reference = '';
         $article->id_user = $request->user()->id;
         $article->status = 'active';
-
-
 
         $article->save();
 
