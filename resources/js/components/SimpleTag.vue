@@ -36,25 +36,10 @@
 <!-- TO-DO: Falta arreglar alineación vertical y comprobar si tocando la plantilla de la vista se arregla ese efecto de transición tan merdento.
         El puto d-flex me petaba el carrusel, buscar alternativa fácil -->
 <template>
-    <div class="carousel slide" data-ride="carousel">
-        <div class="my-5 carousel-inner p-5">
-            <div class="carousel-item text-center pt-5 active box-part text-dark shadow-sm">
-                <div class="title">
-                    <h4>#RESISTIREM</h4>
-                </div>
-                <div class="text text-muted py-2">
-                    <span>Descripció molt detallada.</span>
-                </div>
-            </div>
-            <div class="carousel-item text-center pt-5 box-part text-dark shadow-sm" v-for="tip in tips" :key="tip.id">
-                <div class="title">
-                    <h4>{{ tip.question }}</h4>
-                </div>
-                <div class="text text-muted py-2">
-                    <span v-html="tip.answer"></span>
-                </div>
-            </div>
-        </div>
+    <div class="btn-group" role="group" aria-label="Basic example">
+        <button type="button" class="btn btn-secondary">Left</button>
+        <button type="button" class="btn btn-secondary">Middle</button>
+        <button type="button" class="btn btn-secondary">Right</button>
     </div>
 </template>
 

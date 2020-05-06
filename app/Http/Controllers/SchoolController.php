@@ -50,7 +50,7 @@ class SchoolController extends Controller
         School::create($request->all());
         Log::info($request->user()->username. ' - [ INSERT ] - schools - Nou centre: ' .$request -> name. ' inserit!');
 
-        return redirect()->route('schools.index')->with('Éxit','L institut s ha modificat correctament!');
+        return redirect()->route('schools.index')->with('Èxit','L institut s ha modificat correctament!');
     }
 
     /**

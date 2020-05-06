@@ -19,10 +19,11 @@ class CheckRoleWiki
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next)
-    {
+    public function handle($id_article, Closure $next)
+    {   
+        $article = Article::find($id_article);
         $check = FALSE;
-        if (Auth::user()->id == Article::find($request->route()->parameters()['id_article'])->id_user || Auth::user()->id_role == 1) {
+        if (Auth::user()->id == $article -> id_user || Auth::user()->id_role == 1) {
             $check = TRUE;
             return $next($request->merge(['check' => $check]));
         } else {

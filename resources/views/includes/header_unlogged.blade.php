@@ -51,7 +51,7 @@
                     <!-- User Profile -->
                     <a class="dropdown-item" href="{{ route('managers.indexP1', ['id' => Auth::user()->id]) }}">Perfil d'usuari</a>
                     <!-- TO-DO: Invite new users -->
-                    <a class="dropdown-item" href="#">Convidar a un nou usuari</a>
+                    <a class="dropdown-item" href="{{route('invitacio')}}#">Convidar a un nou usuari</a>
                     <div class="dropdown-divider"></div>
                     <!-- Incidences -->
                     <a class="dropdown-item" href="{{ route('tickets.create') }}">Notificar un error</a>

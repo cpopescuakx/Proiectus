@@ -274,7 +274,7 @@ Route::middleware(['CheckRole'])->group(function () {
         Route::post('wiki/{id_project}/article/{id_article}/update', 'ArticleController@update');
         /** Ruta per a l'update d''una wiki */
         Route::get('wiki/{id_project}/edit', 'WikiController@edit')->name('wiki.edit');
-        Route::PATCH('wiki/{id_project}/update', 'WikiController@update');
+        Route::post('wiki/{id_project}/update', 'WikiController@update');
     });
     /** Ruta per a guardar l'article creat */
     Route::post('wiki/{id_project}/article/store', 'ArticleController@store') ->name('article.store');
@@ -295,7 +295,12 @@ Route::middleware(['CheckRole'])->group(function () {
     // Cercador
     Route::get('/cercador', function () {return view('cercador.index');})->name('cercador.index');
 
-
+    //Rutes per a la invitació d'usuaris
+    Route::get('/UserInvitation', 'UserController@indexInvitacio')->name('invitacio');
+    Route::get('/UserInvitation/invite', 'UserController@invite_view')->name('invite_view');
+    Route::post('/UserInvitation/invite', 'UserController@process_invites')->name('process_invite');
+    Route::get('/registration/{token}', 'UserController@registration_view')->name('registration');
+    Route::POST('/registration', 'Auth\RegisterController@register')->name('accept');
 
 
     /** Resource center */

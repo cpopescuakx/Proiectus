@@ -22,6 +22,7 @@ window.Bus = new Vue();
 
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
 Vue.component('tips', require('./components/Tips.vue').default);
+Vue.component('simpletag', require('./components/SimpleTag.vue').default);
 Vue.component('chat', () => import('./components/Chat.vue'));
 Vue.component('chats', () => import('./components/Chats.vue'));
 Vue.component('create-chat', () => import('./components/CreateChat.vue'));
