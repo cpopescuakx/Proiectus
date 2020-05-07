@@ -53,11 +53,19 @@ class Proposal_tagController extends Controller
         //
     }
 
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
     public function showTags($id) 
     {
-        return response(Proposal_tag::where('id_proposal', $id)->get()->jsonSerialize());
-        //$proposaltag = Proposal_tag::where('id_proposal', $id)->get()->jsonSerialize();
-        //dd($proposaltag);
+        return response(Proposal_tag::select('proposal_tags.id_proposal', 'proposal_tags.id_tag', 'tags.tag_name')
+                                        ->join('tags', 'proposal_tags.id_tag', '=', 'tags.id_tag')
+                                        ->where('proposal_tags.id_proposal', $id)
+                                        ->get()
+                                        ->jsonSerialize());
     }
 
     /**
