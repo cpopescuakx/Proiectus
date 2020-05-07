@@ -35,9 +35,9 @@
 
             <div class="row justify-content-center mb-3">
                 <h2 class="mt-3"><strong>Informació</strong></h2>
-                <a style="color: #007bff" onclick="AJAXJSPur();">a<i style="font-size: 1.3rem" class="fas fa-sync" alt="Icona per a modificar"></i></a>
-                {{-- <a style="color: #007bff" onclick="AJAXjQuery();">b<i style="font-size: 1.3rem" class="fas fa-sync" alt="Icona per a modificar"></i></a> --}}
-                {{-- <a style="color: #007bff" onclick="AJAXJSFetch();">v<i style="font-size: 1.3rem" class="fas fa-sync" alt="Icona per a modificar"></i></a> --}}
+                <a style="color: #007bff" onclick="AJAXJSPur();"><i style="font-size: 1.3rem" class="fas fa-sync" alt="Icona per a modificar"></i></a>
+                {{-- <a style="color: #007bff" onclick="AJAXjQuery();"><i style="font-size: 1.3rem" class="fas fa-sync" alt="Icona per a modificar"></i></a> --}}
+                {{-- <a style="color: #007bff" onclick="AJAXJSFetch();"><i style="font-size: 1.3rem" class="fas fa-sync" alt="Icona per a modificar"></i></a> --}}
 
             </div>
             <div class="row">

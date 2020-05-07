@@ -8,51 +8,37 @@ use Illuminate\Http\Request;
 class ArticleController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
+     * LListat de tots els articles que formin part del projecte i estiguin en status (active).
+     * 
+     * @param  int $id_project Conté la id del projecte del qual cercarem els articles.
      * @return \Illuminate\Http\Response
      */
-
-
-    public function index($id_project)
-    {
-        $articles = Article::all()
-            ->where('id_project', '=', $id_project)->where('status', '=', 'active');
-
+    public function index($id_project){
+        $articles = Article::all()->where('id_project', '=', $id_project)->where('status', '=', 'active');
         return view('articles.index', compact('articles', 'id_project'));
     }
 
-
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-
-
-    public function create($id_project)
-    {
-    }
-
-
-    /**
-     * Store a newly created resource in storage.
+     * Guardem els articles creats.
      *
      * @param  \Illuminate\Http\Request  $request
+     * @param  int $id_project Conté la id del projecte que assignarem als articles guardats. 
      * @return \Illuminate\Http\Response
      */
+    public function store(Request $request, $id_project){
 
-
-    public function store(Request $request, $id_project)
-    {
+        //Establim que els camps següents siguin required i comprovem aquests.
         $request->validate([
             // 'version' => 'required',
             'title' => 'required',
             'content' => 'required',
             //'reference' => 'required',
         ]);
-
+        
+        //Instanciem l'objecte Article
         $article = new Article();
+
+        // Afegim els diferents atributs a l'objecte el qual posteriorment guardarem.
         $article->id_project = $id_project;
         //$article -> version = $request->get('version');
         $article->version = '1';
@@ -62,64 +48,46 @@ class ArticleController extends Controller
         $article->reference = '';
         $article->id_user = $request->user()->id;
         $article->status = 'active';
-
-
-
         $article->save();
+        Log::info('[ INSERT ] - articles - Nou article: '.$article->title.' !Inserit per: '.$article->id_user.'');
+        
 
+        //Retornem a la vista anterior.
         return redirect()->back();
     }
 
 
+    
     /**
-     * Display the specified resource.
-     *
-     * @param  \App\Article  $article
+     * Busquem l'article amb la ID i retornem aquest a la vista.
+     * 
+     * @param  int  $id_article Conté la ID del projecte a cercar
+     * @param  int  $id_project Conté la id del projecte que assignarem a l'article editat.
      * @return \Illuminate\Http\Response
      */
-
-
-    public function show($id_project, $id_article)
-    {
-    }
-
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Article  $article
-     * @return \Illuminate\Http\Response
-     */
-
-
-    public function edit($id_project, $id_article)
-    {
+    public function edit($id_project, $id_article){
         $article = Article::where('id_article', '=', $id_article)->firstOrFail();
-
         return view('articles.edit', compact('article', 'id_project', 'id_article'));
     }
 
 
     /**
-     * Update the specified resource in storage.
+     * Actualitzem els camps titol i contingut d'un article.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Article  $article
+     * @param  int  $id_project Conté la id del projecte que assignarem a l'article editat.
+     * @param  int  $id_article Conté la ID del projecte a cercar.
      * @return \Illuminate\Http\Response
      */
+    public function update(Request $request, $id_project, $id_article){
 
-
-    public function update(Request $request, $id_project, $id_article)
-    {
-        //Forma curta
-        //Article::find($id_article)->update($request->all());
-
-        //forma llarga
+        //Establim que els camps següents siguin required i comprovem aquests.
         $request->validate([
             'title' => 'required',
             'content' => 'required',
         ]);
-
+        
+        //Cerquem 
         $article = Article::find($id_article);
 
         $article->title = $request->get('title');
@@ -137,10 +105,7 @@ class ArticleController extends Controller
      * @param  \App\Article  $article
      * @return \Illuminate\Http\Response
      */
-
-
-    public function destroy($id_project, $id_article)
-    {
+    public function destroy($id_project, $id_article){
         $article = Article::find($id_article);
 
         $article->status = 'inactive';

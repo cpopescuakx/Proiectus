@@ -96,7 +96,7 @@
                           <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
                               <label for="exampleFormControlInput1"><strong>Prioritat</strong></label>
                               <select class="form-control" id="exampleFormControlInput1" name="priority" required>
-                                <option value="">-- Sel·lecionar prioritat --</option>
+                                <option value="">-- Seleccionar prioritat --</option>
                                 <option value="low">Baixa</option>
                                 <option value="medium">Mitjana</option>
                                 <option value="high">Alta</option>

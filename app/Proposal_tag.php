@@ -6,6 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Proposal_tag extends Model
 {
-    public $timestamps = false;
-    //
+    protected $primaryKey = 'id_proposal_tag';
 }

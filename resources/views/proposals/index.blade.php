@@ -41,7 +41,7 @@
         @foreach($proposals as $proposal)
 
         <tr>
-                <td>{{ $proposal->name }}</td>
+                <td><a href="{{ route('proposals.show', $proposal->id_proposal) }}">{{ $proposal->name }}</a></td>
                 <td>{{ date('d/m/Y', strtotime($proposal->created_at)) }}</td> <!-- Cambio en el formato de fecha -->
                 <td>{{ date('d/m/Y', strtotime($proposal->limit_date)) }}</td>
                 <td>{{ $proposal->description }}</td>

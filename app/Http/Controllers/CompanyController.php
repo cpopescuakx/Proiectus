@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Company; //afegit
 use Redirect; //afegit
 use PDF; //afegit
+use Illuminate\Support\Facades\Log;
 
 class CompanyController extends Controller
 {
@@ -145,7 +146,7 @@ class CompanyController extends Controller
         ]);
 
         Company::create($request->all());
-
+        Log::info($request->user()->username. ' - [ INSERT ] - companies - Nova empresa: ' .$request -> name. ' inserida!');
         return Redirect::to('companies')
        ->with('Éxit! L empresa s ha creat correctament!');
     }
@@ -171,7 +172,7 @@ class CompanyController extends Controller
     {
         $where = array('id_company' => $id);
         $data['company_info'] = Company::where($where)->first();
-
+        
         return view('companies.edit', $data);
 
     }
@@ -196,6 +197,7 @@ class CompanyController extends Controller
 
          Company::findOrFail($id)->first()->fill($request->all())->save();
          //Company::find($request->id)->update($request->all());
+         Log::info($request->user()->username. ' - [ UPDATE ] - companies - La companyia: ' .$request -> name. ' ha estat modificada.');
          return redirect()->route('companies')
                           ->with('Éxit','L empresa s ha modificat correctament!');
 
@@ -208,10 +210,10 @@ class CompanyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroyCompany($id)
+    public function destroyCompany(Request $request, $id)
     {
         Company::where('id_company',$id)->delete();
-
-        return Redirect::to('companies')->with('Éxit','L empresa s ha eliminat correctament!');
+        Log::info($request->user()->username. ' - [ DELETE ] - companies - La companyia: ' .$request -> name. ' ha estat esborrada.');
+        return Redirect::to('companies')->with('Èxit','L empresa s ha eliminat correctament!');
     }
 }

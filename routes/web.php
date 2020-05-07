@@ -1,5 +1,6 @@
 <?php
 
+use App\User;
 use Illuminate\Http\Request;
 
 use App\Project;
@@ -273,7 +274,7 @@ Route::middleware(['CheckRole'])->group(function () {
         Route::post('wiki/{id_project}/article/{id_article}/update', 'ArticleController@update');
         /** Ruta per a l'update d''una wiki */
         Route::get('wiki/{id_project}/edit', 'WikiController@edit')->name('wiki.edit');
-        Route::PATCH('wiki/{id_project}/update', 'WikiController@update');
+        Route::post('wiki/{id_project}/update', 'WikiController@update');
     });
     /** Ruta per a guardar l'article creat */
     Route::post('wiki/{id_project}/article/store', 'ArticleController@store') ->name('article.store');
@@ -318,6 +319,23 @@ Route::middleware(['CheckRole'])->group(function () {
             auth()->user()->unreadNotifications->markAsRead();
             return back();
         })->name('markAllRead');
+
+        Route::get('/provanotif', function() {
+           $user = User::find(auth()->user()->getAuthIdentifier());
+           $project = "El millor projecte del planeta";
+           $data = "<b>" . $user->firstname . " " . $user->lastname .  "</b> t'ha afegit al projecte <b>" . $project . "</b>.";
+           $notificationDetails = [
+               'data' => $data,
+               'sender' => $user->id,
+               'project' => 1
+           ];
+           $user1 = User::find(46);
+           $user2 = User::find(128);
+           $users = array($user1, $user2);
+           foreach ($users as $userp) {
+               $userp->notify(new \App\Notifications\AddedToAProject($notificationDetails));
+           }
+        });
     });
 
 });
