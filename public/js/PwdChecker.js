@@ -3,7 +3,7 @@ $(document).ready(function(){
     $("#password").keyup(function(){
         checkPwd();
     });
-   });
+});
    
    function checkPwd(){
        // Text
@@ -17,8 +17,8 @@ $(document).ready(function(){
 
         // Comprova que hi hagi text
         if(val!=""){
-            // Contrassenya és menor de 8 caràcters
-            if(val.length<=8)nivell=1;
+            // Contrassenya és major o igual a 8 caràcters
+            if(val.length>=8)nivell=1;
         
             // Contrassenya és major de 8 caràcters, conté minúscules i majúscules
             if(val.length>8 && (val.match(/[a-z]/) && (val.match(/[A-Z]/))))nivell=2;
@@ -26,7 +26,7 @@ $(document).ready(function(){
             // Contrassenya és major de 8 caràcters, conté minúscules, majúscules i nombres
             if(val.length>8 && (val.match(/[a-z]/) && (val.match(/[A-Z]/)) && val.match(/\d+/)))nivell=3;
         
-            // Contrassenya és major de 8 caràcters, conté minúscules, majúscules, nombres i caràcters
+            // Contrassenya és major de 8 caràcters, conté minúscules, majúscules, nombres i caràcters especials.
             if(val.length>8 && val.match(/[a-z]/) && (val.match(/[A-Z]/)) && val.match(/\d+/) && val.match(/.[!,@,#,$,%,^,&,*,?,_,~,-,(,)]/))nivell=4;
         
             /**
@@ -63,5 +63,5 @@ $(document).ready(function(){
             else{
                 $("#barraPwd").animate({width:'0%'},300);
                 document.getElementById("textPwdForça").innerHTML="";
-        }
+            }
    }
