@@ -9,12 +9,6 @@
 <!-- Favicon -->
 <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('img/icono_negro.png') }}">
 
-<!-- Bootstrap core CSS -->
-<link href="{{ asset('css/main.css') }}" rel="stylesheet" type="text/css">
-<link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet" type="text/css">
-<link href="{{ asset('css/components/g1/g1_styles.css') }}" rel="stylesheet">
-<link href="{{ asset('css/infinite-slider.css') }}" rel="stylesheet" type="text/css">
-
 <!-- FONTAWESOME ICONS-->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
 
@@ -40,4 +34,10 @@
 
 <!-- CSS VUE -->
 <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+<!-- Bootstrap core CSS -->
+<link href="{{ asset('css/main.css') }}" rel="stylesheet" type="text/css">
+<link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet" type="text/css">
+<link href="{{ asset('css/components/g1/g1_styles.css') }}" rel="stylesheet">
+<link href="{{ asset('css/infinite-slider.css') }}" rel="stylesheet" type="text/css">
 
