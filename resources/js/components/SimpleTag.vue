@@ -36,28 +36,33 @@
 <!-- TO-DO: Falta arreglar alineación vertical y comprobar si tocando la plantilla de la vista se arregla ese efecto de transición tan merdento.
         El puto d-flex me petaba el carrusel, buscar alternativa fácil -->
 <template>
-    <div class="btn-group" role="group" aria-label="Basic example">
-        <button type="button" class="btn btn-secondary">Left</button>
-        <button type="button" class="btn btn-secondary">Middle</button>
-        <button type="button" class="btn btn-secondary">Right</button>
+<div>
+   <!-- <button type="button" class="btn btn-secondary">LO QUE SEA</button> -->
+    <div class="btn-group" role="group" aria-label="Basic example" v-for="proposaltag in proposaltags" :key="proposaltag.id_tag">
+        <button type="button" class="btn btn-secondary">{{ proposaltag.tag_name }}</button>
     </div>
+</div>
 </template>
 
 <script>
     export default {
         data() {
             return {
-                tips: []
+                proposaltags: []
             }
         },
         mounted() {
-            this.getTips()
+            let path = window.location.pathname;
+            let vars = path.split("/");
+            let param = vars[vars.length - 2];
+            this.getTags(param);
         },
         methods: {
-            getTips() {
+            getTags(id) {
                 axios
-                    .get('/api/faq')
-                    .then(response => (this.tips = response.data))
+                    .get('/api/proposal/tags/'+id)
+                    .then(response => (this.proposaltags = response.data))
+                    .catch(error => console.log(error))
             }
         }
     }

@@ -5,7 +5,7 @@
 @inject('companyUser', 'App\Http\Controllers\Company_userController')
 
 
-    <div class="container pt-5">
+    <div id="app" class="container pt-5">
         <!-- Encabezado con logo y título -->
         <div class="row p-5 shadow">
             <div class="col my-auto">
@@ -21,17 +21,10 @@
         </div>
         <!-- /row -->
         <br>
+
         <!-- Espacio para tags -->
         <div class="row p-5 shadow">
-            <div class="card">
-                <div class="card-header font-weight-bold">
-                    Etiquetes
-                </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">TO-DO: Hacer consulta para mostrar tags asociados a cada proyecto</li>
-                </ul>
-            </div>
-            <!-- /card -->
+            <simpletag></simpletag>
         </div>
         <!-- /row -->
         <br>
@@ -54,7 +47,7 @@
                     </ul>
                 </div>
                 <!-- /card -->
-                <div id="app" class="col-sm">
+                <div class="col-sm">
                     <tips></tips>
                 </div>
         </div>

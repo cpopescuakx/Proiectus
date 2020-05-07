@@ -2101,21 +2101,27 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      tips: []
+      proposaltags: []
     };
   },
   mounted: function mounted() {
-    this.getTips();
+    var path = window.location.pathname;
+    var vars = path.split("/");
+    var param = vars[vars.length - 2];
+    this.getTags(param);
   },
   methods: {
-    getTips: function getTips() {
+    getTags: function getTags(id) {
       var _this = this;
 
-      axios.get('/api/faq').then(function (response) {
-        return _this.tips = response.data;
+      axios.get('/api/proposal/tags/' + id).then(function (response) {
+        return _this.proposaltags = response.data;
+      })["catch"](function (error) {
+        return console.log(error);
       });
     }
   }
@@ -40651,41 +40657,29 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c(
+    "div",
+    _vm._l(_vm.proposaltags, function(proposaltag) {
+      return _c(
+        "div",
+        {
+          key: proposaltag.id_tag,
+          staticClass: "btn-group",
+          attrs: { role: "group", "aria-label": "Basic example" }
+        },
+        [
+          _c(
+            "button",
+            { staticClass: "btn btn-secondary", attrs: { type: "button" } },
+            [_vm._v(_vm._s(proposaltag.tag_name))]
+          )
+        ]
+      )
+    }),
+    0
+  )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass: "btn-group",
-        attrs: { role: "group", "aria-label": "Basic example" }
-      },
-      [
-        _c(
-          "button",
-          { staticClass: "btn btn-secondary", attrs: { type: "button" } },
-          [_vm._v("Left")]
-        ),
-        _vm._v(" "),
-        _c(
-          "button",
-          { staticClass: "btn btn-secondary", attrs: { type: "button" } },
-          [_vm._v("Middle")]
-        ),
-        _vm._v(" "),
-        _c(
-          "button",
-          { staticClass: "btn btn-secondary", attrs: { type: "button" } },
-          [_vm._v("Right")]
-        )
-      ]
-    )
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
