@@ -17,7 +17,7 @@ $(document).ready(function(){
 
         // Comprova que hi hagi text
         if(val!=""){
-            // Contrassenya és major de 8 caràcters
+            // Contrassenya és major o igual a 8 caràcters
             if(val.length>=8)nivell=1;
         
             // Contrassenya és major de 8 caràcters, conté minúscules i majúscules
