@@ -165,7 +165,7 @@ class FaqController extends Controller
                 $vote -> id_faq = $id_faq;
                 $vote -> vote_type = "like";
                 $vote->save();
-                Log::info('[ INSERT ] - faq_votes - Nova votació '.($vote -> vote_type).' del usuari: ' .$id_user. ', sobre la pregunta: '.$id_faq.' inserida!');
+                Log::info('[ UPDATE ] - faq_votes - Nova votació '.($vote -> vote_type).' del usuari: ' .$id_user. ', sobre la pregunta: '.$id_faq.' inserida!');
 
             }
 
@@ -216,7 +216,7 @@ class FaqController extends Controller
                 $vote -> id_faq = $id_faq;
                 $vote -> vote_type = "dislike";
                 $vote->save();
-                Log::info('[ INSERT ] - faq_votes - Nova votació '.($vote -> vote_type).' del usuari: ' .$id_user. ', sobre la pregunta: '.$id_faq.' inserida!');
+                Log::info('[ UPDATE ] - faq_votes - Nova votació '.($vote -> vote_type).' del usuari: ' .$id_user. ', sobre la pregunta: '.$id_faq.' inserida!');
             }
 
             //Si ha estat votada i amb un like no realitzem cap acció.
