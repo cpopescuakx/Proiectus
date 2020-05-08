@@ -16,7 +16,7 @@ class AddedToAProject extends Notification
     /**
      * Create a new notification instance.
      *
-     * @param $details
+     * @param array $details Contingut de la notificacio
      */
     public function __construct($details)
     {
@@ -50,7 +50,7 @@ class AddedToAProject extends Notification
     }
 
     /**
-     * Get the array representation of the notification.
+     * Guardem les dades de la notificació, el remitent i el projecte en un array
      *
      * @param  mixed  $notifiable
      * @return array

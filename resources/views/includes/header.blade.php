@@ -6,11 +6,11 @@
     </button>
   </div>
 
-  <div class="p-4 pt-5">
-    <h1><a href="{{route('index.index')}}" class="logo">Proiectus</a></h1>
+
+      <div class="d-inline-flex pt-3 pl-3">
       @if(Auth::check())
       <div id="notifications" class="">
-          <a href="#" id="notificationDropdown" class="nav-link dropdown-toggle-split pt-2" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
+          <a href="#" id="notificationDropdown" class="dropdown-toggle-split" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
               <span class="material-icons"> notifications </span>
               @if(auth()->user()->unReadNotifications->count())
                   <span class="badge badge-pill badge-info">{{auth()->user()->unReadNotifications->count()}}</span>
@@ -54,11 +54,14 @@
           </div>
       </div>
       @endif
-      <div id="cercador" class="pl-3">
+      <div id="cercador" class="">
           <a href="{{route('cercador.index')}}">
               <span class="material-icons"> search </span>
           </a>
       </div>
+      </div>
+    <div class="p-4 pt-5">
+        <h1><a href="{{route('index.index')}}" class="logo">Proiectus</a></h1>
       <ul class="list-unstyled components mb-5">
       <!-- Elemento menu -->
       @guest
