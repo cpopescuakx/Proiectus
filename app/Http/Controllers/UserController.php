@@ -894,6 +894,96 @@ class UserController extends Controller
         ->with('i', (request()->input('page', 1) -1));
     }
 
+    public function indexCSVEmpleats() {
+        return view('employees.csv');
+    }
+
+    public function importCSVEmployees (Request $request) {
+        // Comprova que el fitxer és un .csv
+        $validar = Validator::make(
+            [
+                'file' => $request->file,
+                'extension' => strtolower($request->file->getClientOriginalExtension()),
+            ],
+            [
+                'file' => 'required',
+                'extension' => 'required|in:csv',
+            ]
+        );
+
+        if($validar->passes()) {
+            $file = $request->file('file');
+            $_file = fopen($file, 'r');
+
+            $i = 0;
+            $data = array();
+            while (($dataCSV = fgetcsv($_file, 1000, "\t")) !== FALSE) {
+                for ($c=0; $c < count($dataCSV); $c++) {
+                    $data[$i][] = $dataCSV[$c];
+                }
+                
+                $i++;
+            }
+            fclose($_file);
+
+            foreach ($data as $employee) {
+                $employee = explode(';', $employee[0]);
+                
+                $_employee = new User;
+                $_employee->firstname = $employee[0];
+                $_employee->lastname = $employee[1];
+                $_employee->username = $employee[2];
+                $_employee->dni = $employee[3];
+                $_employee->email = $employee[4];
+                $_employee->password = Hash::make($employee[5]);
+                $_employee->id_city = CityController::getIdFromPostalCode($employee[6]);
+                $_employee->id_role = 2;
+                $_employee->status = "active";
+                $_employee->save();
+
+                Log::info(Auth::user()->username . ' - [ IMPORT ] - users - Nou empleat: ' . $employee[2]. ' inserit!');
+            }
+
+            return redirect()->back()->with(['success' =>'Importació feta correctament.']);
+        }
+        else {
+            return redirect()->back()->with(['errors' => $validar->errors()->all()]);
+        }
+
+    }
+
+    public function exportCSVEmployees() {
+        $employees = User::where('id_role',2)->get();
+        $filename = "empleats.csv";
+
+        $callback = function () use ($employees) {
+            $handle = fopen('php://output', 'w');
+            fputcsv($handle, array(
+                'firstname', 'lastname', 'username', 'profile_pic', 'email', 'email_verified_at', 'id_city', 'bio', 'id_role', 'dni', 'birthdate', 
+                'status', 'pending_entity_registration', 'pending_entity_verification', 'logo_entity'
+            ), ';');
+            
+            foreach ($employees as $employee) {
+                fputcsv($handle, array(
+                    $employee['firstname'], $employee['lastname'], $employee['username'], $employee['profile_pic'], 
+                    $employee['email'], $employee['email_verified_at'], $employee['id_city'], $employee['bio'], $employee['id_role'],
+                    $employee['dni'], $employee['birthdate'], $employee['status'], $employee['pending_entity_registration'],
+                    $employee['pending_entity_verification'], $employee['logo_entity']
+                ), ';');
+            }
+            Log::info(Auth::user()->username . ' - [ EXPORT ] - users - Empleats');
+            fclose($handle);
+        };
+
+        
+        $headers = array(
+            'Content-Type' => 'text/csv',
+            'Content-Disposition'   => "attachment; filename=$filename"
+        );
+
+        return Response::stream($callback, 200, $headers);
+    }
+
     /**
      * Display the specified resource.
      *

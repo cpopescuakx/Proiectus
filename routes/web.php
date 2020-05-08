@@ -238,6 +238,9 @@ Route::middleware(['CheckRole'])->group(function () {
     Route::post('/Employees/store', 'UserController@storeEmployees')->name('employee.store');
     Route::post('/Employees/{id}/update', 'UserController@updateEmployee')->name('employee.update');
     Route::get('/Employees/{id}/active', 'UserController@activeUser')->name('employee.active');
+    Route::get('/Employees/csv', 'UserController@indexCSVEmpleats')->name('employees.csv');
+    Route::post('/Employees/csv/import', 'UserController@importCSVEmployees')->name('employees.import');
+    Route::get('/Employees/csv/export', 'UserController@exportCSVEmployees')->name('employees.export');
 
 
 // Routes Grup4
