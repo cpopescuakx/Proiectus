@@ -72,13 +72,15 @@
 
 <!-- Plantilla del componente VUE en la vista -->
 <template>
-    <div id="showtags">
-        <div class="container-fluid notice-lg notice-success">
-                <strong>Tags:</strong>
-                <br>
-                <div class="d-inline-flex" v-for="proposaltag in proposaltags" :key="proposaltag.id_tag">
-                    <a href="#" class="badge badge-success mr-1">{{ proposaltag.tag_name }}</a>
-                </div>
+    <div id="showdetails">
+        <div class="container-fluid" v-for="detail in details" :key="detail.id_proposal">
+            <div class="notice notice-success">
+                <strong>Descripció:</strong> {{ detail.description }}<hr>
+                <strong>Professional Family:</strong> {{ detail.professional_family }}<hr>
+                <strong>Entitat:</strong> {{ detail.category }}<hr>
+                <strong>Data d'inici:</strong> {{ detail.created_at }}<hr>
+                <strong>Data de finalització:</strong> {{ detail.limit_date }}
+            </div>
         </div>
     </div>
 </template>
@@ -87,7 +89,7 @@
     export default {
         data() {
             return {
-                proposaltags: []
+                details: []
             }
         },
         mounted() {
@@ -100,13 +102,13 @@
             //console.log(path);
             //console.log(vars);
             //console.log(param);
-            this.getTags(param);
+            this.getDetails(param);
         },
         methods: {
-            getTags(id) {
+            getDetails(id) {
                 axios
-                    .get('/api/proposal/tags/'+id)
-                    .then(response => (this.proposaltags = response.data))
+                    .get('/api/proposals/details/'+id)
+                    .then(response => (this.details = response.data))
                     .catch(error => console.log(error))
             }
         }

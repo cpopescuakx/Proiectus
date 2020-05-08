@@ -17,6 +17,6 @@ class ProposalScope implements Scope
      */
     public function apply(Builder $builder, Model $model)
     {
-        $builder->where('status', '!=', "deleted");
+        $builder->where('proposals.status', '!=', "deleted");
     }
 }

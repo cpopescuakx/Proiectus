@@ -5,6 +5,15 @@
         color: #eee;
     }
 
+    img {
+        border: 3px solid #116466;
+        max-width: 100px;
+    }
+
+    ul {
+        list-style: none;
+    }
+
     .badge-success {
         background-color: #116466;
     }
@@ -68,17 +77,28 @@
         color: #d73814;
     }
 
-</style>
+</style>d
 
 <!-- Plantilla del componente VUE en la vista -->
 <template>
-    <div id="showtags">
-        <div class="container-fluid notice-lg notice-success">
-                <strong>Tags:</strong>
-                <br>
-                <div class="d-inline-flex" v-for="proposaltag in proposaltags" :key="proposaltag.id_tag">
-                    <a href="#" class="badge badge-success mr-1">{{ proposaltag.tag_name }}</a>
-                </div>
+    <div id="prophead">
+        <div class="container-fluid">
+            <ul class="notice notice-success col" v-for="detail in details" :key="detail.id_proposal">
+                <li>
+                    <h4>Títol: {{ detail.name }}</h4>
+                    <div>
+                        <h6>Creat per: {{ detail.school_name }}</h6>
+                        <img class="rounded-circle mr-auto w-50 img-thumbnail" alt="250x250" :src="'/img/logo_pic/logo'+detail.logo_entity" data-holder-rendered="true" />
+                    </div>
+                    <hr>
+                    <p><strong>Data de creació: </strong>{{ detail.created_at }}</p>
+                    <p>Fa 5 dies</p>
+                </li>
+                <li>
+                    <i class="medium material-icons">account_box</i>
+                    <p>Autor/a: {{ detail.username }}</p>
+                </li>
+            </ul>
         </div>
     </div>
 </template>
@@ -87,7 +107,7 @@
     export default {
         data() {
             return {
-                proposaltags: []
+                details: []
             }
         },
         mounted() {
@@ -100,13 +120,13 @@
             //console.log(path);
             //console.log(vars);
             //console.log(param);
-            this.getTags(param);
+            this.getDetails(param);
         },
         methods: {
-            getTags(id) {
+            getDetails(id) {
                 axios
-                    .get('/api/proposal/tags/'+id)
-                    .then(response => (this.proposaltags = response.data))
+                    .get('/api/proposals/details/'+id)
+                    .then(response => (this.details = response.data))
                     .catch(error => console.log(error))
             }
         }

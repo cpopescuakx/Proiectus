@@ -33,8 +33,6 @@
     }
 
 </style>
-<!-- TO-DO: Falta arreglar alineación vertical y comprobar si tocando la plantilla de la vista se arregla ese efecto de transición tan merdento.
-        El puto d-flex me petaba el carrusel, buscar alternativa fácil -->
 <template>
     <div class="carousel slide" data-ride="carousel">
         <div class="my-5 carousel-inner p-5">
