@@ -73,12 +73,14 @@
 <!-- Plantilla del componente VUE en la vista -->
 <template>
     <div id="showtags">
-        <div class="container-fluid notice-lg notice-success">
+        <div class="container-fluid">
+            <div class="notice-lg notice-success">
                 <strong>Tags:</strong>
                 <br>
                 <div class="d-inline-flex" v-for="proposaltag in proposaltags" :key="proposaltag.id_tag">
                     <a href="#" class="badge badge-success mr-1">{{ proposaltag.tag_name }}</a>
                 </div>
+            </div>
         </div>
     </div>
 </template>

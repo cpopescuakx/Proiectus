@@ -92,8 +92,7 @@
                         <img class="rounded-circle mr-auto w-50 img-thumbnail" alt="250x250" :src="'/img/logo_pic/logo'+detail.logo_entity" data-holder-rendered="true" />
                     </div>
                     <hr>
-                    <p><strong>Data de creació: </strong>{{ detail.created_at }}</p>
-                    <p>Fa 5 dies</p>
+                    <p><strong>Data de creació: </strong>{{ formattedDate(detail.created_at) }}</p>
                 </li>
                 <li>
                     <i class="medium material-icons">account_box</i>
@@ -124,11 +123,18 @@
             this.getDetails(param);
         },
         methods: {
+            // GET Request API / proposals / details / $id
             getDetails(id) {
                 axios
                     .get('/api/proposals/details/'+id)
                     .then(response => (this.details = response.data))
                     .catch(error => console.log(error))
+            },
+            // Método que da formato a la fecha
+            formattedDate: function(d) {
+                let arr = d.split(/[- :]/);
+                let date = new Date(Date.UTC(arr[0], arr[1]-1, arr[2], arr[3], arr[4], arr[5]));
+                return date.getDate() + "-" + (date.getMonth() + 1) + "-" + date.getFullYear()
             }
         }
     }

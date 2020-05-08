@@ -1,33 +1,30 @@
-@extends('layouts.default')
+    @extends('layouts.default')
 
-@section('content')
-@inject('schoolUser', 'App\Http\Controllers\School_usersController')
-@inject('companyUser', 'App\Http\Controllers\Company_userController')
+    @section('content')
+    @inject('schoolUser', 'App\Http\Controllers\School_usersController')
+    @inject('companyUser', 'App\Http\Controllers\Company_userController')
 
 
-    <div id="app" class="container pt-5">
-        <!-- Encabezado con logo y título -->
-        <prophead></prophead>
-        <br>
-
-        <!-- Espacio para tags -->
-        <div class="row pl-5 d-flex flex-column">
-            
-            <div class="col-sm">
-                <simpletag></simpletag>
-            </div>
-            <div class="col-sm">
-                <div class="row pl-5">
-                    <div class="col-sm">
-                        <propdetails></propdetails>
-                        <tips></tips>  
-                    </div>
-                </div>
-            </div>
+    <div id="app">
+        <!-- Componente que carga un encabezado con logo, título y algunos datos del autor/entidad -->
+        <div class="row pl-2 d-flex flex-column">
+            <prophead></prophead>
         </div>
-        <!-- /row -->
-        <br>
-
+        <!-- Componente que carga los tags -->
+        <div class="row pl-2 d-flex flex-column">
+            <simpletag></simpletag>
+        </div>
+        <!-- Componente que carga los detalles de la propuesta -->
+        <div class="row pl-2 d-flex flex-column">
+            <propdetails></propdetails>
+        </div>
+        <!-- Componente que carga algunos consejos útiles -->
+        <div class="row pl-2 d-flex flex-column">
+            <tips></tips>
+        </div>
+    </div>
+    <br>
+    <div>
         @if ($proposal->category == 'school')
             @if (!$schoolUser::checkUser(Auth::user()->id))
                 <div class="row p-5 shadow">
@@ -47,8 +44,6 @@
                 </div>
             @endif
         @endif
-
-        <!-- /row -->
     </div>
 
     <div class="modal fade" id="afegir" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -71,6 +66,4 @@
             </div>
         </div>
     </div>
-
-
 @endsection

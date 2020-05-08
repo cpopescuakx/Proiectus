@@ -2143,6 +2143,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2164,6 +2166,7 @@ __webpack_require__.r(__webpack_exports__);
     this.getDetails(param);
   },
   methods: {
+    // GET Request API / proposals / details / $id
     getDetails: function getDetails(id) {
       var _this = this;
 
@@ -2172,6 +2175,12 @@ __webpack_require__.r(__webpack_exports__);
       })["catch"](function (error) {
         return console.log(error);
       });
+    },
+    // Método que da formato a la fecha
+    formattedDate: function formattedDate(d) {
+      var arr = d.split(/[- :]/);
+      var date = new Date(Date.UTC(arr[0], arr[1] - 1, arr[2], arr[3], arr[4], arr[5]));
+      return date.getDate() + "-" + (date.getMonth() + 1) + "-" + date.getFullYear();
     }
   }
 });
@@ -2292,7 +2301,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2314,6 +2322,7 @@ __webpack_require__.r(__webpack_exports__);
     this.getDetails(param);
   },
   methods: {
+    // GET Request API / proposals / details / $id
     getDetails: function getDetails(id) {
       var _this = this;
 
@@ -2322,6 +2331,12 @@ __webpack_require__.r(__webpack_exports__);
       })["catch"](function (error) {
         return console.log(error);
       });
+    },
+    // Método que da formato a la fecha
+    formattedDate: function formattedDate(d) {
+      var arr = d.split(/[- :]/);
+      var date = new Date(Date.UTC(arr[0], arr[1] - 1, arr[2], arr[3], arr[4], arr[5]));
+      return date.getDate() + "-" + (date.getMonth() + 1) + "-" + date.getFullYear();
     }
   }
 });
@@ -2337,6 +2352,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
 //
 //
 //
@@ -2466,6 +2483,23 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -4597,7 +4631,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\nspan[data-v-2db16e23] {\n    font-size: 15px;\n}\na[data-v-2db16e23] {\n    text-decoration: none;\n    color: #0062cc;\n    border-bottom: 2px solid #0062cc;\n}\n.notice[data-v-2db16e23] {\n    padding: 15px;\n    background-color: #fafafa;\n    border-left: 6px solid #7f7f84;\n    margin-bottom: 10px;\n    box-shadow: 0 5px 8px 1px rgba(0,0,0,.2);\n}\n.notice-success[data-v-2db16e23] {\n    border-color: #116466;\n}\nstrong[data-v-2db16e23] {\n    color: #116466;\n}\n.box-part[data-v-2db16e23] {\n    border-radius: 0;\n    max-height: 350px;\n    min-height: 350px;\n    max-width: 350px;\n    min-width: 350px;\n}\n.text[data-v-2db16e23] {\n    margin: 20px 0px;\n}\n.topic[data-v-2db16e23] {\n    background: #116466;\n    margin: 20px 20px;\n}\n\n\n", ""]);
+exports.push([module.i, "\nspan[data-v-2db16e23] {\n    font-size: 15px;\n}\na[data-v-2db16e23] {\n    text-decoration: none;\n    color: #0062cc;\n    border-bottom: 2px solid #0062cc;\n}\n.notice[data-v-2db16e23] {\n    padding: 5px;\n    background-color: #fafafa;\n    border-left: 6px solid #7f7f84;\n    margin-bottom: 10px;\n    box-shadow: 0 5px 8px 1px rgba(0,0,0,.2);\n}\n.notice-success[data-v-2db16e23] {\n    border-color: #116466;\n}\nstrong[data-v-2db16e23] {\n    color: #116466;\n}\n.box-part[data-v-2db16e23] {\n    border-radius: 0;\n}\n.text[data-v-2db16e23] {\n    margin: 20px 0px;\n}\n.carousel-fade .carousel-item[data-v-2db16e23] {\n    opacity: 0;\n    -webkit-transition-duration: .6s;\n            transition-duration: .6s;\n    -webkit-transition-property: opacity;\n    transition-property: opacity;\n}\n.carousel-fade .carousel-item.active[data-v-2db16e23],\n.carousel-fade .carousel-item-next.carousel-item-left[data-v-2db16e23],\n.carousel-fade .carousel-item-prev.carousel-item-right[data-v-2db16e23] {\n    opacity: 1;\n}\n.carousel-fade .active.carousel-item-left[data-v-2db16e23],\n.carousel-fade .active.carousel-item-right[data-v-2db16e23] {\n    opacity: 0;\n}\n.carousel-fade .carousel-item-next[data-v-2db16e23],\n.carousel-fade .carousel-item-prev[data-v-2db16e23],\n.carousel-fade .carousel-item.active[data-v-2db16e23],\n.carousel-fade .active.carousel-item-left[data-v-2db16e23],\n.carousel-fade .active.carousel-item-prev[data-v-2db16e23] {\n    -webkit-transform: translateX(0);\n            transform: translateX(0);\n    -webkit-transform: translate3d(0, 0, 0);\n            transform: translate3d(0, 0, 0);\n}\n.carousel-item[data-v-2db16e23] {\n    height: 200px;\n}\n", ""]);
 
 // exports
 
@@ -41106,6 +41140,10 @@ var render = function() {
         { key: detail.id_proposal, staticClass: "container-fluid" },
         [
           _c("div", { staticClass: "notice notice-success" }, [
+            _vm._m(0, true),
+            _vm._v(" "),
+            _c("br"),
+            _vm._v(" "),
             _c("strong", [_vm._v("Descripció:")]),
             _vm._v(" " + _vm._s(detail.description)),
             _c("hr"),
@@ -41119,11 +41157,13 @@ var render = function() {
             _c("hr"),
             _vm._v(" "),
             _c("strong", [_vm._v("Data d'inici:")]),
-            _vm._v(" " + _vm._s(detail.created_at)),
+            _vm._v(" " + _vm._s(_vm.formattedDate(detail.created_at))),
             _c("hr"),
             _vm._v(" "),
             _c("strong", [_vm._v("Data de finalització:")]),
-            _vm._v(" " + _vm._s(detail.limit_date) + "\n        ")
+            _vm._v(
+              " " + _vm._s(_vm.formattedDate(detail.limit_date)) + "\n        "
+            )
           ])
         ]
       )
@@ -41131,7 +41171,18 @@ var render = function() {
     0
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("strong", [
+      _c("span", { staticClass: "font-weight-bolder" }, [
+        _vm._v("Especificacions")
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -41182,10 +41233,8 @@ var render = function() {
               _vm._v(" "),
               _c("p", [
                 _c("strong", [_vm._v("Data de creació: ")]),
-                _vm._v(_vm._s(detail.created_at))
-              ]),
-              _vm._v(" "),
-              _c("p", [_vm._v("Fa 5 dies")])
+                _vm._v(_vm._s(_vm.formattedDate(detail.created_at)))
+              ])
             ]),
             _vm._v(" "),
             _c("li", [
@@ -41225,33 +41274,35 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { attrs: { id: "showtags" } }, [
-    _c(
-      "div",
-      { staticClass: "container-fluid notice-lg notice-success" },
-      [
-        _c("strong", [_vm._v("Tags:")]),
-        _vm._v(" "),
-        _c("br"),
-        _vm._v(" "),
-        _vm._l(_vm.proposaltags, function(proposaltag) {
-          return _c(
-            "div",
-            { key: proposaltag.id_tag, staticClass: "d-inline-flex" },
-            [
-              _c(
-                "a",
-                {
-                  staticClass: "badge badge-success mr-1",
-                  attrs: { href: "#" }
-                },
-                [_vm._v(_vm._s(proposaltag.tag_name))]
-              )
-            ]
-          )
-        })
-      ],
-      2
-    )
+    _c("div", { staticClass: "container-fluid" }, [
+      _c(
+        "div",
+        { staticClass: "notice-lg notice-success" },
+        [
+          _c("strong", [_vm._v("Tags:")]),
+          _vm._v(" "),
+          _c("br"),
+          _vm._v(" "),
+          _vm._l(_vm.proposaltags, function(proposaltag) {
+            return _c(
+              "div",
+              { key: proposaltag.id_tag, staticClass: "d-inline-flex" },
+              [
+                _c(
+                  "a",
+                  {
+                    staticClass: "badge badge-success mr-1",
+                    attrs: { href: "#" }
+                  },
+                  [_vm._v(_vm._s(proposaltag.tag_name))]
+                )
+              ]
+            )
+          })
+        ],
+        2
+      )
+    ])
   ])
 }
 var staticRenderFns = []
@@ -41277,43 +41328,46 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { attrs: { id: "tips" } }, [
-    _c(
-      "div",
-      {
-        staticClass: "carousel slide carousel-fade",
-        attrs: { "data-ride": "carousel" }
-      },
-      [
-        _c(
-          "div",
-          { staticClass: "my-5 carousel-inner p-5" },
-          [
-            _vm._m(0),
-            _vm._v(" "),
-            _vm._l(_vm.tips, function(tip) {
-              return _c(
-                "div",
-                {
-                  key: tip.id,
-                  staticClass:
-                    "carousel-item text-center pt-5 box-part text-dark notice notice-success"
-                },
-                [
-                  _c("div", { staticClass: "title" }, [
-                    _c("h4", [_c("strong", [_vm._v(_vm._s(tip.question))])])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "text text-muted py-2" }, [
-                    _c("span", { domProps: { innerHTML: _vm._s(tip.answer) } })
-                  ])
-                ]
-              )
-            })
-          ],
-          2
-        )
-      ]
-    )
+    _c("div", { staticClass: "container-fluid" }, [
+      _c(
+        "div",
+        {
+          staticClass:
+            "carousel slide carousel-fade box-part notice notice-success",
+          attrs: { "data-ride": "carousel" }
+        },
+        [
+          _c(
+            "div",
+            { staticClass: "my-5 carousel-inner" },
+            [
+              _vm._m(0),
+              _vm._v(" "),
+              _vm._l(_vm.tips, function(tip) {
+                return _c(
+                  "div",
+                  {
+                    key: tip.id,
+                    staticClass: "carousel-item text-center pt-5"
+                  },
+                  [
+                    _c("h4", [_c("strong", [_vm._v(_vm._s(tip.question))])]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "text text-muted" }, [
+                      _c("span", {
+                        staticClass: "answer",
+                        domProps: { innerHTML: _vm._s(tip.answer) }
+                      })
+                    ])
+                  ]
+                )
+              })
+            ],
+            2
+          )
+        ]
+      )
+    ])
   ])
 }
 var staticRenderFns = [
@@ -41321,22 +41375,17 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass:
-          "carousel-item text-center pt-5 active box-part text-dark notice notice-success"
-      },
-      [
-        _c("div", { staticClass: "title" }, [
-          _c("h4", [_c("strong", [_vm._v("#RESISTIREM")])])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "text text-muted py-2" }, [
-          _c("span", [_vm._v("Descripció molt detallada.")])
+    return _c("div", { staticClass: "carousel-item text-center pt-5 active" }, [
+      _c("h4", [_c("strong", [_vm._v("#RESISTIREM")])]),
+      _vm._v(" "),
+      _c("div", { staticClass: "text text-muted" }, [
+        _c("span", [
+          _vm._v(
+            "Descripció molt detallada. Si no hay 2 líneas se ralla y falla"
+          )
         ])
-      ]
-    )
+      ])
+    ])
   }
 ]
 render._withStripped = true

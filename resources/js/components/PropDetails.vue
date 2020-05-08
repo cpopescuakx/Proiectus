@@ -75,11 +75,13 @@
     <div id="showdetails">
         <div class="container-fluid" v-for="detail in details" :key="detail.id_proposal">
             <div class="notice notice-success">
+                <strong><span class="font-weight-bolder">Especificacions</span></strong>
+                <br>
                 <strong>Descripció:</strong> {{ detail.description }}<hr>
                 <strong>Professional Family:</strong> {{ detail.professional_family }}<hr>
                 <strong>Entitat:</strong> {{ detail.category }}<hr>
-                <strong>Data d'inici:</strong> {{ detail.created_at }}<hr>
-                <strong>Data de finalització:</strong> {{ detail.limit_date }}
+                <strong>Data d'inici:</strong> {{ formattedDate(detail.created_at) }}<hr>
+                <strong>Data de finalització:</strong> {{ formattedDate(detail.limit_date) }}
             </div>
         </div>
     </div>
@@ -105,11 +107,19 @@
             this.getDetails(param);
         },
         methods: {
+            // GET Request API / proposals / details / $id
             getDetails(id) {
                 axios
                     .get('/api/proposals/details/'+id)
                     .then(response => (this.details = response.data))
                     .catch(error => console.log(error))
+            },
+
+            // Método que da formato a la fecha
+            formattedDate: function(d) {
+                let arr = d.split(/[- :]/);
+                let date = new Date(Date.UTC(arr[0], arr[1]-1, arr[2], arr[3], arr[4], arr[5]));
+                return date.getDate() + "-" + (date.getMonth() + 1) + "-" + date.getFullYear()
             }
         }
     }
