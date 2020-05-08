@@ -25,6 +25,7 @@ Route::get('posts', 'PostController@showApi');
 
 //Ruta per a l'API de propostes
 Route::get('proposals', 'ProposalController@showApi');
+Route::get('proposals/details/{id}', 'ProposalController@showDetails');
 
 //Ruta per a l'API de gestors
 Route::get('companies', 'CompanyController@showApi');

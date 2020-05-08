@@ -139,6 +139,27 @@ $this->middleware('auth');
     }
 
     /**
+     * Muestra un listado de todos los datos que se muestran en la vista de propuesta individual.
+     * @author cmasana
+     * @return Proposal
+     *
+     */
+    public function showDetails($id){
+
+        return response(Proposal::select(
+                                            'proposals.id_proposal', 'proposals.name', 'schools.name AS school_name', 'proposals.description',
+                                            'proposals.professional_family', 'proposals.category', 'proposals.created_at', 'proposals.limit_date', 'proposals.id_author',
+                                            'proposals.updated_at', 'users.username', 'users.logo_entity'
+                                        )
+                                        ->join('users', 'users.id', '=', 'proposals.id_author')
+                                        ->join('school_users', 'school_users.id_user', '=', 'users.id')
+                                        ->join('schools', 'schools.id_school', '=', 'school_users.id_school')
+                                        ->where('proposals.id_proposal', $id)
+                                        ->get()
+                                        ->jsonSerialize());
+    }
+
+    /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id

@@ -7,49 +7,23 @@
 
     <div id="app" class="container pt-5">
         <!-- Encabezado con logo y título -->
-        <div class="row p-5 shadow">
-            <div class="col my-auto">
-                @if(Auth::user()->logo_entity == 'null')
-                    <img class="rounded-circle mr-auto img-thumbnail" alt="250x250" src="\img\logo_pic\avatar_2x.png" data-holder-rendered="true" />
-                @else
-                    <img class="rounded-circle mr-auto w-50 img-thumbnail" alt="250x250" src="\img\logo_pic\logo{{ Auth::user()->logo_entity }}" data-holder-rendered="true" />
-                @endif
-            </div>
-            <div class="col my-auto">
-                <h1 class="my-5">{{ $proposal->name }}</h1>
-            </div>
-        </div>
-        <!-- /row -->
+        <prophead></prophead>
         <br>
 
         <!-- Espacio para tags -->
-        <div class="row p-5 shadow">
-            <simpletag></simpletag>
-        </div>
-        <!-- /row -->
-        <br>
-        <!-- Características propuestas -->
-        <div class="row p-5 shadow">
-                <div class="card col-sm">
-                    <div class="card-header font-weight-bold">
-                        Característiques
+        <div class="row pl-5 d-flex flex-column">
+            
+            <div class="col-sm">
+                <simpletag></simpletag>
+            </div>
+            <div class="col-sm">
+                <div class="row pl-5">
+                    <div class="col-sm">
+                        <propdetails></propdetails>
+                        <tips></tips>  
                     </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item"><span class="font-weight-bold">Descripció:</span> {{ $proposal->description }}</li>
-
-                        <li class="list-group-item"><span class="font-weight-bold">Professional Family:</span> {{ $proposal->professional_family }}</li>
-
-                        <li class="list-group-item"><span class="font-weight-bold">Entitat:</span> {{ $proposal->category }}</li>
-
-                        <li class="list-group-item"><span class="font-weight-bold">Data d'inici:</span> {{ date('d/m/Y', strtotime($proposal->created_at)) }}</li>
-
-                        <li class="list-group-item"><span class="font-weight-bold">Data de finalització:</span> {{ date('d/m/Y', strtotime($proposal->limit_date)) }}</li>
-                    </ul>
                 </div>
-                <!-- /card -->
-                <div class="col-sm">
-                    <tips></tips>
-                </div>
+            </div>
         </div>
         <!-- /row -->
         <br>
