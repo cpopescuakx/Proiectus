@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Blog;
 use App\Post;
 use App\User;
+use Illuminate\Support\Facades\Log;
 
 class BlogController extends Controller
 {
@@ -43,11 +44,11 @@ class BlogController extends Controller
     }
 
     /**
-     * Actualitza el títol de la blog i retorna la vista d'aquesta.
+     * Actualitza el títol del blog i retorna la vista d'aquesta.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id_project
-     * @var blog variable que busca la blog per el paràmetre id_project, canvia el títol d'aquesta i ho guarda
+     * @var blog variable que busca la blog per el paràmetre id_project, canvia el títol d'aquesta i ho guarda.
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function update(Request $request, $id_project)
@@ -60,6 +61,7 @@ class BlogController extends Controller
         $blog->id_project = $id_project;
 
         $blog->save();
+        Log::info('[ UPDATE ] - blogs - El blog: '.$blog->title.' ha estat actualitzat per: '.auth()->user()->id.'');
 
         return redirect()->action('ProjectController@show', ['id_project' => $id_project]);
     }

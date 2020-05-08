@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Article;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class ArticleController extends Controller
 {
@@ -49,7 +50,7 @@ class ArticleController extends Controller
         $article->id_user = $request->user()->id;
         $article->status = 'active';
         $article->save();
-        Log::info('[ INSERT ] - articles - Nou article: '.$article->title.' !Inserit per: '.$article->id_user.'');
+        Log::info('[ INSERT ] - articles - Nou article: '.$article->title.' !Inserit per: '.auth()->user()->id.'');
         
 
         //Retornem a la vista anterior.
@@ -87,30 +88,41 @@ class ArticleController extends Controller
             'content' => 'required',
         ]);
         
-        //Cerquem 
+        //Cerquem l'article a actualitzar
         $article = Article::find($id_article);
 
+        //Obtenim les dades del $request i afegim aquestes a l'article.
         $article->title = $request->get('title');
         $article->content = $request->get('content');
-
+        
+        //Guardem els nous valors dels camps.
         $article->save();
+        
+        Log::info('[ UPDATE ] - articles - Article: '.$article->title.' Actualitzat per: '.auth()->user()->id.'');
 
         return redirect()->back();
     }
 
 
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Article  $article
+     * Establir l'estat d'un article a inactive.
+     * 
+     * @param  int  $id_project Conté la id del projecte que assignarem a l'article editat.
+     * @param  int  $id_article Conté la ID del projecte a cercar.
      * @return \Illuminate\Http\Response
      */
     public function destroy($id_project, $id_article){
+
+        //Cerquem l'article a eliminar.
         $article = Article::find($id_article);
 
+        //Establim el status d'aquest a innactiu, ja que relment no l'esborrem.
         $article->status = 'inactive';
 
+        //Guardem aquest.
         $article->save();
+
+        Log::info('[ DELETE ] - articles - Article: '.$article->title.' Eliminat per: '.$article->id_user.'');
 
         return redirect()->back();
     }

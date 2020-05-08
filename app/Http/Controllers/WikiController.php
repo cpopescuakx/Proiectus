@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Wiki;
 use App\Article;
+use Illuminate\Support\Facades\Log;
 
 class WikiController extends Controller
 {
