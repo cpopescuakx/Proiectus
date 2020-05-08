@@ -128,6 +128,22 @@ class ProjectController extends Controller
         $wiki -> save();
         Log::info('[ INSERT ] - wikis - Nova wiki: ' .$projecte -> name. ' inserit!');
 
+        // ----------------------------  NOTIFICACIONS  -----------------------------  //
+        // Envia una notificació als usuaris implicats
+        $user = User::find(auth()->user()->getAuthIdentifier());
+        $data = "<b>" . $user->firstname . " " . $user->lastname .  "</b> t'ha afegit al projecte <b>" . $projecte->name . "</b>.";
+        $notificationDetails = [
+            'data' => $data,
+            'sender' => $user->id,
+            'project' => $projecte->id_project
+        ];
+
+        $users = array($user);
+
+        foreach ($users as $u) {
+            $u->notify(new \App\Notifications\AddedToAProject($notificationDetails));
+        }
+
         // Tornar a la llista de projectes
         $projects = Project::all();
         return redirect()->route('projects.index',compact('projects'))
@@ -137,7 +153,9 @@ class ProjectController extends Controller
 
     public function show(Request $request, $id_project)
     {
-        $posts = Post::all()->sortByDesc('created_at')->where('id_project', '=', $id_project)->where('status', '=', 'active');
+        $posts = Post::all()->sortByDesc('created_at')
+            ->where('id_project', '=', $id_project)
+            ->where('status', '=', 'active');
 
         $blog = Blog::find($id_project);
 
@@ -147,7 +165,9 @@ class ProjectController extends Controller
 
         $resources = Resource_center::all()->where('id_project', '=', $id_project);
 
-        $articles = Article::all()->sortByDesc('created_at')->where('id_project', '=', $id_project)->where('status', '=', 'active');
+        $articles = Article::all()->sortByDesc('created_at')
+            ->where('id_project', '=', $id_project)
+            ->where('status', '=', 'active');
 
         $wiki = Wiki::find($id_project);
 

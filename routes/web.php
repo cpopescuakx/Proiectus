@@ -238,6 +238,9 @@ Route::middleware(['CheckRole'])->group(function () {
     Route::post('/Employees/store', 'UserController@storeEmployees')->name('employee.store');
     Route::post('/Employees/{id}/update', 'UserController@updateEmployee')->name('employee.update');
     Route::get('/Employees/{id}/active', 'UserController@activeUser')->name('employee.active');
+    Route::get('/Employees/csv', 'UserController@indexCSVEmpleats')->name('employees.csv');
+    Route::post('/Employees/csv/import', 'UserController@importCSVEmployees')->name('employees.import');
+    Route::get('/Employees/csv/export', 'UserController@exportCSVEmployees')->name('employees.export');
 
 
 // Routes Grup4
@@ -321,20 +324,7 @@ Route::middleware(['CheckRole'])->group(function () {
         })->name('markAllRead');
 
         Route::get('/provanotif', function() {
-           $user = User::find(auth()->user()->getAuthIdentifier());
-           $project = "El millor projecte del planeta";
-           $data = "<b>" . $user->firstname . " " . $user->lastname .  "</b> t'ha afegit al projecte <b>" . $project . "</b>.";
-           $notificationDetails = [
-               'data' => $data,
-               'sender' => $user->id,
-               'project' => 1
-           ];
-           $user1 = User::find(46);
-           $user2 = User::find(128);
-           $users = array($user1, $user2);
-           foreach ($users as $userp) {
-               $userp->notify(new \App\Notifications\AddedToAProject($notificationDetails));
-           }
+
         });
     });
 
