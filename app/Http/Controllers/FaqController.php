@@ -7,6 +7,7 @@ use App\faq_votes;
 use App\School_users;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class FaqController extends Controller
 {
