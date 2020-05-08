@@ -52,6 +52,7 @@
             -moz-box-shadow: 0 5px 8px 1px rgba(0,0,0,.2);
                 box-shadow: 0 5px 8px 1px rgba(0,0,0,.2);
     }
+
     .notice-success {
         border-color: #116466;
     }

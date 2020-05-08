@@ -1,9 +1,5 @@
 <!-- Al añadir SCOPE solo afecta al propio componente -->
 <style scoped>
-    body {
-        background: #eee;
-    }
-
     span {
         font-size: 15px;
     }
@@ -14,8 +10,25 @@
         border-bottom: 2px solid #0062cc;
     }
 
+    .notice {
+        padding: 15px;
+        background-color: #fafafa;
+        border-left: 6px solid #7f7f84;
+        margin-bottom: 10px;
+        -webkit-box-shadow: 0 5px 8px 1px rgba(0,0,0,.2);
+            -moz-box-shadow: 0 5px 8px 1px rgba(0,0,0,.2);
+                box-shadow: 0 5px 8px 1px rgba(0,0,0,.2);
+    }
+
+    .notice-success {
+        border-color: #116466;
+    }
+    
+    strong {
+        color: #116466;
+    }
+
     .box-part {
-        background: #FFF;
         border-radius: 0;
         max-height: 350px;
         min-height: 350px;
@@ -32,21 +45,23 @@
         margin: 20px 20px;
     }
 
+
 </style>
 <template>
-    <div class="carousel slide" data-ride="carousel">
+<div id="tips">
+    <div class="carousel slide carousel-fade" data-ride="carousel">
         <div class="my-5 carousel-inner p-5">
-            <div class="carousel-item text-center pt-5 active box-part text-dark shadow-sm">
+            <div class="carousel-item text-center pt-5 active box-part text-dark notice notice-success">
                 <div class="title">
-                    <h4>#RESISTIREM</h4>
+                    <h4><strong>#RESISTIREM</strong></h4>
                 </div>
                 <div class="text text-muted py-2">
                     <span>Descripció molt detallada.</span>
                 </div>
             </div>
-            <div class="carousel-item text-center pt-5 box-part text-dark shadow-sm" v-for="tip in tips" :key="tip.id">
+            <div class="carousel-item text-center pt-5 box-part text-dark notice notice-success" v-for="tip in tips" :key="tip.id">
                 <div class="title">
-                    <h4>{{ tip.question }}</h4>
+                    <h4><strong>{{ tip.question }}</strong></h4>
                 </div>
                 <div class="text text-muted py-2">
                     <span v-html="tip.answer"></span>
@@ -54,6 +69,7 @@
             </div>
         </div>
     </div>
+</div>
 </template>
 
 <script>

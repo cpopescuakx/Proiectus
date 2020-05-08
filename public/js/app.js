@@ -2292,6 +2292,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2465,6 +2466,22 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -4580,7 +4597,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\nbody[data-v-2db16e23] {\n    background: #eee;\n}\nspan[data-v-2db16e23] {\n    font-size: 15px;\n}\na[data-v-2db16e23] {\n    text-decoration: none;\n    color: #0062cc;\n    border-bottom: 2px solid #0062cc;\n}\n.box-part[data-v-2db16e23] {\n    background: #FFF;\n    border-radius: 0;\n    max-height: 350px;\n    min-height: 350px;\n    max-width: 350px;\n    min-width: 350px;\n}\n.text[data-v-2db16e23] {\n    margin: 20px 0px;\n}\n.topic[data-v-2db16e23] {\n    background: #116466;\n    margin: 20px 20px;\n}\n\n", ""]);
+exports.push([module.i, "\nspan[data-v-2db16e23] {\n    font-size: 15px;\n}\na[data-v-2db16e23] {\n    text-decoration: none;\n    color: #0062cc;\n    border-bottom: 2px solid #0062cc;\n}\n.notice[data-v-2db16e23] {\n    padding: 15px;\n    background-color: #fafafa;\n    border-left: 6px solid #7f7f84;\n    margin-bottom: 10px;\n    box-shadow: 0 5px 8px 1px rgba(0,0,0,.2);\n}\n.notice-success[data-v-2db16e23] {\n    border-color: #116466;\n}\nstrong[data-v-2db16e23] {\n    color: #116466;\n}\n.box-part[data-v-2db16e23] {\n    border-radius: 0;\n    max-height: 350px;\n    min-height: 350px;\n    max-width: 350px;\n    min-width: 350px;\n}\n.text[data-v-2db16e23] {\n    margin: 20px 0px;\n}\n.topic[data-v-2db16e23] {\n    background: #116466;\n    margin: 20px 20px;\n}\n\n\n", ""]);
 
 // exports
 
@@ -41259,40 +41276,45 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "carousel slide", attrs: { "data-ride": "carousel" } },
-    [
-      _c(
-        "div",
-        { staticClass: "my-5 carousel-inner p-5" },
-        [
-          _vm._m(0),
-          _vm._v(" "),
-          _vm._l(_vm.tips, function(tip) {
-            return _c(
-              "div",
-              {
-                key: tip.id,
-                staticClass:
-                  "carousel-item text-center pt-5 box-part text-dark shadow-sm"
-              },
-              [
-                _c("div", { staticClass: "title" }, [
-                  _c("h4", [_vm._v(_vm._s(tip.question))])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "text text-muted py-2" }, [
-                  _c("span", { domProps: { innerHTML: _vm._s(tip.answer) } })
-                ])
-              ]
-            )
-          })
-        ],
-        2
-      )
-    ]
-  )
+  return _c("div", { attrs: { id: "tips" } }, [
+    _c(
+      "div",
+      {
+        staticClass: "carousel slide carousel-fade",
+        attrs: { "data-ride": "carousel" }
+      },
+      [
+        _c(
+          "div",
+          { staticClass: "my-5 carousel-inner p-5" },
+          [
+            _vm._m(0),
+            _vm._v(" "),
+            _vm._l(_vm.tips, function(tip) {
+              return _c(
+                "div",
+                {
+                  key: tip.id,
+                  staticClass:
+                    "carousel-item text-center pt-5 box-part text-dark notice notice-success"
+                },
+                [
+                  _c("div", { staticClass: "title" }, [
+                    _c("h4", [_c("strong", [_vm._v(_vm._s(tip.question))])])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "text text-muted py-2" }, [
+                    _c("span", { domProps: { innerHTML: _vm._s(tip.answer) } })
+                  ])
+                ]
+              )
+            })
+          ],
+          2
+        )
+      ]
+    )
+  ])
 }
 var staticRenderFns = [
   function() {
@@ -41303,11 +41325,11 @@ var staticRenderFns = [
       "div",
       {
         staticClass:
-          "carousel-item text-center pt-5 active box-part text-dark shadow-sm"
+          "carousel-item text-center pt-5 active box-part text-dark notice notice-success"
       },
       [
         _c("div", { staticClass: "title" }, [
-          _c("h4", [_vm._v("#RESISTIREM")])
+          _c("h4", [_c("strong", [_vm._v("#RESISTIREM")])])
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "text text-muted py-2" }, [
