@@ -8,6 +8,7 @@
 
   <div class="p-4 pt-5">
     <h1><a href="{{route('index.index')}}" class="logo">Proiectus</a></h1>
+      @if(Auth::check())
       <div id="notifications" class="">
           <a href="#" id="notificationDropdown" class="nav-link dropdown-toggle-split pt-2" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
               <span class="material-icons"> notifications </span>
@@ -52,6 +53,7 @@
               @endif
           </div>
       </div>
+      @endif
       <div id="cercador" class="pl-3">
           <a href="{{route('cercador.index')}}">
               <span class="material-icons"> search </span>
