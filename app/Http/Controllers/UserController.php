@@ -17,6 +17,9 @@ use Image;
 use Auth;
 use App\Invite;
 use App\Url;
+use App\Jobs\ProcessCSV;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
@@ -900,7 +903,7 @@ class UserController extends Controller
 
     public function importCSVEmployees (Request $request) {
         // Comprova que el fitxer és un .csv
-        $validar = Validator::make(
+        $validate = Validator::make(
             [
                 'file' => $request->file,
                 'extension' => strtolower($request->file->getClientOriginalExtension()),
@@ -911,43 +914,12 @@ class UserController extends Controller
             ]
         );
 
-        if($validar->passes()) {
-            $file = $request->file('file');
-            $_file = fopen($file, 'r');
-
-            $i = 0;
-            $data = array();
-            while (($dataCSV = fgetcsv($_file, 1000, "\t")) !== FALSE) {
-                for ($c=0; $c < count($dataCSV); $c++) {
-                    $data[$i][] = $dataCSV[$c];
-                }
-                
-                $i++;
-            }
-            fclose($_file);
-
-            foreach ($data as $employee) {
-                $employee = explode(';', $employee[0]);
-                
-                $_employee = new User;
-                $_employee->firstname = $employee[0];
-                $_employee->lastname = $employee[1];
-                $_employee->username = $employee[2];
-                $_employee->dni = $employee[3];
-                $_employee->email = $employee[4];
-                $_employee->password = Hash::make($employee[5]);
-                $_employee->id_city = CityController::getIdFromPostalCode($employee[6]);
-                $_employee->id_role = 2;
-                $_employee->status = "active";
-                $_employee->save();
-
-                Log::info(Auth::user()->username . ' - [ IMPORT ] - users - Nou empleat: ' . $employee[2]. ' inserit!');
-            }
-
-            return redirect()->back()->with(['success' =>'Importació feta correctament.']);
+        if($validate->passes()) {
+            ProcessCSV::dispatch($request, Auth::user())->delay(now()->addSeconds(5));
+            return redirect()->back();
         }
         else {
-            return redirect()->back()->with(['errors' => $validar->errors()->all()]);
+            return redirect()->back()->with(['errors' => $validate->errors()->all()]);
         }
 
     }

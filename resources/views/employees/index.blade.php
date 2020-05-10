@@ -3,9 +3,9 @@
 
 @section('content')
 <div class="col">
-  <div class="row d-flex justify-content-between p-4">
+  <div class="row d-flex justify-content-between p-0 pb-4">
   <!-- Filtro -->
-  <nav class="navbar navbar-light">
+    <nav>
         <form class="form-inline">
             <h4 style="margin-right: 1rem">Llistat Empleats</h4>
             <select name="tipo" class="custom-select mr-2">
@@ -15,8 +15,11 @@
               </select>
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Cercar</button>
         </form>
-      </nav>
-  <a href="{{ route('employee.create') }}"><img src={{ asset('img/add.svg') }} width="45" height="45" ></a>
+    </nav>
+    <div class="d-flex">
+        <a class="mr-3" href="{{ route('employee.create') }}"><img src={{ asset('img/add.svg') }} width="45" height="45" ></a>
+        <a href="{{ route('employees.csv') }}"><i class="fas fa-file-csv" style="color: #116466; font-size: 45px;"></i></a>
+    </div>
   </div>
 </div>
 <table class="table table-hover mr-5">
@@ -74,5 +77,6 @@
 </table>
 <div class="d-flex pt-5 justify-content-center">
     <div class="inline-block">{{ $employees->links() }}</div>
+</div>
 </div>
 @stop
