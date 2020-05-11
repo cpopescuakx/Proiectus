@@ -275,12 +275,12 @@ Route::middleware(['CheckRole'])->group(function () {
     /** Middleware per a controlar que només pugui editar o eliminar un article el seu owner */
     Route::middleware(['CheckRoleWiki'])->group(function () {
         /** Rutes per a l'apartat de la gestio dels articles de la wiki */
-        Route::get('wiki/{id_project}', 'WikiController@index');
+        Route::get('wiki/{id_project}', 'WikiController@index')->name('wiki.index');
         /** Ruta per a eliminar un article */
         Route::get('Project/{id_project}/article/{id_article}/destroy', 'ArticleController@destroy')->name('article.destroy');
         /** Ruta per a l'update d'un article */
         Route::get('Project/{id_project}/article/{id_article}/edit', 'ArticleController@edit')->name('article.edit');
-        Route::post('Project/{id_project}/article/{id_article}/update', 'ArticleController@update');
+        Route::post('Project/{id_project}/article/{id_article}/update', 'ArticleController@update')->name('article.update');
         /** Ruta per a l'update d''una wiki */
         Route::get('wiki/{id_project}/edit', 'WikiController@edit')->name('wiki.edit');
         Route::post('wiki/{id_project}/update', 'WikiController@update');
