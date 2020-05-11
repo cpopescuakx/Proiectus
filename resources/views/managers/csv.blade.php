@@ -14,6 +14,7 @@
                     <li><span class="font-weight-bold">Columna 5:</span> Correu electrònic</li>
                     <li><span class="font-weight-bold">Columna 6:</span> Contrasenya</li>
                     <li><span class="font-weight-bold">Columna 7:</span> Codi Postal</li>
+                    <li><span class="font-weight-bold">Columna 7:</span> Codi Rol</li>
                 </ul>
             </div>
         </div>
@@ -21,7 +22,7 @@
 </div>
 
 <div class="formulari">
-    <form class="was-validated" action="{{route('employees.import')}}" method="POST" enctype="multipart/form-data">
+    <form class="was-validated" action="{{route('managers.import')}}" method="POST" enctype="multipart/form-data">
         <div class="row justify-content-center">
             <div class="col-11 col-sm-11 col-md-10 col-lg-10 col-xl-10">
                 <div class="container">

@@ -956,11 +956,13 @@ class UserController extends Controller
         return Response::stream($callback, 200, $headers);
     }
 
-    /*Exportar gestors*/
+    /*CSV gestors*/
 
     public function indexCSVManagers() {
         return view('managers.csv');
     }
+
+    /*Exportar gestors*/
 
     public function exportCSVManagers() {
         $managers = User::where('id_role',5)->get();
@@ -992,6 +994,32 @@ class UserController extends Controller
         );
 
         return Response::stream($callback, 200, $headers);
+    }
+
+
+    /*Importar gestors*/
+
+    public function importCSVManagers (Request $request) {
+        // Comprova que el fitxer és un .csv
+        $validate = Validator::make(
+            [
+                'file' => $request->file,
+                'extension' => strtolower($request->file->getClientOriginalExtension()),
+            ],
+            [
+                'file' => 'required',
+                'extension' => 'required|in:csv',
+            ]
+        );
+
+        if($validate->passes()) {
+            ProcessCSV::dispatch($request, Auth::user())->delay(now()->addSeconds(5));
+            return redirect()->back();
+        }
+        else {
+            return redirect()->back()->with(['errors' => $validate->errors()->all()]);
+        }
+
     }
 
     /**

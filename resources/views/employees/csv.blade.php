@@ -14,6 +14,7 @@
                     <li><span class="font-weight-bold">Columna 5:</span> Correu electrònic</li>
                     <li><span class="font-weight-bold">Columna 6:</span> Contrasenya</li>
                     <li><span class="font-weight-bold">Columna 7:</span> Codi Postal</li>
+                    <li><span class="font-weight-bold">Columna 7:</span> Codi Rol</li>
                 </ul>
             </div>
         </div>
