@@ -67,7 +67,7 @@
                 <div class="text-center my-2">
                     <!-- Muestra una imagen por defecto si el usuario no ha subido ninguna foto de perfil -->
                     @if(Auth::user()->logo_entity == null)
-                    <img src="/img/logo_pic/avatar_2x.png" class="avatar img-circle img-thumbnail" alt="imagen">
+                    <img src="/img/logo_pic/logo_2x.png" class="avatar img-circle img-thumbnail" alt="imagen">
 
                     <!-- Muestra la imagen que ha seleccionado el usuario -->
                     @else

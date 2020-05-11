@@ -2259,6 +2259,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -41191,16 +41192,27 @@ var render = function() {
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "mr-3 d-flex justify-content-around" }, [
-                _c("img", {
-                  staticClass: "ml-auto",
-                  attrs: {
-                    alt: "imagen",
-                    src: "/img/logo_pic/logo" + detail.logo_entity,
-                    "data-holder-rendered": "true",
-                    width: "100",
-                    height: "100"
-                  }
-                })
+                detail.logo_entity
+                  ? _c("img", {
+                      staticClass: "ml-auto",
+                      attrs: {
+                        alt: "imagen",
+                        src: "/img/logo_pic/logo" + detail.logo_entity,
+                        "data-holder-rendered": "true",
+                        width: "100",
+                        height: "100"
+                      }
+                    })
+                  : _c("img", {
+                      staticClass: "ml-auto",
+                      attrs: {
+                        alt: "imagen",
+                        src: "/img/logo_pic/logo_2x.png",
+                        "data-holder-rendered": "true",
+                        width: "100",
+                        height: "100"
+                      }
+                    })
               ])
             ]),
             _vm._v(" "),
@@ -41233,7 +41245,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("strong", [
       _c("span", { staticClass: "text-center" }, [
-        _c("h4", [_vm._v("PROJECTE")])
+        _c("h4", [_vm._v("PROPOSTA")])
       ])
     ])
   }

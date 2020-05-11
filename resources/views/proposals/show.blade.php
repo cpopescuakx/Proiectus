@@ -32,23 +32,20 @@
     
         <br>
         <!-- Apartado para aceptar propuesta -->
-        <div>
+        <div class="row pl-2 d-flex flex-column">
+            <div class="container-fluid">
             @if ($proposal->category == 'school')
                 @if (!$schoolUser::checkUser(Auth::user()->id))
-                    <div class="row p-5 shadow">
-                        <div class="col my-auto text-center">
-                            <p class="">Pots unir-te a aquesta proposta, al fer-ho, es crearà el projecte on podràs col·laborar amb aquesta entitat.</p>
-                            <a data-toggle="modal" class="btn btn-dark text-white" data-target="#afegir">Unir-se</a>
-                        </div>
+                    <div class="col my-auto text-center shadow-sm">
+                        <p class="">Pots unir-te a aquesta proposta, al fer-ho, es crearà el projecte on podràs col·laborar amb aquesta entitat.</p>
+                        <a data-toggle="modal" class="btn btn-dark text-white" data-target="#afegir">Unir-se</a>
                     </div>
                 @endif
             @else
                 @if(!$companyUser::checkUser(Auth::user()->id))
-                    <div class="row p-5 shadow">
-                        <div class="col my-auto text-center">
-                            <p class="">Pots unir-te a aquesta proposta, al fer-ho, es crearà el projecte on podràs col·laborar amb aquesta entitat.</p>
-                            <a data-toggle="modal" class="btn btn-dark text-white" data-target="#afegir">Unir-se</a>
-                        </div>
+                    <div class="col my-auto text-center shadow-sm">
+                        <p class="">Pots unir-te a aquesta proposta, al fer-ho, es crearà el projecte on podràs col·laborar amb aquesta entitat.</p>
+                        <a data-toggle="modal" class="btn btn-dark text-white" data-target="#afegir">Unir-se</a>
                     </div>
                 @endif
             @endif
@@ -73,6 +70,7 @@
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     </div>
 @endsection

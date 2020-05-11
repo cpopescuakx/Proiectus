@@ -75,7 +75,7 @@
         <div class="container-fluid">
             <div class="notice notice-success d-flex flex-column" v-for="detail in details" :key="detail.id_proposal">
                 <!-- Título componente -->
-                <strong><span class="text-center"><h4>PROJECTE</h4></span></strong>
+                <strong><span class="text-center"><h4>PROPOSTA</h4></span></strong>
                 <div class="row">
                     <!-- Apartado con título, entidad y fecha -->
                     <div class="col d-flex flex-column">
@@ -87,7 +87,8 @@
                 
                     <!-- Apartado con logo de la entidad -->
                     <div class="mr-3 d-flex justify-content-around">
-                        <img class="ml-auto" alt="imagen" :src="'/img/logo_pic/logo'+detail.logo_entity" data-holder-rendered="true" width="100" height="100"/>
+                        <img v-if="detail.logo_entity" class="ml-auto" alt="imagen" :src="'/img/logo_pic/logo'+detail.logo_entity" data-holder-rendered="true" width="100" height="100"/>
+                        <img v-else class="ml-auto" alt="imagen" src="/img/logo_pic/logo_2x.png" data-holder-rendered="true" width="100" height="100"/>
                     </div>
                 </div>
                 <!-- Autor/a proposta -->

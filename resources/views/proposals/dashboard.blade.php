@@ -24,7 +24,7 @@
                     <div class="card m-2">
                         <img class="card-img-top" src="{{ asset('img/foto_small.jpg') }}">
                         <div class="card-body">
-                            <h3 style="width: 15rem;" class="text-truncate card-title">{{ $proposal->name }}</h5>
+                            <h3 style="width: 15rem;" class="card-title">{{ $proposal->name }}</h5>
                                 <h5 style="width: 10rem;" class="text-truncate card-title">{{ $proposal->category }}
                                 </h5>
 
