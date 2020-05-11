@@ -24,7 +24,7 @@ class CheckRoleWiki
     {   
         $article = Article::find($request->route()->parameters()['id_article']);
         $check = FALSE;
-        if (Auth::user()->id == $article -> id_user || Auth::user()->id_role == 1) {
+        if (Auth::user()->id_role == 1 || Auth::user()->id == $article -> id_user) {
             $check = TRUE;
             return $next($request->merge(['check' => $check]));
         } else {

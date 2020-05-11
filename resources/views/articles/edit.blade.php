@@ -54,12 +54,13 @@
         </div>
     </form>
 </div>
+    @section('custom-scripts')
 <script>
 	$('#summernote').summernote({
 		placeholder: 'Contingut del post',
 		tabsize: 2,
 		height: 100,
-		minHeight: 100,
+		minHeight: 200,
 		maxHeight: 400
 	});
 
@@ -75,4 +76,5 @@
 		}
 	})
 </script>
+    @endsection
 @endsection

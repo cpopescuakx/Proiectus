@@ -281,10 +281,10 @@ Route::middleware(['CheckRole'])->group(function () {
         /** Ruta per a l'update d'un article */
         Route::get('Project/{id_project}/article/{id_article}/edit', 'ArticleController@edit')->name('article.edit');
         Route::post('Project/{id_project}/article/{id_article}/update', 'ArticleController@update');
-        /** Ruta per a l'update d''una wiki */
-        Route::get('wiki/{id_project}/edit', 'WikiController@edit')->name('wiki.edit');
-        Route::post('wiki/{id_project}/update', 'WikiController@update');
     });
+    /** Ruta per a l'update d''una wiki */
+    Route::get('wiki/{id_project}/edit', 'WikiController@edit')->name('wiki.edit');
+    Route::post('wiki/{id_project}/update', 'WikiController@update');
     /** Ruta per a guardar l'article creat */
     Route::post('wiki/{id_project}/article/store', 'ArticleController@store') ->name('article.store');
 
