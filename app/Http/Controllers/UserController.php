@@ -39,7 +39,7 @@ class UserController extends Controller
     }
 
     public function indexInvitacio(){
-      $users = User::all();
+      $users = Invite::all();
           return view('UserInvitation.index', ['users' => $users]);
     }
 
@@ -132,7 +132,7 @@ class UserController extends Controller
       if($request->hasFile('profile_pic')){
         $profile_pic = $request->file('profile_pic');
         $nom = time() . '.' . $profile_pic->getClientOriginalExtension();
-    		Image::make($profile_pic)->resize(300, 300)->save( public_path('\img\profile_pic\imatge' . $nom ) );
+    		Image::make($profile_pic)->resize('resizeCrop,200,200,center,middle')->save( public_path('\img\profile_pic\imatge' . $nom ) );
 
     		$managers = User::find($id);
     		$managers->profile_pic = $nom;
@@ -736,6 +736,75 @@ class UserController extends Controller
         return redirect()->route('professors.index',compact('professors'))
         ->with('i', (request()->input('page', 1) -1));
     }
+
+    /** EXPORT PROFESSORS
+     *
+     *  Acció que serveix per a exportar professors en un fitxer CSV.
+     */
+    public function exportCSVProfessors() {
+        $professors = User::where('id_role',4)->get();
+        $filename = "professors.csv";
+
+        $callback = function () use ($professors) {
+            $handle = fopen('php://output', 'w');
+
+            foreach ($professors as $professor) {
+                fputcsv($handle, array(
+                    $professor['firstname'], $professor['lastname'], $professor['username'], $professor['profile_pic'],
+                    $professor['email'], $professor['email_verified_at'], $professor['id_city'], $professor['bio'], $professor['id_role'],
+                    $professor['dni'], $professor['birthdate'], $professor['status'], $professor['pending_entity_registration'],
+                    $professor['pending_entity_verification'], $professor['logo_entity']
+                ), ';');
+            }
+            Log::info(Auth::user()->username . ' - [ EXPORT ] - users - Professors');
+            fclose($handle);
+        };
+
+
+        $headers = array(
+            'Content-Type' => 'text/csv',
+            'Content-Disposition'   => "attachment; filename=$filename"
+        );
+
+        return Response::stream($callback, 200, $headers);
+    }
+
+    /**
+     * Retorna la vista del formulari per a importar i exportar professors.
+     *
+     */
+    public function indexCSVProfessors() {
+        return view('professors.csv');
+    }
+
+    /** IMPORT PROFESSORS
+     *  Acció que serveix per a importar professors des de un fitxer CSV.
+     *
+     */
+
+    public function importCSVProfessors (Request $request) {
+            // Comprova que el fitxer és un .csv
+            $validate = Validator::make(
+                [
+                    'file' => $request->file,
+                    'extension' => strtolower($request->file->getClientOriginalExtension()),
+                ],
+                [
+                    'file' => 'required',
+                    'extension' => 'required|in:csv',
+                ]
+            );
+
+            if($validate->passes()) {
+                ProcessCSV::dispatch($request, Auth::user())->delay(now()->addSeconds(5));
+                return redirect()->back();
+            }
+            else {
+                return redirect()->back()->with(['errors' => $validate->errors()->all()]);
+            }
+
+        }
+
 
     /** LLISTAR EMPLEATS
      *

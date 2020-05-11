@@ -117,22 +117,24 @@ Route::middleware(['registeredEntity'])->group(function () {
     });
 
     /** Rutes per a l'apartat de gestió de profes */
-    Route::get('Professors', 'UserController@indexProfessor')
-        ->name('professors.index');
+    Route::get('Professors', 'UserController@indexProfessor')->name('professors.index');
 
     Route::get('Professors/create', 'UserController@createProfessor')->name('professors.create');
 
-    Route::post('Professors/create/success', 'UserController@storeProfessor')
-        ->name('professors.store');
+    Route::post('Professors/create/success', 'UserController@storeProfessor')->name('professors.store');
 
-    Route::get('Professors/{id}/edit', 'UserController@editProfessor')
-        ->name('professors.edit');
+    Route::get('Professors/{id}/edit', 'UserController@editProfessor')->name('professors.edit');
 
-    Route::post('Professors/{id}/edit/success', 'UserController@updateProfessor')
-        ->name('professors.update');
+    Route::get('/Professors/csv', 'UserController@indexCSVProfessors')->name('professors.csv');
 
-    Route::get('Professors/{id}', 'UserController@destroyProfessor')
-        ->name('professors.destroy');
+    Route::post('/Professors/csv/import', 'UserController@importCSVProfessors')->name('professors.import');
+
+    Route::get('/Professors/csv/export', 'UserController@exportCSVProfessors')->name('professors.export');
+    
+    Route::post('Professors/{id}/edit/success', 'UserController@updateProfessor')->name('professors.update');
+
+    Route::get('Professors/{id}', 'UserController@destroyProfessor')->name('professors.destroy');
+
 
     //GRUP1
     /* Tickets */
@@ -285,6 +287,9 @@ Route::middleware(['CheckRole'])->group(function () {
         Route::get('Project/{id_project}/article/{id_article}/edit', 'ArticleController@edit')->name('article.edit');
         Route::post('Project/{id_project}/article/{id_article}/update', 'ArticleController@update')->name('article.update');
     });
+    /** Ruta per a l'update d''una wiki */
+    Route::get('wiki/{id_project}/edit', 'WikiController@edit')->name('wiki.edit');
+    Route::post('wiki/{id_project}/update', 'WikiController@update');
     /** Ruta per a guardar l'article creat */
     Route::post('wiki/{id_project}/article/store', 'ArticleController@store') ->name('article.store');
 

@@ -2,7 +2,7 @@
 	<head>
 	   @include('includes.head')
 	</head>
-	<body>
+	<body onload="loading()">
 		<div class="wrapper d-flex align-items-stretch">
 			<!-- SIDENAV -->
 			<header class="headerCSSpropi row">

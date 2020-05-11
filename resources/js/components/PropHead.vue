@@ -56,26 +56,15 @@
     .notice-success {
         border-color: #116466;
     }
-    .notice-success>strong {
+    strong {
         color: #116466;
     }
-    .notice-info {
-        border-color: #45ABCD;
+    .notice-success>li>strong {
+        color: #116466;
     }
-    .notice-info>strong {
-        color: #45ABCD;
-    }
-    .notice-warning {
-        border-color: #FEAF20;
-    }
-    .notice-warning>strong {
-        color: #FEAF20;
-    }
-    .notice-danger {
-        border-color: #d73814;
-    }
-    .notice-danger>strong {
-        color: #d73814;
+
+    .icono {
+        color: #116466;
     }
 
 </style>d
@@ -84,21 +73,29 @@
 <template>
     <div id="prophead">
         <div class="container-fluid">
-            <ul class="notice notice-success col" v-for="detail in details" :key="detail.id_proposal">
-                <li>
-                    <h4>Títol: {{ detail.name }}</h4>
-                    <div>
-                        <h6>Creat per: {{ detail.school_name }}</h6>
-                        <img class="rounded-circle mr-auto w-50 img-thumbnail" alt="250x250" :src="'/img/logo_pic/logo'+detail.logo_entity" data-holder-rendered="true" />
+            <div class="notice notice-success d-flex flex-column" v-for="detail in details" :key="detail.id_proposal">
+                <!-- Título componente -->
+                <strong><span class="text-center"><h4>PROJECTE</h4></span></strong>
+                <div class="row">
+                    <!-- Apartado con título, entidad y fecha -->
+                    <div class="col d-flex flex-column">
+                        <strong><h4>{{ detail.name }}</h4></strong>
+                        <h6 class="text-muted">Creat per: {{ detail.school_name }}</h6>
+                        <!-- MEJORAR: Crear un método que cambie la fecha por un texto del estilo "Hace X días" -->
+                        <p><strong>Data de creació: </strong>{{ formattedDate(detail.created_at) }}</p>
                     </div>
-                    <hr>
-                    <p><strong>Data de creació: </strong>{{ formattedDate(detail.created_at) }}</p>
-                </li>
-                <li>
-                    <i class="medium material-icons">account_box</i>
-                    <p>Autor/a: {{ detail.username }}</p>
-                </li>
-            </ul>
+                
+                    <!-- Apartado con logo de la entidad -->
+                    <div class="mr-3 d-flex justify-content-around">
+                        <img class="ml-auto" alt="imagen" :src="'/img/logo_pic/logo'+detail.logo_entity" data-holder-rendered="true" width="100" height="100"/>
+                    </div>
+                </div>
+                <!-- Autor/a proposta -->
+                <div class="d-inline-flex justify-content-end mr-2">
+                    <i class="medium material-icons ml-auto mr-2 icono">account_box</i>
+                    <p class="mr-2"><strong>{{ detail.username }}</strong></p>
+                </div>
+            </div>
         </div>
     </div>
 </template>
@@ -121,6 +118,7 @@
             //console.log(vars);
             //console.log(param);
             this.getDetails(param);
+            
         },
         methods: {
             // GET Request API / proposals / details / $id

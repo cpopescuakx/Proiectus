@@ -23,59 +23,20 @@
                 box-shadow: 0 5px 8px 1px rgba(0,0,0,.2);
     }
 
-    .notice-sm {
-        padding: 10px;
-        font-size: 80%;
-        background-color: #fafafa;
-        border-left: 6px solid #7f7f84;
-        margin-bottom: 10px;
-        -webkit-box-shadow: 0 5px 8px 1px rgba(0,0,0,.2);
-            -moz-box-shadow: 0 5px 8px 1px rgba(0,0,0,.2);
-                box-shadow: 0 5px 8px 1px rgba(0,0,0,.2);
-    }
-    .notice-lg {
-        padding: 35px;
-        font-size: large;
-        background-color: #fafafa;
-        border-left: 6px solid #7f7f84;
-        margin-bottom: 10px;
-        -webkit-box-shadow: 0 5px 8px 1px rgba(0,0,0,.2);
-            -moz-box-shadow: 0 5px 8px 1px rgba(0,0,0,.2);
-                box-shadow: 0 5px 8px 1px rgba(0,0,0,.2);
-    }
     .notice-success {
         border-color: #116466;
     }
     .notice-success>strong {
         color: #116466;
     }
-    .notice-info {
-        border-color: #45ABCD;
-    }
-    .notice-info>strong {
-        color: #45ABCD;
-    }
-    .notice-warning {
-        border-color: #FEAF20;
-    }
-    .notice-warning>strong {
-        color: #FEAF20;
-    }
-    .notice-danger {
-        border-color: #d73814;
-    }
-    .notice-danger>strong {
-        color: #d73814;
-    }
-
 </style>
 
 <!-- Plantilla del componente VUE en la vista -->
 <template>
-    <div id="showdetails">
+    <div id="showdetails mt-5">
         <div class="container-fluid" v-for="detail in details" :key="detail.id_proposal">
             <div class="notice notice-success">
-                <strong><span class="font-weight-bolder">Especificacions</span></strong>
+                <strong><span class="text-center"><h4>ESPECIFICACIONS</h4></span></strong>
                 <br>
                 <strong>Descripció:</strong> {{ detail.description }}<hr>
                 <strong>Professional Family:</strong> {{ detail.professional_family }}<hr>
