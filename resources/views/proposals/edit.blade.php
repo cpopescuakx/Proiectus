@@ -82,11 +82,7 @@
                         <div class="row justify-content-center">
                             <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
                                 <label for="city">Tags</label>
-                                    <select data-size="10"
-                                            class="selectpicker form-control"
-                                            data-live-search="true"
-                                            data-none-results-text="No s'han trobat coincidències"
-                                            data-style="btn-white"
+                                    <select class="form-control"
                                             title="Escull les tags"
                                             name="tags[]"
                                             multiple>

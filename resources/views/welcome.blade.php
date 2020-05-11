@@ -14,7 +14,7 @@
                 <div class="carousel-item active">
                     <img class="first-slide slide-width" src="img/carrusel0.jpg" alt="">
                     <div class="container">
-                        <div class="carousel-caption text-left">
+                        <div class="carousel-caption">
                         <div class="row no-gutters">
                           <div id="photos">
                           </div>
@@ -22,7 +22,7 @@
                         </div>
                             <h1>Connecta.</h1>
                             <p>La teva empresa pot connectar amb centres educatius o viceversa <br> Proposa un desafiament, forma el teu equip i desenvolupa un projecte.</p>
-                            <p><a class="btn btn-lg btn-primary" href="g1_formRegCentreEntitat.php" role="button">Registra't</a></p>
+                      <p><a class="btn btn-lg btn-primary" href="register" role="button">Registra't</a></p>
                         </div>
                     </div>
                 </div>
@@ -40,35 +40,10 @@
                     <img class="third-slide slide-width" src="img/carrusel2.jpg" alt="Professor donant classe">
                     <div class="container">
 
-                        <div class="carousel-caption text-left">
-                          <iframe title="Vue.js Documental" width="560" height="330" src="https://www.youtube.com/embed/OrxmtDw4pVI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen alt="Documental Vue.js"></iframe>
+                        <div class="carousel-caption">
                             <h1>Per als centres educatius.</h1>
                             <p>Els alumnes podran accedir a experiències professionals <br>a través de la col·laboració en projectes en el seu camp d'estudis.</p>
-                            <p>
-                                <a type="button" class="btn btn-lg btn-primary video-btn" href="#" data-toggle="modal" data-src="https://www.youtube.com/watch?v=2rpfqwCk9Sk" data-target="#myModal" role="button">Veure vídeo</a>
-                            </p>
-                        </div>
-
-                        <!-- Modal -->
-                        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-
-                                    <div class="modal-body">
-
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-
-                                        <!-- 16:9 aspect ratio -->
-                                        <div class="embed-responsive embed-responsive-16by9">
-                                            <iframe class="embed-responsive-item" src="" id="video" allowscriptaccess="always" allow="autoplay"></iframe>
-                                        </div>
-
-                                    </div>
-
-                                </div>
-                            </div>
+                            <p><a class="btn btn-lg btn-primary" href="#que_es_proiectus" role="button">Més info...</a></p>
                         </div>
                     </div>
                 </div>

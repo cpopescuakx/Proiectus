@@ -115,21 +115,46 @@
       </li>
 
       <li>
+        @if(Auth::guest())
+        @else
+        @if (Auth::user()->id_role == 5 || Auth::user()->id_role == 1 || Auth::user()->id_role == 4)
         <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><span class="fa fa-users mr-3"></span>Usuaris</a>
         <ul class="collapse list-unstyled" id="homeSubmenu">
           <li>
+            @if(Auth::guest())
+            @else
+            @if (Auth::user()->id_role == 5 || Auth::user()->id_role == 1 || Auth::user()->id_role == 4)
               <a href="{{ route('students.index') }}"><span class="fa fa-user mr-3"></span>Estudiants</a>
+              @endif
+              @endif
           </li>
           <li>
+            @if(Auth::guest())
+            @else
+            @if (Auth::user()->id_role == 5 || Auth::user()->id_role == 1)
               <a href="{{ route('professors.index') }}"><span class="fa fa-user mr-3"></span>Professors</a>
+              @endif
+              @endif
           </li>
           <li>
+            @if(Auth::guest())
+            @else
+            @if (Auth::user()->id_role == 5 || Auth::user()->id_role == 1)
               <a href="{{ route('employee.index') }}"><span class="fa fa-user mr-3"></span>Empleats</a>
+              @endif
+              @endif
           </li>
           <li>
+            @if(Auth::guest())
+            @else
+            @if (Auth::user()->id_role == 5 || Auth::user()->id_role == 1)
               <a href="{{ route('managers.index') }}"><span class="fa fa-user mr-3"></span>Gestors</a>
+              @endif
+              @endif
           </li>
         </ul>
+        @endif
+        @endif
       </li>
 
       <li>
