@@ -5,8 +5,6 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
-use App\Project;
-use App\Wiki;
 use App\Article;
 
 class CheckRoleWiki
@@ -22,9 +20,8 @@ class CheckRoleWiki
      */
     public function handle(Request $request, Closure $next)
     {   
-        $article = Article::find($request->route()->parameters()['id_article']);
         $check = FALSE;
-        if (Auth::user()->id == $article -> id_user || Auth::user()->id_role == 1) {
+        if (Auth::user()->id == Article::find($request->route()->parameters()['id_article'])->id_user || Auth::user()->id_role == 1) {
             $check = TRUE;
             return $next($request->merge(['check' => $check]));
         } else {

@@ -40,7 +40,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" name="cancelar" class="btn btn-success" data-dismiss="modal">Cancela</button>
-                    <a type="button" class="btn btn-danger" href="{{$id_project}}/article/{{$article->id_article}}/destroy">Elimina</a>
+                    <a type="button" class="btn btn-danger" href="{{route('article.destroy',[$id_project, $article->id_article])}}">Elimina</a>
                 </div>
             </div>
         </div>
@@ -48,7 +48,7 @@
     <div class="card mb-3">
         <div class="card-body">
             @if(Auth::user()->id == $article->id_user || (Auth::user()->id_role == 1))
-            <a class="float-right" href="{{$id_project}}/article/{{$article->id_article}}/edit"><i style="font-size: 140%" class="material-icons" alt="Icona per a editar" >edit</i></a>
+            <a class="float-right" href="{{route('article.edit',[$id_project, $article->id_article])}}"><i style="font-size: 140%" class="material-icons" alt="Icona per a editar" >edit</i></a>
             <a class="float-right" data-toggle="modal" data-target="#articleDeleteConfirmationModal"><i style="font-size: 140%" class="material-icons text-primary" alt="Icona per a eliminar">delete</i></a>
             @endif
             <a href="#">
@@ -56,7 +56,6 @@
             </a>
             <div class="">
                 <p class="card-text">{!!$article->content!!}</p>
-
             </div>
         </div>
         <div class="card-footer text-muted">

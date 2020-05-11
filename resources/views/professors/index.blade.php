@@ -3,8 +3,9 @@
 
 @section('content')
 <div class="col">
-  <div class="row d-flex justify-content-end p-4">
+  <div class="row d-flex justify-content-end p-0 p-4">
     <a href="{{ route('professors.create') }}"><img src={{ asset('img/add.svg') }} width="45" height="45" ></a>
+    <a href="{{ route('professors.csv') }}"><i class="fas fa-file-csv" style="color: #116466; font-size: 45px;"></i></a>
   </div>
 </div>
 <table class="table table-hover mr-5">

@@ -2,9 +2,8 @@
 @section('content')
 
 <div class="formulari">
-    <form class="was-validated" action="update" method="POST">
+    <form class="was-validated" action="{{route('wiki.update', $wiki->id_project)}}" method="POST">
         @csrf
-        <input type="hidden" name="_method" value="PATCH" />
         <div class="row justify-content-center">
             <div class="col-11 col-sm-11 col-md-10 col-lg-10 col-xl-10">
                 <div class="container">
@@ -34,6 +33,7 @@
                         <div class="row justify-content-center">
                             <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
                                 <button type="submit" name = "sbumit" class="btn btn-primary float-right">Modificar</button>
+                                <a class="btn btn-primary float-left" href="{{ URL::previous() }}"> Cancel·lar</a>
                             </div>
                         </div>
                     </div>

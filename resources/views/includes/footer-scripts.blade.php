@@ -36,8 +36,8 @@
 <!-- <script src="{{ asset('js/notificacions.js') }}"></script> -->
 <!-- OTRAS LIBRERÍAS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js"></script>
-<script src="{{ asset('bootstrap-select-1.13.14/dist/js/bootstrap-select.min.js') }}"></script>
-<script src="{{ asset('bootstrap-select-1.13.14/dist/js/i18n/defaults-es_ES.js') }}"></script>
+{{--<script src="{{ asset('bootstrap-select-1.13.14/dist/js/bootstrap-select.min.js') }}"></script>
+<script src="{{ asset('bootstrap-select-1.13.14/dist/js/i18n/defaults-es_ES.js') }}"></script>--}}
 <script src="{{ asset('bootstrap-table-master/dist/bootstrap-table.js') }}"></script>
 <script src="{{ asset('bootstrap-datepicker-1.9.0-dist/js/bootstrap-datepicker.js') }}"></script>
 <script src="{{ asset('bootstrap-datepicker-1.9.0-dist/locales/bootstrap-datepicker.ca.min.js') }}"></script>

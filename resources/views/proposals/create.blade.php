@@ -25,7 +25,7 @@
 
                       <div class="container">
                           <div class="row no-gutters justify-content-center mt-5">
-                              <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
+                              <div class="text-center col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
                                   <h1>Crea una proposta nova</h1>
                               </div>
                           </div>
@@ -35,7 +35,7 @@
                       <div class="form-group mt-4">
                           <div class="row justify-content-center">
                               <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
-                                  <label for="exampleFormControlInput1">Nom de la proposta</label>
+                                  <label class="font-weight-bold" for="nom">Nom de la proposta</label>
                                   <input type="name" class="form-control" id="exampleFormControlInput1" name="name" required>
 
                               </div>
@@ -48,7 +48,7 @@
                     <div class="form-group mt-4">
                       <div class="row justify-content-center">
                           <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
-                              <label for="exampleFormControlInput1">Data de finalització</label>
+                              <label class="font-weight-bold" for="data">Data de finalització</label>
                               <input type="date" class="form-control" id="exampleFormControlInput1" name="limit_date" required>
 
                           </div>
@@ -60,7 +60,7 @@
                   <div class="form-group mt-4">
                     <div class="row justify-content-center">
                         <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
-                            <label for="exampleFormControlInput1">Descripció</label>
+                            <label class="font-weight-bold" for="descripcio">Descripció</label>
                             <textarea type="text" class="form-control" id="exampleFormControlInput1" name="description" required></textarea>
 
                         </div>
@@ -72,7 +72,7 @@
               <div class="form-group mt-4">
                 <div class="row justify-content-center">
                     <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
-                        <label for="exampleFormControlInput1">Familia Professional</label>
+                        <label class="font-weight-bold" for="familia">Familia Professional</label>
                         <input type="text" class="form-control" id="exampleFormControlInput1" name="professional_family" required>
                     </div>
                 </div>
@@ -83,7 +83,7 @@
               <div class="form-group mt-4">
                 <div class="row justify-content-center">
                     <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
-                        <label for="exampleFormControlInput1">Entitat</label>
+                        <label class="font-weight-bold" for="entitat">Entitat</label>
                         <select class="form-control" id="exampleFormControlInput1" name="category" required>
                             <option></option>
                             <option value="school">Institut</option>
@@ -98,7 +98,7 @@
               <div class="form-group mt-4">
                 <div class="row justify-content-center">
                     <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
-                        <label for="city">Tags</label>
+                        <label class="font-weight-bold" for="tags">Tags</label>
                             <select class="form-control"
                                     data-style="btn-white"
                                     title="Escull les tags"

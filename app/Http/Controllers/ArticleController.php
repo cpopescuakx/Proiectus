@@ -100,7 +100,7 @@ class ArticleController extends Controller
         
         Log::info('[ UPDATE ] - articles - Article: '.$article->title.' Actualitzat per: '.auth()->user()->id.'');
 
-        return redirect()->back();
+        return redirect()->route('projects.show', compact('id_project','id_article'));
     }
 
 
