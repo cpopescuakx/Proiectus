@@ -72,10 +72,10 @@
 
 <!-- Plantilla del componente VUE en la vista -->
 <template>
-    <div id="showdetails">
+    <div id="showdetails mt-5">
         <div class="container-fluid" v-for="detail in details" :key="detail.id_proposal">
             <div class="notice notice-success">
-                <strong><span class="font-weight-bolder">Especificacions</span></strong>
+                <strong><span class="text-center"><h4>ESPECIFICACIONS</h4></span></strong>
                 <br>
                 <strong>Descripció:</strong> {{ detail.description }}<hr>
                 <strong>Professional Family:</strong> {{ detail.professional_family }}<hr>
