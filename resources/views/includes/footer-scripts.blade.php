@@ -34,6 +34,7 @@
 
 <!-- Scripts notificacions -->
 <!-- <script src="{{ asset('js/notificacions.js') }}"></script> -->
+
 <!-- OTRAS LIBRERÍAS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js"></script>
 {{--<script src="{{ asset('bootstrap-select-1.13.14/dist/js/bootstrap-select.min.js') }}"></script>

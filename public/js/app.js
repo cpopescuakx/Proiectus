@@ -2106,45 +2106,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -4571,7 +4532,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\na[data-v-fbadd678] {\n    text-decoration: none;\n    color: #eee;\n}\n.badge-success[data-v-fbadd678] {\n    background-color: #116466;\n}\n.badge-success[data-v-fbadd678]:hover {\n    background-color: #2C3531;\n}\n.notice[data-v-fbadd678] {\n    padding: 15px;\n    background-color: #fafafa;\n    border-left: 6px solid #7f7f84;\n    margin-bottom: 10px;\n    box-shadow: 0 5px 8px 1px rgba(0,0,0,.2);\n}\n.notice-sm[data-v-fbadd678] {\n    padding: 10px;\n    font-size: 80%;\n    background-color: #fafafa;\n    border-left: 6px solid #7f7f84;\n    margin-bottom: 10px;\n    box-shadow: 0 5px 8px 1px rgba(0,0,0,.2);\n}\n.notice-lg[data-v-fbadd678] {\n    padding: 35px;\n    font-size: large;\n    background-color: #fafafa;\n    border-left: 6px solid #7f7f84;\n    margin-bottom: 10px;\n    box-shadow: 0 5px 8px 1px rgba(0,0,0,.2);\n}\n.notice-success[data-v-fbadd678] {\n    border-color: #116466;\n}\n.notice-success>strong[data-v-fbadd678] {\n    color: #116466;\n}\n.notice-info[data-v-fbadd678] {\n    border-color: #45ABCD;\n}\n.notice-info>strong[data-v-fbadd678] {\n    color: #45ABCD;\n}\n.notice-warning[data-v-fbadd678] {\n    border-color: #FEAF20;\n}\n.notice-warning>strong[data-v-fbadd678] {\n    color: #FEAF20;\n}\n.notice-danger[data-v-fbadd678] {\n    border-color: #d73814;\n}\n.notice-danger>strong[data-v-fbadd678] {\n    color: #d73814;\n}\n\n", ""]);
+exports.push([module.i, "\na[data-v-fbadd678] {\n    text-decoration: none;\n    color: #eee;\n}\n.badge-success[data-v-fbadd678] {\n    background-color: #116466;\n}\n.badge-success[data-v-fbadd678]:hover {\n    background-color: #2C3531;\n}\n.notice[data-v-fbadd678] {\n    padding: 15px;\n    background-color: #fafafa;\n    border-left: 6px solid #7f7f84;\n    margin-bottom: 10px;\n    box-shadow: 0 5px 8px 1px rgba(0,0,0,.2);\n}\n.notice-success[data-v-fbadd678] {\n    border-color: #116466;\n}\n.notice-success>strong[data-v-fbadd678] {\n    color: #116466;\n}\n", ""]);
 
 // exports
 

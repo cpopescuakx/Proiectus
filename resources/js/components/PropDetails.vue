@@ -23,51 +23,12 @@
                 box-shadow: 0 5px 8px 1px rgba(0,0,0,.2);
     }
 
-    .notice-sm {
-        padding: 10px;
-        font-size: 80%;
-        background-color: #fafafa;
-        border-left: 6px solid #7f7f84;
-        margin-bottom: 10px;
-        -webkit-box-shadow: 0 5px 8px 1px rgba(0,0,0,.2);
-            -moz-box-shadow: 0 5px 8px 1px rgba(0,0,0,.2);
-                box-shadow: 0 5px 8px 1px rgba(0,0,0,.2);
-    }
-    .notice-lg {
-        padding: 35px;
-        font-size: large;
-        background-color: #fafafa;
-        border-left: 6px solid #7f7f84;
-        margin-bottom: 10px;
-        -webkit-box-shadow: 0 5px 8px 1px rgba(0,0,0,.2);
-            -moz-box-shadow: 0 5px 8px 1px rgba(0,0,0,.2);
-                box-shadow: 0 5px 8px 1px rgba(0,0,0,.2);
-    }
     .notice-success {
         border-color: #116466;
     }
     .notice-success>strong {
         color: #116466;
     }
-    .notice-info {
-        border-color: #45ABCD;
-    }
-    .notice-info>strong {
-        color: #45ABCD;
-    }
-    .notice-warning {
-        border-color: #FEAF20;
-    }
-    .notice-warning>strong {
-        color: #FEAF20;
-    }
-    .notice-danger {
-        border-color: #d73814;
-    }
-    .notice-danger>strong {
-        color: #d73814;
-    }
-
 </style>
 
 <!-- Plantilla del componente VUE en la vista -->

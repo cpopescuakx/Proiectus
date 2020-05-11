@@ -167,7 +167,7 @@
               <a href="{{ route('proposals.all') }}"><span class="fa fa-sticky-note mr-3"></span>Totes les Propostes</a>
             </li>
             <li>
-                <a href="{{ route('proposals.dashboard', ['id' => Auth::user()->id]) }}"><span class="fa fa-sticky-note mr-3"></span>Les meves Propostes</a>
+                <a href="{{ route('proposals.dashboard') }}"><span class="fa fa-sticky-note mr-3"></span>Les meves Propostes</a>
             </li>
           </ul>
       </li>
