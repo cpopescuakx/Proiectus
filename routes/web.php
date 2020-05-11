@@ -82,6 +82,12 @@ Route::middleware(['registeredEntity'])->group(function () {
     Route::get('Project/{id_project}/principal', 'ProjectController@show')
         ->name('projects.show');
 
+    Route::post('Project/{id_project}/invite', 'ProjectController@invite')
+        ->name('projects.invite');
+
+    Route::get('Project/{id_project}/{token}', 'ProjectController@validateInvite')
+        ->name('projects.validateinvite');
+
     /** Rutes per a l'apartat de gestió d'alumnes */
     Route::middleware(['auth', 'administracioEstudiants'])->group(function () {
         Route::get('students', ['Middleware' => 'auth','uses' => 'UserController@indexStudent'])
