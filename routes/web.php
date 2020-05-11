@@ -117,22 +117,24 @@ Route::middleware(['registeredEntity'])->group(function () {
     });
 
     /** Rutes per a l'apartat de gestió de profes */
-    Route::get('Professors', 'UserController@indexProfessor')
-        ->name('professors.index');
+    Route::get('Professors', 'UserController@indexProfessor')->name('professors.index');
 
     Route::get('Professors/create', 'UserController@createProfessor')->name('professors.create');
 
-    Route::post('Professors/create/success', 'UserController@storeProfessor')
-        ->name('professors.store');
+    Route::post('Professors/create/success', 'UserController@storeProfessor')->name('professors.store');
 
-    Route::get('Professors/{id}/edit', 'UserController@editProfessor')
-        ->name('professors.edit');
+    Route::get('Professors/{id}/edit', 'UserController@editProfessor')->name('professors.edit');
 
-    Route::post('Professors/{id}/edit/success', 'UserController@updateProfessor')
-        ->name('professors.update');
+    Route::get('/Professors/csv', 'UserController@indexCSVProfessors')->name('professors.csv');
 
-    Route::get('Professors/{id}', 'UserController@destroyProfessor')
-        ->name('professors.destroy');
+    Route::post('/Professors/csv/import', 'UserController@importCSVProfessors')->name('professors.import');
+
+    Route::get('/Professors/csv/export', 'UserController@exportCSVProfessors')->name('professors.export');
+    
+    Route::post('Professors/{id}/edit/success', 'UserController@updateProfessor')->name('professors.update');
+
+    Route::get('Professors/{id}', 'UserController@destroyProfessor')->name('professors.destroy');
+
 
     //GRUP1
     /* Tickets */
