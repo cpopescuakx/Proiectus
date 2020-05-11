@@ -127,5 +127,9 @@
         </div>
     </form>
 </div>
-
+    @section('custom-scripts')
+        <script>
+            $.fn.selectpicker.Constructor.BootstrapVersion = '4';
+        </script>
+    @endsection
 @endsection

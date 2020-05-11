@@ -9,7 +9,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 
 <!-- Bootstrap JS -->
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script src="{{asset('bootstrap-4.4.1-dist/js/bootstrap.min.js')}}"></script>
 
 <!-- SI se insertan los enlaces de VUE (bootstrap.js) no funcionan los dropdowns correctamente-->
 <script src="{{ asset('js/app.js') }}"></script>
@@ -36,7 +36,8 @@
 <!-- <script src="{{ asset('js/notificacions.js') }}"></script> -->
 <!-- OTRAS LIBRERÍAS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js"></script>
-<script src="{{ asset('bootstrap-select-1.13.9/dist/js/bootstrap-select.js') }}"></script>
+<script src="{{ asset('bootstrap-select-1.13.14/dist/js/bootstrap-select.min.js') }}"></script>
+<script src="{{ asset('bootstrap-select-1.13.14/dist/js/i18n/defaults-es_ES.js') }}"></script>
 <script src="{{ asset('bootstrap-table-master/dist/bootstrap-table.js') }}"></script>
 <script src="{{ asset('bootstrap-datepicker-1.9.0-dist/js/bootstrap-datepicker.js') }}"></script>
 <script src="{{ asset('bootstrap-datepicker-1.9.0-dist/locales/bootstrap-datepicker.ca.min.js') }}"></script>

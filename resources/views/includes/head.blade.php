@@ -22,11 +22,6 @@
 <!-- SUMMERNOTE CSS - EDITOR DE TEXTO -->
 <link href="{{ asset('summernote-master/dist/summernote-lite.css') }}" rel="stylesheet">
 
-<!-- Imports per a les llibreries bootstrap-table, bootstrap-select i bootstrap-datepicker-->
-<link href="{{ asset('bootstrap-table-master/dist/bootstrap-table.css') }}" rel="stylesheet">
-<link href="{{ asset('bootstrap-select-1.13.9/dist/css/bootstrap-select.css') }}" rel="stylesheet">
-<link href="{{ asset('bootstrap-datepicker-1.9.0-dist/css/bootstrap-datepicker3.css') }}" rel="stylesheet">
-
 <!-- css header -->
 <link href="{{ asset('css/styleH.css') }}" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
@@ -41,3 +36,7 @@
 <link href="{{ asset('css/components/g1/g1_styles.css') }}" rel="stylesheet">
 <link href="{{ asset('css/infinite-slider.css') }}" rel="stylesheet" type="text/css">
 
+<!-- Imports per a les llibreries bootstrap-table, bootstrap-select i bootstrap-datepicker-->
+<link href="{{ asset('bootstrap-table-master/dist/bootstrap-table.css') }}" rel="stylesheet">
+<link href="{{ asset('bootstrap-select-1.13.14/dist/css/bootstrap-select.css') }}" rel="stylesheet">
+<link href="{{ asset('bootstrap-datepicker-1.9.0-dist/css/bootstrap-datepicker3.css') }}" rel="stylesheet">
