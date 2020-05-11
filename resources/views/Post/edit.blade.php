@@ -15,7 +15,7 @@
 </div> -->
 
 <div class="formulari">
-    <form class="was-validated" action="{{route('posts.update', [$id_project, $post->id_post])}}" method="POST">
+    <form class="was-validated" action="{{route('post.update', [$id_project, $post->id_post])}}" method="POST">
         @csrf
         <div class="row justify-content-center">
             <div class="col-11 col-sm-11 col-md-10 col-lg-10 col-xl-10">
@@ -71,6 +71,7 @@
     </div>
 </form>
 </div>
+@section('custom-scripts')
 <script>
 	$('#summernote').summernote({
 		placeholder: 'Contingut del post',
@@ -92,4 +93,5 @@
 		}
 	})
 </script>
+@endsection
 @endsection

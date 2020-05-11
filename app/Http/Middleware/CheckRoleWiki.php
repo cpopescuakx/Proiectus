@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 use App\Project;
 use App\Wiki;
 use App\Article;
@@ -19,15 +20,15 @@ class CheckRoleWiki
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($id_article, $id_projecte, Closure $next)
+    public function handle(Request $request, Closure $next)
     {   
-        $article = Article::find($id_article);
+        $article = Article::find($request->route()->parameters()['id_article']);
         $check = FALSE;
         if (Auth::user()->id == $article -> id_user || Auth::user()->id_role == 1) {
             $check = TRUE;
             return $next($request->merge(['check' => $check]));
         } else {
-            $id_project = (int)$id_projecte;
+            $id_project = (int)$request->route()->parameters()['id_project'];
             return redirect()->action('ProjectController@show', ['id_project'=> $id_project]);
         }    
     }

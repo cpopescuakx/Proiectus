@@ -257,18 +257,18 @@ Route::middleware(['CheckRole'])->group(function () {
         /** Ruta per al INDEX d'un blog d'un projecte */
         Route::get('blog/{id_project}','BlogController@index')->name('blog.index');
         /** Ruta per al SHOW d'un post */
-        Route::get('blog/{id_project}/post/{id_post}', 'PostController@show')->name('posts.show');
+        Route::get('Project/{id_project}/post/{id_post}', 'PostController@show')->name('post.show');
         /** Ruta per al UPDATE d'un post */
-        Route::get('blog/{id_project}/post/{id_post}/edit', 'PostController@edit')->name('posts.edit');
-        Route::post('blog/{id_project}/post/{id_post}/update', 'PostController@update')->name('posts.update');
+        Route::get('Project/{id_project}/post/{id_post}/edit', 'PostController@edit')->name('post.edit');
+        Route::post('Project/{id_project}/post/{id_post}/update', 'PostController@update')->name('post.update');
         /** Ruta eliminar un post*/
-        Route::get('blog/{id_project}/post/{id_post}/destroy', 'PostController@destroy')->name('posts.destroy');
+        Route::get('Project/{id_project}/post/{id_post}/destroy', 'PostController@destroy')->name('post.destroy');
         /** Ruta per a l'update del titul de blog */
-        Route::get('blog/{id_project}/edit', 'BlogController@edit')->name('blogs.edit');
-        Route::PATCH('blog/{id_project}/update', 'BlogController@update')->name('blogs.update');
     });
+    Route::get('blog/{id_project}/edit', 'BlogController@edit')->name('blog.edit');
+    Route::PATCH('blog/{id_project}/update', 'BlogController@update')->name('blog.update');
        /** Ruta per al STORE de post */
-       Route::post('blog/{id_project}/post/store', 'PostController@store')->name('posts.store');
+       Route::post('Project/{id_project}/post/store', 'PostController@store')->name('post.store');
 
     /** ------Rutes per a l'apartat de WIKI------ */
                                     /** MIDDLEWARE */
@@ -277,10 +277,10 @@ Route::middleware(['CheckRole'])->group(function () {
         /** Rutes per a l'apartat de la gestio dels articles de la wiki */
         Route::get('wiki/{id_project}', 'WikiController@index');
         /** Ruta per a eliminar un article */
-        Route::get('wiki/{id_project}/article/{id_post}/destroy', 'ArticleController@destroy');
+        Route::get('Project/{id_project}/article/{id_article}/destroy', 'ArticleController@destroy')->name('article.destroy');
         /** Ruta per a l'update d'un article */
-        Route::get('wiki/{id_project}/article/{id_article}/edit', 'ArticleController@edit');
-        Route::post('wiki/{id_project}/article/{id_article}/update', 'ArticleController@update');
+        Route::get('Project/{id_project}/article/{id_article}/edit', 'ArticleController@edit')->name('article.edit');
+        Route::post('Project/{id_project}/article/{id_article}/update', 'ArticleController@update');
         /** Ruta per a l'update d''una wiki */
         Route::get('wiki/{id_project}/edit', 'WikiController@edit')->name('wiki.edit');
         Route::post('wiki/{id_project}/update', 'WikiController@update');
