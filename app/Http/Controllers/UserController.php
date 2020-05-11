@@ -931,13 +931,13 @@ class UserController extends Controller
         $callback = function () use ($employees) {
             $handle = fopen('php://output', 'w');
             fputcsv($handle, array(
-                'firstname', 'lastname', 'username', 'profile_pic', 'email', 'email_verified_at', 'id_city', 'bio', 'id_role', 'dni', 'birthdate', 
+                'firstname', 'lastname', 'username', 'profile_pic', 'email', 'email_verified_at', 'id_city', 'bio', 'id_role', 'dni', 'birthdate',
                 'status', 'pending_entity_registration', 'pending_entity_verification', 'logo_entity'
             ), ';');
-            
+
             foreach ($employees as $employee) {
                 fputcsv($handle, array(
-                    $employee['firstname'], $employee['lastname'], $employee['username'], $employee['profile_pic'], 
+                    $employee['firstname'], $employee['lastname'], $employee['username'], $employee['profile_pic'],
                     $employee['email'], $employee['email_verified_at'], $employee['id_city'], $employee['bio'], $employee['id_role'],
                     $employee['dni'], $employee['birthdate'], $employee['status'], $employee['pending_entity_registration'],
                     $employee['pending_entity_verification'], $employee['logo_entity']
@@ -947,7 +947,45 @@ class UserController extends Controller
             fclose($handle);
         };
 
-        
+
+        $headers = array(
+            'Content-Type' => 'text/csv',
+            'Content-Disposition'   => "attachment; filename=$filename"
+        );
+
+        return Response::stream($callback, 200, $headers);
+    }
+
+    /*Exportar gestors*/
+
+    public function indexCSVManagers() {
+        return view('managers.csv');
+    }
+
+    public function exportCSVManagers() {
+        $managers = User::where('id_role',5)->get();
+        $filename = "gestors.csv";
+
+        $callback = function () use ($managers) {
+            $handle = fopen('php://output', 'w');
+            fputcsv($handle, array(
+                'firstname', 'lastname', 'username', 'profile_pic', 'email', 'email_verified_at', 'id_city', 'bio', 'id_role', 'dni', 'birthdate',
+                'status', 'pending_entity_registration', 'pending_entity_verification', 'logo_entity'
+            ), ';');
+
+            foreach ($managers as $manager) {
+                fputcsv($handle, array(
+                    $manager['firstname'], $manager['lastname'], $manager['username'], $manager['profile_pic'],
+                    $manager['email'], $manager['email_verified_at'], $manager['id_city'], $manager['bio'], $manager['id_role'],
+                    $manager['dni'], $manager['birthdate'], $manager['status'], $manager['pending_entity_registration'],
+                    $manager['pending_entity_verification'], $manager['logo_entity']
+                ), ';');
+            }
+            Log::info(Auth::user()->username . ' - [ EXPORT ] - users - Gestors');
+            fclose($handle);
+        };
+
+
         $headers = array(
             'Content-Type' => 'text/csv',
             'Content-Disposition'   => "attachment; filename=$filename"

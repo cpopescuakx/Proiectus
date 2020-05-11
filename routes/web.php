@@ -194,6 +194,8 @@ Route::middleware(['CheckRole'])->group(function () {
     Route::get('managers/{id}/delete', 'UserController@updateManager')->name('managers.destroy');
     Route::post('managers/create', 'UserController@storeManager')->name('managers.store');
     Route::post('managers/{id}/update', 'UserController@updateManager')->name('managers.update');
+    Route::get('/managers/csv', 'UserController@indexCSVManagers')->name('managers.csv');
+    Route::get('/managers/csv/export', 'UserController@exportCSVManagers')->name('managers.export');
     });
     /* Schools */
     Route::middleware(['isAdmin'])->group(function () {
