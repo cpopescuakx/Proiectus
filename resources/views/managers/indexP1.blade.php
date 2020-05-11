@@ -14,11 +14,11 @@
             <div class="text-center">
                 <!-- Muestra una imagen por defecto si el usuario no ha subido ninguna foto de perfil -->
                 @if(Auth::user()->profile_pic == null)
-                <img src="\img\profile_pic\avatar_2x.png" class="rounded-circle mr-auto w-50 img-thumbnail" alt="250x250">
+                <img src="\img\profile_pic\avatar_2x.png" class="img-circle img-thumbnail" alt="250x250">
 
                 <!-- Muestra la imagen que ha seleccionado el usuario -->
                 @else
-                <img src="\img\profile_pic\imatge{{ Auth::user()->profile_pic }}" class="rounded-circle mr-auto w-50 img-thumbnail" alt="250x250" style="with:200px; height:200px; border-radius:50%;">
+                <img src="\img\profile_pic\imatge{{ Auth::user()->profile_pic }}" class="img-circle img-thumbnail" alt="imagen" style="height:200px;">
                 @endif
                 <form enctype="multipart/form-data" action="/profile/{id}" method="POST">
                 <h6>Puja la teua imatge de perfil</h6>

@@ -132,7 +132,7 @@ class UserController extends Controller
       if($request->hasFile('profile_pic')){
         $profile_pic = $request->file('profile_pic');
         $nom = time() . '.' . $profile_pic->getClientOriginalExtension();
-    		Image::make($profile_pic)->resize(300, 300)->save( public_path('\img\profile_pic\imatge' . $nom ) );
+    		Image::make($profile_pic)->resize('resizeCrop,200,200,center,middle')->save( public_path('\img\profile_pic\imatge' . $nom ) );
 
     		$managers = User::find($id);
     		$managers->profile_pic = $nom;
