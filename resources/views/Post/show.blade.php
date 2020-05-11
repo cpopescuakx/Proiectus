@@ -11,7 +11,7 @@
 </div> -->
 <br>
 <div class="container mb-5">
-  <footer class="blockquote-footer float-right"> Creat per <a href=""> <cite title="Source Title"> {{$post->id_user}}</cite></a> el {{$post->created_at}}</footer>
+  <footer class="blockquote-footer float-right"> Creat per <a href=""> <cite title="Source Title"> {{App\User::find($post->id_user)->username}}</cite></a> el {{$post->created_at}}</footer>
   <br><br>
     <a class="float-right" href="{{$post->id_post}}/edit"><i style="font-size: 140%" class="material-icons" alt="Icona per a editar">edit</i></a>
     <a class="float-right" data-toggle="modal" data-target="#deleteConfirmationModal"><i style="font-size: 140%" class="material-icons text-primary" alt="Icona per a eliminar">delete</i></a>
@@ -28,7 +28,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" name="cancel" class="btn btn-success" data-dismiss="modal">Cancela</button>
-                    <a type="button" class="btn btn-danger" name="delete" href="{{$post->id_post}}/destroy">Elimina</a>
+                    <a type="button" class="btn btn-danger" name="delete" href="{{route('post.destroy', [])}}">Elimina</a>
                 </div>
             </div>
         </div>

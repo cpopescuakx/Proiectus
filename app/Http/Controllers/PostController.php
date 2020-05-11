@@ -31,6 +31,7 @@ class PostController extends Controller
 
         $post->save();
 
+        Log::info('[ INSERT ] - posts - Nou post: '.$post->title.' Creat per: '.auth()->user()->id.'.');
         return redirect()->back();
     }
 
@@ -55,7 +56,7 @@ class PostController extends Controller
      * 
      * Retorna tots els posts existents.
      * 
-     * @return Post 
+     * @return Post[]|\Illuminate\Database\Eloquent\Collection
      */
     public function showApi()
     {
@@ -92,8 +93,13 @@ class PostController extends Controller
      */
     public function update(Request $request, $id_project, $id_post)
     {
-        Post::find($id_post)->update($request->all());
+        $post = Post::find($id_post);
+        $oldPost = Post::find($id_post);
+        $post->title = $request->input('title');
+        $post->content = $request->input('content');
+        $post->save();
 
+        Log::info('[UPDATE] - posts - El post: ' . $oldPost->title . ' ha estat actualitzat a: '. $post->title .' per: '. auth()->user()->id. '.');
         return redirect()->action('ProjectController@show', ['id_project' => $id_project]);
 
     }
@@ -108,11 +114,13 @@ class PostController extends Controller
      * @var post variable per emmagatzemar les dades el post cercat i posteriorment modificar aquestes.
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id_project, $id_post)
+    public function destroy($id_post)
     {
       $post = Post::find($id_post);
-      $post->status='inactive';
+      $post->status = 'inactive';
       $post-> save();
+
+      Log::info('[DELETE] - posts - EL post: '. $post->title .' ha estat eliminat per: '. auth()->user()->id) .'.';
 
       return redirect()->back();
 
