@@ -3,7 +3,7 @@
 @inject('userProject', 'App\Http\Controllers\User_projectController')
 @section('content')
 
-    <div class="container ">
+    <div class="container">
         <div class="row justify-content-center">
             <div class="column mt-4 mb-4">
                 <h1 class="display-4">{{$project->name}}</h1>
@@ -16,14 +16,14 @@
 
     <div class="row justify-content-center">
         <div class="tab">
-            <button id = "info-tab" class="mr-1 tablinks" onclick="tabs(event, 'info')"><i data-toggle="tooltip" title="Informació" class="boto btn fas fa-info fa-lg"></i></button>
+            <button id = "info-tab" class="mr-1 tablinks" onclick="tabs(event, 'info')"><i data-toggle="tooltip" title="Informació" class="boto btn fa fa-info fa-lg"></i></button>
             @if(Auth::check())
               @if($userProject->memberOf($id_project) || Auth::user()->id_role == 1 || Auth::user()->id_role == 5)
               <button id = "gest-tab" class="mr-1 tablinks" onclick="tabs(event, 'gest')"><i data-toggle="tooltip" title="Gestor documental" class="boto btn fas fa-folder-open fa-lg"></i></button>
               <button id = "res-tab" class="mr-1 tablinks" onclick="tabs(event, 'res')"><i data-toggle="tooltip" title="Centre de recursos" class="boto btn fas fa-file fa-lg"></i></button>
               <button id = "wiki-tab" class="mr-1 tablinks" onclick="tabs(event, 'wiki')"><i data-toggle="tooltip" title="Wikipedia" class="boto btn fab fa-wikipedia-w fa-lg"></i></button>
-              <button id = "blog-tab" class="mr-1 tablinks" onclick="tabs(event, 'blog')"><i data-toggle="tooltip" title="Blog" class="boto btn fas fa-rss fa-lg"></i></button>
-              <button id = "participants-tab" class="mr-1 tablinks" onclick="tabs(event, 'participants')"><i data-toggle="tooltip" title="Participants" class="boto btn fas fa-users fa-lg"></i></button>
+              <button id = "blog-tab" class="mr-1 tablinks" onclick="tabs(event, 'blog')"><i data-toggle="tooltip" title="Blog" class="boto btn fa fa-rss fa-lg"></i></button>
+              <button id = "participants-tab" class="mr-1 tablinks" onclick="tabs(event, 'participants')"><i data-toggle="tooltip" title="Participants" class="boto btn fa fa-users fa-lg"></i></button>
               <button id = "xat-tab" class="mr-1 tablinks" onclick="tabs(event, 'xat')"><i id = "btn-xat" data-toggle="tooltip" title="Xat" class="boto btn fas fa-comments fa-lg"></i></button>
               @endif
             @endif
@@ -92,15 +92,46 @@
         <div id="participants" class="tabcontent mt-3">
 
             <h2 class="mt-3 mb-3"><strong>Participants</strong></h2>
-                <div class="container">
-                    @foreach ($participants as $participant)
-                        @php
-                            $user = $controller->getUser($participant->id_user)
-                        @endphp
-                        <p><i class="fas fa-user fa-lg mr-3"></i> {{$user->firstname.' '.$user->lastname}}</p>
-                    @endforeach
-                </div>
+            <div class="container">
+                @foreach ($participants as $participant)
+                    @php
+                        $user = $controller->getUser($participant->id_user)
+                    @endphp
+                    <p><i class="fas fa-user fa-lg mr-3"></i> {{$user->firstname.' '.$user->lastname}}</p>
+                @endforeach
             </div>
+            @if(Auth::check())
+                @if($userProject->memberOf($id_project) || Auth::user()->id_role == 1)
+                    <div class="row justify-content-center">
+                        <div class="col-12 p-0">
+                            <div class="card">
+                                <div class="card-header">
+                                    Invita usuaris
+                                </div>
+                                <div class="card-body">
+                                    @if ($errors->any())
+                                        <div class="alert alert-danger">
+                                            <ul>
+                                                @foreach ($errors->all() as $error)
+                                                    <li>{{ $error }}</li>
+                                                @endforeach
+                                            </ul>
+                                        </div>
+                                    @endif
+                                    <form method="post" action="{{ route('projects.invite', $id_project) }}">
+                                        @csrf
+                                        <div class="form-group">
+                                            <label for="emails">Es poden invitar a més d'un separant amb una coma.</label>
+                                            <input type="text" class="form-control" id="emails" name="emails" aria-describedby="emailHelp" placeholder="Entra Email">
+                                        </div>
+                                        <button type="submit" class="btn btn-primary float-right">Enviar</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @endif
+            @endif
         </div>
     </div>
 
