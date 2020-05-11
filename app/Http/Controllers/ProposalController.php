@@ -180,7 +180,7 @@ $this->middleware('auth');
     public function editProposal($id){
         $proposal = Proposal::find($id);
         $tagsActuals = Proposal_tag::select()->where('id_proposal', $id)->get();
-        $tags = Tag::All();
+        $tags = Tag::orderBy('tag_name', 'ASC')->get();
         return view('proposals.edit', compact('proposal', 'tagsActuals', 'tags'));
     }
 
