@@ -1,9 +1,8 @@
 @extends('layouts.default')
 
 @section('content')
-<body>
     <div class="container text-center">
-        <h1 class="pt-4">Totes les propostes</h1>
+        <h1 class="mt-4">Totes les propostes</h1>
         <div class="row justify-content-center">
 
                   <form class ="form-inline justify-content-center m-4" action="{{route('proposals.all')}}" method = "GET" >
@@ -44,6 +43,5 @@
     <div class="d-flex pt-5 justify-content-center">
       <div class="inline-block">{{ $proposals->links() }}</div>
     </div>
-</body>
 
-@stop
+@endsection
