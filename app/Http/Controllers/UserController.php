@@ -738,7 +738,7 @@ class UserController extends Controller
     }
 
     /** EXPORT PROFESSORS
-     * 
+     *
      *  Acció que serveix per a exportar professors en un fitxer CSV.
      */
     public function exportCSVProfessors() {
@@ -747,10 +747,10 @@ class UserController extends Controller
 
         $callback = function () use ($professors) {
             $handle = fopen('php://output', 'w');
-            
+
             foreach ($professors as $professor) {
                 fputcsv($handle, array(
-                    $professor['firstname'], $professor['lastname'], $professor['username'], $professor['profile_pic'], 
+                    $professor['firstname'], $professor['lastname'], $professor['username'], $professor['profile_pic'],
                     $professor['email'], $professor['email_verified_at'], $professor['id_city'], $professor['bio'], $professor['id_role'],
                     $professor['dni'], $professor['birthdate'], $professor['status'], $professor['pending_entity_registration'],
                     $professor['pending_entity_verification'], $professor['logo_entity']
@@ -760,7 +760,7 @@ class UserController extends Controller
             fclose($handle);
         };
 
-        
+
         $headers = array(
             'Content-Type' => 'text/csv',
             'Content-Disposition'   => "attachment; filename=$filename"
@@ -794,7 +794,7 @@ class UserController extends Controller
                     'extension' => 'required|in:csv',
                 ]
             );
-    
+
             if($validate->passes()) {
                 ProcessCSV::dispatch($request, Auth::user())->delay(now()->addSeconds(5));
                 return redirect()->back();
@@ -802,9 +802,9 @@ class UserController extends Controller
             else {
                 return redirect()->back()->with(['errors' => $validate->errors()->all()]);
             }
-    
+
         }
-    }
+
 
     /** LLISTAR EMPLEATS
      *
