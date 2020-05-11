@@ -47,7 +47,7 @@ class ProcessCSV implements ShouldQueue
     {
         //sleep(10);
         $storagePath = Storage::disk('local')->getDriver()->getAdapter()->getPathPrefix();
-        $file = fopen("$storagePath/$this->file", 'r');
+        $file = fopen("$storagePath"."$this->file", 'r');
 
         $i = 0;
         $data = array();
@@ -62,20 +62,20 @@ class ProcessCSV implements ShouldQueue
 
         $i = 1;
         $array = array();
-        foreach ($data as $employee) {
+        foreach ($data as $user) {
             try {
-                $employee = explode(';', $employee[0]);
-                $_employee = new User;
-                $_employee->firstname = $employee[0];
-                $_employee->lastname = $employee[1];
-                $_employee->username = $employee[2];
-                $_employee->dni = $employee[3];
-                $_employee->email = $employee[4];
-                $_employee->password = Hash::make($employee[5]);
-                $_employee->id_city = CityController::getIdFromPostalCode($employee[6]);
-                $_employee->id_role = 2;
-                $_employee->status = "active";
-                array_push($array, $_employee);
+                $user = explode(';', $user[0]);
+                $_user = new User;
+                $_user->firstname = $user[0];
+                $_user->lastname = $user[1];
+                $_user->username = $user[2];
+                $_user->dni = $user[3];
+                $_user->email = $user[4];
+                $_user->password = Hash::make($user[5]);
+                $_user->id_city = CityController::getIdFromPostalCode($user[6]);
+                $_user->id_role = $user[7];
+                $_user->status = "active";
+                array_push($array, $_user);
             } catch (\ErrorException $th) {
                 Log::error($th);
             }

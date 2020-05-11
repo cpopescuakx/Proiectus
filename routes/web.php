@@ -198,6 +198,7 @@ Route::middleware(['CheckRole'])->group(function () {
     Route::post('managers/{id}/update', 'UserController@updateManager')->name('managers.update');
     Route::get('/managers/csv', 'UserController@indexCSVManagers')->name('managers.csv');
     Route::get('/managers/csv/export', 'UserController@exportCSVManagers')->name('managers.export');
+    Route::post('/managers/csv/import', 'UserController@importCSVManagers')->name('managers.import');
     });
     /* Schools */
     Route::middleware(['isAdmin'])->group(function () {
