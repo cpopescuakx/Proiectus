@@ -17,7 +17,7 @@ class CheckRole
      * @return mixed
      */
     public function handle($request, Closure $next){
-            if (Auth::check() == true && Auth::user()->id_role == 5) {
+            if (Auth::check() == true && Auth::user()->id_role == 5 || Auth::user()->id_role == 1) {
             return $next($request);
             } else {
             return redirect()->route('login');

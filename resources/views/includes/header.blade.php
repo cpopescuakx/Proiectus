@@ -126,9 +126,14 @@
           <li>
               <a href="{{ route('employee.index') }}"><span class="fa fa-user mr-3"></span>Empleats</a>
           </li>
+          @if(Auth::guest())
+          @else
+          @if (Auth::user()->id_role == 5 || Auth::user()->id_role == 1)
           <li>
               <a href="{{ route('managers.index') }}"><span class="fa fa-user mr-3"></span>Gestors</a>
           </li>
+          @endif
+          @endif
         </ul>
       </li>
 
