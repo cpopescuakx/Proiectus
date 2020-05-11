@@ -7,23 +7,19 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">
-                        Llista d'Usuaris
+                        Llista d'Usuaris Invitats
                         <a href="{{route('invite_view')}}"    class="btn btn-primary float-right ">Invitació</a>
                     </div>
                     <div class="card-body">
                         <table class="table">
                             <thead>
                             <tr>
-
-                                <th scope="col">Nom</th>
                                 <th scope="col">Email</th>
                             </tr>
                             </thead>
                             <tbody>
                             @foreach($users as $user)
                             <tr>
-
-                                <td>{{$user->firstname}}</td>
                                 <td>{{$user->email}}</td>
                             </tr>
                             @endforeach

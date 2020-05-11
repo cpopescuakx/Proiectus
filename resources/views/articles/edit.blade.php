@@ -44,7 +44,7 @@
                             <div class="row justify-content-center">
                                 <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
                                     <button type="submit" name = "sbumit" class="btn btn-primary float-right">Modificar</button>
-                                    <!-- <a style="margin-right: 10px" class="btn btn-primary float-right" href="{{route ('wiki.index',[$id_project])}}">Enrere</a> -->
+                                    <a class="btn btn-primary float-left" href="{{URL::previous()}}"> Cancel·lar</a>
                                 </div>
                             </div>
                         </div>
@@ -57,7 +57,7 @@
     @section('custom-scripts')
 <script>
 	$('#summernote').summernote({
-		placeholder: 'Contingut del post',
+		placeholder: 'Contingut del article',
 		tabsize: 2,
 		height: 100,
 		minHeight: 200,
@@ -67,10 +67,10 @@
 	/* Comprovem si el contingut del post esta buit al fer submit i
 			evitem continuar si està buit
 	*/
-	$('#postCreationForm').on('submit', function(e) {
+	$('#articleCreationForm').on('submit', function(e) {
 		// Comprovem si el contingut del post esta buit
 		if ($('#summernote').summernote('isEmpty')) {
-			console.log('Introdueix el contingut del post!');
+			console.log('Introdueix el contingut del article!');
 			// Evitar el submit
 			e.preventDefault();
 		}
