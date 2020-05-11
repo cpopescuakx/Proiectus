@@ -2,7 +2,7 @@
 @inject('city', 'App\Http\Controllers\CityController') {{-- Importa el controlador de ciutat --}}
 
 @section('content')
-
+<div class="app"></div>
 <div class="container-fluid">
     <div class="row text-center">
   		<div class="col-sm-10 ml-5 mt-5 mx-auto">
@@ -14,17 +14,17 @@
             <div class="text-center">
                 <!-- Muestra una imagen por defecto si el usuario no ha subido ninguna foto de perfil -->
                 @if(Auth::user()->profile_pic == null)
-                <img src="/img/profile_pic/avatar_2x.png" class="rounded-circle mr-auto w-50 img-thumbnail" alt="default">
+                    <img src="/img/profile_pic/avatar_2x.png" class="img-responsive mr-auto w-50 img-thumbnail" alt="default">
 
                 <!-- Muestra la imagen que ha seleccionado el usuario -->
                 @else
-                <img src="/img/profile_pic/imatge{{ Auth::user()->profile_pic }}" class="rounded-circle mr-auto w-50 img-thumbnail" alt="profilepic">
+                    <img src="/img/profile_pic/imatge{{ Auth::user()->profile_pic }}" alt="profilepic" width="200px" height="200px">
                 @endif
                 <form enctype="multipart/form-data" action="/profile/{id}" method="POST">
-                <h6>Puja la teua imatge de perfil</h6>
-                <input type="file" name="profile_pic">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                <input type="submit" class="pullright btn btn-sm btn-primary">
+                    <h6>Puja la teua imatge de perfil</h6>
+                    <input type="file" name="profile_pic">
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                    <input type="submit" class="pullright btn btn-sm btn-primary">
               </form>
             </div>
             <br>
