@@ -266,11 +266,11 @@ Route::middleware(['CheckRole'])->group(function () {
         /** Ruta per a l'update del titul de blog */
     });
     Route::get('blog/{id_project}/edit', 'BlogController@edit')->name('blog.edit');
-    Route::PATCH('blog/{id_project}/update', 'BlogController@update')->name('blog.update');
+    Route::post('blog/{id_project}/update', 'BlogController@update')->name('blog.update');
        /** Ruta per al STORE de post */
        Route::post('Project/{id_project}/post/store', 'PostController@store')->name('post.store');
 
-    /** ------Rutes per a l'apartat de WIKI------ */
+                 /** ------Rutes per a l'apartat de WIKI------ */
                                     /** MIDDLEWARE */
     /** Middleware per a controlar que només pugui editar o eliminar un article el seu owner */
     Route::middleware(['CheckRoleWiki'])->group(function () {
@@ -281,12 +281,13 @@ Route::middleware(['CheckRole'])->group(function () {
         /** Ruta per a l'update d'un article */
         Route::get('Project/{id_project}/article/{id_article}/edit', 'ArticleController@edit')->name('article.edit');
         Route::post('Project/{id_project}/article/{id_article}/update', 'ArticleController@update')->name('article.update');
-        /** Ruta per a l'update d''una wiki */
-        Route::get('wiki/{id_project}/edit', 'WikiController@edit')->name('wiki.edit');
-        Route::post('wiki/{id_project}/update', 'WikiController@update');
     });
     /** Ruta per a guardar l'article creat */
     Route::post('wiki/{id_project}/article/store', 'ArticleController@store') ->name('article.store');
+
+    /** Ruta per a l'update d''una wiki */
+    Route::get('wiki/{id_project}/edit', 'WikiController@edit')->name('wiki.edit');
+    Route::post('wiki/{id_project}/update', 'WikiController@update')->name('wiki.update');
 
 
     /** Rutes per a l'apartat de perfils d'usuari */

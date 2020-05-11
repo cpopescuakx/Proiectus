@@ -61,8 +61,6 @@ class WikiController extends Controller
 
          $wiki->save();
 
-         return redirect()->action('WikiController@index', ['id_project' => $id_project]);
-
-         //return redirect()->route('Blog.index')->with('success', 'Data Updated');
+         return redirect()->route('projects.show', compact('id_project','id_article'));
      }
 }

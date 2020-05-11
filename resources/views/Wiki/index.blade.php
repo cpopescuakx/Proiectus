@@ -40,7 +40,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" name="cancelar" class="btn btn-success" data-dismiss="modal">Cancela</button>
-                    <a type="button" class="btn btn-danger" href="{{$id_project}}/article/{{$article->id_article}}/destroy">Elimina</a>
+                    <a type="button" class="btn btn-danger" href="{{route('article.destroy',[$id_project, $article->id_article])}}">Elimina</a>
                 </div>
             </div>
         </div>
