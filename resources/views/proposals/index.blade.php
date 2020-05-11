@@ -26,7 +26,7 @@
             <td class="font-weight-bold">Descripció</td>
             <td class="font-weight-bold">Categoria</td>
             <td class="font-weight-bold">Familia professional</td>
-            <td class="font-weight-bold" colspan="2">Accions</td>
+            <td class="font-weight-bold">Accions</td>
         </tr>
     </thead>
 
@@ -48,7 +48,7 @@
                 <td>{{ $proposal->category }}</td>
                 <td>{{ $proposal->professional_family }}</td>
 
-                <td>
+                <td class="d-inline-flex">
                     <a href="{{ route('proposals.edit', [$proposal->id_proposal])}}"><i class="material-icons text-dark" data-toggle="tooltip" title="Editar proposta">create</i></a>
                     @if($proposal->status == "active")
                     <a href="{{ route('proposals.inactive', [$proposal->id_proposal]) }}"><i class="material-icons text-dark" data-toggle="tooltip" title="Posar inactiva">visibility</i></a>
