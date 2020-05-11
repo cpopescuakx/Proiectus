@@ -39,7 +39,7 @@ class UserController extends Controller
     }
 
     public function indexInvitacio(){
-      $users = User::all();
+      $users = Invite::all();
           return view('UserInvitation.index', ['users' => $users]);
     }
 
