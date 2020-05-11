@@ -802,8 +802,6 @@ class UserController extends Controller
             else {
                 return redirect()->back()->with(['errors' => $validate->errors()->all()]);
             }
-    
-        }
     }
 
     /** LLISTAR EMPLEATS
