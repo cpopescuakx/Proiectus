@@ -2,15 +2,15 @@
 
 @section('content')
 <div class="col">
-  <div class="row d-flex p-4 justify-content-between">
+  <div class="row d-flex justify-content-between">
     <!-- Filtro -->
-    <nav class="navbar navbar-light">
+    <nav class="navbar navbar-light mb-3">
         <form class="form-inline">
-        <h4 style="margin-right: 1rem">Llistat Propostes</h4>
+            <h4 style="margin-right: 1rem">Llistat Propostes</h4>
             <select name="tipo" class="custom-select mr-2">
                 <option value="active" selected>Actives</option>
                 <option value="inactive">Inactives</option>
-              </select>
+            </select>
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Cercar</button>
         </form>
       </nav>
