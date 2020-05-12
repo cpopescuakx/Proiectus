@@ -67,7 +67,7 @@
             <div class="progress-container col-md-6">
               <div class="progress-bar" id="myBar"></div>
               <iframe title="wiki_blog" width="560" height="315" src="https://www.youtube.com/embed/zD7I-GbjJ_w" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                <br><a href="https://www.youtube.com/watch?v=zD7I-GbjJ_w&feature=emb_title"><u>Enllaç al vídeo</u></a>
+                <br><a target="_blank" href="https://www.youtube.com/watch?v=zD7I-GbjJ_w&feature=emb_title"><u>Enllaç al vídeo</u></a>
 
             </div>
               <div class="content col-md-6">
