@@ -21,7 +21,7 @@
                     <img src="/img/profile_pic/imatge{{ Auth::user()->profile_pic }}" alt="profilepic" width="200px" height="200px">
                 @endif
                 <form enctype="multipart/form-data" action="/profile/{id}" method="POST">
-                    <h6>Puja la teua imatge de perfil</h6>
+                    <h6>Puja la teva imatge de perfil</h6>
                     <input type="file" name="profile_pic">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <input type="submit" class="pullright btn btn-sm btn-primary">

@@ -54,27 +54,27 @@
         </div>
     </form>
 </div>
-    @section('custom-scripts')
-<script>
-	$('#summernote').summernote({
-		placeholder: 'Contingut del article',
-		tabsize: 2,
-		height: 100,
-		minHeight: 200,
-		maxHeight: 400
-	});
+@endsection
+@section('custom-scripts')
+    <script>
+        $('#summernote').summernote({
+            placeholder: 'Contingut del article',
+            tabsize: 2,
+            height: 100,
+            minHeight: 200,
+            maxHeight: 400
+        });
 
-	/* Comprovem si el contingut del post esta buit al fer submit i
-			evitem continuar si està buit
-	*/
-	$('#articleCreationForm').on('submit', function(e) {
-		// Comprovem si el contingut del post esta buit
-		if ($('#summernote').summernote('isEmpty')) {
-			console.log('Introdueix el contingut del article!');
-			// Evitar el submit
-			e.preventDefault();
-		}
-	})
-</script>
-    @endsection
+        /* Comprovem si el contingut del post esta buit al fer submit i
+                evitem continuar si està buit
+        */
+        $('#articleCreationForm').on('submit', function(e) {
+            // Comprovem si el contingut del post esta buit
+            if ($('#summernote').summernote('isEmpty')) {
+                console.log('Introdueix el contingut del article!');
+                // Evitar el submit
+                e.preventDefault();
+            }
+        })
+    </script>
 @endsection

@@ -258,7 +258,7 @@ Route::middleware(['CheckRole'])->group(function () {
     /** ------Rutes per a l'apartat del BLOG------ */
                                     /** MIDDLEWARE */
     /** Middleware per a controlar que només pugui editar o eliminar un post el seu owner */
-    Route::middleware(['CheckRoleBlog','auth'])->group(function () {
+    Route::middleware(['auth', 'CheckRoleBlog'])->group(function () {
         /** Ruta per al INDEX d'un blog d'un projecte */
         Route::get('blog/{id_project}','BlogController@index')->name('blog.index');
         /** Ruta per al SHOW d'un post */
@@ -278,7 +278,7 @@ Route::middleware(['CheckRole'])->group(function () {
                  /** ------Rutes per a l'apartat de WIKI------ */
                                     /** MIDDLEWARE */
     /** Middleware per a controlar que només pugui editar o eliminar un article el seu owner */
-    Route::middleware(['CheckRoleWiki'])->group(function () {
+    Route::middleware(['auth','CheckRoleWiki'])->group(function () {
         /** Rutes per a l'apartat de la gestio dels articles de la wiki */
         Route::get('wiki/{id_project}', 'WikiController@index')->name('wiki.index');
         /** Ruta per a eliminar un article */
