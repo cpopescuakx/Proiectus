@@ -13,7 +13,7 @@ class Mail_messageController extends Controller
      */
     public function index()
     {
-        //
+
     }
 
     /**

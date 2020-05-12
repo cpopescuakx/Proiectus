@@ -2,7 +2,7 @@
 @if ($wiki != null)
 <div class="container mb-5">
     @if(Auth::user()->id_role == 1)
-    <a href="{{route('wiki.edit', $id_project)}}" ><i style="font-size: 1rem" class="material-icons" alt="Icona per a editar">edit</i></a>
+    <a class="custom-link" href="{{route('wiki.edit', $id_project)}}" ><i style="font-size: 1rem" class="material-icons" alt="Icona per a editar">edit</i></a>
     @endif
     <h2 class="float-left">{{$wiki->title}}</h2>
     <br><br>
@@ -48,10 +48,10 @@
     <div class="card mb-3">
         <div class="card-body">
             @if(Auth::user()->id == $article->id_user || (Auth::user()->id_role == 1))
-            <a class="float-right" href="{{route('article.edit',[$id_project, $article->id_article])}}"><i style="font-size: 140%" class="material-icons" alt="Icona per a editar" >edit</i></a>
-            <a class="float-right" data-toggle="modal" data-target="#articleDeleteConfirmationModal"><i style="font-size: 140%" class="material-icons text-primary" alt="Icona per a eliminar">delete</i></a>
+            <a class="float-right custom-link" href="{{route('article.edit',[$id_project, $article->id_article])}}"><i style="font-size: 140%" class="material-icons" alt="Icona per a editar" >edit</i></a>
+            <a class="float-right" data-toggle="modal" data-target="#articleDeleteConfirmationModal"><i style="font-size: 140%; color: #157e82;" class="material-icons" alt="Icona per a eliminar">delete</i></a>
             @endif
-            <a href="#">
+            <a class="custom-link" href="#">
                 <h5 class="card-title">{{$article->title}}</h5>
             </a>
             <div class="">
@@ -59,7 +59,7 @@
             </div>
         </div>
         <div class="card-footer text-muted">
-            <footer class="blockquote-footer float-right"> Creat per <a href="{{route('managers.indexP1',[$article->id_user])}}"> <cite title="Source Title"> {{($user::getUser($article->id_user))->username}}</cite></a> el {{$article->created_at}}</footer>
+            <footer class="blockquote-footer float-right"> Creat per <a class="custom-link" href="{{route('managers.indexP1',[$article->id_user])}}"> <cite title="Anar al perfil de {{($user::getUser($article->id_user))->username}}"> {{($user::getUser($article->id_user))->username}}</cite></a> el {{$article->created_at}}</footer>
         </div>
     </div>
     @endforeach

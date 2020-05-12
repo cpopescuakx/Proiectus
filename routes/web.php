@@ -349,7 +349,7 @@ Route::middleware(['CheckRole'])->group(function () {
     });
 
     /**    COREU    */
-    Route::get('/email')->name('email');
+    Route::get('/mail', 'Mail_messageController@index')->name('mail');
 
 
 
