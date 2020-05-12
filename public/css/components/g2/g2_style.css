@@ -1,0 +1,99 @@
+#projecte {
+  margin-left: 25%;
+  margin-right: auto;
+}
+
+.content {
+  padding: 0;
+}
+
+@media (min-width: 992px) {
+  .container {
+    max-width: 100%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 100%;
+  }
+}
+
+.tab {
+  margin-left: 10px;
+  overflow: hidden;
+  background-color: white;
+}
+
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+.tab button:hover {
+  background-color: #116466;
+  border-radius: 5px;
+}
+
+.tab button:hover i {
+  color: white;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #116466;
+  border-radius: 5px;
+}
+
+.tab button.active i {
+  color: white;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+}
+
+#map {
+  height: 400px;
+  /* The height is 400 pixels */
+  width: 25%;
+  /* The width is the width of the web page */
+}
+
+.gold {
+  color: #FFD700;
+}
+
+.silver {
+  color: #C0C0C0;
+}
+
+.bronze {
+  color: #CD7F32;
+}
+
+.notice {
+  padding: 15px;
+  background-color: #fafafa;
+  border-left: 6px solid #7f7f84;
+  margin-bottom: 10px;
+  -webkit-box-shadow: 0 5px 8px 1px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 5px 8px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 5px 8px 1px rgba(0, 0, 0, 0.2);
+}
+
+.notice-success {
+  border-color: #116466;
+}
+
+.notice-success > strong {
+  color: #116466;
+}
