@@ -16,10 +16,12 @@ use Illuminate\Support\Facades\Log;
 use Image;
 use Auth;
 use App\Invite;
-use App\Url;
+use Illuminate\Support\Facades\URL;
 use App\Jobs\ProcessCSV;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Notification;
+use App\Notifications\InviteNotification;
 
 class UserController extends Controller
 {
