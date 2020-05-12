@@ -111,10 +111,9 @@ Route::middleware(['registeredEntity'])->group(function () {
             ->name('students.enable');
             Route::get('students/import', 'UserController@indexImportStudents')
             ->name('students.import');
-            Route::get('job', function(){
-              dispatch(new App/Jobs/ImportStudents);
-            });
-
+            // Route::get('job', function(){
+            //   dispatch(new App/Jobs/ImportStudents);
+            // });
         Route::post('students/import/upload', 'UserController@importStudents')
             ->name('students.upload');
     });
@@ -133,7 +132,7 @@ Route::middleware(['registeredEntity'])->group(function () {
     Route::post('/Professors/csv/import', 'UserController@importCSVProfessors')->name('professors.import');
 
     Route::get('/Professors/csv/export', 'UserController@exportCSVProfessors')->name('professors.export');
-    
+
     Route::post('Professors/{id}/edit/success', 'UserController@updateProfessor')->name('professors.update');
 
     Route::get('Professors/{id}', 'UserController@destroyProfessor')->name('professors.destroy');

@@ -55,7 +55,7 @@ class ProcessCSV implements ShouldQueue
             for ($c=0; $c < count($dataCSV); $c++) {
                 $data[$i][] = $dataCSV[$c];
             }
-            
+
             $i++;
         }
         fclose($file);
@@ -82,7 +82,7 @@ class ProcessCSV implements ShouldQueue
             $i++;
         }
 
-        
+
         foreach ($array as $data) {
             try {
                 $data->save();
@@ -91,7 +91,7 @@ class ProcessCSV implements ShouldQueue
                         case '2':
                             Log::info($this->byuser->username . ' - [ IMPORT ] - users - Nou empleat: ' . $data->username . ' inserit!');
                             break;
-                        
+
                         default:
                             break;
                     }
@@ -124,7 +124,7 @@ class ProcessCSV implements ShouldQueue
             for ($c=0; $c < count($dataCSV); $c++) {
                 $data[$i][] = $dataCSV[$c];
             }
-            
+
             $i++;
         }
         fclose($file);
@@ -151,7 +151,7 @@ class ProcessCSV implements ShouldQueue
             $i++;
         }
 
-        
+
         foreach ($array as $data) {
             try {
                 $data->save();
@@ -160,7 +160,7 @@ class ProcessCSV implements ShouldQueue
                         case '2':
                             Log::info($this->byuser->username . ' - [ IMPORT ] - users - Nou professor: ' . $data->username . ' inserit!');
                             break;
-                        
+
                         default:
                             break;
                     }
@@ -175,5 +175,69 @@ class ProcessCSV implements ShouldQueue
         } catch (\Throwable $th) {
             Log::error($th);
         }
+    }
+    public function handleStudents (Request $request) {
+        // Comprova que el fitxer és un .csv
+        // UserController::importStudents($request);
+        $validar = Validator::make(
+            [
+                'file'      => $request->file,
+                'extension' => strtolower($request->file->getClientOriginalExtension()),
+            ],
+            [
+                'file'          => 'required',
+                'extension'      => 'required|in:csv',
+            ]
+        );
+
+        if($validar->passes()) {
+            $file = $request->file('file');
+            $fileO = fopen($file, 'r');
+
+            $importArr = array();
+
+            $i = 0;
+
+            while (($dadesCsv = fgetcsv($fileO, 1000, "\t")) !== FALSE) {
+                $num = count($dadesCsv);
+
+                for ($c=0; $c < $num; $c++) {
+
+                    $importArr[$i][] = $dadesCsv [$c];
+
+                }
+
+                $i++;
+            }
+
+            fclose($fileO);
+
+            foreach ($importArr as $import) {
+
+                $student = new User;
+
+                $student -> firstname = $import[0];
+                $student -> lastname = $import[1];
+                $student -> username = $import[2];
+                $student -> dni = $import[3];
+                $student -> email = $import[4];
+                $student -> password = Hash::make($import[5]);
+                $postalcode = $import[6];
+                $student -> id_city = CityController::getIdFromPostalCode($postalcode);
+                $student -> id_role = 3;
+                $student -> status = "active";
+                $student -> save();
+
+            }
+
+            Log::info($request->user()->username. ' - [ INSERT ] - users - Nou alumne: ' .$import[2]. ' inserit!');
+            return redirect()->back()->with(['success' =>'Importació feta correctament.']);
+        }
+        else {
+            return redirect()->back()->with(['errors' => $validar->errors()->all()]);
+        }
+
+
+
     }
 }
