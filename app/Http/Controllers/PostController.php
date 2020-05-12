@@ -8,9 +8,32 @@ use Illuminate\Support\Facades\Log;
 
 class PostController extends Controller
 {
+
+    public function index(Request $request, $id_project, $id_post)
+    {
+      $s = $request->input('s');
+
+      $post = Post::find($id_post);
+          ->search($s)
+          ->paginate(5);
+
+      return view ('Post.index' compact('post' , 's'));
+    }
+
+    
+
+
+
+
+
+
+
+
+
+
     /**
      * Guardar posts creats
-     * 
+     *
      * Comprova que els camps estiguin obligatoris estiguin inserits, agafa les dades dels altres i les afegeix al nou objecte .
      *
      * @param  \Illuminate\Http\Request  $request
@@ -20,7 +43,7 @@ class PostController extends Controller
      */
     public function store(Request $request, $id_project)
     {
-        
+
         $request->validate(['title'=>'required','content'=>'required']);
 
         $post = new Post();
@@ -53,9 +76,9 @@ class PostController extends Controller
 
     /**
      * API Restful dels Posts
-     * 
+     *
      * Retorna tots els posts existents.
-     * 
+     *
      * @return Post[]|\Illuminate\Database\Eloquent\Collection
      */
     public function showApi()
@@ -65,7 +88,7 @@ class PostController extends Controller
 
     /**
      * Editar un post existent
-     * 
+     *
      * Mitjançant la id_post i utilitzant eloquent, agafem totes les dades d'aquest i les enviem a la vista per a mostrar-les en els camps.
      *
      * @param  int  $id_project Conté la id del projecte el qual correspon el post.
@@ -82,7 +105,7 @@ class PostController extends Controller
 
     /**
      * Actualitzar un post existent
-     * 
+     *
      * Mitjançant la id_post i utilitzant eloquent, cerquem el post i realitzem el update amb les dades retornades mitançant el request.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -106,7 +129,7 @@ class PostController extends Controller
 
     /**
      * Esborrar un post existent
-     * 
+     *
      * Mitjançant la id_post i utilitzant eloquent, cerquem el post i establim el seu estatus en inactiu, i després guardem aquest.
      *
      * @param  int  $id_project Conté la id del projecte el qual correspon el post

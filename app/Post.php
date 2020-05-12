@@ -33,8 +33,9 @@ class Post extends Model Implements Feedable
        return Post::all();
     }
 
-    // public function scopeSearch ($query)
-    // {
-    //   return $query->where('title');
-    // }
+    public function scopeSearch ($query, $s)
+    {
+      return $query->where('title', 'like', '%' .$s. '%')
+                  ->orWhere('id_user', 'like', '%' .$s. '%');
+    }
 }

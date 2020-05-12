@@ -263,6 +263,8 @@ Route::middleware(['CheckRole'])->group(function () {
     Route::middleware(['auth', 'CheckRoleBlog'])->group(function () {
         /** Ruta per al INDEX d'un blog d'un projecte */
         Route::get('blog/{id_project}','BlogController@index')->name('blog.index');
+        /** Ruta per al filtre de posts d'un blog d'un projecte**/
+        Route::get('Project/{id_project}/post', 'PostController@index')->name('post.index');
         /** Ruta per al SHOW d'un post */
         Route::get('Project/{id_project}/post/{id_post}', 'PostController@show')->name('post.show');
         /** Ruta per al UPDATE d'un post */

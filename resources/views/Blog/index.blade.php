@@ -21,9 +21,25 @@
         <div class="form-group">
             <button type="submit" name="create" class="btn btn-primary float-right">Crea'l!</button>
         </div>
+
+        <br>
+        </br>
     </form>
+
+    <div>
+      <form action="{{ route('post.index', $id_project) }}" method="get" class="form-inline">
+        <div class="form-group">
+          <input type="text" class="form-control" name="s" placeholder="Cerca blog" value="{{ isset($s) ? $s : '' }}">
+        </div>
+
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary">Cerca</button>
+        </div>
+
+      </form>
+    </div>
 </div>
-<br>
+
 <div class="container">
 
     @if($posts->count())
@@ -65,6 +81,7 @@
         </div>
     </div>
     @endforeach
+    
     @else
     <h3>No hi ha cap post en aquest blog</h3>
     @endif
