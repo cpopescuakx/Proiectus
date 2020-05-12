@@ -307,7 +307,29 @@
 
 
         </div><!-- /.fin main container -->
-
+        <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false"></script>
+        <script>
+            window.cookieconsent.initialise({
+                "palette": {
+                    "popup": {
+                        "background": "#17252a",
+                        "text": "#def2f1"
+                    },
+                    "button": {
+                        "background": "#3aafa9",
+                        "text": "#ffffff"
+                    }
+                },
+                "theme": "classic",
+                "position": "bottom-right",
+                "content": {
+                    "message": "La nostra web fa servir \"cookies\" per oferir-te una millor experiència. Consulta la nostra política de privacitat i \"cookies\" ",
+                    "dismiss": "D'acord",
+                    "link": "Més informació",
+                    "href": "{{route('privacyAndCookies')}}"
+                }
+            });
+        </script>
 
         @mapscripts
         @endsection

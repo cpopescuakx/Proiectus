@@ -57,10 +57,12 @@ class WikiController extends Controller
              'title'    =>  'required'
          ]);
          $wiki = Wiki::find($id_project);
+         $oldWiki = Wiki::find($id_project);
          $wiki->title = $request->get('title');
          $wiki->id_project = $id_project;
 
          $wiki->save();
+         Log::info('[ UPDATE ] - wikis - La wiki: '. $oldWiki->title .' ha estat actualitzat a: '. $wiki->title .' per: '.auth()->user()->id.'.');
 
          return redirect()->route('projects.show', compact('id_project','id_article'));
      }
