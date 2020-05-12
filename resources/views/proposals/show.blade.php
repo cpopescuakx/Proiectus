@@ -1,5 +1,9 @@
     @extends('layouts.default')
 
+    @section('custom-css')
+        <link rel="stylesheet" type="text/css" href="{{asset('css/components/g2/g2_style.css')}}">
+    @endsection
+
     @section('content')
     @inject('schoolUser', 'App\Http\Controllers\School_usersController')
     @inject('companyUser', 'App\Http\Controllers\Company_userController')
@@ -29,27 +33,40 @@
         <div class="row pl-2 d-flex flex-column">
             <tips></tips>
         </div>
-    
-        <br>
+
         <!-- Apartado para aceptar propuesta -->
-        <div class="row pl-2 d-flex flex-column">
-            <div class="container-fluid">
-            @if ($proposal->category == 'school')
-                @if (!$schoolUser::checkUser(Auth::user()->id))
-                    <div class="col my-auto text-center shadow-sm">
-                        <p class="">Pots unir-te a aquesta proposta, al fer-ho, es crearà el projecte on podràs col·laborar amb aquesta entitat.</p>
-                        <a data-toggle="modal" class="btn btn-dark text-white" data-target="#afegir">Unir-se</a>
+        
+        @if ($proposal->category == 'school')
+            @if (!$schoolUser::checkUser(Auth::user()->id))
+
+                <div class="row pl-2 d-flex flex-column">
+                    <div class="container-fluid">
+                        <div class="notice notice-success">
+                            <strong><span class="text-center"><h4>UNIR-SE A LA PROPOSTA</h4></span></strong>
+                            <div class="col my-auto text-center">
+                                <p>Pots unir-te a aquesta proposta, al fer-ho, es crearà el projecte on podràs col·laborar amb aquesta entitat.</p>
+                                <a data-toggle="modal" class="btn bg-primary1 text-white" data-target="#afegir">Unir-se</a>
+                            </div>
+                        </div>
                     </div>
-                @endif
-            @else
-                @if(!$companyUser::checkUser(Auth::user()->id))
-                    <div class="col my-auto text-center shadow-sm">
-                        <p class="">Pots unir-te a aquesta proposta, al fer-ho, es crearà el projecte on podràs col·laborar amb aquesta entitat.</p>
-                        <a data-toggle="modal" class="btn btn-dark text-white" data-target="#afegir">Unir-se</a>
-                    </div>
-                @endif
+                </div>
+
             @endif
-        </div>
+        @else
+            @if(!$companyUser::checkUser(Auth::user()->id))
+                <div class="row pl-2 d-flex flex-column">
+                    <div class="container-fluid">
+                        <div class="notice notice-success">
+                            <strong><span class="text-center"><h4>UNIR-SE A LA PROPOSTA</h4></span></strong>
+                            <div class="col my-auto text-center">
+                                <p>Pots unir-te a aquesta proposta, al fer-ho, es crearà el projecte on podràs col·laborar amb aquesta entitat.</p>
+                                <a data-toggle="modal" class="btn bg-primary1 text-white" data-target="#afegir">Unir-se</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endif
+        @endif
 
         <div class="modal fade" id="afegir" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -65,14 +82,14 @@
                         <p>Vols continuar?</p>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" name="cancel" class="btn btn-danger" data-dismiss="modal">Cancel·la</button>
+                        <button type="button" name="cancel" class="btn btn-danger" data-dismiss="modal">Cancel·lar</button>
                         <a type="button" class="btn btn-success" name="delete" href="{{ route('proposals.convert', [$proposal->id_author, Auth::user()->id, $proposal->id_proposal]) }}">Acceptar</a>
                     </div>
                 </div>
             </div>
         </div>
-        </div>
     </div>
+
 @endsection
 
 <!-- Script para cargar página tras spinner (1000) -->

@@ -40,7 +40,12 @@
          <td>{{ $school->type }}</td>
          <td>{{ $school->status }}</td>
          <td>
+           @if(Auth::guest())
+           @else
+           @if (Auth::user()->id_role == 1)
             <a href="{{route('schoolsUsers.manager', $school->id_school)}}"><i style="color: #116466; height: 20px;" class="material-icons large align-bottom mr-2">person_add</i></a>
+            @endif
+            @endif
             <a href="{{ route('schools.edit',$school->id_school)}}"><img src={{ asset('img/edit.svg') }} width="20" height="20" class="mr-2"></a>
             @if($school->status == "active")
                <a data-toggle="modal" data-target="#deleteConfirmationModal"><img src={{ asset('img/delete.svg') }} width="20" height="20" alt="icona per a eliminar"></a>

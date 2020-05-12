@@ -7,6 +7,7 @@
 			<!-- SIDENAV -->
 			<header class="headerCSSpropi row">
 				@include('includes.header')
+				@yield('custom-css') {{-- yield per a incloure estils personalitzats en algunes pàgines on ens interessi --}}
 			</header>
 
 			<!-- MAIN -->

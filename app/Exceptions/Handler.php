@@ -60,6 +60,10 @@ class Handler extends ExceptionHandler
                   return response()->view('errors.' . '500', [], 500);
                   break;
 
+              case 401:
+                  return response()->view('errors.' . '404', [], 401);
+                  break;
+
               default:
                   return $this->renderHttpException($exception);
                   break;

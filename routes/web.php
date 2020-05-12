@@ -111,6 +111,9 @@ Route::middleware(['registeredEntity'])->group(function () {
             ->name('students.enable');
             Route::get('students/import', 'UserController@indexImportStudents')
             ->name('students.import');
+            Route::get('job', function(){
+              dispatch(new App/Jobs/ImportStudents);
+            });
 
         Route::post('students/import/upload', 'UserController@importStudents')
             ->name('students.upload');
@@ -130,7 +133,7 @@ Route::middleware(['registeredEntity'])->group(function () {
     Route::post('/Professors/csv/import', 'UserController@importCSVProfessors')->name('professors.import');
 
     Route::get('/Professors/csv/export', 'UserController@exportCSVProfessors')->name('professors.export');
-    
+
     Route::post('Professors/{id}/edit/success', 'UserController@updateProfessor')->name('professors.update');
 
     Route::get('Professors/{id}', 'UserController@destroyProfessor')->name('professors.destroy');
@@ -151,7 +154,7 @@ Route::middleware(['registeredEntity'])->group(function () {
 
     /* Companies */
     //Route::resource('companies', 'CompanyController');
-    Route::middleware(['isAdmin'])->group(function () {
+    Route::middleware(['CheckRole'])->group(function () {
     Route::get('companies', 'CompanyController@indexCompany')->name('companies.index');
     //Route::get('/companies', 'CompanyController@indexCompany')->name('companies.index');
     Route::get('/companies/create', 'CompanyController@createCompany')->name('companies.create');
@@ -201,7 +204,7 @@ Route::middleware(['CheckRole'])->group(function () {
     Route::post('/managers/csv/import', 'UserController@importCSVManagers')->name('managers.import');
     });
     /* Schools */
-    Route::middleware(['isAdmin'])->group(function () {
+    Route::middleware(['CheckRole'])->group(function () {
     Route::get('/schools', 'SchoolController@indexSchool')->name('schools.index');
     Route::get('/schools/create', 'SchoolController@createSchool')->name('schools.create');
     Route::get('/schools/{id}/edit', 'SchoolController@editSchool')->name('schools.edit');

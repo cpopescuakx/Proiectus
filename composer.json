@@ -16,6 +16,7 @@
         "laravel/telescope": "^3.2",
         "laravel/tinker": "^2.0",
         "laravel/ui": "^1.2",
+        "predis/predis": "^1.1",
         "pusher/pusher-php-server": "~4.0",
         "spatie/laravel-feed": "^2.6",
         "spatie/laravel-newsletter": "^4.8"
