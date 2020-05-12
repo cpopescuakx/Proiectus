@@ -187,7 +187,7 @@
       <li>
         @if(Auth::guest())
         @else
-        @if (Auth::user()->id_role == 1)
+        @if (Auth::user()->id_role == 1 || Auth::user()->id_role == 5 )
         <a href="#entitiesSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><span class="fa fa-building mr-3"></span>Entitats</a>
         <ul class="collapse list-unstyled" id="entitiesSubmenu">
           <li>

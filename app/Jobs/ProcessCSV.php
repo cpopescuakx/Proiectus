@@ -159,6 +159,7 @@ class ProcessCSV implements ShouldQueue
                     switch ($data->id_role) {
                         case '2':
                             Log::info($this->byuser->username . ' - [ IMPORT ] - users - Nou professor: ' . $data->username . ' inserit!');
+
                             break;
 
                         default:

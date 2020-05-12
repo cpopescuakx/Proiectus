@@ -55,7 +55,12 @@
                 </form>
             </td> -->
             <td>
+              @if(Auth::guest())
+              @else
+              @if (Auth::user()->id_role == 1)
                 <a href ="{{ route('companiesUser.index',$company->id_company) }}"><i class="large material-icons mr-2 large align-bottom" style="color: #116466; font-size: 29px;">person_add</i>
+                  @endif
+                  @endif
                 <a href="{{ route('companies.edit',$company->id_company) }}"><img src={{ asset('img/edit.svg') }} width="20" height="20" class="mr-2" alt="icona per a editar"></a>
 
                 @if($company->status == "active")
