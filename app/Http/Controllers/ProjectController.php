@@ -42,6 +42,7 @@ class ProjectController extends Controller
      */
     public function index()
     {
+        Log::info("L'usuari " . $request->user()->username . " ha accedit a la gestió dels projectes.");
         $projects = Project::all();
         return view('projects.index', compact('projects'))
             ->with('i', (request()->input('page', 1) -1));
@@ -250,7 +251,7 @@ class ProjectController extends Controller
 
         // Guardar els canvis
         $projecte ->save();
-
+        Log::info("L'usuari " . $request->user()->username . " ha modificat el projecte amb la id " . $id . ".");
         // Redireccionar a la llista de projectes
         $projects = Project::all();
         return redirect()->route('projects.index',compact('projects'))
@@ -361,7 +362,7 @@ class ProjectController extends Controller
         return redirect()->route('projects.show', $id_project);
     }
 
-    
+
     public function validateInvite(Request $request, $id_project, $token) {
         $project = Project::where('id_project', $id_project)->first();
         if (!$request->hasValidSignature()) {

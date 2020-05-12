@@ -60,9 +60,10 @@ Route::middleware(['registeredEntity'])->group(function () {
     Route::get('Project', 'ProjectController@index')
         ->name('projects.index')->middleware('auth', 'isAdminOrGestor');
 
-    Route::get('Project/create', function () {
-        return view('projects.create');
-    })->name('projects.create');
+        Route::get('Project/create', function (Request $request) {
+            Log::info("L'usuari " . $request->user()->username . " ha accedit a la creació de projectes.");
+            return view('projects.create');
+        })->name('projects.create');
 
     Route::post('Project/create/success', 'ProjectController@store')
         ->name('projects.store');
