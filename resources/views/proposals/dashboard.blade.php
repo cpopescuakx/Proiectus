@@ -24,9 +24,13 @@
                     <div class="card m-2">
                         <img class="card-img-top" src="{{ asset('img/foto_small.jpg') }}">
                         <div class="card-body">
-                            <h3 style="width: 15rem;" class="card-title">{{ $proposal->name }}</h5>
-                                <h5 style="width: 10rem;" class="text-truncate card-title">{{ $proposal->category }}
-                                </h5>
+                            <h3 style="width: 20rem;" class="card-title">{{ $proposal->name }}</h5>
+                                <!-- Lógica que cambia los valores de la bbdd por valores reales -->
+                                @if($proposal->category == 'school')
+                                    <h5 style="width: 10rem;" class="card-title">Institut</h5>
+                                @else
+                                    <h5 style="width: 10rem;" class="card-title">Empresa</h5>
+                                @endif
 
                                 <a href="{{ route('proposals.show', $proposal->id_proposal) }}">
                                     <button class="btn bg-primary1 mt-2 proposal-info-btn text-white">
