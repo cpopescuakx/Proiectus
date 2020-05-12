@@ -40,7 +40,7 @@ class ProjectController extends Controller
      * @return void
      *
      */
-    public function index()
+    public function index(Request $request)
     {
         Log::info("L'usuari " . $request->user()->username . " ha accedit a la gestió dels projectes.");
         $projects = Project::all();
