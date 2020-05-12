@@ -45,10 +45,11 @@ class WikiController extends Controller
     /**
      * Actualitza el títol de la wiki i retorna la vista d'aquesta.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id_project
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id_project
      * @var wiki variable que busca la wiki per el paràmetre id_project, canvia el títol d'aquesta i ho guarda
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @throws \Illuminate\Validation\ValidationException
      */
      public function update(Request $request, $id_project)
      {
@@ -56,10 +57,12 @@ class WikiController extends Controller
              'title'    =>  'required'
          ]);
          $wiki = Wiki::find($id_project);
+         $oldWiki = Wiki::find($id_project);
          $wiki->title = $request->get('title');
          $wiki->id_project = $id_project;
 
          $wiki->save();
+         Log::info('[ UPDATE ] - wikis - La wiki: '. $oldWiki->title .' ha estat actualitzat a: '. $wiki->title .' per: '.auth()->user()->id.'.');
 
          return redirect()->route('projects.show', compact('id_project','id_article'));
      }

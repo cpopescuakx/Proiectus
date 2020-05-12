@@ -14,7 +14,6 @@
                     <li><span class="font-weight-bold">Columna 5:</span> Correu electrònic</li>
                     <li><span class="font-weight-bold">Columna 6:</span> Contrasenya</li>
                     <li><span class="font-weight-bold">Columna 7:</span> Codi Postal</li>
-                    <li><span class="font-weight-bold">Columna 7:</span> Codi Rol</li>
                 </ul>
             </div>
         </div>
@@ -22,7 +21,7 @@
 </div>
 
 <div class="formulari">
-    <form class="was-validated" action="{{route('employees.import')}}" method="POST" enctype="multipart/form-data">
+    <form class="was-validated" action="{{route('professors.import')}}" method="POST" enctype="multipart/form-data">
         <div class="row justify-content-center">
             <div class="col-11 col-sm-11 col-md-10 col-lg-10 col-xl-10">
                 <div class="container">
@@ -63,7 +62,7 @@
 
                     <div class="d-flex justify-content-center">
                         <button style="background-color: #116466;" class="btn btn-primary mt-4 float-right" type="submit">Importar</button>
-                        <a href="{{route('employees.export')}}"><button type="button" style="background-color: #116466;" class="btn btn-primary ml-2 mt-4 float-right" type="submit">Exportar</button></a>
+                        <a href="{{route('professors.export')}}"><button type="button" style="background-color: #116466;" class="btn btn-primary ml-2 mt-4 float-right" type="submit">Exportar</button></a>
                     </div>
                 </div>
             </div>

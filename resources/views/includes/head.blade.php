@@ -38,5 +38,8 @@
 
 <!-- Imports per a les llibreries bootstrap-table, bootstrap-select i bootstrap-datepicker-->
 <link href="{{ asset('bootstrap-table-master/dist/bootstrap-table.css') }}" rel="stylesheet">
-<link href="{{ asset('bootstrap-select-1.13.14/dist/css/bootstrap-select.css') }}" rel="stylesheet">
+{{--<link href="{{ asset('bootstrap-select-1.13.14/dist/css/bootstrap-select.css') }}" rel="stylesheet">--}}
 <link href="{{ asset('bootstrap-datepicker-1.9.0-dist/css/bootstrap-datepicker3.css') }}" rel="stylesheet">
+
+<!-- Import per a l'avís de cookies -->
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />

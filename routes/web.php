@@ -120,22 +120,24 @@ Route::middleware(['registeredEntity'])->group(function () {
     });
 
     /** Rutes per a l'apartat de gestió de profes */
-    Route::get('Professors', 'UserController@indexProfessor')
-        ->name('professors.index');
+    Route::get('Professors', 'UserController@indexProfessor')->name('professors.index');
 
     Route::get('Professors/create', 'UserController@createProfessor')->name('professors.create');
 
-    Route::post('Professors/create/success', 'UserController@storeProfessor')
-        ->name('professors.store');
+    Route::post('Professors/create/success', 'UserController@storeProfessor')->name('professors.store');
 
-    Route::get('Professors/{id}/edit', 'UserController@editProfessor')
-        ->name('professors.edit');
+    Route::get('Professors/{id}/edit', 'UserController@editProfessor')->name('professors.edit');
 
-    Route::post('Professors/{id}/edit/success', 'UserController@updateProfessor')
-        ->name('professors.update');
+    Route::get('/Professors/csv', 'UserController@indexCSVProfessors')->name('professors.csv');
 
-    Route::get('Professors/{id}', 'UserController@destroyProfessor')
-        ->name('professors.destroy');
+    Route::post('/Professors/csv/import', 'UserController@importCSVProfessors')->name('professors.import');
+
+    Route::get('/Professors/csv/export', 'UserController@exportCSVProfessors')->name('professors.export');
+    
+    Route::post('Professors/{id}/edit/success', 'UserController@updateProfessor')->name('professors.update');
+
+    Route::get('Professors/{id}', 'UserController@destroyProfessor')->name('professors.destroy');
+
 
     //GRUP1
     /* Tickets */
@@ -197,6 +199,9 @@ Route::middleware(['CheckRole'])->group(function () {
     Route::get('managers/{id}/delete', 'UserController@updateManager')->name('managers.destroy');
     Route::post('managers/create', 'UserController@storeManager')->name('managers.store');
     Route::post('managers/{id}/update', 'UserController@updateManager')->name('managers.update');
+    Route::get('/managers/csv', 'UserController@indexCSVManagers')->name('managers.csv');
+    Route::get('/managers/csv/export', 'UserController@exportCSVManagers')->name('managers.export');
+    Route::post('/managers/csv/import', 'UserController@importCSVManagers')->name('managers.import');
     });
     /* Schools */
     Route::middleware(['isAdmin'])->group(function () {
@@ -256,7 +261,7 @@ Route::middleware(['CheckRole'])->group(function () {
     /** ------Rutes per a l'apartat del BLOG------ */
                                     /** MIDDLEWARE */
     /** Middleware per a controlar que només pugui editar o eliminar un post el seu owner */
-    Route::middleware(['CheckRoleBlog','auth'])->group(function () {
+    Route::middleware(['auth', 'CheckRoleBlog'])->group(function () {
         /** Ruta per al INDEX d'un blog d'un projecte */
         Route::get('blog/{id_project}','BlogController@index')->name('blog.index');
         /** Ruta per al SHOW d'un post */
@@ -268,15 +273,17 @@ Route::middleware(['CheckRole'])->group(function () {
         Route::get('Project/{id_project}/post/{id_post}/destroy', 'PostController@destroy')->name('post.destroy');
         /** Ruta per a l'update del titul de blog */
     });
-    Route::get('blog/{id_project}/edit', 'BlogController@edit')->name('blog.edit');
-    Route::post('blog/{id_project}/update', 'BlogController@update')->name('blog.update');
-       /** Ruta per al STORE de post */
-       Route::post('Project/{id_project}/post/store', 'PostController@store')->name('post.store');
+    Route::middleware(['auth','isAdminOrGestor'])->group(function () {
+        Route::get('blog/{id_project}/edit', 'BlogController@edit')->name('blog.edit');
+        Route::post('blog/{id_project}/update', 'BlogController@update')->name('blog.update');
+        /** Ruta per al STORE de post */
+        Route::post('Project/{id_project}/post/store', 'PostController@store')->name('post.store');
+    });
 
                  /** ------Rutes per a l'apartat de WIKI------ */
                                     /** MIDDLEWARE */
     /** Middleware per a controlar que només pugui editar o eliminar un article el seu owner */
-    Route::middleware(['CheckRoleWiki'])->group(function () {
+    Route::middleware(['auth','CheckRoleWiki'])->group(function () {
         /** Rutes per a l'apartat de la gestio dels articles de la wiki */
         Route::get('wiki/{id_project}', 'WikiController@index')->name('wiki.index');
         /** Ruta per a eliminar un article */
@@ -285,13 +292,17 @@ Route::middleware(['CheckRole'])->group(function () {
         Route::get('Project/{id_project}/article/{id_article}/edit', 'ArticleController@edit')->name('article.edit');
         Route::post('Project/{id_project}/article/{id_article}/update', 'ArticleController@update')->name('article.update');
     });
-    /** Ruta per a guardar l'article creat */
-    Route::post('wiki/{id_project}/article/store', 'ArticleController@store') ->name('article.store');
+    Route::middleware(['auth','isAdminOrGestor'])->group(function () {
+        /** Ruta per a l'update d''una wiki */
+        Route::get('wiki/{id_project}/edit', 'WikiController@edit')->name('wiki.edit');
+        Route::post('wiki/{id_project}/update', 'WikiController@update');
+        /** Ruta per a guardar l'article creat */
+        Route::post('wiki/{id_project}/article/store', 'ArticleController@store')->name('article.store');
 
-    /** Ruta per a l'update d''una wiki */
-    Route::get('wiki/{id_project}/edit', 'WikiController@edit')->name('wiki.edit');
-    Route::post('wiki/{id_project}/update', 'WikiController@update')->name('wiki.update');
-
+        /** Ruta per a l'update d''una wiki */
+        Route::get('wiki/{id_project}/edit', 'WikiController@edit')->name('wiki.edit');
+        Route::post('wiki/{id_project}/update', 'WikiController@update')->name('wiki.update');
+    });
 
     /** Rutes per a l'apartat de perfils d'usuari */
 
@@ -338,4 +349,7 @@ Route::middleware(['CheckRole'])->group(function () {
         });
     });
 
+    Route::get('/privacy-and-cookies', function() {
+        return view('legal.privacyAndCookies');
+    })->name('privacyAndCookies');
 });

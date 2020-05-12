@@ -33,7 +33,7 @@
                         <div class="row justify-content-center">
                             <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
                                 <button type="submit" name = "sbumit" class="btn btn-primary float-right">Modificar</button>
-                                <a style="margin-right: 10px" class="btn btn-primary float-right" href="{{route ('projects.show',$wiki->id_project)}}">Enrere</a>
+                                <a class="btn btn-primary float-left" href="{{ URL::previous() }}"> Cancel·lar</a>
                             </div>
                         </div>
                     </div>

@@ -22,7 +22,7 @@
 </div>
 
 <div class="formulari">
-    <form class="was-validated" action="{{route('employees.import')}}" method="POST" enctype="multipart/form-data">
+    <form class="was-validated" action="{{route('managers.import')}}" method="POST" enctype="multipart/form-data">
         <div class="row justify-content-center">
             <div class="col-11 col-sm-11 col-md-10 col-lg-10 col-xl-10">
                 <div class="container">
@@ -35,7 +35,7 @@
                     <div class="container">
                         <div class="row no-gutters justify-content-center mt-5">
                             <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6 text-center">
-                                <h1>Importar/Exportar empleats</h1>
+                                <h1>Importar/Exportar gestors</h1>
                             </div>
                         </div>
                     </div>
@@ -44,7 +44,7 @@
                         @foreach ($errors as $error)
                             <div class="alert alert-danger mt-2 mb-2" role="alert">
                                 <i class="fas fa-exclamation-circle mr-3"></i> {{ $error }}
-                            </div>  
+                            </div>
                         @endforeach
                     @endif
 
@@ -52,22 +52,22 @@
                         <div class="alert alert-success mt-2 mb-2" role="alert">
                             <i class="fas fa-check-circle mr-3"></i> {{ session('success') }}
                         </div>
-                        
+
                     @endif
-    
+
                     @csrf
 
-                    <div class="form-group resource-center w-100 mt-4"> 
+                    <div class="form-group resource-center w-100 mt-4">
                         <input required type="file" class="form-control" name="file">
                     </div>
 
                     <div class="d-flex justify-content-center">
                         <button style="background-color: #116466;" class="btn btn-primary mt-4 float-right" type="submit">Importar</button>
-                        <a href="{{route('employees.export')}}"><button type="button" style="background-color: #116466;" class="btn btn-primary ml-2 mt-4 float-right" type="submit">Exportar</button></a>
+                        <a href="{{route('managers.export')}}"><button type="button" style="background-color: #116466;" class="btn btn-primary ml-2 mt-4 float-right" type="submit">Exportar</button></a>
                     </div>
                 </div>
             </div>
         </div>
-    </form>    
+    </form>
 </div>
 @stop

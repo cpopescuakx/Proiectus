@@ -4,7 +4,7 @@
     margin-right: auto;
 }
 .content {
-  padding: 0px;
+  padding: 0;
 }
 .container {
 	@media (min-width: 992px) {
@@ -62,14 +62,31 @@
     width: 25%;  /* The width is the width of the web page */
   }
 
-  .gold {
-	  color: #FFD700;
-  }
+.gold {
+	color: #FFD700;
+}
 
-  .silver {
-	  color: #C0C0C0;
-  }
+.silver {
+	color: #C0C0C0;
+}
 
-  .bronze {
-	  color: #CD7F32
-  }
+.bronze {
+	color: #CD7F32
+}
+
+.notice {
+	padding: 15px;
+	background-color: #fafafa;
+	border-left: 6px solid #7f7f84;
+	margin-bottom: 10px;
+	-webkit-box-shadow: 0 5px 8px 1px rgba(0,0,0,.2);
+		-moz-box-shadow: 0 5px 8px 1px rgba(0,0,0,.2);
+			box-shadow: 0 5px 8px 1px rgba(0,0,0,.2);
+}
+
+.notice-success {
+	border-color: #116466;
+}
+.notice-success>strong {
+	color: #116466;
+}

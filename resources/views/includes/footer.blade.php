@@ -11,8 +11,8 @@
 
                 <!-- Elementos -->
                 <ul class="list-unstyled text-small">
-                    <li><a class="text-muted" href="#">Què és?</a></li>
-                    <li><a class="text-muted" href="#">Com funciona?</a></li>
+                    <li><a class="text-muted" href="{{route('index.index')}}#que_es_proiectus">Què és?</a></li>
+                    <li><a class="text-muted" href="{{route('index.index')}}#com_funciona">Com funciona?</a></li>
                 </ul>
             </div>
             <!-- Fin columna de 6 -->
@@ -38,21 +38,6 @@
                 <ul class="list-unstyled text-small">
                     <li><a class="text-muted" href="#">Equip</a></li>
                     <li><a class="text-muted" href="#">Ubicació</a></li>
-                    <li><a class="text-muted" href="#">Privacitat</a></li>
-                    <li><a class="text-muted" href="#">Termes</a></li>
-                </ul>
-            </div>
-            <!-- Fin columna de 6 -->
-
-            <!-- Columna de 6 -->
-            <div class="col-6 col-md">
-                <!-- Titulo columna -->
-                <h5>Blog</h5>
-
-                <!-- Elementos -->
-                <ul class="list-unstyled text-small">
-                    <li><a class="text-muted" href="#">El nostre blog</a></li>
-
                 </ul>
             </div>
             <!-- Fin columna de 6 -->
@@ -71,6 +56,21 @@
                 </ul>
             </div>
             <!-- Fin columna de 6 -->
+
+            <!-- Inicio columna de 6 -->
+            <div class="col-6 col-md">
+                <!-- Titulo columna -->
+                <h5>Legal</h5>
+
+                <!-- Elementos -->
+                <ul class="list-unstyled text-small">
+                    <li><a class="text-muted" href="{{route('privacyAndCookies')}}">Privacitat i cookies</a></li>
+                    <li><a class="text-muted" href="#">Termes i condicions</a></li>
+
+                </ul>
+            </div>
+            <!-- Fin columna de 6 -->
+
         </div>
         <!-- Fin filas -->
     </div>

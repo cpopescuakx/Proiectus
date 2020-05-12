@@ -2,11 +2,12 @@
 	<head>
 	   @include('includes.head')
 	</head>
-	<body>
+	<body onload="loading()">
 		<div class="wrapper d-flex align-items-stretch">
 			<!-- SIDENAV -->
 			<header class="headerCSSpropi row">
 				@include('includes.header')
+				@yield('custom-css') {{-- yield per a incloure estils personalitzats en algunes pàgines on ens interessi --}}
 			</header>
 
 			<!-- MAIN -->

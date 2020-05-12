@@ -5,8 +5,9 @@
 <?php error_reporting(0);?>
 <div class="col">
     <div class="row d-flex justify-content-end p-4">
-      <a href="{{ route('tickets.index') }}"><i class="large material-icons mr-2 large align-bottom" style="color: #116466; font-size: 50px;" alt="icona per als tickets">markunread</i></a>
-      <a href="{{ route('managers.create') }}"><img src={{ asset('img/add.svg') }} width="45" height="45" alt="icona per a afegir"></a>
+      <a class="mr-3" href="{{ route('tickets.index') }}"><i class="large material-icons large align-bottom" style="color: #116466; font-size: 50px;" alt="icona per als tickets">markunread</i></a>
+      <a class="mr-3" href="{{ route('managers.create') }}"><img src={{ asset('img/add.svg') }} width="45" height="45" alt="icona per a afegir"></a>
+      <a href="{{ route('managers.csv') }}"><i class="fas fa-file-csv" style="color: #116466; font-size: 45px;"></i></a>
     </div>
 </div>
 

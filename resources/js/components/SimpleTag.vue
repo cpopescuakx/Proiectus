@@ -75,7 +75,7 @@
     <div id="showtags">
         <div class="container-fluid">
             <div class="notice-lg notice-success">
-                <strong>Tags:</strong>
+                <strong><span class="text-center"><h4>TAGS</h4></span></strong>
                 <br>
                 <div class="d-inline-flex" v-for="proposaltag in proposaltags" :key="proposaltag.id_tag">
                     <a href="#" class="badge badge-success mr-1">{{ proposaltag.tag_name }}</a>

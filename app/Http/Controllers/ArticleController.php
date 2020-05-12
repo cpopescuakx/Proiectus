@@ -90,7 +90,7 @@ class ArticleController extends Controller
         
         //Cerquem l'article a actualitzar
         $article = Article::find($id_article);
-
+        $oldArticle = Article::find($id_article);
         //Obtenim les dades del $request i afegim aquestes a l'article.
         $article->title = $request->get('title');
         $article->content = $request->get('content');
@@ -98,7 +98,7 @@ class ArticleController extends Controller
         //Guardem els nous valors dels camps.
         $article->save();
         
-        Log::info('[ UPDATE ] - articles - Article: '.$article->title.' Actualitzat per: '.auth()->user()->id.'');
+        Log::info("[ UPDATE ] - articles - L'Article: ".$oldArticle->title.' ha estat actualitzat a: ' . $article->title . ' per: ' . auth()->user()->id.'.');
 
         return redirect()->route('projects.show', compact('id_project','id_article'));
     }

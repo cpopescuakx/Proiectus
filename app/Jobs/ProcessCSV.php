@@ -47,6 +47,75 @@ class ProcessCSV implements ShouldQueue
     {
         //sleep(10);
         $storagePath = Storage::disk('local')->getDriver()->getAdapter()->getPathPrefix();
+        $file = fopen("$storagePath"."$this->file", 'r');
+
+        $i = 0;
+        $data = array();
+        while (($dataCSV = fgetcsv($file, 1000, "\t")) !== FALSE) {
+            for ($c=0; $c < count($dataCSV); $c++) {
+                $data[$i][] = $dataCSV[$c];
+            }
+            
+            $i++;
+        }
+        fclose($file);
+
+        $i = 1;
+        $array = array();
+        foreach ($data as $user) {
+            try {
+                $user = explode(';', $user[0]);
+                $_user = new User;
+                $_user->firstname = $user[0];
+                $_user->lastname = $user[1];
+                $_user->username = $user[2];
+                $_user->dni = $user[3];
+                $_user->email = $user[4];
+                $_user->password = Hash::make($user[5]);
+                $_user->id_city = CityController::getIdFromPostalCode($user[6]);
+                $_user->id_role = $user[7];
+                $_user->status = "active";
+                array_push($array, $_user);
+            } catch (\ErrorException $th) {
+                Log::error($th);
+            }
+            $i++;
+        }
+
+        
+        foreach ($array as $data) {
+            try {
+                $data->save();
+                if ($data instanceof User) {
+                    switch ($data->id_role) {
+                        case '2':
+                            Log::info($this->byuser->username . ' - [ IMPORT ] - users - Nou empleat: ' . $data->username . ' inserit!');
+                            break;
+                        
+                        default:
+                            break;
+                    }
+                }
+            } catch (\Illuminate\Database\QueryException $th) {
+                Log::error($th);
+            }
+        }
+
+        try {
+            Storage::delete($this->file);
+        } catch (\Throwable $th) {
+            Log::error($th);
+        }
+    }
+     /**
+     * Execute the job.
+     *
+     * @return void
+     */
+    public function handleProfessor()
+    {
+        //sleep(10);
+        $storagePath = Storage::disk('local')->getDriver()->getAdapter()->getPathPrefix();
         $file = fopen("$storagePath/$this->file", 'r');
 
         $i = 0;
@@ -73,7 +142,7 @@ class ProcessCSV implements ShouldQueue
                 $_employee->email = $employee[4];
                 $_employee->password = Hash::make($employee[5]);
                 $_employee->id_city = CityController::getIdFromPostalCode($employee[6]);
-                $_employee->id_role = 2;
+                $_employee->id_role = 4;
                 $_employee->status = "active";
                 array_push($array, $_employee);
             } catch (\ErrorException $th) {
@@ -89,7 +158,7 @@ class ProcessCSV implements ShouldQueue
                 if ($data instanceof User) {
                     switch ($data->id_role) {
                         case '2':
-                            Log::info($this->byuser->username . ' - [ IMPORT ] - users - Nou empleat: ' . $data->username . ' inserit!');
+                            Log::info($this->byuser->username . ' - [ IMPORT ] - users - Nou professor: ' . $data->username . ' inserit!');
                             break;
                         
                         default:
