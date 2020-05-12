@@ -1,4 +1,9 @@
 @extends('layouts.default_unlogged')
+<!-- GOOGLE MAPS API -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBneN0MIKQ-fLajTh_7oq-JiX_1w9ApMB8&callback=initMap&libraries=places"></script>
+
+<!-- JQUERY ESTÁ AQUÍ -->
+<script src="{{asset('js/jquery-3.4.1.min.js')}}"></script>
 
 @section('content')
 @mapstyles
@@ -281,7 +286,7 @@
 
         </section>
 
-        
+
         <section id="sponsors_proiectus">
             <div class="container py-4">
                 <div class="pricing-header px-3 py-5 pt-5 pb-5 mx-auto text-center">
