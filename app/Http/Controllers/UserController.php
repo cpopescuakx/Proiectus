@@ -16,10 +16,12 @@ use Illuminate\Support\Facades\Log;
 use Image;
 use Auth;
 use App\Invite;
-use App\Url;
+use Illuminate\Support\Facades\URL;
 use App\Jobs\ProcessCSV;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Notification;
+use App\Notifications\InviteNotification;
 
 class UserController extends Controller
 {
@@ -750,13 +752,12 @@ class UserController extends Controller
 
             foreach ($professors as $professor) {
                 fputcsv($handle, array(
-                    $professor['firstname'], $professor['lastname'], $professor['username'], $professor['profile_pic'],
-                    $professor['email'], $professor['email_verified_at'], $professor['id_city'], $professor['bio'], $professor['id_role'],
+                    $professor['firstname'], $professor['lastname'], $professor['username'],$professor['email'], $professor['email_verified_at'], $professor['id_city'], $professor['bio'], $professor['id_role'],
                     $professor['dni'], $professor['birthdate'], $professor['status'], $professor['pending_entity_registration'],
                     $professor['pending_entity_verification'], $professor['logo_entity']
                 ), ';');
             }
-            Log::info(Auth::user()->username . ' - [ EXPORT ] - users - Professors');
+            Log::info(Auth::user()->id. ' - [ EXPORT ] - users - Professors');
             fclose($handle);
         };
 
@@ -769,7 +770,8 @@ class UserController extends Controller
         return Response::stream($callback, 200, $headers);
     }
 
-    /**
+    /** INDEX CSV PROFESSORS
+     * 
      * Retorna la vista del formulari per a importar i exportar professors.
      *
      */
@@ -778,11 +780,13 @@ class UserController extends Controller
     }
 
     /** IMPORT PROFESSORS
+     * 
      *  Acció que serveix per a importar professors des de un fitxer CSV.
      *
      */
 
     public function importCSVProfessors (Request $request) {
+        
             // Comprova que el fitxer és un .csv
             $validate = Validator::make(
                 [
@@ -795,6 +799,7 @@ class UserController extends Controller
                 ]
             );
 
+            //Comprovem que la validació sigui correcta i fem 
             if($validate->passes()) {
                 ProcessCSV::dispatch($request, Auth::user())->delay(now()->addSeconds(5));
                 return redirect()->back();
