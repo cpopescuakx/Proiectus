@@ -31,7 +31,7 @@ class PostController extends Controller
 
         $post->save();
 
-        Log::info('[ INSERT ] - posts - Nou post: '.$post->title.' Creat per: '.auth()->user()->id.'.');
+        Log::info(auth()->user()->id .' - [ INSERT ] - posts - Nou post: '. $post->title .'.');
         return redirect()->back();
     }
 
@@ -99,7 +99,7 @@ class PostController extends Controller
         $post->content = $request->input('content');
         $post->save();
 
-        Log::info('[UPDATE] - posts - El post: ' . $oldPost->title . ' ha estat actualitzat a: '. $post->title .' per: '. auth()->user()->id. '.');
+        Log::info(auth()->user()->id. ' - [UPDATE] - posts - El post: ' . $oldPost->title . ' ha estat actualitzat a: '. $post->title .'.');
         return redirect()->action('ProjectController@show', ['id_project' => $id_project]);
 
     }
@@ -120,7 +120,7 @@ class PostController extends Controller
       $post->status = 'inactive';
       $post-> save();
 
-      Log::info('[DELETE] - posts - EL post: '. $post->title .' ha estat eliminat per: '. auth()->user()->id) .'.';
+      Log::info(auth()->user()->id) .' - [DELETE] - posts - El post: '. $post->title . '.';
 
       return redirect()->back();
 

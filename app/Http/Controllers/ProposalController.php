@@ -350,7 +350,7 @@ $this->middleware('auth');
 
         // Guardar projecte a la BBDD i generar missatge de log
         $projecte -> save();
-        Log::info('[ INSERT ] - projects - Nou projecte: ' .$projecte -> name. ' inserit!');
+        Log::info(auth()->user()->id . '[ INSERT ] - projects - Nou projecte: ' .$projecte -> name . '.');
 
         // Desactivar la proposta
         $proposta->status = 'deleted';
@@ -362,6 +362,7 @@ $this->middleware('auth');
         $blog->id_project = $idProjecte;
         $blog->title = 'Blog per al projecte '.$projecte->name;
         $blog->save();
+        Log::info(auth()->user()->id .' - [INSERT] - blogs - ' . $blog->title);
 
         // Crear wiki
         $wiki = new Wiki;
@@ -370,6 +371,7 @@ $this->middleware('auth');
         $wiki->title = 'Wiki per al projecte '.$projecte->name;
 
         $wiki->save();
+        Log::info(auth()->user()->id .' - [INSERT] - blogs - ' . $wiki->title);
 
         // Afegir l'autor al projecte
         $userProjectAuthor = new User_project;

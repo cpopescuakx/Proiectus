@@ -63,7 +63,7 @@ class BlogController extends Controller
         $blog->id_project = $id_project;
         $blog->save();
 
-        Log::info('[ UPDATE ] - blogs - El blog: '. $oldBlog->title .' ha estat actualitzat a: '. $blog->title .' per: '.auth()->user()->id.'.');
+        Log::info(auth()->user()->id . ' - [ UPDATE ] - blogs - El blog: '. $oldBlog->title .' ha estat actualitzat a: '. $blog->title .'.');
 
         return redirect()->action('ProjectController@show', ['id_project' => $id_project]);
     }
