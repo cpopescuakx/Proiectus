@@ -143,7 +143,7 @@
                         <div class="form-group mt-4">
                             <div class="row justify-content-center">
                                 <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
-                                    <label for="contrassenya">Contrassenya nova</label>
+                                    <label for="contrasenya">Contrasenya nova</label>
                                     <input type="text" name = "password" class="form-control" id="password">
                                     <div class="invalid-feedback">Camp necessari</div>
                                 </div>
@@ -153,7 +153,7 @@
                         <div class="form-group mt-4">
                             <div class="row justify-content-center">
                                 <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
-                                    <label for="contrassenya">Estat</label>
+                                    <label for="contrasenya">Estat</label>
                                     <select class="form-control" name = "status" id="status">
                                         {{-- Mostrar l'estat actual de l'alumne --}}
                                         @if($student->status == "active")
