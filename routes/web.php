@@ -111,10 +111,9 @@ Route::middleware(['registeredEntity'])->group(function () {
             ->name('students.enable');
             Route::get('students/import', 'UserController@indexImportStudents')
             ->name('students.import');
-            Route::get('job', function(){
-              dispatch(new App/Jobs/ImportStudents);
-            });
-
+            // Route::get('job', function(){
+            //   dispatch(new App/Jobs/ImportStudents);
+            // });
         Route::post('students/import/upload', 'UserController@importStudents')
             ->name('students.upload');
     });
@@ -335,7 +334,7 @@ Route::middleware(['CheckRole'])->group(function () {
     Route::get('resources/delete/{path}', 'Resource_centerController@destroy')->name('resource.delete');
 
     /** NOTIFICACIONS */
-    Route::middleware(['isLogged'])->group(function () {
+    Route::middleware(['auth'])->group(function () {
         Route::get('/notifications', function() {
            return auth()->user()->notifications;
         });
@@ -348,6 +347,12 @@ Route::middleware(['CheckRole'])->group(function () {
 
         });
     });
+
+    /**    COREU    */
+    Route::get('/email')->name('email');
+
+
+
 
     Route::get('/privacy-and-cookies', function() {
         return view('legal.privacyAndCookies');
