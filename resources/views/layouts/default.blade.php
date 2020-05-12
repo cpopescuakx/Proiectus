@@ -2,20 +2,27 @@
 	<head>
 	   @include('includes.head')
 	</head>
-	<body>
-		<header class="row">
+	<body onload="loading()">
+		<div class="wrapper d-flex align-items-stretch">
+			<!-- SIDENAV -->
+			<header class="headerCSSpropi row">
 				@include('includes.header')
-		</header>
-	<div class="content closed">
+				@yield('custom-css') {{-- yield per a incloure estils personalitzats en algunes pàgines on ens interessi --}}
+			</header>
 
-	   <div id="main" >
-	           @yield('content')
-	   </div>
-
-	</div>
-	<div id="footerBO">
+			<!-- MAIN -->
+			<div id="content" class="p-md-5 pt-5">
+					@yield('content')
+			</div>
+		</div>
+		
+		<!-- FOOTER -->
+		<div id="footerBO">
 			@include('includes.footer')
-	</div>
+		</div>
+		@include('includes.footer-scripts') {{-- Los scripts van antes de cerrar el body --}}
+
+		<!-- THIS PAGE's CUSTOM JS-->
+		@yield('custom-scripts') {{-- yield per a incloure scripts personalitzats nomes en algunes pagines on ens interessi --}}
 	</body>
-	@include('includes.footer-scripts')
 </html>

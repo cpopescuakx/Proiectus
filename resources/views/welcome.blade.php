@@ -2,6 +2,7 @@
 
 @section('content')
 @mapstyles
+<div id="app"></div>
 
     <main role="main">
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -14,16 +15,16 @@
                 <div class="carousel-item active">
                     <img class="first-slide slide-width" src="img/carrusel0.jpg" alt="">
                     <div class="container">
-                        <div class="carousel-caption text-left">
-                        <div class="row no-gutters">
-                          <div id="photos">
+                        <div class="carousel-caption">
+                            <div class="row no-gutters">
+                                <div id="photos">
+                                </div>
 
-                          </div>
-
-                        </div>
+                            </div>
                             <h1>Connecta.</h1>
-                            <p>La teva empresa pot connectar amb centres educatius o viceversa <br> Proposa un desafiament, forma el teu equip i desenvolupa un projecte.</p>
-                            <p><a class="btn btn-lg btn-primary" href="g1_formRegCentreEntitat.php" role="button">Registra't</a></p>
+                            <p>La teva empresa pot connectar amb centres educatius o viceversa <br> Proposa un
+                                desafiament, forma el teu equip i desenvolupa un projecte.</p>
+                            <p><a class="btn btn-lg btn-primary" href="register" role="button">Registra't</a></p>
                         </div>
                     </div>
                 </div>
@@ -32,8 +33,11 @@
                     <div class="container">
                         <div class="carousel-caption">
                             <h1>Per a les empreses.</h1>
-                            <p>Podran connectar amb centres educatius que imparteixin graus mitjans o superiors <br> en la seva àrea professional, col·laborar en projectes del seu interès o publicar propostes.</p>
-                            <p><a class="btn btn-lg btn-primary" href="#que_es_proiectus" role="button">Més info...</a></p>
+                            <p>Podran connectar amb centres educatius que imparteixin graus mitjans o superiors <br> en
+                                la seva àrea professional, col·laborar en projectes del seu interès o publicar
+                                propostes.</p>
+                            <p><a class="btn btn-lg btn-primary" href="#que_es_proiectus" role="button">Més info...</a>
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -41,35 +45,12 @@
                     <img class="third-slide slide-width" src="img/carrusel2.jpg" alt="Professor donant classe">
                     <div class="container">
 
-                        <div class="carousel-caption text-left">
-                          <iframe title="Vue.js Documental" width="560" height="330" src="https://www.youtube.com/embed/OrxmtDw4pVI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen alt="Documental Vue.js"></iframe>
+                        <div class="carousel-caption">
                             <h1>Per als centres educatius.</h1>
-                            <p>Els alumnes podran accedir a experiències professionals <br>a través de la col·laboració en projectes en el seu camp d'estudis.</p>
-                            <p>
-                                <a type="button" class="btn btn-lg btn-primary video-btn" href="#" data-toggle="modal" data-src="https://www.youtube.com/watch?v=2rpfqwCk9Sk" data-target="#myModal" role="button">Veure vídeo</a>
+                            <p>Els alumnes podran accedir a experiències professionals <br>a través de la col·laboració
+                                en projectes en el seu camp d'estudis.</p>
+                            <p><a class="btn btn-lg btn-primary" href="#que_es_proiectus" role="button">Més info...</a>
                             </p>
-                        </div>
-
-                        <!-- Modal -->
-                        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-
-                                    <div class="modal-body">
-
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-
-                                        <!-- 16:9 aspect ratio -->
-                                        <div class="embed-responsive embed-responsive-16by9">
-                                            <iframe class="embed-responsive-item" src="" id="video" allowscriptaccess="always" allow="autoplay"></iframe>
-                                        </div>
-
-                                    </div>
-
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -94,11 +75,14 @@
                 </div>
                 <div class="row featurette">
                     <div class="col-md-7">
-                        <h2 class="featurette-heading">Segur que vols saber més <span class="text-muted">...Ara t'ho direm!</span></h2>
-                        <p class="lead">Aquest és un text simulat per a la presentacio de Proiectus.cat en principi no ha de ser tan llarg, ha de ser prou atractiu perquè instituts i empreses vulguin apuntar-se i ser part de la comunitat Proiectus.</p>
-                        <p class="lead">Aquest és un text simulat per a la presentacio de Proiectus.cat en principi no ha de ser tan llarg, ha de ser prou atractiu perquè instituts i empreses vulguin apuntar-se i ser part de la comunitat Proiectus.</p>
-                        <p class="lead">Aquest és un text simulat per a la presentacio de Proiectus.cat en principi no ha de ser tan llarg.</p>
-                        <p class="lead">Tenim una gran tasca per fidelitzar usuaris!</p>
+                        <p class="lead"><b>Proiectus</b> és la solució per a poder connectar empreses i instituts. </p>
+                        <p class="lead"> Per a fer-ho, hem fet una aplicació web que permet connectar-los mitjançant
+                            propostes a les
+                            quals es poden afegir empreses o instituts que tinguin la mateixa necessitat. </p>
+                        <p class="lead">Un cop les entitats s’afegeixen, es crea un projecte, on dins d’aquest, totes
+                            dues parts poden
+                            comunicar-se mitjançant el xat, compartir fitxers o crear posts per a dur a terme la tasca
+                            que s’ha proposat.</p>
                     </div>
 
                     <div class="col-md-4 offset-md-1">
@@ -122,25 +106,29 @@
                     <div class="col-lg-3 text-center mx-auto ">
                         <img class="rounded-circle" src="img/pruebaa.jpg" alt="" width="140" height="140">
                         <h3 class="pt-2">Registra't</h3>
-                        <p class="pl-4 pr-4">Si vols col·laborar en PROIECTUS.cat com a empresa o centre educatiu, registra't!</p>
+                        <p class="pl-4 pr-4">Si vols col·laborar en PROIECTUS.cat com a empresa o centre educatiu,
+                            registra't!</p>
                     </div><!-- /.col-lg-3 -->
 
                     <div class="col-lg-3 text-center mx-auto">
                         <img class="rounded-circle" src="img/pruebab.jpg" alt="" width="140" height="140">
                         <h3 class="pt-2">Proposa</h3>
-                        <p class="pl-4 pr-4">Crea una proposta d'un projecte perquè un centre/empresa vulgui col·laborar amb tu!</p>
+                        <p class="pl-4 pr-4">Crea una proposta d'un projecte perquè un centre/empresa vulgui col·laborar
+                            amb tu!</p>
                     </div><!-- /.col-lg-3 -->
 
                     <div class="col-lg-3 text-center mx-auto">
                         <img class="rounded-circle" src="img/pruebac.jpg" alt="" width="140" height="140">
                         <h3 class="pt-2">Match!</h3>
-                        <p class="pl-4 pr-4">Quan un centre/empresa s'interessa en la teva proposta comença el teu projecte!</p>
+                        <p class="pl-4 pr-4">Quan un centre/empresa s'interessa en la teva proposta comença el teu
+                            projecte!</p>
                     </div><!-- /.col-lg-3-->
 
                     <div class="col-lg-3 text-center mx-auto mb-5">
                         <img class="rounded-circle" src="img/pruebad.jpg" alt="" width="140" height="140">
                         <h3 class="pt-2">Segueix</h3>
-                        <p class="pl-4 pr-4">Els avenços del projecte, comparteix documents i missatges amb tots els col·laboradors!</p>
+                        <p class="pl-4 pr-4">Els avenços del projecte, comparteix documents i missatges amb tots els
+                            col·laboradors!</p>
                     </div><!-- /.col-lg-3 -->
 
                 </div><!-- /.row -->
@@ -153,214 +141,195 @@
                         <h2 class="display-4 font-weight-bold">On ens pots trobar ?</h2>
                     </div>
                     <div class="container mt-5">
-                      <div class="row featurette justify-content-center pl-5">
-                          <div class="col-md-7">
-
-
-                                <style>
+                        <div class="row featurette justify-content-center pl-5">
+                            <style>
                                 /* Always set the map height explicitly to define the size of the div
-                                 * element that contains the map. */
+                         * element that contains the map. */
                                 #map {
-                                  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+                                    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 
-                                  height: 400px;
-                                  width: 530px;
+                                    height: 400px;
+                                    width: auto;
+
                                 }
 
+                                /* @media (max-width: 600px) {
+                            .col-md-8 {
+                              margin-right: 200px;
+                            }
+                          } */
 
-                              </style>
-
-                              <div id="map" title="Mapa"></div>
-                              <div id="infowindow-content">
-                                <img src="" width="16" height="16" id="place-icon">
-                                <span id="place-name"  class="title"></span><br>
-                                <span id="place-address"></span>
-                              </div>
-                            </div>
-                            <div class="col-md-2 ">
-                              <h2 class="pt-2">Empreses</h2>
-                              <div class="btn-group d-flex flex-wrap">
-                                <img src="{{ asset('img/Icono_1.png') }}"class="img-thumbnail "id="logo_e1" style="cursor:pointer" alt="logo proiectus">
-                                <img src="{{ asset('img/logo_consellcomarcal.png') }}"class="img-thumbnail"id="logo_e2"style="cursor:pointer" alt="logo consell comarcal">
-
-
-                              </div>
-                            </div>
-
-                                <div class="col-md-2 "style="height: 500px;">
-                                  <h2 class="pt-2">Instituts</h2>
-                                  <div class="btn-group d-flex flex-wrap">
-                                    <img src="{{ asset('img/logo_iesmontsia.png') }}"class="img-thumbnail img-fluid" id="logo_i1"style="cursor:pointer">
-                                    <img src="{{ asset('img/logo_ramonberenguer.jpg') }}"class="img-thumbnail img-fluid"id="logo_i2"style="cursor:pointer">
+                            </style>
 
 
 
-                                  </div>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <div id="map" title="Mapa"></div>
+                                    </div>
+                                    <div class="col">
+                                        <h2 class="pt-2">Empreses</h2>
+                                        <div class="btn-group d-flex flex-wrap">
+
+                                            <img src="{{ asset('img/logo_consellcomarcal2.png') }}"
+                                                class="img-fluid" id="logo_e2" style="cursor:pointer"
+                                                alt="logo consell comarcal">
+
+
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <h2 class="pt-2">Instituts</h2>
+                                        <div class="btn-group d-flex flex-wrap">
+                                            <img src="{{ asset('img/logo_iesmontsia.png') }}"
+                                                class="img-fluid" id="logo_i1" style="cursor:pointer">
+                                            <img src="{{ asset('img/logo_ramonberenguer.jpg') }}"
+                                                class="img-fluid" id="logo_i2" style="cursor:pointer">
+
+
+
+                                        </div>
+                                    </div>
                                 </div>
+
+                            </div>
 
 
                             <script>
-                              // Variable que crea lobjecte mapa
-                              var map;
-                              // Variables per als marcadors al mapa
-                              var proiectusCO = {lat:40.701968, lng:0.560683};
-                              var iesMontsia = {lat:40.709150, lng: 0.582557};
-                              var iesRamonBerenguer = {lat:40.709906, lng:0.581389};
-                              var consellComarcal = {lat:40.714371, lng: 0.579832};
-                              var hospitalAmposta = {lat: 40.708930, lng: 0.575960};
-                              // Funcio que crida l'objecte del mapa "google.maps.Map"
-                              function initMap() {
-                                map = new google.maps.Map(document.getElementById('map'), {
-                                  center: new google.maps.LatLng(proiectusCO),
-                                  zoom: 17
-                                });
-                                function newLocation(newLat,newLng)
-                                  {
-                                  	map.setCenter({
-                                  		lat : newLat,
-                                  		lng : newLng
-                                  	});
-                                  }
-                                  google.maps.event.addDomListener(window, 'load', initMap);
+                                // Variable que crea lobjecte mapa
+                                var map;
+                                // Variables per als marcadors al mapa
+                                var iesMontsia = {
+                                    lat: 40.709150,
+                                    lng: 0.582557
+                                };
+                                var iesRamonBerenguer = {
+                                    lat: 40.709906,
+                                    lng: 0.581389
+                                };
+                                var consellComarcal = {
+                                    lat: 40.714371,
+                                    lng: 0.579832
+                                };
+                                // Funcio que crida l'objecte del mapa "google.maps.Map"
+                                function initMap() {
+                                    map = new google.maps.Map(document.getElementById('map'), {
+                                        center: new google.maps.LatLng(iesMontsia),
+                                        zoom: 17
+                                    });
 
-                                // Diferents marcadors
-                                var marker1 = new google.maps.Marker({
-                                  position: iesMontsia,
-                                  map: map,
-                                  title: 'IES Montsià SC.'
-                                });
-                                var marker2 = new google.maps.Marker({
-                                  position: consellComarcal,
-                                  map: map,
-                                  title: 'Consell Comarcal CO.'
-                                });
-                                var marker3 = new google.maps.Marker({
-                                  position: hospitalAmposta,
-                                  map: map,
-                                  title: 'Hospital Amposta CO.'
-                                });
-                                var marker4 = new google.maps.Marker({
-                                  position: proiectusCO,
-                                  map: map,
-                                  title: 'Sede Proiectus CO.'
-                                });
-                                var marker4 = new google.maps.Marker({
-                                  position: iesRamonBerenguer,
-                                  map: map,
-                                  title: 'Ies Ramon Berenguer IV SC.'
-                                });
-                              }
+                                    function newLocation(newLat, newLng) {
+                                        map.setCenter({
+                                            lat: newLat,
+                                            lng: newLng
+                                        });
+                                    }
+                                    google.maps.event.addDomListener(window, 'load', initMap);
+
+                                    // Diferents marcadors
+                                    var marker1 = new google.maps.Marker({
+                                        position: iesMontsia,
+                                        map: map,
+                                        title: 'IES Montsià SC.'
+                                    });
+                                    var marker2 = new google.maps.Marker({
+                                        position: consellComarcal,
+                                        map: map,
+                                        title: 'Consell Comarcal CO.'
+                                    });
+
+                                    var marker4 = new google.maps.Marker({
+                                        position: iesRamonBerenguer,
+                                        map: map,
+                                        title: 'Ies Ramon Berenguer IV SC.'
+                                    });
+                                }
 
 
 
                                 //Establir localitzacio amb jquery
-                                $(document).ready(function ()
-                                {
-                                    $("#logo_e1").on('click', function ()
-                                    {
-                                	      map.setCenter(new google.maps.LatLng(40.701968,0.560683));
-                                	});
+                                $(document).ready(function () {
+                                    $("#logo_e1").on('click', function () {
+                                        map.setCenter(new google.maps.LatLng(40.701968, 0.560683));
+                                    });
 
-                                	$("#logo_e2").on('click', function ()
-                                    {
-                                	   map.setCenter(new google.maps.LatLng(40.714371,0.579832));
-                                	});
+                                    $("#logo_e2").on('click', function () {
+                                        map.setCenter(new google.maps.LatLng(40.714371, 0.579832));
+                                    });
 
-                                    $("#logo_i1").on('click', function ()
-                                    {
-                                	   map.setCenter(new google.maps.LatLng(iesMontsia));
-                                	});
-                                  $("#logo_i2").on('click', function ()
-                                  {
-                                   map.setCenter(new google.maps.LatLng(iesRamonBerenguer));
+                                    $("#logo_i1").on('click', function () {
+                                        map.setCenter(new google.maps.LatLng(iesMontsia));
+                                    });
+                                    $("#logo_i2").on('click', function () {
+                                        map.setCenter(new google.maps.LatLng(iesRamonBerenguer));
+                                    });
                                 });
-                                });
+
                             </script>
 
 
 
-                      </div>
+                        </div>
 
-              </div><!-- /.container -->
+                    </div><!-- /.container -->
 
-                    </div>
-                    <hr class="featurette-divider">
-
-
-
-        </section>
-
-          <script type="text/javascript">
-          	$(document).ready(function(){
-          			var url = "http://api.flickr.com/services/feeds/photos_public.gne?" +
-          	    			  "format=json&jsoncallback=?&tags=computerscience";
-
-          			$.getJSON(url, function(data){
-          				var html = "";
-          				$.each(data.items, function(i, item){
-                    html += '<div class="slide">';
-          					html += '<img src=' + item.media.m + '>';
-                    html += '</div>';
-                    // $("<img>").attr("src", item.media.m).appendTo("#photos");
-                    if (i == 0) {
-                      return false;
-                    }
-          				});
-          				$("#photos").html(html);
-          			});
-                  });
-            </script>
-        <section id="sponsors_proiectus">
-          <div class="container py-4">
-              <div class="pricing-header px-3 py-5 pt-5 pb-5 mx-auto text-center">
-                <h2 class="display-4 font-weight-bold">Sponsors</h2>
-              </div>
             </div>
-          </section>
-
-              <!-- <div class="customer-logos slider">
-
-                <div class="slide">
-                  <img src="{{ asset('img/v_1.png') }}" alt="1">
-                </div>
-
-              </div> -->
-
-              <div class="container">
-                <section class="customer-logos slider">
-                  <div class="slide"><img src="{{ asset('img/v_1.png') }}" alt="1"></div>
-                  <div class="slide"><img src="{{ asset('img/github-logo.png') }}" alt="2"></div>
-                  <div class="slide"><img src="{{ asset('img/logo-akx.png') }}" alt="3"></div>
-                  <div class="slide"><img src="{{ asset('img/logo-captio.png') }}" alt="4"></div>
-                  <div class="slide"><img src="{{ asset('img/logo_iesmontsia.png') }}" alt="5"></div>
-                  <div class="slide"><img src="{{ asset('img/laravel-logo.png') }}" alt="6"></div>
-                  <div class="slide"><img src="{{ asset('img/logo-nath.png') }}" alt="7"></div>
-                  <div class="slide"><img src="{{ asset('img/logo_consellcomarcal.png') }}" alt="7"></div>
-                  <div class="slide"><img src="{{ asset('img/logo-disi.png') }}" alt="7"></div>
-                </section>
-              </div>
-
-              <hr class="featurette-divider mt-5">
+            <hr class="featurette-divider">
 
 
-
-        <section>
-
-          <div class="mx-auto py-4">
-              <div class="pricing-header px-3 py-5 pt-5 pb-5 text-center">
-                <h2 class="display-4 font-weight-bold">El nostre equip</h2>
-              </div>
-              <div id="fotosUsuaris" class="ml-5" style="display: flex;"></div>
-          </div>
-
-          <script src="{{asset('js/FlickrAndrei.js')}}"></script>
 
         </section>
+
+        
+        <section id="sponsors_proiectus">
+            <div class="container py-4">
+                <div class="pricing-header px-3 py-5 pt-5 pb-5 mx-auto text-center">
+                    <h2 class="display-4 font-weight-bold">Col·laboradors</h2>
+                </div>
+            </div>
+        </section>
+
+        <div class="container">
+            <section class="customer-logos slider">
+                <div class="slide"><img src="{{ asset('img/logo-akx.png') }}" alt="3"></div>
+                <div class="slide"><img src="{{ asset('img/logo_generalitat.png') }}" alt="2"></div>
+                <div class="slide"><img src="{{ asset('img/logo-captio.png') }}" alt="4"></div>
+                <div class="slide"><img src="{{ asset('img/logo_iesmontsia.png') }}" alt="5"></div>
+                <div class="slide"><img src="{{ asset('img/logo-nath.png') }}" alt="7"></div>
+                <div class="slide"><img src="{{ asset('img/logo_creacio.png') }}" alt="7"></div>
+                <div class="slide"><img src="{{ asset('img/logo_consellcomarcal2.png') }}" alt="7"></div>
+                <div class="slide"><img src="{{ asset('img/logo-disi.png') }}" alt="7"></div>
+            </section>
+        </div>
+
 
 
 
         </div><!-- /.fin main container -->
+        <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false"></script>
+        <script>
+            window.cookieconsent.initialise({
+                "palette": {
+                    "popup": {
+                        "background": "#17252a",
+                        "text": "#def2f1"
+                    },
+                    "button": {
+                        "background": "#3aafa9",
+                        "text": "#ffffff"
+                    }
+                },
+                "theme": "classic",
+                "position": "bottom-right",
+                "content": {
+                    "message": "La nostra web fa servir \"cookies\" per oferir-te una millor experiència. Consulta la nostra política de privacitat i \"cookies\" ",
+                    "dismiss": "D'acord",
+                    "link": "Més informació",
+                    "href": "{{route('privacyAndCookies')}}"
+                }
+            });
+        </script>
 
-
-@mapscripts
-@endsection
+        @mapscripts
+        @endsection

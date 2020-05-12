@@ -6,7 +6,7 @@
     @endif
     <h2 class="float-left">{{$wiki->title}}</h2>
     <br><br>
-    <form method="POST" action="{{route('article.store', $id_project)}}" id="postCreationForm">
+    <form method="POST" action="{{route('article.store', $id_project)}}" id="articleCreationForm">
         {{csrf_field()}}
         <div class="form-group">
             <h4><label class="float-left" cfor="exampleFormControlInput1">Crea un article!</label></h4>
@@ -15,32 +15,8 @@
             </div>
             <!-- Textarea de l'editor de text -->
             <div class="form-group">
-                <textarea name="content" id=summernoteWiki></textarea>
+                <textarea name="content" id="summernoteWiki" required></textarea>
             </div>
-
-            <!-- Script per a inicialitzar l'editor de text-->
-            <script>
-                $('#summernoteWiki').summernote({
-                    placeholder: 'Contingut',
-                    tabsize: 2,
-                    height: 100,
-                    minHeight: 100,
-                    maxHeight: 400
-                });
-
-
-                /* Comprovem si el contingut del post esta buit al fer submit i
-                    evitem continuar si està buit
-                */
-                $('#postCreationForm').on('submit', function(e) {
-                    // Comprovem si el contingut del post esta buit
-                    if ($('#summernote').summernote('isEmpty')) {
-                        console.log('Introdueix el contingut del article!');
-                        // Evitar el submit
-                        e.preventDefault();
-                    }
-                })
-            </script>
         </div>
         <div class="form-group">
             <button type="submit" class="btn btn-primary float-right">Crea'l!</button>
@@ -53,7 +29,7 @@
     @if($articles->count())
     @foreach ($articles as $article)
     <!-- Confirmació d'eliminació d'un article -->
-    <div class="modal fade" id="deleteConfirmationModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="articleDeleteConfirmationModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -64,7 +40,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" name="cancelar" class="btn btn-success" data-dismiss="modal">Cancela</button>
-                    <a type="button" class="btn btn-danger" href="{{$id_project}}/article/{{$article->id_article}}/destroy">Elimina</a>
+                    <a type="button" class="btn btn-danger" href="{{route('article.destroy',[$id_project, $article->id_article])}}">Elimina</a>
                 </div>
             </div>
         </div>
@@ -72,15 +48,14 @@
     <div class="card mb-3">
         <div class="card-body">
             @if(Auth::user()->id == $article->id_user || (Auth::user()->id_role == 1))
-            <a class="float-right" href="{{$id_project}}/article/{{$article->id_article}}/edit"><i style="font-size: 140%" class="material-icons" alt="Icona per a editar" >edit</i></a>
-            <a class="float-right" data-toggle="modal" data-target="#deleteConfirmationModal"><i style="font-size: 140%" class="material-icons text-primary" alt="Icona per a eliminar">delete</i></a>
+            <a class="float-right" href="{{route('article.edit',[$id_project, $article->id_article])}}"><i style="font-size: 140%" class="material-icons" alt="Icona per a editar" >edit</i></a>
+            <a class="float-right" data-toggle="modal" data-target="#articleDeleteConfirmationModal"><i style="font-size: 140%" class="material-icons text-primary" alt="Icona per a eliminar">delete</i></a>
             @endif
             <a href="#">
                 <h5 class="card-title">{{$article->title}}</h5>
             </a>
             <div class="">
                 <p class="card-text">{!!$article->content!!}</p>
-
             </div>
         </div>
         <div class="card-footer text-muted">
@@ -88,27 +63,6 @@
         </div>
     </div>
     @endforeach
-    <!-- MAPA GULUGLU -->
-<div id="map" style="width: 100%; height: 400px; background-color: red;">
-</div>
-<script>
-    // Initialize and add the map
-    function initMap() {
-    // The location of Uluru
-    var center = {lat: 40.709197, lng: 0.582199};
-    var insmontsia = {lat: 40.709197, lng: 0.582199};
-    var soriano = {lat: 40.708283, lng: 0.572721};
-    var insalfacs = {lat: 40.622954, lng: 0.587436};
-    // The map, centered at Uluru
-    var map = new google.maps.Map(
-        document.getElementById('map'), {zoom: 15, center: center});
-    // The marker, positioned at Uluru
-    var marker = new google.maps.Marker({position: insmontsia, map: map});
-    var marker = new google.maps.Marker({position: soriano, map: map});
-    var marker = new google.maps.Marker({position: insalfacs, map: map});
-    }
-</script>
-<!-- MAPA GULUGLU -->
     @else
     <h3>No hi ha cap article en aquesta wiki</h3>
     @endif

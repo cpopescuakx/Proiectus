@@ -25,6 +25,7 @@ Route::get('posts', 'PostController@showApi');
 
 //Ruta per a l'API de propostes
 Route::get('proposals', 'ProposalController@showApi');
+Route::get('proposals/details/{id}', 'ProposalController@showDetails');
 
 //Ruta per a l'API de gestors
 Route::get('companies', 'CompanyController@showApi');
@@ -40,3 +41,11 @@ Route::get('students', 'UserController@getStudents');
 
 //Ruta per a l'API de cities
 Route::get('cities', 'CityController@showApi');
+
+// API FAQ
+Route::get('faq', 'FaqController@getApi');
+
+// API Tags
+Route::get('proposal/tags', 'Proposal_tagController@index');
+
+Route::get('proposal/tags/{id}', 'Proposal_tagController@showTags');

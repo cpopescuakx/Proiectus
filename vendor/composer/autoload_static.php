@@ -21,8 +21,11 @@ class ComposerStaticInit3be929a50a6529bc9bb0534e0bce8239
         'e39a8b23c42d4e1452234d762b03835a' => __DIR__ . '/..' . '/ramsey/uuid/src/functions.php',
         'f0906e6318348a765ffb6eb24e0d0938' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/helpers.php',
         '58571171fd5812e6e447dce228f52f4d' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/helpers.php',
+        '7b11c4dc42b3b3023073cb14e519683c' => __DIR__ . '/..' . '/ralouphie/getallheaders/src/getallheaders.php',
         '9cdd7b9056abc3081735233ba9dd9c7f' => __DIR__ . '/..' . '/facade/flare-client-php/src/helpers.php',
+        'a0edc8309cc5e1d60e3047b5df6b7052' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/functions_include.php',
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
+        '3109cb1a231dcd04bee1f9f620d46975' => __DIR__ . '/..' . '/paragonie/sodium_compat/autoload.php',
         '2a3c2110e8e0295330dc3d11a4cbc4cb' => __DIR__ . '/..' . '/php-webdriver/webdriver/lib/Exception/TimeoutException.php',
         '801c31d8ed748cfa537fa45402288c95' => __DIR__ . '/..' . '/psy/psysh/src/functions.php',
         'b6ec61354e97f32c0ae683041c78392a' => __DIR__ . '/..' . '/scrivo/highlight.php/HighlightUtilities/functions.php',
@@ -30,30 +33,30 @@ class ComposerStaticInit3be929a50a6529bc9bb0534e0bce8239
     );
 
     public static $prefixLengthsPsr4 = array (
-        'p' => 
+        'p' =>
         array (
             'phpseclib\\' => 10,
             'phpDocumentor\\Reflection\\' => 25,
         ),
-        'b' => 
+        'b' =>
         array (
             'bcmath_compat\\' => 14,
         ),
-        'X' => 
+        'X' =>
         array (
             'XdgBaseDir\\' => 11,
         ),
-        'W' => 
+        'W' =>
         array (
             'Whoops\\' => 7,
             'Webmozart\\Assert\\' => 17,
         ),
-        'T' => 
+        'T' =>
         array (
             'TijsVerkoyen\\CssToInlineStyles\\' => 31,
             'Tests\\' => 6,
         ),
-        'S' => 
+        'S' =>
         array (
             'Symfony\\Polyfill\\Php73\\' => 23,
             'Symfony\\Polyfill\\Php72\\' => 23,
@@ -77,37 +80,41 @@ class ComposerStaticInit3be929a50a6529bc9bb0534e0bce8239
             'Symfony\\Component\\Debug\\' => 24,
             'Symfony\\Component\\CssSelector\\' => 30,
             'Symfony\\Component\\Console\\' => 26,
+            'Spatie\\Newsletter\\' => 18,
             'Spatie\\Feed\\' => 12,
         ),
-        'R' => 
+        'R' =>
         array (
             'Ramsey\\Uuid\\' => 12,
         ),
-        'P' => 
+        'P' =>
         array (
+            'Pusher\\' => 7,
             'Psy\\' => 4,
             'Psr\\SimpleCache\\' => 16,
             'Psr\\Log\\' => 8,
+            'Psr\\Http\\Message\\' => 17,
             'Psr\\Container\\' => 14,
             'Prophecy\\' => 9,
+            'Predis\\' => 7,
             'PhpParser\\' => 10,
             'PhpOption\\' => 10,
         ),
-        'O' => 
+        'O' =>
         array (
             'Opis\\Closure\\' => 13,
         ),
-        'N' => 
+        'N' =>
         array (
             'NunoMaduro\\Collision\\' => 21,
         ),
-        'M' => 
+        'M' =>
         array (
             'Moontoast\\Math\\Exception\\' => 25,
             'Moontoast\\Math\\' => 15,
             'Monolog\\' => 8,
         ),
-        'L' => 
+        'L' =>
         array (
             'League\\Flysystem\\' => 17,
             'League\\CommonMark\\Ext\\Table\\' => 28,
@@ -117,20 +124,22 @@ class ComposerStaticInit3be929a50a6529bc9bb0534e0bce8239
             'Laravel\\Telescope\\' => 18,
             'Laravel\\Dusk\\' => 13,
         ),
-        'J' => 
+        'J' =>
         array (
             'JakubOnderka\\PhpConsoleHighlighter\\' => 35,
             'JakubOnderka\\PhpConsoleColor\\' => 29,
         ),
-        'I' => 
+        'I' =>
         array (
+            'Intervention\\Image\\' => 19,
             'Illuminate\\' => 11,
         ),
-        'G' => 
+        'G' =>
         array (
+            'GuzzleHttp\\Psr7\\' => 16,
             'GoNoWare\\Maps\\' => 14,
         ),
-        'F' => 
+        'F' =>
         array (
             'Fideloper\\Proxy\\' => 16,
             'Faker\\' => 6,
@@ -139,329 +148,358 @@ class ComposerStaticInit3be929a50a6529bc9bb0534e0bce8239
             'Facade\\IgnitionContracts\\' => 25,
             'Facade\\FlareClient\\' => 19,
         ),
-        'E' => 
+        'E' =>
         array (
             'Egulias\\EmailValidator\\' => 23,
         ),
-        'D' => 
+        'D' =>
         array (
+            'DrewM\\MailChimp\\' => 16,
             'Dotenv\\' => 7,
             'Doctrine\\Instantiator\\' => 22,
             'Doctrine\\Common\\Lexer\\' => 22,
             'Doctrine\\Common\\Inflector\\' => 26,
             'DeepCopy\\' => 9,
         ),
-        'C' => 
+        'C' =>
         array (
             'Cron\\' => 5,
             'Carbon\\' => 7,
         ),
-        'A' => 
+        'A' =>
         array (
             'App\\' => 4,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'phpseclib\\' => 
+        'phpseclib\\' =>
         array (
             0 => __DIR__ . '/..' . '/phpseclib/phpseclib/phpseclib',
         ),
-        'phpDocumentor\\Reflection\\' => 
+        'phpDocumentor\\Reflection\\' =>
         array (
             0 => __DIR__ . '/..' . '/phpdocumentor/reflection-common/src',
             1 => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src',
             2 => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src',
         ),
-        'bcmath_compat\\' => 
+        'bcmath_compat\\' =>
         array (
             0 => __DIR__ . '/..' . '/phpseclib/bcmath_compat/src',
         ),
-        'XdgBaseDir\\' => 
+        'XdgBaseDir\\' =>
         array (
             0 => __DIR__ . '/..' . '/dnoegel/php-xdg-base-dir/src',
         ),
-        'Whoops\\' => 
+        'Whoops\\' =>
         array (
             0 => __DIR__ . '/..' . '/filp/whoops/src/Whoops',
         ),
-        'Webmozart\\Assert\\' => 
+        'Webmozart\\Assert\\' =>
         array (
             0 => __DIR__ . '/..' . '/webmozart/assert/src',
         ),
-        'TijsVerkoyen\\CssToInlineStyles\\' => 
+        'TijsVerkoyen\\CssToInlineStyles\\' =>
         array (
             0 => __DIR__ . '/..' . '/tijsverkoyen/css-to-inline-styles/src',
         ),
-        'Tests\\' => 
+        'Tests\\' =>
         array (
             0 => __DIR__ . '/../..' . '/tests',
         ),
-        'Symfony\\Polyfill\\Php73\\' => 
+        'Symfony\\Polyfill\\Php73\\' =>
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-php73',
         ),
-        'Symfony\\Polyfill\\Php72\\' => 
+        'Symfony\\Polyfill\\Php72\\' =>
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-php72',
         ),
-        'Symfony\\Polyfill\\Mbstring\\' => 
+        'Symfony\\Polyfill\\Mbstring\\' =>
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-mbstring',
         ),
-        'Symfony\\Polyfill\\Intl\\Idn\\' => 
+        'Symfony\\Polyfill\\Intl\\Idn\\' =>
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-intl-idn',
         ),
-        'Symfony\\Polyfill\\Iconv\\' => 
+        'Symfony\\Polyfill\\Iconv\\' =>
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-iconv',
         ),
-        'Symfony\\Polyfill\\Ctype\\' => 
+        'Symfony\\Polyfill\\Ctype\\' =>
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-ctype',
         ),
-        'Symfony\\Contracts\\Translation\\' => 
+        'Symfony\\Contracts\\Translation\\' =>
         array (
             0 => __DIR__ . '/..' . '/symfony/translation-contracts',
         ),
-        'Symfony\\Contracts\\Service\\' => 
+        'Symfony\\Contracts\\Service\\' =>
         array (
             0 => __DIR__ . '/..' . '/symfony/service-contracts',
         ),
-        'Symfony\\Contracts\\EventDispatcher\\' => 
+        'Symfony\\Contracts\\EventDispatcher\\' =>
         array (
             0 => __DIR__ . '/..' . '/symfony/event-dispatcher-contracts',
         ),
-        'Symfony\\Component\\VarDumper\\' => 
+        'Symfony\\Component\\VarDumper\\' =>
         array (
             0 => __DIR__ . '/..' . '/symfony/var-dumper',
         ),
-        'Symfony\\Component\\Translation\\' => 
+        'Symfony\\Component\\Translation\\' =>
         array (
             0 => __DIR__ . '/..' . '/symfony/translation',
         ),
-        'Symfony\\Component\\Routing\\' => 
+        'Symfony\\Component\\Routing\\' =>
         array (
             0 => __DIR__ . '/..' . '/symfony/routing',
         ),
-        'Symfony\\Component\\Process\\' => 
+        'Symfony\\Component\\Process\\' =>
         array (
             0 => __DIR__ . '/..' . '/symfony/process',
         ),
-        'Symfony\\Component\\Mime\\' => 
+        'Symfony\\Component\\Mime\\' =>
         array (
             0 => __DIR__ . '/..' . '/symfony/mime',
         ),
-        'Symfony\\Component\\HttpKernel\\' => 
+        'Symfony\\Component\\HttpKernel\\' =>
         array (
             0 => __DIR__ . '/..' . '/symfony/http-kernel',
         ),
-        'Symfony\\Component\\HttpFoundation\\' => 
+        'Symfony\\Component\\HttpFoundation\\' =>
         array (
             0 => __DIR__ . '/..' . '/symfony/http-foundation',
         ),
-        'Symfony\\Component\\Finder\\' => 
+        'Symfony\\Component\\Finder\\' =>
         array (
             0 => __DIR__ . '/..' . '/symfony/finder',
         ),
-        'Symfony\\Component\\EventDispatcher\\' => 
+        'Symfony\\Component\\EventDispatcher\\' =>
         array (
             0 => __DIR__ . '/..' . '/symfony/event-dispatcher',
         ),
-        'Symfony\\Component\\ErrorHandler\\' => 
+        'Symfony\\Component\\ErrorHandler\\' =>
         array (
             0 => __DIR__ . '/..' . '/symfony/error-handler',
         ),
-        'Symfony\\Component\\Debug\\' => 
+        'Symfony\\Component\\Debug\\' =>
         array (
             0 => __DIR__ . '/..' . '/symfony/debug',
         ),
-        'Symfony\\Component\\CssSelector\\' => 
+        'Symfony\\Component\\CssSelector\\' =>
         array (
             0 => __DIR__ . '/..' . '/symfony/css-selector',
         ),
-        'Symfony\\Component\\Console\\' => 
+        'Symfony\\Component\\Console\\' =>
         array (
             0 => __DIR__ . '/..' . '/symfony/console',
         ),
-        'Spatie\\Feed\\' => 
+        'Spatie\\Newsletter\\' =>
+        array (
+            0 => __DIR__ . '/..' . '/spatie/laravel-newsletter/src',
+        ),
+        'Spatie\\Feed\\' =>
         array (
             0 => __DIR__ . '/..' . '/spatie/laravel-feed/src',
         ),
-        'Ramsey\\Uuid\\' => 
+        'Ramsey\\Uuid\\' =>
         array (
             0 => __DIR__ . '/..' . '/ramsey/uuid/src',
         ),
-        'Psy\\' => 
+        'Pusher\\' =>
+        array (
+            0 => __DIR__ . '/..' . '/pusher/pusher-php-server/src',
+        ),
+        'Psy\\' =>
         array (
             0 => __DIR__ . '/..' . '/psy/psysh/src',
         ),
-        'Psr\\SimpleCache\\' => 
+        'Psr\\SimpleCache\\' =>
         array (
             0 => __DIR__ . '/..' . '/psr/simple-cache/src',
         ),
-        'Psr\\Log\\' => 
+        'Psr\\Log\\' =>
         array (
             0 => __DIR__ . '/..' . '/psr/log/Psr/Log',
         ),
-        'Psr\\Container\\' => 
+        'Psr\\Http\\Message\\' =>
+        array (
+            0 => __DIR__ . '/..' . '/psr/http-message/src',
+        ),
+        'Psr\\Container\\' =>
         array (
             0 => __DIR__ . '/..' . '/psr/container/src',
         ),
-        'Prophecy\\' => 
+        'Prophecy\\' =>
         array (
             0 => __DIR__ . '/..' . '/phpspec/prophecy/src/Prophecy',
         ),
-        'PhpParser\\' => 
+        'Predis\\' =>
+        array (
+            0 => __DIR__ . '/..' . '/predis/predis/src',
+        ),
+        'PhpParser\\' =>
         array (
             0 => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser',
         ),
-        'PhpOption\\' => 
+        'PhpOption\\' =>
         array (
             0 => __DIR__ . '/..' . '/phpoption/phpoption/src/PhpOption',
         ),
-        'Opis\\Closure\\' => 
+        'Opis\\Closure\\' =>
         array (
             0 => __DIR__ . '/..' . '/opis/closure/src',
         ),
-        'NunoMaduro\\Collision\\' => 
+        'NunoMaduro\\Collision\\' =>
         array (
             0 => __DIR__ . '/..' . '/nunomaduro/collision/src',
         ),
-        'Moontoast\\Math\\Exception\\' => 
+        'Moontoast\\Math\\Exception\\' =>
         array (
             0 => __DIR__ . '/..' . '/moontoast/math/src/Moontoast/Math/Exception',
         ),
-        'Moontoast\\Math\\' => 
+        'Moontoast\\Math\\' =>
         array (
             0 => __DIR__ . '/..' . '/moontoast/math/src/Moontoast/Math',
         ),
-        'Monolog\\' => 
+        'Monolog\\' =>
         array (
             0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
         ),
-        'League\\Flysystem\\' => 
+        'League\\Flysystem\\' =>
         array (
             0 => __DIR__ . '/..' . '/league/flysystem/src',
         ),
-        'League\\CommonMark\\Ext\\Table\\' => 
+        'League\\CommonMark\\Ext\\Table\\' =>
         array (
             0 => __DIR__ . '/..' . '/league/commonmark-ext-table/src',
         ),
-        'League\\CommonMark\\' => 
+        'League\\CommonMark\\' =>
         array (
             0 => __DIR__ . '/..' . '/league/commonmark/src',
         ),
-        'Laravel\\Ui\\' => 
+        'Laravel\\Ui\\' =>
         array (
             0 => __DIR__ . '/..' . '/laravel/ui/src',
         ),
-        'Laravel\\Tinker\\' => 
+        'Laravel\\Tinker\\' =>
         array (
             0 => __DIR__ . '/..' . '/laravel/tinker/src',
         ),
-        'Laravel\\Telescope\\' => 
+        'Laravel\\Telescope\\' =>
         array (
             0 => __DIR__ . '/..' . '/laravel/telescope/src',
         ),
-        'Laravel\\Dusk\\' => 
+        'Laravel\\Dusk\\' =>
         array (
             0 => __DIR__ . '/..' . '/laravel/dusk/src',
         ),
-        'JakubOnderka\\PhpConsoleHighlighter\\' => 
+        'JakubOnderka\\PhpConsoleHighlighter\\' =>
         array (
             0 => __DIR__ . '/..' . '/jakub-onderka/php-console-highlighter/src',
         ),
-        'JakubOnderka\\PhpConsoleColor\\' => 
+        'JakubOnderka\\PhpConsoleColor\\' =>
         array (
             0 => __DIR__ . '/..' . '/jakub-onderka/php-console-color/src',
         ),
-        'Illuminate\\' => 
+        'Intervention\\Image\\' =>
+        array (
+            0 => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image',
+        ),
+        'Illuminate\\' =>
         array (
             0 => __DIR__ . '/..' . '/laravel/framework/src/Illuminate',
         ),
-        'GoNoWare\\Maps\\' => 
+        'GuzzleHttp\\Psr7\\' =>
+        array (
+            0 => __DIR__ . '/..' . '/guzzlehttp/psr7/src',
+        ),
+        'GoNoWare\\Maps\\' =>
         array (
             0 => __DIR__ . '/..' . '/gonoware/laravel-maps/src',
         ),
-        'Fideloper\\Proxy\\' => 
+        'Fideloper\\Proxy\\' =>
         array (
             0 => __DIR__ . '/..' . '/fideloper/proxy/src',
         ),
-        'Faker\\' => 
+        'Faker\\' =>
         array (
             0 => __DIR__ . '/..' . '/fzaninotto/faker/src/Faker',
         ),
-        'Facebook\\WebDriver\\' => 
+        'Facebook\\WebDriver\\' =>
         array (
             0 => __DIR__ . '/..' . '/php-webdriver/webdriver/lib',
         ),
-        'Facade\\Ignition\\' => 
+        'Facade\\Ignition\\' =>
         array (
             0 => __DIR__ . '/..' . '/facade/ignition/src',
         ),
-        'Facade\\IgnitionContracts\\' => 
+        'Facade\\IgnitionContracts\\' =>
         array (
             0 => __DIR__ . '/..' . '/facade/ignition-contracts/src',
         ),
-        'Facade\\FlareClient\\' => 
+        'Facade\\FlareClient\\' =>
         array (
             0 => __DIR__ . '/..' . '/facade/flare-client-php/src',
         ),
-        'Egulias\\EmailValidator\\' => 
+        'Egulias\\EmailValidator\\' =>
         array (
             0 => __DIR__ . '/..' . '/egulias/email-validator/EmailValidator',
         ),
-        'Dotenv\\' => 
+        'DrewM\\MailChimp\\' =>
+        array (
+            0 => __DIR__ . '/..' . '/drewm/mailchimp-api/src',
+        ),
+        'Dotenv\\' =>
         array (
             0 => __DIR__ . '/..' . '/vlucas/phpdotenv/src',
         ),
-        'Doctrine\\Instantiator\\' => 
+        'Doctrine\\Instantiator\\' =>
         array (
             0 => __DIR__ . '/..' . '/doctrine/instantiator/src/Doctrine/Instantiator',
         ),
-        'Doctrine\\Common\\Lexer\\' => 
+        'Doctrine\\Common\\Lexer\\' =>
         array (
             0 => __DIR__ . '/..' . '/doctrine/lexer/lib/Doctrine/Common/Lexer',
         ),
-        'Doctrine\\Common\\Inflector\\' => 
+        'Doctrine\\Common\\Inflector\\' =>
         array (
             0 => __DIR__ . '/..' . '/doctrine/inflector/lib/Doctrine/Common/Inflector',
         ),
-        'DeepCopy\\' => 
+        'DeepCopy\\' =>
         array (
             0 => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy',
         ),
-        'Cron\\' => 
+        'Cron\\' =>
         array (
             0 => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron',
         ),
-        'Carbon\\' => 
+        'Carbon\\' =>
         array (
             0 => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon',
         ),
-        'App\\' => 
+        'App\\' =>
         array (
             0 => __DIR__ . '/../..' . '/app',
         ),
     );
 
     public static $prefixesPsr0 = array (
-        'M' => 
+        'M' =>
         array (
-            'Mockery' => 
+            'Mockery' =>
             array (
                 0 => __DIR__ . '/..' . '/mockery/mockery/library',
             ),
         ),
-        'H' => 
+        'H' =>
         array (
-            'Highlight\\' => 
+            'Highlight\\' =>
             array (
                 0 => __DIR__ . '/..' . '/scrivo/highlight.php',
             ),
-            'HighlightUtilities\\' => 
+            'HighlightUtilities\\' =>
             array (
                 0 => __DIR__ . '/..' . '/scrivo/highlight.php',
             ),
@@ -483,6 +521,8 @@ class ComposerStaticInit3be929a50a6529bc9bb0534e0bce8239
         'App\\Dm_file' => __DIR__ . '/../..' . '/app/Dm_file.php',
         'App\\Dm_folder' => __DIR__ . '/../..' . '/app/Dm_folder.php',
         'App\\Document_manager' => __DIR__ . '/../..' . '/app/Document_manager.php',
+        'App\\Events\\ChatCreated' => __DIR__ . '/../..' . '/app/Events/ChatCreated.php',
+        'App\\Events\\NewMessage' => __DIR__ . '/../..' . '/app/Events/NewMessage.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\History' => __DIR__ . '/../..' . '/app/History.php',
         'App\\Http\\Controllers\\ArticleController' => __DIR__ . '/../..' . '/app/Http/Controllers/ArticleController.php',
@@ -507,6 +547,7 @@ class ComposerStaticInit3be929a50a6529bc9bb0534e0bce8239
         'App\\Http\\Controllers\\Dm_folderController' => __DIR__ . '/../..' . '/app/Http/Controllers/Dm_folderController.php',
         'App\\Http\\Controllers\\Document_managerController' => __DIR__ . '/../..' . '/app/Http/Controllers/Document_managerController.php',
         'App\\Http\\Controllers\\EntityRegistration' => __DIR__ . '/../..' . '/app/Http/Controllers/EntityRegistration.php',
+        'App\\Http\\Controllers\\FaqController' => __DIR__ . '/../..' . '/app/Http/Controllers/FaqController.php',
         'App\\Http\\Controllers\\HistoryController' => __DIR__ . '/../..' . '/app/Http/Controllers/HistoryController.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
         'App\\Http\\Controllers\\Mail_messageController' => __DIR__ . '/../..' . '/app/Http/Controllers/Mail_messageController.php',
@@ -529,7 +570,6 @@ class ComposerStaticInit3be929a50a6529bc9bb0534e0bce8239
         'App\\Http\\Controllers\\UserController' => __DIR__ . '/../..' . '/app/Http/Controllers/UserController.php',
         'App\\Http\\Controllers\\User_projectController' => __DIR__ . '/../..' . '/app/Http/Controllers/User_projectController.php',
         'App\\Http\\Controllers\\User_proposalController' => __DIR__ . '/../..' . '/app/Http/Controllers/User_proposalController.php',
-        'App\\Http\\Controllers\\VoteController' => __DIR__ . '/../..' . '/app/Http/Controllers/VoteController.php',
         'App\\Http\\Controllers\\WikiController' => __DIR__ . '/../..' . '/app/Http/Controllers/WikiController.php',
         'App\\Http\\Controllers\\pendingCompaniesController' => __DIR__ . '/../..' . '/app/Http/Controllers/pendingCompaniesController.php',
         'App\\Http\\Controllers\\pendingSchoolsController' => __DIR__ . '/../..' . '/app/Http/Controllers/pendingSchoolsController.php',
@@ -537,19 +577,35 @@ class ComposerStaticInit3be929a50a6529bc9bb0534e0bce8239
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
         'App\\Http\\Middleware\\CheckForMaintenanceMode' => __DIR__ . '/../..' . '/app/Http/Middleware/CheckForMaintenanceMode.php',
         'App\\Http\\Middleware\\CheckRole' => __DIR__ . '/../..' . '/app/Http/Middleware/CheckRole.php',
+        'App\\Http\\Middleware\\CheckRoleBlog' => __DIR__ . '/../..' . '/app/Http/Middleware/CheckRoleBlog.php',
+        'App\\Http\\Middleware\\CheckRoleWiki' => __DIR__ . '/../..' . '/app/Http/Middleware/CheckRoleWiki.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
         'App\\Http\\Middleware\\PendingEntityRegistration' => __DIR__ . '/../..' . '/app/Http/Middleware/PendingEntityRegistration.php',
         'App\\Http\\Middleware\\RedirectIfAuthenticated' => __DIR__ . '/../..' . '/app/Http/Middleware/RedirectIfAuthenticated.php',
         'App\\Http\\Middleware\\TrimStrings' => __DIR__ . '/../..' . '/app/Http/Middleware/TrimStrings.php',
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
+        'App\\Http\\Middleware\\administracioEstudiants' => __DIR__ . '/../..' . '/app/Http/Middleware/administracioEstudiants.php',
         'App\\Http\\Middleware\\isAdmin' => __DIR__ . '/../..' . '/app/Http/Middleware/isAdmin.php',
+        'App\\Http\\Middleware\\isAdminOrGestor' => __DIR__ . '/../..' . '/app/Http/Middleware/isAdminOrGestor.php',
+        'App\\Http\\Middleware\\isLogged' => __DIR__ . '/../..' . '/app/Http/Middleware/isLogged.php',
+        'App\\Http\\Middleware\\isProfessor' => __DIR__ . '/../..' . '/app/Http/Middleware/isProfessor.php',
+        'App\\Invite' => __DIR__ . '/../..' . '/app/Invite.php',
+        'App\\Jobs\\ImportStudents' => __DIR__ . '/../..' . '/app/Jobs/ImportStudents.php',
+        'App\\Jobs\\ProcessCSV' => __DIR__ . '/../..' . '/app/Jobs/ProcessCSV.php',
+        'App\\Jobs\\SendProjectInvite' => __DIR__ . '/../..' . '/app/Jobs/SendProjectInvite.php',
+        'App\\Mail\\ProjectInvite' => __DIR__ . '/../..' . '/app/Mail/ProjectInvite.php',
         'App\\Mail_message' => __DIR__ . '/../..' . '/app/Mail_message.php',
         'App\\Message' => __DIR__ . '/../..' . '/app/Message.php',
         'App\\NewsItem' => __DIR__ . '/../..' . '/app/NewsItem.php',
+        'App\\Notifications\\AddedToAProject' => __DIR__ . '/../..' . '/app/Notifications/AddedToAProject.php',
+        'App\\Notifications\\InviteNotification' => __DIR__ . '/../..' . '/app/Notifications/InviteNotification.php',
+        'App\\Notifications\\TaskAssigned' => __DIR__ . '/../..' . '/app/Notifications/TaskAssigned.php',
+        'App\\Notifications\\TaskComplete' => __DIR__ . '/../..' . '/app/Notifications/TaskComplete.php',
         'App\\Post' => __DIR__ . '/../..' . '/app/Post.php',
         'App\\Project' => __DIR__ . '/../..' . '/app/Project.php',
         'App\\Project_company_member' => __DIR__ . '/../..' . '/app/Project_company_member.php',
+        'App\\Project_invite' => __DIR__ . '/../..' . '/app/Project_invite.php',
         'App\\Project_school_member' => __DIR__ . '/../..' . '/app/Project_school_member.php',
         'App\\Proposal' => __DIR__ . '/../..' . '/app/Proposal.php',
         'App\\Proposal_tag' => __DIR__ . '/../..' . '/app/Proposal_tag.php',
@@ -569,11 +625,14 @@ class ComposerStaticInit3be929a50a6529bc9bb0534e0bce8239
         'App\\Scopes\\ProposalScope' => __DIR__ . '/../..' . '/app/Scopes/ProposalScope.php',
         'App\\Tag' => __DIR__ . '/../..' . '/app/Tag.php',
         'App\\Ticket' => __DIR__ . '/../..' . '/app/Ticket.php',
+        'App\\Url' => __DIR__ . '/../..' . '/app/Url.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
         'App\\User_project' => __DIR__ . '/../..' . '/app/User_project.php',
         'App\\User_proposals' => __DIR__ . '/../..' . '/app/User_proposals.php',
         'App\\Vote' => __DIR__ . '/../..' . '/app/Vote.php',
         'App\\Wiki' => __DIR__ . '/../..' . '/app/Wiki.php',
+        'App\\faq' => __DIR__ . '/../..' . '/app/faq.php',
+        'App\\faq_votes' => __DIR__ . '/../..' . '/app/faq_votes.php',
         'BlogsTableSeeder' => __DIR__ . '/../..' . '/database/seeds/BlogsTableSeeder.php',
         'Carbon\\Carbon' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Carbon.php',
         'Carbon\\CarbonImmutable' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/CarbonImmutable.php',
@@ -677,6 +736,9 @@ class ComposerStaticInit3be929a50a6529bc9bb0534e0bce8239
         'Dotenv\\Regex\\Result' => __DIR__ . '/..' . '/vlucas/phpdotenv/src/Regex/Result.php',
         'Dotenv\\Regex\\Success' => __DIR__ . '/..' . '/vlucas/phpdotenv/src/Regex/Success.php',
         'Dotenv\\Validator' => __DIR__ . '/..' . '/vlucas/phpdotenv/src/Validator.php',
+        'DrewM\\MailChimp\\Batch' => __DIR__ . '/..' . '/drewm/mailchimp-api/src/Batch.php',
+        'DrewM\\MailChimp\\MailChimp' => __DIR__ . '/..' . '/drewm/mailchimp-api/src/MailChimp.php',
+        'DrewM\\MailChimp\\Webhook' => __DIR__ . '/..' . '/drewm/mailchimp-api/src/Webhook.php',
         'Egulias\\EmailValidator\\EmailLexer' => __DIR__ . '/..' . '/egulias/email-validator/EmailValidator/EmailLexer.php',
         'Egulias\\EmailValidator\\EmailParser' => __DIR__ . '/..' . '/egulias/email-validator/EmailValidator/EmailParser.php',
         'Egulias\\EmailValidator\\EmailValidator' => __DIR__ . '/..' . '/egulias/email-validator/EmailValidator/EmailValidator.php',
@@ -1464,6 +1526,29 @@ class ComposerStaticInit3be929a50a6529bc9bb0534e0bce8239
         'Fideloper\\Proxy\\TrustProxies' => __DIR__ . '/..' . '/fideloper/proxy/src/TrustProxies.php',
         'Fideloper\\Proxy\\TrustedProxyServiceProvider' => __DIR__ . '/..' . '/fideloper/proxy/src/TrustedProxyServiceProvider.php',
         'GoNoWare\\Maps\\MapsServiceProvider' => __DIR__ . '/..' . '/gonoware/laravel-maps/src/MapsServiceProvider.php',
+        'GuzzleHttp\\Psr7\\AppendStream' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/AppendStream.php',
+        'GuzzleHttp\\Psr7\\BufferStream' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/BufferStream.php',
+        'GuzzleHttp\\Psr7\\CachingStream' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/CachingStream.php',
+        'GuzzleHttp\\Psr7\\DroppingStream' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/DroppingStream.php',
+        'GuzzleHttp\\Psr7\\FnStream' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/FnStream.php',
+        'GuzzleHttp\\Psr7\\InflateStream' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/InflateStream.php',
+        'GuzzleHttp\\Psr7\\LazyOpenStream' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/LazyOpenStream.php',
+        'GuzzleHttp\\Psr7\\LimitStream' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/LimitStream.php',
+        'GuzzleHttp\\Psr7\\MessageTrait' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/MessageTrait.php',
+        'GuzzleHttp\\Psr7\\MultipartStream' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/MultipartStream.php',
+        'GuzzleHttp\\Psr7\\NoSeekStream' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/NoSeekStream.php',
+        'GuzzleHttp\\Psr7\\PumpStream' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/PumpStream.php',
+        'GuzzleHttp\\Psr7\\Request' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/Request.php',
+        'GuzzleHttp\\Psr7\\Response' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/Response.php',
+        'GuzzleHttp\\Psr7\\Rfc7230' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/Rfc7230.php',
+        'GuzzleHttp\\Psr7\\ServerRequest' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/ServerRequest.php',
+        'GuzzleHttp\\Psr7\\Stream' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/Stream.php',
+        'GuzzleHttp\\Psr7\\StreamDecoratorTrait' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/StreamDecoratorTrait.php',
+        'GuzzleHttp\\Psr7\\StreamWrapper' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/StreamWrapper.php',
+        'GuzzleHttp\\Psr7\\UploadedFile' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/UploadedFile.php',
+        'GuzzleHttp\\Psr7\\Uri' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/Uri.php',
+        'GuzzleHttp\\Psr7\\UriNormalizer' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/UriNormalizer.php',
+        'GuzzleHttp\\Psr7\\UriResolver' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/UriResolver.php',
         'Hamcrest\\Arrays\\IsArray' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Arrays/IsArray.php',
         'Hamcrest\\Arrays\\IsArrayContaining' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Arrays/IsArrayContaining.php',
         'Hamcrest\\Arrays\\IsArrayContainingInAnyOrder' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Arrays/IsArrayContainingInAnyOrder.php',
@@ -2384,6 +2469,132 @@ class ComposerStaticInit3be929a50a6529bc9bb0534e0bce8239
         'Illuminate\\View\\ViewFinderInterface' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/View/ViewFinderInterface.php',
         'Illuminate\\View\\ViewName' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/View/ViewName.php',
         'Illuminate\\View\\ViewServiceProvider' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/View/ViewServiceProvider.php',
+        'Intervention\\Image\\AbstractColor' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/AbstractColor.php',
+        'Intervention\\Image\\AbstractDecoder' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/AbstractDecoder.php',
+        'Intervention\\Image\\AbstractDriver' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/AbstractDriver.php',
+        'Intervention\\Image\\AbstractEncoder' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/AbstractEncoder.php',
+        'Intervention\\Image\\AbstractFont' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/AbstractFont.php',
+        'Intervention\\Image\\AbstractShape' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/AbstractShape.php',
+        'Intervention\\Image\\Commands\\AbstractCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Commands/AbstractCommand.php',
+        'Intervention\\Image\\Commands\\Argument' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Commands/Argument.php',
+        'Intervention\\Image\\Commands\\ChecksumCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Commands/ChecksumCommand.php',
+        'Intervention\\Image\\Commands\\CircleCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Commands/CircleCommand.php',
+        'Intervention\\Image\\Commands\\EllipseCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Commands/EllipseCommand.php',
+        'Intervention\\Image\\Commands\\ExifCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Commands/ExifCommand.php',
+        'Intervention\\Image\\Commands\\IptcCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Commands/IptcCommand.php',
+        'Intervention\\Image\\Commands\\LineCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Commands/LineCommand.php',
+        'Intervention\\Image\\Commands\\OrientateCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Commands/OrientateCommand.php',
+        'Intervention\\Image\\Commands\\PolygonCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Commands/PolygonCommand.php',
+        'Intervention\\Image\\Commands\\PsrResponseCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Commands/PsrResponseCommand.php',
+        'Intervention\\Image\\Commands\\RectangleCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Commands/RectangleCommand.php',
+        'Intervention\\Image\\Commands\\ResponseCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Commands/ResponseCommand.php',
+        'Intervention\\Image\\Commands\\StreamCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Commands/StreamCommand.php',
+        'Intervention\\Image\\Commands\\TextCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Commands/TextCommand.php',
+        'Intervention\\Image\\Constraint' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Constraint.php',
+        'Intervention\\Image\\Exception\\ImageException' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Exception/ImageException.php',
+        'Intervention\\Image\\Exception\\InvalidArgumentException' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Exception/InvalidArgumentException.php',
+        'Intervention\\Image\\Exception\\MissingDependencyException' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Exception/MissingDependencyException.php',
+        'Intervention\\Image\\Exception\\NotFoundException' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Exception/NotFoundException.php',
+        'Intervention\\Image\\Exception\\NotReadableException' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Exception/NotReadableException.php',
+        'Intervention\\Image\\Exception\\NotSupportedException' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Exception/NotSupportedException.php',
+        'Intervention\\Image\\Exception\\NotWritableException' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Exception/NotWritableException.php',
+        'Intervention\\Image\\Exception\\RuntimeException' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Exception/RuntimeException.php',
+        'Intervention\\Image\\Facades\\Image' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Facades/Image.php',
+        'Intervention\\Image\\File' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/File.php',
+        'Intervention\\Image\\Filters\\DemoFilter' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Filters/DemoFilter.php',
+        'Intervention\\Image\\Filters\\FilterInterface' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Filters/FilterInterface.php',
+        'Intervention\\Image\\Gd\\Color' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Gd/Color.php',
+        'Intervention\\Image\\Gd\\Commands\\BackupCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Gd/Commands/BackupCommand.php',
+        'Intervention\\Image\\Gd\\Commands\\BlurCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Gd/Commands/BlurCommand.php',
+        'Intervention\\Image\\Gd\\Commands\\BrightnessCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Gd/Commands/BrightnessCommand.php',
+        'Intervention\\Image\\Gd\\Commands\\ColorizeCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Gd/Commands/ColorizeCommand.php',
+        'Intervention\\Image\\Gd\\Commands\\ContrastCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Gd/Commands/ContrastCommand.php',
+        'Intervention\\Image\\Gd\\Commands\\CropCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Gd/Commands/CropCommand.php',
+        'Intervention\\Image\\Gd\\Commands\\DestroyCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Gd/Commands/DestroyCommand.php',
+        'Intervention\\Image\\Gd\\Commands\\FillCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Gd/Commands/FillCommand.php',
+        'Intervention\\Image\\Gd\\Commands\\FitCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Gd/Commands/FitCommand.php',
+        'Intervention\\Image\\Gd\\Commands\\FlipCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Gd/Commands/FlipCommand.php',
+        'Intervention\\Image\\Gd\\Commands\\GammaCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Gd/Commands/GammaCommand.php',
+        'Intervention\\Image\\Gd\\Commands\\GetSizeCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Gd/Commands/GetSizeCommand.php',
+        'Intervention\\Image\\Gd\\Commands\\GreyscaleCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Gd/Commands/GreyscaleCommand.php',
+        'Intervention\\Image\\Gd\\Commands\\HeightenCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Gd/Commands/HeightenCommand.php',
+        'Intervention\\Image\\Gd\\Commands\\InsertCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Gd/Commands/InsertCommand.php',
+        'Intervention\\Image\\Gd\\Commands\\InterlaceCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Gd/Commands/InterlaceCommand.php',
+        'Intervention\\Image\\Gd\\Commands\\InvertCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Gd/Commands/InvertCommand.php',
+        'Intervention\\Image\\Gd\\Commands\\LimitColorsCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Gd/Commands/LimitColorsCommand.php',
+        'Intervention\\Image\\Gd\\Commands\\MaskCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Gd/Commands/MaskCommand.php',
+        'Intervention\\Image\\Gd\\Commands\\OpacityCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Gd/Commands/OpacityCommand.php',
+        'Intervention\\Image\\Gd\\Commands\\PickColorCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Gd/Commands/PickColorCommand.php',
+        'Intervention\\Image\\Gd\\Commands\\PixelCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Gd/Commands/PixelCommand.php',
+        'Intervention\\Image\\Gd\\Commands\\PixelateCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Gd/Commands/PixelateCommand.php',
+        'Intervention\\Image\\Gd\\Commands\\ResetCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Gd/Commands/ResetCommand.php',
+        'Intervention\\Image\\Gd\\Commands\\ResizeCanvasCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Gd/Commands/ResizeCanvasCommand.php',
+        'Intervention\\Image\\Gd\\Commands\\ResizeCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Gd/Commands/ResizeCommand.php',
+        'Intervention\\Image\\Gd\\Commands\\RotateCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Gd/Commands/RotateCommand.php',
+        'Intervention\\Image\\Gd\\Commands\\SharpenCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Gd/Commands/SharpenCommand.php',
+        'Intervention\\Image\\Gd\\Commands\\TrimCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Gd/Commands/TrimCommand.php',
+        'Intervention\\Image\\Gd\\Commands\\WidenCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Gd/Commands/WidenCommand.php',
+        'Intervention\\Image\\Gd\\Decoder' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Gd/Decoder.php',
+        'Intervention\\Image\\Gd\\Driver' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Gd/Driver.php',
+        'Intervention\\Image\\Gd\\Encoder' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Gd/Encoder.php',
+        'Intervention\\Image\\Gd\\Font' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Gd/Font.php',
+        'Intervention\\Image\\Gd\\Shapes\\CircleShape' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Gd/Shapes/CircleShape.php',
+        'Intervention\\Image\\Gd\\Shapes\\EllipseShape' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Gd/Shapes/EllipseShape.php',
+        'Intervention\\Image\\Gd\\Shapes\\LineShape' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Gd/Shapes/LineShape.php',
+        'Intervention\\Image\\Gd\\Shapes\\PolygonShape' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Gd/Shapes/PolygonShape.php',
+        'Intervention\\Image\\Gd\\Shapes\\RectangleShape' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Gd/Shapes/RectangleShape.php',
+        'Intervention\\Image\\Image' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Image.php',
+        'Intervention\\Image\\ImageManager' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/ImageManager.php',
+        'Intervention\\Image\\ImageManagerStatic' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/ImageManagerStatic.php',
+        'Intervention\\Image\\ImageServiceProvider' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/ImageServiceProvider.php',
+        'Intervention\\Image\\ImageServiceProviderLaravel4' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/ImageServiceProviderLaravel4.php',
+        'Intervention\\Image\\ImageServiceProviderLaravelRecent' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/ImageServiceProviderLaravelRecent.php',
+        'Intervention\\Image\\ImageServiceProviderLeague' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/ImageServiceProviderLeague.php',
+        'Intervention\\Image\\ImageServiceProviderLumen' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/ImageServiceProviderLumen.php',
+        'Intervention\\Image\\Imagick\\Color' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Imagick/Color.php',
+        'Intervention\\Image\\Imagick\\Commands\\BackupCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Imagick/Commands/BackupCommand.php',
+        'Intervention\\Image\\Imagick\\Commands\\BlurCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Imagick/Commands/BlurCommand.php',
+        'Intervention\\Image\\Imagick\\Commands\\BrightnessCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Imagick/Commands/BrightnessCommand.php',
+        'Intervention\\Image\\Imagick\\Commands\\ColorizeCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Imagick/Commands/ColorizeCommand.php',
+        'Intervention\\Image\\Imagick\\Commands\\ContrastCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Imagick/Commands/ContrastCommand.php',
+        'Intervention\\Image\\Imagick\\Commands\\CropCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Imagick/Commands/CropCommand.php',
+        'Intervention\\Image\\Imagick\\Commands\\DestroyCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Imagick/Commands/DestroyCommand.php',
+        'Intervention\\Image\\Imagick\\Commands\\ExifCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Imagick/Commands/ExifCommand.php',
+        'Intervention\\Image\\Imagick\\Commands\\FillCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Imagick/Commands/FillCommand.php',
+        'Intervention\\Image\\Imagick\\Commands\\FitCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Imagick/Commands/FitCommand.php',
+        'Intervention\\Image\\Imagick\\Commands\\FlipCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Imagick/Commands/FlipCommand.php',
+        'Intervention\\Image\\Imagick\\Commands\\GammaCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Imagick/Commands/GammaCommand.php',
+        'Intervention\\Image\\Imagick\\Commands\\GetSizeCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Imagick/Commands/GetSizeCommand.php',
+        'Intervention\\Image\\Imagick\\Commands\\GreyscaleCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Imagick/Commands/GreyscaleCommand.php',
+        'Intervention\\Image\\Imagick\\Commands\\HeightenCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Imagick/Commands/HeightenCommand.php',
+        'Intervention\\Image\\Imagick\\Commands\\InsertCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Imagick/Commands/InsertCommand.php',
+        'Intervention\\Image\\Imagick\\Commands\\InterlaceCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Imagick/Commands/InterlaceCommand.php',
+        'Intervention\\Image\\Imagick\\Commands\\InvertCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Imagick/Commands/InvertCommand.php',
+        'Intervention\\Image\\Imagick\\Commands\\LimitColorsCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Imagick/Commands/LimitColorsCommand.php',
+        'Intervention\\Image\\Imagick\\Commands\\MaskCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Imagick/Commands/MaskCommand.php',
+        'Intervention\\Image\\Imagick\\Commands\\OpacityCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Imagick/Commands/OpacityCommand.php',
+        'Intervention\\Image\\Imagick\\Commands\\PickColorCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Imagick/Commands/PickColorCommand.php',
+        'Intervention\\Image\\Imagick\\Commands\\PixelCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Imagick/Commands/PixelCommand.php',
+        'Intervention\\Image\\Imagick\\Commands\\PixelateCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Imagick/Commands/PixelateCommand.php',
+        'Intervention\\Image\\Imagick\\Commands\\ResetCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Imagick/Commands/ResetCommand.php',
+        'Intervention\\Image\\Imagick\\Commands\\ResizeCanvasCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Imagick/Commands/ResizeCanvasCommand.php',
+        'Intervention\\Image\\Imagick\\Commands\\ResizeCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Imagick/Commands/ResizeCommand.php',
+        'Intervention\\Image\\Imagick\\Commands\\RotateCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Imagick/Commands/RotateCommand.php',
+        'Intervention\\Image\\Imagick\\Commands\\SharpenCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Imagick/Commands/SharpenCommand.php',
+        'Intervention\\Image\\Imagick\\Commands\\TrimCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Imagick/Commands/TrimCommand.php',
+        'Intervention\\Image\\Imagick\\Commands\\WidenCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Imagick/Commands/WidenCommand.php',
+        'Intervention\\Image\\Imagick\\Decoder' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Imagick/Decoder.php',
+        'Intervention\\Image\\Imagick\\Driver' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Imagick/Driver.php',
+        'Intervention\\Image\\Imagick\\Encoder' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Imagick/Encoder.php',
+        'Intervention\\Image\\Imagick\\Font' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Imagick/Font.php',
+        'Intervention\\Image\\Imagick\\Shapes\\CircleShape' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Imagick/Shapes/CircleShape.php',
+        'Intervention\\Image\\Imagick\\Shapes\\EllipseShape' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Imagick/Shapes/EllipseShape.php',
+        'Intervention\\Image\\Imagick\\Shapes\\LineShape' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Imagick/Shapes/LineShape.php',
+        'Intervention\\Image\\Imagick\\Shapes\\PolygonShape' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Imagick/Shapes/PolygonShape.php',
+        'Intervention\\Image\\Imagick\\Shapes\\RectangleShape' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Imagick/Shapes/RectangleShape.php',
+        'Intervention\\Image\\Point' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Point.php',
+        'Intervention\\Image\\Response' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Response.php',
+        'Intervention\\Image\\Size' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Size.php',
         'JakubOnderka\\PhpConsoleColor\\ConsoleColor' => __DIR__ . '/..' . '/jakub-onderka/php-console-color/src/ConsoleColor.php',
         'JakubOnderka\\PhpConsoleColor\\InvalidStyleException' => __DIR__ . '/..' . '/jakub-onderka/php-console-color/src/InvalidStyleException.php',
         'JakubOnderka\\PhpConsoleHighlighter\\Highlighter' => __DIR__ . '/..' . '/jakub-onderka/php-console-highlighter/src/Highlighter.php',
@@ -3621,11 +3832,280 @@ class ComposerStaticInit3be929a50a6529bc9bb0534e0bce8239
         'PhpParser\\ParserAbstract' => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser/ParserAbstract.php',
         'PhpParser\\ParserFactory' => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser/ParserFactory.php',
         'PhpParser\\Parser\\Multiple' => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser/Parser/Multiple.php',
-        'PhpParser\\Parser\\Php5' => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser/Parser/Php5.php',
-        'PhpParser\\Parser\\Php7' => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser/Parser/Php7.php',
         'PhpParser\\Parser\\Tokens' => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser/Parser/Tokens.php',
         'PhpParser\\PrettyPrinterAbstract' => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser/PrettyPrinterAbstract.php',
         'PhpParser\\PrettyPrinter\\Standard' => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser/PrettyPrinter/Standard.php',
+        'Predis\\Autoloader' => __DIR__ . '/..' . '/predis/predis/src/Autoloader.php',
+        'Predis\\Client' => __DIR__ . '/..' . '/predis/predis/src/Client.php',
+        'Predis\\ClientContextInterface' => __DIR__ . '/..' . '/predis/predis/src/ClientContextInterface.php',
+        'Predis\\ClientException' => __DIR__ . '/..' . '/predis/predis/src/ClientException.php',
+        'Predis\\ClientInterface' => __DIR__ . '/..' . '/predis/predis/src/ClientInterface.php',
+        'Predis\\Cluster\\ClusterStrategy' => __DIR__ . '/..' . '/predis/predis/src/Cluster/ClusterStrategy.php',
+        'Predis\\Cluster\\Distributor\\DistributorInterface' => __DIR__ . '/..' . '/predis/predis/src/Cluster/Distributor/DistributorInterface.php',
+        'Predis\\Cluster\\Distributor\\EmptyRingException' => __DIR__ . '/..' . '/predis/predis/src/Cluster/Distributor/EmptyRingException.php',
+        'Predis\\Cluster\\Distributor\\HashRing' => __DIR__ . '/..' . '/predis/predis/src/Cluster/Distributor/HashRing.php',
+        'Predis\\Cluster\\Distributor\\KetamaRing' => __DIR__ . '/..' . '/predis/predis/src/Cluster/Distributor/KetamaRing.php',
+        'Predis\\Cluster\\Hash\\CRC16' => __DIR__ . '/..' . '/predis/predis/src/Cluster/Hash/CRC16.php',
+        'Predis\\Cluster\\Hash\\HashGeneratorInterface' => __DIR__ . '/..' . '/predis/predis/src/Cluster/Hash/HashGeneratorInterface.php',
+        'Predis\\Cluster\\PredisStrategy' => __DIR__ . '/..' . '/predis/predis/src/Cluster/PredisStrategy.php',
+        'Predis\\Cluster\\RedisStrategy' => __DIR__ . '/..' . '/predis/predis/src/Cluster/RedisStrategy.php',
+        'Predis\\Cluster\\StrategyInterface' => __DIR__ . '/..' . '/predis/predis/src/Cluster/StrategyInterface.php',
+        'Predis\\Collection\\Iterator\\CursorBasedIterator' => __DIR__ . '/..' . '/predis/predis/src/Collection/Iterator/CursorBasedIterator.php',
+        'Predis\\Collection\\Iterator\\HashKey' => __DIR__ . '/..' . '/predis/predis/src/Collection/Iterator/HashKey.php',
+        'Predis\\Collection\\Iterator\\Keyspace' => __DIR__ . '/..' . '/predis/predis/src/Collection/Iterator/Keyspace.php',
+        'Predis\\Collection\\Iterator\\ListKey' => __DIR__ . '/..' . '/predis/predis/src/Collection/Iterator/ListKey.php',
+        'Predis\\Collection\\Iterator\\SetKey' => __DIR__ . '/..' . '/predis/predis/src/Collection/Iterator/SetKey.php',
+        'Predis\\Collection\\Iterator\\SortedSetKey' => __DIR__ . '/..' . '/predis/predis/src/Collection/Iterator/SortedSetKey.php',
+        'Predis\\Command\\Command' => __DIR__ . '/..' . '/predis/predis/src/Command/Command.php',
+        'Predis\\Command\\CommandInterface' => __DIR__ . '/..' . '/predis/predis/src/Command/CommandInterface.php',
+        'Predis\\Command\\ConnectionAuth' => __DIR__ . '/..' . '/predis/predis/src/Command/ConnectionAuth.php',
+        'Predis\\Command\\ConnectionEcho' => __DIR__ . '/..' . '/predis/predis/src/Command/ConnectionEcho.php',
+        'Predis\\Command\\ConnectionPing' => __DIR__ . '/..' . '/predis/predis/src/Command/ConnectionPing.php',
+        'Predis\\Command\\ConnectionQuit' => __DIR__ . '/..' . '/predis/predis/src/Command/ConnectionQuit.php',
+        'Predis\\Command\\ConnectionSelect' => __DIR__ . '/..' . '/predis/predis/src/Command/ConnectionSelect.php',
+        'Predis\\Command\\GeospatialGeoAdd' => __DIR__ . '/..' . '/predis/predis/src/Command/GeospatialGeoAdd.php',
+        'Predis\\Command\\GeospatialGeoDist' => __DIR__ . '/..' . '/predis/predis/src/Command/GeospatialGeoDist.php',
+        'Predis\\Command\\GeospatialGeoHash' => __DIR__ . '/..' . '/predis/predis/src/Command/GeospatialGeoHash.php',
+        'Predis\\Command\\GeospatialGeoPos' => __DIR__ . '/..' . '/predis/predis/src/Command/GeospatialGeoPos.php',
+        'Predis\\Command\\GeospatialGeoRadius' => __DIR__ . '/..' . '/predis/predis/src/Command/GeospatialGeoRadius.php',
+        'Predis\\Command\\GeospatialGeoRadiusByMember' => __DIR__ . '/..' . '/predis/predis/src/Command/GeospatialGeoRadiusByMember.php',
+        'Predis\\Command\\HashDelete' => __DIR__ . '/..' . '/predis/predis/src/Command/HashDelete.php',
+        'Predis\\Command\\HashExists' => __DIR__ . '/..' . '/predis/predis/src/Command/HashExists.php',
+        'Predis\\Command\\HashGet' => __DIR__ . '/..' . '/predis/predis/src/Command/HashGet.php',
+        'Predis\\Command\\HashGetAll' => __DIR__ . '/..' . '/predis/predis/src/Command/HashGetAll.php',
+        'Predis\\Command\\HashGetMultiple' => __DIR__ . '/..' . '/predis/predis/src/Command/HashGetMultiple.php',
+        'Predis\\Command\\HashIncrementBy' => __DIR__ . '/..' . '/predis/predis/src/Command/HashIncrementBy.php',
+        'Predis\\Command\\HashIncrementByFloat' => __DIR__ . '/..' . '/predis/predis/src/Command/HashIncrementByFloat.php',
+        'Predis\\Command\\HashKeys' => __DIR__ . '/..' . '/predis/predis/src/Command/HashKeys.php',
+        'Predis\\Command\\HashLength' => __DIR__ . '/..' . '/predis/predis/src/Command/HashLength.php',
+        'Predis\\Command\\HashScan' => __DIR__ . '/..' . '/predis/predis/src/Command/HashScan.php',
+        'Predis\\Command\\HashSet' => __DIR__ . '/..' . '/predis/predis/src/Command/HashSet.php',
+        'Predis\\Command\\HashSetMultiple' => __DIR__ . '/..' . '/predis/predis/src/Command/HashSetMultiple.php',
+        'Predis\\Command\\HashSetPreserve' => __DIR__ . '/..' . '/predis/predis/src/Command/HashSetPreserve.php',
+        'Predis\\Command\\HashStringLength' => __DIR__ . '/..' . '/predis/predis/src/Command/HashStringLength.php',
+        'Predis\\Command\\HashValues' => __DIR__ . '/..' . '/predis/predis/src/Command/HashValues.php',
+        'Predis\\Command\\HyperLogLogAdd' => __DIR__ . '/..' . '/predis/predis/src/Command/HyperLogLogAdd.php',
+        'Predis\\Command\\HyperLogLogCount' => __DIR__ . '/..' . '/predis/predis/src/Command/HyperLogLogCount.php',
+        'Predis\\Command\\HyperLogLogMerge' => __DIR__ . '/..' . '/predis/predis/src/Command/HyperLogLogMerge.php',
+        'Predis\\Command\\KeyDelete' => __DIR__ . '/..' . '/predis/predis/src/Command/KeyDelete.php',
+        'Predis\\Command\\KeyDump' => __DIR__ . '/..' . '/predis/predis/src/Command/KeyDump.php',
+        'Predis\\Command\\KeyExists' => __DIR__ . '/..' . '/predis/predis/src/Command/KeyExists.php',
+        'Predis\\Command\\KeyExpire' => __DIR__ . '/..' . '/predis/predis/src/Command/KeyExpire.php',
+        'Predis\\Command\\KeyExpireAt' => __DIR__ . '/..' . '/predis/predis/src/Command/KeyExpireAt.php',
+        'Predis\\Command\\KeyKeys' => __DIR__ . '/..' . '/predis/predis/src/Command/KeyKeys.php',
+        'Predis\\Command\\KeyMigrate' => __DIR__ . '/..' . '/predis/predis/src/Command/KeyMigrate.php',
+        'Predis\\Command\\KeyMove' => __DIR__ . '/..' . '/predis/predis/src/Command/KeyMove.php',
+        'Predis\\Command\\KeyPersist' => __DIR__ . '/..' . '/predis/predis/src/Command/KeyPersist.php',
+        'Predis\\Command\\KeyPreciseExpire' => __DIR__ . '/..' . '/predis/predis/src/Command/KeyPreciseExpire.php',
+        'Predis\\Command\\KeyPreciseExpireAt' => __DIR__ . '/..' . '/predis/predis/src/Command/KeyPreciseExpireAt.php',
+        'Predis\\Command\\KeyPreciseTimeToLive' => __DIR__ . '/..' . '/predis/predis/src/Command/KeyPreciseTimeToLive.php',
+        'Predis\\Command\\KeyRandom' => __DIR__ . '/..' . '/predis/predis/src/Command/KeyRandom.php',
+        'Predis\\Command\\KeyRename' => __DIR__ . '/..' . '/predis/predis/src/Command/KeyRename.php',
+        'Predis\\Command\\KeyRenamePreserve' => __DIR__ . '/..' . '/predis/predis/src/Command/KeyRenamePreserve.php',
+        'Predis\\Command\\KeyRestore' => __DIR__ . '/..' . '/predis/predis/src/Command/KeyRestore.php',
+        'Predis\\Command\\KeyScan' => __DIR__ . '/..' . '/predis/predis/src/Command/KeyScan.php',
+        'Predis\\Command\\KeySort' => __DIR__ . '/..' . '/predis/predis/src/Command/KeySort.php',
+        'Predis\\Command\\KeyTimeToLive' => __DIR__ . '/..' . '/predis/predis/src/Command/KeyTimeToLive.php',
+        'Predis\\Command\\KeyType' => __DIR__ . '/..' . '/predis/predis/src/Command/KeyType.php',
+        'Predis\\Command\\ListIndex' => __DIR__ . '/..' . '/predis/predis/src/Command/ListIndex.php',
+        'Predis\\Command\\ListInsert' => __DIR__ . '/..' . '/predis/predis/src/Command/ListInsert.php',
+        'Predis\\Command\\ListLength' => __DIR__ . '/..' . '/predis/predis/src/Command/ListLength.php',
+        'Predis\\Command\\ListPopFirst' => __DIR__ . '/..' . '/predis/predis/src/Command/ListPopFirst.php',
+        'Predis\\Command\\ListPopFirstBlocking' => __DIR__ . '/..' . '/predis/predis/src/Command/ListPopFirstBlocking.php',
+        'Predis\\Command\\ListPopLast' => __DIR__ . '/..' . '/predis/predis/src/Command/ListPopLast.php',
+        'Predis\\Command\\ListPopLastBlocking' => __DIR__ . '/..' . '/predis/predis/src/Command/ListPopLastBlocking.php',
+        'Predis\\Command\\ListPopLastPushHead' => __DIR__ . '/..' . '/predis/predis/src/Command/ListPopLastPushHead.php',
+        'Predis\\Command\\ListPopLastPushHeadBlocking' => __DIR__ . '/..' . '/predis/predis/src/Command/ListPopLastPushHeadBlocking.php',
+        'Predis\\Command\\ListPushHead' => __DIR__ . '/..' . '/predis/predis/src/Command/ListPushHead.php',
+        'Predis\\Command\\ListPushHeadX' => __DIR__ . '/..' . '/predis/predis/src/Command/ListPushHeadX.php',
+        'Predis\\Command\\ListPushTail' => __DIR__ . '/..' . '/predis/predis/src/Command/ListPushTail.php',
+        'Predis\\Command\\ListPushTailX' => __DIR__ . '/..' . '/predis/predis/src/Command/ListPushTailX.php',
+        'Predis\\Command\\ListRange' => __DIR__ . '/..' . '/predis/predis/src/Command/ListRange.php',
+        'Predis\\Command\\ListRemove' => __DIR__ . '/..' . '/predis/predis/src/Command/ListRemove.php',
+        'Predis\\Command\\ListSet' => __DIR__ . '/..' . '/predis/predis/src/Command/ListSet.php',
+        'Predis\\Command\\ListTrim' => __DIR__ . '/..' . '/predis/predis/src/Command/ListTrim.php',
+        'Predis\\Command\\PrefixableCommandInterface' => __DIR__ . '/..' . '/predis/predis/src/Command/PrefixableCommandInterface.php',
+        'Predis\\Command\\Processor\\KeyPrefixProcessor' => __DIR__ . '/..' . '/predis/predis/src/Command/Processor/KeyPrefixProcessor.php',
+        'Predis\\Command\\Processor\\ProcessorChain' => __DIR__ . '/..' . '/predis/predis/src/Command/Processor/ProcessorChain.php',
+        'Predis\\Command\\Processor\\ProcessorInterface' => __DIR__ . '/..' . '/predis/predis/src/Command/Processor/ProcessorInterface.php',
+        'Predis\\Command\\PubSubPublish' => __DIR__ . '/..' . '/predis/predis/src/Command/PubSubPublish.php',
+        'Predis\\Command\\PubSubPubsub' => __DIR__ . '/..' . '/predis/predis/src/Command/PubSubPubsub.php',
+        'Predis\\Command\\PubSubSubscribe' => __DIR__ . '/..' . '/predis/predis/src/Command/PubSubSubscribe.php',
+        'Predis\\Command\\PubSubSubscribeByPattern' => __DIR__ . '/..' . '/predis/predis/src/Command/PubSubSubscribeByPattern.php',
+        'Predis\\Command\\PubSubUnsubscribe' => __DIR__ . '/..' . '/predis/predis/src/Command/PubSubUnsubscribe.php',
+        'Predis\\Command\\PubSubUnsubscribeByPattern' => __DIR__ . '/..' . '/predis/predis/src/Command/PubSubUnsubscribeByPattern.php',
+        'Predis\\Command\\RawCommand' => __DIR__ . '/..' . '/predis/predis/src/Command/RawCommand.php',
+        'Predis\\Command\\ScriptCommand' => __DIR__ . '/..' . '/predis/predis/src/Command/ScriptCommand.php',
+        'Predis\\Command\\ServerBackgroundRewriteAOF' => __DIR__ . '/..' . '/predis/predis/src/Command/ServerBackgroundRewriteAOF.php',
+        'Predis\\Command\\ServerBackgroundSave' => __DIR__ . '/..' . '/predis/predis/src/Command/ServerBackgroundSave.php',
+        'Predis\\Command\\ServerClient' => __DIR__ . '/..' . '/predis/predis/src/Command/ServerClient.php',
+        'Predis\\Command\\ServerCommand' => __DIR__ . '/..' . '/predis/predis/src/Command/ServerCommand.php',
+        'Predis\\Command\\ServerConfig' => __DIR__ . '/..' . '/predis/predis/src/Command/ServerConfig.php',
+        'Predis\\Command\\ServerDatabaseSize' => __DIR__ . '/..' . '/predis/predis/src/Command/ServerDatabaseSize.php',
+        'Predis\\Command\\ServerEval' => __DIR__ . '/..' . '/predis/predis/src/Command/ServerEval.php',
+        'Predis\\Command\\ServerEvalSHA' => __DIR__ . '/..' . '/predis/predis/src/Command/ServerEvalSHA.php',
+        'Predis\\Command\\ServerFlushAll' => __DIR__ . '/..' . '/predis/predis/src/Command/ServerFlushAll.php',
+        'Predis\\Command\\ServerFlushDatabase' => __DIR__ . '/..' . '/predis/predis/src/Command/ServerFlushDatabase.php',
+        'Predis\\Command\\ServerInfo' => __DIR__ . '/..' . '/predis/predis/src/Command/ServerInfo.php',
+        'Predis\\Command\\ServerInfoV26x' => __DIR__ . '/..' . '/predis/predis/src/Command/ServerInfoV26x.php',
+        'Predis\\Command\\ServerLastSave' => __DIR__ . '/..' . '/predis/predis/src/Command/ServerLastSave.php',
+        'Predis\\Command\\ServerMonitor' => __DIR__ . '/..' . '/predis/predis/src/Command/ServerMonitor.php',
+        'Predis\\Command\\ServerObject' => __DIR__ . '/..' . '/predis/predis/src/Command/ServerObject.php',
+        'Predis\\Command\\ServerSave' => __DIR__ . '/..' . '/predis/predis/src/Command/ServerSave.php',
+        'Predis\\Command\\ServerScript' => __DIR__ . '/..' . '/predis/predis/src/Command/ServerScript.php',
+        'Predis\\Command\\ServerSentinel' => __DIR__ . '/..' . '/predis/predis/src/Command/ServerSentinel.php',
+        'Predis\\Command\\ServerShutdown' => __DIR__ . '/..' . '/predis/predis/src/Command/ServerShutdown.php',
+        'Predis\\Command\\ServerSlaveOf' => __DIR__ . '/..' . '/predis/predis/src/Command/ServerSlaveOf.php',
+        'Predis\\Command\\ServerSlowlog' => __DIR__ . '/..' . '/predis/predis/src/Command/ServerSlowlog.php',
+        'Predis\\Command\\ServerTime' => __DIR__ . '/..' . '/predis/predis/src/Command/ServerTime.php',
+        'Predis\\Command\\SetAdd' => __DIR__ . '/..' . '/predis/predis/src/Command/SetAdd.php',
+        'Predis\\Command\\SetCardinality' => __DIR__ . '/..' . '/predis/predis/src/Command/SetCardinality.php',
+        'Predis\\Command\\SetDifference' => __DIR__ . '/..' . '/predis/predis/src/Command/SetDifference.php',
+        'Predis\\Command\\SetDifferenceStore' => __DIR__ . '/..' . '/predis/predis/src/Command/SetDifferenceStore.php',
+        'Predis\\Command\\SetIntersection' => __DIR__ . '/..' . '/predis/predis/src/Command/SetIntersection.php',
+        'Predis\\Command\\SetIntersectionStore' => __DIR__ . '/..' . '/predis/predis/src/Command/SetIntersectionStore.php',
+        'Predis\\Command\\SetIsMember' => __DIR__ . '/..' . '/predis/predis/src/Command/SetIsMember.php',
+        'Predis\\Command\\SetMembers' => __DIR__ . '/..' . '/predis/predis/src/Command/SetMembers.php',
+        'Predis\\Command\\SetMove' => __DIR__ . '/..' . '/predis/predis/src/Command/SetMove.php',
+        'Predis\\Command\\SetPop' => __DIR__ . '/..' . '/predis/predis/src/Command/SetPop.php',
+        'Predis\\Command\\SetRandomMember' => __DIR__ . '/..' . '/predis/predis/src/Command/SetRandomMember.php',
+        'Predis\\Command\\SetRemove' => __DIR__ . '/..' . '/predis/predis/src/Command/SetRemove.php',
+        'Predis\\Command\\SetScan' => __DIR__ . '/..' . '/predis/predis/src/Command/SetScan.php',
+        'Predis\\Command\\SetUnion' => __DIR__ . '/..' . '/predis/predis/src/Command/SetUnion.php',
+        'Predis\\Command\\SetUnionStore' => __DIR__ . '/..' . '/predis/predis/src/Command/SetUnionStore.php',
+        'Predis\\Command\\StringAppend' => __DIR__ . '/..' . '/predis/predis/src/Command/StringAppend.php',
+        'Predis\\Command\\StringBitCount' => __DIR__ . '/..' . '/predis/predis/src/Command/StringBitCount.php',
+        'Predis\\Command\\StringBitField' => __DIR__ . '/..' . '/predis/predis/src/Command/StringBitField.php',
+        'Predis\\Command\\StringBitOp' => __DIR__ . '/..' . '/predis/predis/src/Command/StringBitOp.php',
+        'Predis\\Command\\StringBitPos' => __DIR__ . '/..' . '/predis/predis/src/Command/StringBitPos.php',
+        'Predis\\Command\\StringDecrement' => __DIR__ . '/..' . '/predis/predis/src/Command/StringDecrement.php',
+        'Predis\\Command\\StringDecrementBy' => __DIR__ . '/..' . '/predis/predis/src/Command/StringDecrementBy.php',
+        'Predis\\Command\\StringGet' => __DIR__ . '/..' . '/predis/predis/src/Command/StringGet.php',
+        'Predis\\Command\\StringGetBit' => __DIR__ . '/..' . '/predis/predis/src/Command/StringGetBit.php',
+        'Predis\\Command\\StringGetMultiple' => __DIR__ . '/..' . '/predis/predis/src/Command/StringGetMultiple.php',
+        'Predis\\Command\\StringGetRange' => __DIR__ . '/..' . '/predis/predis/src/Command/StringGetRange.php',
+        'Predis\\Command\\StringGetSet' => __DIR__ . '/..' . '/predis/predis/src/Command/StringGetSet.php',
+        'Predis\\Command\\StringIncrement' => __DIR__ . '/..' . '/predis/predis/src/Command/StringIncrement.php',
+        'Predis\\Command\\StringIncrementBy' => __DIR__ . '/..' . '/predis/predis/src/Command/StringIncrementBy.php',
+        'Predis\\Command\\StringIncrementByFloat' => __DIR__ . '/..' . '/predis/predis/src/Command/StringIncrementByFloat.php',
+        'Predis\\Command\\StringPreciseSetExpire' => __DIR__ . '/..' . '/predis/predis/src/Command/StringPreciseSetExpire.php',
+        'Predis\\Command\\StringSet' => __DIR__ . '/..' . '/predis/predis/src/Command/StringSet.php',
+        'Predis\\Command\\StringSetBit' => __DIR__ . '/..' . '/predis/predis/src/Command/StringSetBit.php',
+        'Predis\\Command\\StringSetExpire' => __DIR__ . '/..' . '/predis/predis/src/Command/StringSetExpire.php',
+        'Predis\\Command\\StringSetMultiple' => __DIR__ . '/..' . '/predis/predis/src/Command/StringSetMultiple.php',
+        'Predis\\Command\\StringSetMultiplePreserve' => __DIR__ . '/..' . '/predis/predis/src/Command/StringSetMultiplePreserve.php',
+        'Predis\\Command\\StringSetPreserve' => __DIR__ . '/..' . '/predis/predis/src/Command/StringSetPreserve.php',
+        'Predis\\Command\\StringSetRange' => __DIR__ . '/..' . '/predis/predis/src/Command/StringSetRange.php',
+        'Predis\\Command\\StringStrlen' => __DIR__ . '/..' . '/predis/predis/src/Command/StringStrlen.php',
+        'Predis\\Command\\StringSubstr' => __DIR__ . '/..' . '/predis/predis/src/Command/StringSubstr.php',
+        'Predis\\Command\\TransactionDiscard' => __DIR__ . '/..' . '/predis/predis/src/Command/TransactionDiscard.php',
+        'Predis\\Command\\TransactionExec' => __DIR__ . '/..' . '/predis/predis/src/Command/TransactionExec.php',
+        'Predis\\Command\\TransactionMulti' => __DIR__ . '/..' . '/predis/predis/src/Command/TransactionMulti.php',
+        'Predis\\Command\\TransactionUnwatch' => __DIR__ . '/..' . '/predis/predis/src/Command/TransactionUnwatch.php',
+        'Predis\\Command\\TransactionWatch' => __DIR__ . '/..' . '/predis/predis/src/Command/TransactionWatch.php',
+        'Predis\\Command\\ZSetAdd' => __DIR__ . '/..' . '/predis/predis/src/Command/ZSetAdd.php',
+        'Predis\\Command\\ZSetCardinality' => __DIR__ . '/..' . '/predis/predis/src/Command/ZSetCardinality.php',
+        'Predis\\Command\\ZSetCount' => __DIR__ . '/..' . '/predis/predis/src/Command/ZSetCount.php',
+        'Predis\\Command\\ZSetIncrementBy' => __DIR__ . '/..' . '/predis/predis/src/Command/ZSetIncrementBy.php',
+        'Predis\\Command\\ZSetIntersectionStore' => __DIR__ . '/..' . '/predis/predis/src/Command/ZSetIntersectionStore.php',
+        'Predis\\Command\\ZSetLexCount' => __DIR__ . '/..' . '/predis/predis/src/Command/ZSetLexCount.php',
+        'Predis\\Command\\ZSetRange' => __DIR__ . '/..' . '/predis/predis/src/Command/ZSetRange.php',
+        'Predis\\Command\\ZSetRangeByLex' => __DIR__ . '/..' . '/predis/predis/src/Command/ZSetRangeByLex.php',
+        'Predis\\Command\\ZSetRangeByScore' => __DIR__ . '/..' . '/predis/predis/src/Command/ZSetRangeByScore.php',
+        'Predis\\Command\\ZSetRank' => __DIR__ . '/..' . '/predis/predis/src/Command/ZSetRank.php',
+        'Predis\\Command\\ZSetRemove' => __DIR__ . '/..' . '/predis/predis/src/Command/ZSetRemove.php',
+        'Predis\\Command\\ZSetRemoveRangeByLex' => __DIR__ . '/..' . '/predis/predis/src/Command/ZSetRemoveRangeByLex.php',
+        'Predis\\Command\\ZSetRemoveRangeByRank' => __DIR__ . '/..' . '/predis/predis/src/Command/ZSetRemoveRangeByRank.php',
+        'Predis\\Command\\ZSetRemoveRangeByScore' => __DIR__ . '/..' . '/predis/predis/src/Command/ZSetRemoveRangeByScore.php',
+        'Predis\\Command\\ZSetReverseRange' => __DIR__ . '/..' . '/predis/predis/src/Command/ZSetReverseRange.php',
+        'Predis\\Command\\ZSetReverseRangeByLex' => __DIR__ . '/..' . '/predis/predis/src/Command/ZSetReverseRangeByLex.php',
+        'Predis\\Command\\ZSetReverseRangeByScore' => __DIR__ . '/..' . '/predis/predis/src/Command/ZSetReverseRangeByScore.php',
+        'Predis\\Command\\ZSetReverseRank' => __DIR__ . '/..' . '/predis/predis/src/Command/ZSetReverseRank.php',
+        'Predis\\Command\\ZSetScan' => __DIR__ . '/..' . '/predis/predis/src/Command/ZSetScan.php',
+        'Predis\\Command\\ZSetScore' => __DIR__ . '/..' . '/predis/predis/src/Command/ZSetScore.php',
+        'Predis\\Command\\ZSetUnionStore' => __DIR__ . '/..' . '/predis/predis/src/Command/ZSetUnionStore.php',
+        'Predis\\CommunicationException' => __DIR__ . '/..' . '/predis/predis/src/CommunicationException.php',
+        'Predis\\Configuration\\ClusterOption' => __DIR__ . '/..' . '/predis/predis/src/Configuration/ClusterOption.php',
+        'Predis\\Configuration\\ConnectionFactoryOption' => __DIR__ . '/..' . '/predis/predis/src/Configuration/ConnectionFactoryOption.php',
+        'Predis\\Configuration\\ExceptionsOption' => __DIR__ . '/..' . '/predis/predis/src/Configuration/ExceptionsOption.php',
+        'Predis\\Configuration\\OptionInterface' => __DIR__ . '/..' . '/predis/predis/src/Configuration/OptionInterface.php',
+        'Predis\\Configuration\\Options' => __DIR__ . '/..' . '/predis/predis/src/Configuration/Options.php',
+        'Predis\\Configuration\\OptionsInterface' => __DIR__ . '/..' . '/predis/predis/src/Configuration/OptionsInterface.php',
+        'Predis\\Configuration\\PrefixOption' => __DIR__ . '/..' . '/predis/predis/src/Configuration/PrefixOption.php',
+        'Predis\\Configuration\\ProfileOption' => __DIR__ . '/..' . '/predis/predis/src/Configuration/ProfileOption.php',
+        'Predis\\Configuration\\ReplicationOption' => __DIR__ . '/..' . '/predis/predis/src/Configuration/ReplicationOption.php',
+        'Predis\\Connection\\AbstractConnection' => __DIR__ . '/..' . '/predis/predis/src/Connection/AbstractConnection.php',
+        'Predis\\Connection\\AggregateConnectionInterface' => __DIR__ . '/..' . '/predis/predis/src/Connection/AggregateConnectionInterface.php',
+        'Predis\\Connection\\Aggregate\\ClusterInterface' => __DIR__ . '/..' . '/predis/predis/src/Connection/Aggregate/ClusterInterface.php',
+        'Predis\\Connection\\Aggregate\\MasterSlaveReplication' => __DIR__ . '/..' . '/predis/predis/src/Connection/Aggregate/MasterSlaveReplication.php',
+        'Predis\\Connection\\Aggregate\\PredisCluster' => __DIR__ . '/..' . '/predis/predis/src/Connection/Aggregate/PredisCluster.php',
+        'Predis\\Connection\\Aggregate\\RedisCluster' => __DIR__ . '/..' . '/predis/predis/src/Connection/Aggregate/RedisCluster.php',
+        'Predis\\Connection\\Aggregate\\ReplicationInterface' => __DIR__ . '/..' . '/predis/predis/src/Connection/Aggregate/ReplicationInterface.php',
+        'Predis\\Connection\\Aggregate\\SentinelReplication' => __DIR__ . '/..' . '/predis/predis/src/Connection/Aggregate/SentinelReplication.php',
+        'Predis\\Connection\\CompositeConnectionInterface' => __DIR__ . '/..' . '/predis/predis/src/Connection/CompositeConnectionInterface.php',
+        'Predis\\Connection\\CompositeStreamConnection' => __DIR__ . '/..' . '/predis/predis/src/Connection/CompositeStreamConnection.php',
+        'Predis\\Connection\\ConnectionException' => __DIR__ . '/..' . '/predis/predis/src/Connection/ConnectionException.php',
+        'Predis\\Connection\\ConnectionInterface' => __DIR__ . '/..' . '/predis/predis/src/Connection/ConnectionInterface.php',
+        'Predis\\Connection\\Factory' => __DIR__ . '/..' . '/predis/predis/src/Connection/Factory.php',
+        'Predis\\Connection\\FactoryInterface' => __DIR__ . '/..' . '/predis/predis/src/Connection/FactoryInterface.php',
+        'Predis\\Connection\\NodeConnectionInterface' => __DIR__ . '/..' . '/predis/predis/src/Connection/NodeConnectionInterface.php',
+        'Predis\\Connection\\Parameters' => __DIR__ . '/..' . '/predis/predis/src/Connection/Parameters.php',
+        'Predis\\Connection\\ParametersInterface' => __DIR__ . '/..' . '/predis/predis/src/Connection/ParametersInterface.php',
+        'Predis\\Connection\\PhpiredisSocketConnection' => __DIR__ . '/..' . '/predis/predis/src/Connection/PhpiredisSocketConnection.php',
+        'Predis\\Connection\\PhpiredisStreamConnection' => __DIR__ . '/..' . '/predis/predis/src/Connection/PhpiredisStreamConnection.php',
+        'Predis\\Connection\\StreamConnection' => __DIR__ . '/..' . '/predis/predis/src/Connection/StreamConnection.php',
+        'Predis\\Connection\\WebdisConnection' => __DIR__ . '/..' . '/predis/predis/src/Connection/WebdisConnection.php',
+        'Predis\\Monitor\\Consumer' => __DIR__ . '/..' . '/predis/predis/src/Monitor/Consumer.php',
+        'Predis\\NotSupportedException' => __DIR__ . '/..' . '/predis/predis/src/NotSupportedException.php',
+        'Predis\\Pipeline\\Atomic' => __DIR__ . '/..' . '/predis/predis/src/Pipeline/Atomic.php',
+        'Predis\\Pipeline\\ConnectionErrorProof' => __DIR__ . '/..' . '/predis/predis/src/Pipeline/ConnectionErrorProof.php',
+        'Predis\\Pipeline\\FireAndForget' => __DIR__ . '/..' . '/predis/predis/src/Pipeline/FireAndForget.php',
+        'Predis\\Pipeline\\Pipeline' => __DIR__ . '/..' . '/predis/predis/src/Pipeline/Pipeline.php',
+        'Predis\\PredisException' => __DIR__ . '/..' . '/predis/predis/src/PredisException.php',
+        'Predis\\Profile\\Factory' => __DIR__ . '/..' . '/predis/predis/src/Profile/Factory.php',
+        'Predis\\Profile\\ProfileInterface' => __DIR__ . '/..' . '/predis/predis/src/Profile/ProfileInterface.php',
+        'Predis\\Profile\\RedisProfile' => __DIR__ . '/..' . '/predis/predis/src/Profile/RedisProfile.php',
+        'Predis\\Profile\\RedisUnstable' => __DIR__ . '/..' . '/predis/predis/src/Profile/RedisUnstable.php',
+        'Predis\\Profile\\RedisVersion200' => __DIR__ . '/..' . '/predis/predis/src/Profile/RedisVersion200.php',
+        'Predis\\Profile\\RedisVersion220' => __DIR__ . '/..' . '/predis/predis/src/Profile/RedisVersion220.php',
+        'Predis\\Profile\\RedisVersion240' => __DIR__ . '/..' . '/predis/predis/src/Profile/RedisVersion240.php',
+        'Predis\\Profile\\RedisVersion260' => __DIR__ . '/..' . '/predis/predis/src/Profile/RedisVersion260.php',
+        'Predis\\Profile\\RedisVersion280' => __DIR__ . '/..' . '/predis/predis/src/Profile/RedisVersion280.php',
+        'Predis\\Profile\\RedisVersion300' => __DIR__ . '/..' . '/predis/predis/src/Profile/RedisVersion300.php',
+        'Predis\\Profile\\RedisVersion320' => __DIR__ . '/..' . '/predis/predis/src/Profile/RedisVersion320.php',
+        'Predis\\Protocol\\ProtocolException' => __DIR__ . '/..' . '/predis/predis/src/Protocol/ProtocolException.php',
+        'Predis\\Protocol\\ProtocolProcessorInterface' => __DIR__ . '/..' . '/predis/predis/src/Protocol/ProtocolProcessorInterface.php',
+        'Predis\\Protocol\\RequestSerializerInterface' => __DIR__ . '/..' . '/predis/predis/src/Protocol/RequestSerializerInterface.php',
+        'Predis\\Protocol\\ResponseReaderInterface' => __DIR__ . '/..' . '/predis/predis/src/Protocol/ResponseReaderInterface.php',
+        'Predis\\Protocol\\Text\\CompositeProtocolProcessor' => __DIR__ . '/..' . '/predis/predis/src/Protocol/Text/CompositeProtocolProcessor.php',
+        'Predis\\Protocol\\Text\\Handler\\BulkResponse' => __DIR__ . '/..' . '/predis/predis/src/Protocol/Text/Handler/BulkResponse.php',
+        'Predis\\Protocol\\Text\\Handler\\ErrorResponse' => __DIR__ . '/..' . '/predis/predis/src/Protocol/Text/Handler/ErrorResponse.php',
+        'Predis\\Protocol\\Text\\Handler\\IntegerResponse' => __DIR__ . '/..' . '/predis/predis/src/Protocol/Text/Handler/IntegerResponse.php',
+        'Predis\\Protocol\\Text\\Handler\\MultiBulkResponse' => __DIR__ . '/..' . '/predis/predis/src/Protocol/Text/Handler/MultiBulkResponse.php',
+        'Predis\\Protocol\\Text\\Handler\\ResponseHandlerInterface' => __DIR__ . '/..' . '/predis/predis/src/Protocol/Text/Handler/ResponseHandlerInterface.php',
+        'Predis\\Protocol\\Text\\Handler\\StatusResponse' => __DIR__ . '/..' . '/predis/predis/src/Protocol/Text/Handler/StatusResponse.php',
+        'Predis\\Protocol\\Text\\Handler\\StreamableMultiBulkResponse' => __DIR__ . '/..' . '/predis/predis/src/Protocol/Text/Handler/StreamableMultiBulkResponse.php',
+        'Predis\\Protocol\\Text\\ProtocolProcessor' => __DIR__ . '/..' . '/predis/predis/src/Protocol/Text/ProtocolProcessor.php',
+        'Predis\\Protocol\\Text\\RequestSerializer' => __DIR__ . '/..' . '/predis/predis/src/Protocol/Text/RequestSerializer.php',
+        'Predis\\Protocol\\Text\\ResponseReader' => __DIR__ . '/..' . '/predis/predis/src/Protocol/Text/ResponseReader.php',
+        'Predis\\PubSub\\AbstractConsumer' => __DIR__ . '/..' . '/predis/predis/src/PubSub/AbstractConsumer.php',
+        'Predis\\PubSub\\Consumer' => __DIR__ . '/..' . '/predis/predis/src/PubSub/Consumer.php',
+        'Predis\\PubSub\\DispatcherLoop' => __DIR__ . '/..' . '/predis/predis/src/PubSub/DispatcherLoop.php',
+        'Predis\\Replication\\MissingMasterException' => __DIR__ . '/..' . '/predis/predis/src/Replication/MissingMasterException.php',
+        'Predis\\Replication\\ReplicationStrategy' => __DIR__ . '/..' . '/predis/predis/src/Replication/ReplicationStrategy.php',
+        'Predis\\Replication\\RoleException' => __DIR__ . '/..' . '/predis/predis/src/Replication/RoleException.php',
+        'Predis\\Response\\Error' => __DIR__ . '/..' . '/predis/predis/src/Response/Error.php',
+        'Predis\\Response\\ErrorInterface' => __DIR__ . '/..' . '/predis/predis/src/Response/ErrorInterface.php',
+        'Predis\\Response\\Iterator\\MultiBulk' => __DIR__ . '/..' . '/predis/predis/src/Response/Iterator/MultiBulk.php',
+        'Predis\\Response\\Iterator\\MultiBulkIterator' => __DIR__ . '/..' . '/predis/predis/src/Response/Iterator/MultiBulkIterator.php',
+        'Predis\\Response\\Iterator\\MultiBulkTuple' => __DIR__ . '/..' . '/predis/predis/src/Response/Iterator/MultiBulkTuple.php',
+        'Predis\\Response\\ResponseInterface' => __DIR__ . '/..' . '/predis/predis/src/Response/ResponseInterface.php',
+        'Predis\\Response\\ServerException' => __DIR__ . '/..' . '/predis/predis/src/Response/ServerException.php',
+        'Predis\\Response\\Status' => __DIR__ . '/..' . '/predis/predis/src/Response/Status.php',
+        'Predis\\Session\\Handler' => __DIR__ . '/..' . '/predis/predis/src/Session/Handler.php',
+        'Predis\\Transaction\\AbortedMultiExecException' => __DIR__ . '/..' . '/predis/predis/src/Transaction/AbortedMultiExecException.php',
+        'Predis\\Transaction\\MultiExec' => __DIR__ . '/..' . '/predis/predis/src/Transaction/MultiExec.php',
+        'Predis\\Transaction\\MultiExecState' => __DIR__ . '/..' . '/predis/predis/src/Transaction/MultiExecState.php',
         'Prophecy\\Argument' => __DIR__ . '/..' . '/phpspec/prophecy/src/Prophecy/Argument.php',
         'Prophecy\\Argument\\ArgumentsWildcard' => __DIR__ . '/..' . '/phpspec/prophecy/src/Prophecy/Argument/ArgumentsWildcard.php',
         'Prophecy\\Argument\\Token\\AnyValueToken' => __DIR__ . '/..' . '/phpspec/prophecy/src/Prophecy/Argument/Token/AnyValueToken.php',
@@ -3718,6 +4198,13 @@ class ComposerStaticInit3be929a50a6529bc9bb0534e0bce8239
         'Psr\\Container\\ContainerExceptionInterface' => __DIR__ . '/..' . '/psr/container/src/ContainerExceptionInterface.php',
         'Psr\\Container\\ContainerInterface' => __DIR__ . '/..' . '/psr/container/src/ContainerInterface.php',
         'Psr\\Container\\NotFoundExceptionInterface' => __DIR__ . '/..' . '/psr/container/src/NotFoundExceptionInterface.php',
+        'Psr\\Http\\Message\\MessageInterface' => __DIR__ . '/..' . '/psr/http-message/src/MessageInterface.php',
+        'Psr\\Http\\Message\\RequestInterface' => __DIR__ . '/..' . '/psr/http-message/src/RequestInterface.php',
+        'Psr\\Http\\Message\\ResponseInterface' => __DIR__ . '/..' . '/psr/http-message/src/ResponseInterface.php',
+        'Psr\\Http\\Message\\ServerRequestInterface' => __DIR__ . '/..' . '/psr/http-message/src/ServerRequestInterface.php',
+        'Psr\\Http\\Message\\StreamInterface' => __DIR__ . '/..' . '/psr/http-message/src/StreamInterface.php',
+        'Psr\\Http\\Message\\UploadedFileInterface' => __DIR__ . '/..' . '/psr/http-message/src/UploadedFileInterface.php',
+        'Psr\\Http\\Message\\UriInterface' => __DIR__ . '/..' . '/psr/http-message/src/UriInterface.php',
         'Psr\\Log\\AbstractLogger' => __DIR__ . '/..' . '/psr/log/Psr/Log/AbstractLogger.php',
         'Psr\\Log\\InvalidArgumentException' => __DIR__ . '/..' . '/psr/log/Psr/Log/InvalidArgumentException.php',
         'Psr\\Log\\LogLevel' => __DIR__ . '/..' . '/psr/log/Psr/Log/LogLevel.php',
@@ -3870,6 +4357,11 @@ class ComposerStaticInit3be929a50a6529bc9bb0534e0bce8239
         'Psy\\VersionUpdater\\GitHubChecker' => __DIR__ . '/..' . '/psy/psysh/src/VersionUpdater/GitHubChecker.php',
         'Psy\\VersionUpdater\\IntervalChecker' => __DIR__ . '/..' . '/psy/psysh/src/VersionUpdater/IntervalChecker.php',
         'Psy\\VersionUpdater\\NoopChecker' => __DIR__ . '/..' . '/psy/psysh/src/VersionUpdater/NoopChecker.php',
+        'Pusher\\Pusher' => __DIR__ . '/..' . '/pusher/pusher-php-server/src/Pusher.php',
+        'Pusher\\PusherCrypto' => __DIR__ . '/..' . '/pusher/pusher-php-server/src/PusherCrypto.php',
+        'Pusher\\PusherException' => __DIR__ . '/..' . '/pusher/pusher-php-server/src/PusherException.php',
+        'Pusher\\PusherInstance' => __DIR__ . '/..' . '/pusher/pusher-php-server/src/PusherInstance.php',
+        'Pusher\\Webhook' => __DIR__ . '/..' . '/pusher/pusher-php-server/src/Webhook.php',
         'Ramsey\\Uuid\\BinaryUtils' => __DIR__ . '/..' . '/ramsey/uuid/src/BinaryUtils.php',
         'Ramsey\\Uuid\\Builder\\DefaultUuidBuilder' => __DIR__ . '/..' . '/ramsey/uuid/src/Builder/DefaultUuidBuilder.php',
         'Ramsey\\Uuid\\Builder\\DegradedUuidBuilder' => __DIR__ . '/..' . '/ramsey/uuid/src/Builder/DegradedUuidBuilder.php',
@@ -4036,6 +4528,13 @@ class ComposerStaticInit3be929a50a6529bc9bb0534e0bce8239
         'Spatie\\Feed\\Helpers\\Path' => __DIR__ . '/..' . '/spatie/laravel-feed/src/Helpers/Path.php',
         'Spatie\\Feed\\Http\\FeedController' => __DIR__ . '/..' . '/spatie/laravel-feed/src/Http/FeedController.php',
         'Spatie\\Feed\\ResolveFeedItems' => __DIR__ . '/..' . '/spatie/laravel-feed/src/ResolveFeedItems.php',
+        'Spatie\\Newsletter\\Exceptions\\InvalidNewsletterList' => __DIR__ . '/..' . '/spatie/laravel-newsletter/src/Exceptions/InvalidNewsletterList.php',
+        'Spatie\\Newsletter\\Newsletter' => __DIR__ . '/..' . '/spatie/laravel-newsletter/src/Newsletter.php',
+        'Spatie\\Newsletter\\NewsletterFacade' => __DIR__ . '/..' . '/spatie/laravel-newsletter/src/NewsletterFacade.php',
+        'Spatie\\Newsletter\\NewsletterList' => __DIR__ . '/..' . '/spatie/laravel-newsletter/src/NewsletterList.php',
+        'Spatie\\Newsletter\\NewsletterListCollection' => __DIR__ . '/..' . '/spatie/laravel-newsletter/src/NewsletterListCollection.php',
+        'Spatie\\Newsletter\\NewsletterServiceProvider' => __DIR__ . '/..' . '/spatie/laravel-newsletter/src/NewsletterServiceProvider.php',
+        'Spatie\\Newsletter\\NullDriver' => __DIR__ . '/..' . '/spatie/laravel-newsletter/src/NullDriver.php',
         'Symfony\\Component\\Console\\Application' => __DIR__ . '/..' . '/symfony/console/Application.php',
         'Symfony\\Component\\Console\\CommandLoader\\CommandLoaderInterface' => __DIR__ . '/..' . '/symfony/console/CommandLoader/CommandLoaderInterface.php',
         'Symfony\\Component\\Console\\CommandLoader\\ContainerCommandLoader' => __DIR__ . '/..' . '/symfony/console/CommandLoader/ContainerCommandLoader.php',
@@ -4761,9 +5260,13 @@ class ComposerStaticInit3be929a50a6529bc9bb0534e0bce8239
         'Tests\\Browser\\ExampleTest' => __DIR__ . '/../..' . '/tests/Browser/ExampleTest.php',
         'Tests\\Browser\\Pages\\HomePage' => __DIR__ . '/../..' . '/tests/Browser/Pages/HomePage.php',
         'Tests\\Browser\\Pages\\Page' => __DIR__ . '/../..' . '/tests/Browser/Pages/Page.php',
+        'Tests\\Browser\\Test' => __DIR__ . '/../..' . '/tests/Browser/ManagersAccessWithoutLogin.php',
         'Tests\\CreatesApplication' => __DIR__ . '/../..' . '/tests/CreatesApplication.php',
         'Tests\\DuskTestCase' => __DIR__ . '/../..' . '/tests/DuskTestCase.php',
+        'Tests\\Feature\\CompanyController' => __DIR__ . '/../..' . '/tests/Feature/CompanyController.php',
         'Tests\\Feature\\ExampleTest' => __DIR__ . '/../..' . '/tests/Feature/ExampleTest.php',
+        'Tests\\Feature\\Test' => __DIR__ . '/../..' . '/tests/Feature/Test.php',
+        'Tests\\Feature\\UserController' => __DIR__ . '/../..' . '/tests/Feature/UserController.php',
         'Tests\\TestCase' => __DIR__ . '/../..' . '/tests/TestCasecp.php',
         'Tests\\Unit\\ExampleTest' => __DIR__ . '/../..' . '/tests/Unit/ExampleTest.php',
         'Text_Template' => __DIR__ . '/..' . '/phpunit/php-text-template/src/Template.php',

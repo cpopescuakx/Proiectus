@@ -8,6 +8,7 @@ use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use App\Invite;
 
 class RegisterController extends Controller
 {
@@ -64,6 +65,9 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+      $invite = Invite::where('token', $data['token'])->first();
+      $invite->delete();
+
         return User::create([
             'username' => $data['username'],
             'email' => $data['email'],
@@ -72,4 +76,5 @@ class RegisterController extends Controller
             'pending_entity_verification' => false
         ]);
     }
+
 }

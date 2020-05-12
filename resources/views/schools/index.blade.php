@@ -4,6 +4,8 @@
 @mapstyles
 
 <div class="col">
+  <br></br>
+  <h3 class="align-middle">GESTIÓ D'ESCOLES</h3>
    <div class="row d-flex justify-content-end p-4">
       <a href="{{ route('schools.create') }}"><img src={{ asset('img/add.svg') }} width="45" height="45"></a>
    </div>
@@ -41,7 +43,7 @@
             <a href="{{route('schoolsUsers.manager', $school->id_school)}}"><i style="color: #116466; height: 20px;" class="material-icons large align-bottom mr-2">person_add</i></a>
             <a href="{{ route('schools.edit',$school->id_school)}}"><img src={{ asset('img/edit.svg') }} width="20" height="20" class="mr-2"></a>
             @if($school->status == "active")
-               <a data-toggle="modal" data-target="#deleteConfirmationModal"><img src={{ asset('img/delete.svg') }} width="20" height="20" alt="icona per a eliminar"></a>           
+               <a data-toggle="modal" data-target="#deleteConfirmationModal"><img src={{ asset('img/delete.svg') }} width="20" height="20" alt="icona per a eliminar"></a>
             @endif
          </td>
       </tr>
@@ -102,7 +104,7 @@
          position: insBerenguer,
          map: map,
          title: 'Institut Ramon Berenguer'
-         });  
+         });
          var marker4 = new google.maps.Marker({
          position: insTecnificacio,
          map: map,
@@ -110,5 +112,6 @@
          });
       }
    </script>
+ </div>
 @mapscripts
 @stop

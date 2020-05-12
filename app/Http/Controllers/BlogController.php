@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Blog;
 use App\Post;
 use App\User;
+use Illuminate\Support\Facades\Log;
 
 class BlogController extends Controller
 {
@@ -39,16 +40,17 @@ class BlogController extends Controller
     public function edit($id_project)
     {
       $blog = Blog::find($id_project);
-      return view('Blog.edit', compact('blogs', 'id_project'));
+      return view('Blog.edit', compact('blog', 'id_project'));
     }
 
     /**
-     * Actualitza el títol de la blog i retorna la vista d'aquesta.
+     * Actualitza el títol del blog i retorna la vista d'aquesta.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id_project
-     * @var blog variable que busca la blog per el paràmetre id_project, canvia el títol d'aquesta i ho guarda
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id_project
+     * @var blog variable que busca la blog per el paràmetre id_project, canvia el títol d'aquesta i ho guarda.
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @throws \Illuminate\Validation\ValidationException
      */
     public function update(Request $request, $id_project)
     {
@@ -56,10 +58,12 @@ class BlogController extends Controller
             'title'    =>  'required'
         ]);
         $blog = Blog::find($id_project);
+        $oldBlog = Blog::find($id_project);
         $blog->title = $request->get('title');
         $blog->id_project = $id_project;
-
         $blog->save();
+
+        Log::info('[ UPDATE ] - blogs - El blog: '. $oldBlog->title .' ha estat actualitzat a: '. $blog->title .' per: '.auth()->user()->id.'.');
 
         return redirect()->action('ProjectController@show', ['id_project' => $id_project]);
     }

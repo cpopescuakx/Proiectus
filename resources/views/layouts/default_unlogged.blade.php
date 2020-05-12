@@ -4,18 +4,18 @@
 	</head>
 	<body>
 		<header class="row">
-				@include('includes.header_unlogged')
+			@include('includes.header_unlogged')
 		</header>
 	<div>
 
 	   <div id="main" >
-	           @yield('content')
+	        @yield('content')
 	   </div>
 
 	</div>
 	<div id="footerBO">
-			@include('includes.footer_unlogged')
+		@include('includes.footer_unlogged')
 	</div>
+		@include('includes.footer-scripts') <!-- Los scripts van antes de cerrar el body -->
 	</body>
-	@include('includes.footer-scripts')
 </html>

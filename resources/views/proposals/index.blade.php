@@ -2,15 +2,15 @@
 
 @section('content')
 <div class="col">
-  <div class="row d-flex p-4 justify-content-between">
+  <div class="row d-flex justify-content-between">
     <!-- Filtro -->
-    <nav class="navbar navbar-light">
+    <nav class="navbar navbar-light mb-3">
         <form class="form-inline">
-        <h4 style="margin-right: 1rem">Llistat Propostes</h4>
+            <h4 style="margin-right: 1rem">Llistat Propostes</h4>
             <select name="tipo" class="custom-select mr-2">
                 <option value="active" selected>Actives</option>
                 <option value="inactive">Inactives</option>
-              </select>
+            </select>
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Cercar</button>
         </form>
       </nav>
@@ -26,7 +26,7 @@
             <td class="font-weight-bold">Descripció</td>
             <td class="font-weight-bold">Categoria</td>
             <td class="font-weight-bold">Familia professional</td>
-            <td class="font-weight-bold" colspan="2">Accions</td>
+            <td class="font-weight-bold">Accions</td>
         </tr>
     </thead>
 
@@ -41,24 +41,14 @@
         @foreach($proposals as $proposal)
 
         <tr>
-            @if($proposal->status == "active")
-                <td>{{ $proposal->name }}</td>
+                <td><a href="{{ route('proposals.show', $proposal->id_proposal) }}">{{ $proposal->name }}</a></td>
                 <td>{{ date('d/m/Y', strtotime($proposal->created_at)) }}</td> <!-- Cambio en el formato de fecha -->
                 <td>{{ date('d/m/Y', strtotime($proposal->limit_date)) }}</td>
                 <td>{{ $proposal->description }}</td>
                 <td>{{ $proposal->category }}</td>
                 <td>{{ $proposal->professional_family }}</td>
 
-            <!-- Texto oscurecido para propuestas inactivas-->
-            @else
-                <td class="text-secondary">{{ $proposal->name }}</td>
-                <td class="text-secondary">{{ date('d/m/Y', strtotime($proposal->created_at)) }}</td> <!-- Cambio en el formato de fecha -->
-                <td class="text-secondary">{{ date('d/m/Y', strtotime($proposal->limit_date)) }}</td>
-                <td class="text-secondary">{{ $proposal->description }}</td>
-                <td class="text-secondary">{{ $proposal->category }}</td>
-                <td class="text-secondary">{{ $proposal->professional_family }}</td>
-            @endif
-                <td>
+                <td class="d-inline-flex">
                     <a href="{{ route('proposals.edit', [$proposal->id_proposal])}}"><i class="material-icons text-dark" data-toggle="tooltip" title="Editar proposta">create</i></a>
                     @if($proposal->status == "active")
                     <a href="{{ route('proposals.inactive', [$proposal->id_proposal]) }}"><i class="material-icons text-dark" data-toggle="tooltip" title="Posar inactiva">visibility</i></a>

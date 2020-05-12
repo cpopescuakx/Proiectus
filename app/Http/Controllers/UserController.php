@@ -9,10 +9,17 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\CityController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 use Response;
 use Validator;
 use Illuminate\Support\Facades\Log;
-
+use Image;
+use Auth;
+use App\Invite;
+use App\Url;
+use App\Jobs\ProcessCSV;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
@@ -22,10 +29,58 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function index()
-    {
+    public function index(){
         //
     }
+
+    //Invitació d'USUARIS
+    public function __construct(){
+    $this->middleware('auth')->except('registration_view');
+    }
+
+    public function indexInvitacio(){
+      $users = Invite::all();
+          return view('UserInvitation.index', ['users' => $users]);
+    }
+
+    public function invite_view(){
+    return view('UserInvitation.invite');
+    }
+
+    public function process_invites(Request $request){
+    $validator = Validator::make($request->all(), [
+        'email' => 'required|email|unique:users,email'
+    ]);
+    $validator->after(function ($validator) use ($request) {
+        if (Invite::where('email', $request->input('email'))->exists()) {
+            $validator->errors()->add('email', 'Ja existeix una invitació amb aquest correu!');
+        }
+    });
+    if ($validator->fails()) {
+        return redirect(route('invite_view'))
+            ->withErrors($validator)
+            ->withInput();
+    }
+    do {
+        $token = Str::random(20);
+    } while (Invite::where('token', $token)->first());
+    Invite::create([
+        'token' => $token,
+        'email' => $request->input('email')
+    ]);
+    $url = URL::temporarySignedRoute(
+
+        'registration', now()->addMinutes(300), ['token' => $token]
+    );
+    Notification::route('mail', $request->input('email'))->notify(new InviteNotification($url));
+    return redirect('/UserInvitation')->with('success', "La invitació s'ha enviat correctament");
+    }
+
+    public function registration_view($token){
+    $invite = Invite::where('token', $token)->first();
+    return view('auth.register',['invite' => $invite]);
+    }
+
 
     //Mostrar dades al perfil del usuari
     public function indexProfile($id){
@@ -60,8 +115,6 @@ class UserController extends Controller
         $managers -> password = $request->input('password');
         $nom = $request->input('city');
         $managers -> id_city = CityController::agafarID($nom);
-        $managers -> profile_pic = "Res";
-        $managers -> bio = "Res";
         $managers -> status = $request->input('status');
 
         // Guardar el gestor a la BBDD amb les noves dades
@@ -73,11 +126,43 @@ class UserController extends Controller
 
         return redirect()->route('managers.indexP1',compact('managers', 'id'));
     }
+
+    public function updateProfilePic(Request $request){
+      $id = Auth::user()->id;
+      if($request->hasFile('profile_pic')){
+        $profile_pic = $request->file('profile_pic');
+        $nom = time() . '.' . $profile_pic->getClientOriginalExtension();
+    		Image::make($profile_pic)->resize('resizeCrop,200,200,center,middle')->save( public_path('\img\profile_pic\imatge' . $nom ) );
+
+    		$managers = User::find($id);
+    		$managers->profile_pic = $nom;
+    		$managers->save();
+      }
+      return back()
+            ->with('Completat',"Has actualitzat l'imatge.");
+
+    }
+
+    public function updateLogoPic(Request $request){
+      $id = Auth::user()->id;
+      if($request->hasFile('logo_entity')){
+        $logo_entity = $request->file('logo_entity');
+        $nomlogo = time() . '.' . $logo_entity->getClientOriginalExtension();
+    		Image::make($logo_entity)->resize(300, 300)->save( public_path('\img\logo_pic\logo' . $nomlogo ) );
+
+    		$managers = User::find($id);
+    		$managers->logo_entity = $nomlogo;
+    		$managers->save();
+      }
+      return back()
+            ->with('Completat',"Has actualitzat l'imatge.");
+
+    }
     /** DESACTIVAR MANAGER
      *
      *  Cambia a estado inactivo a un determinado manager
      *
-     *  @author cmasana 
+     *  @author cmasana
      *  @param id
      *  @var user
      *  @return view index.index (Página inicio)
@@ -96,7 +181,7 @@ class UserController extends Controller
      *
      *  Cambia a estado activo a un determinado manager
      *
-     *  @author cmasana 
+     *  @author cmasana
      *  @param id
      *  @var user
      *  @return view managers.indexP1 (Página perfil)
@@ -169,8 +254,6 @@ class UserController extends Controller
         $manager -> password = $request->input('password');
         $postalcode = $request->input('city');
         $manager -> id_city = CityController::getIdFromPostalCode($postalcode);
-        $manager -> profile_pic = "Res";
-        $manager -> bio = "Res";
         $manager -> id_role = 5;
         $manager -> status = "active";
 
@@ -229,8 +312,6 @@ class UserController extends Controller
         $managers -> password = $request->input('password');
         $nom = $request->input('city');
         $managers -> id_city = CityController::agafarID($nom);
-        $managers -> profile_pic = "Res";
-        $managers -> bio = "Res";
         $managers -> id_role = 5;
         $managers -> status = $request->input('status');
 
@@ -307,7 +388,7 @@ class UserController extends Controller
     public function storeStudent(Request $request)
     {
         //dd($request);
-        
+
         DB::transaction(function() use ($request){
             // Instanciar
             $student = new User;
@@ -322,8 +403,6 @@ class UserController extends Controller
             $student -> password = Hash::make($request->input('password'));
             $postalcode = $request->input('city');
             $student -> id_city = CityController::getIdFromPostalCode($postalcode);
-            $student -> profile_pic = "Res";
-            $student -> bio = "Res";
             $student -> id_role = 3;
             $student -> status = "active";
 
@@ -395,8 +474,6 @@ class UserController extends Controller
         }
         $postalcode = $request->input('city');
         $students -> id_city = CityController::getIdFromPostalCode($postalcode);
-        $students -> profile_pic = "Res";
-        $students -> bio = "Res";
         $students -> id_role = 3;
         $students -> status = $request->input('status');
 
@@ -456,7 +533,7 @@ class UserController extends Controller
 
     /**
      * Retorna la vista del formulari per a importar alumnes.
-     * 
+     *
      */
 
     public function indexImportStudents () {
@@ -465,7 +542,7 @@ class UserController extends Controller
 
     /** IMPORT STUDENTS
      *  Acció que serveix per a importar alumnes des de un fitxer CSV.
-     * 
+     *
      */
 
     public function importStudents (Request $request) {
@@ -493,14 +570,14 @@ class UserController extends Controller
                 $num = count($dadesCsv);
 
                 for ($c=0; $c < $num; $c++) {
-                    
+
                     $importArr[$i][] = $dadesCsv [$c];
-                    
+
                 }
 
                 $i++;
             }
-            
+
             fclose($fileO);
 
             foreach ($importArr as $import) {
@@ -515,8 +592,6 @@ class UserController extends Controller
                 $student -> password = Hash::make($import[5]);
                 $postalcode = $import[6];
                 $student -> id_city = CityController::getIdFromPostalCode($postalcode);
-                $student -> profile_pic = "Res";
-                $student -> bio = "Res";
                 $student -> id_role = 3;
                 $student -> status = "active";
                 $student -> save();
@@ -574,8 +649,6 @@ class UserController extends Controller
         $professor -> password = $request->input('password');
         $nom = $request->input('city');
         $professor -> id_city = CityController::agafarID($nom);
-        $professor -> profile_pic = "Res";
-        $professor -> bio = "Res";
         $professor -> id_role = 4;
         $professor -> status = "active";
 
@@ -630,8 +703,6 @@ class UserController extends Controller
         $professor -> password = $request->input('password');
         $nom = $request->input('city');
         $professor -> id_city = CityController::agafarID($nom);
-        $professor -> profile_pic = "Res";
-        $professor -> bio = "Res";
         $professor -> id_role = 4;
         $professor -> status = $request->input('status');
 
@@ -665,6 +736,75 @@ class UserController extends Controller
         return redirect()->route('professors.index',compact('professors'))
         ->with('i', (request()->input('page', 1) -1));
     }
+
+    /** EXPORT PROFESSORS
+     *
+     *  Acció que serveix per a exportar professors en un fitxer CSV.
+     */
+    public function exportCSVProfessors() {
+        $professors = User::where('id_role',4)->get();
+        $filename = "professors.csv";
+
+        $callback = function () use ($professors) {
+            $handle = fopen('php://output', 'w');
+
+            foreach ($professors as $professor) {
+                fputcsv($handle, array(
+                    $professor['firstname'], $professor['lastname'], $professor['username'], $professor['profile_pic'],
+                    $professor['email'], $professor['email_verified_at'], $professor['id_city'], $professor['bio'], $professor['id_role'],
+                    $professor['dni'], $professor['birthdate'], $professor['status'], $professor['pending_entity_registration'],
+                    $professor['pending_entity_verification'], $professor['logo_entity']
+                ), ';');
+            }
+            Log::info(Auth::user()->username . ' - [ EXPORT ] - users - Professors');
+            fclose($handle);
+        };
+
+
+        $headers = array(
+            'Content-Type' => 'text/csv',
+            'Content-Disposition'   => "attachment; filename=$filename"
+        );
+
+        return Response::stream($callback, 200, $headers);
+    }
+
+    /**
+     * Retorna la vista del formulari per a importar i exportar professors.
+     *
+     */
+    public function indexCSVProfessors() {
+        return view('professors.csv');
+    }
+
+    /** IMPORT PROFESSORS
+     *  Acció que serveix per a importar professors des de un fitxer CSV.
+     *
+     */
+
+    public function importCSVProfessors (Request $request) {
+            // Comprova que el fitxer és un .csv
+            $validate = Validator::make(
+                [
+                    'file' => $request->file,
+                    'extension' => strtolower($request->file->getClientOriginalExtension()),
+                ],
+                [
+                    'file' => 'required',
+                    'extension' => 'required|in:csv',
+                ]
+            );
+
+            if($validate->passes()) {
+                ProcessCSV::dispatch($request, Auth::user())->delay(now()->addSeconds(5));
+                return redirect()->back();
+            }
+            else {
+                return redirect()->back()->with(['errors' => $validate->errors()->all()]);
+            }
+
+        }
+
 
     /** LLISTAR EMPLEATS
      *
@@ -757,7 +897,6 @@ class UserController extends Controller
         $employee -> password = $request->input('password');
         $nom = $request->input('city');
         $employee -> id_city = CityController::agafarID($nom);
-        $employee -> profile_pic = "Res";
         $employee-> bio = $request->input('bio');
         $employee -> id_role = 2;
 
@@ -795,7 +934,6 @@ class UserController extends Controller
         $employee-> password = $request->input('password');
         $nom = $request->input('city');
         $employee-> id_city = CityController::agafarID($nom);
-        $employee-> profile_pic = "Res";
         $employee-> bio = $request->input('bio');
         $employee-> id_role = 2;
         $employee-> status = "active";
@@ -826,6 +964,131 @@ class UserController extends Controller
 
         return redirect()->route('employee.index',compact('employees'))
         ->with('i', (request()->input('page', 1) -1));
+    }
+
+    public function indexCSVEmpleats() {
+        return view('employees.csv');
+    }
+
+    public function importCSVEmployees (Request $request) {
+        // Comprova que el fitxer és un .csv
+        $validate = Validator::make(
+            [
+                'file' => $request->file,
+                'extension' => strtolower($request->file->getClientOriginalExtension()),
+            ],
+            [
+                'file' => 'required',
+                'extension' => 'required|in:csv',
+            ]
+        );
+
+        if($validate->passes()) {
+            ProcessCSV::dispatch($request, Auth::user())->delay(now()->addSeconds(5));
+            return redirect()->back();
+        }
+        else {
+            return redirect()->back()->with(['errors' => $validate->errors()->all()]);
+        }
+
+    }
+
+    public function exportCSVEmployees() {
+        $employees = User::where('id_role',2)->get();
+        $filename = "empleats.csv";
+
+        $callback = function () use ($employees) {
+            $handle = fopen('php://output', 'w');
+            fputcsv($handle, array(
+                'firstname', 'lastname', 'username', 'profile_pic', 'email', 'email_verified_at', 'id_city', 'bio', 'id_role', 'dni', 'birthdate',
+                'status', 'pending_entity_registration', 'pending_entity_verification', 'logo_entity'
+            ), ';');
+
+            foreach ($employees as $employee) {
+                fputcsv($handle, array(
+                    $employee['firstname'], $employee['lastname'], $employee['username'], $employee['profile_pic'],
+                    $employee['email'], $employee['email_verified_at'], $employee['id_city'], $employee['bio'], $employee['id_role'],
+                    $employee['dni'], $employee['birthdate'], $employee['status'], $employee['pending_entity_registration'],
+                    $employee['pending_entity_verification'], $employee['logo_entity']
+                ), ';');
+            }
+            Log::info(Auth::user()->username . ' - [ EXPORT ] - users - Empleats');
+            fclose($handle);
+        };
+
+
+        $headers = array(
+            'Content-Type' => 'text/csv',
+            'Content-Disposition'   => "attachment; filename=$filename"
+        );
+
+        return Response::stream($callback, 200, $headers);
+    }
+
+    /*CSV gestors*/
+
+    public function indexCSVManagers() {
+        return view('managers.csv');
+    }
+
+    /*Exportar gestors*/
+
+    public function exportCSVManagers() {
+        $managers = User::where('id_role',5)->get();
+        $filename = "gestors.csv";
+
+        $callback = function () use ($managers) {
+            $handle = fopen('php://output', 'w');
+            fputcsv($handle, array(
+                'firstname', 'lastname', 'username', 'profile_pic', 'email', 'email_verified_at', 'id_city', 'bio', 'id_role', 'dni', 'birthdate',
+                'status', 'pending_entity_registration', 'pending_entity_verification', 'logo_entity'
+            ), ';');
+
+            foreach ($managers as $manager) {
+                fputcsv($handle, array(
+                    $manager['firstname'], $manager['lastname'], $manager['username'], $manager['profile_pic'],
+                    $manager['email'], $manager['email_verified_at'], $manager['id_city'], $manager['bio'], $manager['id_role'],
+                    $manager['dni'], $manager['birthdate'], $manager['status'], $manager['pending_entity_registration'],
+                    $manager['pending_entity_verification'], $manager['logo_entity']
+                ), ';');
+            }
+            Log::info(Auth::user()->username . ' - [ EXPORT ] - users - Gestors');
+            fclose($handle);
+        };
+
+
+        $headers = array(
+            'Content-Type' => 'text/csv',
+            'Content-Disposition'   => "attachment; filename=$filename"
+        );
+
+        return Response::stream($callback, 200, $headers);
+    }
+
+
+    /*Importar gestors*/
+
+    public function importCSVManagers (Request $request) {
+        // Comprova que el fitxer és un .csv
+        $validate = Validator::make(
+            [
+                'file' => $request->file,
+                'extension' => strtolower($request->file->getClientOriginalExtension()),
+            ],
+            [
+                'file' => 'required',
+                'extension' => 'required|in:csv',
+            ]
+        );
+
+        if($validate->passes()) {
+            ProcessCSV::dispatch($request, Auth::user())->delay(now()->addSeconds(5));
+            return redirect()->back();
+        }
+        else {
+            return redirect()->back()->with(['errors' => $validate->errors()->all()]);
+        }
+
     }
 
     /**

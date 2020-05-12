@@ -1,4 +1,24 @@
 /* Estilo botones */
+#content {
+  margin: auto;
+  width:100%;
+  height: fit-content;
+}
+#footerBO {
+  height: 2rem;
+  width: 100%;
+  /* position: absolute; */
+  bottom: 0;
+}
+.foto-perfil {
+  height: 35px;
+  width: 35px;
+  border-radius: 20px;
+}
+.wrapper {
+  position: relative;
+  min-height: fit-content;
+}
 .active {
   color: #FFCB9A;
 }
@@ -402,6 +422,7 @@ a:hover {
 
 .fondo-footer {
   background-color: white;
+
 }
 
 .social_icon2 ul {

@@ -6,7 +6,7 @@
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
                 <h2>Crear Article</h2>
-                </br>
+                <br>
             </div>
         </div>
     </div>

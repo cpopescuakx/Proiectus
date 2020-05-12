@@ -4,7 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Proposal;
+use App\Tag;
+use App\Proposal_tag;
+use App\Project;
+use App\Blog;
+use App\Wiki;
+use App\User_project;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
+use DB;
 
 
 class ProposalController extends Controller
@@ -41,7 +49,8 @@ $this->middleware('auth');
 
     public function createProposal()
     {
-        return view('proposals.create');
+        $tags = Tag::All();
+        return view('proposals.create', compact('tags'));
     }
 
     /**
@@ -55,7 +64,12 @@ $this->middleware('auth');
         //
     }
 
-    //! TO-DO
+    /**
+     * Almacena una propuesta en la bbdd
+     * 
+     * @param  \Illuminate\Http\Request  $request
+     * @return view
+     */
     public function storeProposal(Request $request)
     {
         $request->validate([
@@ -65,11 +79,39 @@ $this->middleware('auth');
             'professional_family' => 'required'
         ]);
 
-        Proposal::create($request->all());
+        $proposal = new Proposal();
+
+        // Assignar els valors del formulari
+        $proposal -> name = $request->input('name');
+        $proposal -> limit_date = $request->input('limit_date');
+        $proposal -> description = $request->input('description');
+        $proposal -> professional_family = $request->input('professional_family');
+        $proposal -> category = $request->input('category');
+        $proposal -> id_author = Auth::user()->id;
+
+        $proposal->save();
+        
         Log::info($request->user()->username. ' - [ INSERT ] - proposals - Nova proposta: ' .$request -> name. ' inserida!');
+        
+        // AFEGIR TAGS A LES PROPOSTES
+
+        $proposta = Proposal::select('*')->where('name', $request->name)->where('status', 'active')->where('id_author', $proposal->id_author)->first();
+        
+        if($request->tags) {
+
+            foreach ($request->tags as $tag) {
+
+                $proposalTags = new Proposal_tag;
+                $proposalTags->id_proposal = $proposta->id_proposal;
+                $proposalTags->id_tag = $tag;
+                $proposalTags->save();
+
+            }
+        }
+        
         return redirect()
                 ->route('proposals.index')
-                ->with('success','Proposal created successfully.');
+                ->with('success','Proposta creada correctament.');
     }
 
     /**
@@ -97,6 +139,27 @@ $this->middleware('auth');
     }
 
     /**
+     * Muestra un listado de todos los datos que se muestran en la vista de propuesta individual.
+     * @author cmasana
+     * @return Proposal
+     *
+     */
+    public function showDetails($id){
+
+        return response(Proposal::select(
+                                            'proposals.id_proposal', 'proposals.name', 'schools.name AS school_name', 'proposals.description',
+                                            'proposals.professional_family', 'proposals.category', 'proposals.created_at', 'proposals.limit_date', 'proposals.id_author',
+                                            'proposals.updated_at', 'users.username', 'users.logo_entity'
+                                        )
+                                        ->join('users', 'users.id', '=', 'proposals.id_author')
+                                        ->join('school_users', 'school_users.id_user', '=', 'users.id')
+                                        ->join('schools', 'schools.id_school', '=', 'school_users.id_school')
+                                        ->where('proposals.id_proposal', $id)
+                                        ->get()
+                                        ->jsonSerialize());
+    }
+
+    /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
@@ -115,8 +178,10 @@ $this->middleware('auth');
      *  @return \Illuminate\Http\Response
      */
     public function editProposal($id){
-      $proposal = Proposal::find($id);
-      return view('proposals.edit', compact('proposal'));
+        $proposal = Proposal::find($id);
+        $tagsActuals = Proposal_tag::select()->where('id_proposal', $id)->get();
+        $tags = Tag::orderBy('tag_name', 'ASC')->get();
+        return view('proposals.edit', compact('proposal', 'tagsActuals', 'tags'));
     }
 
     /**
@@ -141,27 +206,48 @@ $this->middleware('auth');
 
     public function updateProposal(Request $request)
     {
-              // Cercar la proposta amb la mateixa ID de la BBDD
-              $proposal = Proposal::find($request->input('id'));
-              $proposalVella = Proposal::find($request->input('id'));
-              
-              // Assignar els valors del formulari
-              $proposal -> name = $request->input('name');
-              $proposal -> limit_date = $request->input('limit_date');
-              $proposal -> description = $request->input('description');
-              $proposal -> professional_family = $request->input('professional_family');
+        // Cercar la proposta amb la mateixa ID de la BBDD
+        $proposal = Proposal::find($request->input('id'));
+        $proposalVella = Proposal::find($request->input('id'));
+        
+        // Assignar els valors del formulari
+        $proposal -> name = $request->input('name');
+        $proposal -> limit_date = $request->input('limit_date');
+        $proposal -> description = $request->input('description');
+        $proposal -> professional_family = $request->input('professional_family');
+        $proposal -> category = $request->input('category');
+        $proposal -> id_author = Auth::user()->id;
 
-              // Guardar la proposta a la BBDD amb les noves dades
-              $proposal -> save();
+        // Guardar la proposta a la BBDD amb les noves dades
+        $proposal -> save();
 
-              $tipo = $request->get('tipo');
-              $page = $request->input('page');
-              $proposals = Proposal::tipo($tipo)->paginate(5);
-              Log::info($request->user()->username. ' - [ UPDATE ] - proposals - Proposta: ' .$proposalVella -> name. ' modificada! - (' .$proposalVella -> name. ', ' .$proposalVella -> limit_date. ', ' .$proposalVella -> description. ', ' .$proposalVella -> professional_family. ' -> ' .$proposal -> name. ', ' .$proposal -> limit_date. ', ' .$proposal -> description. ', ' .$proposal -> professional_family. ').');
+        $tipo = $request->get('tipo');
+
+        $proposals = Proposal::tipo($tipo)->paginate(10);
+        Log::info($request->user()->username. ' - [ UPDATE ] - proposals - Proposta: ' .$proposalVella -> name. ' modificada! - (' .$proposalVella -> name. ', ' .$proposalVella -> limit_date. ', ' .$proposalVella -> description. ', ' .$proposalVella -> professional_family. ' -> ' .$proposal -> name. ', ' .$proposal -> limit_date. ', ' .$proposal -> description. ', ' .$proposal -> professional_family. ').');
+            
+        // AFEGIR TAGS A LES PROPOSTES
+
+        Proposal_tag::where('id_proposal', $proposal->id_proposal)->delete();
+
+        if($request->tags) {
+            foreach ($request->tags as $tag) {
+
+                $proposalTags = new Proposal_tag;
+                $proposalTags->id_proposal = $proposal->id_proposal;
+                $proposalTags->id_tag = $tag;
+                $proposalTags->save();
+    
+            }
+
+        }
 
 
-              return view('proposals.index', compact('proposals', 'page'));              // Tornar a la llista de propostes
+            return redirect()
+            ->route('proposals.index')
+            ->with('success','Proposta actualitzada correctament.');
      }
+
 
     /** BAIXA PROPOSTA
      *
@@ -181,7 +267,7 @@ $this->middleware('auth');
         Log::info($request->user()->username. ' - [ UPDATE ] - proposals - Proposta: ' .$proposal -> name. ' donada de baixa!');
 
         return redirect()->route('proposals.index',compact('proposals'))
-        ->with('i', (request()->input('page', 1) -1));
+                ->with('success','Proposta desactivada correctament.');
     }
 
     public function destroyProposal(Request $request, $id)
@@ -194,7 +280,7 @@ $this->middleware('auth');
         Log::info($request->user()->username. ' - [ DELETE ] - proposals - Proposta: ' .$proposal -> name. ' eliminada!');
 
         return redirect()->route('proposals.index',compact('proposals'))
-                ->with('success','Proposal deleted successfully.');
+                ->with('success','Proposta eliminada correctament.');
     }
 
     /** DONAR D'ALTA PROPOSTA
@@ -212,7 +298,8 @@ $this->middleware('auth');
         $proposal->save();
         Log::info($request->user()->username. ' - [ UPDATE ] - proposals - Proposta: ' .$proposal -> name. ' donada de alta!');
 
-        return redirect()->back();
+        return redirect()->route('proposals.index',compact('proposals'))
+            ->with('success','Proposta activada correctament.');
     }
 
     /** DASHBOARD PROPOSTES
@@ -229,6 +316,81 @@ $this->middleware('auth');
         return view('proposals.dashboard', compact('proposals'));
     }
 
+    /** Retorna totes les propostes que hi ha a la base de dades de 12 en 12. */
+
+    public function allProposals(Request $request)
+    {
+        $proposals = Proposal::name($request->get('name'))->paginate(12);
+        return view('proposals.all', compact('proposals'));
+    }
+
+
+    /** Converteix una proposta a projecte, desactivant la proposta actual,
+     *  creant el blog, la wiki del nou projecte i afegint als participants del
+     *  projecte.
+     */
+    
+    public function convertToProject($idAuthor, $idGuest, $idProposal) {
+
+        // Agafar la ID que tindrà el nou projecte
+        $statement = DB::select("SHOW TABLE STATUS LIKE 'projects'");
+        $idProjecte = $statement[0]->Auto_increment;
+        
+        // Buscar la proposta actual
+        $proposta = Proposal::find($idProposal);
+
+        $projecte = new Project;
+
+        // Assignar valors
+        $projecte -> name = $proposta->name;
+        $projecte -> budget = 0;
+        $projecte -> description = $proposta->description;
+        $projecte -> professional_family = $proposta->professional_family;
+        $projecte -> ending_date = $proposta->limit_date;
+
+        // Guardar projecte a la BBDD i generar missatge de log
+        $projecte -> save();
+        Log::info('[ INSERT ] - projects - Nou projecte: ' .$projecte -> name. ' inserit!');
+
+        // Desactivar la proposta
+        $proposta->status = 'deleted';
+        $proposta->save();
+
+        // Crear blog
+        $blog = new Blog;
+
+        $blog->id_project = $idProjecte;
+        $blog->title = 'Blog per al projecte '.$projecte->name;
+        $blog->save();
+
+        // Crear wiki
+        $wiki = new Wiki;
+
+        $wiki->id_project = $idProjecte;
+        $wiki->title = 'Wiki per al projecte '.$projecte->name;
+
+        $wiki->save();
+
+        // Afegir l'autor al projecte
+        $userProjectAuthor = new User_project;
+
+        $userProjectAuthor->id_user = $idAuthor;
+        $userProjectAuthor->id_project = $idProjecte;
+
+        $userProjectAuthor->save();
+
+        // Afegir al guest al projecte
+        $userProjectGuest = new User_project;
+
+        $userProjectGuest->id_user = $idGuest;
+        $userProjectGuest->id_project = $idProjecte;
+
+        $userProjectGuest->save();
+
+
+        return redirect()->route('projects.show', ['id_project' => $idProjecte]);
+    }
+
      /**
      * Show the form for creating a new resource.
      *
@@ -238,4 +400,6 @@ $this->middleware('auth');
     {
         //
     }
+
+
 }

@@ -2,7 +2,7 @@
 @section('content')
 
 <div class="formulari">
-    <form class="was-validated" action="{{route('blogs.update', $id_project)}}" method="POST">
+    <form class="was-validated" action="{{route('blog.update', $id_project)}}" method="POST">
         @csrf
         <input type="hidden" name="_method" value="PATCH" />
         <div class="row justify-content-center">
@@ -25,7 +25,7 @@
                         <div class="row justify-content-center">
                             <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
                                 <label for="nom">Títol</label>
-                                <input type="text" name = "title" title class="form-control" id="title" value="{{$blogs->title}}" required>
+                                <input type="text" name = "title" title class="form-control" id="title" value="{{$blog->title}}" required>
                                 <div class="invalid-feedback">Camp necessari</div>
                             </div>
                         </div>

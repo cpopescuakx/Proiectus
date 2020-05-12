@@ -133,10 +133,17 @@ class Resource_centerController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function downloadFile($path){
-        $pathFile =  public_path("resources/".$path);
+    public function downloadFile($path)
+    {
+        $pathFile = public_path('resources/'.$path);
         $original = Resource_center::where('f_route', '=', $path)->get();
         $originalName = $original[0]->f_name;
-        return response()->download($pathFile, $originalName);
+
+        $headers = [
+            'Content-Type' => 'application/pdf',
+        ];
+
+
+        return response()->download($pathFile, $originalName, $headers);
     }
 }

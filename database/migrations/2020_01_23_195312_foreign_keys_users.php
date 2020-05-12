@@ -90,6 +90,11 @@ class ForeignKeysUsers extends Migration
 
         });
 
+        Schema::table('project_invites', function(Blueprint $table){
+          $table->foreign('id_project')->references('id_project')->on('projects')->onDelete('cascade');
+          $table->foreign('invited_by')->references('id')->on('users')->onDelete('cascade');
+        });
+        
         Schema::table('proposal_tags', function(Blueprint $table){
           $table->foreign('id_proposal')->references('id_proposal')->on('proposals')->onDelete('cascade');
           $table->foreign('id_tag')->references('id_tag')->on('tags');
@@ -151,6 +156,11 @@ class ForeignKeysUsers extends Migration
           $table->foreign('id_project')->references('id_project')->on('projects')->onDelete('cascade');
 
         });
+        Schema::table('faq_votes', function(Blueprint $table){
+          $table->foreign('id_faq')->references('id')->on('faqs')->onDelete('cascade');
+          $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade');
+
+        });
     }
 
     /**
@@ -170,12 +180,12 @@ class ForeignKeysUsers extends Migration
 
             $table->dropForeign(['id_project']);
         });
-
+/*  Está dando un error porque no existe ningún campo llamado owner en la tabla chats
         Schema::table('chats', function (Blueprint $table) {
 
             $table->dropForeign(['owner']);
         });
-
+*/
         Schema::table('comments', function (Blueprint $table) {
 
             $table->dropForeign(['id_user']);
@@ -279,5 +289,11 @@ class ForeignKeysUsers extends Migration
         Schema::table('wikis', function (Blueprint $table) {
             $table->dropForeign(['id_project']);
         });
+
+        Schema::table('faq_votes', function (Blueprint $table) {
+          $table->dropForeign(['id_faq']);
+          $table->dropForeign(['id_user']);
+
+      });
     }
 }

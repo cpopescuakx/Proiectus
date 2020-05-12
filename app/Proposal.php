@@ -16,10 +16,8 @@ class Proposal extends Model
         'professional_family'
     ];
 
-    //! MODIFICAR CUANDO FUNCIONE LOGIN
+    // ATRIBUTOS POR DEFECTO 
     protected $attributes = [
-        'id_author' => 1,
-        'category' => 'company',
         'status' => 'active'
     ];
 
@@ -60,11 +58,9 @@ class Proposal extends Model
 
     public function scopeName($query, $name) {
 
-        if ($name != "" ) {
-            // Proposal::query()
-            $query->where('name', 'like', '%'.$name.'%');
+        if ($name != "") {
+            $query->where('name', 'like', '%'.$name.'%')->where('status', '!=', 'deleted');
         }
-
     }
     /** Scope proposal
      *
