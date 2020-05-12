@@ -32,4 +32,9 @@ class Post extends Model Implements Feedable
     {
        return Post::all();
     }
+
+    // public function scopeSearch ($query)
+    // {
+    //   return $query->where('title');
+    // }
 }

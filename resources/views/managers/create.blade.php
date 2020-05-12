@@ -97,7 +97,7 @@
                         <div class="form-group mt-4">
                             <div class="row justify-content-center">
                                 <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6">
-                                    <label for="contrassenya">Contrasenya</label>
+                                    <label for="contrasenya">Contrasenya</label>
                                     <input type="password" name = "password" class="form-control" autocomplete="current-password" id="password" required>
                                     <div class="invalid-feedback">Camp necessari</div>
                                 </div>
