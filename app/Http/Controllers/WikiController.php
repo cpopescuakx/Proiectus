@@ -62,7 +62,7 @@ class WikiController extends Controller
          $wiki->id_project = $id_project;
 
          $wiki->save();
-         Log::info('[ UPDATE ] - wikis - La wiki: '. $oldWiki->title .' ha estat actualitzat a: '. $wiki->title .' per: '.auth()->user()->id.'.');
+         Log::info(''.auth()->user()->id.'[ UPDATE ] - wikis - La wiki: '. $oldWiki->title .' ha estat actualitzat a: '. $wiki->title.'');
 
          return redirect()->route('projects.show', compact('id_project','id_article'));
      }
