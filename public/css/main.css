@@ -37,6 +37,13 @@
   border-color: #157e82 ;
   color: #116466;
 }
+.custom-link {
+  color: #116466;
+}
+
+.custom-link:hover {
+  color: #157e82;
+}
 
 .btn-secondary {
   background-color: #D9B08C !important;
