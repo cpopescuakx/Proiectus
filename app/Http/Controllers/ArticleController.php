@@ -50,7 +50,7 @@ class ArticleController extends Controller
         $article->id_user = $request->user()->id;
         $article->status = 'active';
         $article->save();
-        Log::info('[ INSERT ] - articles - Nou article: '.$article->title.' !Inserit per: '.auth()->user()->id.'');
+        Log::info(''.auth()->user()->id.' - [ INSERT ] - articles - Nou article: '.$article->title.'');
         
 
         //Retornem a la vista anterior.
@@ -98,7 +98,7 @@ class ArticleController extends Controller
         //Guardem els nous valors dels camps.
         $article->save();
         
-        Log::info("[ UPDATE ] - articles - L'Article: ".$oldArticle->title.' ha estat actualitzat a: ' . $article->title . ' per: ' . auth()->user()->id.'.');
+        Log::info(''.auth()->user()->id."[ UPDATE ] - articles - L'Article: ".$oldArticle->title.' ha estat actualitzat a: '. $article->title .'.');
 
         return redirect()->route('projects.show', compact('id_project','id_article'));
     }
@@ -122,7 +122,7 @@ class ArticleController extends Controller
         //Guardem aquest.
         $article->save();
 
-        Log::info('[ DELETE ] - articles - Article: '.$article->title.' Eliminat per: '.$article->id_user.'');
+        Log::info(''.auth()->user()->id."[ DELETE ] - articles - L'Article: ".$article->title.' ha estat eliminat.');
 
         return redirect()->back();
     }

@@ -34,7 +34,7 @@
                     <div class="container">
                         <div class="row no-gutters justify-content-center mt-5">
                             <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6 text-center">
-                                <h1>Importar/Exportar empleats</h1>
+                                <h1>Importar/Exportar professors</h1>
                             </div>
                         </div>
                     </div>
