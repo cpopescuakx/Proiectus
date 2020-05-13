@@ -41,10 +41,10 @@ class InviteNotification extends Notification
     public function toMail($notifiable)
     {
       return (new MailMessage)
-          ->greeting('Greetings!')
-          ->line('This is to invite you to join our platform ' . config('app.name'))
-          ->action('Notification Action',$this->notification_url)
-          ->line('Thank you for using our application!');
+          ->greeting('Hola!')
+          ->line('Aquesta invitació és per a que et puguis unir a la nostra pàgina web ' . config('app.name'))
+          ->action('Click per a registra-te',$this->notification_url)
+          ->line("Gràcies per utilitzar l'aplicació!");
   }
 
     /**
