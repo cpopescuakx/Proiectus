@@ -28,7 +28,8 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" name="cancel" class="btn btn-success" data-dismiss="modal">Cancela</button>
-                    <a type="button" class="btn btn-danger" name="delete" href="{{route('post.destroy', [])}}">Elimina</a>
+                    <!-- <a type="button" class="btn btn-danger" name="delete" href="{{route('post.destroy', [])}}">Elimina</a> -->
+                    <a type="button" class="btn btn-danger" name="delete" href="{{route('post.destroy', [$id_project, $post->id_post])}}">Elimina</a>
                 </div>
             </div>
         </div>

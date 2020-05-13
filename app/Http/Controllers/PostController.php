@@ -9,18 +9,23 @@ use Illuminate\Support\Facades\Log;
 class PostController extends Controller
 {
 
-    public function index(Request $request, $id_project, $id_post)
-    {
-      $s = $request->input('s');
+    // public function index(Request $request, $id_project, $id_post)
+    // {
+    //   $s = $request->input('s');
+    //
+    //   $post = Post::find($id_post);
+    //       ->search($s)
+    //       ->paginate(5);
+    //
+    //   return view ('Post.index' compact('post' , 's'));
+    // }
 
-      $post = Post::find($id_post);
-          ->search($s)
-          ->paginate(5);
 
-      return view ('Post.index' compact('post' , 's'));
+    public function index($id_project){
+        $post = Post::all()->where('id_project', '=', $id_project)->where('status', '=', 'active');
+        return view('post.index', compact('post', 'id_project'));
     }
 
-    
 
 
 
@@ -71,7 +76,7 @@ class PostController extends Controller
     public function show($id_project, $id_post)
     {
         $post = Post::find($id_post);
-        return view('Post.show', compact('post'));
+        return view('post.show', compact('post'));
     }
 
     /**
@@ -99,7 +104,7 @@ class PostController extends Controller
     public function edit($id_project, $id_post)
     {
         $post=Post::find($id_post);
-        return view('Post.edit', compact('post', 'id_project', 'id_post'));
+        return view('post.edit', compact('post', 'id_project', 'id_post'));
 
     }
 
@@ -137,13 +142,19 @@ class PostController extends Controller
      * @var post variable per emmagatzemar les dades el post cercat i posteriorment modificar aquestes.
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id_post)
+    public function destroy($id_project, $id_post)
     {
+
+      //Cerquem post a eliminar.
       $post = Post::find($id_post);
+
+      //Establim el status d'aquest a innactiu, ja que relment no l'esborrem.
       $post->status = 'inactive';
+
+      //Guardem aquest.
       $post-> save();
 
-      Log::info(auth()->user()->id) .' - [DELETE] - posts - El post: '. $post->title . '.';
+      Log::info(''.auth()->user()->id." - [DELETE] - posts - El post: ". $post->title . ' ha estat eliminat');
 
       return redirect()->back();
 
