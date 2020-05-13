@@ -293,6 +293,7 @@ Route::middleware(['CheckRole'])->group(function () {
         /** Ruta per a l'update d'un article */
         Route::get('Project/{id_project}/article/{id_article}/edit', 'ArticleController@edit')->name('article.edit');
         Route::post('Project/{id_project}/article/{id_article}/update', 'ArticleController@update')->name('article.update');
+        Route::get('Project/{id_project}/article/{id_article}', 'ArticleController@show')->name('article.show');
     });
     Route::middleware(['auth','isAdminOrGestor'])->group(function () {
         /** Ruta per a l'update d''una wiki */

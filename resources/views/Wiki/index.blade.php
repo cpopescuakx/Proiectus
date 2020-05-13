@@ -51,7 +51,7 @@
             <a class="float-right custom-link" href="{{route('article.edit',[$id_project, $article->id_article])}}"><i style="font-size: 140%" class="material-icons" alt="Icona per a editar" >edit</i></a>
             <a class="float-right" data-toggle="modal" data-target="#articleDeleteConfirmationModal"><i style="font-size: 140%; color: #157e82;" class="material-icons" alt="Icona per a eliminar">delete</i></a>
             @endif
-            <a class="custom-link" href="#">
+            <a class="custom-link" href="{{route('article.show', [$id_project, $article->id_article])}}">
                 <h5 class="card-title">{{$article->title}}</h5>
             </a>
             <div class="">
