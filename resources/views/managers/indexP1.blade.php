@@ -89,7 +89,7 @@
     <div class="col-sm-9 mx-auto">
         <div class="row mt-5">
             @if(Auth::user()->status == "active")
-            <div class="col-sm-6">
+            <div class="col-sm-4">
                 <div class="card text-center text-dark">
                     <div class="card-header font-weight-bold">
                         Desactivar compte temporalment
@@ -101,7 +101,7 @@
                 </div>
             </div>
             @else
-            <div class="col-sm-6">
+            <div class="col-sm-4">
                 <div class="card text-center text-dark">
                     <div class="card-header font-weight-bold">
                         Activar compte d'usuari
@@ -114,7 +114,7 @@
             </div>
             @endif
 
-            <div class="col-sm-6">
+            <div class="col-sm-4">
                 <div class="card text-center text-dark">
                     <div class="card-header font-weight-bold">
                         Editar perfil d'usuari
@@ -125,6 +125,18 @@
                     </div>
                 </div>
             </div>
+                <div class="col-sm-4">
+                    <div class="card text-center text-dark">
+                        <div class="card-header font-weight-bold">
+                            Solicitar dades personals.
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">Aquesta operació pot trigar vàries hores en processar-se.
+                                S'enviarà un correu al teu compte una vegada estigui llesta la descàrrega.</p>
+                            <a href="{{ route('managers.editP', [Auth::user()->id]) }}" class="btn btn-dark">Solicitar</a>
+                        </div>
+                    </div>
+                </div>
         </div><!-- /row -->
     </div>
   </div>
