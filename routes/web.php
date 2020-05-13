@@ -60,9 +60,10 @@ Route::middleware(['registeredEntity'])->group(function () {
     Route::get('Project', 'ProjectController@index')
         ->name('projects.index')->middleware('auth', 'isAdminOrGestor');
 
-    Route::get('Project/create', function () {
-        return view('projects.create');
-    })->name('projects.create');
+        Route::get('Project/create', function (Request $request) {
+            Log::info("L'usuari " . $request->user()->username . " ha accedit a la creació de projectes.");
+            return view('projects.create');
+        })->name('projects.create');
 
     Route::post('Project/create/success', 'ProjectController@store')
         ->name('projects.store');
@@ -263,6 +264,8 @@ Route::middleware(['CheckRole'])->group(function () {
     Route::middleware(['auth', 'CheckRoleBlog'])->group(function () {
         /** Ruta per al INDEX d'un blog d'un projecte */
         Route::get('blog/{id_project}','BlogController@index')->name('blog.index');
+        /** Ruta per al filtre de posts d'un blog d'un projecte**/
+        Route::get('Project/{id_project}/post', 'PostController@index')->name('post.index');
         /** Ruta per al SHOW d'un post */
         Route::get('Project/{id_project}/post/{id_post}', 'PostController@show')->name('post.show');
         /** Ruta per al UPDATE d'un post */
@@ -290,6 +293,7 @@ Route::middleware(['CheckRole'])->group(function () {
         /** Ruta per a l'update d'un article */
         Route::get('Project/{id_project}/article/{id_article}/edit', 'ArticleController@edit')->name('article.edit');
         Route::post('Project/{id_project}/article/{id_article}/update', 'ArticleController@update')->name('article.update');
+        Route::get('Project/{id_project}/article/{id_article}', 'ArticleController@show')->name('article.show');
     });
     Route::middleware(['auth','isAdminOrGestor'])->group(function () {
         /** Ruta per a l'update d''una wiki */

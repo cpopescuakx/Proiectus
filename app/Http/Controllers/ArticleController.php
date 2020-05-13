@@ -57,6 +57,18 @@ class ArticleController extends Controller
         return redirect()->back();
     }
 
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id_project, $id_article)
+    {
+        $article = Article::find($id_article);
+        return view ('articles.show', compact(['article', 'id_project']));
+    }
+
 
     
     /**
@@ -126,4 +138,5 @@ class ArticleController extends Controller
 
         return redirect()->back();
     }
+
 }
