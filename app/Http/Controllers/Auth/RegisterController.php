@@ -65,11 +65,18 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-      if($data['token']){
-        dd($data);
-        $invite = Invite::where('token', $data['token'])->first();
-        $invite->delete();
-      }
+
+        $prev_url = explode("/", explode("?", url()->previous())[0]);
+        $token = "";
+        if (isset($prev_url[4])) {
+            $token = $prev_url[4];
+        }
+
+        if(!empty($token)){
+            $invite = Invite::where('token', $token)->first();
+            $invite->delete();
+        }
+        
         return User::create([
             'username' => $data['username'],
             'email' => $data['email'],

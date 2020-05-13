@@ -173,7 +173,6 @@ Route::get('/', function () {
     return view('welcome');
 })->name('index.index');
 
-Auth::routes(['verify' => true]);
 
 Route::middleware(['isLogged'])->group(function () {
 
@@ -308,8 +307,6 @@ Route::middleware(['CheckRole'])->group(function () {
     });
 
     /** Rutes per a l'apartat de perfils d'usuari */
-
-    Auth::routes();
 
     Route::get('/home', 'HomeController@index')->name('home');
 
