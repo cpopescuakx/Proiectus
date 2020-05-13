@@ -38,11 +38,18 @@
             <div class="notice notice-success">
                 <strong><span class="text-center"><h4>ESPECIFICACIONS</h4></span></strong>
                 <br>
-                <strong>Descripció:</strong> {{ detail.description }}<hr>
-                <strong>Professional Family:</strong> {{ detail.professional_family }}<hr>
-                <strong>Entitat:</strong> {{ detail.category }}<hr>
-                <strong>Data d'inici:</strong> {{ formattedDate(detail.created_at) }}<hr>
-                <strong>Data de finalització:</strong> {{ formattedDate(detail.limit_date) }}
+                <strong>Descripció:</strong><br>
+                    {{ detail.description }}<hr>
+                <strong>Professional Family:</strong><br>
+                    {{ detail.professional_family }}<hr>
+                <strong>Entitat:</strong><br>
+                    <p v-if="detail.category == 'school'">Institut</p>
+                    <p v-else>Empresa</p>
+                    <hr>
+                <strong>Data d'inici:</strong><br>
+                    {{ formattedDate(detail.created_at) }}<hr>
+                <strong>Data de finalització:</strong><br>
+                    {{ formattedDate(detail.limit_date) }}
             </div>
         </div>
     </div>

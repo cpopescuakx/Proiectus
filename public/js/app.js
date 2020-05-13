@@ -2106,6 +2106,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -41104,24 +41111,38 @@ var render = function() {
             _c("br"),
             _vm._v(" "),
             _c("strong", [_vm._v("Descripció:")]),
-            _vm._v(" " + _vm._s(detail.description)),
+            _c("br"),
+            _vm._v("\n                " + _vm._s(detail.description)),
             _c("hr"),
             _vm._v(" "),
             _c("strong", [_vm._v("Professional Family:")]),
-            _vm._v(" " + _vm._s(detail.professional_family)),
+            _c("br"),
+            _vm._v("\n                " + _vm._s(detail.professional_family)),
             _c("hr"),
             _vm._v(" "),
             _c("strong", [_vm._v("Entitat:")]),
-            _vm._v(" " + _vm._s(detail.category)),
+            _c("br"),
+            _vm._v(" "),
+            detail.category == "school"
+              ? _c("p", [_vm._v("Institut")])
+              : _c("p", [_vm._v("Empresa")]),
+            _vm._v(" "),
             _c("hr"),
             _vm._v(" "),
             _c("strong", [_vm._v("Data d'inici:")]),
-            _vm._v(" " + _vm._s(_vm.formattedDate(detail.created_at))),
+            _c("br"),
+            _vm._v(
+              "\n                " +
+                _vm._s(_vm.formattedDate(detail.created_at))
+            ),
             _c("hr"),
             _vm._v(" "),
             _c("strong", [_vm._v("Data de finalització:")]),
+            _c("br"),
             _vm._v(
-              " " + _vm._s(_vm.formattedDate(detail.limit_date)) + "\n        "
+              "\n                " +
+                _vm._s(_vm.formattedDate(detail.limit_date)) +
+                "\n        "
             )
           ])
         ]
