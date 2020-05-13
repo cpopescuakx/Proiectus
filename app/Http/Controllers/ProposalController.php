@@ -49,7 +49,7 @@ $this->middleware('auth');
 
     public function createProposal()
     {
-        $tags = Tag::All();
+        $tags = Tag::orderBy('tag_name', 'ASC')->get();
         return view('proposals.create', compact('tags'));
     }
 
