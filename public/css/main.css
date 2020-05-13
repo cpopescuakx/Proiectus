@@ -10,6 +10,40 @@
   /* position: absolute; */
   bottom: 0;
 }
+.tooltipProposal {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.tooltipProposal .tooltiptext {
+  visibility: hidden;
+  width: fit-content;
+  background-color: #313131;
+  color: #fff;
+  text-align: center;
+  border-radius: 2px;
+  padding: 5px ;
+  margin-left: 10px;
+  margin-top: 5px;
+
+  /* Position */
+  position: absolute;
+  z-index: 1
+  bottom: 100%;
+
+}
+.tooltipProposal:hover .tooltiptext {
+  visibility: visible;
+}
+
+.crear-proposta {
+
+  visibility: hidden;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+}
 .foto-perfil {
   height: 35px;
   width: 35px;

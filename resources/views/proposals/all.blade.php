@@ -9,7 +9,9 @@
             <input name="name" class="form-control" placeholder="Cercar...">
             <button type="submit" class="btn bg-primary1 ml-2 text-white">Cercar</button>
         </form>
-
+        @if((Auth::user()->id_role == 5))
+        <a class="tooltipProposal" href="{{ route('proposals.create') }}"><img src={{ asset('img/add.svg') }} width="45" height="45" ><span class="tooltiptext">Crear proposta</span></a>
+        @endif
     </div>
 </div>
 
