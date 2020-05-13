@@ -37,7 +37,7 @@
         <!-- Apartado para aceptar propuesta -->
         
         @if ($proposal->category == 'school')
-            @if (!$schoolUser::checkUser(Auth::user()->id))
+            @if ((Auth::user()->id_role == 5)&& !$schoolUser::checkUser(Auth::user()->id))
 
                 <div class="row pl-2 d-flex flex-column">
                     <div class="container-fluid">
@@ -53,7 +53,7 @@
 
             @endif
         @else
-            @if(!$companyUser::checkUser(Auth::user()->id))
+            @if((Auth::user()->id_role == 5) && !$companyUser::checkUser(Auth::user()->id))
                 <div class="row pl-2 d-flex flex-column">
                     <div class="container-fluid">
                         <div class="notice notice-success">
