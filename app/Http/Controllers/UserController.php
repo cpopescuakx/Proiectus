@@ -971,12 +971,23 @@ class UserController extends Controller
         ->with('i', (request()->input('page', 1) -1));
     }
 
+    /**
+     * Retorna la vista de csv d'empleats
+     * @return void
+     */
     public function indexCSVEmpleats() {
         return view('employees.csv');
     }
 
+    /**
+     * Comproba que l'arxiu que hem passat es csv, si ho es envia una cua que serà la que importarà el csv
+     * Si no es un arxiu csv, torna enrere amb els errors de validació
+     * 
+     * @param Request $request
+     * 
+     * @return void
+     */
     public function importCSVEmployees (Request $request) {
-        // Comprova que el fitxer és un .csv
         $validate = Validator::make(
             [
                 'file' => $request->file,
@@ -998,6 +1009,16 @@ class UserController extends Controller
 
     }
 
+    /**
+     * Aquesta acció agafa tots els usuaris que tinguin el rol 2, osigui empleats, i els passa a una funció callback
+     * per a que aquesta pugui utilitzar-ho, la funció callback es qui generà el fitxer.
+     * El fitxer serà generat a php://output, que es una sequència d'escriptura que s'envia al servidor i pot ser retornada al navegador.
+     * Primer posarà una fila que tindrà les columnes que exportem i després per cada empleat farà una fila amb la seva informació separada per ;
+     * 
+     * Després defineix els headers de la petició, i retornem al navegador una sequència que serà el fitxer generat amb el callback i li passem els headers.
+     * 
+     * @return void
+     */
     public function exportCSVEmployees() {
         $employees = User::where('id_role',2)->get();
         $filename = "empleats.csv";
@@ -1020,7 +1041,6 @@ class UserController extends Controller
             Log::info(Auth::user()->username . ' - [ EXPORT ] - users - Empleats');
             fclose($handle);
         };
-
 
         $headers = array(
             'Content-Type' => 'text/csv',

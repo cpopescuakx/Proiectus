@@ -27,6 +27,7 @@ use App\Mail\ProjectInvite;
 use App\Jobs\SendProjectInvite;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Mail;
 
 class ProjectController extends Controller
 {
@@ -284,16 +285,34 @@ class ProjectController extends Controller
             ->with('i', (request()->input('page', 1) -1));
     }
 
+    /**
+     * Aquesta acció rep un email o més estan separats per coma
+     * Per cada email fa les següents comparacions:
+     * 
+     * 1. Mira si l'email es valid
+     * 2. Comprova que l'usuari estigui registrat a la base de dades
+     * 3. Si aquest existeix, mira si ja està dins del projecte
+     * 4. Si ja està al projecte, passa al següent email, en cas contrari s'afegeix l'usuari a una array que serà la que contindrà tots els usuaris que invitarà.
+     *    Assignarem un atribut a l'usuari depenent de si ha estat invitat previament o no.
+     * 
+     * Després, per cada usuari d'aquesta array, farà un token de 32 caràcters, i depenent de si ha estat invitat o no, 
+     * crearà o agafarà l'invitació a la base de dades actualitzant el token i la persona que l'ha invitat.
+     * 
+     * Es generarà un enllaç que caduca en un dia, aquest contindrà l'id del projecte, el token
+     * i una firma que genera amb un timestamp que serà el moment en el que l'enllaç caduca.
+     * 
+     * Per acabar, fa una cua del correu que te que enviar al usuari i redirecciona al mateix projecte
+     * amb els errors que hagin surgit.
+     * 
+     * @param Request $request
+     * @param mixed $id_project
+     * 
+     * @return void
+     */
     public function invite(Request $request, $id_project) {
         $emails = explode(',', $request->input('emails'));
 
-        $data = array();
-        $errors = array(
-            "invalid" => array(),
-            "doesnt_exist" => array(),
-            "in_project" => array(),
-        );
-
+        $errors = array();
         $users = array();
         $participants = User_project::where('id_project', $id_project)->get();
         foreach ($emails as $email) {
@@ -305,7 +324,7 @@ class ProjectController extends Controller
                 if ($u != null) {
                     foreach ($participants as $participant) {
                         if ($participant->id_user == $u->id) {
-                            array_push($errors["in_project"], $email);
+                            array_push($errors, "$email ja participa en aquest projecte.");
                             $found = true;
                             break;
                         }
@@ -324,10 +343,10 @@ class ProjectController extends Controller
                         array_push($users, $u);
                     }
                 } else {
-                    array_push($errors["doesnt_exist"], $email);
+                    array_push($errors, "$email no està registrat.");
                 }
             } else {
-                array_push($errors["invalid"], $email);
+                array_push($errors, "$email no es un email valid.");
             }
         }
 
@@ -337,7 +356,6 @@ class ProjectController extends Controller
             if (!$user->alreadyInvited) {
                 $invite = new Project_invite;
                 $invite->id_project = $id_project;
-                $invite->invited_by = Auth::user()->id;
                 $invite->email = $user->email;
             } else {
                 $invite = Project_invite::where([
@@ -345,6 +363,7 @@ class ProjectController extends Controller
                     ['email', $email]
                 ])->first();
             }
+            $invite->invited_by = Auth::user()->id;
             $invite->token = $token;
             $invite->save();
 
@@ -355,55 +374,77 @@ class ProjectController extends Controller
                     ]
             );
 
-            $mail = new ProjectInvite($invite, $url);
-            SendProjectInvite::dispatch($mail, $invite->email)->delay(now()->addSeconds(5));
+            Mail::to($invite->email)->queue(new ProjectInvite($invite, $url));
         }
 
-        return redirect()->route('projects.show', $id_project);
+        return redirect()->route('projects.show', $id_project)->withErrors($errors);
     }
 
-
+    /**
+     * Aquesta acció es la responsable de verificar que l'invitació es vàlida i si ho és, afegirà l'usuari al projecte i crearà una notificació.
+     * 
+     * Per a fer això, primer comproba que la firma de l'URL no ha expirat i es vàlida, si no ho és redirecciona a tots els projectes amb un error
+     * En cas contrari, mirarà que l'invitació existeix i que l'usuari ha iniciat sessió per a acceptar-la i si està iniciat sessió que sigui el mateix usuari que al que han invitat
+     * 
+     * Si l'invitació no existeix, el redirecciona a tots els projectes.
+     * Si l'usuari no ha iniciat sessió, el redireccionarà al login, i una vegada estigui faci el login, el redireccionarà a l'invitació.
+     * Un cop allà havent passat totes les comprovacions, mira si aquest usuari ja està al projecte, si no està, l'afegeix.
+     * Després crea una notificació a l'usuari, borra l'invitació i rediregeix al projecte
+     * 
+     * @param Request $request
+     * @param mixed $id_project
+     * @param mixed $token
+     * 
+     * @return void
+     */
     public function validateInvite(Request $request, $id_project, $token) {
         $project = Project::where('id_project', $id_project)->first();
+        $invite = Project_invite::where('token', $token)->first();
         if (!$request->hasValidSignature()) {
-            return redirect()->route('projects.dashboard');
-        } else {
-            $invite = Project_invite::where('token', $token)->first();
             if ($invite != null) {
-                if (Auth::user()->email == $invite->email) {
-                    $alreadyIn = User_project::where([
-                        ['id_user', Auth::user()->id],
-                        ['id_project', $id_project]
-                    ])->first();
-
-                    if ($alreadyIn == null) {
-                        $projectuser = new User_project;
-                        $projectuser->id_user = Auth::user()->id;
-                        $projectuser->id_project = $id_project;
-                        $projectuser->save();
+                $invite->delete();
+            }
+            return redirect()->route('projects.dashboard')->withErrors(["Aquesta invitació ha expirat."]);
+        } else {
+            if ($invite != null) {
+                if (Auth::user() != null) {
+                    if (Auth::user()->email == $invite->email) {
+                        $alreadyIn = User_project::where([
+                            ['id_user', Auth::user()->id],
+                            ['id_project', $id_project]
+                        ])->first();
+    
+                        if ($alreadyIn == null) {
+                            $projectuser = new User_project;
+                            $projectuser->id_user = Auth::user()->id;
+                            $projectuser->id_project = $id_project;
+                            $projectuser->save();
+                        }
+    
+                        $invitedBy = User::find($invite->invited_by);
+                        $data = "<b>" . $invitedBy->firstname . " " . $invitedBy->lastname .  "</b> t'ha afegit al projecte <b>" . $project->name . "</b>.";
+                        $notificationDetails = [
+                            'data' => $data,
+                            'sender' => $invitedBy->id,
+                            'project' => $id_project
+                        ];
+    
+                        $users = array(Auth::user());
+    
+                        foreach ($users as $u) {
+                            $u->notify(new \App\Notifications\AddedToAProject($notificationDetails));
+                        }
+    
+                        $invite->delete();
+                        return redirect()->route('projects.show', $id_project);
+                    } else {
+                        return redirect()->route('projects.dashboard')->withErrors(["L'invitació no pertany a aquest usuari."]);
                     }
-
-                    $invitedBy = User::find($invite->invited_by);
-                    $data = "<b>" . $invitedBy->firstname . " " . $invitedBy->lastname .  "</b> t'ha afegit al projecte <b>" . $project->name . "</b>.";
-                    $notificationDetails = [
-                        'data' => $data,
-                        'sender' => $invitedBy->id,
-                        'project' => $id_project
-                    ];
-
-                    $users = array(Auth::user());
-
-                    foreach ($users as $u) {
-                        $u->notify(new \App\Notifications\AddedToAProject($notificationDetails));
-                    }
-
-                    $invite->delete();
-                    return redirect()->route('projects.show', $id_project);
                 } else {
                     return redirect()->route('login');
                 }
             } else {
-                return redirect()->route('projects.dashboard');
+                return redirect()->route('projects.dashboard')->withErrors(["Aquesta invitació no existeix."]);
             }
         }
     }

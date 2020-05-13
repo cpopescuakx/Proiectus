@@ -14,25 +14,27 @@ class ProjectInvite extends Mailable
 {
     use Queueable, SerializesModels;
 
-    protected $invite;
     protected $project;
     protected $invited_by;
     protected $validationURL;
+    
     /**
-     * Create a new message instance.
+     * Agafa els valors necessaris per enviar el correu.
+     * 
+     * @param Project_invite $invite
+     * @param String $url
      *
      * @return void
      */
     public function __construct(Project_invite $invite, String $url)
     {
-        $this->invite = $invite;
-        $this->project = Project::where('id_project', $this->invite->id_project)->first();
+        $this->project = Project::where('id_project', $invite->id_project)->first();
         $this->invited_by = User::find($this->invite->invited_by);
         $this->validationURL = $url;
     }
 
     /**
-     * Build the message.
+     * Construeix el missatge a partir de la vista emails.projectinvite passant-li l'informació que necessita.
      *
      * @return $this
      */

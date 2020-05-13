@@ -8,6 +8,9 @@ Si voleu participar, premeu el botó.
 Unir-me!
 @endcomponent
 
+Si el botó no funciona, copia aquest enllaç al navegador.
+<a href="{{ $url }}" target="_blank">{{ $url }}</a>
+
 Gràcies,<br>
 {{ config('app.name') }}
 @endcomponent

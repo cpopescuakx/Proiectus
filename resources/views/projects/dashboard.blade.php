@@ -2,6 +2,15 @@
 
 @section('content')
 <body>
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <div class="container text-center">
         <h1 class="pt-4">Tots els projectes</h1>
         <div class="row justify-content-center">

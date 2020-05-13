@@ -61,31 +61,29 @@
     <div class="row justify-content-center">
         <div id="gest" class="tabcontent mt-3">
             <h2 class="mt-3"><strong>Gestor documental</strong></h2>
-
         </div>
     </div>
 
     <div class="row justify-content-center">
         <div id="res" class="tabcontent mt-3 w-75">
             <h2 class="mt-3 text-center"><strong>Centre de recursos compartits</strong></h2>
-                @include('resourceCenter.upload')
+            @include('resourceCenter.upload')
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col">
+            <div id="wiki" class="tabcontent mt-3">
+                @include('Wiki.index')
+            </div>
         </div>
     </div>
 
     <div class="row justify-content-center">
         <div class="col">
-        <div id="wiki" class="tabcontent mt-3">
-            @include('Wiki.index')
+            <div id="blog" class="tabcontent mt-3">
+                @include('Blog.index')
+            </div>
         </div>
-        </div>
-    </div>
-
-    <div class="row justify-content-center">
-      <div class="col">
-        <div id="blog" class="tabcontent mt-3">
-        @include('Blog.index')
-        </div>
-      </div>
     </div>
 
     <div class="row justify-content-center">
@@ -101,7 +99,7 @@
                 @endforeach
             </div>
             @if(Auth::check())
-                @if($userProject->memberOf($id_project) || Auth::user()->id_role == 1)
+                @if($userProject->memberOf($id_project) && (Auth::user()->id_role == 4 || Auth::user()->id_role == 5) || Auth::user()->id_role == 1)
                     <div class="row justify-content-center">
                         <div class="col-12 p-0">
                             <div class="card">
@@ -144,7 +142,7 @@
             </div>
         </div>
     </div>
-
+</div>
 
 
     <script>
