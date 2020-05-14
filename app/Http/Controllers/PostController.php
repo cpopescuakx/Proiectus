@@ -9,18 +9,13 @@ use Illuminate\Support\Facades\Log;
 class PostController extends Controller
 {
 
-    // public function index(Request $request, $id_project, $id_post)
-    // {
-    //   $s = $request->input('s');
-    //
-    //   $post = Post::find($id_post);
-    //       ->search($s)
-    //       ->paginate(5);
-    //
-    //   return view ('Post.index' compact('post' , 's'));
-    // }
 
 
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index($id_project){
         $post = Post::all()->where('id_project', '=', $id_project)->where('status', '=', 'active');
         return view('post.index', compact('post', 'id_project'));
@@ -76,7 +71,11 @@ class PostController extends Controller
     public function show($id_project, $id_post)
     {
         $post = Post::find($id_post);
-        return view('post.show', compact('post'));
+        return view('post.show', compact('post', 'id_project', 'id_post'));
+
+
+        //return redirect()->action('PostController@show', ['post', 'id_project' => $id_project]);
+
     }
 
     /**
