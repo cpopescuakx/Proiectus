@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-right">
-                <a class="btn btn-primary" href="{{ URL::previous() }}"> Enrere</a>
+                <a class="float-right custom-link" href="{{route('post.edit', [$id_project, $post->id_post])}}"><i style="font-size: 140%" class="material-icons" alt="Icona per a modificar">edit</i></a>
             </div>
         </div>
     </div>
@@ -39,6 +39,12 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group pull-right text-muted">
                 {{ App\User::find($post->id_user)->username }}
+            </div>
+        </div>
+
+        <div class="col-lg-12 margin-tb">
+            <div class="pull-left">
+                <a class="btn btn-primary" href="/Dashboard/projects"> Enrere</a>
             </div>
         </div>
 
