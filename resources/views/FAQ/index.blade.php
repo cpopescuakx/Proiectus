@@ -32,6 +32,7 @@
                                 <div class="card-body">
                                     <p>{!!$faq->answer!!}</p>
                                     <br>
+                                    @if(Auth::check())
                                     <?php $i = false;?>
                                     @foreach($checkVot as $vot => $tipus_vot)
                                     @if($vot == $faq->id && $tipus_vot == "like")
@@ -47,6 +48,7 @@
                                     @if(!$i)                                    
                                     <a role="button" class="like" data-id="{{$faq->id}}"> <span id="like-{{$faq->id}}" class="material-icons text-secondary">thumb_up</span> </a>
                                     <a role="button" class="dislike" data-id="{{$faq->id}}"> <span id="dislike-{{$faq->id}}" class="material-icons text-secondary">thumb_down</span> </a>
+                                    @endif
                                     @endif
                                 </div>
                             </div>
@@ -67,6 +69,7 @@
                                 <div class="card-body">
                                     <p>{!!$faq->answer!!}</p>
                                     <br>
+                                    @if(Auth::check())
                                     <?php $i = false;?>
                                     @foreach($checkVot as $vot => $tipus_vot)
                                     @if($vot == $faq->id && $tipus_vot == "like")
@@ -83,6 +86,8 @@
                                     <a role="button" class="like" data-id="{{$faq->id}}"> <span id="like-{{$faq->id}}" class="material-icons text-secondary">thumb_up</span> </a>
                                     <a role="button" class="dislike" data-id="{{$faq->id}}"> <span id="dislike-{{$faq->id}}" class="material-icons text-secondary">thumb_down</span> </a>
                                     @endif
+                                    @endif
+
                             </div>
                         </div>
                     @endforeach
@@ -101,6 +106,7 @@
                                 <div class="card-body">
                                     <p>{!!$faq->answer!!}</p>
                                     <br>
+                                    @if(Auth::check())
                                     <?php $i = false;?>
                                     @foreach($checkVot as $vot => $tipus_vot)
                                     @if($vot == $faq->id && $tipus_vot == "like")
@@ -116,6 +122,7 @@
                                     @if(!$i)                                    
                                     <a role="button" class="like" data-id="{{$faq->id}}"> <span id="like-{{$faq->id}}" class="material-icons text-secondary">thumb_up</span> </a>
                                     <a role="button" class="dislike" data-id="{{$faq->id}}"> <span id="dislike-{{$faq->id}}" class="material-icons text-secondary">thumb_down</span> </a>
+                                    @endif
                                     @endif
                                 </div>
                             </div>
@@ -136,6 +143,7 @@
                                 <div class="card-body">
                                     <p>{!!$faq->answer!!}</p>
                                     <br>
+                                    @if(Auth::check())
                                     <?php $i = false;?>
                                     @foreach($checkVot as $vot => $tipus_vot)
                                     @if($vot == $faq->id && $tipus_vot == "like")
@@ -151,6 +159,7 @@
                                     @if(!$i)                                    
                                     <a role="button" class="like" data-id="{{$faq->id}}"> <span id="like-{{$faq->id}}" class="material-icons text-secondary">thumb_up</span> </a>
                                     <a role="button" class="dislike" data-id="{{$faq->id}}"> <span id="dislike-{{$faq->id}}" class="material-icons text-secondary">thumb_down</span> </a>
+                                    @endif
                                     @endif
                                 </div>
                             </div>
@@ -171,6 +180,7 @@
                                 <div class="card-body">
                                     <p>{!!$faq->answer!!}</p>
                                     <br>
+                                    @if(Auth::check())
                                     <?php $i = false;?>
                                     @foreach($checkVot as $vot => $tipus_vot)
                                     @if($vot == $faq->id && $tipus_vot == "like")
@@ -186,6 +196,7 @@
                                     @if(!$i)                                    
                                     <a role="button" class="like" data-id="{{$faq->id}}"> <span id="like-{{$faq->id}}" class="material-icons text-secondary">thumb_up</span> </a>
                                     <a role="button" class="dislike" data-id="{{$faq->id}}"> <span id="dislike-{{$faq->id}}" class="material-icons text-secondary">thumb_down</span> </a>
+                                    @endif
                                     @endif
                                 </div> 
                             </div>                       
@@ -206,6 +217,7 @@
                                 <div class="card-body">
                                     <p>{!!$faq->answer!!}</p>
                                     <br>
+                                    @if(Auth::check())
                                     <?php $i = false;?>
                                     @foreach($checkVot as $vot => $tipus_vot)
                                     @if($vot == $faq->id && $tipus_vot == "like")
@@ -221,6 +233,7 @@
                                     @if(!$i)                                    
                                     <a role="button" class="like" data-id="{{$faq->id}}"> <span id="like-{{$faq->id}}" class="material-icons text-secondary">thumb_up</span> </a>
                                     <a role="button" class="dislike" data-id="{{$faq->id}}"> <span id="dislike-{{$faq->id}}" class="material-icons text-secondary">thumb_down</span> </a>
+                                    @endif
                                     @endif
                                 </div>
                             </div>

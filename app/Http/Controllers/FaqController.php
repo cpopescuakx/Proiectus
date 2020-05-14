@@ -8,6 +8,7 @@ use App\School_users;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use Auth;
 
 class FaqController extends Controller
 {
@@ -84,28 +85,31 @@ class FaqController extends Controller
      * @return vots
      */
     public function checkVote(){
+        if(Auth::check()){
 
-        //Obtenim l'id de l'usuari loggeat
-        $id_user = auth()->user()->id;
-
-        //Fem la cerca de les preguntes votades per aquest usuari
-        $vote = faq_votes::where('id_user',$id_user)->get();
-
-        //Creem 3 arrays per a guardar tots els tipus de vots amb les seves preguntes.
-        $vots = array();
-        $keys = array();
-        $values = array();
-
-        //Recorrem cada pregunta del resultat de la recerca anterior i guardem el tipus de vot i la pregunta a la qual pertany.
-        foreach($vote as $vot){
-            array_push($keys,$vot['id_faq']);
-            array_push($values,$vot['vote_type']);
-        } 
-
-        //Afegim les 2 arrays anteriors a la de $vots la qual posteriorment retornarem.
-        $vots=array_combine ($keys,$values);
-
-        return $vots;
+            //Obtenim l'id de l'usuari loggeat
+            $id_user = auth()->user()->id;
+    
+            //Fem la cerca de les preguntes votades per aquest usuari
+            $vote = faq_votes::where('id_user',$id_user)->get();
+    
+            //Creem 3 arrays per a guardar tots els tipus de vots amb les seves preguntes.
+            $vots = array();
+            $keys = array();
+            $values = array();
+    
+            //Recorrem cada pregunta del resultat de la recerca anterior i guardem el tipus de vot i la pregunta a la qual pertany.
+            foreach($vote as $vot){
+                array_push($keys,$vot['id_faq']);
+                array_push($values,$vot['vote_type']);
+            } 
+    
+            //Afegim les 2 arrays anteriors a la de $vots la qual posteriorment retornarem.
+            $vots=array_combine ($keys,$values);
+    
+            return $vots;
+        }
+        
     }
 
     /**
