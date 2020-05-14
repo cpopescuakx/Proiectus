@@ -2113,6 +2113,46 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2125,9 +2165,9 @@ __webpack_require__.r(__webpack_exports__);
     var path = window.location.pathname; // Accedemos a la última parte de nuestra URL
 
     var vars = path.split("/"); // Creamos un array con todos los valores que obtenemos
-    // CHAPUZA 1.0: Hay que hacerlo automático con un bucle
 
-    var param = vars[vars.length - 2]; //console.log(path);
+    var param = vars[vars.length - 2]; // Seleccionamos el parámetro que necesitamos 
+    //console.log(path);
     //console.log(vars);
     //console.log(param);
 
@@ -2147,8 +2187,9 @@ __webpack_require__.r(__webpack_exports__);
     // Método que da formato a la fecha
     formattedDate: function formattedDate(d) {
       var arr = d.split(/[- :]/);
+      var months = ['gener', 'febrer', 'març', 'abril', 'maig', 'juny', 'juliol', 'agost', 'setembre', 'octubre', 'novembre', 'desembre'];
       var date = new Date(Date.UTC(arr[0], arr[1] - 1, arr[2], arr[3], arr[4], arr[5]));
-      return date.getDate() + "-" + (date.getMonth() + 1) + "-" + date.getFullYear();
+      return date.getDate() + " de " + months[date.getMonth() + 1] + " de " + date.getFullYear();
     }
   }
 });
@@ -2279,7 +2320,6 @@ __webpack_require__.r(__webpack_exports__);
     var path = window.location.pathname; // Accedemos a la última parte de nuestra URL
 
     var vars = path.split("/"); // Creamos un array con todos los valores que obtenemos
-    // CHAPUZA 1.0: Hay que hacerlo automático con un bucle
 
     var param = vars[vars.length - 2]; //console.log(path);
     //console.log(vars);
@@ -2301,8 +2341,9 @@ __webpack_require__.r(__webpack_exports__);
     // Método que da formato a la fecha
     formattedDate: function formattedDate(d) {
       var arr = d.split(/[- :]/);
+      var months = ['gener', 'febrer', 'març', 'abril', 'maig', 'juny', 'juliol', 'agost', 'setembre', 'octubre', 'novembre', 'desembre'];
       var date = new Date(Date.UTC(arr[0], arr[1] - 1, arr[2], arr[3], arr[4], arr[5]));
-      return date.getDate() + "-" + (date.getMonth() + 1) + "-" + date.getFullYear();
+      return date.getDate() + " de " + months[date.getMonth() + 1] + " de " + date.getFullYear();
     }
   }
 });
@@ -4540,7 +4581,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\na[data-v-fbadd678] {\n    text-decoration: none;\n    color: #eee;\n}\n.badge-success[data-v-fbadd678] {\n    background-color: #116466;\n}\n.badge-success[data-v-fbadd678]:hover {\n    background-color: #2C3531;\n}\n.notice[data-v-fbadd678] {\n    padding: 15px;\n    background-color: #fafafa;\n    border-left: 6px solid #7f7f84;\n    margin-bottom: 10px;\n    box-shadow: 0 5px 8px 1px rgba(0,0,0,.2);\n}\n.notice-success[data-v-fbadd678] {\n    border-color: #116466;\n}\n.notice-success>strong[data-v-fbadd678] {\n    color: #116466;\n}\n", ""]);
+exports.push([module.i, "\na[data-v-fbadd678] {\n    text-decoration: none;\n    color: #eee;\n}\nstrong[data-v-fbadd678] {\n    color: #116466;\n}\n.badge-success[data-v-fbadd678] {\n    background-color: #116466;\n}\n.badge-success[data-v-fbadd678]:hover {\n    background-color: #2C3531;\n}\n.notice[data-v-fbadd678] {\n    padding: 15px;\n    background-color: #fafafa;\n    border-left: 6px solid #7f7f84;\n    margin-bottom: 10px;\n    box-shadow: 0 5px 8px 1px rgba(0,0,0,.2);\n}\n.notice-success[data-v-fbadd678] {\n    border-color: #116466;\n}\n.dropdown>button>i[data-v-fbadd678] {\n    color: #116466;\n}\n.dropdown-menu[data-v-fbadd678] {\n    background-color: #fafafa;\n}\n.dropdown-item[data-v-fbadd678] {\n    color: #116466;\n}\n.dropdown-item[data-v-fbadd678]:hover {\n    background-color: #116466;\n    color: #eee;\n}\n", ""]);
 
 // exports
 
@@ -41106,7 +41147,78 @@ var render = function() {
         { key: detail.id_proposal, staticClass: "container-fluid" },
         [
           _c("div", { staticClass: "notice notice-success" }, [
-            _vm._m(0, true),
+            _c(
+              "div",
+              { staticClass: "d-flex flex-row justify-content-center" },
+              [
+                _c("div", { staticClass: "col" }),
+                _vm._v(" "),
+                _vm._m(0, true),
+                _vm._v(" "),
+                _c("div", { staticClass: "col dropdown" }, [
+                  _vm._m(1, true),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "dropdown-menu",
+                      attrs: { "aria-labelledby": "dropdownMenuButton" }
+                    },
+                    [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "dropdown-item",
+                          attrs: {
+                            href: "/Proposals/" + detail.id_proposal + "/edit"
+                          }
+                        },
+                        [_vm._v("Editar proposta")]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "dropdown-divider" }),
+                      _vm._v(" "),
+                      (detail.status = "inactive")
+                        ? _c(
+                            "a",
+                            {
+                              staticClass: "dropdown-item",
+                              attrs: {
+                                href:
+                                  "/Proposals/" +
+                                  detail.id_proposal +
+                                  "/inactive"
+                              }
+                            },
+                            [_vm._v("Desactivar proposta")]
+                          )
+                        : _c(
+                            "a",
+                            {
+                              staticClass: "dropdown-item",
+                              attrs: {
+                                href:
+                                  "/Proposals/" + detail.id_proposal + "/active"
+                              }
+                            },
+                            [_vm._v("Activar proposta")]
+                          ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "dropdown-divider" }),
+                      _vm._v(" "),
+                      _c(
+                        "a",
+                        {
+                          staticClass: "dropdown-item",
+                          attrs: { href: "/Proposals/" + detail.id_proposal }
+                        },
+                        [_vm._v("Eliminar proposta")]
+                      )
+                    ]
+                  )
+                ])
+              ]
+            ),
             _vm._v(" "),
             _c("br"),
             _vm._v(" "),
@@ -41156,11 +41268,31 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("strong", [
-      _c("span", { staticClass: "text-center" }, [
-        _c("h4", [_vm._v("ESPECIFICACIONS")])
+    return _c("div", { staticClass: "col" }, [
+      _c("strong", [
+        _c("h4", { staticClass: "text-center" }, [_vm._v("ESPECIFICACIONS")])
       ])
     ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "button",
+      {
+        staticClass: "btn float-right",
+        attrs: {
+          role: "button",
+          type: "button",
+          id: "dropdownMenuButton",
+          "data-toggle": "dropdown",
+          "aria-haspopup": "true",
+          "aria-expanded": "false"
+        }
+      },
+      [_c("i", { staticClass: "material-icons" }, [_vm._v("more_vert")])]
+    )
   }
 ]
 render._withStripped = true
@@ -41404,13 +41536,15 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "carousel-item text-center pt-5 active" }, [
-      _c("h4", [_c("strong", [_vm._v("#RESISTIREM")])]),
+      _c("h4", [_c("strong", [_vm._v("Qui pot editar una proposta?")])]),
       _vm._v(" "),
       _c("div", { staticClass: "text text-muted" }, [
         _c("span", [
-          _vm._v(
-            "Descripció molt detallada. Si no hay 2 líneas se ralla y falla"
-          )
+          _vm._v("Solament, el "),
+          _c("strong", [_vm._v("mateix")]),
+          _vm._v(" autor/a d'una proposta podrà "),
+          _c("strong", [_vm._v("editar-la")]),
+          _vm._v(".")
         ])
       ])
     ])

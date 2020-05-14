@@ -113,7 +113,6 @@
             // Así, podemos indicar al GET Request de la API que pase ese valor como parámetro y hacer un GET personalizado O.o
             let path = window.location.pathname; // Accedemos a la última parte de nuestra URL
             let vars = path.split("/"); // Creamos un array con todos los valores que obtenemos
-            // CHAPUZA 1.0: Hay que hacerlo automático con un bucle
             let param = vars[vars.length - 2];
             //console.log(path);
             //console.log(vars);
@@ -132,8 +131,9 @@
             // Método que da formato a la fecha
             formattedDate: function(d) {
                 let arr = d.split(/[- :]/);
+                let months = ['gener', 'febrer', 'març', 'abril', 'maig', 'juny', 'juliol', 'agost', 'setembre', 'octubre', 'novembre', 'desembre'];
                 let date = new Date(Date.UTC(arr[0], arr[1]-1, arr[2], arr[3], arr[4], arr[5]));
-                return date.getDate() + "-" + (date.getMonth() + 1) + "-" + date.getFullYear()
+                return date.getDate() + " de " + (months[date.getMonth() + 1]) + " de " + date.getFullYear()
             }
         }
     }
