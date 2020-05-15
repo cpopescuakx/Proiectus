@@ -2,7 +2,12 @@
 
 @section('content')
 
-<body>
+@if ($message = Session::get('success'))
+        <div class="alert alert-success m-2">
+            <p>{{$message}}</p>
+        </div>
+    @endif
+
     <div class="container text-center">
         <h1 class="pt-4">Les meves propostes</h1>
         <div class="row justify-content-center">
@@ -54,6 +59,5 @@
     <div class="d-flex pt-5 justify-content-center">
         <div class="inline-block">{{ $proposals->links() }}</div>
     </div>
-</body>
 
-@stop
+@endsection

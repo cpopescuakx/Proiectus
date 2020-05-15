@@ -41178,8 +41178,19 @@ var render = function() {
                       _vm._v(" "),
                       _c("div", { staticClass: "dropdown-divider" }),
                       _vm._v(" "),
-                      (detail.status = "inactive")
+                      detail.status == "inactive"
                         ? _c(
+                            "a",
+                            {
+                              staticClass: "dropdown-item",
+                              attrs: {
+                                href:
+                                  "/Proposals/" + detail.id_proposal + "/active"
+                              }
+                            },
+                            [_vm._v("Activar proposta")]
+                          )
+                        : _c(
                             "a",
                             {
                               staticClass: "dropdown-item",
@@ -41191,17 +41202,6 @@ var render = function() {
                               }
                             },
                             [_vm._v("Desactivar proposta")]
-                          )
-                        : _c(
-                            "a",
-                            {
-                              staticClass: "dropdown-item",
-                              attrs: {
-                                href:
-                                  "/Proposals/" + detail.id_proposal + "/active"
-                              }
-                            },
-                            [_vm._v("Activar proposta")]
                           ),
                       _vm._v(" "),
                       _c("div", { staticClass: "dropdown-divider" }),

@@ -70,8 +70,8 @@
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                             <a class="dropdown-item" :href="'/Proposals/'+detail.id_proposal+'/edit'">Editar proposta</a>
                             <div class="dropdown-divider"></div>
-                            <a v-if="(detail.status = 'inactive')" class="dropdown-item" :href="'/Proposals/'+detail.id_proposal+'/inactive'">Desactivar proposta</a>
-                            <a v-else class="dropdown-item" :href="'/Proposals/'+detail.id_proposal+'/active'">Activar proposta</a>
+                            <a v-if="(detail.status == 'inactive')" class="dropdown-item" :href="'/Proposals/'+detail.id_proposal+'/active'" >Activar proposta</a>
+                            <a v-else class="dropdown-item" :href="'/Proposals/'+detail.id_proposal+'/inactive'">Desactivar proposta</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" :href="'/Proposals/'+detail.id_proposal">Eliminar proposta</a>
                         </div>
