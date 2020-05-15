@@ -149,7 +149,7 @@ $this->middleware('auth');
         return response(Proposal::select(
                                             'proposals.id_proposal', 'proposals.name', 'schools.name AS school_name', 'proposals.description',
                                             'proposals.professional_family', 'proposals.category', 'proposals.created_at', 'proposals.limit_date', 'proposals.id_author',
-                                            'proposals.updated_at', 'users.username', 'users.logo_entity'
+                                            'proposals.updated_at', 'users.username', 'users.logo_entity', 'proposals.status'
                                         )
                                         ->join('users', 'users.id', '=', 'proposals.id_author')
                                         ->join('school_users', 'school_users.id_user', '=', 'users.id')
@@ -266,7 +266,7 @@ $this->middleware('auth');
         $proposals = Proposal::all();
         Log::info($request->user()->username. ' - [ UPDATE ] - proposals - Proposta: ' .$proposal -> name. ' donada de baixa!');
 
-        return redirect()->route('proposals.index',compact('proposals'))
+        return redirect()->route('proposals.dashboard',compact('proposals'))
                 ->with('success','Proposta desactivada correctament.');
     }
 
@@ -279,7 +279,7 @@ $this->middleware('auth');
         $proposals = Proposal::all();
         Log::info($request->user()->username. ' - [ DELETE ] - proposals - Proposta: ' .$proposal -> name. ' eliminada!');
 
-        return redirect()->route('proposals.index',compact('proposals'))
+        return redirect()->route('proposals.dashboard',compact('proposals'))
                 ->with('success','Proposta eliminada correctament.');
     }
 
@@ -298,7 +298,7 @@ $this->middleware('auth');
         $proposal->save();
         Log::info($request->user()->username. ' - [ UPDATE ] - proposals - Proposta: ' .$proposal -> name. ' donada de alta!');
 
-        return redirect()->route('proposals.index',compact('proposals'))
+        return redirect()->route('proposals.dashboard',compact('proposals'))
             ->with('success','Proposta activada correctament.');
     }
 

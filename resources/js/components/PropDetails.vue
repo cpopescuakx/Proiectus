@@ -5,6 +5,10 @@
         color: #eee;
     }
 
+    strong {
+        color: #116466;
+    }
+
     .badge-success {
         background-color: #116466;
     }
@@ -26,8 +30,22 @@
     .notice-success {
         border-color: #116466;
     }
-    .notice-success>strong {
+
+    .dropdown>button>i {
         color: #116466;
+    }
+
+    .dropdown-menu {
+        background-color: #fafafa;
+    }
+
+    .dropdown-item {
+        color: #116466;
+    }
+
+    .dropdown-item:hover {
+        background-color: #116466;
+        color: #eee;
     }
 </style>
 
@@ -36,7 +54,29 @@
     <div id="showdetails mt-5">
         <div class="container-fluid" v-for="detail in details" :key="detail.id_proposal">
             <div class="notice notice-success">
-                <strong><span class="text-center"><h4>ESPECIFICACIONS</h4></span></strong>
+                <div class="d-flex flex-row justify-content-center">
+                    <div class="col">
+                        <!-- Simulamos una columna para una correcta alineación -->
+                    </div>
+
+                    <div class="col">
+                        <strong><h4 class="text-center">ESPECIFICACIONS</h4></strong>
+                    </div>
+
+                    <div class="col dropdown"> 
+                        <button class="btn float-right" role="button" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="material-icons">more_vert</i>
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" :href="'/Proposals/'+detail.id_proposal+'/edit'">Editar proposta</a>
+                            <div class="dropdown-divider"></div>
+                            <a v-if="(detail.status == 'inactive')" class="dropdown-item" :href="'/Proposals/'+detail.id_proposal+'/active'" >Activar proposta</a>
+                            <a v-else class="dropdown-item" :href="'/Proposals/'+detail.id_proposal+'/inactive'">Desactivar proposta</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" :href="'/Proposals/'+detail.id_proposal">Eliminar proposta</a>
+                        </div>
+                    </div>
+                </div>
                 <br>
                 <strong>Descripció:</strong><br>
                     {{ detail.description }}<hr>
@@ -67,8 +107,7 @@
             // Así, podemos indicar al GET Request de la API que pase ese valor como parámetro y hacer un GET personalizado O.o
             let path = window.location.pathname; // Accedemos a la última parte de nuestra URL
             let vars = path.split("/"); // Creamos un array con todos los valores que obtenemos
-            // CHAPUZA 1.0: Hay que hacerlo automático con un bucle
-            let param = vars[vars.length - 2];
+            let param = vars[vars.length - 2]; // Seleccionamos el parámetro que necesitamos 
             //console.log(path);
             //console.log(vars);
             //console.log(param);
@@ -86,8 +125,9 @@
             // Método que da formato a la fecha
             formattedDate: function(d) {
                 let arr = d.split(/[- :]/);
+                let months = ['gener', 'febrer', 'març', 'abril', 'maig', 'juny', 'juliol', 'agost', 'setembre', 'octubre', 'novembre', 'desembre'];
                 let date = new Date(Date.UTC(arr[0], arr[1]-1, arr[2], arr[3], arr[4], arr[5]));
-                return date.getDate() + "-" + (date.getMonth() + 1) + "-" + date.getFullYear()
+                return date.getDate() + " de " + (months[date.getMonth() + 1]) + " de " + date.getFullYear()
             }
         }
     }

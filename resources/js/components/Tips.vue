@@ -72,9 +72,9 @@
         <div class="carousel slide carousel-fade box-part notice notice-success" data-ride="carousel">
             <div class="my-5 carousel-inner">
                 <div class="carousel-item text-center pt-5 active">
-                    <h4><strong>#RESISTIREM</strong></h4>
+                    <h4><strong>Qui pot editar una proposta?</strong></h4>
                     <div class="text text-muted">
-                        <span>Descripció molt detallada. Si no hay 2 líneas se ralla y falla</span>
+                        <span>Solament, el <strong>mateix</strong> autor/a d'una proposta podrà <strong>editar-la</strong>.</span>
                     </div>
                 </div>
                 <div class="carousel-item text-center pt-5" v-for="tip in tips" :key="tip.id">
