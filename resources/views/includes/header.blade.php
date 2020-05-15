@@ -8,7 +8,7 @@
 
 
       <div class="d-inline-flex pt-3 pl-3">
-      @if(Auth::check())
+      @if(!Auth::guest())
       <div id="notifications" class="">
           <a href="#" id="notificationDropdown" class="dropdown-toggle-split" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
               <span class="material-icons"> notifications </span>
