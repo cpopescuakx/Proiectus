@@ -29,7 +29,7 @@ class ProjectInvite extends Mailable
     public function __construct(Project_invite $invite, String $url)
     {
         $this->project = Project::where('id_project', $invite->id_project)->first();
-        $this->invited_by = User::find($this->invite->invited_by);
+        $this->invited_by = User::find($invite->invited_by);
         $this->validationURL = $url;
     }
 
