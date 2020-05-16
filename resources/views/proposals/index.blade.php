@@ -14,7 +14,7 @@
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Cercar</button>
         </form>
       </nav>
-    <a href="{{ route('proposals.create') }}"><img src={{ asset('img/add.svg') }} width="45" height="45" ></a>
+    <a href="{{ route('proposals.create') }}"><img src={{ asset('public/img/add.svg') }} width="45" height="45" ></a>
   </div>
 </div>
 <table class="table table-hover mr-5">

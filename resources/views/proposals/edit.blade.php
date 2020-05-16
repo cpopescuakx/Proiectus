@@ -8,7 +8,7 @@
                 <div class="col-11 col-sm-11 col-md-10 col-lg-10 col-xl-10">
                     <div class="container">
                         <div class="contact-image text-center mt-3">
-                            <img class="form-img" src="{{ asset('img/icono_negro.png') }}"  />
+                            <img class="form-img" src="{{ asset('public/img/icono_negro.png') }}"  />
                         </div>
                     </div>
                     <div class="container contact-form">
@@ -89,15 +89,15 @@
                                             title="Escull les tags"
                                             name="tags[]"
                                             multiple>
-                                            
+
                                         @foreach($tags as $tag)
-                                            
-                                            <option data-tokens="{{ $tag->id_tag }}" value="{{ $tag->id_tag }}" 
+
+                                            <option data-tokens="{{ $tag->id_tag }}" value="{{ $tag->id_tag }}"
 
                                                 {{-- Deixa seleccionades les tags que té actualment --}}
 
                                                 @for($i = 0; $i < count($tagsActuals); $i++)
-                                                    @if($tag->id_tag == $tagsActuals[$i]->id_tag) 
+                                                    @if($tag->id_tag == $tagsActuals[$i]->id_tag)
                                                         selected
                                                     @endif
                                                 @endfor>

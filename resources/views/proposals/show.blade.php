@@ -35,7 +35,7 @@
         </div>
 
         <!-- Apartado para aceptar propuesta -->
-        
+
         @if ($proposal->category == 'school')
             @if ((Auth::user()->id_role == 5)&& !$schoolUser::checkUser(Auth::user()->id))
 
@@ -94,5 +94,5 @@
 
 <!-- Script para cargar página tras spinner (1000) -->
 @section('custom-scripts')
-        <script src="{{asset('js/spinner.js')}}"></script>
+        <script src="{{asset('public/js/spinner.js')}}"></script>
 @endsection

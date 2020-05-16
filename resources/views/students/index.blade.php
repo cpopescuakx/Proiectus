@@ -6,10 +6,10 @@
 
 <div class="col">
     <div class="row d-flex justify-content-end p-4">
-      <a href="{{ route('students.create') }}" class="mr-4"><img src={{ asset('img/add.svg') }}  width="45" height="45" ></a>
+      <a href="{{ route('students.create') }}" class="mr-4"><img src={{ asset('public/img/add.svg') }}  width="45" height="45" ></a>
       <a href="{{ route('students.import') }}"><i class="fas fa-file-csv" style="color: #116466; font-size: 45px;"></i></a>
     </div>
-    
+
 </div>
 <!--
 <table class="table table-sm"
@@ -98,12 +98,12 @@
                     @endif
 
                 <td>
-                    <a href="{{ route('students.edit', [$student->id]) }}"><img src={{ asset('img/edit.svg') }} width="20" height="20" class="mr-2"></a>
+                    <a href="{{ route('students.edit', [$student->id]) }}"><img src={{ asset('public/img/edit.svg') }} width="20" height="20" class="mr-2"></a>
                     @if($student->status == "active")
-                        <a href="{{ route('students.destroy', [$student->id]) }}"><img src={{ asset('img/delete.svg') }} width="20" height="20"></a>
+                        <a href="{{ route('students.destroy', [$student->id]) }}"><img src={{ asset('public/img/delete.svg') }} width="20" height="20"></a>
                     @endif
                     @if($student->status == "inactive")
-                        <a href="{{ route('students.enable', [$student->id]) }}"><img src={{ asset('img/checkIcon.svg') }} width="20" height="20"></a>
+                        <a href="{{ route('students.enable', [$student->id]) }}"><img src={{ asset('public/img/checkIcon.svg') }} width="20" height="20"></a>
                     @endif
                 </td>
             </tr>

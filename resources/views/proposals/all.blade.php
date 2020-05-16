@@ -10,7 +10,7 @@
             <button type="submit" class="btn bg-primary1 ml-2 text-white">Cercar</button>
         </form>
         @if((Auth::user()->id_role == 5))
-        <a class="tooltipProposal" href="{{ route('proposals.create') }}"><img src={{ asset('img/add.svg') }} width="45" height="45" ><span class="tooltiptext">Crear proposta</span></a>
+        <a class="tooltipProposal" href="{{ route('proposals.create') }}"><img src={{ asset('public/img/add.svg') }} width="45" height="45" ><span class="tooltiptext">Crear proposta</span></a>
         @endif
     </div>
 </div>
@@ -21,7 +21,7 @@
         @foreach($proposals as $proposal)
             <div class="column">
                 <div class="card m-2">
-                    <img class="card-img-top" src="{{ asset('img/foto_small.jpg') }}">
+                    <img class="card-img-top" src="{{ asset('public/img/foto_small.jpg') }}">
                     <div class="card-body">
                         <h3 style="width: 20rem;" class="text-truncate card-title">{{ $proposal->name }}</h5>
 
