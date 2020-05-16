@@ -333,6 +333,6 @@ body {
 }
 </style>
 @section('custom-scripts')
-        <script src="{{ asset('js/jQueryFAQ.js')}}"></script>
+        <script src="{{ asset('public/js/jQueryFAQ.js')}}"></script>
 @endsection
 @endsection
