@@ -371,7 +371,7 @@ $this->middleware('auth');
         $wiki->title = 'Wiki per al projecte '.$projecte->name;
 
         $wiki->save();
-        Log::info(auth()->user()->id .' - [INSERT] - blogs - ' . $wiki->title);
+        Log::info(auth()->user()->id .' - [INSERT] - wikis - ' . $wiki->title);
 
         // Afegir l'autor al projecte
         $userProjectAuthor = new User_project;

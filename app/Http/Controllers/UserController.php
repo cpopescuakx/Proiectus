@@ -781,33 +781,31 @@ class UserController extends Controller
 
     /** IMPORT PROFESSORS
      * 
-     *  Acció que serveix per a importar professors des de un fitxer CSV.
+     *  Acció que serveix per a importar professors des de un fitxer CSV i comproba que l'arxiu que hem passat es csv, si ho es envia una cua que serà la que importarà el csv.
+     *  Si no es un arxiu csv, torna enrere amb els errors de validació.
      *
      */
 
     public function importCSVProfessors (Request $request) {
         
-            // Comprova que el fitxer és un .csv
-            $validate = Validator::make(
-                [
-                    'file' => $request->file,
-                    'extension' => strtolower($request->file->getClientOriginalExtension()),
-                ],
-                [
-                    'file' => 'required',
-                    'extension' => 'required|in:csv',
-                ]
-            );
+        $validate = Validator::make(
+            [
+                'file' => $request->file,
+                'extension' => strtolower($request->file->getClientOriginalExtension()),
+            ],
+            [
+                'file' => 'required',
+                'extension' => 'required|in:csv',
+            ]
+        );
 
-            //Comprovem que la validació sigui correcta i fem 
-            if($validate->passes()) {
-                ProcessCSV::dispatch($request, Auth::user())->delay(now()->addSeconds(5));
-                return redirect()->back();
-            }
-            else {
-                return redirect()->back()->with(['errors' => $validate->errors()->all()]);
-            }
-
+        if($validate->passes()) {
+            ProcessCSV::dispatch($request, Auth::user())->delay(now()->addSeconds(5));
+            return redirect()->back();
+        }
+        else {
+            return redirect()->back()->with(['errors' => $validate->errors()->all()]);
+        }
         }
 
 
