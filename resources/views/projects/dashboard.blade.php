@@ -27,7 +27,7 @@
             @foreach ($projects as $project)
                 <div class="column">
                     <div class="card m-2 shadow mb-5">
-                        <img class="card-img-top" src="{{asset('public/img/foto_small.jpg')}}">
+                        <img class="card-img-top" src="{{asset('img/foto_small.jpg')}}">
                         <div class="card-body">
                             <h5 style="width: 15rem;" class="text-truncate card-title">{{$project->name}}</h5>
                             <a href="{{route('projects.show', $project->id_project)}}"><button style="color: white;" class="btn bg-primary1 mt-2 project-info-btn">Més informació</button></a>

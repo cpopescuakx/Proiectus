@@ -17,7 +17,7 @@
         </form>
     </nav>
     <div class="d-flex">
-        <a class="mr-3" href="{{ route('employee.create') }}"><img src={{ asset('public/img/add.svg') }} width="45" height="45" ></a>
+        <a class="mr-3" href="{{ route('employee.create') }}"><img src={{ asset('img/add.svg') }} width="45" height="45" ></a>
         <a href="{{ route('employees.csv') }}"><i class="fas fa-file-csv" style="color: #116466; font-size: 45px;"></i></a>
     </div>
   </div>
@@ -53,11 +53,11 @@
         <td>{{$employee->dni}}</td>
         <td>{{$city::agafarNom($employee->id_city)}}
         <td>
-            <a href="{{ route('employee.edit', [$employee->id]) }}"><img src={{ asset('public/img/edit.svg') }} width="20" height="20" class="mr-2"></a>
+            <a href="{{ route('employee.edit', [$employee->id]) }}"><img src={{ asset('img/edit.svg') }} width="20" height="20" class="mr-2"></a>
             @if($employee->status == "active")
-            <a href="{{ route('employee.destroy', [$employee->id]) }}"><img src={{ asset('public/img/delete.svg') }} width="20" height="20"></a>
+            <a href="{{ route('employee.destroy', [$employee->id]) }}"><img src={{ asset('img/delete.svg') }} width="20" height="20"></a>
             @else
-                <a href="{{ route('employee.active', [$employee->id]) }}"><img src={{ asset('public/img/checkIcon.svg') }} width="20" height="40" class="mr-2"></a>
+                <a href="{{ route('employee.active', [$employee->id]) }}"><img src={{ asset('img/checkIcon.svg') }} width="20" height="40" class="mr-2"></a>
             @endif
 
         </td>

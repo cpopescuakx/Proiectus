@@ -14,11 +14,11 @@
             <div class="text-center">
                 <!-- Muestra una imagen por defecto si el usuario no ha subido ninguna foto de perfil -->
                 @if(Auth::user()->profile_pic == null)
-                    <img src="public/img/profile_pic/avatar_2x.png" class="img-responsive mr-auto w-50 img-thumbnail" alt="default">
+                    <img src="/img/profile_pic/avatar_2x.png" class="img-responsive mr-auto w-50 img-thumbnail" alt="default">
 
                 <!-- Muestra la imagen que ha seleccionado el usuario -->
                 @else
-                    <img src="public/img/profile_pic/imatge{{ Auth::user()->profile_pic }}" alt="profilepic" height="200px">
+                    <img src="/img/profile_pic/imatge{{ Auth::user()->profile_pic }}" alt="profilepic" height="200px">
                 @endif
                 <form enctype="multipart/form-data" action="/profile/{id}" method="POST">
                     <h6>Puja la teva imatge de perfil</h6>
@@ -67,11 +67,11 @@
                 <div class="text-center my-2">
                     <!-- Muestra una imagen por defecto si el usuario no ha subido ninguna foto de perfil -->
                     @if(Auth::user()->logo_entity == null)
-                    <img src="public/img/logo_pic/logo_2x.png" class="avatar img-circle img-thumbnail" alt="imagen">
+                    <img src="/img/logo_pic/logo_2x.png" class="avatar img-circle img-thumbnail" alt="imagen">
 
                     <!-- Muestra la imagen que ha seleccionado el usuario -->
                     @else
-                    <img src="public/img/logo_pic/logo{{ Auth::user()->logo_entity }}" class="avatar img-circle img-thumbnail" alt="250x250" width="150px" height="150px">
+                    <img src="/img/logo_pic/logo{{ Auth::user()->logo_entity }}" class="avatar img-circle img-thumbnail" alt="250x250" width="150px" height="150px">
                     @endif
 
                     <form enctype="multipart/form-data" action="/profile/{id}/logo" method="POST">

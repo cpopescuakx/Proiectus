@@ -16,7 +16,7 @@
                   <!-- Imagen formulario -->
                   <div class="container">
                       <div class="contact-image text-center mt-3">
-                        <img class="form-img" src="{{ asset('public/img/icono_negro.png') }}" />
+                        <img class="form-img" src="{{ asset('img/icono_negro.png') }}" />
                     </div>
                   </div>
 
@@ -113,3 +113,5 @@
 
 </body>
 @stop
+
+

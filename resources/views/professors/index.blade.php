@@ -4,7 +4,7 @@
 @section('content')
 <div class="col">
   <div class="row d-flex justify-content-end p-0 p-4">
-    <a class="mr-3" href="{{ route('professors.create') }}"><img src={{ asset('public/img/add.svg') }} width="45" height="45" ></a>
+    <a class="mr-3" href="{{ route('professors.create') }}"><img src={{ asset('img/add.svg') }} width="45" height="45" ></a>
     <a href="{{ route('professors.csv') }}"><i class="fas fa-file-csv" style="color: #116466; font-size: 45px;"></i></a>
   </div>
 </div>
@@ -39,9 +39,9 @@
         <td>{{$city::agafarNom($professor->id_city)}}</td>
         <td>{{$professor->status}}</td>
         <td>
-            <a href="{{ route('professors.edit', [$professor->id]) }}"><img src={{ asset('public/img/edit.svg') }} width="20" height="20" class="mr-2"></a>
+            <a href="{{ route('professors.edit', [$professor->id]) }}"><img src={{ asset('img/edit.svg') }} width="20" height="20" class="mr-2"></a>
             @if($professor->status == "active")
-                <a href="{{ route('professors.destroy', [$professor->id]) }}"><img src={{ asset('public/img/delete.svg') }} width="20" height="20"></a>
+                <a href="{{ route('professors.destroy', [$professor->id]) }}"><img src={{ asset('img/delete.svg') }} width="20" height="20"></a>
             @endif
         </td>
     </tr>
