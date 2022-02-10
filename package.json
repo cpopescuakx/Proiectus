@@ -28,7 +28,7 @@
     "dependencies": {
         "babel-loader": "^8.1.0",
         "laravel-echo": "^1.7.0",
-        "node-sass": "^4.13.1",
+        "node-sass": "^7.0.0",
         "pusher-js": "^5.1.1",
         "vue-loader": "^15.9.1",
         "vuelidate": "^0.7.5"
